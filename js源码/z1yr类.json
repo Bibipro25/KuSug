@@ -1,0 +1,2912 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "z1yr",
+    "size": 16,
+    "padding": [
+      4,
+      2,
+      4,
+      2
+    ],
+    "text_margins": [
+      3,
+      2,
+      3,
+      2
+    ],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "TextView",
+      "name": "加载z1yr",
+      "color": "$menu_item_color",
+      "tag": "z1_load"
+    },
+    {
+      "type": "TextView",
+      "name": "退出",
+      "color": "$menu_item_hide_color",
+      "tag": "z1_exit"
+    },
+    {
+      "type": "TextView",
+      "name": "打开ClickGUI",
+      "color": "$menu_item_color",
+      "tag": "z1_clickgui"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----战斗----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "Switch",
+      "name": "杀戮光环",
+      "color": "$menu_item_color",
+      "tag": "z1_killaura",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/杀戮光环0.png",
+        "on": "z1yr\/杀戮光环1.png",
+        "off": "z1yr\/杀戮光环0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1_killaura_range",
+          "format": "距离%.1f",
+          "color": "$menu_item_color",
+          "value": 4.5,
+          "min": 1.0,
+          "max": 10.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_killaura_fov",
+          "format": "FOV%.0f",
+          "color": "$menu_item_color",
+          "value": 120.0,
+          "min": 1.0,
+          "max": 360.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_killaura_cps",
+          "format": "CPS%.1f",
+          "color": "$menu_item_color",
+          "value": 10.0,
+          "min": 1.0,
+          "max": 20.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_killaura_switchdelay",
+          "format": "切换延迟%.0f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 20.0
+        }
+      ,
+        {
+          "type": "SeekBar",
+          "key": "z1n_killaura_multi_limit",
+          "format": "目标上限%.0f",
+          "color": "$menu_item_color",
+          "value": 3,
+          "min": 1,
+          "max": 20
+        },
+        {
+          "type": "RadioGroup",
+          "name": "武器选择",
+          "color": "$menu_item_color",
+          "key": "z1r_killaura_weaponmode",
+          "items": [
+            {
+              "key": "z1r_killaura_weaponmode_default",
+              "name": "默认",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_killaura_weaponmode_sword",
+              "name": "剑",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_killaura_weaponmode_axe",
+              "name": "斧头",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_killaura_weaponmode_mace",
+              "name": "重锤",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "RadioGroup",
+          "name": "攻击模式",
+          "color": "$menu_item_color",
+          "key": "z1r_killaura_attackmode",
+          "items": [
+            {
+              "key": "z1r_killaura_attackmode_single",
+              "name": "单体",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_killaura_attackmode_switch",
+              "name": "多体",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_killaura_attackmode_multi",
+              "name": "群体",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "RadioGroup",
+          "name": "优先级",
+          "color": "$menu_item_color",
+          "key": "z1r_killaura_priority",
+          "items": [
+            {
+              "key": "z1r_killaura_priority_distance",
+              "name": "最近距离",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_killaura_priority_health",
+              "name": "最少血量",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_killaura_priority_angle",
+              "name": "准星最近",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_killaura_onweapon",
+          "name": "持武器",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_killaura_onhold",
+          "name": "按住触发",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_killaura_onholdattack",
+          "name": "按住攻击",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_killaura_ecbypass",
+          "name": "ECBypass",
+          "color": "$menu_item_color",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动瞄准",
+      "color": "$menu_item_color",
+      "tag": "z1_aimbot",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/自动瞄准0.png",
+        "on": "z1yr\/自动瞄准1.png",
+        "off": "z1yr\/自动瞄准0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1_aimbot_range",
+          "format": "范围%.1f",
+          "color": "$menu_item_color",
+          "value": 9.5,
+          "min": 1.0,
+          "max": 60.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_aimbot_fov",
+          "format": "FOV%.0f",
+          "color": "$menu_item_color",
+          "value": 91.0,
+          "min": 1.0,
+          "max": 360.0
+        }
+      ,
+        {
+          "type": "SeekBar",
+          "key": "z1n_aimbot_speed",
+          "format": "速度%.1f",
+          "color": "$menu_item_color",
+          "value": 5.0,
+          "min": 1.0,
+          "max": 10.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_aimbot_yoffset",
+          "format": "垂直偏移%.2f",
+          "color": "$menu_item_color",
+          "value": 1.65,
+          "min": 0.5,
+          "max": 10.0
+        },
+        {
+          "type": "RadioGroup",
+          "name": "模式",
+          "color": "$menu_item_color",
+          "key": "z1r_aimbot_mode",
+          "items": [
+            {
+              "key": "z1r_aimbot_mode_dynamic",
+              "name": "动态",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_aimbot_mode_static",
+              "name": "静态",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_aimbot_onclick",
+          "name": "点击触发",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_aimbot_onhold",
+          "name": "按住触发",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_aimbot_onweapon",
+          "name": "持武器",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_aimbot_leftclick",
+          "name": "按住锁定",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_aimbot_sticky",
+          "name": "粘滞锁定",
+          "color": "$menu_item_color",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "攻击距离",
+      "color": "$menu_item_color",
+      "tag": "z1_reach",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/攻击距离0.png",
+        "on": "z1yr\/攻击距离1.png",
+        "off": "z1yr\/攻击距离0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1_reach_dist",
+          "format": "距离%.1f",
+          "color": "$menu_item_color",
+          "value": 6.0,
+          "min": 1.0,
+          "max": 20.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "反击退",
+      "color": "$menu_item_color",
+      "tag": "z1_velocity",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/反击退0.png",
+        "on": "z1yr\/反击退1.png",
+        "off": "z1yr\/反击退0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1_velocity_x",
+          "format": "X%.2f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_velocity_y",
+          "format": "Y%.2f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_velocity_z",
+          "format": "Z%.2f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动连点",
+      "color": "$menu_item_color",
+      "tag": "z1_autoclicker",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/自动连点0.png",
+        "on": "z1yr\/自动连点1.png",
+        "off": "z1yr\/自动连点0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1_autoclicker_reach",
+          "format": "距离%.1f",
+          "color": "$menu_item_color",
+          "value": 3.0,
+          "min": 1.0,
+          "max": 10.0
+        }
+      ,
+        {
+          "type": "SeekBar",
+          "key": "z1n_autoclicker_cpsmin",
+          "format": "最小CPS%.0f",
+          "color": "$menu_item_color",
+          "value": 15,
+          "min": 0.0,
+          "max": 30.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_autoclicker_cpsmax",
+          "format": "最大CPS%.0f",
+          "color": "$menu_item_color",
+          "value": 15,
+          "min": 0.0,
+          "max": 30.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_autoclicker_swingair",
+          "name": "空挥",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_autoclicker_ecbypass",
+          "name": "ECBypass",
+          "color": "$menu_item_color",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "扳机",
+      "color": "$menu_item_color",
+      "tag": "z1_triggerbot",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/扳机0.png",
+        "on": "z1yr\/扳机1.png",
+        "off": "z1yr\/扳机0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_triggerbot_range",
+          "format": "范围%.1f",
+          "color": "$menu_item_color",
+          "value": 4.5,
+          "min": 1.0,
+          "max": 10.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_triggerbot_fov",
+          "format": "FOV%.0f",
+          "color": "$menu_item_color",
+          "value": 5,
+          "min": 1.0,
+          "max": 180.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_triggerbot_cps",
+          "format": "CPS%.0f",
+          "color": "$menu_item_color",
+          "value": 12,
+          "min": 1.0,
+          "max": 20.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_triggerbot_onweapon",
+          "name": "持武器",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_triggerbot_ignoreteammates",
+          "name": "忽略队友",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_triggerbot_throughwalls",
+          "name": "隔墙攻击",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_triggerbot_leftclick",
+          "name": "按住锁定",
+          "color": "$menu_item_color",
+          "checked": false
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "反机器人",
+      "color": "$menu_item_color",
+      "tag": "z1_antibot",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/反机器人0.png",
+        "on": "z1yr\/反机器人1.png",
+        "off": "z1yr\/反机器人0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "RadioGroup",
+          "name": "模式",
+          "color": "$menu_item_color",
+          "key": "z1r_antibot_mode",
+          "items": [
+            {
+              "key": "z1r_antibot_mode_bjd",
+              "name": "布吉岛",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_antibot_mode_default",
+              "name": "默认",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "战斗机器人",
+      "color": "$menu_item_color",
+      "tag": "z1_combatbot",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/战斗机器人0.png",
+        "on": "z1yr\/战斗机器人1.png",
+        "off": "z1yr\/战斗机器人0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_combatbot_trackrange",
+          "format": "追踪范围%.0f",
+          "color": "$menu_item_color",
+          "value": 20,
+          "min": 5.0,
+          "max": 50.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_combatbot_attackrange",
+          "format": "攻击距离%.1f",
+          "color": "$menu_item_color",
+          "value": 3.0,
+          "min": 1.0,
+          "max": 10.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_combatbot_keepdist",
+          "format": "保持距离%.1f",
+          "color": "$menu_item_color",
+          "value": 3.0,
+          "min": 1.0,
+          "max": 10.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_combatbot_healhp",
+          "format": "回血阈值%.0f",
+          "color": "$menu_item_color",
+          "value": 10,
+          "min": 1.0,
+          "max": 20.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_combatbot_healkeep",
+          "format": "回血距离%.0f",
+          "color": "$menu_item_color",
+          "value": 10,
+          "min": 5.0,
+          "max": 30.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_combatbot_criticals",
+          "name": "暴击",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_combatbot_sprint",
+          "name": "疾跑",
+          "color": "$menu_item_color",
+          "checked": false
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "刀刀暴击",
+      "color": "$menu_item_color",
+      "tag": "z1_criticals",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/刀刀暴击0.png",
+        "on": "z1yr\/刀刀暴击1.png",
+        "off": "z1yr\/刀刀暴击0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_criticals_sneakdelay",
+          "format": "潜行延迟%.2f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 0.5
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_criticals_clickspan",
+          "format": "点击间隔%.2f",
+          "color": "$menu_item_color",
+          "value": 0.05,
+          "min": 0.0,
+          "max": 0.5
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_criticals_onclick",
+          "name": "点击触发",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_criticals_onweapon",
+          "name": "持武器",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_criticals_onsneak",
+          "name": "潜行触发",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_criticals_onhold",
+          "name": "按住触发",
+          "color": "$menu_item_color",
+          "checked": false
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "自动喝汤",
+      "color": "$menu_item_color",
+      "tag": "z1_autosoup",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/自动喝汤0.png",
+        "on": "z1yr\/自动喝汤1.png",
+        "off": "z1yr\/自动喝汤0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_autosoup_health",
+          "format": "血量%.0f",
+          "color": "$menu_item_color",
+          "value": 10,
+          "min": 1.0,
+          "max": 20.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_autosoup_delay",
+          "format": "延迟%.0f",
+          "color": "$menu_item_color",
+          "value": 6,
+          "min": 0.0,
+          "max": 20.0
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "自动鱼竿",
+      "color": "$menu_item_color",
+      "tag": "z1_autorod",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/自动鱼竿0.png",
+        "on": "z1yr\/自动鱼竿1.png",
+        "off": "z1yr\/自动鱼竿0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1_autorod_roddelay",
+          "format": "甩竿延迟%.2fs",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 3.0
+        }
+      ,
+        {
+          "type": "SeekBar",
+          "key": "z1n_autorod_switchdelay",
+          "format": "切换延迟%.0f",
+          "color": "$menu_item_color",
+          "value": 3,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_autorod_range",
+          "format": "范围%.0f",
+          "color": "$menu_item_color",
+          "value": 10,
+          "min": 1.0,
+          "max": 20.0
+        },
+        {
+          "type": "RadioGroup",
+          "name": "切回武器",
+          "color": "$menu_item_color",
+          "key": "z1r_autorod_restoremode",
+          "items": [
+            {
+              "key": "z1r_autorod_restoremode_default",
+              "name": "默认",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_autorod_restoremode_sword",
+              "name": "剑",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_autorod_restoremode_axe",
+              "name": "斧头",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_autorod_silentswitch",
+          "name": "静默切换",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_autorod_canattack",
+          "name": "可攻击",
+          "color": "$menu_item_color",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "鱼竿自瞄",
+      "color": "$menu_item_color",
+      "tag": "z1_rodaim",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/鱼竿自瞄0.png",
+        "on": "z1yr\/鱼竿自瞄1.png",
+        "off": "z1yr\/鱼竿自瞄0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_rodaim_range",
+          "format": "范围%.1f",
+          "color": "$menu_item_color",
+          "value": 9.5,
+          "min": 1.0,
+          "max": 50.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_rodaim_fov",
+          "format": "FOV%.0f",
+          "color": "$menu_item_color",
+          "value": 91,
+          "min": 1.0,
+          "max": 360.0
+        },
+        {
+          "type": "RadioGroup",
+          "name": "模式",
+          "color": "$menu_item_color",
+          "key": "z1r_rodaim_mode",
+          "items": [
+            {
+              "key": "z1r_rodaim_mode_dynamic",
+              "name": "动态",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_rodaim_mode_static",
+              "name": "静态",
+              "color": "$menu_item_color",
+              "checked": true
+            }
+          ]
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_rodaim_onhold",
+          "name": "按住触发",
+          "color": "$menu_item_color",
+          "checked": false
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "跳跃重置",
+      "color": "$menu_item_color",
+      "tag": "z1_jumpreset",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/跳跃重置0.png",
+        "on": "z1yr\/跳跃重置1.png",
+        "off": "z1yr\/跳跃重置0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "快速重生锚",
+      "color": "$menu_item_color",
+      "tag": "z1_fastanchor",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/快速重生锚0.png",
+        "on": "z1yr\/快速重生锚1.png",
+        "off": "z1yr\/快速重生锚0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1_fastanchor_delay",
+          "format": "放置延迟%.2fs",
+          "color": "$menu_item_color",
+          "value": 0.05,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_fastanchor_stepdelay",
+          "format": "引爆间隔%.2fs",
+          "color": "$menu_item_color",
+          "value": 0.2,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "击退移位",
+      "color": "$menu_item_color",
+      "tag": "z1_kbchange",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/击退移位0.png",
+        "on": "z1yr\/击退移位1.png",
+        "off": "z1yr\/击退移位0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_kbchange_yaw",
+          "format": "转向角%.0f",
+          "color": "$menu_item_color",
+          "value": 90,
+          "min": 1.0,
+          "max": 360.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_kbchange_range",
+          "format": "范围%.1f",
+          "color": "$menu_item_color",
+          "value": 3.0,
+          "min": 1.0,
+          "max": 10.0
+        },
+        {
+          "type": "RadioGroup",
+          "name": "模式",
+          "color": "$menu_item_color",
+          "key": "z1r_kbchange_mode",
+          "items": [
+            {
+              "key": "z1r_kbchange_mode_right",
+              "name": "右",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_kbchange_mode_left",
+              "name": "左",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "RadioGroup",
+          "name": "相机模式",
+          "color": "$menu_item_color",
+          "key": "z1r_kbchange_cameramode",
+          "items": [
+            {
+              "key": "z1r_kbchange_cameramode_static",
+              "name": "静态",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_kbchange_cameramode_dynamic",
+              "name": "动态",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_kbchange_ecbypass",
+          "name": "ECBypass",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_kbchange_movefix",
+          "name": "移动修正",
+          "color": "$menu_item_color",
+          "checked": false
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "坐骑百米",
+      "color": "$menu_item_color",
+      "tag": "z1_ridetpaura",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/坐骑百米0.png",
+        "on": "z1yr\/坐骑百米1.png",
+        "off": "z1yr\/坐骑百米0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_ridetpaura_range",
+          "format": "范围%.0f",
+          "color": "$menu_item_color",
+          "value": 100,
+          "min": 1.0,
+          "max": 200.0
+        },
+        {
+          "type": "RadioGroup",
+          "name": "攻击模式",
+          "color": "$menu_item_color",
+          "key": "z1r_ridetpaura_attackmode",
+          "items": [
+            {
+              "key": "z1r_ridetpaura_attackmode_single",
+              "name": "单体",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_ridetpaura_attackmode_switch",
+              "name": "多体",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "RadioGroup",
+          "name": "优先级",
+          "color": "$menu_item_color",
+          "key": "z1r_ridetpaura_priority",
+          "items": [
+            {
+              "key": "z1r_ridetpaura_priority_distance",
+              "name": "最近距离",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_ridetpaura_priority_health",
+              "name": "最少血量",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_ridetpaura_priority_angle",
+              "name": "准星最近",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_ridetpaura_onweapon",
+          "name": "持武器",
+          "color": "$menu_item_color",
+          "checked": false
+        }
+      ]},
+    {
+      "type": "GradientTextView",
+      "name": "----移动----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "Switch",
+      "name": "飞行",
+      "color": "$menu_item_color",
+      "tag": "z1_fly",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/飞行0.png",
+        "on": "z1yr\/飞行1.png",
+        "off": "z1yr\/飞行0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1_fly_speed",
+          "format": "速度%.1f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": 0.1,
+          "max": 10.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "穿墙",
+      "color": "$menu_item_color",
+      "tag": "z1_noclip",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/穿墙0.png",
+        "on": "z1yr\/穿墙1.png",
+        "off": "z1yr\/穿墙0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_noclip_speed",
+          "format": "速度%.1f",
+          "color": "$menu_item_color",
+          "value": 0.5,
+          "min": 0.1,
+          "max": 5.0
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "速度",
+      "color": "$menu_item_color",
+      "tag": "z1_bhop",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/速度0.png",
+        "on": "z1yr\/速度1.png",
+        "off": "z1yr\/速度0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_bhop_fallspeed",
+          "format": "下落速度%.1f",
+          "color": "$menu_item_color",
+          "value": -5.0,
+          "min": -10.0,
+          "max": 0.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_bhop_speed",
+          "format": "速度%.1f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": 0.1,
+          "max": 10.0
+        },
+        {
+          "type": "RadioGroup",
+          "name": "模式",
+          "color": "$menu_item_color",
+          "key": "z1r_bhop_mode",
+          "items": [
+            {
+              "key": "z1r_bhop_mode_lowhop",
+              "name": "低跳",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_bhop_mode_motion",
+              "name": "兔子跳",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "自动疾跑",
+      "color": "$menu_item_color",
+      "tag": "z1_sprint",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/自动疾跑0.png",
+        "on": "z1yr\/自动疾跑1.png",
+        "off": "z1yr\/自动疾跑0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "无跳跃延迟",
+      "color": "$menu_item_color",
+      "tag": "z1_nojumpdelay",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/无跳跃延迟0.png",
+        "on": "z1yr\/无跳跃延迟1.png",
+        "off": "z1yr\/无跳跃延迟0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "点击传送",
+      "color": "$menu_item_color",
+      "tag": "z1_clicktp",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/点击传送0.png",
+        "on": "z1yr\/点击传送1.png",
+        "off": "z1yr\/点击传送0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "背包行走",
+      "color": "$menu_item_color",
+      "tag": "z1_inventorywalk",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/背包行走0.png",
+        "on": "z1yr\/背包行走1.png",
+        "off": "z1yr\/背包行走0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "RadioGroup",
+          "name": "模式",
+          "color": "$menu_item_color",
+          "key": "z1r_inventorywalk_mode",
+          "items": [
+            {
+              "key": "z1r_inventorywalk_mode_motion",
+              "name": "动态",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_inventorywalk_mode_vanilla",
+              "name": "原版",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "坐骑飞行",
+      "color": "$menu_item_color",
+      "tag": "z1_ridefly",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/坐骑飞行0.png",
+        "on": "z1yr\/坐骑飞行1.png",
+        "off": "z1yr\/坐骑飞行0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1_ridefly_speed",
+          "format": "速度%.1f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": 0.1,
+          "max": 10.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "坐骑速度",
+      "color": "$menu_item_color",
+      "tag": "z1_ridebhop",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/坐骑速度0.png",
+        "on": "z1yr\/坐骑速度1.png",
+        "off": "z1yr\/坐骑速度0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_ridebhop_speed",
+          "format": "速度%.1f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": 0.1,
+          "max": 10.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_ridebhop_ymotion",
+          "format": "垂直速度%.2f",
+          "color": "$menu_item_color",
+          "value": 0.42,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "原地复活",
+      "color": "$menu_item_color",
+      "tag": "z1_respawn",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/原地复活0.png",
+        "on": "z1yr\/原地复活1.png",
+        "off": "z1yr\/原地复活0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1_respawn_delay",
+          "format": "延迟%.0f tick",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 20.0
+        }
+      ]
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----世界----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "Switch",
+      "name": "矿透",
+      "color": "$menu_item_color",
+      "tag": "z1_xray",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/矿透0.png",
+        "on": "z1yr\/矿透1.png",
+        "off": "z1yr\/矿透0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1_xray_range",
+          "format": "半径%.0f",
+          "color": "$menu_item_color",
+          "value": 32.0,
+          "min": 8.0,
+          "max": 96.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_xray_ylimit",
+          "format": "垂直限制%.0f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 128.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_xray_budget",
+          "format": "每tick预算%.1fms",
+          "color": "$menu_item_color",
+          "value": 3.0,
+          "min": 0.5,
+          "max": 10.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_xray_refresh",
+          "format": "刷新间隔%.0fs",
+          "color": "$menu_item_color",
+          "value": 10.0,
+          "min": 1.0,
+          "max": 120.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_xray_max",
+          "format": "最多显示%.0f",
+          "color": "$menu_item_color",
+          "value": 96.0,
+          "min": 1.0,
+          "max": 512.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_xray_render",
+          "format": "刷新tick%.0f",
+          "color": "$menu_item_color",
+          "value": 5.0,
+          "min": 1.0,
+          "max": 20.0
+        }
+      ,
+        {
+          "type": "CheckBox",
+          "key": "z1c_xray_ore_diamond",
+          "name": "钻石",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_xray_ore_iron",
+          "name": "铁矿",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_xray_ore_gold",
+          "name": "金矿",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_xray_ore_emerald",
+          "name": "绿宝石",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_xray_ore_debris",
+          "name": "远古残骸",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_xray_ore_redstone",
+          "name": "红石",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_xray_ore_lapis",
+          "name": "青金石",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_xray_ore_coal",
+          "name": "煤矿",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_xray_ore_copper",
+          "name": "铜矿",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_xray_ore_quartz",
+          "name": "石英",
+          "color": "$menu_item_color",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动搭路",
+      "color": "$menu_item_color",
+      "tag": "z1_scaffold",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/自动搭路0.png",
+        "on": "z1yr\/自动搭路1.png",
+        "off": "z1yr\/自动搭路0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_scaffold_radius",
+          "format": "半径%.0f",
+          "color": "$menu_item_color",
+          "value": 6,
+          "min": 1.0,
+          "max": 6.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_scaffold_airplace",
+          "name": "空放自救",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "RadioGroup",
+          "name": "切换模式",
+          "color": "$menu_item_color",
+          "key": "z1r_scaffold_switchmode",
+          "items": [
+            {
+              "key": "z1r_scaffold_switchmode_default",
+              "name": "默认",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_scaffold_switchmode_auto",
+              "name": "自动",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_scaffold_switchmode_silent",
+              "name": "静默",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "自动工具",
+      "color": "$menu_item_color",
+      "tag": "z1_autotool",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/自动工具0.png",
+        "on": "z1yr\/自动工具1.png",
+        "off": "z1yr\/自动工具0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_autotool_switchtick",
+          "format": "切换延迟%.0f",
+          "color": "$menu_item_color",
+          "value": 0,
+          "min": 0.0,
+          "max": 20.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_autotool_restoretick",
+          "format": "恢复延迟%.0f",
+          "color": "$menu_item_color",
+          "value": 0,
+          "min": 0.0,
+          "max": 20.0
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "自动蜘蛛网",
+      "color": "$menu_item_color",
+      "tag": "z1_autoweb",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/自动蜘蛛网0.png",
+        "on": "z1yr\/自动蜘蛛网1.png",
+        "off": "z1yr\/自动蜘蛛网0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_autoweb_delay",
+          "format": "延迟%.1f",
+          "color": "$menu_item_color",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 5.0
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "自动围人",
+      "color": "$menu_item_color",
+      "tag": "z1_autotrap",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/自动围人0.png",
+        "on": "z1yr\/自动围人1.png",
+        "off": "z1yr\/自动围人0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_autotrap_range",
+          "format": "范围%.1f",
+          "color": "$menu_item_color",
+          "value": 5.0,
+          "min": 1.0,
+          "max": 20.0
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "方块围栏",
+      "color": "$menu_item_color",
+      "tag": "z1_blockin",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/方块围栏0.png",
+        "on": "z1yr\/方块围栏1.png",
+        "off": "z1yr\/方块围栏0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_blockin_speed",
+          "format": "速度%.0f",
+          "color": "$menu_item_color",
+          "value": 30,
+          "min": 1.0,
+          "max": 30.0
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "自动拆床",
+      "color": "$menu_item_color",
+      "tag": "z1_fucker",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/自动拆床0.png",
+        "on": "z1yr\/自动拆床1.png",
+        "off": "z1yr\/自动拆床0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_fucker_range",
+          "format": "范围%.1f",
+          "color": "$menu_item_color",
+          "value": 5.0,
+          "min": 1.0,
+          "max": 12.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_fucker_scaninterval",
+          "format": "扫描间隔%.0f",
+          "color": "$menu_item_color",
+          "value": 3,
+          "min": 1.0,
+          "max": 20.0
+        },
+        {
+          "type": "RadioGroup",
+          "name": "模式",
+          "color": "$menu_item_color",
+          "key": "z1r_fucker_mode",
+          "items": [
+            {
+              "key": "z1r_fucker_mode_bed",
+              "name": "床",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_fucker_mode_surround",
+              "name": "围堵",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "RadioGroup",
+          "name": "转头模式",
+          "color": "$menu_item_color",
+          "key": "z1r_fucker_rotation",
+          "items": [
+            {
+              "key": "z1r_fucker_rotation_off",
+              "name": "关闭",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_fucker_rotation_dynamic",
+              "name": "动态",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_fucker_rotation_static",
+              "name": "静态",
+              "color": "$menu_item_color",
+              "checked": true
+            }
+          ]
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_fucker_onholdbreak",
+          "name": "按住挖掘",
+          "color": "$menu_item_color",
+          "checked": false
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "无挖矿延迟",
+      "color": "$menu_item_color",
+      "tag": "z1_nobreakdelay",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/无挖矿延迟0.png",
+        "on": "z1yr\/无挖矿延迟1.png",
+        "off": "z1yr\/无挖矿延迟0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_nobreakdelay_restarttick",
+          "format": "重挖延迟%.0f",
+          "color": "$menu_item_color",
+          "value": 1,
+          "min": 0.0,
+          "max": 5.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_nobreakdelay_aimconfirmticks",
+          "format": "瞄准确认%.0f",
+          "color": "$menu_item_color",
+          "value": 3,
+          "min": 1.0,
+          "max": 6.0
+        }
+      ]},
+    {
+      "type": "GradientTextView",
+      "name": "----渲染----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "Switch",
+      "name": "透视",
+      "color": "$menu_item_color",
+      "tag": "z1_esp",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/透视0.png",
+        "on": "z1yr\/透视1.png",
+        "off": "z1yr\/透视0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_esp_smooth",
+          "format": "平滑%.2f",
+          "color": "$menu_item_color",
+          "value": 0.3,
+          "min": 0.1,
+          "max": 1.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_esp_predict",
+          "format": "预测%.1f",
+          "color": "$menu_item_color",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 5.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_esp_chestradius",
+          "format": "箱子半径%.0f",
+          "color": "$menu_item_color",
+          "value": 8,
+          "min": 5.0,
+          "max": 50.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_esp_r",
+          "format": "红色%.2f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_esp_g",
+          "format": "绿色%.2f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_esp_b",
+          "format": "蓝色%.2f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "type": "RadioGroup",
+          "name": "模式",
+          "color": "$menu_item_color",
+          "key": "z1r_esp_espmode",
+          "items": [
+            {
+              "key": "z1r_esp_espmode_2d",
+              "name": "2D",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_esp_espmode_3d",
+              "name": "3D",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_esp_espmode_both",
+              "name": "两者",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_esp_teambox",
+          "name": "队友框",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_esp_chestesp",
+          "name": "箱子透视",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_esp_chestfov",
+          "name": "箱子视野",
+          "color": "$menu_item_color",
+          "checked": true
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "自由视角",
+      "color": "$menu_item_color",
+      "tag": "z1_freecam",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/自由视角0.png",
+        "on": "z1yr\/自由视角1.png",
+        "off": "z1yr\/自由视角0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1_freecam_speed",
+          "format": "速度%.1f",
+          "color": "$menu_item_color",
+          "value": 2.0,
+          "min": 0.1,
+          "max": 10.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "隐身",
+      "color": "$menu_item_color",
+      "tag": "z1_invisible",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/隐身0.png",
+        "on": "z1yr\/隐身1.png",
+        "off": "z1yr\/隐身0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1_invisible_int",
+          "format": "间隔%.1fs",
+          "color": "$menu_item_color",
+          "value": 5.0,
+          "min": 0.1,
+          "max": 600.0
+        }
+      ,
+        {
+          "type": "SeekBar",
+          "key": "z1n_invisible_restoredelay",
+          "format": "恢复延迟%.2f",
+          "color": "$menu_item_color",
+          "value": 0.05,
+          "min": 0.0,
+          "max": 0.5
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "击杀特效",
+      "color": "$menu_item_color",
+      "tag": "z1_killeffect",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/击杀特效0.png",
+        "on": "z1yr\/击杀特效1.png",
+        "off": "z1yr\/击杀特效0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "运动相机",
+      "color": "$menu_item_color",
+      "tag": "z1_motioncamera",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/运动相机0.png",
+        "on": "z1yr\/运动相机1.png",
+        "off": "z1yr\/运动相机0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "无受击抖动",
+      "color": "$menu_item_color",
+      "tag": "z1_nohurtcam",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/无受击抖动0.png",
+        "on": "z1yr\/无受击抖动1.png",
+        "off": "z1yr\/无受击抖动0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "容器模糊",
+      "color": "$menu_item_color",
+      "tag": "z1_gaussblur",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/容器模糊0.png",
+        "on": "z1yr\/容器模糊1.png",
+        "off": "z1yr\/容器模糊0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_gaussblur_intensity",
+          "format": "模糊强度%.1f",
+          "color": "$menu_item_color",
+          "value": 0.6,
+          "min": 0.0,
+          "max": 5.0
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "迷雾视效",
+      "color": "$menu_item_color",
+      "tag": "z1_fogchange",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/迷雾视效0.png",
+        "on": "z1yr\/迷雾视效1.png",
+        "off": "z1yr\/迷雾视效0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_fogchange_density",
+          "format": "雾浓度%.0f",
+          "color": "$menu_item_color",
+          "value": 42,
+          "min": 1.0,
+          "max": 100.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_fogchange_r",
+          "format": "红色%.2f",
+          "color": "$menu_item_color",
+          "value": 0.56,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_fogchange_g",
+          "format": "绿色%.2f",
+          "color": "$menu_item_color",
+          "value": 0.63,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_fogchange_b",
+          "format": "蓝色%.2f",
+          "color": "$menu_item_color",
+          "value": 0.74,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "缩放",
+      "color": "$menu_item_color",
+      "tag": "z1_zoom",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/缩放0.png",
+        "on": "z1yr\/缩放1.png",
+        "off": "z1yr\/缩放0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_zoom_fov",
+          "format": "视野%.0f",
+          "color": "$menu_item_color",
+          "value": 30,
+          "min": 30.0,
+          "max": 110.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_zoom_smooth",
+          "format": "平滑%.2f",
+          "color": "$menu_item_color",
+          "value": 0.3,
+          "min": 0.01,
+          "max": 1.0
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "界面显示",
+      "color": "$menu_item_color",
+      "tag": "z1_hud",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/界面显示0.png",
+        "on": "z1yr\/界面显示1.png",
+        "off": "z1yr\/界面显示0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_hud_range",
+          "format": "范围%.1f",
+          "color": "$menu_item_color",
+          "value": 5.0,
+          "min": 1.0,
+          "max": 50.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1n_hud_fov",
+          "format": "FOV%.0f",
+          "color": "$menu_item_color",
+          "value": 180,
+          "min": 5.0,
+          "max": 360.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_hud_targethud",
+          "name": "目标面板",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_hud_bjd",
+          "name": "布吉岛",
+          "color": "$menu_item_color",
+          "checked": false
+        }
+      ]},
+    {
+      "type": "GradientTextView",
+      "name": "----杂项----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "Switch",
+      "name": "自动发言",
+      "color": "$menu_item_color",
+      "tag": "z1_spammer",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/自动发言0.png",
+        "on": "z1yr\/自动发言1.png",
+        "off": "z1yr\/自动发言0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "EditText",
+          "key": "z1_spammer_text",
+          "name": "文本",
+          "color": "$menu_item_color",
+          "hint": "不要带空格"
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_spammer_delay",
+          "format": "延迟%.1fs",
+          "color": "$menu_item_color",
+          "value": 5.0,
+          "min": 0.2,
+          "max": 60.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z1_spammer_rand",
+          "format": "随机长度%.0f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 16.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "队伍",
+      "color": "$menu_item_color",
+      "tag": "z1_team",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/队伍0.png",
+        "on": "z1yr\/队伍1.png",
+        "off": "z1yr\/队伍0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "RadioGroup",
+          "name": "模式",
+          "color": "$menu_item_color",
+          "key": "z1r_team_mode",
+          "items": [
+            {
+              "key": "z1r_team_mode_armor",
+              "name": "护甲颜色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_team_mode_namecolor",
+              "name": "名字颜色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_team_mode_prefix",
+              "name": "名字前缀",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "z1r_team_mode_all",
+              "name": "全部",
+              "color": "$menu_item_color",
+              "checked": true
+            }
+          ]
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "坐骑生成",
+      "color": "$menu_item_color",
+      "tag": "z1_mount",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/坐骑生成0.png",
+        "on": "z1yr\/坐骑生成1.png",
+        "off": "z1yr\/坐骑生成0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "时装破解",
+      "color": "$menu_item_color",
+      "tag": "z1_fashionunlock",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/时装破解0.png",
+        "on": "z1yr\/时装破解1.png",
+        "off": "z1yr\/时装破解0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "玩家列表",
+      "color": "$menu_item_color",
+      "tag": "z1_list",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/玩家列表0.png",
+        "on": "z1yr\/玩家列表1.png",
+        "off": "z1yr\/玩家列表0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "z1c_list_send",
+          "name": "发送",
+          "color": "$menu_item_color",
+          "checked": false
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "白名单",
+      "color": "$menu_item_color",
+      "tag": "z1_whitelist",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/白名单0.png",
+        "on": "z1yr\/白名单1.png",
+        "off": "z1yr\/白名单0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_whitelist_range",
+          "format": "范围%.1f",
+          "color": "$menu_item_color",
+          "value": 5.0,
+          "min": 1.0,
+          "max": 50.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_whitelist_midclick",
+          "name": "中键",
+          "color": "$menu_item_color",
+          "checked": true
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "调试信息",
+      "color": "$menu_item_color",
+      "tag": "z1_debug",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/调试信息0.png",
+        "on": "z1yr\/调试信息1.png",
+        "off": "z1yr\/调试信息0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "GM面板",
+      "color": "$menu_item_color",
+      "tag": "z1_gmpanel",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/GM面板0.png",
+        "on": "z1yr\/GM面板1.png",
+        "off": "z1yr\/GM面板0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "PyRpc日志",
+      "color": "$menu_item_color",
+      "tag": "z1_pyrpc",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/PyRpc日志0.png",
+        "on": "z1yr\/PyRpc日志1.png",
+        "off": "z1yr\/PyRpc日志0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "z1n_pyrpc_maxdisplay",
+          "format": "显示上限%.0f",
+          "color": "$menu_item_color",
+          "value": 2000,
+          "min": 80.0,
+          "max": 2000.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_pyrpc_decode",
+          "name": "解码",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "z1c_pyrpc_showmessage",
+          "name": "显示消息",
+          "color": "$menu_item_color",
+          "checked": true
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "CE桥接",
+      "color": "$menu_item_color",
+      "tag": "z1_cebridge",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/CE桥接0.png",
+        "on": "z1yr\/CE桥接1.png",
+        "off": "z1yr\/CE桥接0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "崩溃器",
+      "color": "$menu_item_color",
+      "tag": "z1_crasher",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/崩溃器0.png",
+        "on": "z1yr\/崩溃器1.png",
+        "off": "z1yr\/崩溃器0.png",
+        "no_circle": true
+      }
+    ,
+      "expandable": false,
+      "items": [
+        {
+          "type": "RadioGroup",
+          "name": "模式",
+          "color": "$menu_item_color",
+          "key": "z1r_crasher_mode",
+          "items": [
+            {
+              "key": "z1r_crasher_mode_pyrpc",
+              "name": "PyRpc",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "z1r_crasher_mode_4dskin",
+              "name": "4D皮肤",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]},
+    {
+      "type": "Switch",
+      "name": "通知",
+      "color": "$menu_item_color",
+      "tag": "z1_notification",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "z1yr\/通知0.png",
+        "on": "z1yr\/通知1.png",
+        "off": "z1yr\/通知0.png",
+        "no_circle": true
+      }
+    }
+  ]
+}

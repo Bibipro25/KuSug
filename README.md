@@ -11,6 +11,18 @@ KuSug 客户端 UI 全套文件（版本 260922a）与 KuSug.so 原生组件源�
 - `textures/` — 快捷键徽章（KuSug 经典样式、z1yr 渐变样式）与其余贴图
 - `GBRC/`、`TimeUnity/`、`build/`、`py/` 等 — 配套资源与配置
 - `so源码/` — KuSug.so 的源代码与构建链
+- `js源码/` — KuSug.js 的源代码（母本）与构建链
+
+## js 源码与构建链
+
+`js源码/` 内：
+
+- `KuSug_main.js` — JS 母本（唯一事实源），发布包里的 `script/KuSug.js` 由它保护构建而来
+- `gen_z1yr_panel.py` — z1yr 面板段生成器（含校验套件 `z1yr_panel_verify.py`，菜单输入 `z1yr类.json`），面板段变更时先跑它回写母本标记段
+- `gen_tbcui.py` — TBCUI 生成器，从母本提取 TBCUI 段（输入 `UI控件示例.json`）
+- `build_js_protect.js` — JS 保护构建器：gen_tbcui → javascript-obfuscator → acorn 安全折行，产出 KuSug.js
+
+构建顺序：`python gen_z1yr_panel.py`（面板段有改动时）→ `node build_js_protect.js` → 与 so 配对走 `so源码/build_obf.py` 全流水线。依赖：Node.js（npm 包 `javascript-obfuscator`、`acorn`）与 Python 3。
 
 ## so 源码与构建链
 
