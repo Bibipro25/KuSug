@@ -1,6 +1,6 @@
-// JS 层保护构建器(纯混淆直出版): gen_tbcui → javascript-obfuscator → acorn 安全折行 → 直接落盘
+// JS 层保护构建器(纯混淆直出版): javascript-obfuscator → acorn 安全折行 → 直接落盘
 // 用法: node 工具/build_js_protect.js
-// 产物: 根 KuSug.js 与 TBCUI/TBCUI.js —— 混淆后的源码直接作为脚本文件,无装载器/无加密层。
+// 产物: 根 KuSug.js —— 混淆后的源码直接作为脚本文件,无装载器/无加密层。
 // 设计说明(v27):装载器+密文路线在设备上被引擎桥接/体量限制连续阻击(见更新日志 v26 热修①-④),弃用;
 //         机密分量本来就在 so(分钥加密),JS 侧只保留混淆提阅读门槛。
 //         so 侧 op53/54/55 取钥孔保留不用(无害占位);金丝雀(op61/62)仍由载荷 kuNative.load 正常驱动。
@@ -12,9 +12,7 @@ const acorn = require(path.join(__dirname, "node_modules", "acorn"));
 
 const ROOT = path.dirname(__dirname);
 const SRC_MAIN = path.join(ROOT, "工具", "src", "KuSug_main.js");
-const TBCUI_DIR = path.join(ROOT, "TBCUI");
 const OUT_MAIN = path.join(ROOT, "KuSug.js");
-const OUT_TBCUI = path.join(TBCUI_DIR, "TBCUI.js");
 
 const OBF_OPTS = {
 	compact: true,
@@ -90,10 +88,6 @@ function emitProtected(srcText, outPath, tag) {
 }
 
 function main() {
-	console.log("== gen_tbcui");
-	const r = child_process.spawnSync("python", [path.join(ROOT, "工具", "gen_tbcui.py")], { stdio: "inherit" });
-	if (r.status !== 0) { console.error("gen_tbcui 失败"); process.exit(1); }
-
 	const seed = (Date.now() ^ (Math.random() * 0x7FFFFFFF)) >>> 0;
 	OBF_OPTS.seed = seed;
 
@@ -109,10 +103,6 @@ function main() {
 	const fr = child_process.spawnSync("python", [path.join(ROOT, "工具", "so探针", "finalize_so.py"), "js", OUT_MAIN], { stdio: "inherit" });
 	if (fr.status !== 0) { console.error("js 指纹回填失败: 先跑 工具/so探针/build_obf.py 构建 so"); process.exit(1); }
 	console.log("*** 内容为钥(v29): 若 KuSug.js 内容较上次构建有变,必须重建 so(python 工具/so探针/build_obf.py)——否则密钥派生错位,设备引导失败 ***");
-
-	fs.copyFileSync(OUT_TBCUI, path.join(ROOT, "工具", "src", "TBCUI_gen.js"));
-	console.log("== 混淆 TBCUI");
-	emitProtected(fs.readFileSync(OUT_TBCUI, "utf8"), OUT_TBCUI, "TBCUI");
 
 	fs.writeFileSync(path.join(ROOT, "工具", "js_protect_info.txt"), "seed=" + seed + "\n");
 	console.log("完成 (混淆 seed=" + seed + ")");

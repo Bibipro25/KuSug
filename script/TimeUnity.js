@@ -1115,7 +1115,7 @@ function interactEntity(id) {
 }
 
 /* 找目标格 (x,y,z) 旁边可用于附着的实体方块，返回支撑方块坐标 + 点击面。
-   面编号与 TBCUI.js 的 scaffold 一致：下=1 西=5 东=4 北=3 南=2 上=0 */
+   面编号:下=1 西=5 东=4 北=3 南=2 上=0 */
 function _findPlaceSupport(x, y, z) {
     const offs = [[0, -1, 0, 1], [-1, 0, 0, 5], [1, 0, 0, 4], [0, 0, -1, 3], [0, 0, 1, 2], [0, 1, 0, 0]];
     for (let i = 0; i < offs.length; i++) {
@@ -1132,8 +1132,8 @@ function _findPlaceSupport(x, y, z) {
 
 /* v2 的 player.buildBlock(pos, face) 里，pos 是「被点击的方块」而 face 是点击的面，
    与 v1 全局 buildBlock(id, x, y, z, face) 把 pos 当目标格的语义不同。
-   脚本主体传的都是目标格，这里统一换算成相邻支撑方块 + 面后再交给引擎
-   （与 TBCUI.js 的 scaffold 做法一致）。 */
+   脚本主体传的都是目标格，这里统一换算成相邻支撑方块 + 面后再交给引擎。
+ */
 function buildBlock(id, x, y, z, face) {
     const p = _localPlayer();
     if (!p) return false;
