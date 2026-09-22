@@ -1,6 +1,8 @@
 # KuSug
 
-KuSug 客户端 UI 全套文件（版本 260922a）与 KuSug.so 原生组件源代码。
+基于跑路（RunAway）插件的《我的世界》中国版 UI 系统：ClickGUI 菜单、快捷键徽章、原生 so 组件。
+
+本仓库包含发布包全文件，以及 KuSug.js（母本）与 KuSug.so 的全套源代码。发布包 zip 下载见 [Releases](https://github.com/Bibipro25/KuSug/releases)（最新：KuSug 260922a）。
 
 ## 目录结构
 
