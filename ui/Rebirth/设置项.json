@@ -1,0 +1,1120 @@
+{
+    "type": "Menu",
+    "title": {
+        "name": "『设置项』",
+        "size": 16,
+        "elevation": 3,
+        "background": "$menu_title_background_color",
+        "padding": [
+            4,
+            2,
+            4,
+            2
+        ],
+        "text_margins": [3, 2, 3, 2],
+        "colors": [
+            "$menu_title_gradient_text_begin_color",
+            "$menu_title_gradient_text_end_color"
+        ]
+    },
+    "color": "$menu_color",
+    "alpha": 0.85,
+    "radius": 8,
+    "can_close": true,
+    "hide_fun": true,
+    "hide": true,
+    "items": [
+        {
+            "type": "TextView",
+            "name": "设置",
+            "color": "$menu_item_color",
+            "tag": "build_tool_rebirth",
+            "items": [
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━导出设置━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "RadioGroup",
+                    "name": "方块导出语言",
+                    "color": "$menu_item_color",
+                    "key": "LANG_MODE",
+                    "items": [
+                        {
+                            "key": "zh_CN",
+                            "name": "中文",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "en_US",
+                            "name": "英文",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "Switch",
+                    "key": "LARGE_MODE",
+                    "name": "超大建筑导出模式",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "LM_MAX",
+                    "format": "导出最大速度: %d方块/Tick",
+                    "color": "$menu_item_color",
+                    "value": 50,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "LM_MIN",
+                    "format": "导出最小速度: %d方块/Tick",
+                    "color": "$menu_item_color",
+                    "value": 50,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "LM_MULTIPLE",
+                    "format": "导出线程: %d倍",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "Switch",
+                    "key": "EXPORT_MAKE_SURE",
+                    "name": "确保成功导出方块",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "EXPORT_TP",
+                    "name": "导出传送",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "EXPORT_TP_DELAT",
+                    "format": "导出传送延迟: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "EditText",
+                    "key": "EXPORT_TP_DIST",
+                    "name": "传送最小距离",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "128"
+                },
+                {
+                    "type": "Switch",
+                    "key": "EXPORT_MID_TP",
+                    "name": "导出传送中点",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "DUMP_MODE",
+                    "name": "导出建筑偏移",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "MIN",
+                            "name": "最小值",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "CLICK",
+                            "name": "点击位置",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "EditText",
+                    "key": "EXCLUDE_LIST",
+                    "name": "排除导出列表",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "air"
+                },
+                {
+                    "type": "Switch",
+                    "key": "COMPRESS",
+                    "name": "压缩导出",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "EXPORT_CHUNK",
+                    "name": "导出切割区块",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "EditText",
+                    "key": "EXPORT_CHUNK_RANGE",
+                    "name": "切割区块大小",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "16"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SAVE_CMD",
+                    "name": "保存命令",
+                    "checked": true,
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SAVE_SIGN",
+                    "name": "保存告示牌",
+                    "checked": true,
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SAVE_CONTAINER",
+                    "name": "保存容器",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "SAVE_MOB",
+                    "name": "保存生物",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━导入速度━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "BUILD_DELAY",
+                    "format": "单次导入延迟: %dTICK",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "BUILD_SPEED_MAX",
+                    "format": "导入最大速度: %d方块/Tick",
+                    "color": "$menu_item_color",
+                    "value": 55,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "BUILD_SPEED_MIN",
+                    "format": "导入最小速度: %d方块/Tick",
+                    "color": "$menu_item_color",
+                    "value": 45,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "BUILD_TASKS_MULTIPLE",
+                    "format": "导入线程: %d倍",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ENTITY_TP_RANGE",
+                    "format": "实体传送范围: %d格",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 32
+                },
+                {
+                    "type": "Switch",
+                    "key": "IMPORT_CHUNK",
+                    "name": "导入添加常加载",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "CHUNK_RANGE",
+                    "format": "常加载范围: %d",
+                    "color": "$menu_item_color",
+                    "value": 128,
+                    "min": 1,
+                    "max": 160
+                },
+                {
+                    "type": "Switch",
+                    "key": "FILL_IMPORT",
+                    "name": "FILL导入",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "FILLMODE",
+                    "name": "计算模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "BOOST",
+                            "name": "增量",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Z-AXIS-FILL",
+                            "name": "Z轴一维填充",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "FILL_LENGTH",
+                    "format": "计算-预测大小: %d",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 1,
+                    "max": 500
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "FILL_XZ",
+                    "format": "增量-水平大小: %d格",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 5
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "FILL_Y",
+                    "format": "增量-垂直大小: %d格",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 5
+                },
+                {
+                    "type": "EditText",
+                    "key": "AUTO_SLEEP",
+                    "name": "导入指定数量后延迟",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "0"
+                },
+                {
+                    "type": "EditText",
+                    "key": "SLEEP_DELAY",
+                    "name": "延迟Tick",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "30"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "CMD_MODE",
+                    "name": "执行指令模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "EXECUTE",
+                            "name": "执行",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "PACKET1",
+                            "name": "纯发包",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "PACKET2",
+                            "name": "回调发包",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━命令方块相关━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "Switch",
+                    "key": "CONFIRM_CMD",
+                    "name": "导入命令确认",
+                    "checked": true,
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "CMD_OUTPUT",
+                    "name": "命令方块输出",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "CMD_FIRST",
+                    "name": "首Tick执行",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "BUILD_TASKS_CMD",
+                    "format": "导入指令速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 20,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "Switch",
+                    "key": "CONVERT",
+                    "name": "新旧EXEC转换",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "SCOREBOARD",
+                    "name": "自动创建计分板",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "AUTO_TAG",
+                    "name": "自动创建标签",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "EditText",
+                    "key": "TAG_KEYWORD",
+                    "name": "关键词默认不创建",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "黑,踢,禁,ban"
+                },
+                {
+                    "type": "Switch",
+                    "key": "FIX_CMD",
+                    "name": "自动修补命令方块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━告示牌相关━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "BUILD_TASKS_SIGN",
+                    "format": "导入告示牌间隔: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 40
+                },
+                {
+                    "type": "Switch",
+                    "key": "SIGN_TP",
+                    "name": "导入告示牌传送",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "FIX_SIGN",
+                    "name": "修补告示牌",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━多人导入━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SERVER",
+                    "name": "多人游戏模式",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "SERVER_TP",
+                    "name": "强制防止实体掉落",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SERVER_ABSOLUTE",
+                    "name": "绝对坐标传送",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SERVER_ANTI",
+                    "name": "防止坐标偏移",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "SERVER_ERROR",
+                    "format": "误差范围: %d",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "EditText",
+                    "key": "SERVER_MOB",
+                    "name": "多人导入实体类型",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "armor_stand"
+                },
+                {
+                    "type": "EditText",
+                    "key": "SERVER_NAME",
+                    "name": "多人导入实体名称",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "Rebirth_Bot",
+                    "hint": "留空为自己名称"
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━导入其他配置━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "Switch",
+                    "key": "KICK_ALL",
+                    "name": "导入踢出玩家",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "TP_FOLLOW",
+                    "name": "跟随导入坐标",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "PACKET_FOLLOW",
+                    "name": "发包跟随导入坐标",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "FORCE_ZERO",
+                    "name": "强制修改首个方块",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "SHOW_DIRECTION",
+                    "name": "显示导入方向",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "BETTER_MODE",
+                    "name": "纯享导入模式",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "HTTP",
+                    "name": "记录断点",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "name": "导入断点",
+                    "color": "$menu_item_color",
+                    "key": "IMPORT_HTTP"
+                },
+                {
+                    "type": "Switch",
+                    "key": "LOAD_CMD",
+                    "name": "导入命令",
+                    "checked": true,
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "LOAD_SIGN",
+                    "name": "导入告示牌",
+                    "checked": true,
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "LOAD_CONTAINER",
+                    "name": "导入容器",
+                    "checked": true,
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "LOAD_MOB",
+                    "name": "导入生物",
+                    "checked": true,
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ERROR_FIX",
+                    "name": "修复模式",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "REPLACE_AIR",
+                    "name": "仅替换空气",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AUTO_TP",
+                    "name": "导入传送中点",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "TP_FIRST",
+                    "name": "导入传送起点",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "NO_LIQUID",
+                    "name": "流体不流动",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "ROTATE_BUILD",
+                    "name": "建筑旋转",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ROTATION_YAW",
+                    "format": "建筑水平旋转: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": -180,
+                    "max": 180
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ROTATION_PITCH",
+                    "format": "建筑垂直旋转: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": -90,
+                    "max": 90
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "X_MIRROR",
+                    "name": "X轴镜像",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "Y_MIRROR",
+                    "name": "Y轴镜像",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "Z_MIRROR",
+                    "name": "Z轴镜像",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "EditText",
+                    "key": "EXCLUDE_IMPORT",
+                    "name": "排除导入列表",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": ""
+                },
+                {
+                    "type": "Switch",
+                    "key": "RETRY",
+                    "name": "失败重试",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "CHECK_Y",
+                    "name": "检查Y轴",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "FAKE_MODE",
+                    "name": "假方块模式",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AUTO_TICKING",
+                    "name": "添加常加载",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AUTO_DENY",
+                    "name": "添加拒绝方块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "CHECK_IMPORT",
+                    "name": "检查距离",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "EditText",
+                    "key": "CHECK_IMPORT_RANGE",
+                    "name": "最小检查距离",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "48"
+                },
+                {
+                    "type": "EditText",
+                    "key": "THRESHOLD_TP",
+                    "name": "导入指定数量后传送",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "0"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "THRESHOLD_DELAY",
+                    "format": "传送延迟: %d",
+                    "color": "$menu_item_color",
+                    "value": 2,
+                    "min": 0,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "THRESHOLD_OFFSET",
+                    "format": "传送高度偏移: %d",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": -10,
+                    "max": 16
+                },
+                {
+                    "type": "Switch",
+                    "key": "IMPORT_TP",
+                    "name": "导入传送",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "EditText",
+                    "key": "IMPORT_TP_DIST",
+                    "name": "传送最小距离",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "24"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "IMPORT_TP_DELAY",
+                    "format": "导入传送延迟: %d",
+                    "color": "$menu_item_color",
+                    "value": 2,
+                    "min": 0,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "IMPORT_TP_OFFSET",
+                    "format": "导入传送高度偏移: %d",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": -10,
+                    "max": 16
+                },
+                {
+                    "type": "EditText",
+                    "key": "KILL_LIST",
+                    "name": "自动清除实体",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "item,falling_block"
+                },
+                {
+                    "type": "EditText",
+                    "key": "POSTPOSITION_LIST",
+                    "name": "置后导入列表",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": ""
+                },
+                {
+                    "type": "EditText",
+                    "key": "POSTPOS_DIST",
+                    "name": "置后最小距离",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "0"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "POSMODE",
+                    "name": "导入坐标模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "CLICK",
+                            "name": "点击",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "SELF",
+                            "name": "自身",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "CUSTOM",
+                            "name": "自定义",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "EditText",
+                    "key": "POSMODE_3",
+                    "name": "自定义导入坐标",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "0,0,0"
+                },
+                {
+                    "type": "Switch",
+                    "key": "RANDOM_BLOCKS",
+                    "name": "随机导入方块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "TP_MODE",
+                    "name": "传送模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "PACKET",
+                            "name": "发包",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "LOCAL",
+                            "name": "本地",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "COMMAND",
+                            "name": "指令",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        }
+                    ]
+                },
+                {
+                    "type": "EditText",
+                    "key": "TP_TARGET",
+                    "name": "传送时选择器目标",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "@s"
+                },
+                {
+                    "type": "EditText",
+                    "key": "CMD_BEFORE",
+                    "name": "导入前执行指令",
+                    "color": "$menu_item_color",
+                    "max_lines": 64,
+                    "text": ""
+                },
+                {
+                    "type": "EditText",
+                    "key": "CMD_AFTER",
+                    "name": "导入后执行指令",
+                    "color": "$menu_item_color",
+                    "max_lines": 64,
+                    "text": ""
+                },
+                {
+                    "type": "Switch",
+                    "key": "ERROR",
+                    "name": "?",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━音乐━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SHOW_PROGRESS",
+                    "name": "显示进度条",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "NO_BEAT",
+                    "name": "排除空节拍",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "EditText",
+                    "key": "SOUND_TARGET",
+                    "name": "音乐选择器",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "@a"
+                },
+                {
+                    "type": "EditText",
+                    "key": "TONE_COLOUR",
+                    "name": "音乐音色",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "note.chime"
+                },
+                {
+                    "type": "Switch",
+                    "key": "RANDOM_TONE",
+                    "name": "随机音色",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━显示类━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SHOW_INFO",
+                    "name": "显示导入信息",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "INFO_RGB",
+                    "name": "炫彩提示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "INFO_SPEED",
+                    "name": "显示速度",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "INFO_NAME",
+                    "name": "显示任务名称",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "INFO_PROGRESS",
+                    "name": "显示进度条",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "EditText",
+                    "key": "PROGRESS_TEXT",
+                    "name": "进度条编辑",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "▌"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "INFO_TASK",
+                    "name": "显示任务信息",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "INFO_COMPLETE",
+                    "name": "显示任务完成度",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "INFO_DIST",
+                    "name": "显示距离",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "RadioGroup",
+                    "name": "提示类型",
+                    "color": "$menu_item_color",
+                    "key": "TIP_MODE",
+                    "items": [
+                        {
+                            "key": "Game",
+                            "name": "游戏提示",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Script",
+                            "name": "屏幕文本",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "TIP_X",
+                    "format": "水平偏移: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 20,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "TIP_Y",
+                    "format": "竖直偏移: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 20,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "TIP_A",
+                    "format": "透明度: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "TIP_R",
+                    "format": "红色: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "TIP_G",
+                    "format": "绿色: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "TIP_B",
+                    "format": "蓝色: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "TIP_SIZE",
+                    "format": "缩放倍数: %.2f倍",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 0.1,
+                    "max": 3
+                },
+                {
+                    "type": "Switch",
+                    "key": "INFO_IMPORT_BOOST",
+                    "name": "导入显示增强",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "INFO_DUMP_BOOST",
+                    "name": "导出显示增强",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "SHOW_SIZE",
+                    "name": "显示建筑大小",
+                    "color": "$menu_item_color"
+                }
+            ]
+        }
+    ]
+}

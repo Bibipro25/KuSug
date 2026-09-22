@@ -1,0 +1,53 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-关于类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "Image",
+      "image": {
+        "src": "跑路科技.png",
+        "scaled_size": 40
+      }
+    },
+    {
+      "type": "GradientTextView",
+      "name": "--------",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": -2
+    },
+    {
+      "type": "TextView",
+      "name": "KuSug",
+      "color": "$menu_item_color",
+      "size": 30
+    },
+    {
+      "type": "TextView",
+      "name": "By:Bi匕匕Bi",
+      "color": "$menu_item_color"
+    },
+    {
+      "type": "TextView",
+      "html": "<a href=''>加入QQ群</a>",
+      "url": "https://qun.qq.com/universal-share/share?ac=1&authKey=f0Y9qTUETUt934fYHwzpCiMT%2BLdy68YpyNC8L1Np9gTmTdPZiWSpirpX5AbooCHX&busi_data=eyJncm91cENvZGUiOiIxMDk4NDY3ODY1IiwidG9rZW4iOiJOVWhjZ3V5cG9UMERVSjhERjYxK0swM1FuK0JjZWpZS290b2pLNW9laWpEL0RFYjM1KzZ5dXhEK3RRTU11ODZQIiwidWluIjoiMjI0NjczODcwNyJ9&data=wzmSbrHGn35pMNlIz10yULOJoiYm0CqyxGR-BruRUDZkM1Df8PJzTk9Ba-f36lhrn_LMOq7gVLoHEagr-Eug2Q&svctype=4&tempid=h5_group_info"
+    }
+  ]
+}

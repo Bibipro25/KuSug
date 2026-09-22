@@ -1,0 +1,1133 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-玩家类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "TextView",
+      "name": "保存此类别配置",
+      "color": "$menu_item_color",
+      "save_menu_config": "玩家类",
+      "tip": "已保存配置"
+    },
+    {
+      "type": "TextView",
+      "name": "加载此类别配置",
+      "color": "$menu_item_color",
+      "load_menu_config": "玩家类",
+      "tip": "已加载配置"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "--------",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": -2
+    },
+    {
+      "type": "Switch",
+      "name": "能力",
+      "color": "$menu_item_color",
+      "tag": "fun_abilities",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/玩家能力0.png",
+        "on": "KuSug\/玩家能力1.png",
+        "off": "KuSug\/玩家能力0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "build",
+          "name": "建造方块",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "mine",
+          "name": "采集方块",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "doorsandswitches",
+          "name": "使用门和开关",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "opencontainers",
+          "name": "打开容器",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "attackplayers",
+          "name": "攻击玩家",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "attackmobs",
+          "name": "攻击生物",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "op",
+          "name": "操作员",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "teleport",
+          "name": "使用传送",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "invulnerable",
+          "name": "无敌",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "mayfly",
+          "name": "可飞行",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "flying",
+          "name": "飞行状态",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "noclip",
+          "name": "穿墙",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "fake_fly",
+          "name": "伪飞行",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "elytra_fly",
+          "name": "鞘翅飞行",
+          "color": "$menu_item_color",
+          "on": "穿上鞘翅，离开地面进入飞行模式(建议先打开飞行状态)"
+        },
+        {
+          "type": "CheckBox",
+          "key": "instabuild",
+          "name": "瞬间破坏方块",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "lightning",
+          "name": "闪电等级",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "mute",
+          "name": "是否被禁言",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "worldbuilder",
+          "name": "世界建设者",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "flySpeed",
+          "format": "飞行速度%.2f",
+          "color": "$menu_item_color",
+          "value": 0.5,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "walkSpeed",
+          "format": "步行速度%.2f",
+          "color": "$menu_item_color",
+          "value": 0.1,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "verticalFlySpeed",
+          "format": "垂直飞行速度%.2f",
+          "color": "$menu_item_color",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 4.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "无摔落伤害",
+      "color": "$menu_item_color",
+      "tag": "fun_no_fall",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/无摔伤0.png",
+        "on": "KuSug\/无摔伤1.png",
+        "off": "KuSug\/无摔伤0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "speed",
+          "format": "下落速度%.2f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "no_move_check",
+          "name": "绕过移动检查",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "no_fall_check",
+          "name": "绕过摔落检查",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "vanilla",
+          "name": "Vanilla",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "mine_plex",
+          "name": "MinePlex",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "cube_craft",
+          "name": "CubeCraft",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "nukkit",
+          "name": "Nukkit",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "auth_ground_pos",
+          "name": "AuthGroundPos",
+          "color": "$menu_item_color"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "KS搭路",
+      "color": "$menu_item_color",
+      "tag": "fun_scaffold",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/KS搭路0.png",
+        "on": "KuSug\/KS搭路1.png",
+        "off": "KuSug\/KS搭路0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "scaffold_lock_y",
+          "name": "锁定高度",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "scaffold_auto_select",
+          "name": "自动选取",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "scaffold_force_place",
+          "name": "强制放置",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "SeekBar",
+          "key": "scaffold_ahead",
+          "format": "前伸%d格",
+          "color": "$menu_item_color",
+          "value": 2,
+          "min": 0,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动搭路",
+      "color": "$menu_item_color",
+      "tag": "fun_auto_build",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动搭路0.png",
+        "on": "KuSug\/自动搭路1.png",
+        "off": "KuSug\/自动搭路0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "force_place",
+          "name": "强行放置",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "lock_y",
+          "name": "锁定Y轴",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "offset",
+          "format": "高度偏移%.2f",
+          "color": "$menu_item_color",
+          "value": 2.5,
+          "min": 1.80,
+          "max": 5.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "大陀螺",
+      "color": "$menu_item_color",
+      "tag": "fun_big_gyro",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/大陀螺0.png",
+        "on": "KuSug\/大陀螺1.png",
+        "off": "KuSug\/大陀螺0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "big_gyro_speed",
+          "format": "转速%d°/秒",
+          "color": "$menu_item_color",
+          "value": 720,
+          "min": 60,
+          "max": 3000
+        },
+        {
+          "type": "CheckBox",
+          "key": "big_gyro_head",
+          "name": "头部旋转",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "SeekBar",
+          "key": "big_gyro_head_speed",
+          "format": "头部速度%d°/秒",
+          "color": "$menu_item_color",
+          "value": 360,
+          "min": 30,
+          "max": 1800
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "范围破坏",
+      "color": "$menu_item_color",
+      "tag": "fun_auto_destroy",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/范围破坏0.png",
+        "on": "KuSug\/范围破坏1.png",
+        "off": "KuSug\/范围破坏0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "RadioGroup",
+          "key": "mode",
+          "name": "破坏模式",
+          "color": "$menu_item_color",
+          "items": [
+            {
+              "key": "line",
+              "name": "线性",
+              "color": "$menu_item_color",
+              "tip": "在自身位置竖一字型破坏"
+            },
+            {
+              "key": "cross",
+              "name": "十字",
+              "color": "$menu_item_color",
+              "tip": "在自身位置竖十字型破坏"
+            },
+            {
+              "key": "matrix",
+              "name": "矩阵",
+              "color": "$menu_item_color",
+              "checked": true,
+              "tip": "在自身位置10*10矩阵破坏"
+            }
+          ]
+        },
+        {
+          "type": "RadioGroup",
+          "key": "packet_mode",
+          "name": "发包模式",
+          "color": "$menu_item_color",
+          "items": [
+            {
+              "key": "vanilla",
+              "name": "原版",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "nukkit",
+              "name": "Nukkit",
+              "color": "$menu_item_color",
+              "size": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动点击",
+      "color": "$menu_item_color",
+      "tag": "fun_auto_clicker",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动点击0.png",
+        "on": "KuSug\/自动点击1.png",
+        "off": "KuSug\/自动点击0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "delay",
+          "format": "操作延迟%d",
+          "color": "$menu_item_color",
+          "value": 5,
+          "min": 0,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "点击破坏",
+      "color": "$menu_item_color",
+      "tag": "fun_click_destroy",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/点击破坏0.png",
+        "on": "KuSug\/点击破坏1.png",
+        "off": "KuSug\/点击破坏0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "RadioGroup",
+          "key": "mode",
+          "name": "破坏模式",
+          "color": "$menu_item_color",
+          "items": [
+            {
+              "key": "line",
+              "name": "线性",
+              "color": "$menu_item_color",
+              "tip": "在点击位置竖一字型破坏"
+            },
+            {
+              "key": "cross",
+              "name": "十字",
+              "color": "$menu_item_color",
+              "tip": "在点击位置竖十字型破坏"
+            },
+            {
+              "key": "matrix",
+              "name": "矩阵",
+              "color": "$menu_item_color",
+              "checked": true,
+              "tip": "在点击位置10*10矩阵破坏"
+            }
+          ]
+        },
+        {
+          "type": "RadioGroup",
+          "key": "packet_mode",
+          "name": "发包模式",
+          "color": "$menu_item_color",
+          "items": [
+            {
+              "key": "vanilla",
+              "name": "原版",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "nukkit",
+              "name": "Nukkit",
+              "color": "$menu_item_color",
+              "size": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动破坏方块",
+      "color": "$menu_item_color",
+      "tag": "fun_auto_destroy_block",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动破坏0.png",
+        "on": "KuSug\/自动破坏1.png",
+        "off": "KuSug\/自动破坏0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "minecraft:cake",
+          "name": "蛋糕",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "minecraft:bed",
+          "name": "床",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "minecraft:diamond_ore",
+          "name": "钻石矿石",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "minecraft:deepslate_diamond_ore",
+          "name": "深层钻石矿石",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "minecraft:gold_ore",
+          "name": "金矿石",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "minecraft:deepslate_gold_ore",
+          "name": "深层金矿石",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "minecraft:iron_ore",
+          "name": "铁矿石",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "minecraft:deepslate_iron_ore",
+          "name": "深层铁矿石",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "minecraft:ancient_debris",
+          "name": "远古残骸",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "minecraft:sculk",
+          "name": "幽匿块",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "minecraft:sculk_catalyst",
+          "name": "幽匿催发体",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "minecraft:sculk_sensor",
+          "name": "幽匿感测体",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "minecraft:sculk_shrieker",
+          "name": "幽匿尖啸体",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "distance",
+          "format": "距离%.2f",
+          "color": "$menu_item_color",
+          "value": 7.0,
+          "min": 1.0,
+          "max": 40.0
+        },
+        {
+          "type": "RadioGroup",
+          "key": "packet_mode",
+          "name": "发包模式",
+          "color": "$menu_item_color",
+          "items": [
+            {
+              "key": "vanilla",
+              "name": "原版",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "nukkit",
+              "name": "Nukkit",
+              "color": "$menu_item_color",
+              "size": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "麒麟臂",
+      "color": "$menu_item_color",
+      "tag": "fun_fast_destroy",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/麒麟臂0.png",
+        "on": "KuSug\/麒麟臂1.png",
+        "off": "KuSug\/麒麟臂0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "发包挖掘",
+      "color": "$menu_item_color",
+      "tag": "fun_packet_mine",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/发包挖掘0.png",
+        "on": "KuSug\/发包挖掘1.png",
+        "off": "KuSug\/发包挖掘0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "count",
+          "format": "每次发包%d",
+          "color": "$menu_item_color",
+          "value": 10,
+          "min": 1,
+          "max": 30
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动图腾",
+      "color": "$menu_item_color",
+      "tag": "fun_auto_totem",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动图腾0.png",
+        "on": "KuSug\/自动图腾1.png",
+        "off": "KuSug\/自动图腾0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "无火焰附加",
+      "color": "$menu_item_color",
+      "tag": "fun_no_fire",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/无火焰0.png",
+        "on": "KuSug\/无火焰1.png",
+        "off": "KuSug\/无火焰0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "自动开箱",
+      "color": "$menu_item_color",
+      "tag": "fun_chest_aura",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动开箱0.png",
+        "on": "KuSug\/自动开箱1.png",
+        "off": "KuSug\/自动开箱0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "distance",
+          "format": "距离%.2f",
+          "color": "$menu_item_color",
+          "value": 6.0,
+          "min": 1.0,
+          "max": 6.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "ignore_screen",
+          "name": "忽略容器屏幕",
+          "color": "$menu_item_color"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "快速拿物",
+      "color": "$menu_item_color",
+      "tag": "fun_chest_stealer",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/快速拿物0.png",
+        "on": "KuSug\/快速拿物1.png",
+        "off": "KuSug\/快速拿物0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "auto_close",
+          "name": "自动关闭",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "slots",
+          "format": "每次拿%d组",
+          "color": "$menu_item_color",
+          "value": 3,
+          "min": 1,
+          "max": 10
+        },
+        {
+          "type": "SeekBar",
+          "key": "delay",
+          "format": "延时%d",
+          "color": "$menu_item_color",
+          "value": 0,
+          "min": 0,
+          "max": 30
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动吃物",
+      "color": "$menu_item_color",
+      "tag": "fun_auto_eat",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动吃物0.png",
+        "on": "KuSug\/自动吃物1.png",
+        "off": "KuSug\/自动吃物0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "fast_eat",
+          "name": "快速食用",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "health",
+          "format": "生命值低于\n%.2f\n自动吃\n金苹果/附魔金苹果",
+          "color": "$menu_item_color",
+          "value": 10.0,
+          "min": 0.5,
+          "max": 40.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "单人无敌",
+      "color": "$menu_item_color",
+      "tag": "fun_invincible",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/单人无敌0.png",
+        "on": "KuSug\/单人无敌1.png",
+        "off": "KuSug\/单人无敌0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "attack_hurt",
+          "name": "攻击伤害",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "effect_hurt",
+          "name": "药水伤害",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "forced_hurt",
+          "name": "强制伤害",
+          "color": "$menu_item_color",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动穿装",
+      "color": "$menu_item_color",
+      "tag": "fun_auto_armor",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动穿装0.png",
+        "on": "KuSug\/自动穿装1.png",
+        "off": "KuSug\/自动穿装0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "放大镜",
+      "color": "$menu_item_color",
+      "tag": "fun_zoom",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/放大镜0.png",
+        "on": "KuSug\/放大镜1.png",
+        "off": "KuSug\/放大镜0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "fov",
+          "format": "视角%.2f",
+          "color": "$menu_item_color",
+          "value": 120.0,
+          "min": 0.0,
+          "max": 150.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "modifier",
+          "format": "附加值%.2f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "相机穿墙",
+      "color": "$menu_item_color",
+      "tag": "fun_no_camera_clip",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/相机穿墙0.png",
+        "on": "KuSug\/相机穿墙1.png",
+        "off": "KuSug\/相机穿墙0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "无受伤抖动",
+      "color": "$menu_item_color",
+      "tag": "fun_no_hurt_camera",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/无抖动0.png",
+        "on": "KuSug\/无抖动1.png",
+        "off": "KuSug\/无抖动0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "无限投射",
+      "color": "$menu_item_color",
+      "tag": "fun_infinite_throw",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/无限投射0.png",
+        "on": "KuSug\/无限投射1.png",
+        "off": "KuSug\/无限投射0.png",
+        "no_circle": true
+      }
+    }
+  ]
+}

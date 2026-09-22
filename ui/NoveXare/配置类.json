@@ -1,0 +1,545 @@
+{
+    "type": "Menu",
+    "title": {
+        "name": "『Config』",
+        "size": 16,
+        "elevation": 3,
+        "background": "$menu_title_background_color",
+        "padding": [
+            4,
+            2,
+            4,
+            2
+        ],
+        "text_margins": [3, 2, 3, 2],
+        "colors": [
+            "$menu_title_gradient_text_begin_color",
+            "$menu_title_gradient_text_end_color"
+        ]
+    },
+    "color": "$menu_color",
+    "alpha": 0.85,
+    "radius": 8,
+    "can_close": true,
+    "show_dividers": false,
+    "hide_fun": true,
+    "hide": true,
+    "items": [
+        {
+            "type": "TextView",
+            "name": "NoveXare",
+            "color": "$menu_item_color",
+            "tag": "extra_nove_xare",
+            "items": [
+                {
+                    "type": "Switch",
+                    "key": "Swing",
+                    "name": "攻击功能挥手",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "RadioGroup",
+                    "name": "NX提示类型",
+                    "color": "$menu_item_color",
+                    "key": "tipType_mode",
+                    "items": [
+                        {
+                            "key": "Game",
+                            "name": "游戏提示",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Plugin",
+                            "name": "屏幕文本",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Line",
+                            "name": "并列文本",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "tip_x_offset",
+                    "format": "水平偏移: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 60,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "tip_y_offset",
+                    "format": "竖直偏移: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 40,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "tip_a",
+                    "format": "透明度: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "tip_r",
+                    "format": "红色: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "tip_g",
+                    "format": "绿色: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "tip_b",
+                    "format": "蓝色: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "tip_size",
+                    "format": "缩放倍数: %.2f倍",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 0.1,
+                    "max": 3
+                },
+                {
+                    "type": "Switch",
+                    "key": "ECAttack",
+                    "name": "攻击绕过EC",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "FuncMessage",
+                    "name": "仅提示功能",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "ArrayList",
+                    "name": "功能显示",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShortList",
+                    "name": "目标列表简写",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "FuncTip",
+                    "name": "显示功能信息",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoSaveCfg",
+                    "color": "$menu_item_color",
+                    "name": "退出保存配置"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoLoadCfg",
+                    "name": "自动加载配置",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "getDelay",
+                    "color": "$menu_item_color",
+                    "name": "获取网络延迟"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "getSelf",
+                    "format": "获取自身信息延迟: %d ",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "setPos_offset",
+                    "format": "获取坐标偏移: %.2f ",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": -5,
+                    "max": 5
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "getPos_offset",
+                    "format": "设置坐标偏移: %.2f ",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": -5,
+                    "max": 5
+                },
+                {
+                    "type": "Switch",
+                    "key": "RainbowTip",
+                    "name": "炫彩提示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "rgb_cycle",
+                    "format": "渐变周期: %dTick",
+                    "color": "$menu_item_color",
+                    "value": 2,
+                    "min": 1,
+                    "max": 40
+                },
+                {
+                    "type": "Switch",
+                    "key": "FuncSwitchTip",
+                    "name": "开关功能提示",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "RadioGroup",
+                    "name": "提示模式",
+                    "color": "$menu_item_color",
+                    "key": "tip_mode",
+                    "items": [
+                        {
+                            "key": "Client",
+                            "name": "客户端消息",
+                            "checked": true,
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Plugin",
+                            "name": "插件",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fst_x",
+                    "format": "水平偏移: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fst_y",
+                    "format": "竖直偏移: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fst_time",
+                    "format": "持续时间: %dTick",
+                    "color": "$menu_item_color",
+                    "value": 20,
+                    "min": 1,
+                    "max": 60
+                },
+                {
+                    "type": "Switch",
+                    "key": "ClickWhiteList",
+                    "name": "点击添加白名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "cw_remove",
+                    "name": "清除白名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "cw_range",
+                    "name": "范围添加白名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "cw_size",
+                    "format": "范围 %d格",
+                    "color": "$menu_item_color",
+                    "value": 6,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "TextView",
+                    "key": "cw_add",
+                    "name": "添加白名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ClickTarget",
+                    "name": "点击添加目标",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "ct_add",
+                    "name": "添加目标",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoTarget",
+                    "name": "自动选择目标",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_entity",
+                    "name": "实体",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_player",
+                    "name": "玩家",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_lock",
+                    "name": "锁定目标",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "at_typeWhite",
+                    "name": "实体类型白名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_regexEnable",
+                    "name": "启用正则",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "TextView",
+                    "key": "at_regex",
+                    "name": "编辑正则",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_size",
+                    "name": "检查碰撞箱",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_heal",
+                    "name": "检查血量",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_fov",
+                    "name": "检查视角值",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_hide",
+                    "name": "检查是否隐身",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_ground",
+                    "name": "检查地面",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_wall",
+                    "name": "检查墙壁",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_name",
+                    "name": "检查名字",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_BWM",
+                    "name": "绕布吉岛假人",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "at_delay",
+                    "format": "索敌延迟: %d ",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 60
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "at_maxDist",
+                    "format": "目标最大距离: %.2f",
+                    "color": "$menu_item_color",
+                    "value": 6,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "at_minDist",
+                    "format": "目标最小距离: %.2f",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 20
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_inf",
+                    "name": "无限距离",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "at_maxCount",
+                    "format": "目标数量: %d ",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_infCount",
+                    "name": "无限目标",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "at_maxY",
+                    "format": "最高高度: %d ",
+                    "color": "$menu_item_color",
+                    "value": 380,
+                    "min": -60,
+                    "max": 380
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "at_minY",
+                    "format": "最低高度: %d ",
+                    "color": "$menu_item_color",
+                    "value": -60,
+                    "min": -60,
+                    "max": 380
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_infY",
+                    "name": "无视高度",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_reverse",
+                    "name": "反转排序",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_back",
+                    "name": "反向选择",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "at_mode",
+                    "name": "选择模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Distance",
+                            "name": "距离最近",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Health",
+                            "name": "血量最少",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Damage",
+                            "name": "伤害最低",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Crosshair",
+                            "name": "准星最近",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Items",
+                            "name": "背包物品最多",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Random",
+                            "name": "随机",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

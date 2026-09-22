@@ -1,0 +1,12 @@
+{
+    "binds": {},
+    "key_binds": [],
+    "nx_raBinds": [],
+    "name": "再见啊空间",
+    "spm_text": "该服务器已被跑路用户入侵",
+    "spm_random": true,
+    "spm_attack": true,
+    "spm_gradual": true,
+    "spm_rainbow": false,
+    "spm_delay": 5
+}

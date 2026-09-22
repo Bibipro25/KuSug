@@ -1,0 +1,264 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-PyRpc->",
+    "size": 16,
+    "padding": [
+      4,
+      2,
+      4,
+      2
+    ],
+    "text_margins": [
+      3,
+      2,
+      3,
+      2
+    ],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "TextView",
+      "name": "加载脚本",
+      "color": "$menu_item_color",
+      "load_script": "PyRpc管理器.js"
+    },
+    {
+      "type": "TextView",
+      "name": "退出脚本",
+      "color": "$menu_item_hide_color",
+      "key": "exit"
+    },
+    {
+      "type": "Switch",
+      "name": "记录发送",
+      "color": "$menu_item_color",
+      "tag": "fun_pyrpc_log_send",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "GradientTextView",
+          "name": "----记录输出----",
+          "start_color": "$menu_title_gradient_text_begin_color",
+          "end_color": "$menu_title_gradient_text_end_color",
+          "padding": 1
+        },
+        {
+          "type": "CheckBox",
+          "key": "pyrpc_log_chat",
+          "name": "记录到聊天栏",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "pyrpc_log_file",
+          "name": "记录到文件(实时写入)",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "pyrpc_parse",
+          "name": "解析(翻译)载荷",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "GradientTextView",
+          "name": "----记录过滤----",
+          "start_color": "$menu_title_gradient_text_begin_color",
+          "end_color": "$menu_title_gradient_text_end_color",
+          "padding": 1
+        },
+        {
+          "type": "CheckBox",
+          "key": "pyrpc_filter_on",
+          "name": "启用过滤",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "EditText",
+          "name": "过滤词",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "字段或id，逗号分隔",
+          "key": "pyrpc_filter",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "记录接收",
+      "color": "$menu_item_color",
+      "tag": "fun_pyrpc_log_recv",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3"
+    },
+    {
+      "type": "Switch",
+      "name": "字段拦截",
+      "color": "$menu_item_color",
+      "tag": "fun_pyrpc_block",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "EditText",
+          "name": "拦截字段",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "字段/id/hex片段，逗号分隔；清空即停",
+          "key": "pyrpc_block_text",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "伪造响应",
+      "color": "$menu_item_color",
+      "tag": "fun_pyrpc_fake",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "EditText",
+          "name": "匹配字段",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "接收包含此字段时触发",
+          "key": "pyrpc_fake_match",
+          "text": ""
+        },
+        {
+          "type": "EditText",
+          "name": "响应内容",
+          "color": "$menu_item_color",
+          "max_lines": 3,
+          "hint": "typed数组/对象/hex",
+          "key": "pyrpc_fake_data",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "发送",
+      "color": "$menu_item_color",
+      "tag": "fun_pyrpc_send",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "GradientTextView",
+          "name": "----RPC构造----",
+          "start_color": "$menu_title_gradient_text_begin_color",
+          "end_color": "$menu_title_gradient_text_end_color",
+          "padding": 1
+        },
+        {
+          "type": "EditText",
+          "name": "RPC内容",
+          "color": "$menu_item_color",
+          "max_lines": 3,
+          "hint": "typed数组/对象/hex",
+          "key": "pyrpc_send_data",
+          "text": ""
+        },
+        {
+          "type": "GradientTextView",
+          "name": "----发送方式----",
+          "start_color": "$menu_title_gradient_text_begin_color",
+          "end_color": "$menu_title_gradient_text_end_color",
+          "padding": 1
+        },
+        {
+          "type": "CheckBox",
+          "key": "pyrpc_send_loop",
+          "name": "循环发送",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "pyrpc_send_count",
+          "format": "每波发送%d条",
+          "color": "$menu_item_color",
+          "value": 5,
+          "min": 1,
+          "max": 20
+        },
+        {
+          "type": "SeekBar",
+          "key": "pyrpc_send_delay",
+          "format": "发送间隔%d tick",
+          "color": "$menu_item_color",
+          "value": 5,
+          "min": 1,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----历史与解码----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "TextView",
+      "name": "查看记录历史",
+      "color": "$menu_item_color",
+      "tag": "pyrpc_act_history"
+    },
+    {
+      "type": "SeekBar",
+      "key": "pyrpc_replay_index",
+      "format": "历史序号%d(1=最新)",
+      "color": "$menu_item_color",
+      "value": 1,
+      "min": 1,
+      "max": 20
+    },
+    {
+      "type": "TextView",
+      "name": "重放选中包",
+      "color": "$menu_item_color",
+      "tag": "pyrpc_act_replay"
+    },
+    {
+      "type": "EditText",
+      "name": "解码内容",
+      "color": "$menu_item_color",
+      "max_lines": 3,
+      "hint": "hex或typed-json",
+      "key": "pyrpc_decode_text",
+      "text": ""
+    },
+    {
+      "type": "TextView",
+      "name": "解码查看",
+      "color": "$menu_item_color",
+      "tag": "pyrpc_act_decode"
+    }
+  ]
+}

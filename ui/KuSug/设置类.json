@@ -1,0 +1,172 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-设置类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "Switch",
+      "name": "显示水印",
+      "color": "$menu_item_color",
+      "tag": "fun_watermark",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/显示水印0.png",
+        "on": "KuSug\/显示水印1.png",
+        "off": "KuSug\/显示水印0.png",
+        "no_circle": true
+      },
+      "bind_keys": ["P"],
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "rotation",
+          "format": "旋转角度%.2f",
+          "color": "$menu_item_color",
+          "value": -30.0,
+          "min": -180.0,
+          "max": 188.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "size",
+          "format": "文本大小%.2f",
+          "color": "$menu_item_color",
+          "value": 70.0,
+          "min": 10.0,
+          "max": 100.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "alpha",
+          "format": "透明度%d",
+          "color": "$menu_item_color",
+          "value": 76,
+          "min": 0,
+          "max": 255
+        },
+        {
+          "type": "ColorPicker",
+          "key": "color",
+          "name": "自定义颜色",
+          "color": "$menu_item_color",
+          "default_color": -65281,
+          "ok": "确定",
+          "cancel": "取消"
+        },
+        {
+          "type": "EditText",
+          "name": "自定义内容",
+          "color": "$menu_item_color",
+          "max_lines": 3,
+          "hint": "内容为空恢复默认",
+          "key": "content",
+          "text": "跑路科技\n仅功能展示 个人不售卖"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "动态水印",
+      "color": "$menu_item_color",
+      "tag": "fun_java_watermark",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/动态水印0.png",
+        "on": "KuSug\/动态水印1.png",
+        "off": "KuSug\/动态水印0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "悬浮窗口半屏显示",
+      "color": "$menu_item_color",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/悬浮半屏0.png",
+        "on": "KuSug\/悬浮半屏1.png",
+        "off": "KuSug\/悬浮半屏0.png",
+        "no_circle": true
+      },
+      "register_setting": "setting_window_cut"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----危险----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "TextView",
+      "name": "删除游戏数据",
+      "color": "$menu_item_hide_color",
+      "tag": "fun_delete_app_data"
+    },
+    {
+      "type": "TextView",
+      "name": "删除用户数据",
+      "color": "$menu_item_hide_color",
+      "tag": "fun_delete_user_data"
+    },
+    {
+      "type": "TextView",
+      "name": "删除下载包缓存",
+      "color": "$menu_item_set_color",
+      "tag": "fun_delete_pack_cache"
+    },
+    {
+      "type": "TextView",
+      "name": "退出游戏登录",
+      "color": "$menu_item_hide_color",
+      "tag": "fun_netease_logout"
+    },
+    {
+      "type": "TextView",
+      "name": "MCPDecrypt",
+      "color": "$menu_item_set_color",
+      "tag": "fun_mcp_decrypt"
+    }
+  ]
+}

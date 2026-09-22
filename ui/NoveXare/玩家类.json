@@ -1,0 +1,1156 @@
+{
+    "type": "Menu",
+    "title": {
+        "name": "『Player』",
+        "size": 16,
+        "elevation": 3,
+        "background": "$menu_title_background_color",
+        "padding": [
+            4,
+            2,
+            4,
+            2
+        ],
+        "text_margins": [3, 2, 3, 2],
+        "colors": [
+            "$menu_title_gradient_text_begin_color",
+            "$menu_title_gradient_text_end_color"
+        ]
+    },
+    "color": "$menu_color",
+    "alpha": 0.85,
+    "radius": 8,
+    "can_close": true,
+    "show_dividers": false,
+    "hide_fun": true,
+    "hide": true,
+    "items": [
+        {
+            "type": "TextView",
+            "name": "NoveXare",
+            "color": "$menu_item_color",
+            "tag": "extra_nove_xare",
+            "items": [
+                {
+                    "type": "Switch",
+                    "key": "InteractAura",
+                    "name": "交互光环",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "Suspend",
+                    "name": "悬浮",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ClickBlock",
+                    "name": "替换方块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "FakeBuilder",
+                    "name": "放置假方块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoSelect",
+                    "name": "自动补充",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoTool",
+                    "name": "自动工具",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "LocalRespawn",
+                    "name": "原地复活",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "lr_delay",
+                    "format": "复活延迟 %dTick",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "lr_random",
+                    "format": "重生半径 %d格",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "Switch",
+                    "key": "Miner",
+                    "name": "连锁采集",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "mine_info",
+                    "name": "显示进度",
+                    "checked": true,
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "mine_white",
+                    "name": "挖掘列表",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "mine_black",
+                    "name": "排除列表",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "mine_distance",
+                    "format": "采集范围: %d格",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "mine_num",
+                    "format": "采集数量: %d个",
+                    "color": "$menu_item_color",
+                    "value": 500,
+                    "min": 1,
+                    "max": 99999
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "mine_speed",
+                    "format": "挖掘速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 50
+                },
+                {
+                    "type": "Switch",
+                    "key": "AdminShow",
+                    "name": "管理员显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "as_range",
+                    "format": "警告范围: %d",
+                    "color": "$menu_item_color",
+                    "value": 20,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "as_level",
+                    "format": "权限等级: %d",
+                    "color": "$menu_item_color",
+                    "value": 4,
+                    "min": 1,
+                    "max": 4
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoArmor",
+                    "name": "自动穿装",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "aa_mode",
+                    "name": "穿装范围",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Hotbar",
+                            "name": "快捷栏",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Inventory",
+                            "name": "物品栏",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "aa_inv",
+                    "name": "仅打开物品栏",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "aa_chest",
+                    "name": "仅开箱",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aa_delay",
+                    "format": "延迟: %d",
+                    "color": "$menu_item_color",
+                    "value": 2,
+                    "min": 1,
+                    "max": 40
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aa_times",
+                    "format": "使用次数: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "Switch",
+                    "key": "ChestAura",
+                    "name": "自动开箱",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "delete_chest",
+                    "name": "清除已打开箱子",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ca_exclude",
+                    "name": "排除已打开",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ca_wall",
+                    "name": "检测隔墙",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ca_block",
+                    "name": "检测上方方块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ca_rot",
+                    "name": "开箱转头",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ca_check",
+                    "name": "判断是否真的开箱",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ca_range",
+                    "format": "范围: %d",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ca_fov",
+                    "format": "视角限制: %d",
+                    "color": "$menu_item_color",
+                    "value": 90,
+                    "min": 1,
+                    "max": 270
+                },
+                {
+                    "type": "Switch",
+                    "key": "ChestStealer",
+                    "name": "箱子小偷",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "cs_sort",
+                    "name": "按序取物",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "cs_maxCount",
+                    "format": "最大阈值: %d个",
+                    "color": "$menu_item_color",
+                    "value": 36,
+                    "min": 1,
+                    "max": 54
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "cs_tick",
+                    "format": "单位时间: %dtick",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "cs_close",
+                    "name": "自动关闭",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "cs_delay",
+                    "format": "关闭延迟: %dTick",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 40
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "cs_other",
+                    "name": "取其他物品",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "cs_weapon",
+                    "name": "取武器",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "cs_min_damage",
+                    "format": "最小伤害: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 8
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "cs_armor",
+                    "name": "取盔甲",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "cs_min_lasting",
+                    "format": "最小耐久度: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 1000
+                },
+                {
+                    "type": "TextView",
+                    "key": "cs_white",
+                    "name": "取物白名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "cs_black",
+                    "name": "取物黑名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "cs_max",
+                    "format": "最大范围: %d",
+                    "color": "$menu_item_color",
+                    "value": 35,
+                    "min": 0,
+                    "max": 53
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "cs_min",
+                    "format": "最小范围: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 53
+                },
+                {
+                    "type": "Switch",
+                    "key": "SmartInv",
+                    "name": "智能背包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "da_delay",
+                    "format": "遍历间隔: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 60
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "da_max",
+                    "format": "最大丢弃数量: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 36
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "da_bow",
+                    "name": "仅低头",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "da_inv",
+                    "name": "仅打开背包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "da_chest",
+                    "name": "仅开箱",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "da_move",
+                    "name": "移动物品",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "da_weapon",
+                    "name": "检查武器",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "da_armor",
+                    "name": "检查装备",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "da_enchant",
+                    "name": "判断附魔",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "da_texture",
+                    "name": "判断材质",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "BlockClicker",
+                    "name": "方块连点",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "bc_packet",
+                    "name": "点击发包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "bc_delay",
+                    "format": "点击延迟: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 60
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "bc_select",
+                    "name": "选择点击坐标",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "bc_delete",
+                    "name": "清除坐标",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoPot",
+                    "name": "自动药水",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ap_autobag",
+                    "name": "开关背包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ap_min",
+                    "format": "最少药水阈值: %d个",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 0,
+                    "max": 9
+                },
+                {
+                    "type": "Switch",
+                    "key": "Scaffold",
+                    "name": "自动搭路",
+                    "color": "$menu_item_color",
+                    "shortcut": {
+                        "type": "CheckedButton",
+                        "params": [
+                            48,
+                            25
+                        ],
+                        "no_circle": true,
+                        "off": "NoveXare/Scaffold_off.png",
+                        "on": "NoveXare/Scaffold_on.png",
+                        "icon": "NoveXare/Scaffold_on.png"
+                    }
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sca_keep",
+                    "name": "保持Y轴",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "sca_len",
+                    "format": "长度: %d",
+                    "color": "$menu_item_color",
+                    "value": 2,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sca_tower",
+                    "name": "塔搭模式",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "sca_space",
+                    "format": "跳跃间隔: %d",
+                    "color": "$menu_item_color",
+                    "value": 10,
+                    "min": 1,
+                    "max": 40
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sca_acc",
+                    "name": "放置精准角度",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "sca_prec",
+                    "format": "角度精度: %d",
+                    "color": "$menu_item_color",
+                    "value": 30,
+                    "min": 1,
+                    "max": 90
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sca_count",
+                    "name": "显示方块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sca_clickRot",
+                    "name": "放置转头",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sca_moveRot",
+                    "name": "移动转头",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "sca_pitch",
+                    "format": "转头仰俯角: %d",
+                    "color": "$menu_item_color",
+                    "value": 60,
+                    "min": -90,
+                    "max": 90
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "sca_yaw",
+                    "format": "转头偏航角: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": -180,
+                    "max": 180
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sca_move",
+                    "name": "跟随移动方向",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sca_up",
+                    "name": "头顶建造",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sca_fake",
+                    "name": "放置假方块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sca_auto",
+                    "name": "防止断路",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sca_surface",
+                    "name": "自动选择面",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sca_block",
+                    "name": "自动选择方块",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sca_y",
+                    "name": "包括仰俯角",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoGG",
+                    "name": "自动下一局",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "gg_mode",
+                    "name": "重开模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Drop",
+                            "name": "丢弃",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Use",
+                            "name": "使用",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "Switch",
+                    "key": "InvCleaner",
+                    "name": "背包整理",
+                    "color": "$menu_item_color",
+                    "shortcut": {
+                        "type": "CheckedButton",
+                        "params": [
+                            48,
+                            25
+                        ],
+                        "no_circle": true,
+                        "off": "NoveXare/cleaner_off.png",
+                        "on": "NoveXare/cleaner_on.png",
+                        "icon": "NoveXare/cleaner_on.png"
+                    }
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ic_bow",
+                    "name": "仅低头",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ic_inv",
+                    "name": "仅打开物品栏",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ic_chest",
+                    "name": "仅开箱",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ic_move",
+                    "name": "移动物品",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "ic_mode",
+                    "name": "整理模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Drop",
+                            "name": "丢弃模式",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Save",
+                            "name": "保留模式",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "InterceptBlack",
+                            "name": "取物黑名单模式",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "InterceptWhite",
+                            "name": "取物白名单模式",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ic_delay",
+                    "format": "丢弃延迟: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ic_max",
+                    "format": "最大丢弃数量: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 36
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoDo",
+                    "name": "低血量操作",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ad_min",
+                    "format": "最低血量: %d",
+                    "color": "$menu_item_color",
+                    "value": 10,
+                    "min": 0,
+                    "max": 40
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ad_sword",
+                    "name": "使用完自动切剑",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "ad_mode",
+                    "name": "操作模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Hub",
+                            "name": "退出",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Again",
+                            "name": "重开",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Flashback",
+                            "name": "闪退",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Pot",
+                            "name": "喷药",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Soup",
+                            "name": "喝汤",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Helmet",
+                            "name": "金头盔",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Quit",
+                            "name": "退出游戏",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "Switch",
+                    "key": "HotbarSelector",
+                    "name": "遍历快捷栏",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "hs_item",
+                    "name": "指定选择物品",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "hs_slot",
+                    "name": "指定选择格子",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "hs_damage",
+                    "name": "遍历有伤害的",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "hs_delay",
+                    "format": "选择延迟: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 40
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoSave",
+                    "name": "自动自救",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "as_block",
+                    "name": "自动选择方块",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "as_water",
+                    "name": "自动落地水",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "as_fake",
+                    "name": "假方块模式",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "as_keep",
+                    "name": "卡空模式",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "as_near",
+                    "name": "最近方块模式",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "as_minY",
+                    "format": "最小移动值: %.2f",
+                    "color": "$menu_item_color",
+                    "value": -0.42,
+                    "min": -1,
+                    "max": 0
+                },
+                {
+                    "type": "Switch",
+                    "key": "ClickDestroy",
+                    "name": "点击破坏",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "AutoDestroy",
+                    "name": "自动破坏",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "cd_exclude",
+                    "name": "排除脚下方块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "cd_fake",
+                    "name": "假方块模式",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "cd_packet",
+                    "name": "发包模式",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "cd_size",
+                    "format": "大小: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "cd_delay",
+                    "format": "延迟: %dTick",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 40
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoTrap",
+                    "name": "粽子",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "cpvp_mode",
+                    "name": "操作",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Destroy",
+                            "name": "破坏",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Build",
+                            "name": "填充",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoCrystal",
+                    "name": "水晶光环",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ac_delay",
+                    "format": "延迟: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 40
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ac_count",
+                    "format": "放置数量: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 9
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ac_auto",
+                    "name": "自动选择",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ac_excludeY",
+                    "name": "排除同一Y",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ac_tp",
+                    "name": "传送",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoAnchor",
+                    "name": "自动重生锚",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ab_delay",
+                    "format": "延迟: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 40
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ab_offset",
+                    "format": "高度偏移: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": -3,
+                    "max": 3
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ab_auto",
+                    "name": "自动选择",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ab_click",
+                    "name": "自动点炸",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "NoFall",
+                    "name": "无掉落伤害",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "nf_mode",
+                    "name": "无伤模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Motion",
+                            "name": "移动值",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Blink",
+                            "name": "停止发包",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Timer",
+                            "name": "变速",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Packet",
+                            "name": "发包",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "nf_max",
+                    "format": "最大移动值: %.2f",
+                    "color": "$menu_item_color",
+                    "value": -0.42,
+                    "min": -1,
+                    "max": 0
+                },
+                {
+                    "type": "Switch",
+                    "key": "FastBuild",
+                    "name": "快速搭路",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fb_len",
+                    "format": "建造长度: %d",
+                    "color": "$menu_item_color",
+                    "value": 4,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fb_delay",
+                    "format": "建造延迟: %dTick",
+                    "color": "$menu_item_color",
+                    "value": 10,
+                    "min": 1,
+                    "max": 40
+                }
+            ]
+        }
+    ]
+}

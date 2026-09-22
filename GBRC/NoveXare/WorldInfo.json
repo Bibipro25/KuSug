@@ -1,0 +1,14 @@
+{
+    "difficulty": 3,
+    "flatWorldLayers": "{\"biome_id\":1,\"block_layers\":[{\"block_name\":\"minecraft:bedrock\",\"count\":1},{\"block_name\":\"minecraft:dirt\",\"count\":2},{\"block_name\":\"minecraft:grass\",\"count\":1}],\"encoding_version\":6,\"structure_options\":null,\"world_version\":\"version.post_1_18\"}\n",
+    "forceGameType": false,
+    "gameType": 1,
+    "levelName": "world",
+    "randomSeed": 8283341482827966000,
+    "time": 5000,
+    "lightningLevel": 0,
+    "lightningTime": 169096,
+    "rainLevel": 0,
+    "rainTime": 119598,
+    "randomTickSpeed": 1
+}

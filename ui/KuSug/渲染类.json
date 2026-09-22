@@ -1,0 +1,1675 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-渲染类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "TextView",
+      "name": "保存此类别配置",
+      "color": "$menu_item_color",
+      "save_menu_config": "渲染类",
+      "tip": "已保存配置"
+    },
+    {
+      "type": "TextView",
+      "name": "加载此类别配置",
+      "color": "$menu_item_color",
+      "load_menu_config": "渲染类",
+      "tip": "已加载配置"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "--------",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": -2
+    },
+    {
+      "type": "Switch",
+      "name": "无粒子显示",
+      "color": "$menu_item_color",
+      "tag": "fun_no_particle",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/无粒子0.png",
+        "on": "KuSug\/无粒子1.png",
+        "off": "KuSug\/无粒子0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "effect",
+          "name": "特效",
+          "color": "$menu_item_color"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "攻击特效",
+      "color": "$menu_item_color",
+      "tag": "fun_attack_fx",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/攻击特效0.png",
+        "on": "KuSug\/攻击特效1.png",
+        "off": "KuSug\/攻击特效0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "attack_fx_sound",
+          "name": "雷击音效",
+          "color": "$menu_item_color",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "死亡特效",
+      "color": "$menu_item_color",
+      "tag": "fun_death_fx",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "death_fx_only_mob",
+          "name": "仅实体",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "death_fx_only_player",
+          "name": "仅玩家",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "death_fx_sound",
+          "name": "启用音效",
+          "color": "$menu_item_color",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "动态模糊",
+      "color": "$menu_item_color",
+      "tag": "fun_motion_blur",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/动态模糊0.png",
+        "on": "KuSug\/动态模糊1.png",
+        "off": "KuSug\/动态模糊0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "motion_blur_intensity",
+          "format": "模糊强度%d",
+          "color": "$menu_item_color",
+          "value": 60,
+          "min": 10,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "区块显示",
+      "color": "$menu_item_color",
+      "tag": "fun_chunk_display",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/区块显示0.png",
+        "on": "KuSug\/区块显示1.png",
+        "off": "KuSug\/区块显示0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "方向标",
+      "color": "$menu_item_color",
+      "tag": "fun_dir_hud",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/方向标0.png",
+        "on": "KuSug\/方向标1.png",
+        "off": "KuSug\/方向标0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "dir_offx",
+          "format": "左右微调%d",
+          "color": "$menu_item_color",
+          "value": 0,
+          "min": -200,
+          "max": 200
+        },
+        {
+          "type": "SeekBar",
+          "key": "dir_offy",
+          "format": "上下微调%d",
+          "color": "$menu_item_color",
+          "value": 0,
+          "min": -200,
+          "max": 200
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "雷达",
+      "color": "$menu_item_color",
+      "tag": "fun_radar",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/雷达0.png",
+        "on": "KuSug\/雷达1.png",
+        "off": "KuSug\/雷达0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "rd_show_player",
+          "name": "显示玩家",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "rd_show_mob",
+          "name": "显示实体",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "SeekBar",
+          "key": "rd_offx",
+          "format": "左右比例%d%%",
+          "color": "$menu_item_color",
+          "value": 65,
+          "min": 0,
+          "max": 100
+        },
+        {
+          "type": "SeekBar",
+          "key": "rd_offy",
+          "format": "上下比例%d%%",
+          "color": "$menu_item_color",
+          "value": 16,
+          "min": 0,
+          "max": 100
+        },
+        {
+          "type": "SeekBar",
+          "key": "rd_range",
+          "format": "显示范围%d格",
+          "color": "$menu_item_color",
+          "value": 64,
+          "min": 16,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "掉落物统计",
+      "color": "$menu_item_color",
+      "tag": "fun_item_hud",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/掉落统计0.png",
+        "on": "KuSug\/掉落统计1.png",
+        "off": "KuSug\/掉落统计0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "RadioGroup",
+          "name": "----位置----",
+          "color": "$menu_item_color",
+          "key": "ih_side",
+          "items": [
+            {
+              "key": "ih_side_0",
+              "name": "居左",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "ih_side_1",
+              "name": "居右",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "SeekBar",
+          "key": "ih_offx",
+          "format": "左右微调%d",
+          "color": "$menu_item_color",
+          "value": 0,
+          "min": -200,
+          "max": 200
+        },
+        {
+          "type": "SeekBar",
+          "key": "ih_offy",
+          "format": "上下微调%d",
+          "color": "$menu_item_color",
+          "value": 0,
+          "min": -200,
+          "max": 200
+        },
+        {
+          "type": "SeekBar",
+          "key": "ih_maxrows",
+          "format": "最多显示%d行",
+          "color": "$menu_item_color",
+          "value": 14,
+          "min": 1,
+          "max": 14
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "移除隐身",
+      "color": "$menu_item_color",
+      "tag": "fun_no_invis",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/移除隐身0.png",
+        "on": "KuSug\/移除隐身1.png",
+        "off": "KuSug\/移除隐身0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "无限夜视",
+      "color": "$menu_item_color",
+      "tag": "fun_night_vision",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/无限夜视0.png",
+        "on": "KuSug\/无限夜视1.png",
+        "off": "KuSug\/无限夜视0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "实体追踪",
+      "color": "$menu_item_color",
+      "tag": "fun_tracer",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/实体追踪0.png",
+        "on": "KuSug\/实体追踪1.png",
+        "off": "KuSug\/实体追踪0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "rainbow",
+          "name": "彩虹",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "player",
+          "name": "玩家",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "mob",
+          "name": "生物",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "item",
+          "name": "掉落物",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "ignore_invisibility",
+          "name": "忽略隐身",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "line_width",
+          "format": "线条宽度%.1f",
+          "color": "$menu_item_color",
+          "value": 3.0,
+          "min": 1.0,
+          "max": 8.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "max_count",
+          "format": "最大数量%d",
+          "color": "$menu_item_color",
+          "value": 50,
+          "min": 1,
+          "max": 100
+        },
+        {
+          "type": "SeekBar",
+          "key": "max_distance",
+          "format": "最大距离%.2f",
+          "color": "$menu_item_color",
+          "value": 100.0,
+          "min": 50.0,
+          "max": 500.0
+        },
+        {
+          "type": "ColorPicker",
+          "key": "color",
+          "name": "自定义颜色",
+          "color": "$menu_item_color",
+          "default_color": "#FFFFFF",
+          "ok": "确定",
+          "cancel": "取消"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "ESP",
+      "color": "$menu_item_color",
+      "tag": "fun_esp",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/ESP0.png",
+        "on": "KuSug\/ESP1.png",
+        "off": "KuSug\/ESP0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "rainbow",
+          "name": "彩虹",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "player",
+          "name": "玩家",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "mob",
+          "name": "生物",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "item",
+          "name": "掉落物",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "ignore_invisibility",
+          "name": "忽略隐身",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "line_width",
+          "format": "线条宽度%.1f",
+          "color": "$menu_item_color",
+          "value": 3.0,
+          "min": 1.0,
+          "max": 8.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "max_count",
+          "format": "最大数量%d",
+          "color": "$menu_item_color",
+          "value": 50,
+          "min": 1,
+          "max": 100
+        },
+        {
+          "type": "SeekBar",
+          "key": "max_distance",
+          "format": "最大距离%.2f",
+          "color": "$menu_item_color",
+          "value": 100.0,
+          "min": 50.0,
+          "max": 500.0
+        },
+        {
+          "type": "ColorPicker",
+          "key": "color",
+          "name": "自定义颜色",
+          "color": "$menu_item_color",
+          "default_color": "#FFFFFF",
+          "ok": "确定",
+          "cancel": "取消"
+        },
+        {
+          "type": "RadioGroup",
+          "name": "渲染模式",
+          "color": "$menu_item_color",
+          "key": "mode",
+          "items": [
+            {
+              "key": "2d",
+              "name": "2D",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "2d_fill",
+              "name": "2D填充",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "3d",
+              "name": "3D",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "3d_fill",
+              "name": "3D填充",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "容器模糊",
+      "color": "$menu_item_color",
+      "tag": "fun_container_blur",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "cb_intensity",
+          "format": "模糊强度%d%%",
+          "color": "$menu_item_color",
+          "value": 60,
+          "min": 10,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "小地图",
+      "color": "$menu_item_color",
+      "tag": "fun_minimap",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/小地图0.png",
+        "on": "KuSug\/小地图1.png",
+        "off": "KuSug\/小地图0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "minimap_show_biome",
+          "name": "群系文本",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "SeekBar",
+          "key": "minimap_zoom",
+          "format": "地图缩放百分比%d",
+          "color": "$menu_item_color",
+          "value": 90,
+          "min": 50,
+          "max": 300
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "运动相机",
+      "color": "$menu_item_color",
+      "tag": "fun_move_camera",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/运动相机0.png",
+        "on": "KuSug\/运动相机1.png",
+        "off": "KuSug\/运动相机0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "MoveCameraAmplitude",
+          "format": "运动幅度 %d",
+          "color": "$menu_item_color",
+          "value": 3,
+          "min": 1,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自定义雾颜色",
+      "color": "$menu_item_color",
+      "tag": "fun_fog_color",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/雾颜色0.png",
+        "on": "KuSug\/雾颜色1.png",
+        "off": "KuSug\/雾颜色0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "rainbow",
+          "name": "彩虹",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "ColorPicker",
+          "key": "color",
+          "name": "自定义颜色",
+          "color": "$menu_item_color",
+          "default_color": "#FFFFFF",
+          "ok": "确定",
+          "cancel": "取消"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自定义实体颜色",
+      "color": "$menu_item_color",
+      "tag": "fun_mob_color",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/实体颜色0.png",
+        "on": "KuSug\/实体颜色1.png",
+        "off": "KuSug\/实体颜色0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "rainbow",
+          "name": "彩虹",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "ColorPicker",
+          "key": "color",
+          "name": "自定义颜色",
+          "color": "$menu_item_color",
+          "default_color": "#FFFFFF",
+          "ok": "确定",
+          "cancel": "取消"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自定义受击颜色",
+      "color": "$menu_item_color",
+      "tag": "fun_hurt_color",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/受击颜色0.png",
+        "on": "KuSug\/受击颜色1.png",
+        "off": "KuSug\/受击颜色0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "rainbow",
+          "name": "彩虹",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "ColorPicker",
+          "key": "color",
+          "name": "自定义颜色",
+          "color": "$menu_item_color",
+          "default_color": "#FFFFFF",
+          "ok": "确定",
+          "cancel": "取消"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "方块透视",
+      "color": "$menu_item_color",
+      "tag": "fun_xray",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/方块透视0.png",
+        "on": "KuSug\/方块透视1.png",
+        "off": "KuSug\/方块透视0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "regex:ore|ancient_debris",
+          "name": "矿物",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "regex:lava|water",
+          "name": "液体",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "regex:chest|shulker_box",
+          "name": "箱子",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "regex:portal|amethyst_block|ancient_debris|command_block|repeating_command_block|chain_command_block|structure_block|deny|allow|bedrock|border_block",
+          "name": "其它",
+          "color": "$menu_item_color",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "方块渲染",
+      "color": "$menu_item_color",
+      "tag": "fun_block_render",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/方块渲染0.png",
+        "on": "KuSug\/方块渲染1.png",
+        "off": "KuSug\/方块渲染0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "minecraft:chemistry_table",
+          "name": "[快捷]化学容器",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "minecraft:smithing_table",
+          "name": "[快捷]锻造台",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "rainbow",
+          "name": "彩虹",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "TextView",
+          "key": "list",
+          "name": "显示列表",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "TextView",
+          "key": "add",
+          "name": "添加新方块",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "TextView",
+          "key": "remove",
+          "name": "移除方块",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "count",
+          "format": "最大渲染数%d",
+          "color": "$menu_item_color",
+          "value": 50,
+          "min": 1,
+          "max": 100
+        },
+        {
+          "type": "SeekBar",
+          "key": "distance",
+          "format": "渲染距离%.2f",
+          "color": "$menu_item_color",
+          "value": 50.0,
+          "min": 1.0,
+          "max": 1000.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "方块轮廓",
+      "color": "$menu_item_color",
+      "tag": "fun_block_outline",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/方块轮廓0.png",
+        "on": "KuSug\/方块轮廓1.png",
+        "off": "KuSug\/方块轮廓0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "rainbow",
+          "name": "彩虹",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "SeekBar",
+          "key": "line_width",
+          "format": "线条宽度%.1f",
+          "color": "$menu_item_color",
+          "value": 3.0,
+          "min": 1.0,
+          "max": 8.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "名称渲染",
+      "color": "$menu_item_color",
+      "tag": "fun_name_tags",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/名称渲染0.png",
+        "on": "KuSug\/名称渲染1.png",
+        "off": "KuSug\/名称渲染0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "player",
+          "name": "玩家",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "mob",
+          "name": "生物",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "ignore_invisibility",
+          "name": "忽略隐身",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "show_name",
+          "name": "显示名称",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "show_health",
+          "name": "显示血量",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "show_armor",
+          "name": "显示装备",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "show_weapon",
+          "name": "显示武器",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "show_distance",
+          "name": "显示距离",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "show_position",
+          "name": "显示坐标",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "RadioGroup",
+          "name": "渲染模式",
+          "color": "$menu_item_color",
+          "key": "mode",
+          "items": [
+            {
+              "key": "3d",
+              "name": "3D",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "2d",
+              "name": "2D",
+              "color": "$menu_item_color",
+              "checked": true
+            }
+          ]
+        },
+        {
+          "type": "CheckBox",
+          "key": "rainbow",
+          "name": "彩虹",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "distance_scaled",
+          "name": "距离缩进",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "SeekBar",
+          "key": "size",
+          "format": "文本大小%.2f",
+          "color": "$menu_item_color",
+          "value": 2.0,
+          "min": 0.1,
+          "max": 50.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "min_scale",
+          "format": "最小缩放%.2f",
+          "color": "$menu_item_color",
+          "value": 20.0,
+          "min": 0.1,
+          "max": 30.0
+        },
+        {
+          "type": "ColorPicker",
+          "key": "color",
+          "name": "自定义颜色",
+          "color": "$menu_item_color",
+          "default_color": "#FF0000",
+          "ok": "确定",
+          "cancel": "取消"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "箱子渲染",
+      "color": "$menu_item_color",
+      "tag": "fun_chest_esp",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/箱子渲染0.png",
+        "on": "KuSug\/箱子渲染1.png",
+        "off": "KuSug\/箱子渲染0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "rainbow",
+          "name": "彩虹",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "map_color",
+          "name": "显示自身颜色",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "show_name",
+          "name": "显示名称",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "show_distance",
+          "name": "显示距离",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "show_position",
+          "name": "显示坐标",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "show_count",
+          "name": "显示物品数量",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "show_items",
+          "name": "显示物品信息",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "size",
+          "format": "文本大小%.2f",
+          "color": "$menu_item_color",
+          "value": 2.99,
+          "min": 0.1,
+          "max": 50.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "line_width",
+          "format": "线条宽度%.1f",
+          "color": "$menu_item_color",
+          "value": 5.0,
+          "min": 1.0,
+          "max": 8.0
+        },
+        {
+          "type": "ColorPicker",
+          "key": "color",
+          "name": "自定义颜色",
+          "color": "$menu_item_color",
+          "default_color": "#FFFFFF",
+          "ok": "确定",
+          "cancel": "取消"
+        },
+        {
+          "type": "RadioGroup",
+          "name": "渲染模式",
+          "color": "$menu_item_color",
+          "key": "mode",
+          "items": [
+            {
+              "key": "3d",
+              "name": "3D",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "3d_fill",
+              "name": "3D填充",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "中国帽",
+      "color": "$menu_item_color",
+      "tag": "fun_china_hat",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/中国帽0.png",
+        "on": "KuSug\/中国帽1.png",
+        "off": "KuSug\/中国帽0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "size",
+          "format": "尺寸%.1f",
+          "color": "$menu_item_color",
+          "value": 0.6,
+          "min": 0.1,
+          "max": 1.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "rainbow",
+          "name": "彩虹",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "players",
+          "name": "所有玩家",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "ColorPicker",
+          "key": "color",
+          "name": "自定义颜色",
+          "color": "$menu_item_color",
+          "default_color": "#6FFFFF",
+          "ok": "确定",
+          "cancel": "取消"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "落地波纹",
+      "color": "$menu_item_color",
+      "tag": "fun_jump_circles",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/落地波纹0.png",
+        "on": "KuSug\/落地波纹1.png",
+        "off": "KuSug\/落地波纹0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "size",
+          "format": "尺寸%.2f",
+          "color": "$menu_item_color",
+          "value": 0.02,
+          "min": 0.01,
+          "max": 0.20
+        },
+        {
+          "type": "SeekBar",
+          "key": "time",
+          "format": "时长%dms",
+          "color": "$menu_item_color",
+          "value": 5000,
+          "min": 1000,
+          "max": 10000
+        },
+        {
+          "type": "SeekBar",
+          "key": "ring_count",
+          "format": "波纹数%d",
+          "color": "$menu_item_color",
+          "value": 1,
+          "min": 1,
+          "max": 32
+        },
+        {
+          "type": "CheckBox",
+          "key": "rainbow",
+          "name": "彩虹",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "ColorPicker",
+          "key": "color",
+          "name": "自定义颜色",
+          "color": "$menu_item_color",
+          "default_color": "#6FFFFF",
+          "ok": "确定",
+          "cancel": "取消"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "主界面模块",
+      "color": "$menu_item_color",
+      "tag": "fun_hud_module",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/主界面0.png",
+        "on": "KuSug\/主界面1.png",
+        "off": "KuSug\/主界面0.png",
+        "no_circle": true
+      },
+      "checked": true,
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "show_armor",
+          "name": "显示装备信息",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "array_list",
+          "name": "显示功能信息",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "short_name",
+          "name": "使用短名称",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "show_health",
+          "name": "显示实体血条",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "RadioGroup",
+          "name": "字体",
+          "color": "$menu_item_color",
+          "key": "font",
+          "items": [
+            {
+              "key": "default",
+              "name": "默认",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "smooth",
+              "name": "光滑",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "ui",
+              "name": "UI",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "unicode",
+              "name": "Unicode",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "SeekBar",
+          "key": "alpha",
+          "format": "透明度%.1f",
+          "color": "$menu_item_color",
+          "value": 0.1,
+          "min": 0.1,
+          "max": 1.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "cycle_speed",
+          "format": "循环速度%.1f",
+          "color": "$menu_item_color",
+          "value": 3.0,
+          "min": 1.0,
+          "max": 5.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "saturation",
+          "format": "颜色饱和度%.1f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": 1.0,
+          "max": 5.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "array_offset_x",
+          "format": "功能宽度偏移%.2f",
+          "color": "$menu_item_color",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 10.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "array_offset_y",
+          "format": "功能高度偏移%.2f",
+          "color": "$menu_item_color",
+          "value": 3.0,
+          "min": 0.0,
+          "max": 10.0
+        }
+      ],
+      "invoke_methods": [
+        {
+          "name": "setEnabled",
+          "arguments": [
+            "boolean"
+          ],
+          "parameters": [
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "视图模型",
+      "color": "$menu_item_color",
+      "tag": "fun_view_model",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/视图模型0.png",
+        "on": "KuSug\/视图模型1.png",
+        "off": "KuSug\/视图模型0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "translate",
+          "name": "平移",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "translate_x",
+          "format": "X轴平移%.3f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "translate_y",
+          "format": "Y轴平移%.3f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "translate_z",
+          "format": "Z轴平移%.3f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "rotate",
+          "name": "旋转",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "rotate_angle",
+          "format": "旋转角度%.3f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 6.3
+        },
+        {
+          "type": "SeekBar",
+          "key": "rotate_x",
+          "format": "X轴旋转%.3f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "rotate_y",
+          "format": "Y轴旋转%.3f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "rotate_z",
+          "format": "Z轴旋转%.3f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "scale",
+          "name": "缩放",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "scale_x",
+          "format": "X轴缩放%.3f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "scale_y",
+          "format": "Y轴缩放%.3f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "scale_z",
+          "format": "Z轴缩放%.3f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "swing_animation",
+          "name": "手持动画",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "RadioGroup",
+          "name": "手持动画类型",
+          "color": "$menu_item_color",
+          "key": "swing_animation_type",
+          "items": [
+            {
+              "key": "1",
+              "name": "1",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "2",
+              "name": "2",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "3",
+              "name": "3",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

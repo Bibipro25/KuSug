@@ -1,0 +1,556 @@
+{
+    "type": "Menu",
+    "title": {
+        "name": "『建筑工具』",
+        "size": 16,
+        "elevation": 3,
+        "background": "$menu_title_background_color",
+        "padding": [
+            4,
+            2,
+            4,
+            2
+        ],
+        "text_margins": [3, 2, 3, 2],
+        "colors": [
+            "$menu_title_gradient_text_begin_color",
+            "$menu_title_gradient_text_end_color"
+        ]
+    },
+    "color": "$menu_color",
+    "alpha": 0.85,
+    "radius": 8,
+    "can_close": true,
+    "hide_fun": true,
+    "hide": true,
+    "items": [
+        {
+            "type": "TextView",
+            "name": "新手教程",
+            "color": "$menu_item_color",
+            "load_script": "建筑工具Rebirth-引导.js"
+        },
+        {
+            "type": "TextView",
+            "name": "加载脚本",
+            "color": "$menu_item_color",
+            "load_script": "Rebirth.js"
+        },
+        {
+            "type": "GradientTextView",
+            "name": "━━━━",
+            "start_color": "#00BFFF",
+            "end_color": "#8A2BE2"
+        },
+        {
+            "type": "TextView",
+            "name": "配置菜单",
+            "color": "$menu_item_color",
+            "open": "Rebirth/设置项"
+        },
+        {
+            "type": "TextView",
+            "name": "工具菜单",
+            "color": "$menu_item_color",
+            "open": "Rebirth/工具项"
+        },
+        {
+            "type": "GradientTextView",
+            "name": "━━━━",
+            "start_color": "#00BFFF",
+            "end_color": "#8A2BE2"
+        },
+        {
+            "type": "Switch",
+            "name": "建筑工具",
+            "color": "$menu_item_color",
+            "checked": true,
+            "tag": "build_tool_rebirth",
+            "items": [
+                {
+                    "type": "TextView",
+                    "name": "退出脚本",
+                    "color": "$menu_item_color",
+                    "key": "EXIT"
+                },
+                {
+                    "type": "TextView",
+                    "name": "保存配置",
+                    "color": "$menu_item_color",
+                    "key": "SAVE"
+                },
+                {
+                    "type": "TextView",
+                    "name": "加载配置",
+                    "color": "$menu_item_color",
+                    "key": "LOAD"
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "Switch",
+                    "key": "CLICK_COPY",
+                    "name": "点击导出",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "name": "坐标导出",
+                    "color": "$menu_item_color",
+                    "key": "DUMP_BUILDINGS"
+                },
+                {
+                    "type": "TextView",
+                    "name": "两点导出",
+                    "color": "$menu_item_color",
+                    "key": "POINT_COPY"
+                },
+                {
+                    "type": "TextView",
+                    "name": "快速导出",
+                    "color": "$menu_item_color",
+                    "key": "FAST_COPY"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "FASTCOPY_XZ",
+                    "format": "水平大小: %d",
+                    "color": "$menu_item_color",
+                    "value": 50,
+                    "min": 1,
+                    "max": 500
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "FASTCOPY_Y",
+                    "format": "垂直大小: %d",
+                    "color": "$menu_item_color",
+                    "value": 25,
+                    "min": 1,
+                    "max": 160
+                },
+                {
+                    "type": "TextView",
+                    "name": "取消导出",
+                    "color": "$menu_item_color",
+                    "key": "CANCEL_EXPORT"
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "TextView",
+                    "name": "搜索文件",
+                    "color": "$menu_item_color",
+                    "key": "SEARCH"
+                },
+                {
+                    "type": "TextView",
+                    "name": "导入存档",
+                    "color": "$menu_item_color",
+                    "key": "IMPORT_WORLD"
+                },
+                {
+                    "type": "TextView",
+                    "name": "导入音乐",
+                    "color": "$menu_item_color",
+                    "key": "SELECT_SOUND"
+                },
+                {
+                    "type": "TextView",
+                    "name": "导入建筑",
+                    "color": "$menu_item_color",
+                    "key": "SELECT_BUILDINGS"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SET_POS",
+                    "name": "设置导入坐标",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "STOP",
+                    "name": "暂停导入",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "name": "撤销导入",
+                    "color": "$menu_item_color",
+                    "key": "UNDO"
+                },
+                {
+                    "type": "TextView",
+                    "name": "结束任务",
+                    "color": "$menu_item_color",
+                    "key": "END_TASK"
+                },
+                {
+                    "type": "TextView",
+                    "name": "取消任务",
+                    "color": "$menu_item_color",
+                    "key": "CANCEL"
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "Switch",
+                    "key": "INTERCEPT_OUTPUT",
+                    "name": "拦截指令输出",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "INTERCEPT_SETCMD",
+                    "name": "拦截命令方块输出",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "DUMP_JS",
+                    "name": "导出建筑JS文件",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "TASK_ANALYSE",
+                    "name": "任务分析",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "BDX_ANALYSE",
+                    "name": "BDX分析",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "INFO_ERROR",
+                    "name": "错误显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "CRASH_HUNTER",
+                    "name": "崩溃信息显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "DUMP_CONVERT",
+                    "name": "导出转换的建筑",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "DUMP_POSTPONE",
+                    "name": "导出置后建筑",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "Switch",
+                    "key": "CAMERA_MODE",
+                    "name": "摄像模式",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "CAMERA_RANGE",
+                    "format": "跟随范围: %d",
+                    "color": "$menu_item_color",
+                    "value": 4,
+                    "min": 1,
+                    "max": 128
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "CAMERA_ZOOM",
+                    "format": "缩放倍数: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": -5,
+                    "max": 10
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "CAMERA_Y",
+                    "format": "高度偏移: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": -5,
+                    "max": 5
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SMART_DUMP",
+                    "name": "智能导出",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "name": "取消任务",
+                    "color": "$menu_item_color",
+                    "key": "CANCEL_SMART"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "DUMP_CONFIRM",
+                    "name": "导出确认",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "DUMP_TP",
+                    "name": "导出传送",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "EditText",
+                    "key": "DUMP_TP_DIST",
+                    "name": "传送最小距离",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "64"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "DUMP_SPEED",
+                    "format": "导出速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 200
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "DUMP_DISTANCE",
+                    "format": "导出距离: %d 格",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 1,
+                    "max": 1000
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "DUMP_NUM",
+                    "format": "导出数量: %d 个",
+                    "color": "$menu_item_color",
+                    "value": 100000,
+                    "min": 1000,
+                    "max": 999999
+                },
+                {
+                    "type": "EditText",
+                    "key": "DUMPLING_NAMESPACE",
+                    "name": "排除导出列表",
+                    "color": "$menu_item_color",
+                    "max_lines": 1,
+                    "text": "air,grass,dirt"
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "Switch",
+                    "key": "BUILD_ASSIST",
+                    "name": "建筑助手",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "name": "取消任务",
+                    "color": "$menu_item_color",
+                    "key": "CANCEL_ASSIST"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ASSIST_REPLACE",
+                    "name": "替换模式",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ASSIST_FILL",
+                    "name": "填充模式",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ASSIST_SPEED",
+                    "format": "扫描速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 50
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ASSIST_DISTANCE",
+                    "format": "扫描距离: %d 格",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 1,
+                    "max": 1000
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ASSIST_NUM",
+                    "format": "扫描数量: %d 个",
+                    "color": "$menu_item_color",
+                    "value": 100000,
+                    "min": 1000,
+                    "max": 999999
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SURVIVAL_MODE",
+                    "name": "生存导入",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "INFO_BLOCKS",
+                    "name": "显示方块列表",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "SURVIVAL_DISTANCE",
+                    "format": "放置距离: %d",
+                    "color": "$menu_item_color",
+                    "value": 7,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "SURVIVAL_SELECT",
+                    "name": "自动方块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "SURVIVAL_NOAUX",
+                    "name": "忽略特殊值",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "SURVIVAL_EXCLUDE",
+                    "name": "排除非空气",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "SURVIVAL_DESTROY",
+                    "name": "破坏原有方块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "SURVIVAL_CHECK",
+                    "name": "确保成功放置",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "SURVIVAL_TP",
+                    "name": "自动传送",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "SURVIVAL_HEIGHT",
+                    "format": "传送高度偏移: %d",
+                    "color": "$menu_item_color",
+                    "value": 2,
+                    "min": 0,
+                    "max": 5
+                },
+                {
+                    "type": "GradientTextView",
+                    "name": "━━━━━",
+                    "start_color": "#00BFFF",
+                    "end_color": "#8A2BE2"
+                },
+                {
+                    "type": "Switch",
+                    "key": "FAST_BUILD",
+                    "name": "快速建造",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "FILL_MODE",
+                    "name": "填充模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "FILL_UP",
+                            "name": "填充",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "SURFACE",
+                            "name": "表面",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "FRAMEWORK",
+                            "name": "框架",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "REMOVE",
+                            "name": "消除",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "FB_AIR",
+                    "name": "仅替换空气",
+                    "color": "$menu_item_color"
+                }
+            ]
+        }
+    ]
+}

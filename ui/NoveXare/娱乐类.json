@@ -1,0 +1,470 @@
+{
+    "type": "Menu",
+    "title": {
+        "name": "『Misc』",
+        "size": 16,
+        "elevation": 3,
+        "background": "$menu_title_background_color",
+        "padding": [
+            4,
+            2,
+            4,
+            2
+        ],
+        "text_margins": [3, 2, 3, 2],
+        "colors": [
+            "$menu_title_gradient_text_begin_color",
+            "$menu_title_gradient_text_end_color"
+        ]
+    },
+    "color": "$menu_color",
+    "alpha": 0.85,
+    "radius": 8,
+    "can_close": true,
+    "show_dividers": false,
+    "hide_fun": true,
+    "hide": true,
+    "items": [
+        {
+            "type": "TextView",
+            "name": "NoveXare",
+            "color": "$menu_item_color",
+            "tag": "extra_nove_xare",
+            "items": [
+                {
+                    "type": "EditText",
+                    "key": "CustomBanTip",
+                    "name": "自定义封禁信息",
+                    "color": "$menu_item_color",
+                    "max_lines": 64,
+                    "hint": "我是网易"
+                },
+                {
+                    "type": "TextView",
+                    "key": "EditBackGround",
+                    "name": "修改背景视频",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "QuitGame",
+                    "name": "退出游戏",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "RemoveSelf",
+                    "name": "移除自己",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "AttackSelf_one",
+                    "name": "攻击自己",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "KickSelf",
+                    "name": "踢出自己",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AttackSelf",
+                    "name": "攻击自己",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "FlashBack",
+                    "name": "自我崩溃",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoVoid",
+                    "name": "自动前往虚空",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ActivitySender",
+                    "name": "行为监视器",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "PVPDaLao",
+                    "name": "PVP大佬",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoSwing",
+                    "name": "自动挥手",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "RandomDrop",
+                    "name": "随机丢物品",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "RandomSelect",
+                    "name": "随机物品栏",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ThrowFly",
+                    "name": "投掷物平飞",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "EntityNBTCopy",
+                    "name": "实体NBT复制",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "BlockTagCopy",
+                    "name": "方块标签复制",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "DropInv",
+                    "name": "丢弃背包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "di_speed",
+                    "format": "丢弃速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 128
+                },
+                {
+                    "type": "Switch",
+                    "key": "FarmAura",
+                    "name": "种地光环",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fa_range",
+                    "format": "大小: %d",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 1,
+                    "max": 5
+                },
+                {
+                    "type": "Switch",
+                    "key": "RiderEdit",
+                    "name": "骑乘编辑器",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "re_cancel",
+                    "name": "取消模式",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "TargetEdit",
+                    "name": "仇恨编辑器",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "te_all",
+                    "name": "一键全选",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "te_two",
+                    "name": "双向奔赴",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "FakeChat",
+                    "name": "伪造聊天",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "fc_target",
+                    "name": "编辑对象",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "FakeWhisper",
+                    "name": "伪造悄悄话",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "fw_target",
+                    "name": "编辑对象",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "RandomArrayList",
+                    "name": "随机功能列表",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ral_length",
+                    "format": "长度: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ral_num",
+                    "format": "数量: %d",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "Switch",
+                    "key": "FunnyKill",
+                    "name": "迷你世界击杀",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "mini_title",
+                    "name": "显示大字",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "mini_delay",
+                    "format": "延迟:%ds",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 10
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoShifter",
+                    "name": "自动潜行",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "shift_tick",
+                    "format": "潜行延迟:%d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 40
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "shift_num",
+                    "format": "发包数量:%d",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "Switch",
+                    "key": "OtherUser",
+                    "name": "作用于点击实体",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "ou_recover",
+                    "name": "恢复",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "FPSReducer",
+                    "name": "自我掉帧",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fpsr_rate",
+                    "format": "掉帧程度:%d",
+                    "color": "$menu_item_color",
+                    "value": 10,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "Switch",
+                    "key": "ThrowTracer",
+                    "name": "投掷物追踪",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "tt_speed",
+                    "format": "弓箭速度:%.2f",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 0.01,
+                    "max": 10
+                },
+                {
+                    "type": "Switch",
+                    "key": "CustomKB",
+                    "name": "自定义KB",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ckb_len",
+                    "format": "远度:%d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ckb_y",
+                    "format": "高度:%.2f",
+                    "color": "$menu_item_color",
+                    "value": 0.5,
+                    "min": 0.01,
+                    "max": 1
+                },
+                {
+                    "type": "Switch",
+                    "key": "CustomItem",
+                    "name": "自定义物品",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "custom_mode",
+                    "name": "自定义模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Helmet",
+                            "name": "头盔",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Chest",
+                            "name": "胸甲",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Leggings",
+                            "name": "护腿",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Boots",
+                            "name": "靴子",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Offhand",
+                            "name": "副手",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Inventory",
+                            "name": "物品栏",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ci_slot",
+                    "format": "格子:%d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 36
+                },
+                {
+                    "type": "Switch",
+                    "key": "FakeTip",
+                    "name": "伪造提示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "fakeTip_mode",
+                    "name": "伪造类型",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "ProtoHax",
+                            "name": "ProtoHax",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "CheatPlugin",
+                            "name": "CheatPlugin",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Relic",
+                            "name": "Relic",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Kaleidoscope",
+                            "name": "Kaleidoscope",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Heal",
+                            "name": "Heal",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "ProtoHax-2",
+                            "name": "ProtoHax++",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "TianYuByte",
+                            "name": "TianYuByte",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "AdmireCreate",
+                            "name": "AdmireCreate",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

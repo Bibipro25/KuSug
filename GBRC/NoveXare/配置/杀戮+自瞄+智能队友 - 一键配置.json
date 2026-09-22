@@ -1,0 +1,13 @@
+{
+    "binds": {},
+    "key_binds": [],
+    "nx_raBinds": [],
+    "name": "再见啊空间",
+    "ka_max": 7,
+    "ka_min": 4,
+    "ka_fov": 270,
+    "Teams": true,
+    "AssistAim_mode": 1,
+    "aa_fov": 270,
+    "aa_prec": 1
+}

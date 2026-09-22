@@ -1,0 +1,539 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-移动类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "TextView",
+      "name": "保存此类别配置",
+      "color": "$menu_item_color",
+      "save_menu_config": "移动类",
+      "tip": "已保存配置"
+    },
+    {
+      "type": "TextView",
+      "name": "加载此类别配置",
+      "color": "$menu_item_color",
+      "load_menu_config": "移动类",
+      "tip": "已加载配置"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "--------",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": -2
+    },
+    {
+      "type": "Switch",
+      "name": "高跳",
+      "color": "$menu_item_color",
+      "tag": "fun_jump_high",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/高跳0.png",
+        "on": "KuSug\/高跳1.png",
+        "off": "KuSug\/高跳0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "val",
+          "format": "力度%.2f",
+          "color": "$menu_item_color",
+          "value": 0.75,
+          "min": 0.1,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "移动跳跃",
+      "color": "$menu_item_color",
+      "tag": "fun_move_jump",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/移动跳跃0.png",
+        "on": "KuSug\/移动跳跃1.png",
+        "off": "KuSug\/移动跳跃0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "自动滑翔",
+      "color": "$menu_item_color",
+      "tag": "fun_gliding",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动滑翔0.png",
+        "on": "KuSug\/自动滑翔1.png",
+        "off": "KuSug\/自动滑翔0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "自动游泳",
+      "color": "$menu_item_color",
+      "tag": "fun_swimming",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动游泳0.png",
+        "on": "KuSug\/自动游泳1.png",
+        "off": "KuSug\/自动游泳0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "自动冲刺",
+      "color": "$menu_item_color",
+      "tag": "fun_auto_sprint",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动冲刺0.png",
+        "on": "KuSug\/自动冲刺1.png",
+        "off": "KuSug\/自动冲刺0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "extra_speed",
+          "name": "额外加速",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "SeekBar",
+          "key": "speed",
+          "format": "移动速度%.1f",
+          "color": "$menu_item_color",
+          "value": 0.3,
+          "min": 0.1,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "踏空",
+      "color": "$menu_item_color",
+      "tag": "fun_air_jump",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/踏空0.png",
+        "on": "KuSug\/踏空1.png",
+        "off": "KuSug\/踏空0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "auto_jump",
+          "name": "自动跳跃",
+          "color": "$menu_item_color"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "冲刺",
+      "color": "$menu_item_color",
+      "tag": "fun_air_sprint",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/冲刺0.png",
+        "on": "KuSug\/冲刺1.png",
+        "off": "KuSug\/冲刺0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "move_speed",
+          "format": "移动速度%.2f",
+          "color": "$menu_item_color",
+          "value": 1.1,
+          "min": 0.1,
+          "max": 3.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "up_down_speed",
+          "format": "上下速度%.2f",
+          "color": "$menu_item_color",
+          "value": 2.0,
+          "min": 0.0,
+          "max": 20.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动前进",
+      "color": "$menu_item_color",
+      "tag": "fun_auto_forward",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动前进0.png",
+        "on": "KuSug\/自动前进1.png",
+        "off": "KuSug\/自动前进0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "点击传送",
+      "color": "$menu_item_color",
+      "tag": "fun_click_teleport",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/点击传送0.png",
+        "on": "KuSug\/点击传送1.png",
+        "off": "KuSug\/点击传送0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "虚空回弹",
+      "color": "$menu_item_color",
+      "tag": "fun_anti_void",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/虚空回弹0.png",
+        "on": "KuSug\/虚空回弹1.png",
+        "off": "KuSug\/虚空回弹0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "speed",
+          "format": "下落速度%.2f",
+          "color": "$menu_item_color",
+          "value": 1.3,
+          "min": 0.1,
+          "max": 3.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "无蛛网/细雪减速",
+      "color": "$menu_item_color",
+      "tag": "fun_no_web",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/无减速0.png",
+        "on": "KuSug\/无减速1.png",
+        "off": "KuSug\/无减速0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "使用物品不减速",
+      "color": "$menu_item_color",
+      "tag": "fun_no_slow_down",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/不减速0.png",
+        "on": "KuSug\/不减速1.png",
+        "off": "KuSug\/不减速0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "自动爬梯",
+      "color": "$menu_item_color",
+      "tag": "fun_auto_ladder",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动爬梯0.png",
+        "on": "KuSug\/自动爬梯1.png",
+        "off": "KuSug\/自动爬梯0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "speed",
+          "format": "速度%.3f",
+          "color": "$menu_item_color",
+          "value": 0.6,
+          "min": 0.1,
+          "max": 1.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "水上行走",
+      "color": "$menu_item_color",
+      "tag": "fun_jesus",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/水上行走0.png",
+        "on": "KuSug\/水上行走1.png",
+        "off": "KuSug\/水上行走0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "一步登天",
+      "color": "$menu_item_color",
+      "tag": "fun_step",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/一步登天0.png",
+        "on": "KuSug\/一步登天1.png",
+        "off": "KuSug\/一步登天0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "height",
+          "format": "高度%.2f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": 0.5625,
+          "max": 10.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "坐骑飞行",
+      "color": "$menu_item_color",
+      "tag": "fun_ride_flying",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/坐骑飞行0.png",
+        "on": "KuSug\/坐骑飞行1.png",
+        "off": "KuSug\/坐骑飞行0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "no_clip",
+          "name": "允许穿墙",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "no_move",
+          "name": "灵魂出窍",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "update_chunk",
+          "name": "更新区块",
+          "color": "$menu_item_color",
+          "on": "使用船飞行时开启可以自动加载区块"
+        },
+        {
+          "type": "SeekBar",
+          "key": "move_speed",
+          "format": "移动速度%.2f",
+          "color": "$menu_item_color",
+          "value": 4.0,
+          "min": 0.1,
+          "max": 20.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "up_down_speed",
+          "format": "上下速度%.2f",
+          "color": "$menu_item_color",
+          "value": 1.5,
+          "min": 0.1,
+          "max": 20.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "boat_rotation",
+          "name": "船体旋转",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "boat_rotation_threshold",
+          "format": "船体旋转阈值%.2f",
+          "color": "$menu_item_color",
+          "value": 10.0,
+          "min": 1.0,
+          "max": 90.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "boat_rotation_max",
+          "format": "船体旋转最大角度%.2f",
+          "color": "$menu_item_color",
+          "value": 5.0,
+          "min": 1.0,
+          "max": 90.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1306 @@
+{
+    "type": "Menu",
+    "title": {
+        "name": "『Combat』",
+        "size": 16,
+        "elevation": 3,
+        "background": "$menu_title_background_color",
+        "padding": [
+            4,
+            2,
+            4,
+            2
+        ],
+        "text_margins": [3, 2, 3, 2],
+        "colors": [
+            "$menu_title_gradient_text_begin_color",
+            "$menu_title_gradient_text_end_color"
+        ]
+    },
+    "color": "$menu_color",
+    "alpha": 0.85,
+    "radius": 8,
+    "can_close": true,
+    "show_dividers": false,
+    "hide_fun": true,
+    "hide": true,
+    "items": [
+        {
+            "type": "TextView",
+            "name": "NoveXare",
+            "color": "$menu_item_color",
+            "tag": "extra_nove_xare",
+            "items": [
+                {
+                    "type": "Switch",
+                    "key": "NoSlowDown",
+                    "name": "攻击无减速",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SpinAttack",
+                    "name": "激流杀戮",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "AvoidInvalid",
+                    "name": "空刀不挥手",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "Criticals",
+                    "name": "刀刀暴击",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SmartWeapon",
+                    "name": "智能武器",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "sw_mode",
+                    "name": "选择范围",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Hotbar",
+                            "name": "快捷栏",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Inventory",
+                            "name": "物品栏",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sw_open",
+                    "name": "自动打开背包",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sw_enchant",
+                    "name": "判断附魔",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sw_texture",
+                    "name": "判断材质",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "AirStuck",
+                    "name": "受击卡空",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "as_time",
+                    "format": "卡空时间: %d",
+                    "color": "$menu_item_color",
+                    "value": 10,
+                    "min": 1,
+                    "max": 40
+                },
+                {
+                    "type": "Switch",
+                    "key": "FightBack",
+                    "name": "被打还击",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fb_attack",
+                    "format": "还击次数: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fb_range",
+                    "format": "还击范围: %d",
+                    "color": "$menu_item_color",
+                    "value": 7,
+                    "min": 1,
+                    "max": 7
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "fb_mode",
+                    "name": "判断模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Mob",
+                            "name": "生物",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Target",
+                            "name": "目标",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoClicker",
+                    "name": "连点器",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ac_aimed",
+                    "name": "瞄准时启用",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ac_fov",
+                    "format": "瞄准视角限制: %d",
+                    "color": "$menu_item_color",
+                    "value": 15,
+                    "min": 1,
+                    "max": 270
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ac_use",
+                    "name": "使用物品连点",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ac_click",
+                    "name": "点击屏幕连点",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ac_max",
+                    "format": "最大APS: %d",
+                    "color": "$menu_item_color",
+                    "value": 10,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ac_min",
+                    "format": "最小APS: %d",
+                    "color": "$menu_item_color",
+                    "value": 10,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ac_times",
+                    "format": "点击倍数: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "Switch",
+                    "key": "KillAura",
+                    "name": "杀戮光环",
+                    "color": "$menu_item_color",
+                    "shortcut": {
+                        "type": "CheckedButton",
+                        "params": [
+                            48,
+                            25
+                        ],
+                        "no_circle": true,
+                        "off": "NoveXare/KillAura_off.png",
+                        "on": "NoveXare/KillAura_on.png",
+                        "icon": "NoveXare/KillAura_on.png"
+                    }
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ka_close",
+                    "name": "切服关闭",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ka_third",
+                    "name": "自动第三人称",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ka_delay",
+                    "format": "攻击延迟: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 60
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ka_max",
+                    "format": "最大APS: %d",
+                    "color": "$menu_item_color",
+                    "value": 10,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ka_min",
+                    "format": "最小APS: %d",
+                    "color": "$menu_item_color",
+                    "value": 10,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ka_times",
+                    "format": "杀戮倍数: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 50
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ka_balance",
+                    "name": "平衡APS",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ka_show",
+                    "name": "显示APS",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ka_wall",
+                    "name": "穿墙攻击",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ka_fall",
+                    "name": "仅下落攻击",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ka_infDist",
+                    "name": "无视距离",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ka_fov",
+                    "format": "视角限制: %d",
+                    "color": "$menu_item_color",
+                    "value": 90,
+                    "min": 0,
+                    "max": 270
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ka_empty",
+                    "format": "攻击空刀率: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ka_range",
+                    "format": "范围 %.2f",
+                    "color": "$menu_item_color",
+                    "value": 4,
+                    "min": 0,
+                    "max": 10
+                },
+                {
+                    "type": "Switch",
+                    "key": "InfiniteAura",
+                    "name": "百米大刀",
+                    "color": "$menu_item_color",
+                    "shortcut": {
+                        "type": "CheckedButton",
+                        "params": [
+                            48,
+                            25
+                        ],
+                        "no_circle": true,
+                        "off": "NoveXare/InfiniteAura_off.png",
+                        "on": "NoveXare/InfiniteAura_on.png",
+                        "icon": "NoveXare/InfiniteAura_on.png"
+                    }
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "ia_mode",
+                    "name": "传送模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Position",
+                            "name": "坐标",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Packet",
+                            "name": "玩家授权认证",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Move",
+                            "name": "移动玩家",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ia_back",
+                    "name": "传送回来",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ia_toClick",
+                    "name": "传送点击",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ia_comeClick",
+                    "name": "回来点击",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ia_random",
+                    "name": "随机偏移",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ia_fix",
+                    "name": "优化传送",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ia_jump",
+                    "name": "攻击跳跃",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ia_nopacket",
+                    "name": "点地不发包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ia_range",
+                    "format": "范围: %d",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 100,
+                    "max": 500
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ia_delay",
+                    "format": "延迟: %dTick",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ia_return",
+                    "format": "返回延迟: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 60
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ia_attack",
+                    "format": "攻击次数: %d次",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ia_move",
+                    "format": "传送次数: %d次",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ia_offset",
+                    "format": "Y轴偏移: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": -20,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ia_switch",
+                    "format": "遍历间隔: %dTick",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 40
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ia_multi",
+                    "name": "启用重复发包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ia_packet",
+                    "format": "发包数量: %d",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "Switch",
+                    "key": "Teams",
+                    "name": "智能队友",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "teams_name",
+                    "name": "判断名字",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "teams_armor",
+                    "name": "判断装备",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "teams_blur",
+                    "name": "模糊匹配盔甲",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "teams_slot",
+                    "format": "匹配盔甲格: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 3
+                },
+                {
+                    "type": "Switch",
+                    "key": "AssistAim",
+                    "name": "辅助瞄准",
+                    "color": "$menu_item_color",
+                    "shortcut": {
+                        "type": "CheckedButton",
+                        "params": [
+                            48,
+                            25
+                        ],
+                        "no_circle": true,
+                        "off": "NoveXare/AssistAim_off.png",
+                        "on": "NoveXare/AssistAim_on.png",
+                        "icon": "NoveXare/AssistAim_on.png"
+                    }
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "aa_auto",
+                    "name": "自动投掷物自瞄",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "aa_silent",
+                    "name": "静默自瞄",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "aa_throw",
+                    "name": "投掷物自瞄",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "aa_pred",
+                    "name": "预测自瞄",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "AssistAim_mode",
+                    "name": "瞄准模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Lock",
+                            "name": "固定速度",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Change",
+                            "name": "变化速度",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aa_speed",
+                    "format": "初速度 %d",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 30,
+                    "max": 150
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aa_g",
+                    "format": "重力加速度 %d",
+                    "color": "$menu_item_color",
+                    "value": 16,
+                    "min": 0,
+                    "max": 30
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aa_y",
+                    "format": "Y轴偏移 %d",
+                    "color": "$menu_item_color",
+                    "value": 20,
+                    "min": 0,
+                    "max": 40
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aa_xz",
+                    "format": "左右随机偏移幅度 %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 40
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aa_randomY",
+                    "format": "上下随机偏移幅度 %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aa_fov",
+                    "format": "视角限制 %d",
+                    "color": "$menu_item_color",
+                    "value": 90,
+                    "min": 1,
+                    "max": 270
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aa_max",
+                    "format": "瞄准最大速度 %d",
+                    "color": "$menu_item_color",
+                    "value": 20,
+                    "min": 1,
+                    "max": 30
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aa_min",
+                    "format": "瞄准最小速度 %d",
+                    "color": "$menu_item_color",
+                    "value": 20,
+                    "min": 1,
+                    "max": 30
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aa_prec",
+                    "format": "瞄准精度 %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 10
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aa_range",
+                    "format": "范围 %.2f",
+                    "color": "$menu_item_color",
+                    "value": 7,
+                    "min": 1,
+                    "max": 50
+                },
+                {
+                    "type": "Switch",
+                    "key": "AssAssInate",
+                    "name": "暗杀",
+                    "color": "$menu_item_color",
+                    "shortcut": {
+                        "type": "CheckedButton",
+                        "params": [
+                            48,
+                            25
+                        ],
+                        "no_circle": true,
+                        "off": "NoveXare/kill_off.png",
+                        "on": "NoveXare/kill_on.png",
+                        "icon": "NoveXare/kill_on.png"
+                    }
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aai_len",
+                    "format": "距离: %d",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 0,
+                    "max": 12
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aai_max",
+                    "format": "最大高度: %d",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": -7,
+                    "max": 7
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aai_min",
+                    "format": "最小高度: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": -7,
+                    "max": 7
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aai_speed",
+                    "format": "上下速度高度: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "aai_random",
+                    "name": "随机锁定",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "Surround",
+                    "name": "环绕",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "sur_mode",
+                    "name": "环绕模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Pos",
+                            "name": "坐标",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Motion",
+                            "name": "移动值",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "sur_speed",
+                    "format": "环绕速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 0,
+                    "max": 20
+                },
+                {
+                    "type": "Switch",
+                    "key": "SafeAttack",
+                    "name": "安全攻击",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "sa_fov",
+                    "format": "视角限制: %d",
+                    "color": "$menu_item_color",
+                    "value": 50,
+                    "min": 1,
+                    "max": 270
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "sa_range",
+                    "format": "范围 %.2f",
+                    "color": "$menu_item_color",
+                    "value": 4,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "sa_size",
+                    "format": "屏幕限制 %.1f",
+                    "color": "$menu_item_color",
+                    "value": 0.8,
+                    "min": 0.1,
+                    "max": 1
+                },
+                {
+                    "type": "Switch",
+                    "key": "AttackAim",
+                    "name": "瞄准攻击",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "aa_use",
+                    "name": "使用物品",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aaa_fov",
+                    "format": "攻击视角: %d",
+                    "color": "$menu_item_color",
+                    "value": 15,
+                    "min": 1,
+                    "max": 270
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aaa_aps",
+                    "format": "攻击速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 10,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "Switch",
+                    "key": "ClickTeam",
+                    "name": "点击获取队伍",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "ct_team",
+                    "name": "编辑队伍",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "KeepDistance",
+                    "name": "控距",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "kd_anti",
+                    "name": "一键躲刀",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "kd_only_ground",
+                    "name": "仅在地面移动",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "kd_distance",
+                    "format": "距离: %d格",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 1,
+                    "max": 7
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "kd_speed",
+                    "format": "移动速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 15
+                },
+                {
+                    "type": "Switch",
+                    "key": "AntiAim",
+                    "name": "反瞄准",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "aaim_rot",
+                    "name": "判断视角",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aaim_dist",
+                    "format": "最小距离: %d格",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 1,
+                    "max": 7
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aaim_fov",
+                    "format": "最小视角: %d",
+                    "color": "$menu_item_color",
+                    "value": 30,
+                    "min": 1,
+                    "max": 270
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "aaim_hurt",
+                    "name": "判断受伤",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aaim_speed",
+                    "format": "躲避距离: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 0,
+                    "max": 10
+                },
+                {
+                    "type": "Switch",
+                    "key": "Trace",
+                    "name": "自动追踪",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "tra_speed",
+                    "format": "速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 1,
+                    "max": 12
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "tra_range",
+                    "format": "最小范围: %d",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 1,
+                    "max": 7
+                },
+                {
+                    "type": "Switch",
+                    "key": "AttackMessage",
+                    "name": "攻击嘲讽",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "am_text",
+                    "name": "编辑文本",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "KillMessage",
+                    "name": "击杀嘲讽",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "km_hide",
+                    "name": "隐藏提示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "km_text",
+                    "name": "编辑文本",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "Rider",
+                    "name": "骑人",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rid_random",
+                    "name": "随机偏移",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "rid_y",
+                    "format": "高度: %d",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 0,
+                    "max": 7
+                },
+                {
+                    "type": "Switch",
+                    "key": "CrystalAura",
+                    "name": "攻击水晶",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "ca_block",
+                    "name": "阻挡伤害",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "ca_distTo",
+                    "format": "离目标距离: %d",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 0,
+                    "max": 9
+                },
+                {
+                    "type": "Switch",
+                    "key": "AntiKB",
+                    "name": "反击退",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "akb_rare",
+                    "format": "反击退概率: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "akb_y",
+                    "format": "垂直抗性: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": -100,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "akb_hor",
+                    "format": "水平抗性: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 100,
+                    "min": -100,
+                    "max": 100
+                },
+                {
+                    "type": "Switch",
+                    "key": "HitBox",
+                    "name": "碰撞箱",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "hb_hor",
+                    "format": "水平碰撞箱: %.2f",
+                    "color": "$menu_item_color",
+                    "value": 2,
+                    "min": 0.1,
+                    "max": 10
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "hb_y",
+                    "format": "垂直碰撞箱: %.2f",
+                    "color": "$menu_item_color",
+                    "value": 1.8,
+                    "min": 0.1,
+                    "max": 10
+                },
+                {
+                    "type": "Switch",
+                    "key": "Sucker",
+                    "name": "黑洞",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "suck_range",
+                    "format": "范围: %d",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 1,
+                    "max": 12
+                },
+                {
+                    "type": "Switch",
+                    "key": "FightBot",
+                    "name": "自动战斗",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fb_chest",
+                    "name": "自动前往箱子",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fb_weapon",
+                    "name": "自动武器",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fb_sca",
+                    "name": "自动搭路",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fb_combo",
+                    "name": "自动连击",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fb_jump",
+                    "name": "自动跳跃",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fb_randJump",
+                    "name": "随机跳跃",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fb_randMove",
+                    "name": "随机左右移动",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fb_ka",
+                    "name": "使用杀戮",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fb_aa",
+                    "name": "使用自瞄",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fb_kd",
+                    "name": "使用控距",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fb_legal",
+                    "name": "模拟正常移动",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fb_seek",
+                    "format": "索敌范围: %.2f",
+                    "color": "$menu_item_color",
+                    "value": 4,
+                    "min": 0,
+                    "max": 10
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fb_jumpRate",
+                    "format": "跳跃概率: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 33,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fb_heal",
+                    "format": "药水最低血量: %d",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 40
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fb_snowRate",
+                    "format": "雪球使用概率: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fb_fishRate",
+                    "format": "鱼竿使用概率: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 0,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fb_moveRate",
+                    "format": "移动概率: %d%%",
+                    "color": "$menu_item_color",
+                    "value": 33,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fb_moveSpeed",
+                    "format": "移动速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 30
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fb_y",
+                    "format": "跳跃高度: %.2f",
+                    "color": "$menu_item_color",
+                    "value": 0.42,
+                    "min": 0,
+                    "max": 1
+                },
+                {
+                    "type": "Switch",
+                    "key": "AvoidThrow",
+                    "name": "躲避投掷物",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "at_remove",
+                    "name": "移除躲避的实体",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "at_range",
+                    "format": "范围: %.2f",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 0.1,
+                    "max": 5
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "avoid_mode",
+                    "name": "躲避模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Move",
+                            "name": "移动",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Attack",
+                            "name": "攻击",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "RunAway",
+                            "name": "跑路",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

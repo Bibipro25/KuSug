@@ -1,0 +1,6 @@
+{
+  "thread_default_count": 500,
+  "thread_max_count": 1000,
+  "min_password_value": 0,
+  "max_password_value": 999999
+}

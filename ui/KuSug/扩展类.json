@@ -1,0 +1,731 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-扩展类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "Switch",
+      "name": "获取信息",
+      "color": "$menu_item_color",
+      "tag": "query_player",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/获取信息0.png",
+        "on": "KuSug\/获取信息1.png",
+        "off": "KuSug\/获取信息0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "EditText",
+          "name": "玩家昵称",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "输入玩家昵称",
+          "key": "playername",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自定义刷屏",
+      "color": "$menu_item_color",
+      "tag": "fun_msg_brush",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/快速刷屏0.png",
+        "on": "KuSug\/快速刷屏1.png",
+        "off": "KuSug\/快速刷屏0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "EditText",
+          "name": "刷屏文本",
+          "color": "$menu_item_color",
+          "max_lines": 3,
+          "hint": "输入自定义文本",
+          "key": "msg_text",
+          "text": ""
+        },
+        {
+          "type": "SeekBar",
+          "key": "msg_speed",
+          "format": "刷屏速度%d",
+          "color": "$menu_item_color",
+          "value": 1,
+          "min": 1,
+          "max": 60
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "GM菜单",
+      "color": "$menu_item_color",
+      "tag": "fun_gm_panel",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3"
+    },
+    {
+      "type": "Switch",
+      "name": "皮肤修改",
+      "color": "$menu_item_color",
+      "tag": "fun_skin_tryon",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "on": "正在加载皮肤数据...",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/皮肤修改0.png",
+        "on": "KuSug\/皮肤修改1.png",
+        "off": "KuSug\/皮肤修改0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "材质包注入",
+      "color": "$menu_item_color",
+      "tag": "fun_tex_inject",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/材质包注入0.png",
+        "on": "KuSug\/材质包注入1.png",
+        "off": "KuSug\/材质包注入0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "tex_restore",
+          "name": "还原材质",
+          "color": "$menu_item_color",
+          "checked": false
+        }
+      ]
+    },
+    {
+	  "type": "Switch",
+	  "name": "视频替换",
+	  "color": "$menu_item_color",
+      "tag": "fun_login_video",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+        "type": "CheckBox",
+        "key": "lv_restore",
+        	"name": "恢复官方",
+        	"color": "$menu_item_color"
+	    }
+	  ]
+	},
+    {
+      "type": "Switch",
+      "name": "虚影屏障",
+      "color": "$menu_item_color",
+      "tag": "fun_ghost_barrier",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/虚影屏障0.png",
+        "on": "KuSug\/虚影屏障1.png",
+        "off": "KuSug\/虚影屏障0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "RadioGroup",
+          "name": "目标",
+          "color": "$menu_item_color",
+          "key": "gb_target",
+          "items": [
+            {
+              "key": "gb_target_self",
+              "name": "自己",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "gb_target_all",
+              "name": "全部玩家",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "gb_target_pick",
+              "name": "指定玩家(选中弹表单)",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "CheckBox",
+          "key": "gb_exclude_me",
+          "name": "全部玩家时排除自己",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "RadioGroup",
+          "name": "形状",
+          "color": "$menu_item_color",
+          "key": "gb_shape",
+          "items": [
+            {
+              "key": "gb_shape_box",
+              "name": "包围盒",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "gb_shape_preset",
+              "name": "预设文件(选中弹表单)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "gb_shape_text",
+              "name": "自定义文本",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "RadioGroup",
+          "name": "显示方向",
+          "color": "$menu_item_color",
+          "key": "gb_orient",
+          "items": [
+            {
+              "key": "gb_orient_v",
+              "name": "竖立",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "gb_orient_h",
+              "name": "平躺(铺在地上)",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "RadioGroup",
+          "name": "排版",
+          "color": "$menu_item_color",
+          "key": "gb_writing",
+          "items": [
+            {
+              "key": "gb_writing_row",
+              "name": "横排",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "gb_writing_col",
+              "name": "竖排",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "CheckBox",
+          "key": "gb_flip_x",
+          "name": "左右镜像",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "CheckBox",
+          "key": "gb_flip_y",
+          "name": "上下翻转",
+          "color": "$menu_item_color",
+          "checked": false
+        },
+        {
+          "type": "EditText",
+          "name": "虚影文本",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "建议10字内",
+          "key": "gb_text",
+          "text": ""
+        },
+        {
+          "type": "SeekBar",
+          "key": "gb_scale",
+          "format": "整体大小 %d",
+          "color": "$menu_item_color",
+          "value": 1,
+          "min": 1,
+          "max": 4
+        },
+        {
+          "type": "SeekBar",
+          "key": "gb_spin",
+          "format": "旋转速度 %d",
+          "color": "$menu_item_color",
+          "value": 0,
+          "min": 0,
+          "max": 36
+        },
+        {
+          "type": "SeekBar",
+          "key": "gb_offset_y",
+          "format": "上下偏移 %d",
+          "color": "$menu_item_color",
+          "value": 0,
+          "min": 0,
+          "max": 8
+        },
+        {
+          "type": "EditText",
+          "name": "X轴偏移",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "-16到16,默认0",
+          "key": "gb_offset_x",
+          "text": ""
+        },
+        {
+          "type": "EditText",
+          "name": "Z轴偏移",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "-16到16,默认0",
+          "key": "gb_offset_z",
+          "text": ""
+        },
+        {
+          "type": "SeekBar",
+          "key": "gb_range_x",
+          "format": "范围X %d",
+          "color": "$menu_item_color",
+          "value": 1,
+          "min": 0,
+          "max": 8
+        },
+        {
+          "type": "SeekBar",
+          "key": "gb_range_y",
+          "format": "高度Y %d",
+          "color": "$menu_item_color",
+          "value": 2,
+          "min": 0,
+          "max": 8
+        },
+        {
+          "type": "SeekBar",
+          "key": "gb_range_z",
+          "format": "范围Z %d",
+          "color": "$menu_item_color",
+          "value": 1,
+          "min": 0,
+          "max": 8
+        },
+        {
+          "type": "SeekBar",
+          "key": "gb_interval",
+          "format": "发送间隔%d",
+          "color": "$menu_item_color",
+          "value": 2,
+          "min": 1,
+          "max": 20
+        },
+        {
+          "type": "CheckBox",
+          "key": "gb_skip_self",
+          "name": "避开目标身体",
+          "color": "$menu_item_color",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "查询结构",
+      "color": "$menu_item_color",
+      "tag": "fun_locate_structure",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/查询结构0.png",
+        "on": "KuSug\/查询结构1.png",
+        "off": "KuSug\/查询结构0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "locate_village",
+          "name": "村庄",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_mineshaft",
+          "name": "废弃矿井",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_stronghold",
+          "name": "要塞",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_pillager_outpost",
+          "name": "掠夺者前哨站",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_mansion",
+          "name": "林地府邸",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_monument",
+          "name": "海底神殿",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_ruins",
+          "name": "海底废墟",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_shipwreck",
+          "name": "沉船",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_buried_treasure",
+          "name": "埋藏的宝藏",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_temple",
+          "name": "神庙",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_trail_ruins",
+          "name": "古迹废墟",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_trial_chambers",
+          "name": "试炼密室",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_ancient_city",
+          "name": "远古城市",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_fortress",
+          "name": "下界要塞",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_bastion_remnant",
+          "name": "堡垒遗迹",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_ruined_portal",
+          "name": "废弃传送门",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "locate_end_city",
+          "name": "末地城",
+          "color": "$menu_item_color"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "无视饥饿",
+      "color": "$menu_item_color",
+      "tag": "fun_no_hunger",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/无视饥饿0.png",
+        "on": "KuSug\/无视饥饿1.png",
+        "off": "KuSug\/无视饥饿0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "铁砧换行",
+      "color": "$menu_item_color",
+      "tag": "fun_anvil_lines",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/铁砧换行0.png",
+        "on": "KuSug\/铁砧换行1.png",
+        "off": "KuSug\/铁砧换行0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "坐标打印",
+      "color": "$menu_item_color",
+      "tag": "fun_pos_print",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/坐标打印0.png",
+        "on": "KuSug\/坐标打印1.png",
+        "off": "KuSug\/坐标打印0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "跨等级交易",
+      "color": "$menu_item_color",
+      "tag": "fun_trade_unlock",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/跨级交易0.png",
+        "on": "KuSug\/跨级交易1.png",
+        "off": "KuSug\/跨级交易0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "隐藏累赘",
+      "color": "$menu_item_color",
+      "tag": "fun_hide_clutter",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/隐藏累赘0.png",
+        "on": "KuSug\/隐藏累赘1.png",
+        "off": "KuSug\/隐藏累赘0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "攻击掉落物",
+      "color": "$menu_item_color",
+      "tag": "fun_attack_drops",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/攻击掉落0.png",
+        "on": "KuSug\/攻击掉落1.png",
+        "off": "KuSug\/攻击掉落0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "获取全体UID",
+      "color": "$menu_item_color",
+      "tag": "fun_get_uid",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/查UID0.png",
+        "on": "KuSug\/查UID1.png",
+        "off": "KuSug\/查UID0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "联机防踢",
+      "color": "$menu_item_color",
+      "tag": "fun_anti_kick",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/联机防踢0.png",
+        "on": "KuSug\/联机防踢1.png",
+        "off": "KuSug\/联机防踢0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "获取联机IP",
+      "color": "$menu_item_color",
+      "tag": "fun_room_ip",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/联机IP0.png",
+        "on": "KuSug\/联机IP1.png",
+        "off": "KuSug\/联机IP0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "TextView",
+      "name": "玩家传送",
+      "color": "$menu_item_color",
+      "load_script": "玩家传送.js"
+    },
+    {
+      "type": "TextView",
+      "name": "玩家传送[坐骑]",
+      "color": "$menu_item_color",
+      "load_script": "玩家传送[坐骑].js"
+    }
+  ]
+}

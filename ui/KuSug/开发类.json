@@ -1,0 +1,156 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-开发类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "TextView",
+      "name": "PyRpc管理器",
+      "color": "$menu_item_color",
+      "open": "KuSug/PyRpc"
+    },
+    {
+      "type": "TextView",
+      "name": "数据包管理器",
+      "color": "$menu_item_color",
+      "open": "KuSug/Packet"
+    },
+    {
+      "type": "TextView",
+      "name": "SO加载器",
+      "color": "$menu_item_color",
+      "load_script": "SO加载器.js",
+      "tip": "实验性！易崩溃！"
+    },
+    {
+      "type": "Switch",
+      "name": "崩溃服务器",
+      "color": "$menu_item_color",
+      "tag": "fun_crash_server",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/崩服0.png",
+        "on": "KuSug\/崩服1.png",
+        "off": "KuSug\/崩服0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "illegalData",
+          "name": "非法数据",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "particle",
+          "name": "粒子爆炸",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "multipleRpc",
+          "name": "多发RPC",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "forwardRpc",
+          "name": "转发RPC",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "antiPacket",
+          "name": "反数据包攻击",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "count",
+          "format": "数据包%d个",
+          "color": "$menu_item_color",
+          "value": 10000,
+          "min": 1,
+          "max": 100000
+        }
+      ]
+    },
+    {
+      "type": "TextView",
+      "name": "传送菜单",
+      "color": "$menu_item_color",
+      "tag": "fun_teleport_menu",
+      "shortcut": {
+        "type": "ClickButton",
+        "params": [
+          65,
+          32
+        ],
+        "icon": "传送菜单.png",
+        "on": "传送菜单.png",
+        "off": "传送菜单.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "TextView",
+      "name": "附魔菜单",
+      "color": "$menu_item_color",
+      "margins": 7,
+      "padding": 5,
+      "tag": "fun_enchant_menu",
+      "shortcut": {
+        "type": "ClickButton",
+        "params": [
+          35,
+          35
+        ],
+        "icon": "ic_enchant_menu.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "TextView",
+      "name": "物品编辑器",
+      "color": "$menu_item_color",
+      "tag": "fun_item_editor",
+      "shortcut": {
+        "type": "ClickButton",
+        "params": [
+          65,
+          32
+        ],
+        "icon": "物品编辑.png",
+        "on": "物品编辑.png",
+        "off": "物品编辑.png",
+        "no_circle": true
+      }
+    }
+  ]
+}

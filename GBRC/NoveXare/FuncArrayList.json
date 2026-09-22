@@ -1,0 +1,58 @@
+{
+    "KillAura": {
+        "EN": "KillAura",
+        "CN": "杀戮光环"
+    },
+    "Scaffold": {
+        "EN": "Scaffold",
+        "CN": "自动搭路"
+    },
+    "InfiniteAura": {
+        "EN": "InfiniteAura",
+        "CN": "百米大刀"
+    },
+    "AutoBuy": {
+        "EN": "AutoBuy",
+        "CN": "自动买物品"
+    },
+    "AssistAim": {
+        "EN": "AssistAim",
+        "CN": "辅助瞄准"
+    },
+    "Velocity": {
+        "EN": "Velocity",
+        "CN": "速度"
+    },
+    "Rocker": {
+        "EN": "Rocker",
+        "CN": "摇杆"
+    },
+    "ChestAura": {
+        "EN": "ChestAura",
+        "CN": "箱子光环"
+    },
+    "ChestSteal": {
+        "EN": "ChestSteal",
+        "CN": "箱子小偷"
+    },
+    "Cleaner": {
+        "EN": "InvCleaner",
+        "CN": "背包整理"
+    },
+    "GodMode": {
+        "EN": "GodMode",
+        "CN": "上帝模式"
+    },
+    "Fly": {
+        "EN": "Fly",
+        "CN": "飞行"
+    },
+    "AutoClick": {
+        "EN": "AutoClicker",
+        "CN": "连点器"
+    },
+    "功能Key": {
+        "EN": "英文",
+        "CN": "中文"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "binds": {},
+    "key_binds": [],
+    "nx_raBinds": [],
+    "name": "再见啊空间",
+    "AutoArmor": true,
+    "aa_mode": 1,
+    "aa_inv": true,
+    "ca_block": true,
+    "ca_check": true,
+    "ca_fov": 270,
+    "ChestAura": true,
+    "ChestStealer": true,
+    "cs_sort": false,
+    "cs_maxCount": 1,
+    "cs_tick": 1,
+    "da_inv": true,
+    "SmartInv": true,
+    "InvCleaner": true,
+    "ic_inv": true,
+    "ic_mode": 1,
+    "ic_move": false
+}

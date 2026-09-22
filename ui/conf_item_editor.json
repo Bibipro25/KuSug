@@ -1,0 +1,155 @@
+{
+  "items": [
+    {
+      "type": "text",
+      "tag": "identifier"
+    },
+    {
+      "type": "input",
+      "tag": "name",
+      "hint": "名称",
+      "result": "string"
+    },
+    {
+      "type": "input",
+      "tag": "id",
+      "hint": "ID",
+      "digits": "0123456789-",
+      "result": "integer"
+    },
+    {
+      "type": "input",
+      "tag": "count",
+      "hint": "数量",
+      "digits": "0123456789-",
+      "result": "integer"
+    },
+    {
+      "type": "input",
+      "tag": "aux",
+      "hint": "特殊值",
+      "digits": "0123456789-",
+      "result": "integer"
+    },
+    {
+      "type": "input",
+      "tag": "tips",
+      "hint": "提示",
+      "result": "string"
+    },
+    {
+      "type": "input",
+      "tag": "lore",
+      "hint": "介绍，使用英文逗号“,”分隔到下一行",
+      "maxLines": 3,
+      "result": "list<string>"
+    },
+    {
+      "type": "input",
+      "tag": "damage",
+      "hint": "损坏值",
+      "digits": "0123456789-",
+      "result": "integer"
+    },
+    {
+      "type": "input",
+      "tag": "extraId",
+      "hint": "附加ID",
+      "result": "string"
+    },
+    {
+      "type": "input",
+      "tag": "modId",
+      "hint": "模组ID",
+      "result": "string"
+    },
+    {
+      "type": "input",
+      "tag": "modItemId",
+      "hint": "模组物品ID",
+      "result": "string"
+    },
+    {
+      "type": "input",
+      "tag": "modMaxDamage",
+      "hint": "最大损坏值",
+      "digits": "0123456789-",
+      "result": "integer"
+    },
+    {
+      "type": "input",
+      "tag": "modMaxStackSize",
+      "hint": "最大物品数",
+      "digits": "0123456789-",
+      "result": "integer"
+    },
+    {
+      "type": "input",
+      "tag": "modAttackDamage",
+      "hint": "攻击伤害",
+      "digits": "0123456789-",
+      "result": "integer"
+    },
+    {
+      "type": "input",
+      "tag": "modShieldDefenceAngleLeft",
+      "hint": "盾牌防御角度左",
+      "digits": "0123456789-.",
+      "result": "float"
+    },
+    {
+      "type": "input",
+      "tag": "modShieldDefenceAngleRight",
+      "hint": "盾牌防御角度右",
+      "digits": "0123456789-.",
+      "result": "float"
+    },
+    {
+      "type": "input",
+      "tag": "canPlaceOn",
+      "hint": "可放置在哪些方块，输入all自动填充全部方块",
+      "maxLines": 3,
+      "result": "list<string>"
+    },
+    {
+      "type": "input",
+      "tag": "canDestroy",
+      "hint": "可破坏哪些方块，输入all自动填充全部方块",
+      "maxLines": 3,
+      "result": "list<string>"
+    },
+    {
+      "type": "checkBox",
+      "tag": "showInHand",
+      "text": "手持显示"
+    },
+    {
+      "type": "checkBox",
+      "tag": "unbreakable",
+      "text": "不会被损坏"
+    },
+    {
+      "type": "checkBox",
+      "tag": "keepOnDeath",
+      "text": "物品在玩家死亡时不会掉落"
+    },
+    {
+      "type": "radioGroup",
+      "tag": "itemLock",
+      "items": [
+        {
+          "tag": "unlimited",
+          "text": "无限制"
+        },
+        {
+          "tag": "lock_in_inventory",
+          "text": "阻止物品被从玩家的物品栏移除、丢弃或用于合成"
+        },
+        {
+          "tag": "lock_in_slot",
+          "text": "阻止物品被从玩家物品栏的该栏位移动、移除、丢弃或用于合成"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-指令类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "radius": 8,
+  "can_close": true,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "Switch",
+      "name": "批量命令",
+      "color": "$menu_item_color",
+      "tag": "fun_batch_cmd",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/批量命令0.png",
+        "on": "KuSug\/批量命令1.png",
+        "off": "KuSug\/批量命令0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "RadioGroup",
+          "name": "来源模式",
+          "color": "$menu_item_color",
+          "key": "batch_cmd_source",
+          "items": [
+            {
+              "key": "batch_cmd_src_file",
+              "name": "文件模式",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "batch_cmd_src_input",
+              "name": "自定义模式",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "EditText",
+          "name": "自定义命令",
+          "color": "$menu_item_color",
+          "hint": "每行一条",
+          "key": "batch_cmd_text",
+          "text": "",
+          "max_ems": 10,
+          "max_lines": 5
+        },
+        {
+          "type": "RadioGroup",
+          "name": "执行方式",
+          "color": "$menu_item_color",
+          "key": "batch_cmd_exec",
+          "items": [
+            {
+              "key": "batch_cmd_exec_cmd",
+              "name": "原版命令",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "batch_cmd_exec_rpc",
+              "name": "PyRPC通道",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "CheckBox",
+          "key": "batch_cmd_loop",
+          "name": "循环",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "batch_cmd_sync",
+          "name": "同步运行",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "batch_cmd_interval",
+          "format": "运行间隔%dtick",
+          "color": "$menu_item_color",
+          "value": 1,
+          "min": 1,
+          "max": 60
+        }
+      ]
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----快捷药水----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "TextView",
+      "name": "清除效果",
+      "color": "$menu_item_color",
+      "plugin_command": "\/ww effect clear"
+    },
+    {
+      "type": "TextView",
+      "name": "夜视效果",
+      "color": "$menu_item_color",
+      "plugin_command": "\/ww effect 16 999 255 true"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----快捷发言----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "TextView",
+      "name": "tc",
+      "color": "$menu_item_color",
+      "send_message": "tc"
+    },
+    {
+      "type": "TextView",
+      "name": "exit",
+      "color": "$menu_item_color",
+      "send_message": "exit"
+    },
+    {
+      "type": "TextView",
+      "name": "退出",
+      "color": "$menu_item_color",
+      "send_message": "退出"
+    },
+    {
+      "type": "TextView",
+      "name": "退出脚本",
+      "color": "$menu_item_color",
+      "send_message": "退出脚本"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----插件设置----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "TextView",
+      "name": "跑路反刷屏关",
+      "color": "$menu_item_color",
+      "plugin_command": "\/ww asb false"
+    },
+    {
+      "type": "TextView",
+      "name": "跑路反刷屏开",
+      "color": "$menu_item_color",
+      "plugin_command": "\/ww asb true"
+    },
+    {
+      "type": "TextView",
+      "name": "跑路聊天室关",
+      "color": "$menu_item_color",
+      "plugin_command": "\/ww chatroom false"
+    },
+    {
+      "type": "TextView",
+      "name": "跑路聊天室开",
+      "color": "$menu_item_color",
+      "plugin_command": "\/ww chatroom true"
+    }
+  ]
+}

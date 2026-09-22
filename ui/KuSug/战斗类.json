@@ -1,0 +1,1066 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-战斗类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "TextView",
+      "name": "保存此类别配置",
+      "color": "$menu_item_color",
+      "save_menu_config": "战斗类",
+      "tip": "已保存配置"
+    },
+    {
+      "type": "TextView",
+      "name": "加载此类别配置",
+      "color": "$menu_item_color",
+      "load_menu_config": "战斗类",
+      "tip": "已加载配置"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "--------",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": -2
+    },
+    {
+      "type": "Switch",
+      "name": "杀戮光环[KuSug]",
+      "color": "$menu_item_color",
+      "tag": "fun_kill_aura",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/KS杀戮0.png",
+        "on": "KuSug\/KS杀戮1.png",
+        "off": "KuSug\/KS杀戮0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "ka_target_player",
+          "name": "攻击玩家",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "ka_target_mob",
+          "name": "攻击生物",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "ka_attack_invis",
+          "name": "攻击隐身",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "ka_multi",
+          "name": "多目标攻击",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "ka_exclude_npc",
+          "name": "排除假人",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "SeekBar",
+          "key": "ka_max_targets",
+          "format": "目标数量%d",
+          "color": "$menu_item_color",
+          "value": 5,
+          "min": 1,
+          "max": 20
+        },
+        {
+          "type": "SeekBar",
+          "key": "ka_speed",
+          "format": "攻击速度(CPS)%d",
+          "color": "$menu_item_color",
+          "value": 60,
+          "min": 1,
+          "max": 60
+        },
+        {
+          "type": "SeekBar",
+          "key": "ka_range",
+          "format": "攻击范围%d",
+          "color": "$menu_item_color",
+          "value": 5,
+          "min": 1,
+          "max": 10
+        },
+        {
+          "type": "CheckBox",
+          "key": "ka_swing",
+          "name": "挥手动画",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "ka_show_cps",
+          "name": "CPS显示",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "ka_throw",
+          "name": "自动投掷(雪球/鸡蛋)",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "ka_auto_select",
+          "name": "自动选取",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "RadioGroup",
+          "name": "名单模式",
+          "color": "$menu_item_color",
+          "key": "ka_list_mode",
+          "items": [
+            {
+              "key": "ka_list_black",
+              "name": "黑名单(攻击名单)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "ka_list_white",
+              "name": "白名单(排除名单)",
+              "color": "$menu_item_color",
+              "checked": true
+            }
+          ]
+        },
+        {
+          "type": "TextView",
+          "name": "+添加玩家名单+",
+          "color": "$menu_item_color",
+          "key": "ka_player_list_form"
+        },
+        {
+          "type": "EditText",
+          "name": "生物名单",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "如zombie,skeleton",
+          "key": "ka_mob_list",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "杀戮光环[原生]",
+      "color": "$menu_item_color",
+      "tag": "fun_killaura",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/杀戮光环0.png",
+        "on": "KuSug\/杀戮光环1.png",
+        "off": "KuSug\/杀戮光环0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "target",
+          "name": "自选",
+          "color": "$menu_item_color",
+          "on": "自动攻击选中目标，需要先攻击一次"
+        },
+        {
+          "type": "CheckBox",
+          "key": "player",
+          "name": "玩家",
+          "color": "$menu_item_color",
+          "on": "自动攻击周围玩家",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "mob",
+          "name": "生物",
+          "color": "$menu_item_color",
+          "on": "自动攻击周围生物"
+        },
+        {
+          "type": "CheckBox",
+          "key": "crystal",
+          "name": "水晶",
+          "color": "$menu_item_color",
+          "on": "自动攻击周围水晶，推荐EaseCation服务器使用"
+        },
+        {
+          "type": "Switch",
+          "key": "spin",
+          "name": "旋转",
+          "color": "$menu_item_color",
+          "on_sound": "click.mp3",
+          "off_sound": "click.mp3",
+          "shortcut": {
+            "type": "CheckedButton",
+            "params": [
+              65,
+              32
+            ],
+            "on_sound": "click.mp3",
+            "off_sound": "click.mp3",
+            "icon": "KuSug\/旋转0.png",
+            "on": "KuSug\/旋转1.png",
+            "off": "KuSug\/旋转0.png",
+            "no_circle": true
+          },
+          "on": "攻击时触发三叉戟范围攻击"
+        },
+        {
+          "type": "Switch",
+          "key": "action",
+          "name": "手部动作",
+          "color": "$menu_item_color",
+          "on_sound": "click.mp3",
+          "off_sound": "click.mp3",
+          "shortcut": {
+            "type": "CheckedButton",
+            "params": [
+              65,
+              32
+            ],
+            "on_sound": "click.mp3",
+            "off_sound": "click.mp3",
+            "icon": "KuSug\/手部动作0.png",
+            "on": "KuSug\/手部动作1.png",
+            "off": "KuSug\/手部动作0.png",
+            "no_circle": true
+          },
+          "on": "攻击时让手部挥动，其他人可见",
+          "checked": true
+        },
+        {
+          "type": "Switch",
+          "key": "ec_cps",
+          "name": "EC-CPS",
+          "color": "$menu_item_color",
+          "on_sound": "click.mp3",
+          "off_sound": "click.mp3",
+          "shortcut": {
+            "type": "CheckedButton",
+            "params": [
+              65,
+              32
+            ],
+            "on_sound": "click.mp3",
+            "off_sound": "click.mp3",
+            "icon": "KuSug\/ECPS0.png",
+            "on": "KuSug\/ECPS1.png",
+            "off": "KuSug\/ECPS0.png",
+            "no_circle": true
+          },
+          "on": "绕过EC服务器CPS检测"
+        },
+        {
+          "type": "SeekBar",
+          "key": "speed",
+          "format": "攻击速度%d",
+          "color": "$menu_item_color",
+          "value": 20,
+          "min": 1,
+          "max": 40
+        },
+        {
+          "type": "SeekBar",
+          "key": "count",
+          "format": "攻击数量%d",
+          "color": "$menu_item_color",
+          "value": 3,
+          "min": 1,
+          "max": 40
+        },
+        {
+          "type": "SeekBar",
+          "key": "distance",
+          "format": "攻击距离%.2f",
+          "color": "$menu_item_color",
+          "value": 7.0,
+          "min": 1.0,
+          "max": 100.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "cps_speed",
+          "format": "CPS限制%d",
+          "color": "$menu_item_color",
+          "value": 2147483647,
+          "min": 1,
+          "max": 2147483647
+        },
+        {
+          "type": "Switch",
+          "key": "cps",
+          "name": "CPS显示",
+          "color": "$menu_item_color",
+          "on_sound": "click.mp3",
+          "off_sound": "click.mp3",
+          "shortcut": {
+            "type": "CheckedButton",
+            "params": [
+              65,
+              32
+            ],
+            "on_sound": "click.mp3",
+            "off_sound": "click.mp3",
+            "icon": "KuSug\/CPS0.png",
+            "on": "KuSug\/CPS1.png",
+            "off": "KuSug\/CPS0.png",
+            "no_circle": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "击杀嘲讽",
+      "color": "$menu_item_color",
+      "tag": "fun_kill_taunt",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/击杀嘲讽0.png",
+        "on": "KuSug\/击杀嘲讽1.png",
+        "off": "KuSug\/击杀嘲讽0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "RadioGroup",
+          "name": "文本来源",
+          "color": "$menu_item_color",
+          "key": "kill_taunt_mode",
+          "items": [
+            {
+              "key": "kill_taunt_mode_file",
+              "name": "读取文件",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "kill_taunt_mode_text",
+              "name": "自定义文本",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "EditText",
+          "name": "自定义文本",
+          "color": "$menu_item_color",
+          "hint": "支持变量",
+          "key": "kill_taunt_text",
+          "text": "",
+          "max_ems": 6,
+          "max_lines": 1
+        },
+        {
+          "type": "SeekBar",
+          "key": "kill_taunt_cd",
+          "format": "嘲讽冷却%d秒",
+          "color": "$menu_item_color",
+          "value": 3,
+          "min": 1,
+          "max": 60
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "攻击嘲讽",
+      "color": "$menu_item_color",
+      "tag": "fun_attack_taunt",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/攻击嘲讽0.png",
+        "on": "KuSug\/攻击嘲讽1.png",
+        "off": "KuSug\/攻击嘲讽0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "RadioGroup",
+          "name": "文本来源",
+          "color": "$menu_item_color",
+          "key": "attack_taunt_mode",
+          "items": [
+            {
+              "key": "attack_taunt_mode_file",
+              "name": "读取文件",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "attack_taunt_mode_text",
+              "name": "自定义文本",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "EditText",
+          "name": "自定义文本",
+          "color": "$menu_item_color",
+          "hint": "支持变量",
+          "key": "attack_taunt_text",
+          "text": "",
+          "max_ems": 6,
+          "max_lines": 1
+        },
+        {
+          "type": "SeekBar",
+          "key": "attack_taunt_cd",
+          "format": "嘲讽冷却%d秒",
+          "color": "$menu_item_color",
+          "value": 8,
+          "min": 1,
+          "max": 60
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "击中范围",
+      "color": "$menu_item_color",
+      "tag": "fun_reach",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/击中范围0.png",
+        "on": "KuSug\/击中范围1.png",
+        "off": "KuSug\/击中范围0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "reach",
+          "format": "当前范围%.2f",
+          "color": "$menu_item_color",
+          "value": 7.0,
+          "min": 1.0,
+          "max": 100.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "max_reach",
+          "format": "最大范围%.2f",
+          "color": "$menu_item_color",
+          "value": 7.0,
+          "min": 1.0,
+          "max": 100.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "锁背",
+      "color": "$menu_item_color",
+      "tag": "fun_lock_behind",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/锁背0.png",
+        "on": "KuSug\/锁背1.png",
+        "off": "KuSug\/锁背0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "distance",
+          "format": "玩家距离%.2f",
+          "color": "$menu_item_color",
+          "value": 11.1,
+          "min": 0.5,
+          "max": 100.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "lock_target",
+          "name": "锁定目标",
+          "color": "$menu_item_color"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "环绕攻击",
+      "color": "$menu_item_color",
+      "tag": "fun_surround_attack",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/环绕攻击0.png",
+        "on": "KuSug\/环绕攻击1.png",
+        "off": "KuSug\/环绕攻击0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "distance",
+          "format": "距离%.2f",
+          "color": "$menu_item_color",
+          "value": 11.1,
+          "min": 0.5,
+          "max": 50.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "speed",
+          "format": "速度%.2f",
+          "color": "$menu_item_color",
+          "value": 20.0,
+          "min": 1.0,
+          "max": 30.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "lock_target",
+          "name": "锁定目标",
+          "color": "$menu_item_color"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "智能队友",
+      "color": "$menu_item_color",
+      "tag": "fun_smart_team",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/智能队友0.png",
+        "on": "KuSug\/智能队友1.png",
+        "off": "KuSug\/智能队友0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "check_armor",
+          "name": "排除相同头盔颜色",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "check_skin",
+          "name": "排除空皮肤",
+          "color": "$menu_item_color",
+          "on": "尝试排除没有皮肤的玩家"
+        },
+        {
+          "type": "CheckBox",
+          "key": "check_regex",
+          "name": "正则表达式",
+          "color": "$menu_item_color",
+          "on": "启用正则表达式匹配"
+        },
+        {
+          "type": "CheckBox",
+          "key": "click_mode",
+          "name": "点击白名单",
+          "color": "$menu_item_color",
+          "on": "点击实体加入白名单"
+        },
+        {
+          "type": "TextView",
+          "key": "regex",
+          "name": "编辑名称正则",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "TextView",
+          "key": "list",
+          "name": "显示白名单",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "TextView",
+          "key": "add_chunk_player",
+          "name": "添加区块白名单玩家",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "TextView",
+          "key": "add_world_player",
+          "name": "添加世界白名单玩家",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "TextView",
+          "key": "remove",
+          "name": "移除白名单玩家",
+          "color": "$menu_item_color"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自杀光环",
+      "color": "$menu_item_color",
+      "tag": "fun_self_attack",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自杀光环0.png",
+        "on": "KuSug\/自杀光环1.png",
+        "off": "KuSug\/自杀光环0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "self_attack_cps",
+          "format": "攻击速度(次/秒)%d",
+          "color": "$menu_item_color",
+          "value": 4,
+          "min": 1,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "碰撞箱",
+      "color": "$menu_item_color",
+      "tag": "fun_hitbox",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/碰撞箱0.png",
+        "on": "KuSug\/碰撞箱1.png",
+        "off": "KuSug\/碰撞箱0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "player",
+          "name": "玩家",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "mob",
+          "name": "生物",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "size",
+          "format": "实体大小%.2f",
+          "color": "$menu_item_color",
+          "value": 6.0,
+          "min": 0.0,
+          "max": 30.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动瞄准",
+      "color": "$menu_item_color",
+      "tag": "fun_aimbot",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动瞄准0.png",
+        "on": "KuSug\/自动瞄准1.png",
+        "off": "KuSug\/自动瞄准0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "distance",
+          "format": "距离%.2f",
+          "color": "$menu_item_color",
+          "value": 11.1,
+          "min": 0.5,
+          "max": 150.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "speed",
+          "format": "速度%.2f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": 0.1,
+          "max": 2.0
+        },
+        {
+          "type": "CheckBox",
+          "key": "player",
+          "name": "玩家",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "mob",
+          "name": "生物",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "lock_target",
+          "name": "锁定当前目标",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "input",
+          "name": "模拟滑动",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "CheckBox",
+          "key": "rotations",
+          "name": "转头锁定",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "depart",
+          "name": "分离相机",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "bow",
+          "name": "弓箭模式",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "hit_box",
+          "name": "碰撞箱模式",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "gravity",
+          "format": "重力影响%.3f",
+          "color": "$menu_item_color",
+          "value": 0.002,
+          "min": 0.001,
+          "max": 0.005
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动开弓",
+      "color": "$menu_item_color",
+      "tag": "fun_auto_bow",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动开弓0.png",
+        "on": "KuSug\/自动开弓1.png",
+        "off": "KuSug\/自动开弓0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "duration",
+          "format": "时长%d",
+          "color": "$menu_item_color",
+          "value": 20,
+          "min": 2,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "抗击退",
+      "color": "$menu_item_color",
+      "tag": "fun_no_knockback",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/抗击退0.png",
+        "on": "KuSug\/抗击退1.png",
+        "off": "KuSug\/抗击退0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "all",
+          "name": "全部抗击退",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "horizontal",
+          "format": "水平%.2f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": 0.1,
+          "max": 10.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "vertical",
+          "format": "垂直%.2f",
+          "color": "$menu_item_color",
+          "value": 1.0,
+          "min": 0.1,
+          "max": 10.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动选取武器",
+      "color": "$menu_item_color",
+      "tag": "fun_auto_weapons",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动武器0.png",
+        "on": "KuSug\/自动武器1.png",
+        "off": "KuSug\/自动武器0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "RadioGroup",
+          "key": "mode",
+          "name": "选取模式",
+          "color": "$menu_item_color",
+          "items": [
+            {
+              "key": "hot",
+              "name": "物品栏",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "inv",
+              "name": "背包",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "自动选取方块",
+      "color": "$menu_item_color",
+      "tag": "fun_auto_block",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动方块0.png",
+        "on": "KuSug\/自动方块1.png",
+        "off": "KuSug\/自动方块0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "RadioGroup",
+          "key": "mode",
+          "name": "选取模式",
+          "color": "$menu_item_color",
+          "items": [
+            {
+              "key": "hot",
+              "name": "物品栏",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "inv",
+              "name": "背包",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "实体骑乘",
+      "color": "$menu_item_color",
+      "tag": "fun_entity_riding",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/实体骑乘0.png",
+        "on": "KuSug\/实体骑乘1.png",
+        "off": "KuSug\/实体骑乘0.png",
+        "no_circle": true
+      }
+    }
+  ]
+}

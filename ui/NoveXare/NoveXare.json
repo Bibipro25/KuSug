@@ -1,0 +1,134 @@
+{
+    "type": "Menu",
+    "title": {
+        "name": "『NoveXare』",
+        "size": 16,
+        "elevation": 3,
+        "background": "$menu_title_background_color",
+        "padding": [
+            4,
+            2,
+            4,
+            2
+        ],
+        "text_margins": [3, 2, 3, 2],
+        "colors": [
+            "$menu_title_gradient_text_begin_color",
+            "$menu_title_gradient_text_end_color"
+        ]
+    },
+    "color": "$menu_color",
+    "alpha": 0.85,
+    "radius": 8,
+    "can_close": true,
+    "show_dividers": false,
+    "hide_fun": true,
+    "hide": true,
+    "items": [
+        {
+            "type": "TextView",
+            "name": "加载NoveXare",
+            "color": "$menu_item_color",
+            "load_script": "NoveXare.js",
+            "tag": "extra_nove_xare",
+            "items": [
+                {
+                    "type": "TextView",
+                    "name": "退出脚本",
+                    "color": "$menu_item_color",
+                    "key": "exit"
+                },
+                {
+                    "type": "TextView",
+                    "key": "save_config",
+                    "name": "保存配置",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "load_config",
+                    "name": "加载配置",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "SearchModule",
+                    "name": "搜索功能",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "PauseNX",
+                    "name": "暂停NoveXare",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "TestModule",
+                    "name": "测试功能",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "IQBoost",
+                    "name": "IQBoost",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "RandomFunc",
+                    "name": "随机功能",
+                    "color": "$menu_item_color"
+                }
+            ]
+        },
+        {
+            "type": "TextView",
+            "name": "攻击类",
+            "color": "$menu_item_color",
+            "open": "NoveXare/战斗类"
+        },
+        {
+            "type": "TextView",
+            "name": "移动类",
+            "color": "$menu_item_color",
+            "open": "NoveXare/移动类"
+        },
+        {
+            "type": "TextView",
+            "name": "玩家类",
+            "color": "$menu_item_color",
+            "open": "NoveXare/玩家类"
+        },
+        {
+            "type": "TextView",
+            "name": "开发类",
+            "color": "$menu_item_color",
+            "open": "NoveXare/开发类"
+        },
+        {
+            "type": "TextView",
+            "name": "娱乐类",
+            "color": "$menu_item_color",
+            "open": "NoveXare/娱乐类"
+        },
+        {
+            "type": "TextView",
+            "name": "辅助类",
+            "color": "$menu_item_color",
+            "open": "NoveXare/辅助类"
+        },
+        {
+            "type": "TextView",
+            "name": "渲染类",
+            "color": "$menu_item_color",
+            "open": "NoveXare/渲染类"
+        },
+        {
+            "type": "TextView",
+            "name": "配置类",
+            "color": "$menu_item_color",
+            "open": "NoveXare/配置类"
+        }
+    ]
+}

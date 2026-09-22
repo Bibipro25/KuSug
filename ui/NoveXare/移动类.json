@@ -1,0 +1,966 @@
+{
+    "type": "Menu",
+    "title": {
+        "name": "『MoveMent』",
+        "size": 16,
+        "elevation": 3,
+        "background": "$menu_title_background_color",
+        "padding": [
+            4,
+            2,
+            4,
+            2
+        ],
+        "text_margins": [3, 2, 3, 2],
+        "colors": [
+            "$menu_title_gradient_text_begin_color",
+            "$menu_title_gradient_text_end_color"
+        ]
+    },
+    "color": "$menu_color",
+    "alpha": 0.85,
+    "radius": 8,
+    "can_close": true,
+    "show_dividers": false,
+    "hide_fun": true,
+    "hide": true,
+    "items": [
+        {
+            "type": "TextView",
+            "name": "NoveXare",
+            "color": "$menu_item_color",
+            "tag": "extra_nove_xare",
+            "items": [
+                {
+                    "type": "Switch",
+                    "key": "BJDEscape",
+                    "name": "布吉岛出笼",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "NoWall",
+                    "name": "穿墙",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "Hover",
+                    "name": "鞘翅悬停",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "FastStop",
+                    "name": "快速停止",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "MoveJump",
+                    "name": "移动跳跃",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ClickTP",
+                    "name": "点击传送",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SafeWalk",
+                    "name": "安全行走",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "Jesus",
+                    "name": "水上漂",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "HurtJump",
+                    "name": "受击跳跃",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "hj_height",
+                    "format": "跳跃高度: %.2f",
+                    "color": "$menu_item_color",
+                    "value": 0.42,
+                    "min": 0.01,
+                    "max": 1
+                },
+                {
+                    "type": "Switch",
+                    "key": "NoLiquid",
+                    "name": "无视液体减速",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "nl_offset",
+                    "format": "速度偏移: %.2f倍",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 0.01,
+                    "max": 5
+                },
+                {
+                    "type": "TextView",
+                    "key": "ServerTeleport",
+                    "name": "租赁服传送",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "st_offset",
+                    "format": "Y轴偏移: %d",
+                    "color": "$menu_item_color",
+                    "value": 2,
+                    "min": -2,
+                    "max": 5
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "st_tp",
+                    "name": "自动传送",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "TextView",
+                    "key": "EditY",
+                    "name": "修改Y轴",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "Edit_Y",
+                    "format": "Y轴高度: %d",
+                    "color": "$menu_item_color",
+                    "value": 85,
+                    "min": -60,
+                    "max": 380
+                },
+                {
+                    "type": "TextView",
+                    "key": "UpJump",
+                    "name": "上升",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "DownJump",
+                    "name": "下降",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "up_down_speed",
+                    "format": "上下高度: %.2f",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 0.01,
+                    "max": 5
+                },
+                {
+                    "type": "TextView",
+                    "key": "Rusher",
+                    "name": "冲刺",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "rush_length",
+                    "format": "冲刺远度:%d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "TextView",
+                    "key": "LookTP",
+                    "name": "传送目之所及",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "LookTP_mode",
+                    "name": "传送模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Motion",
+                            "name": "移动值",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Pos",
+                            "name": "坐标",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "Switch",
+                    "key": "FakeMotion",
+                    "name": "锁定本体",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fm_item",
+                    "name": "传送掉落物",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fm_range",
+                    "format": "最大范围: %d",
+                    "color": "$menu_item_color",
+                    "value": -1,
+                    "min": -1,
+                    "max": 100
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fm_auto",
+                    "name": "自动设置目标",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "fm_place",
+                    "name": "放置终点",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fm_cycle",
+                    "format": "传送延迟: %d",
+                    "color": "$menu_item_color",
+                    "value": 20,
+                    "min": 1,
+                    "max": 60
+                },
+                {
+                    "type": "Switch",
+                    "key": "Spider",
+                    "name": "爬墙",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "sp_speed",
+                    "format": "速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "Switch",
+                    "key": "RandomTP",
+                    "name": "随机传送",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rt_target",
+                    "name": "目标TP",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rt_y",
+                    "name": "包括Y轴",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "rt_delay",
+                    "format": "传送延迟: %dtick",
+                    "color": "$menu_item_color",
+                    "value": 10,
+                    "min": 1,
+                    "max": 80
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "rt_range",
+                    "format": "传送范围: %d格",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 30
+                },
+                {
+                    "type": "Switch",
+                    "key": "NoClip",
+                    "name": "穿透飞行",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "nc_depart",
+                    "name": "启用分离视角",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "nc_bypass",
+                    "name": "绕过租赁服移动",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "nc_blink",
+                    "name": "停止发包飞行",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "nc_dist",
+                    "format": "距离 %d",
+                    "color": "$menu_item_color",
+                    "value": 15,
+                    "min": 1,
+                    "max": 30
+                },
+                {
+                    "type": "Switch",
+                    "key": "Velocity",
+                    "name": "速度",
+                    "color": "$menu_item_color",
+                    "shortcut": {
+                        "type": "CheckedButton",
+                        "params": [
+                            48,
+                            25
+                        ],
+                        "no_circle": true,
+                        "off": "NoveXare/speed_off.png",
+                        "on": "NoveXare/speed_on.png",
+                        "icon": "NoveXare/speed_on.png"
+                    }
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "vec_bhop",
+                    "name": "BunnyHop",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "bhop_airjump",
+                    "name": "AirHop",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "bhop_mode",
+                    "name": "Bhop模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Single",
+                            "name": "单向",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Multiple",
+                            "name": "多向",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "bhop_heigh",
+                    "format": "Bhop高度: %.2f",
+                    "color": "$menu_item_color",
+                    "value": 0.42,
+                    "min": 0,
+                    "max": 1
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "bhop_speed",
+                    "format": "速度 %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 30
+                },
+                {
+                    "type": "Switch",
+                    "key": "Fly",
+                    "name": "飞行",
+                    "color": "$menu_item_color",
+                    "shortcut": {
+                        "type": "CheckedButton",
+                        "params": [
+                            48,
+                            25
+                        ],
+                        "no_circle": true,
+                        "off": "NoveXare/fly_off.png",
+                        "on": "NoveXare/fly_on.png",
+                        "icon": "NoveXare/fly_on.png"
+                    }
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fly_ud",
+                    "name": "蛇形飞行",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fly_move",
+                    "name": "移动飞行",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fly_zero",
+                    "name": "移动值归零",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fly_air",
+                    "name": "滞空飞行",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fly_y",
+                    "name": "仅Y轴",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fly_moveplayer",
+                    "name": "移动包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fly_playerAuth",
+                    "name": "玩家授权包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "fly_mode",
+                    "name": "移动模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Pos",
+                            "name": "坐标",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Motion",
+                            "name": "移动值",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fly_speed",
+                    "format": "速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 20,
+                    "min": 1,
+                    "max": 60
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fly_ud_val",
+                    "format": "上下高度: %d",
+                    "color": "$menu_item_color",
+                    "value": 10,
+                    "min": 0,
+                    "max": 30
+                },
+                {
+                    "type": "Switch",
+                    "key": "JetPack",
+                    "name": "喷气背包",
+                    "color": "$menu_item_color",
+                    "shortcut": {
+                        "type": "CheckedButton",
+                        "params": [
+                            48,
+                            25
+                        ],
+                        "no_circle": true,
+                        "off": "NoveXare/sprint_off.png",
+                        "on": "NoveXare/sprint_on.png",
+                        "icon": "NoveXare/sprint_on.png"
+                    }
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "spr_nowall",
+                    "name": "穿墙",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "spr_move",
+                    "name": "移动飞行",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "spr_hor",
+                    "name": "水平移动",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "spr_auth",
+                    "name": "玩家授权移动包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "spr_packet",
+                    "name": "移动包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "sprint_mode",
+                    "name": "移动模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Pos",
+                            "name": "坐标",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Motion",
+                            "name": "移动值",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "spr_speed",
+                    "format": "速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 12,
+                    "min": 1,
+                    "max": 60
+                },
+                {
+                    "type": "Switch",
+                    "key": "AntiVoid",
+                    "name": "虚空回弹",
+                    "color": "$menu_item_color",
+                    "shortcut": {
+                        "type": "CheckedButton",
+                        "params": [
+                            48,
+                            25
+                        ],
+                        "no_circle": true,
+                        "off": "NoveXare/lagback_off.png",
+                        "on": "NoveXare/lagback_on.png",
+                        "icon": "NoveXare/lagback_on.png"
+                    }
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "av_mode",
+                    "name": "拉回模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Smooth",
+                            "name": "平滑拉回",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "AntiCheat",
+                            "name": "反作弊拉回",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Local",
+                            "name": "本地传送",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "av_derp",
+                    "name": "拉回旋转",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "av_minY",
+                    "format": "最小移动值:%.2f",
+                    "color": "$menu_item_color",
+                    "value": 0.8,
+                    "min": 0.1,
+                    "max": 3
+                },
+                {
+                    "type": "Switch",
+                    "key": "FreeCam",
+                    "name": "灵魂出窍",
+                    "color": "$menu_item_color",
+                    "shortcut": {
+                        "type": "CheckedButton",
+                        "params": [
+                            48,
+                            25
+                        ],
+                        "no_circle": true,
+                        "off": "NoveXare/freecam_off.png",
+                        "on": "NoveXare/freecam_on.png",
+                        "icon": "NoveXare/freecam_on.png"
+                    }
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "fc_mode",
+                    "name": "灵魂出窍模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "SendPacket",
+                            "name": "停止发包",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Move",
+                            "name": "移动",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "AntiCheat",
+                            "name": "网易反作弊",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "AuthInput",
+                            "name": "玩家授权认证",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Focus",
+                            "name": "反作弊拉回",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fc_draw",
+                    "name": "绘制本体",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "fc_dist",
+                    "name": "显示本体距离",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "FlexibleMove",
+                    "name": "原子运动",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "fb_speed",
+                    "format": "速度:%d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 30
+                },
+                {
+                    "type": "Switch",
+                    "key": "LongJump",
+                    "name": "长跳",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "lj_len",
+                    "format": "远度:%d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "lj_y",
+                    "format": "高度:%.2f",
+                    "color": "$menu_item_color",
+                    "value": 0.5,
+                    "min": 0.01,
+                    "max": 1
+                },
+                {
+                    "type": "Switch",
+                    "key": "AutoJump",
+                    "name": "自动跳跃",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aj_y",
+                    "format": "跳跃高度: %d",
+                    "color": "$menu_item_color",
+                    "value": 42,
+                    "min": 0,
+                    "max": 100
+                },
+                {
+                    "type": "Switch",
+                    "key": "SlowDown",
+                    "name": "缓降",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "sd_speed",
+                    "format": "下落速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "Switch",
+                    "key": "AirJump",
+                    "name": "自动踏空",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "aj_continue",
+                    "name": "连续跳跃",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "aj_modify",
+                    "name": "修改速度",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aj_speed",
+                    "format": "速度: %d",
+                    "color": "$menu_item_color",
+                    "value": 5,
+                    "min": 0,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "aj_height",
+                    "format": "高度: %d",
+                    "color": "$menu_item_color",
+                    "value": 42,
+                    "min": 0,
+                    "max": 60
+                }
+            ]
+        },
+        {
+            "type": "Switch",
+            "on_sound": "on.mp3",
+            "off_sound": "off.mp3",
+            "name": "摇杆",
+            "color": "$menu_item_color",
+            "tag": "fun_ride_flying",
+            "items": [
+                {
+                    "type": "CheckBox",
+                    "key": "Rocker",
+                    "name": "启用功能",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rc_follow",
+                    "name": "身体跟随移动",
+                    "checked": true,
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rc_surround",
+                    "name": "环绕攻击",
+                    "checked": true,
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rc_relative",
+                    "name": "相对移动",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rc_legal",
+                    "name": "模拟正常移动",
+                    "checked": true,
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rc_antiair",
+                    "name": "防止踏空",
+                    "checked": true,
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rc_boost",
+                    "name": "移动加速",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "rc_mode",
+                    "name": "移动速度",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Move",
+                            "name": "行走",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Sprint",
+                            "name": "疾跑",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rc_bhop",
+                    "name": "BunnyHop",
+                    "checked": true,
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rc_ahop",
+                    "name": "AirHop",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "rocker_mode",
+                    "name": "移动模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "Motion",
+                            "name": "移动值",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "Pos",
+                            "name": "坐标",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Camera",
+                            "name": "摄像机",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Fly",
+                            "name": "模拟飞行",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "rc_y",
+                    "format": "跳跃高度: %.2f",
+                    "color": "$menu_item_color",
+                    "value": 0.42,
+                    "min": 0,
+                    "max": 1
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "rc_speed",
+                    "format": "移动速度 %d",
+                    "color": "$menu_item_color",
+                    "value": 8,
+                    "min": 1,
+                    "max": 30
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "rc_lock",
+                    "format": "锁定距离 %.2f",
+                    "color": "$menu_item_color",
+                    "value": 3,
+                    "min": 0.01,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "rc_dist",
+                    "format": "环绕距离 %.2f",
+                    "color": "$menu_item_color",
+                    "value": 1.5,
+                    "min": 0.01,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "rc_range",
+                    "format": "摇杆范围 ±%d",
+                    "color": "$menu_item_color",
+                    "value": 180,
+                    "min": 0,
+                    "max": 180
+                }
+            ]
+        }
+    ]
+}

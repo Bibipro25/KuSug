@@ -1,0 +1,176 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-世界类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "RadioGroup",
+      "name": "游戏模式",
+      "color": "$menu_item_color",
+      "tag": "fun_game_mode",
+      "items": [
+        {
+          "key": "survival",
+          "name": "生存",
+          "color": "$menu_item_color"
+        },
+        {
+          "key": "create",
+          "name": "创造",
+          "color": "$menu_item_color"
+        },
+        {
+          "key": "adventure",
+          "name": "冒险",
+          "color": "$menu_item_color"
+        },
+        {
+          "key": "spectator",
+          "name": "观察者",
+          "color": "$menu_item_color"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "游戏速度",
+      "color": "$menu_item_color",
+      "tag": "fun_timer",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/变速0.png",
+        "on": "KuSug\/变速1.png",
+        "off": "KuSug\/变速0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "speed",
+          "format": "速度%.2f",
+          "color": "$menu_item_color",
+          "value": 20.0,
+          "min": 0.0,
+          "max": 100.0
+        }
+      ]
+    },
+    {
+      "type": "GradientTextView",
+      "name": "--------",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": -2
+    },
+    {
+      "type": "GradientTextView",
+      "name": "━快捷传送━",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color"
+    },
+    {
+      "type": "TextView",
+      "name": "归零",
+      "color": "$menu_item_color",
+      "plugin_command": "\/ww tp 0 0 0"
+    },
+    {
+      "type": "TextView",
+      "name": "起飞",
+      "color": "$menu_item_color",
+      "plugin_command": "\/ww tp 0 365 0"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "━钻石大陆━",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color"
+    },
+    {
+      "type": "TextView",
+      "name": "基岩屋",
+      "color": "$menu_item_color",
+      "plugin_command": "\/ww tp 59 -4 12"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "━资源房1.4[经典]━",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color"
+    },
+    {
+      "type": "TextView",
+      "name": "命令方块",
+      "color": "$menu_item_color",
+      "plugin_command": "\/ww tp -106 -27 17"
+    },
+    {
+      "type": "TextView",
+      "name": "封房",
+      "color": "$menu_item_color",
+      "plugin_command": "\/ww tp 52 -63 -168"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "━泥土商店2.9━",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color"
+    },
+    {
+      "type": "TextView",
+      "name": "创造模式",
+      "color": "$menu_item_color",
+      "plugin_command": "\/ww tp 4 129.00 8"
+    },
+    {
+      "type": "TextView",
+      "name": "重置结构",
+      "color": "$menu_item_color",
+      "plugin_command": "\/ww tp 32 122.00 16"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "--------",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": -2
+    },
+    {
+      "type": "TextView",
+      "name": "进入本地游戏",
+      "color": "$menu_item_color",
+      "tag": "fun_local_game"
+    },
+    {
+      "type": "TextView",
+      "name": "创建本地世界",
+      "color": "$menu_item_color",
+      "tag": "fun_create_world"
+    }
+  ]
+}

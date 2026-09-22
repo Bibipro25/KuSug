@@ -1,0 +1,750 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-修改类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "Switch",
+      "name": "特殊值修改",
+      "color": "$menu_item_color",
+      "tag": "fun_custom_damage",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/特殊值0.png",
+        "on": "KuSug\/特殊值1.png",
+        "off": "KuSug\/特殊值0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "custom_damage_throw",
+          "name": "自动丢出",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "EditText",
+          "name": "特殊值",
+          "color": "$menu_item_color",
+          "max_ems": 10,
+          "max_lines": 1,
+          "hint": "整数",
+          "key": "custom_damage_value",
+          "text": "0"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "无限耐久",
+      "color": "$menu_item_color",
+      "tag": "fun_inf_durability",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/无限耐久0.png",
+        "on": "KuSug\/无限耐久1.png",
+        "off": "KuSug\/无限耐久0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "inf_durability_throw",
+          "name": "自动丢出",
+          "color": "$menu_item_color"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "冒险放置破坏",
+      "color": "$menu_item_color",
+      "tag": "fun_adventure_place_break",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/冒险破坏0.png",
+        "on": "KuSug\/冒险破坏1.png",
+        "off": "KuSug\/冒险破坏0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "药水修改",
+      "color": "$menu_item_color",
+      "tag": "fun_aux_effect",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/药水修改0.png",
+        "on": "KuSug\/药水修改1.png",
+        "off": "KuSug\/药水修改0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "aux_effect_throw",
+          "name": "自动丢出",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "RadioGroup",
+          "name": "----效果----",
+          "color": "$menu_item_color",
+          "key": "aux_effect",
+          "items": [
+            {
+              "key": "aux_effect_0",
+              "name": "无效果",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "aux_effect_5",
+              "name": "夜视",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_6",
+              "name": "夜视(延长)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_7",
+              "name": "隐身",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_8",
+              "name": "隐身(延长)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_9",
+              "name": "跳跃",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_10",
+              "name": "跳跃(延长)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_11",
+              "name": "跳跃II",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_12",
+              "name": "抗火",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_13",
+              "name": "抗火(延长)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_14",
+              "name": "迅捷",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_15",
+              "name": "迅捷(延长)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_16",
+              "name": "迅捷II",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_17",
+              "name": "迟缓",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_18",
+              "name": "迟缓(延长)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_19",
+              "name": "水肺",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_20",
+              "name": "水肺(延长)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_21",
+              "name": "治疗",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_22",
+              "name": "治疗II",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_23",
+              "name": "伤害",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_24",
+              "name": "伤害II",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_25",
+              "name": "剧毒",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_26",
+              "name": "剧毒(延长)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_27",
+              "name": "剧毒II",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_28",
+              "name": "再生",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_29",
+              "name": "再生(延长)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_30",
+              "name": "再生II",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_31",
+              "name": "力量",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_32",
+              "name": "力量(延长)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_33",
+              "name": "力量II",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_34",
+              "name": "虚弱",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_35",
+              "name": "虚弱(延长)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_36",
+              "name": "衰变",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_37",
+              "name": "神龟",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_38",
+              "name": "神龟(延长)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_39",
+              "name": "神龟II",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_40",
+              "name": "缓降",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_41",
+              "name": "缓降(延长)",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_42",
+              "name": "迟缓IV",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_43",
+              "name": "蓄风",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_44",
+              "name": "盘丝",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_45",
+              "name": "渗浆",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "aux_effect_46",
+              "name": "虫蚀",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "山羊角修改",
+      "color": "$menu_item_color",
+      "tag": "fun_goat_effect",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/山羊角0.png",
+        "on": "KuSug\/山羊角1.png",
+        "off": "KuSug\/山羊角0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "goat_effect_throw",
+          "name": "自动丢出",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "RadioGroup",
+          "name": "----音效----",
+          "color": "$menu_item_color",
+          "key": "goat_effect",
+          "items": [
+            {
+              "key": "goat_effect_0",
+              "name": "沉思",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "goat_effect_1",
+              "name": "歌颂",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "goat_effect_2",
+              "name": "寻觅",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "goat_effect_3",
+              "name": "感受",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "goat_effect_4",
+              "name": "仰慕",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "goat_effect_5",
+              "name": "呼唤",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "goat_effect_6",
+              "name": "憧憬",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "goat_effect_7",
+              "name": "梦想",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "床修改",
+      "color": "$menu_item_color",
+      "tag": "fun_bed_color",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/床修改0.png",
+        "on": "KuSug\/床修改1.png",
+        "off": "KuSug\/床修改0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "bed_color_throw",
+          "name": "自动丢出",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "RadioGroup",
+          "name": "----颜色----",
+          "color": "$menu_item_color",
+          "key": "bed_color",
+          "items": [
+            {
+              "key": "bed_color_0",
+              "name": "白色",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "bed_color_1",
+              "name": "橙色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_2",
+              "name": "品红色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_3",
+              "name": "淡蓝色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_4",
+              "name": "黄色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_5",
+              "name": "黄绿色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_6",
+              "name": "粉红色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_7",
+              "name": "灰色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_8",
+              "name": "淡灰色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_9",
+              "name": "青色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_10",
+              "name": "紫色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_11",
+              "name": "蓝色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_12",
+              "name": "棕色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_13",
+              "name": "绿色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_14",
+              "name": "红色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "bed_color_15",
+              "name": "黑色",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "旗帜修改",
+      "color": "$menu_item_color",
+      "tag": "fun_banner_color",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/旗帜修改0.png",
+        "on": "KuSug\/旗帜修改1.png",
+        "off": "KuSug\/旗帜修改0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "banner_color_throw",
+          "name": "自动丢出",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "RadioGroup",
+          "name": "----颜色----",
+          "color": "$menu_item_color",
+          "key": "banner_color",
+          "items": [
+            {
+              "key": "banner_color_0",
+              "name": "黑色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_1",
+              "name": "红色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_2",
+              "name": "绿色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_3",
+              "name": "棕色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_4",
+              "name": "蓝色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_5",
+              "name": "紫色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_6",
+              "name": "青色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_7",
+              "name": "淡灰色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_8",
+              "name": "灰色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_9",
+              "name": "粉红色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_10",
+              "name": "黄绿色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_11",
+              "name": "黄色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_12",
+              "name": "淡蓝色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_13",
+              "name": "品红色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_14",
+              "name": "橙色",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "banner_color_15",
+              "name": "白色",
+              "color": "$menu_item_color",
+              "checked": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "不祥药水修改",
+      "color": "$menu_item_color",
+      "tag": "fun_ominous_bottle",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/不祥药水0.png",
+        "on": "KuSug\/不祥药水1.png",
+        "off": "KuSug\/不祥药水0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "ominous_bottle_throw",
+          "name": "自动丢出",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "RadioGroup",
+          "name": "----等级----",
+          "color": "$menu_item_color",
+          "key": "ominous_bottle",
+          "items": [
+            {
+              "key": "ominous_bottle_0",
+              "name": "I级",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "ominous_bottle_1",
+              "name": "II级",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "ominous_bottle_2",
+              "name": "III级",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "ominous_bottle_3",
+              "name": "IV级",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "ominous_bottle_4",
+              "name": "V级",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

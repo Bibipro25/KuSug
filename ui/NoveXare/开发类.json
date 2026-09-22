@@ -1,0 +1,570 @@
+{
+    "type": "Menu",
+    "title": {
+        "name": "『Dev』",
+        "size": 16,
+        "elevation": 3,
+        "background": "$menu_title_background_color",
+        "padding": [
+            4,
+            2,
+            4,
+            2
+        ],
+        "text_margins": [3, 2, 3, 2],
+        "colors": [
+            "$menu_title_gradient_text_begin_color",
+            "$menu_title_gradient_text_end_color"
+        ]
+    },
+    "color": "$menu_color",
+    "alpha": 0.85,
+    "radius": 8,
+    "can_close": true,
+    "show_dividers": false,
+    "hide_fun": true,
+    "hide": true,
+    "items": [
+        {
+            "type": "TextView",
+            "name": "NoveXare",
+            "color": "$menu_item_color",
+            "checked": false,
+            "tag": "extra_nove_xare",
+            "items": [
+                {
+                    "type": "EditText",
+                    "key": "SauthLogin",
+                    "name": "Cookie登录",
+                    "color": "$menu_item_color",
+                    "max_lines": 64,
+                    "hint": "粘贴账号Cookie"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sl_hook",
+                    "name": "使用Hook登录",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "sl_delete",
+                    "name": "清除Sauth",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "DumpWorldInfo",
+                    "name": "导出世界信息",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "ImportWorldInfo",
+                    "name": "导入世界信息",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "DumpList",
+                    "name": "导出玩家/目标/实体列表",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "PlayerAuthInputPacket",
+                    "name": "玩家授权认证数据包显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowScreenHud",
+                    "name": "屏幕信息显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "DumpCookieSauth",
+                    "name": "导出自身Cookie",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "DumpRequestSauth",
+                    "name": "导出登录请求数据",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "DumpResponseSauth",
+                    "name": "导出登录响应数据",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "NoAnyReceive",
+                    "name": "停止接受任何数据包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowEntityAnime",
+                    "name": "实体动画显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowMoveContainer",
+                    "name": "容器移动物品事件",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowGameInfo",
+                    "name": "进入游戏信息显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowPressKey",
+                    "name": "按下键盘事件",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowUpliftKey",
+                    "name": "释放键盘事件",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowClickBlock",
+                    "name": "点击方块信息显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowDestroyBlock",
+                    "name": "破坏方块信息显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowClientMessage",
+                    "name": "客户端信息显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowCommandOutput",
+                    "name": "命令输出显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowCommand",
+                    "name": "执行命令显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowUI",
+                    "name": "UI交互显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowHurt",
+                    "name": "受伤显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowVariable",
+                    "name": "变化量显示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sv_id",
+                    "name": "本地ID",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sv_player",
+                    "name": "玩家数量",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowReceivePacket",
+                    "name": "接收数据包管理",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "srp_ignore",
+                    "name": "忽略指定数据包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "srp_intercept",
+                    "name": "拦截指定数据包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "srp_name",
+                    "name": "显示名称",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "srp_id",
+                    "name": "显示ID",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "srp_trans",
+                    "name": "显示对照翻译",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "srp_statistic",
+                    "name": "统计数据包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "srp_save",
+                    "name": "保存接受数据包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ShowSendPacket",
+                    "name": "发送数据包管理",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sp_ignore",
+                    "name": "忽略指定数据包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sp_intercept",
+                    "name": "拦截指定数据包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sp_name",
+                    "name": "显示名称",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sp_trans",
+                    "name": "显示对照翻译",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sp_id",
+                    "name": "显示ID",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sp_statistic",
+                    "name": "统计数据包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "sp_save",
+                    "name": "保存接受数据包",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "ActionManager",
+                    "name": "玩家行为管理",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "am_file",
+                    "name": "使用预设配置",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "am_id",
+                    "name": "编辑发送ID",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "am_value",
+                    "name": "编辑数据值",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "am_count",
+                    "format": "数量: %d个",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "am_delay",
+                    "format": "延迟: %dTick",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 60
+                },
+                {
+                    "type": "Switch",
+                    "key": "PlayerAuthManager",
+                    "name": "玩家授权认证管理",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "pam_id",
+                    "name": "编辑发送行为ID",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "pam_value",
+                    "name": "编辑发送行为数据",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "pam_array",
+                    "name": "编辑行为标识数组",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "pam_count",
+                    "format": "数量: %d个",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "pam_delay",
+                    "format": "延迟: %dTick",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 60
+                },
+                {
+                    "type": "Switch",
+                    "key": "PyRpcManager",
+                    "name": "PyRpc管理",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rpc_store",
+                    "name": "储存并发送PyRpc",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rpc_intercept",
+                    "name": "拦截储存PyRpc",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "rpc_repeat",
+                    "name": "重发上一PyRpc",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "rpc_select",
+                    "name": "选择PyRpc",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rpc_cycle",
+                    "name": "循环发送",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "rpc_repeat_times",
+                    "format": "数量: %d个",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 100
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "rpc_repeat_ticks",
+                    "format": "延迟: %dTick",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 60
+                },
+                {
+                    "type": "TextView",
+                    "key": "rpc_black",
+                    "name": "全局黑名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "rpc_white",
+                    "name": "全局白名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rpc_tip",
+                    "name": "收发PyRpc提示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "rpc_tipWhite",
+                    "name": "显示RPC黑名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rpc_showIntercept",
+                    "name": "显示已拦截的",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rpc_showDisintercept",
+                    "name": "显示未拦截的",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rpc_record",
+                    "name": "保存PyRpc文件",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rpc_exclude",
+                    "name": "不记录已排除",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rpc_id",
+                    "name": "显示ID",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rpc_send",
+                    "name": "发送PyRpc",
+                    "color": "$menu_item_color",
+                    "checked": true
+                },
+                {
+                    "type": "TextView",
+                    "key": "rpc_sendBlack",
+                    "name": "黑名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "rpc_sendWhite",
+                    "name": "白名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rpc_rec",
+                    "name": "接收PyRpc",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "rpc_recBlack",
+                    "name": "黑名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "key": "rpc_recWhite",
+                    "name": "白名单",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "rpc_mode",
+                    "name": "数据类型",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "String",
+                            "checked": true,
+                            "name": "字符串",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Hex",
+                            "name": "哈希",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Format",
+                            "name": "格式化",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "Binary",
+                            "name": "二进制",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "CheckBox",
+                    "key": "rpc_remark",
+                    "name": "注释Hex",
+                    "color": "$menu_item_color"
+                }
+            ]
+        }
+    ]
+}

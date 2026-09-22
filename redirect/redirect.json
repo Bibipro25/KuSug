@@ -1,0 +1,10 @@
+{
+  "enable": false,
+  "directory_prefix": [
+    "resource_packs/",
+    "behavior_packs/",
+    "skin_packs/",
+    "shaders/",
+    "gui/"
+  ]
+}

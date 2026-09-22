@@ -1,0 +1,70 @@
+{
+    "trash_slot": -1,
+    "clear_config": {
+        "minecraft:diamond_sword": {
+            "max_num": 1,
+            "aux": "any",
+            "slot": 0
+        },
+        "minecraft:iron_sword": {
+            "max_num": 1,
+            "aux": "any",
+            "slot": 0
+        },
+        "minecraft:diamond_helmet": {
+            "max_num": 1,
+            "aux": "any",
+            "slot": 5
+        },
+        "minecraft:diamond_chestplate": {
+            "max_num": 1,
+            "aux": "any",
+            "slot": 6
+        },
+        "minecraft:diamond_leggings": {
+            "max_num": 1,
+            "aux": "any",
+            "slot": 7
+        },
+        "minecraft:diamond_boots": {
+            "max_num": 1,
+            "aux": "any",
+            "slot": 8
+        },
+        "minecraft:oak_planks": {
+            "max_num": 128,
+            "aux": "any",
+            "slot": 2
+        },
+        "minecraft:stone": {
+            "max_num": 128,
+            "aux": "any",
+            "slot": 3
+        },
+        "minecraft:ender_eye": {
+            "max_num": 1,
+            "aux": "any"
+        },
+        "minecraft:compass": {
+            "max_num": 1,
+            "aux": "any"
+        },
+        "minecraft:slime_ball": {
+            "max_num": 1,
+            "aux": "any"
+        },
+        "minecraft:glass": {
+            "max_num": 128,
+            "aux": "any"
+        },
+        "minecraft:grass": {
+            "max_num": 128,
+            "aux": "any"
+        },
+        "minecraft:golden_apple": {
+            "max_num": 64,
+            "aux": "any",
+            "slot": 1
+        }
+    }
+}

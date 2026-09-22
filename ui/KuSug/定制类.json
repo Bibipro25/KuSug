@@ -1,0 +1,742 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-定制类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "radius": 8,
+  "can_close": true,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "TextView",
+      "name": "保存此类别配置",
+      "color": "$menu_item_color",
+      "save_menu_config": "定制类",
+      "tip": "已保存配置"
+    },
+    {
+      "type": "TextView",
+      "name": "加载此类别配置",
+      "color": "$menu_item_color",
+      "load_menu_config": "定制类",
+      "tip": "已加载配置"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "--------",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": -2
+    },
+    {
+      "type": "Switch",
+      "name": "上帝模式",
+      "color": "$menu_item_color",
+      "tag": "fun_super_12",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/上帝模式0.png",
+        "on": "KuSug\/上帝模式1.png",
+        "off": "KuSug\/上帝模式0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "height",
+          "format": "高度 %.2f",
+          "color": "$menu_item_color",
+          "value": 10000.0,
+          "min": 10.0,
+          "max": 10000.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "x_offset",
+          "format": "X坐标偏移 %.2f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": -10000.0,
+          "max": 10000.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "z_offset",
+          "format": "Z坐标偏移 %.2f",
+          "color": "$menu_item_color",
+          "value": 0.0,
+          "min": -10000.0,
+          "max": 10000.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "motion",
+          "format": "动量 %.2f",
+          "color": "$menu_item_color",
+          "value": 10000.0,
+          "min": 10.0,
+          "max": 10000.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "百米大刀",
+      "color": "$menu_item_color",
+      "tag": "fun_super_1",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/百米大刀0.png",
+        "on": "KuSug\/百米大刀1.png",
+        "off": "KuSug\/百米大刀0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "POS_Y_MAX",
+          "format": "最高Y坐标 %d",
+          "color": "$menu_item_color",
+          "value": 804,
+          "min": 1,
+          "max": 1000
+        },
+        {
+          "type": "SeekBar",
+          "key": "MAX_RANGE",
+          "format": "最远范围 %d",
+          "color": "$menu_item_color",
+          "value": 500,
+          "min": 1,
+          "max": 1000
+        },
+        {
+          "type": "SeekBar",
+          "key": "ATTACK_COUNT",
+          "format": "攻击和点击次数 %d",
+          "color": "$menu_item_color",
+          "value": 3,
+          "min": 1,
+          "max": 10
+        },
+        {
+          "type": "SeekBar",
+          "key": "AUTO_INTERVAL",
+          "format": "自动传送间隔 %d",
+          "color": "$menu_item_color",
+          "value": 15,
+          "min": 1,
+          "max": 50
+        },
+        {
+          "type": "SeekBar",
+          "key": "COLLISION_X_MIN",
+          "format": "最低X碰撞箱 %.2f",
+          "color": "$menu_item_color",
+          "value": 0.1,
+          "min": 0.1,
+          "max": 2.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "COLLISION_Y_MIN",
+          "format": "最低Y碰撞箱 %.2f",
+          "color": "$menu_item_color",
+          "value": 0.1,
+          "min": 0.1,
+          "max": 2.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "无限光环",
+      "color": "$menu_item_color",
+      "tag": "fun_super_11",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/无限光环0.png",
+        "on": "KuSug\/无限光环1.png",
+        "off": "KuSug\/无限光环0.png",
+        "no_circle": true
+      },
+      "on": "在租赁服或者联机使用",
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "player",
+          "name": "玩家",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "mob",
+          "name": "生物",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "crystal",
+          "name": "水晶",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "Switch",
+          "key": "spin",
+          "name": "旋转",
+          "color": "$menu_item_color",
+          "on_sound": "click.mp3",
+          "off_sound": "click.mp3",
+          "shortcut": {
+            "type": "CheckedButton",
+            "params": [
+              65,
+              32
+            ],
+            "on_sound": "click.mp3",
+            "off_sound": "click.mp3",
+            "icon": "KuSug\/旋转0.png",
+            "on": "KuSug\/旋转1.png",
+            "off": "KuSug\/旋转0.png",
+            "no_circle": true
+          },
+          "on": "攻击时触发三叉戟范围攻击"
+        },
+        {
+          "type": "Switch",
+          "key": "action",
+          "name": "手部动作",
+          "color": "$menu_item_color",
+          "on_sound": "click.mp3",
+          "off_sound": "click.mp3",
+          "shortcut": {
+            "type": "CheckedButton",
+            "params": [
+              65,
+              32
+            ],
+            "on_sound": "click.mp3",
+            "off_sound": "click.mp3",
+            "icon": "KuSug\/手部动作0.png",
+            "on": "KuSug\/手部动作1.png",
+            "off": "KuSug\/手部动作0.png",
+            "no_circle": true
+          },
+          "on": "攻击时让手部挥动，其他人可见",
+          "checked": true
+        },
+        {
+          "type": "Switch",
+          "key": "ignore_packet",
+          "name": "忽略正常包",
+          "color": "$menu_item_color",
+          "on_sound": "click.mp3",
+          "off_sound": "click.mp3",
+          "shortcut": {
+            "type": "CheckedButton",
+            "params": [
+              65,
+              32
+            ],
+            "on_sound": "click.mp3",
+            "off_sound": "click.mp3",
+            "icon": "KuSug\/忽略正常0.png",
+            "on": "KuSug\/忽略正常1.png",
+            "off": "KuSug\/忽略正常0.png",
+            "no_circle": true
+          },
+          "on": "忽略正常移动数据包，减少延迟"
+        },
+        {
+          "type": "SeekBar",
+          "key": "speed",
+          "format": "攻击速度 %d",
+          "color": "$menu_item_color",
+          "value": 20,
+          "min": 1,
+          "max": 40
+        },
+        {
+          "type": "SeekBar",
+          "key": "count",
+          "format": "攻击数量 %d",
+          "color": "$menu_item_color",
+          "value": 3,
+          "min": 1,
+          "max": 40
+        },
+        {
+          "type": "SeekBar",
+          "key": "distance",
+          "format": "攻击距离 %.2f",
+          "color": "$menu_item_color",
+          "value": 7.0,
+          "min": 1.0,
+          "max": 100.0
+        },
+        {
+          "type": "SeekBar",
+          "key": "height",
+          "format": "传送高度 %.2f",
+          "color": "$menu_item_color",
+          "value": 5.0,
+          "min": 0.0,
+          "max": 10.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "背包整理",
+      "color": "$menu_item_color",
+      "tag": "fun_super_14",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/背包整理0.png",
+        "on": "KuSug\/背包整理1.png",
+        "off": "KuSug\/背包整理0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "drop_weapons",
+          "name": "丢弃武器",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "drop_hatchets",
+          "name": "丢弃斧头",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "arrange_items",
+          "name": "排列物品",
+          "color": "$menu_item_color"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "攻击特效",
+      "color": "$menu_item_color",
+      "on": "攻击目标触发特效",
+      "tag": "fun_super_9",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/攻击特效0.png",
+        "on": "KuSug\/攻击特效1.png",
+        "off": "KuSug\/攻击特效0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "totem",
+          "name": "图腾",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "lightning_bolt",
+          "name": "闪电",
+          "color": "$menu_item_color",
+          "checked": true
+        },
+        {
+          "type": "SeekBar",
+          "key": "tick",
+          "format": "持续时间 %d 游戏刻",
+          "color": "$menu_item_color",
+          "value": 30,
+          "min": 10,
+          "max": 60
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "拖尾特效",
+      "color": "$menu_item_color",
+      "tag": "fun_super_15",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/拖尾特效0.png",
+        "on": "KuSug\/拖尾特效1.png",
+        "off": "KuSug\/拖尾特效0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "粒子爆破",
+      "color": "$menu_item_color",
+      "tag": "fun_super_10",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/粒子爆破0.png",
+        "on": "KuSug\/粒子爆破1.png",
+        "off": "KuSug\/粒子爆破0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "count",
+          "format": "数量 %d",
+          "color": "$menu_item_color",
+          "value": 100,
+          "min": 100,
+          "max": 1000
+        },
+        {
+          "type": "TextView",
+          "name": "选中目标",
+          "color": "$menu_item_color",
+          "key": "click"
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "悬浮手",
+      "color": "$menu_item_color",
+      "on": "修改视角FOV",
+      "tag": "fun_super_2",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/悬浮手0.png",
+        "on": "KuSug\/悬浮手1.png",
+        "off": "KuSug\/悬浮手0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "fov",
+          "format": "视角 %.2f",
+          "color": "$menu_item_color",
+          "value": 120.0,
+          "min": 0.0,
+          "max": 180.0
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "旋转头",
+      "color": "$menu_item_color",
+      "on": "自己的头不停旋转",
+      "tag": "fun_super_4",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/旋转头0.png",
+        "on": "KuSug\/旋转头1.png",
+        "off": "KuSug\/旋转头0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "刀刀暴击",
+      "color": "$menu_item_color",
+      "tag": "fun_super_6",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/刀刀暴击0.png",
+        "on": "KuSug\/刀刀暴击1.png",
+        "off": "KuSug\/刀刀暴击0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "兔子跳",
+      "color": "$menu_item_color",
+      "tag": "fun_super_3",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/兔子跳0.png",
+        "on": "KuSug\/兔子跳1.png",
+        "off": "KuSug\/兔子跳0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "辅助瞄准",
+      "color": "$menu_item_color",
+      "tag": "fun_super_13",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/辅助瞄准0.png",
+        "on": "KuSug\/辅助瞄准1.png",
+        "off": "KuSug\/辅助瞄准0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "自动围人",
+      "color": "$menu_item_color",
+      "tag": "fun_super_16",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自动围人0.png",
+        "on": "KuSug\/自动围人1.png",
+        "off": "KuSug\/自动围人0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "自我介绍",
+      "color": "$menu_item_color",
+      "on": "进服自动发送“服务器已被入侵”",
+      "tag": "fun_super_8",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自我介绍0.png",
+        "on": "KuSug\/自我介绍1.png",
+        "off": "KuSug\/自我介绍0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "卡人",
+      "color": "$menu_item_color",
+      "tag": "fun_super_0",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/卡人0.png",
+        "on": "KuSug\/卡人1.png",
+        "off": "KuSug\/卡人0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "伪op",
+      "color": "$menu_item_color",
+      "on": "让自己拥有假的管理员权限",
+      "tag": "fun_super_5",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/伪op0.png",
+        "on": "KuSug\/伪op1.png",
+        "off": "KuSug\/伪op0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "自我崩溃",
+      "color": "$menu_item_color",
+      "on": "快速崩溃自己退出游戏",
+      "tag": "fun_super_7",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/自我崩溃0.png",
+        "on": "KuSug\/自我崩溃1.png",
+        "off": "KuSug\/自我崩溃0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "TextView",
+      "name": "--宠物背包--",
+      "color": "$menu_item_color",
+      "tag": "script_pet_bag",
+      "items": [
+        {
+          "type": "TextView",
+          "name": "打开宠物背包",
+          "color": "$menu_item_color",
+          "key": "openPetBag"
+        },
+        {
+          "type": "TextView",
+          "name": "关闭宠物背包",
+          "color": "$menu_item_color",
+          "key": "closePetBag"
+        },
+        {
+          "type": "TextView",
+          "name": "复制宠物背包物品",
+          "color": "$menu_item_color",
+          "key": "copyPetBagItem"
+        },
+        {
+          "type": "TextView",
+          "name": "移动宠物背包物品",
+          "color": "$menu_item_color",
+          "key": "movePetBagItem"
+        },
+        {
+          "type": "TextView",
+          "name": "丢弃宠物背包物品",
+          "color": "$menu_item_color",
+          "key": "dropPetBagItem"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+    {
+        "match_mode": "模糊",
+        "has_mode": "同时",
+        "reverse_selection": true,
+        "texts": [
+            "管",
+            "理",
+            "员"
+        ]
+    },
+    {
+        "match_mode": "精准",
+        "has_mode": "存在",
+        "reverse_selection": false,
+        "texts": [
+            "管理员",
+            "协管",
+            "大使"
+        ]
+    }
+]

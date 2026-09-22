@@ -1,0 +1,294 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "KuSug",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "radius": 8,
+  "hide_fun": true,
+  "can_close": false,
+  "show_dividers": false,
+  "items": [
+    {
+      "type": "Switch",
+      "name": "水印",
+      "color": "$menu_item_color",
+      "tag": "fun_watermark",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/水印0.png",
+        "on": "KuSug\/水印1.png",
+        "off": "KuSug\/水印0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "GradientTextView",
+      "name": "扩展水印",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "tip": "请长按窝喵~",
+      "shortcut": {
+        "type": "ClickButton",
+        "params": [175,85],
+        "icon": "水印.gif",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----快捷----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "TextView",
+      "name": "JS加载器",
+      "color": "$menu_item_color",
+      "load_script": "JS加载器.js"
+    },
+    {
+      "type": "TextView",
+      "name": "脚本菜单",
+      "color": "$menu_item_color",
+      "load_script": "脚本菜单.js"
+    },
+    {
+      "type": "TextView",
+      "name": "MCP加载器",
+      "color": "$menu_item_color",
+      "load_script": "MCP加载器.js"
+    },
+    {
+      "type": "TextView",
+      "name": "PY加载器",
+      "color": "$menu_item_color",
+      "load_script": "PY菜单.js"
+    },
+    {
+      "type": "TextView",
+      "name": "NBT编辑器",
+      "color": "$menu_item_color",
+      "tag": "fun_nbt_editor",
+      "shortcut": {
+        "type": "ClickButton",
+        "params": [
+          65,
+          32
+        ],
+        "icon": "NBT.png",
+        "on": "NBT.png",
+        "off": "NBT.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----扩展----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "TextView",
+      "name": "创世神",
+      "color": "$menu_item_color",
+      "load_script": "创世神.js"
+    },
+    {
+      "type": "TextView",
+      "name": "NoteBot",
+      "color": "$menu_item_color",
+      "load_script": "NoteBot3.9.js"
+    },
+    {
+      "type": "TextView",
+      "name": "FuHongBuild",
+      "color": "$menu_item_color",
+      "load_script": "FuHongBuild.js"
+    },
+    {
+      "type": "TextView",
+      "name": "TimeUnity",
+      "color": "$menu_item_color",
+      "load_script": "TimeUnity.js"
+    },
+    {
+      "type": "TextView",
+      "name": "PrismKit",
+      "color": "$menu_item_color",
+      "load_script": "PrismKit_Loader.js"
+    },
+    {
+      "type": "TextView",
+      "name": "NoveXare",
+      "color": "$menu_item_color",
+      "open": "NoveXare/NoveXare"
+    },
+    {
+      "type": "TextView",
+      "name": "Rebirth",
+      "color": "$menu_item_color",
+      "open": "Rebirth/建筑工具"
+    },
+    {
+      "type": "TextView",
+      "name": "z1yr",
+      "color": "$menu_item_color",
+      "open": "KuSug/z1yr类"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----原版----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "TextView",
+      "name": "<- 扩展 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/扩展类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 修改 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/修改类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 世界 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/世界类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 玩家 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/玩家类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 战斗 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/战斗类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 移动 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/移动类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 渲染 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/渲染类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 网络 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/网络类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 辅助 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/辅助类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 开发 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/开发类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 指令 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/指令类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 定制 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/定制类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 娱乐 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/娱乐类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 设置 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/设置类"
+    },
+    {
+      "type": "TextView",
+      "name": "<- 关于 ->",
+      "color": "$menu_item_color",
+      "open": "KuSug/关于类"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----特殊----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "TextView",
+      "name": "强制退出",
+      "color": "$menu_item_hide_color",
+      "load_script": "退出世界.js"
+    },
+    {
+      "type": "TextView",
+      "name": "隐藏全部",
+      "color": "$menu_item_hide_color",
+      "tip": "已隐藏所有UI",
+      "tag": "fun_hide"
+    },
+    {
+      "type": "Switch",
+      "name": "隐藏",
+      "color": "$menu_item_hide_color",
+      "tag": "fun_hide_menu_shortcut",
+      "on": "请长按窝喵~",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          35,
+          35
+        ],
+        "icon": "世界盒子.png",
+        "on": "世界盒子.png",
+        "off": "世界盒子.png"
+      }
+    }
+  ]
+}

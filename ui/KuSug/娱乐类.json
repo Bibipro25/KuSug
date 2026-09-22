@@ -1,0 +1,126 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-娱乐类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "Image",
+      "image": {
+        "src": "舔.gif"
+      }
+    },
+    {
+      "type": "GradientTextView",
+      "name": "--------",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": -2
+    },
+    {
+      "type": "TextView",
+      "name": ">> 彩虹猪 <<",
+      "color": "$menu_item_color",
+      "tip": "请长按窝喵~",
+      "shortcut": {
+        "type": "ClickButton",
+        "params": [
+          60,
+          60
+        ],
+        "icon": "彩虹猪.gif",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "TextView",
+      "name": ">> QWQ <<",
+      "color": "$menu_item_color",
+      "tip": "请长按窝喵~",
+      "shortcut": {
+        "type": "ClickButton",
+        "params": [
+          60,
+          60
+        ],
+        "icon": "QWQ.gif",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "TextView",
+      "name": ">> ᗜ_ᗜ <<",
+      "color": "$menu_item_color",
+      "tip": "请长按窝喵~",
+      "shortcut": {
+        "type": "ClickButton",
+        "params": [
+          60,
+          60
+        ],
+        "icon": "ᗜ_ᗜ.gif",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "TextView",
+      "name": ">> 初音 <<",
+      "color": "$menu_item_color",
+      "tip": "请长按窝喵~",
+      "shortcut": {
+        "type": "ClickButton",
+        "params": [
+          60,
+          60
+        ],
+        "icon": "mm.gif",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "TextView",
+      "name": ">> 白猪 <<",
+      "color": "$menu_item_color",
+      "tip": "请长按窝喵~",
+      "shortcut": {
+        "type": "ClickButton",
+        "params": [
+          60,
+          60
+        ],
+        "icon": "白猪.gif",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "TextView",
+      "name": ">> 猫猫虫 <<",
+      "color": "$menu_item_color",
+      "tip": "请长按窝喵~",
+      "shortcut": {
+        "type": "ClickButton",
+        "params": [
+          60,
+          60
+        ],
+        "icon": "猫猫虫.gif",
+        "no_circle": true
+      }
+    }
+  ]
+}

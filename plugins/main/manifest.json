@@ -1,0 +1,6 @@
+{
+  "name": "KuSug配套插件",
+  "description": "KuSug配套插件",
+  "entry": "JavaPlugin",
+  "enable": true
+}

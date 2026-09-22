@@ -1,0 +1,17 @@
+{
+    "send": {
+        "ignore": [
+            200,
+            144
+        ],
+        "intercept": [],
+        "tip": "ignore填忽略显示的数据包名称/ID intercept填需要拦截的数据包/ID"
+    },
+    "receive": {
+        "ignore": [
+            200,
+            111
+        ],
+        "intercept": []
+    }
+}

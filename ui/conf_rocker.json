@@ -1,0 +1,22 @@
+{
+  "movementControl": {
+    "areaColor": "#ECEFF199",
+    "rockerColor": "#607D8B",
+    "x": 30.0,
+    "y": 30.0
+  },
+  "elevationControl": {
+    "ascend": {
+      "name": "%layout_rocker_up%",
+      "tag": "up",
+      "padding": [20, 20, 20, 20]
+    },
+    "descend": {
+      "name": "%layout_rocker_down%",
+      "tag": "down",
+      "padding": [20, 20, 20, 20]
+    },
+    "x": 30.0,
+    "y": 40.0
+  }
+}

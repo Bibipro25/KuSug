@@ -1,0 +1,12 @@
+[
+    {
+        "packet": "kickself",
+        "match_mode": 0,
+        "remarks": "逐梦踢出自己"
+    },
+    {
+        "packet": "这里是包字符或者包hex",
+        "match_mode": 1,
+        "remarks": "match_mode 0为模糊匹配, 1为精准匹配"
+    }
+]

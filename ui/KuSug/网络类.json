@@ -1,0 +1,161 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-网络类->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "Switch",
+      "name": "重复数据包",
+      "color": "$menu_item_color",
+      "tag": "fun_multiple_packet",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/重复发包0.png",
+        "on": "KuSug\/重复发包1.png",
+        "off": "KuSug\/重复发包0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "count",
+          "format": "数量%d",
+          "color": "$menu_item_color",
+          "value": 50,
+          "min": 1,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "停止数据包",
+      "color": "$menu_item_color",
+      "tag": "fun_no_packet",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/停止发包0.png",
+        "on": "KuSug\/停止发包1.png",
+        "off": "KuSug\/停止发包0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "暴饮暴食",
+      "color": "$menu_item_color",
+      "tag": "fun_eat_repeat",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/暴饮暴食0.png",
+        "on": "KuSug\/暴饮暴食1.png",
+        "off": "KuSug\/暴饮暴食0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "SeekBar",
+          "key": "eat_repeat_count",
+          "format": "重复%d次",
+          "color": "$menu_item_color",
+          "value": 10,
+          "min": 1,
+          "max": 255
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "延迟放行包",
+      "color": "$menu_item_color",
+      "tag": "fun_blink",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/延迟放行0.png",
+        "on": "KuSug\/延迟放行1.png",
+        "off": "KuSug\/延迟放行0.png",
+        "no_circle": true
+      },
+      "expandable": false,
+      "items": [
+        {
+          "type": "CheckBox",
+          "key": "only_delay_send",
+          "name": "仅延迟发送",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "CheckBox",
+          "key": "delay",
+          "name": "自动放行",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "SeekBar",
+          "key": "delay_ms",
+          "format": "放行延迟%dms",
+          "color": "$menu_item_color",
+          "value": 500,
+          "min": 100,
+          "max": 3000
+        }
+      ]
+    },
+    {
+      "type": "TextView",
+      "name": "网络数据包管理+",
+      "color": "$menu_item_color",
+      "tag": "fun_network_packet_mgr"
+    }
+  ]
+}

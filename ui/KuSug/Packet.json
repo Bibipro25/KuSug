@@ -1,0 +1,433 @@
+{
+  "type": "Menu",
+  "title": {
+    "name": "<-Packet->",
+    "size": 16,
+    "padding": [4,2,4,2],
+    "text_margins": [3,2,3,2],
+    "elevation": 3,
+    "background": "$menu_title_background_color",
+    "colors": [
+      "$menu_title_gradient_text_begin_color",
+      "$menu_title_gradient_text_end_color"
+    ]
+  },
+  "color": "$menu_color",
+  "alpha": 0.85,
+  "can_close": true,
+  "radius": 8,
+  "show_dividers": false,
+  "hide": true,
+  "items": [
+    {
+      "type": "TextView",
+      "name": "加载脚本",
+      "color": "$menu_item_color",
+      "load_script": "数据包管理器.js"
+    },
+    {
+      "type": "TextView",
+      "name": "退出脚本",
+      "color": "$menu_item_color",
+      "key": "exit"
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----监听记录----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "Switch",
+      "name": "发包监听",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_send_listen",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/发包监听0.png",
+        "on": "KuSug\/发包监听1.png",
+        "off": "KuSug\/发包监听0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "收包监听",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_recv_listen",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "shortcut": {
+        "type": "CheckedButton",
+        "params": [
+          65,
+          32
+        ],
+        "on_sound": "click.mp3",
+        "off_sound": "click.mp3",
+        "icon": "KuSug\/收包监听0.png",
+        "on": "KuSug\/收包监听1.png",
+        "off": "KuSug\/收包监听0.png",
+        "no_circle": true
+      }
+    },
+    {
+      "type": "Switch",
+      "name": "聊天栏显示",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_chat_print",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3"
+    },
+    {
+      "type": "Switch",
+      "name": "实时写入文件",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_file_live",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3"
+    },
+    {
+      "type": "Switch",
+      "name": "过滤设置",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_filter",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "EditText",
+          "name": "ID列表",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "逗号分隔 如144,19,9",
+          "key": "pkt_filter_ids",
+          "text": ""
+        },
+        {
+          "type": "RadioGroup",
+          "name": "过滤模式",
+          "color": "$menu_item_color",
+          "key": "pkt_filter_mode",
+          "items": [
+            {
+              "key": "pkt_filter_mode_0",
+              "name": "全部记录",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "pkt_filter_mode_1",
+              "name": "仅记录列表内",
+              "color": "$menu_item_color"
+            },
+            {
+              "key": "pkt_filter_mode_2",
+              "name": "排除列表内",
+              "color": "$menu_item_color"
+            }
+          ]
+        },
+        {
+          "type": "SeekBar",
+          "key": "pkt_buf_size",
+          "format": "记录容量%d",
+          "color": "$menu_item_color",
+          "value": 5000,
+          "min": 100,
+          "max": 20000
+        }
+      ]
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----拦截替换----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "Switch",
+      "name": "发包拦截",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_block_send",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "EditText",
+          "name": "拦截ID列表",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "逗号分隔 如144,19",
+          "key": "pkt_block_send_ids",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "收包拦截",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_block_recv",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "EditText",
+          "name": "拦截ID列表",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "逗号分隔 如156,29",
+          "key": "pkt_block_recv_ids",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "字节替换/重构",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_replace",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "EditText",
+          "name": "替换规则",
+          "color": "$menu_item_color",
+          "max_ems": 4,
+          "max_lines": 6,
+          "hint": "每行: 方向 ID 查找HEX 替换HEX(查找填*为整包) 如: S 144 00ff aabb",
+          "key": "pkt_replace_rules",
+          "text": ""
+        },
+        {
+          "type": "RadioGroup",
+          "name": "替换方式",
+          "color": "$menu_item_color",
+          "key": "pkt_replace_mode",
+          "items": [
+            {
+              "key": "pkt_replace_mode_0",
+              "name": "仅原位改写(同长度零延迟)",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "pkt_replace_mode_1",
+              "name": "允许变长(拦原包发新包)",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "GradientTextView",
+      "name": "----工具操作----",
+      "start_color": "$menu_title_gradient_text_begin_color",
+      "end_color": "$menu_title_gradient_text_end_color",
+      "padding": 1
+    },
+    {
+      "type": "Switch",
+      "name": "保存记录到文件",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_save",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3"
+    },
+    {
+      "type": "Switch",
+      "name": "清空记录",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_clear",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3"
+    },
+    {
+      "type": "Switch",
+      "name": "统计信息",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_stats",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3"
+    },
+    {
+      "type": "Switch",
+      "name": "查找HEX",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_find",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "EditText",
+          "name": "查找内容",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "如 48 65 6c 6c 6f",
+          "key": "pkt_find_hex",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "对比两条记录",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_diff",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "EditText",
+          "name": "两个序号",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "如 3,5",
+          "key": "pkt_diff_seqs",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "重放数据包",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_replay",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "EditText",
+          "name": "记录序号",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "记录前面的#数字",
+          "key": "pkt_replay_seq",
+          "text": ""
+        },
+        {
+          "type": "EditText",
+          "name": "覆盖包体(可空)",
+          "color": "$menu_item_color",
+          "max_ems": 3,
+          "max_lines": 3,
+          "hint": "填入HEX则用它替换原包体",
+          "key": "pkt_replay_hex",
+          "text": ""
+        },
+        {
+          "type": "CheckBox",
+          "key": "pkt_replay_rules",
+          "name": "发送前应用替换规则",
+          "color": "$menu_item_color"
+        },
+        {
+          "type": "RadioGroup",
+          "name": "重放方向",
+          "color": "$menu_item_color",
+          "key": "pkt_replay_dir",
+          "items": [
+            {
+              "key": "pkt_replay_dir_0",
+              "name": "发送到服务器",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "pkt_replay_dir_1",
+              "name": "注入到本地",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Switch",
+      "name": "构造发包",
+      "color": "$menu_item_color",
+      "tag": "fun_pkt_craft",
+      "on_sound": "click.mp3",
+      "off_sound": "click.mp3",
+      "expandable": false,
+      "items": [
+        {
+          "type": "EditText",
+          "name": "包ID",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "数字 如144",
+          "key": "pkt_craft_id",
+          "text": ""
+        },
+        {
+          "type": "EditText",
+          "name": "包体HEX",
+          "color": "$menu_item_color",
+          "max_ems": 3,
+          "max_lines": 4,
+          "hint": "十六进制 如 00 11 ab cd",
+          "key": "pkt_craft_hex",
+          "text": ""
+        },
+        {
+          "type": "EditText",
+          "name": "连发次数",
+          "color": "$menu_item_color",
+          "max_lines": 1,
+          "hint": "默认1 最大1000",
+          "key": "pkt_craft_times",
+          "text": ""
+        },
+        {
+          "type": "SeekBar",
+          "key": "pkt_craft_gap",
+          "format": "连发间隔%dtick",
+          "color": "$menu_item_color",
+          "value": 1,
+          "min": 1,
+          "max": 40
+        },
+        {
+          "type": "RadioGroup",
+          "name": "发送方向",
+          "color": "$menu_item_color",
+          "key": "pkt_craft_dir",
+          "items": [
+            {
+              "key": "pkt_craft_dir_0",
+              "name": "发送到服务器",
+              "color": "$menu_item_color",
+              "checked": true
+            },
+            {
+              "key": "pkt_craft_dir_1",
+              "name": "注入到本地",
+              "color": "$menu_item_color"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

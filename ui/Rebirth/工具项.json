@@ -1,0 +1,213 @@
+{
+    "type": "Menu",
+    "title": {
+        "name": "『工具项』",
+        "size": 16,
+        "elevation": 3,
+        "background": "$menu_title_background_color",
+        "padding": [
+            4,
+            2,
+            4,
+            2
+        ],
+        "text_margins": [3, 2, 3, 2],
+        "colors": [
+            "$menu_title_gradient_text_begin_color",
+            "$menu_title_gradient_text_end_color"
+        ]
+    },
+    "color": "$menu_color",
+    "alpha": 0.85,
+    "radius": 8,
+    "can_close": true,
+    "hide_fun": true,
+    "hide": true,
+    "items": [
+        {
+            "type": "TextView",
+            "name": "工具",
+            "color": "$menu_item_color",
+            "tag": "build_tool_rebirth",
+            "items": [
+                {
+                    "type": "TextView",
+                    "name": "复制当前坐标",
+                    "color": "$menu_item_color",
+                    "key": "COPY_POS"
+                },
+                {
+                    "type": "TextView",
+                    "name": "退出世界",
+                    "color": "$menu_item_color",
+                    "key": "LEAVE"
+                },
+                {
+                    "type": "TextView",
+                    "name": "清除背包",
+                    "color": "$menu_item_color",
+                    "run_command": "/clear @s"
+                },
+                {
+                    "type": "TextView",
+                    "name": "清除药效",
+                    "color": "$menu_item_color",
+                    "run_command": "/effect @s clear"
+                },
+                {
+                    "type": "TextView",
+                    "name": "清除实体",
+                    "color": "$menu_item_color",
+                    "run_command": "/kill @e[type=!player]"
+                },
+                {
+                    "type": "TextView",
+                    "name": "给予命令方块",
+                    "color": "$menu_item_color",
+                    "run_command": "/give @s command_block"
+                },
+                {
+                    "type": "TextView",
+                    "name": "放置命令方块",
+                    "color": "$menu_item_color",
+                    "run_command": "/setblock ~~-1~ command_block 0"
+                },
+                {
+                    "type": "TextView",
+                    "name": "向上传送",
+                    "color": "$menu_item_color",
+                    "run_command": "/tp ~~32~"
+                },
+                {
+                    "type": "TextView",
+                    "name": "放置方块",
+                    "color": "$menu_item_color",
+                    "run_command": "/fill ~-2~-1~-2 ~2~-1~2 stone 0"
+                },
+                {
+                    "type": "TextView",
+                    "name": "传送地图角落-小",
+                    "color": "$menu_item_color",
+                    "key": "TP_MAP_S"
+                },
+                {
+                    "type": "TextView",
+                    "name": "向前传送50格",
+                    "color": "$menu_item_color",
+                    "run_command": "/tp ^^^50"
+                },
+                {
+                    "type": "TextView",
+                    "name": "放置固定命令方块",
+                    "color": "$menu_item_color",
+                    "key": "PLACE_CMD"
+                },
+                {
+                    "type": "Switch",
+                    "key": "COPY_CMD",
+                    "name": "复制命令方块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "PASTE_CMD",
+                    "name": "粘贴命令方块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "COPY_POS",
+                    "name": "复制坐标",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "PASTE_POS",
+                    "name": "粘贴坐标",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "COPY_SIGN",
+                    "name": "复制告示牌",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "PASTE_SIGN",
+                    "name": "粘贴告示牌",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "CLICK_GET",
+                    "name": "点击选择方块&实体",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "SHOW_CHUNK",
+                    "name": "显示区块",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "NO_OUTPUT",
+                    "name": "禁用指令输出",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "Switch",
+                    "key": "NO_TIP",
+                    "name": "禁用指令提示",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "RadioGroup",
+                    "key": "GAME_MODE",
+                    "name": "游戏模式",
+                    "color": "$menu_item_color",
+                    "items": [
+                        {
+                            "key": "CREATE",
+                            "name": "创造",
+                            "color": "$menu_item_color",
+                            "checked": true
+                        },
+                        {
+                            "key": "SURVIVAL",
+                            "name": "生存",
+                            "color": "$menu_item_color"
+                        },
+                        {
+                            "key": "SPECTATOR",
+                            "name": "观察者",
+                            "color": "$menu_item_color"
+                        }
+                    ]
+                },
+                {
+                    "type": "SeekBar",
+                    "key": "FLY_SPEED",
+                    "format": "飞行速度: %d倍",
+                    "color": "$menu_item_color",
+                    "value": 1,
+                    "min": 1,
+                    "max": 10
+                },
+                {
+                    "type": "EditText",
+                    "key": "EXECUTE_CMD",
+                    "name": "指令(绕违禁词)",
+                    "color": "$menu_item_color"
+                },
+                {
+                    "type": "TextView",
+                    "name": "执行指令",
+                    "color": "$menu_item_color",
+                    "key": "EXECUTE"
+                }
+            ]
+        }
+    ]
+}
