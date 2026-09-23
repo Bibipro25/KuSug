@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KuSug — 《我的世界》中国版 UI 系统</title>
+<meta name="description" content="KuSug:运行于跑路 RunAway 插件平台的《我的世界》中国版 UI 系统。免费开源,GitHub 分发。">
+<style>
+:root{
+	--ink:#3A4668;
+	--sub:#7A87A8;
+	--blue:#8BB5DF;
+	--pink:#F2A6B0;
+	--lilac:#B89EC8;
+	--red:#F04747;
+	--bg:#F5F9FF;
+	--card:#FFFFFF;
+	--line:#E3EBF7;
+	--grad:linear-gradient(120deg,#F2A6B0 0%,#B89EC8 50%,#8BB5DF 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* 顶部导航 */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(245,249,255,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-size:22px;font-weight:800;letter-spacing:1px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:26px;font-size:14px;color:var(--sub)}
+.nav-links a:hover{color:var(--blue)}
+@media(max-width:640px){.nav-links{display:none}}
+
+/* Hero */
+.hero{min-height:92vh;display:flex;align-items:center;position:relative;padding:120px 0 60px}
+.hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:float 14s ease-in-out infinite}
+.b1{width:420px;height:420px;background:#F2A6B0;top:-120px;right:-80px}
+.b2{width:380px;height:380px;background:#B8C8E8;bottom:-100px;left:-100px;animation-delay:-4s}
+.b3{width:260px;height:260px;background:#8BB5DF;top:40%;left:60%;opacity:.35;animation-delay:-8s}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-26px) scale(1.05)}}
+.hero-inner{position:relative;text-align:center;width:100%}
+.ver-chip{display:inline-block;font-size:13px;color:var(--sub);background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 16px;margin-bottom:26px}
+.ver-chip b{color:var(--pink);font-weight:700}
+h1.title{font-size:clamp(56px,10vw,110px);font-weight:900;letter-spacing:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1.15}
+.slogan{margin:22px auto 0;max-width:560px;font-size:17px;color:var(--sub)}
+.hero-btns{margin-top:42px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 34px;border-radius:14px;font-size:16px;font-weight:700;transition:transform .18s ease,box-shadow .18s ease}
+.btn:hover{transform:translateY(-3px)}
+.btn-main{background:var(--grad);color:#fff;box-shadow:0 10px 26px rgba(184,158,200,.45)}
+.btn-main:hover{box-shadow:0 16px 34px rgba(184,158,200,.55)}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.hero-note{margin-top:20px;font-size:13px;color:var(--sub)}
+
+/* 通用节 */
+section{padding:88px 0}
+.sec-title{text-align:center;font-size:34px;font-weight:800;letter-spacing:2px}
+.sec-title em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sec-sub{text-align:center;color:var(--sub);margin-top:12px;font-size:15px}
+
+/* 功能卡 */
+.grid{margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 28px;transition:transform .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(139,181,223,.22)}
+.card .ico{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg,#FBEDF0,#EAF1FB);margin-bottom:18px}
+.card h3{font-size:18px;font-weight:800;margin-bottom:10px}
+.card p{font-size:14px;color:var(--sub)}
+.tagrow{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:12px;color:var(--blue);background:#EEF4FC;border-radius:999px;padding:3px 12px}
+
+/* 安装步骤 */
+.steps{margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;position:relative}
+.step .num{font-size:30px;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.step h4{margin:10px 0 8px;font-size:16px}
+.step p{font-size:13.5px;color:var(--sub)}
+.step code{background:#EEF4FC;color:var(--blue);border-radius:6px;padding:1px 7px;font-size:12.5px}
+
+/* 分发卡 */
+.dist{margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.dist a,.dist .qqcard{display:block;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 30px;transition:transform .18s ease,box-shadow .18s ease}
+.dist a:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(242,166,176,.22)}
+.dist h3{font-size:20px;font-weight:800;margin-bottom:8px}
+.dist p{font-size:14px;color:var(--sub)}
+.dist .go{margin-top:16px;font-size:14px;font-weight:700;color:var(--pink)}
+.dist .qqnum{margin-top:16px;font-size:22px;font-weight:900;letter-spacing:1px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* 页脚 */
+footer{border-top:1px solid var(--line);padding:36px 0 44px;text-align:center;color:var(--sub);font-size:13px}
+footer .free{color:var(--red);font-weight:700}
+footer a{color:var(--blue)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+	<div class="wrap">
+		<a class="logo" href="#">KuSug</a>
+		<div class="nav-links">
+			<a href="#features">功能</a>
+			<a href="#install">安装</a>
+			<a href="#dist">获取</a>
+			<a href="https://github.com/Bibipro25/KuSug" target="_blank" rel="noopener">GitHub</a>
+		</div>
+	</div>
+</nav>
+
+<header class="hero">
+	<div class="hero-bg"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
+	<div class="wrap hero-inner">
+		<span class="ver-chip">当前版本 <b>260922a</b> · 免费开源 · MIT</span>
+		<h1 class="title">KuSug</h1>
+		<p class="slogan">《我的世界》中国版 UI 系统,运行于跑路 RunAway 插件平台。<br>原生渲染加速、全菜单 ClickGUI、z1yr 深度集成,一套装齐。</p>
+		<div class="hero-btns">
+			<a class="btn btn-main" href="https://github.com/Bibipro25/KuSug/releases" target="_blank" rel="noopener">下载发布包</a>
+			<a class="btn btn-ghost" href="#dist">QQ 群交流</a>
+		</div>
+		<p class="hero-note">本软件免费开源,请勿用于任何付费售卖场景。</p>
+	</div>
+</header>
+
+<section id="features">
+	<div class="wrap">
+		<h2 class="sec-title">功能<em>一览</em></h2>
+		<p class="sec-sub">游戏内按快捷键呼出主菜单,全部分类即点即用</p>
+		<div class="grid">
+			<div class="card">
+				<div class="ico">✨</div>
+				<h3>原生渲染增强</h3>
+				<p>自研 KuSug.so 原生组件接管渲染,丝滑不掉帧。</p>
+				<div class="tagrow"><span class="tag">动态模糊</span><span class="tag">掉落物统计</span><span class="tag">2D 雷达</span><span class="tag">方向标</span><span class="tag">自定义准星</span><span class="tag">动态水印</span><span class="tag">世界面板</span></div>
+			</div>
+			<div class="card">
+				<div class="ico">⚔️</div>
+				<h3>战斗与移动</h3>
+				<p>实战向辅助全家桶,参数全部可视化调节。</p>
+				<div class="tagrow"><span class="tag">杀戮光环</span><span class="tag">自瞄</span><span class="tag">搭路</span><span class="tag">陀螺视角</span><span class="tag">自定义相机</span><span class="tag">攻击特效</span></div>
+			</div>
+			<div class="card">
+				<div class="ico">🧩</div>
+				<h3>z1yr 深度集成</h3>
+				<p>面板一键加载/退出 z1yr,开关状态双向同步,快捷键渐变皮肤配套。</p>
+				<div class="tagrow"><span class="tag">一键加载</span><span class="tag">状态同步</span><span class="tag">配置播种</span><span class="tag">渐变徽章</span></div>
+			</div>
+			<div class="card">
+				<div class="ico">🎨</div>
+				<h3>界面体系</h3>
+				<p>全菜单 ClickGUI 与快捷键徽章,KuSug 经典与 z1yr 渐变双皮肤。</p>
+				<div class="tagrow"><span class="tag">ClickGUI</span><span class="tag">快捷键徽章</span><span class="tag">双皮肤</span><span class="tag">自助徽章工坊</span></div>
+			</div>
+			<div class="card">
+				<div class="ico">🛠️</div>
+				<h3>实用工具</h3>
+				<p>日常省心工具箱,常驻后台不抢镜。</p>
+				<div class="tagrow"><span class="tag">批量命令</span><span class="tag">自动告示牌</span><span class="tag">数据包管理器</span><span class="tag">建筑导入</span><span class="tag">Cookie 登录</span></div>
+			</div>
+			<div class="card">
+				<div class="ico">🚀</div>
+				<h3>性能与稳定</h3>
+				<p>启动提速、逐模块异常隔离、全链路游戏线程纪律,长时间挂机稳如老狗。</p>
+				<div class="tagrow"><span class="tag">极速启动</span><span class="tag">模块隔离</span><span class="tag">线程纪律</span><span class="tag">零后台功耗</span></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="install" style="background:#fff">
+	<div class="wrap">
+		<h2 class="sec-title">四步<em>装好</em></h2>
+		<p class="sec-sub">无需折腾环境,解压即用</p>
+		<div class="steps">
+			<div class="step"><div class="num">01</div><h4>下载发布包</h4><p>前往 <code>GitHub Releases</code> 下载最新版 zip。</p></div>
+			<div class="step"><div class="num">02</div><h4>解压放入</h4><p>将解压出的全部文件放入客户端资源目录。</p></div>
+			<div class="step"><div class="num">03</div><h4>启用脚本</h4><p>启动客户端,在脚本列表中启用 <code>KuSug</code>。</p></div>
+			<div class="step"><div class="num">04</div><h4>呼出菜单</h4><p>进游戏按快捷键呼出主菜单,开始使用。</p></div>
+		</div>
+	</div>
+</section>
+
+<section id="dist">
+	<div class="wrap">
+		<h2 class="sec-title">获取与<em>交流</em></h2>
+		<p class="sec-sub">开源仓库、发布下载、交流群,三个入口</p>
+		<div class="dist">
+			<a href="https://github.com/Bibipro25/KuSug" target="_blank" rel="noopener">
+				<h3>GitHub 仓库</h3>
+				<p>发布包全文件与 KuSug.js / KuSug.so 全套源代码,MIT 协议。</p>
+				<div class="go">Bibipro25/KuSug →</div>
+			</a>
+			<a href="https://github.com/Bibipro25/KuSug/releases" target="_blank" rel="noopener">
+				<h3>发布下载</h3>
+				<p>最新发布包 KuSug 260922a,更新日志随版附在 Release 说明。</p>
+				<div class="go">Releases →</div>
+			</a>
+			<div class="qqcard">
+				<h3>QQ 交流群</h3>
+				<p>使用交流、问题反馈、更新第一手通知。</p>
+				<div class="qqnum">群号待公布</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer>
+	<div class="wrap">
+		<p><span class="free">免费开源 · 请勿售卖</span></p>
+		<p style="margin-top:8px">KuSug © 2026 <a href="https://github.com/Bibipro25" target="_blank" rel="noopener">Bibipro25</a> · MIT License · 运行于跑路 RunAway 插件平台</p>
+	</div>
+</footer>
+
+</body>
+</html>
