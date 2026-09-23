@@ -1,164 +1,10241 @@
-const menu=require(_0x5a0b42(0x122,0x342)),app=require(_0x5a0b42(0x847,0x7a5)),gui=require(_0x5a0b42(0x558,0xa7f)),camera=require(_0x5a0b42(-0x5d1,-0x1a)),options=require(_0x5a0b42(0x920,0x795)),player=require(_0x5a0b42(0x2d9,0x135)),world=require(_0x5a0b42(0x3c4,0x16d)),netease=require(_0x5a0b42(0x29e,0x53b)),minecraft=require(_0x5a0b42(0x476,0x2ac)),fs=require('fs'),https=require(_0x5a0b42(-0x2ce,0x113)),packet=require(_0x5a0b42(0x3ec,0x521)),input=require(_0x5a0b42(-0x97,0x476)),blockApi=require(_0x5a0b42(0x750,0x707)),os=require('os');function mkLog(_0x39bc49){return function(_0x25e6c1){function _0x28f1eb(_0x25210c,_0x314af9){return _0x2f10(_0x314af9- -0x363,_0x25210c);}try{minecraft[_0x28f1eb(0x1b1,-0x205)](_0x39bc49+_0x25e6c1);}catch(_0x1b54e6){}};}function ensureHud(_0x42376a,_0xfa3894,_0x314d2b){if(_0x42376a[_0x4221e8(0x4f8,0x6c1)])return;function _0x4221e8(_0x5ccea4,_0x486885){return _0x5a0b42(_0x5ccea4,_0x486885- -0xd3);}_0x42376a[_0x4221e8(0x606,0x6c1)]=new gui[(_0x4221e8(0x606,0x8d7))]({'function':_0xfa3894,'name':_0x314d2b,'shortName':_0x314d2b,'enabled':![]});}function notifyToggle(_0x16d7af,_0x15cdb0,_0x44c233){const _0xaf7028={'ophKo':_0x3d394e(0x21d,0x50f)};function _0x3d394e(_0x5a92c3,_0x5d0d13){return _0x5a0b42(_0x5d0d13,_0x5a92c3- -0x188);}try{minecraft[_0x3d394e(-0x1ad,0x306)](_0x3d394e(0x333,0x1aa)+_0x16d7af+']\x20'+(_0x15cdb0?_0x3d394e(0x21c,0x210):_0xaf7028[_0x3d394e(0x405,0x38e)])+(_0x15cdb0&&_0x44c233?_0x3d394e(0x529,0x12e)+_0x44c233:''));}catch(_0x98f491){}}function stdToggle(_0x4bad65,_0x1f0919,_0x3c5f7d,_0x419375,_0x549ad8){const _0x4e29bd={'WeKej':function(_0x19431d,_0x34cf17){return _0x19431d(_0x34cf17);},'rNToG':function(_0x26b267,_0x2ce2b5,_0x38ce81,_0x43012d){return _0x26b267(_0x2ce2b5,_0x38ce81,_0x43012d);}};if(_0x1f0919[_0x3a3b1a(0x670,0x2ba)]!==_0x4bad65[_0x3a3b1a(0xdf0,0xbf0)]||!(_0x3a3b1a(0xddf,0x915)in _0x1f0919))return![];function _0x3a3b1a(_0x1d092a,_0x1eb964){return _0x5a0b42(_0x1eb964,_0x1d092a-0x2da);}const _0x1294b7=_0x4e29bd[_0x3a3b1a(0xa41,0xf14)](Boolean,_0x1f0919[_0x3a3b1a(0xddf,0xc1e)]);if(_0x1294b7===_0x4bad65[_0x3a3b1a(0x3cf,-0x6e)])return![];return _0x4bad65[_0x3a3b1a(0x3cf,0x381)]=_0x1294b7,_0x419375!==![]&&(_0x4e29bd[_0x3a3b1a(0x91a,0xc19)](ensureHud,_0x4bad65,_0x4bad65[_0x3a3b1a(0xdf0,0x85e)],_0x3c5f7d),_0x4bad65[_0x3a3b1a(0xa6e,0x55d)][_0x3a3b1a(0x3cf,0x4a7)]=_0x1294b7),notifyToggle(_0x3c5f7d,_0x1294b7,_0x549ad8),!![];}function fireLatch(_0x49995b,_0x4190c4){function _0x2b2a6a(_0x455665,_0x161d9d){return _0x5a0b42(_0x161d9d,_0x455665-0x4fc);}if(!_0x4190c4)return _0x49995b[_0x2b2a6a(0x92c,0x708)]=![],![];if(_0x49995b[_0x2b2a6a(0x92c,0x372)])return![];return _0x49995b[_0x2b2a6a(0x92c,0x611)]=!![],!![];}function tickEvery(_0x2d4439,_0x2f6c8f){_0x2d4439[_0x3bb03c(0x3ae,0x808)]++;if(_0x2d4439[_0x3bb03c(0x3ae,0x552)]<_0x2f6c8f)return![];_0x2d4439[_0x3bb03c(0x3ae,-0x9a)]=0x0;function _0x3bb03c(_0x4ffe40,_0x42dbe0){return _0x5a0b42(_0x42dbe0,_0x4ffe40-0x31);}return!![];}function tickSafe(_0x141510){function _0x3e0e4c(_0x4d134f,_0x16fc87){return _0x5a0b42(_0x16fc87,_0x4d134f-0x33f);}try{_0x141510[_0x3e0e4c(0x4b8,0x83d)]();}catch(_0x53fab5){}}function clampPos(_0x58ff89,_0xcb44dc,_0x4207a6){const _0x14359c={'fcQzC':function(_0x57bb1d,_0x7d017e){return _0x57bb1d<=_0x7d017e;}};function _0x23581a(_0x2f7448,_0x20083f){return _0x5a0b42(_0x20083f,_0x2f7448-0x2d2);}const _0x24dc15=Number(_0x58ff89);if(isNaN(_0x24dc15)||_0x14359c[_0x23581a(0xa26,0xe3f)](_0x24dc15,0x0))return 0x0;return Math[_0x23581a(0xba1,0x1118)](_0xcb44dc,Math[_0x23581a(0xb7d,0x96f)](_0x4207a6,Math[_0x23581a(0x63d,0x118)](_0x24dc15)));}function radio2(_0x4aa639,_0x505b14,_0x239680,_0x505844,_0x2f4377,_0x113cdb,_0x431935,_0x112b47){const _0x1ad538=argPick(_0x4aa639,
-_0x505b14);if(_0x1ad538===_0x239680)_0x2f4377[_0x113cdb]=_0x431935;else{if(_0x1ad538===_0x505844)_0x2f4377[_0x113cdb]=_0x112b47;}if(_0x4aa639[_0x239680]===!![])_0x2f4377[_0x113cdb]=_0x431935;if(_0x4aa639[_0x505844]===!![])_0x2f4377[_0x113cdb]=_0x112b47;}function hex2buf(_0x3415a5){const _0x28166b=new Uint8Array(_0x3415a5[_0xd71106(0x98d,0xca8)]/0x2);function _0xd71106(_0xe67b6f,_0x248998){return _0x5a0b42(_0x248998,_0xe67b6f-0x36b);}for(let _0x1d0091=0x0;_0x1d0091<_0x28166b[_0xd71106(0x98d,0xeca)];_0x1d0091++)_0x28166b[_0x1d0091]=parseInt(_0x3415a5[_0xd71106(0x926,0xd58)](_0x1d0091*0x2,0x2),0x10);return _0x28166b[_0xd71106(0x583,0x68c)];}function carriedNbt(){const _0x487d51=player[_0x53ae5d(0x68a,0xa87)]();function _0x53ae5d(_0x243a45,_0x53b7f5){return _0x5a0b42(_0x53b7f5,_0x243a45-0x190);}const _0x511933=_0x487d51[_0x53ae5d(0xc73,0x733)]();let _0xa9ca9f='';try{_0xa9ca9f=String(_0x511933[_0x53ae5d(0x207,0x235)]()||'');}catch(_0x59b25b){}return{'lp':_0x487d51,'it':_0x511933,'nbt':_0xa9ca9f};}const STRIP_COLOR_RE=/§[0-9a-fk-or]/gi,EMPTY_LIST=[];function pascalKey(_0x4393df){function _0x592947(_0x3cd594,_0x52c0a4){return _0x5a0b42(_0x3cd594,_0x52c0a4-0x337);}return _0x4393df[_0x592947(0xaf0,0x75a)](/(^|_)([a-z])/g,function(_0x13ebe0,_0x107c7c,_0x585a06){function _0x5010d7(_0x4e612e,_0x2f7a5a){return _0x592947(_0x2f7a5a,_0x4e612e- -0x2e1);}return _0x107c7c+_0x585a06[_0x5010d7(0x330,-0xda)]();});}function showPyPopup(_0x1b019e,_0x59b4b9,_0x4ca6dd){function _0x507968(_0x2eed61,_0x473f89){return _0x5a0b42(_0x473f89,_0x2eed61-0x29c);}const _0x5d44bd={'DWkQk':function(_0x3cdc11,_0x3ebf5e){return _0x3cdc11(_0x3ebf5e);}},_0x356f1b=_0x507968(0x372,0x169)+JSON[_0x507968(0x889,0x3a4)](JSON[_0x507968(0x889,0xd59)](_0x1b019e))+_0x507968(0xc65,0xed1)+JSON[_0x507968(0x889,0x40e)](JSON[_0x507968(0x889,0xa85)](_0x59b4b9))+_0x507968(0xd8c,0xf4f)+JSON[_0x507968(0x889,0x440)](JSON[_0x507968(0x889,0x749)](_0x4ca6dd===undefined?null:_0x5d44bd[_0x507968(0x90e,0x4e9)](String,_0x4ca6dd)))+(_0x507968(0xd9b,0xcca)+_0x507968(0xc2b,0xf7a)+_0x507968(0x37f,0x66c));try{app[_0x507968(0x511,0x424)](_0x356f1b);}catch(_0x957d9c){}}function binReader(_0x12304a){const _0x133aa0={'QeiEq':function(_0x26062a,_0x4ac754){return _0x26062a&_0x4ac754;}},_0xcfc4dc=new Uint8Array(_0x12304a),_0x1bc1d9={'u8':_0xcfc4dc,'off':0x0,'need'(_0x25f210){function _0x13df26(_0xa9244d,_0x27780e){return _0x2f10(_0x27780e- -0x211,_0xa9244d);}if(_0x1bc1d9[_0x13df26(0xb5c,0x8f2)]+_0x25f210>_0xcfc4dc[_0x13df26(0x911,0x594)])throw 0x0;},'byte'(){_0x1bc1d9[_0x457cdd(0x7e0,0x603)](0x1);function _0x457cdd(_0x44510a,_0x38908b){return _0x2f10(_0x44510a-0x2ef,_0x38908b);}return _0xcfc4dc[_0x1bc1d9[_0x457cdd(0xdf2,0xeb1)]++];},'skip'(_0x41290d){function _0x297227(_0x4e3fec,_0x243608){return _0x2f10(_0x243608- -0x339,_0x4e3fec);}_0x1bc1d9[_0x297227(0x4c6,0x1b8)](_0x41290d),_0x1bc1d9[_0x297227(0x3f5,0x7ca)]+=_0x41290d;},'uvarint'(){let _0x551ef9=0x0,_0x2bd10e=0x0,_0x500a87;do{_0x500a87=_0x1bc1d9[_0xd7b2ab(0xa6e,0x59d)](),_0x551ef9+=(_0x500a87&0x7f)*0x2**_0x2bd10e,_0x2bd10e+=0x7;}while(_0x133aa0[_0xd7b2ab(-0x49,0x2c0)](_0x500a87,0x80)&&_0x2bd10e<0x23);function _0xd7b2ab(_0x43cf78,_0x130898){return _0x2f10(_0x130898- -0xf1,_0x43cf78);}return _0x551ef9;},'svarint'(){function _0x2d2061(_0x2acfbb,_0x19d7fb){return _0x2f10(_0x19d7fb-0x2c9,_0x2acfbb);}const _0x59d85e=_0x1bc1d9[_0x2d2061(0x80b,0x441)](),_0x756477=Math[_0x2d2061(0x9e2,0x7b7)](_0x59d85e/0x2);return _0x59d85e%0x2?-_0x756477-0x1:_0x756477;}};return _0x1bc1d9;}function uvarintBytes(_0x27786b){const _0x5505ea={'zhWMp':function(_0x38f2d0,_0x239d41){return _0x38f2d0/_0x239d41;},'aZQOs':function(_0x5d3b10,_0x4ec368){return _0x5d3b10>_0x4ec368;}},_0x8a3661=[];do{const _0x158835=_0x27786b%0x80;_0x27786b=Math[_0x3e98c5(0x4d2,0x279)](_0x5505ea[_0x3e98c5(0x7a9,0x31d)](_0x27786b,0x80)),_0x8a3661[_0x3e98c5(0xb4a,0x7c4)](_0x27786b>0x0?_0x158835|0x80:_0x158835);}while(_0x5505ea[_0x3e98c5(0x9c5,0x421)](_0x27786b,0x0));function _0x3e98c5(_0xba3c9,
-_0x4930a7){return _0x5a0b42(_0xba3c9,_0x4930a7- -0xf2);}return _0x8a3661;}function joinParts(_0x3fa8d7){let _0x229c38=0x0;for(const _0x5580eb of _0x3fa8d7)_0x229c38+=_0x5580eb[_0x256639(0x5dd,0x84d)];const _0x2745d4=new Uint8Array(_0x229c38);let _0x90af7d=0x0;function _0x256639(_0x2f7023,_0x1fb62b){return _0x5a0b42(_0x1fb62b,_0x2f7023- -0x45);}for(const _0xa97c7c of _0x3fa8d7){_0x2745d4[_0x256639(0x170,-0x3e3)](_0xa97c7c,_0x90af7d),_0x90af7d+=_0xa97c7c[_0x256639(0x5dd,0x5e3)];}return _0x2745d4[_0x256639(0x1d3,0x1b2)];}function decodeUtf8(_0x56b517){function _0x503bb6(_0x38da8c,_0x1207bf){return _0x5a0b42(_0x1207bf,_0x38da8c-0x47f);}const _0x54ea81={'xMWrD':function(_0x2b309d,_0xd1d330){return _0x2b309d<<_0xd1d330;},'NbCmh':function(_0x3849f5,_0x2396fb){return _0x3849f5&_0x2396fb;},'BdRDD':function(_0x443c13,_0x555c5e){return _0x443c13|_0x555c5e;},'bRsjv':function(_0x4c68b3,_0x21975a){return _0x4c68b3&_0x21975a;},'VOXix':function(_0x5bc365,_0xad8ca9){return _0x5bc365+_0xad8ca9;}};let _0x45446f='';for(let _0x50066b=0x0;_0x50066b<_0x56b517[_0x503bb6(0xaa1,0x4e8)];){const _0x500e4d=_0x56b517[_0x50066b++];if(_0x500e4d<0x80)_0x45446f+=String[_0x503bb6(0x946,0x765)](_0x500e4d);else{if(_0x500e4d<0xe0)_0x45446f+=String[_0x503bb6(0x946,0xb80)]((_0x500e4d&0x1f)<<0x6|_0x56b517[_0x50066b++]&0x3f);else{if(_0x500e4d<0xf0)_0x45446f+=String[_0x503bb6(0x946,0x46d)](_0x54ea81[_0x503bb6(0xa80,0x4ff)](_0x500e4d&0xf,0xc)|_0x54ea81[_0x503bb6(0x6a1,0xb31)](_0x56b517[_0x50066b++],0x3f)<<0x6|_0x56b517[_0x50066b++]&0x3f);else{const _0xd46caf=_0x56b517[_0x50066b++],_0x38c484=_0x56b517[_0x50066b++],_0x221c0a=_0x56b517[_0x50066b++],_0x4d80f2=(_0x54ea81[_0x503bb6(0x9e1,0x875)]((_0x500e4d&0x7)<<0x12,_0x54ea81[_0x503bb6(0x4be,0x9c6)](_0xd46caf,0x3f)<<0xc)|_0x54ea81[_0x503bb6(0x6a1,0x79c)](_0x38c484,0x3f)<<0x6|_0x221c0a&0x3f)-0x10000;_0x45446f+=String[_0x503bb6(0x946,0x7ba)](_0x54ea81[_0x503bb6(0xeb4,0xc11)](0xd800,_0x4d80f2>>0xa),_0x54ea81[_0x503bb6(0xeb4,0xc9e)](0xdc00,_0x4d80f2&0x3ff));}}}}return _0x45446f;}function encodeUtf8(_0x3ed793){function _0x48b7a9(_0x32c182,_0x44d522){return _0x5a0b42(_0x32c182,_0x44d522-0x3b1);}const _0x460a3d={'qLkTu':function(_0x18ce5b,_0x319cd6){return _0x18ce5b>_0x319cd6;},'sWZyv':function(_0x1a3a01,_0x292f34){return _0x1a3a01|_0x292f34;},'MCSQN':function(_0x2a45fb,_0x49c557){return _0x2a45fb|_0x49c557;},'oonbG':function(_0x25610,_0x4cb688){return _0x25610>>_0x4cb688;},'NNKzs':function(_0x5d1506,_0x2ffed7){return _0x5d1506>>_0x2ffed7;},'wODfc':function(_0x11934a,_0x568584){return _0x11934a&_0x568584;}},_0x1e3582=[];for(let _0xf75a80=0x0;_0xf75a80<_0x3ed793[_0x48b7a9(0xf0d,0x9d3)];){const _0x55dcdb=_0x3ed793[_0x48b7a9(0x800,0x787)](_0xf75a80);_0xf75a80+=_0x460a3d[_0x48b7a9(0x8d4,0xa3a)](_0x55dcdb,0xffff)?0x2:0x1;if(_0x55dcdb<=0x7f)_0x1e3582[_0x48b7a9(0xa8e,0xc67)](_0x55dcdb);else{if(_0x55dcdb<=0x7ff)_0x1e3582[_0x48b7a9(0x91e,0xc67)](_0x460a3d[_0x48b7a9(0x4eb,0x488)](0xc0,_0x55dcdb>>0x6),_0x460a3d[_0x48b7a9(0x6cf,0xba8)](0x80,_0x55dcdb&0x3f));else _0x55dcdb<=0xffff?_0x1e3582[_0x48b7a9(0xb0b,0xc67)](0xe0|_0x460a3d[_0x48b7a9(0xcd4,0x907)](_0x55dcdb,0xc),0x80|_0x460a3d[_0x48b7a9(0xa85,0x907)](_0x55dcdb,0x6)&0x3f,0x80|_0x55dcdb&0x3f):_0x1e3582[_0x48b7a9(0xb25,0xc67)](_0x460a3d[_0x48b7a9(0xfe2,0xba8)](0xf0,_0x55dcdb>>0x12),0x80|_0x460a3d[_0x48b7a9(0x8ec,0x81d)](_0x55dcdb,0xc)&0x3f,_0x460a3d[_0x48b7a9(0xfe7,0xba8)](0x80,_0x55dcdb>>0x6&0x3f),0x80|_0x460a3d[_0x48b7a9(0x40d,0x662)](_0x55dcdb,0x3f));}}return _0x1e3582;}function nbtSetInf(_0xda7ea2){const _0x32ffdf={'Ykcrx':function(_0x4db911,_0x4fb28e){return _0x4db911<_0x4fb28e;},'rLWzQ':function(_0x5528c9,_0x13dd80){return _0x5528c9===_0x13dd80;},'gcewL':function(_0x54f893,_0x4f4259){return _0x54f893<_0x4f4259;},'bJVfN':function(_0x2dc878,_0x4c8293){return _0x2dc878+_0x4c8293;}},_0x32b37e=_0xda7ea2[_0x2a6fe1(0x167,-0x2a1)](_0x2a6fe1(0xa10,0xe0f));if(_0x32ffdf[_0x2a6fe1(0xbfa,0x8a5)](_0x32b37e,0x0)){if(_0xda7ea2[_0x2a6fe1(0xc2b,0xdf0)](_0xda7ea2[_0x2a6fe1(0x758,
-0x3fb)]-0x1)!=='}')return null;return _0xda7ea2[_0x2a6fe1(0xd3,-0x1a0)](0x0,-0x1)+_0x2a6fe1(0x23b,-0x231);}const _0x5e588d=_0x32b37e+0x4;let _0x7e50d0=0x0,_0x1b5fe0=-0x1;for(let _0x15c5b8=_0x5e588d;_0x15c5b8<_0xda7ea2[_0x2a6fe1(0x758,0x626)];_0x15c5b8++){const _0x179cff=_0xda7ea2[_0x2a6fe1(0xc2b,0x888)](_0x15c5b8);if(_0x32ffdf[_0x2a6fe1(0xa3e,0x6d8)](_0x179cff,'{'))_0x7e50d0++;else{if(_0x179cff==='}'){_0x7e50d0--;if(_0x7e50d0===0x0){_0x1b5fe0=_0x15c5b8;break;}}}}if(_0x32ffdf[_0x2a6fe1(0xa51,0xcd5)](_0x1b5fe0,0x0))return null;const _0x2a202a=_0xda7ea2[_0x2a6fe1(0xd3,-0x2bb)](_0x5e588d+0x1,_0x1b5fe0);let _0x1f9a3a;/Damage:-?\d+[a-z]?/[_0x2a6fe1(0x84b,0x30a)](_0x2a202a)?_0x1f9a3a=_0x2a202a[_0x2a6fe1(0x559,0x2d7)](/Damage:-?\d+[a-z]?/,_0x2a6fe1(0x351,0x315)):_0x1f9a3a=_0x2a6fe1(0x351,-0x1a9)+(_0x2a202a?','+_0x2a202a:'');function _0x2a6fe1(_0x53b9bf,_0x20b74d){return _0x5a0b42(_0x20b74d,_0x53b9bf-0x136);}return _0xda7ea2[_0x2a6fe1(0xd3,0x2fc)](0x0,_0x32ffdf[_0x2a6fe1(0x953,0x45b)](_0x5e588d,0x1))+_0x1f9a3a+_0xda7ea2[_0x2a6fe1(0xd3,0x518)](_0x1b5fe0);}function nbtSetDamage(_0x3c2577,_0x3683e3){const _0x474e35={'EsICe':function(_0x5124cb,_0x2cfd5d){return _0x5124cb<_0x2cfd5d;},'natJX':function(_0x5939f5,_0x248376){return _0x5939f5===_0x248376;},'jaZpO':_0x55b0e5(0x540,0x2bc),'fygYC':function(_0x55eeb6,_0x2a4d43){return _0x55eeb6+_0x2a4d43;}};let _0x139297=0x0,_0x51ad82=![];function _0x55b0e5(_0x4df97b,_0x4fdcff){return _0x5a0b42(_0x4fdcff,_0x4df97b- -0x19e);}for(let _0x3f0482=0x0;_0x474e35[_0x55b0e5(0x79,0x5e6)](_0x3f0482,_0x3c2577[_0x55b0e5(0x484,-0x8e)]);_0x3f0482++){const _0x47536c=_0x3c2577[_0x55b0e5(0x957,0xe44)](_0x3f0482);if(_0x51ad82){if(_0x47536c==='\x22')_0x51ad82=![];continue;}if(_0x47536c==='\x22'){_0x51ad82=!![];continue;}if(_0x47536c==='{')_0x139297++;else{if(_0x47536c==='}')_0x139297--;else{if(_0x47536c==='D'&&_0x139297===0x1&&_0x474e35[_0x55b0e5(0x388,0x93e)](_0x3c2577[_0x55b0e5(0x41d,0x1fb)](_0x3f0482,0x7),_0x474e35[_0x55b0e5(0x50b,0x770)])){const _0x59a520=/^Damage:-?\d+([a-z]?)/[_0x55b0e5(0x977,0xd6a)](_0x3c2577[_0x55b0e5(-0x201,0x94)](_0x3f0482));if(!_0x59a520)return null;return _0x3c2577[_0x55b0e5(-0x201,-0x4f0)](0x0,_0x3f0482)+_0x55b0e5(0x540,0x35f)+_0x3683e3+_0x59a520[0x1]+_0x3c2577[_0x55b0e5(-0x201,-0x51b)](_0x474e35[_0x55b0e5(0x2fb,0x705)](_0x3f0482,_0x59a520[0x0][_0x55b0e5(0x484,0x418)]));}}}}if(_0x3c2577[_0x55b0e5(0x957,0x4e4)](0x0)!=='{')return null;return _0x55b0e5(0xfd,0x36c)+_0x3683e3+'s,'+_0x3c2577[_0x55b0e5(-0x201,-0xee)](0x1);}function makeNbtWriter(_0x99d486){function _0x5e1216(_0x55aa88,_0x5ba803){return _0x5a0b42(_0x55aa88,_0x5ba803-0x54b);}const _0x3b1fed={'LnOls':function(_0x388468,_0x1e1624){return _0x388468!==_0x1e1624;},'eUkkF':function(_0x1d208b,_0x2223f9){return _0x1d208b+_0x2223f9;},'OfCmZ':function(_0x359646,_0x10e1a1){return _0x359646>_0x10e1a1;},'QMDxu':_0x5e1216(0x78a,0xc13),'fDgKU':_0x5e1216(0xaaa,0xd0c),'OQwcS':function(_0x59e9e6,_0xe683d1){return _0x59e9e6<_0xe683d1;}};return{'tag':_0x99d486[_0x5e1216(0xf12,0x1061)],'fired':![],'writesLeft':0x0,'writeGap':0x0,'throwAfter':!!_0x99d486[_0x5e1216(0xb49,0xebc)],'dropDelay':0x0,'value':0x0,'onModuleEvent'(_0x2075e8){if(_0x3b1fed[_0x1f05dc(0x21c,0x445)](typeof _0x2075e8[_0x99d486[_0x1f05dc(0x1f4,0x4e7)]],_0x1f05dc(0x175,-0x278)))this[_0x1f05dc(0x96c,0xa65)]=Boolean(_0x2075e8[_0x99d486[_0x1f05dc(0x1f4,0x20f)]]);if(_0x99d486[_0x1f05dc(0x2f1,0x586)]&&typeof _0x2075e8[_0x99d486[_0x1f05dc(0x2f1,0x10a)]]===_0x1f05dc(0x393,0x87c)){const _0x50e5ba=Number(_0x2075e8[_0x99d486[_0x1f05dc(0x2f1,0x1ac)]][_0x1f05dc(0x479,0x9b1)]());if(!isNaN(_0x50e5ba)&&isFinite(_0x50e5ba))this[_0x1f05dc(0xa1e,0xdb0)]=Math[_0x1f05dc(0x954,0xbac)](_0x50e5ba);}function _0x1f05dc(_0x332889,_0x588c2c){return _0x5e1216(_0x588c2c,_0x332889- -0x632);}if(_0x99d486[_0x1f05dc(-0x9c,0x3b)]){const _0x16357e=new RegExp(_0x3b1fed[_0x1f05dc(0x17e,0x5b8)]('^',_0x99d486[_0x1f05dc(-0x9c,0x2cb)])+_0x1f05dc(0x96f,0xc7a));if(typeof _0x2075e8[_0x99d486[_0x1f05dc(-0x9c,
--0x306)]]===_0x1f05dc(0x393,0x5c4)){const _0xb46a17=_0x16357e[_0x1f05dc(0xa2e,0xd1d)](_0x2075e8[_0x99d486[_0x1f05dc(-0x9c,-0x313)]]);if(_0xb46a17)this[_0x1f05dc(0xa1e,0xfbf)]=Number(_0xb46a17[0x1]);}for(const _0x1d12a0 in _0x2075e8){const _0x1ceb20=_0x16357e[_0x1f05dc(0xa2e,0xfc6)](_0x1d12a0);if(_0x1ceb20&&_0x2075e8[_0x1d12a0])this[_0x1f05dc(0xa1e,0x709)]=Number(_0x1ceb20[0x1]);}}if(_0x2075e8[_0x1f05dc(0x2af,-0x1b0)]!==this[_0x1f05dc(0xa2f,0xd3c)]||!(_0x1f05dc(0xa1e,0xa9c)in _0x2075e8))return;if(!fireLatch(this,Boolean(_0x2075e8[_0x1f05dc(0xa1e,0xac8)])))return;this[_0x1f05dc(0x402,0x43)]=0x2,this[_0x1f05dc(0x250,0x27a)]=0x0;},'log':mkLog(_0x99d486[_0x5e1216(0x339,0x71b)]),'onTick'(){function _0x28a911(_0x3ea20a,_0x4d9471){return _0x5e1216(_0x4d9471,_0x3ea20a- -0x49f);}if(_0x3b1fed[_0x28a911(0x368,0x241)](this[_0x28a911(0x77b,0xb88)],0x0)){this[_0x28a911(0x77b,0x586)]--;if(this[_0x28a911(0x77b,0x89d)]===0x0)try{input[_0x28a911(0xb35,0xf79)](_0x3b1fed[_0x28a911(0x4d9,0x9d)]),input[_0x28a911(0x349,0x82a)](_0x28a911(0x774,0x4fa));}catch(_0x60f4c2){}}if(this[_0x28a911(0x595,0x28b)]>0x0){if(this[_0x28a911(0x3e3,0x666)]>0x0){this[_0x28a911(0x3e3,0x5d7)]--;return;}this[_0x28a911(0x595,0x5de)]--;const _0xac52a1=this[_0x28a911(0x85a,0x316)]();if(!_0xac52a1){this[_0x28a911(0x595,0x8b)]=0x0;return;}if(_0x3b1fed[_0x28a911(0x368,0x4b6)](this[_0x28a911(0x595,0x1f)],0x0)){this[_0x28a911(0x3e3,-0x1db)]=0x1;return;}this[_0x28a911(0x66e,0x476)](_0x99d486[_0x28a911(0x498,0x118)]+(_0x99d486[_0x28a911(0x39d,0x950)]?this[_0x28a911(0xbb1,0x10df)]:''));if(this[_0x28a911(0xaff,0x67b)])this[_0x28a911(0x77b,0x6cb)]=0x3;}},'doWrite'(){function _0x579f22(_0x480dcc,_0x1a8bc3){return _0x5e1216(_0x480dcc,_0x1a8bc3- -0x290);}try{const {lp:_0x349422,it:_0x29f95f,nbt:_0x81df11}=carriedNbt();if(!_0x29f95f||!_0x81df11||_0x81df11[_0x579f22(0x3c1,0x2ec)](_0x579f22(0xa81,0x6d8))>=0x0||_0x81df11[_0x579f22(0x754,0x2ec)](_0x3b1fed[_0x579f22(0x24f,0x325)])>=0x0||_0x99d486[_0x579f22(0xaba,0x629)]&&_0x3b1fed[_0x579f22(0x6e1,0xc81)](_0x81df11[_0x579f22(0x32b,0x2ec)](_0x99d486[_0x579f22(0x2aa,0x629)]),0x0))return this[_0x579f22(0xa91,0x87d)](_0x99d486[_0x579f22(0x8a0,0xa26)]),![];const _0x312e81=_0x99d486[_0x579f22(0x4d4,0x417)](_0x81df11,this[_0x579f22(0xf4a,0xdc0)]);if(!_0x312e81)return this[_0x579f22(0xdd2,0x87d)](_0x579f22(0xb46,0xc51)),![];return _0x29f95f[_0x579f22(0x4cd,0x8d2)](_0x312e81),_0x349422[_0x579f22(0x638,0xb82)](_0x29f95f),!![];}catch(_0x656b19){return this[_0x579f22(0x65a,0x87d)](_0x579f22(0x35f,0x8f1)+_0x656b19),![];}}};}const cookieLogin={'tag':_0x5a0b42(-0x17e,0x286),'enabled':![],'panel':![],'cookieText':'','armCapture':![],'pendingDel':'','inWorld':![],'bootMs':Date[_0x5a0b42(0x576,0x4f9)](),'loaded':![],'autoLogin':!![],'savedEnabled':![],'lastUsed':'','list':[],'gui':null,'ivEnabled':null,'ivAuto':null,'ivName':null,'ivData':null,'extractSAuthJson'(_0x15eb23){function _0x2f2fa9(_0x3358d5,_0x2230b3){return _0x5a0b42(_0x3358d5,_0x2230b3-0x26);}const _0x185c57={'QJrzZ':function(_0x563dde,_0x1658e7){return _0x563dde(_0x1658e7);},'cVVpl':function(_0x340bf5,_0xcb9fed){return _0x340bf5||_0xcb9fed;},'QXtEV':_0x2f2fa9(0x61a,0x4a0),'aYlin':_0x2f2fa9(0x550,0x13)},_0x3e6c36=_0x185c57[_0x2f2fa9(0xa3,0x2ea)](String,_0x185c57[_0x2f2fa9(0x84c,0x3bb)](_0x15eb23,''))[_0x2f2fa9(0xaa5,0x586)]();try{const _0x1d81e7=JSON[_0x2f2fa9(0xcb8,0x8d6)](_0x3e6c36);if(typeof _0x1d81e7[_0x2f2fa9(0x610,0x615)]===_0x185c57[_0x2f2fa9(0x926,0xa23)])return _0x1d81e7[_0x2f2fa9(0x59c,0x615)];if(_0x1d81e7[_0x2f2fa9(0xbd5,0x615)]&&typeof _0x1d81e7[_0x2f2fa9(0x310,0x615)]===_0x185c57[_0x2f2fa9(0x337,0x7df)])return JSON[_0x2f2fa9(0x621,0x613)](_0x1d81e7[_0x2f2fa9(0xab6,0x615)]);}catch(_0x4a7d95){}return _0x3e6c36;},'filePath'(){function _0x6ccba4(_0x176e82,_0x3cf4db){return _0x5a0b42(_0x3cf4db,_0x176e82-0x4f4);}return app[_0x6ccba4(0xee0,0xeae)](_0x6ccba4(0xafe,0xaf0));},'ensureImgui'(){function _0xb449a1(_0x519e2d,_0x413dbb){return _0x5a0b42(_0x519e2d,
-_0x413dbb-0x165);}if(this[_0xb449a1(0x71b,0xbe4)])return!![];try{const _0xf13e39=require(_0xb449a1(0x18,0x43a));return this[_0xb449a1(0x730,0xaad)]=new _0xf13e39[(_0xb449a1(0x94e,0x868))](this[_0xb449a1(0x2c0,0x25a)]),this[_0xb449a1(0xc9e,0x914)]=new _0xf13e39[(_0xb449a1(0x684,0x868))](this[_0xb449a1(0x583,0x6c8)]),this[_0xb449a1(0x82,0x24a)]=new _0xf13e39[(_0xb449a1(0xaae,0x868))](''),this[_0xb449a1(0x730,0xb5e)]=new _0xf13e39[(_0xb449a1(0xcfe,0x868))](''),this[_0xb449a1(0x61d,0xbe4)]=_0xf13e39,!![];}catch(_0x2583d2){return![];}},'load'(){if(this[_0x225894(0xa0a,0x7c8)])return;function _0x225894(_0x323c37,_0x55f26){return _0x5a0b42(_0x55f26,_0x323c37-0x403);}this[_0x225894(0xa0a,0x815)]=!![];try{const _0x565376=this[_0x225894(0x92b,0xd79)]();if(fs[_0x225894(0xa3e,0xb80)](_0x565376)){const _0xa0f5ab=JSON[_0x225894(0xcb3,0x915)](String(fs[_0x225894(0x3a8,-0x78)](_0x565376)||'{}'));if(Array[_0x225894(0xe48,0x108d)](_0xa0f5ab[_0x225894(0x483,0x19)]))this[_0x225894(0x5eb,0x194)]=_0xa0f5ab[_0x225894(0x483,0x608)];if(typeof _0xa0f5ab[_0x225894(0x966,0xc8d)]===_0x225894(0xde0,0x132c))this[_0x225894(0x966,0x6fd)]=_0xa0f5ab[_0x225894(0x966,0x4e0)];if(typeof _0xa0f5ab[_0x225894(0x3af,0x3cb)]===_0x225894(0x87d,0xb8a))this[_0x225894(0x3af,-0x207)]=_0xa0f5ab[_0x225894(0x3af,0x1ef)];if(typeof _0xa0f5ab[_0x225894(0x4f8,0x356)]===_0x225894(0xde0,0xe38))this[_0x225894(0x5c4,0x1bc)]=_0xa0f5ab[_0x225894(0x4f8,0x3e5)];if(typeof _0xa0f5ab[_0x225894(0x467,0x131)]===_0x225894(0xde0,0x987))this[_0x225894(0x467,0x366)]=_0xa0f5ab[_0x225894(0x467,0x412)];}}catch(_0x3ff645){}},'save'(){function _0x5f4e82(_0x1c545a,_0x3b4a3f){return _0x5a0b42(_0x3b4a3f,_0x1c545a-0x2d1);}try{const _0x956ded=app[_0x5f4e82(0xcbd,0xf5b)](_0x5f4e82(0x422,0x830));if(!fs[_0x5f4e82(0x90c,0x4f6)](_0x956ded))fs[_0x5f4e82(0xd29,0x9bb)](_0x956ded);fs[_0x5f4e82(0xa9d,0xf67)](this[_0x5f4e82(0x7f9,0x752)](),JSON[_0x5f4e82(0x8be,0x438)]({'enabled':this[_0x5f4e82(0x3c6,-0x9)],'autoLogin':this[_0x5f4e82(0x834,0x6a3)],'lastUsed':this[_0x5f4e82(0x27d,0x3c)],'panel':this[_0x5f4e82(0x335,-0x70)],'cookies':this[_0x5f4e82(0x4b9,0x330)]}));}catch(_0x6d7f35){}},'syncCheckbox'(){function _0x2f9cf3(_0x4bc8f8,_0x398655){return _0x5a0b42(_0x4bc8f8,_0x398655-0x178);}try{if(this[_0x2f9cf3(0xce2,0xac0)])this[_0x2f9cf3(0x70f,0xac0)][_0x2f9cf3(0xe43,0xc7d)]=this[_0x2f9cf3(-0x301,0x26d)];if(this[_0x2f9cf3(0xad0,0x927)])this[_0x2f9cf3(0xadf,0x927)][_0x2f9cf3(0x7b2,0xc7d)]=this[_0x2f9cf3(0x588,0x6db)];}catch(_0x43ca6b){}},'current'(){function _0x15bbe4(_0x1c34f0,_0x5cfe93){return _0x5a0b42(_0x1c34f0,_0x5cfe93-0x389);}return this[_0x15bbe4(0x3f8,0x8e6)](this[_0x15bbe4(0x8cf,0x335)]);},'findById'(_0x25fa05){for(let _0x49e63a=0x0;_0x49e63a<this[_0x1643eb(0x557,0x30)][_0x1643eb(0x991,0x681)];_0x49e63a++){if(this[_0x1643eb(0x557,0x4b2)][_0x49e63a]['id']===_0x25fa05)return this[_0x1643eb(0x557,0x3b9)][_0x49e63a];}function _0x1643eb(_0x4fe2ae,_0x44e4a7){return _0x5a0b42(_0x44e4a7,_0x4fe2ae-0x36f);}return null;},'boot'(){function _0x2c8fa5(_0x4a7689,_0x1c352c){return _0x5a0b42(_0x4a7689,_0x1c352c-0x4b3);}const _0x3c9d96={'kLJeV':function(_0x482313,_0x5a070a){return _0x482313+_0x5a070a;}};this[_0x2c8fa5(0xb1b,0xb00)](),this[_0x2c8fa5(0xb65,0x5a8)]=this[_0x2c8fa5(0x872,0x674)];const _0x4cf781=this[_0x2c8fa5(0x326,0x532)]();_0x4cf781&&(this[_0x2c8fa5(0xc21,0xb01)]=String(_0x4cf781[_0x2c8fa5(0xe56,0x8c3)]||'')[_0x2c8fa5(0xb23,0xa13)](),this[_0x2c8fa5(0xa92,0x5a8)]&&this[_0x2c8fa5(0xe67,0xa16)]&&notifyToggle(_0x2c8fa5(0x5e2,0x4f3),!![],_0x3c9d96[_0x2c8fa5(0x550,0x4e7)](_0x4cf781[_0x2c8fa5(0x2e5,0x870)],_0x2c8fa5(0xb32,0xd13)))),this[_0x2c8fa5(0x66f,0xb34)]();},'capture'(_0x2ad1f9,_0x1bbe89){const _0x40ec3f={'kIqNe':function(_0x580397,_0x3d6a35){return _0x580397<_0x3d6a35;}};this[_0x575f7c(0x891,0x6b0)]();const _0x52971b=String(_0x2ad1f9||'')[_0x575f7c(0x57f,0x5c3)]();function _0x575f7c(_0xc4c4c6,_0x5f003d){return _0x5a0b42(_0xc4c4c6,_0x5f003d-0x63);}if(!_0x52971b)return;for(let _0x5be1fc=0x0;_0x40ec3f[_0x575f7c(0xd6e,
-0xa3a)](_0x5be1fc,this[_0x575f7c(0x27b,0x24b)][_0x575f7c(0x526,0x685)]);_0x5be1fc++){if(String(this[_0x575f7c(-0x1e3,0x24b)][_0x5be1fc][_0x575f7c(0xa33,0x473)])===_0x52971b){this[_0x575f7c(-0x1c4,0xf)]=this[_0x575f7c(0x17b,0x24b)][_0x5be1fc]['id'],this[_0x575f7c(0x263,0x4ea)]();return;}}const _0x449e6f=new Date(),_0x13c16d=function(_0x334f0b){return _0x334f0b<0xa?'0'+_0x334f0b:''+_0x334f0b;},_0x577b17={'id':'c'+Date[_0x575f7c(0x358,0x55c)]()+'_'+Math[_0x575f7c(0x61e,0x3ce)](Math[_0x575f7c(0x78f,0x602)]()*0x3e8),'name':_0x1bbe89+'-'+_0x13c16d(_0x449e6f[_0x575f7c(0xa34,0x9c9)]())+_0x13c16d(_0x449e6f[_0x575f7c(0xc0b,0xa23)]())+_0x13c16d(_0x449e6f[_0x575f7c(0x9ca,0x468)]()),'data':_0x52971b,'time':Date[_0x575f7c(0x538,0x55c)]()};this[_0x575f7c(-0x118,0x24b)][_0x575f7c(0x94e,0x919)](_0x577b17),this[_0x575f7c(-0x350,0xf)]=_0x577b17['id'],this[_0x575f7c(0x330,0x4ea)]();},'useCookie'(_0x25c989){const _0x3418c9=this[_0x50664e(0xf2a,0xa70)](_0x25c989);if(!_0x3418c9)return;function _0x50664e(_0x5cf077,_0x20d7d7){return _0x5a0b42(_0x5cf077,_0x20d7d7-0x513);}this[_0x50664e(0x827,0x4bf)]=_0x25c989,this[_0x50664e(0x7cf,0x608)]=!![],this[_0x50664e(0x54b,0x99a)](),this[_0x50664e(0xe26,0xb94)]();try{this[_0x50664e(0x106b,0xb61)]=String(_0x3418c9[_0x50664e(0x619,0x923)]||'')[_0x50664e(0xb89,0xa73)]();}catch(_0x792cec){}},'delCookie'(_0x1cb24e){const _0x4576e4={'OVlqq':function(_0x393222,_0x56c2f4){return _0x393222!==_0x56c2f4;}};this[_0x49207f(0x3cb,-0x19b)]=this[_0x49207f(0x3cb,0x5fe)][_0x49207f(0x73d,0x6ab)](function(_0xf973b8){function _0x5ecbbd(_0x2c3223,_0x6253e3){return _0x49207f(_0x2c3223- -0x411,_0x6253e3);}return _0x4576e4[_0x5ecbbd(0x6bc,0x1a3)](_0xf973b8['id'],_0x1cb24e);});if(this[_0x49207f(0x18f,0x6a2)]===_0x1cb24e)this[_0x49207f(0x18f,-0x177)]='';function _0x49207f(_0x3ac122,_0x66aa4f){return _0x5a0b42(_0x66aa4f,_0x3ac122-0x1e3);}this[_0x49207f(0x761,0x310)]='',this[_0x49207f(0x66a,0x97f)]();},'exportCookie'(_0x1c0a46){const _0x5ef0d2={'bbEHS':_0x10b917(0x5d2,0x593),'ATSdx':_0x10b917(0x528,-0x4c),'ytFzv':function(_0x2f0d30,_0x36f426){return _0x2f0d30+_0x36f426;},'GkEVm':function(_0x255428,_0x289540){return _0x255428+_0x289540;},'DOqMc':_0x10b917(0xbeb,0xffe),'KXVQf':function(_0x5f53e8,_0x1ff2e5){return _0x5f53e8+_0x1ff2e5;}},_0x22820e=this[_0x10b917(0x6b5,0x933)](_0x1c0a46);if(!_0x22820e)return;let _0x52f4d4=String(_0x22820e[_0x10b917(0x568,0x30c)]||'')[_0x10b917(0x6b8,0xab4)]();function _0x10b917(_0x5309e3,_0x56e2e5){return _0x5a0b42(_0x56e2e5,_0x5309e3-0x158);}if(!_0x52f4d4){try{app[_0x10b917(0x95b,0xd5d)](_0x10b917(0x5f8,0x758));}catch(_0x4a3788){}return;}let _0x52d521=_0x52f4d4;try{const _0x5705ba=JSON[_0x10b917(0xa08,0xb3c)](_0x52f4d4);if(typeof _0x5705ba[_0x10b917(0x747,0xade)]===_0x5ef0d2[_0x10b917(0x2eb,0x868)])_0x52d521=JSON[_0x10b917(0x745,0x984)]({'sauth_json':_0x5705ba[_0x10b917(0x747,0xb59)]});else{if(_0x5705ba[_0x10b917(0x747,0x781)]&&typeof _0x5705ba[_0x10b917(0x747,0x990)]===_0x10b917(0x145,-0x162))_0x52d521=JSON[_0x10b917(0x745,0x59b)]({'sauth_json':JSON[_0x10b917(0x745,0x7eb)](_0x5705ba[_0x10b917(0x747,0x2ba)])});else _0x52d521=JSON[_0x10b917(0x745,0xcc3)]({'sauth_json':_0x52f4d4});}}catch(_0xeec1a2){_0x52d521=JSON[_0x10b917(0x745,0x590)]({'sauth_json':_0x52f4d4});}let _0x208728=String(_0x22820e[_0x10b917(0x515,0x3d7)]||_0x10b917(0x4b3,0x10d))[_0x10b917(0x57b,0x24f)](/[\\/:*?"<>|\s]+/g,'_');if(!_0x208728)_0x208728=_0x10b917(0x4b3,0x462);try{const _0x30486e=app[_0x10b917(0xb44,0x8d3)](_0x10b917(0xc36,0xc86));if(!fs[_0x10b917(0x793,0x2a9)](_0x30486e))fs[_0x10b917(0xbb0,0x73c)](_0x30486e);let _0x1c4c55=_0x10b917(0xbeb,0xe9f)+_0x208728+_0x5ef0d2[_0x10b917(0xe2,0xb0)],_0x1dbb46=0x2;while(fs[_0x10b917(0x793,0x5f4)](_0x5ef0d2[_0x10b917(0x4ec,-0x3d)](_0x30486e+'/',_0x1c4c55))){_0x1c4c55=_0x5ef0d2[_0x10b917(0x4db,0x9c0)](_0x5ef0d2[_0x10b917(0x32d,0x8f3)],_0x208728)+'_'+_0x1dbb46+_0x10b917(0x528,0x9fb),_0x1dbb46++;}fs[_0x10b917(0x924,0xe3f)](_0x5ef0d2[_0x10b917(0x8d9,0x3b8)](_0x30486e+'/',_0x1c4c55),_0x52d521),
-app[_0x10b917(0x95b,0xa91)](_0x10b917(0xb5a,0xe19)+_0x1c4c55);}catch(_0x27af04){try{app[_0x10b917(0x95b,0x783)](_0x10b917(0x5e3,0x197)+(_0x27af04&&_0x27af04[_0x10b917(0x3fd,0x4d9)]?_0x27af04[_0x10b917(0x3fd,0x2a9)]:_0x27af04));}catch(_0x22bf44){}}},'addFromInput'(){function _0xdbe279(_0x35c0ef,_0x44f3fc){return _0x5a0b42(_0x44f3fc,_0x35c0ef-0x56b);}const _0x2968d3={'wnzuu':function(_0x4ba9b3,_0x3e8fda){return _0x4ba9b3(_0x3e8fda);},'vROcb':function(_0x385245,_0x1f1e3e){return _0x385245+_0x1f1e3e;}},_0x2bee24=_0x2968d3[_0xdbe279(0x1017,0xeda)](String,this[_0xdbe279(0x650,0x89a)][_0xdbe279(0x1070,0xd1c)]||'')[_0xdbe279(0xacb,0x9ab)](),_0x2bbc81=String(this[_0xdbe279(0xf64,0x1498)][_0xdbe279(0x1070,0x126a)]||'')[_0xdbe279(0xacb,0xf56)]();if(!_0x2bbc81){try{app[_0xdbe279(0xd6e,0x811)](_0xdbe279(0x516,0x3ae));}catch(_0x3fdcff){}return;}for(let _0x4ece75=0x0;_0x4ece75<this[_0xdbe279(0x753,0xbd4)][_0xdbe279(0xb8d,0xae0)];_0x4ece75++){if(String(this[_0xdbe279(0x753,0x3d3)][_0x4ece75][_0xdbe279(0x97b,0x472)])===_0x2bbc81){this[_0xdbe279(0x517,0xa5a)]=this[_0xdbe279(0x753,0xd1a)][_0x4ece75]['id'],this[_0xdbe279(0x9f2,0x5d6)]();return;}}const _0x136254={'id':_0x2968d3[_0xdbe279(0xa9a,0xb8c)]('c',Date[_0xdbe279(0xa64,0x7cd)]())+'_'+Math[_0xdbe279(0x8d6,0xe8b)](Math[_0xdbe279(0xb0a,0xc4b)]()*0x3e8),'name':_0x2bee24||_0xdbe279(0xb6d,0x670)+(this[_0xdbe279(0x753,0x78d)][_0xdbe279(0xb8d,0x8fd)]+0x1),'data':_0x2bbc81,'time':Date[_0xdbe279(0xa64,0x5e1)]()};this[_0xdbe279(0x753,0x35e)][_0xdbe279(0xe21,0xbea)](_0x136254),this[_0xdbe279(0x517,0x833)]=_0x136254['id'],this[_0xdbe279(0x9f2,0xb2e)](),this[_0xdbe279(0x650,0x9bc)][_0xdbe279(0x1070,0x10e0)]='',this[_0xdbe279(0xf64,0x10be)][_0xdbe279(0x1070,0xec0)]='';},'onModuleEvent'(_0x1a3a73){const _0x4028df={'GHhBX':function(_0x5a746b,_0x506f20){return _0x5a746b===_0x506f20;},'ORmCv':function(_0x12de9d,_0x4f6f46){return _0x12de9d(_0x4f6f46);}};function _0x5445fa(_0x596404,_0x5af7a5){return _0x5a0b42(_0x5af7a5,_0x596404- -0xca);}if(_0x4028df[_0x5445fa(-0x13d,-0x504)](_0x1a3a73[_0x5445fa(0x2cc,0x78a)],_0x5445fa(0x1bc,0x27))&&_0x5445fa(0xa3b,0xec4)in _0x1a3a73){const _0x4fcee6=_0x4028df[_0x5445fa(0x718,0x4d4)](Boolean,_0x1a3a73[_0x5445fa(0xa3b,0x941)]);_0x4fcee6!==this[_0x5445fa(-0x66,0x1d4)]&&(this[_0x5445fa(-0x66,0x368)]=_0x4fcee6,this[_0x5445fa(0x3bd,0x653)](),_0x4fcee6&&(this[_0x5445fa(0x583,0x13c)](),this[_0x5445fa(0x12a,0x28)](),this[_0x5445fa(0x5b7,0x313)]()));}},'onWorldEnter'(){function _0x4ca283(_0x510a2d,_0x34bd3b){return _0x5a0b42(_0x34bd3b,_0x510a2d-0x2b5);}this[_0x4ca283(0x793,0xb64)]=!![];},'onWorldExit'(){function _0x243641(_0x2fc5e8,_0x4c2c76){return _0x5a0b42(_0x4c2c76,_0x2fc5e8-0x87);}this[_0x243641(0x565,0x495)]=![];},'onSAuthJsonHook'(_0xa9bf21){if(this[_0x2f884c(0xc18,0x1018)]){this[_0x2f884c(0xc18,0xc5d)]=![];try{this[_0x2f884c(0x90f,0x8ad)](_0xa9bf21,'捕获'),app[_0x2f884c(0xbf4,0x70d)](_0x2f884c(0xaff,0xb57));}catch(_0x14aab6){}return;}if(!this[_0x2f884c(0x4e6,0x92e)])return;const _0x25690e=this[_0x2f884c(0x7bc,0xc5b)](this[_0x2f884c(0xa3f,0x493)]);if(_0x25690e){app[_0x2f884c(0xbf4,0xe26)](_0x2f884c(0x775,0xc6c));try{this[_0x2f884c(0x90f,0x833)](this[_0x2f884c(0xa3f,0xe48)],'输入');}catch(_0x3d8f9f){}return _0x25690e;}app[_0x2f884c(0xbf4,0xc59)](_0x2f884c(0xe63,0x10cb));function _0x2f884c(_0x16e017,_0x256578){return _0x5a0b42(_0x256578,_0x16e017-0x3f1);}return null;},'onRender'(){function _0x5b2ab4(_0x32cf69,_0x5c052b){return _0x5a0b42(_0x5c052b,_0x32cf69-0x74);}if(!this[_0x5b2ab4(0xd8,-0x28d)]||this[_0x5b2ab4(0x552,0x2b1)])return;if(Date[_0x5b2ab4(0x56d,0x495)]()-this[_0x5b2ab4(0x279,0x189)]<0xbb8)return;if(!this[_0x5b2ab4(0x268,-0x118)]())return;const _0x3fe380=this[_0x5b2ab4(0xaf3,0xd81)];try{this[_0x5b2ab4(0x719,0xb37)]();}catch(_0x23ff23){try{_0x3fe380[_0x5b2ab4(0x900,0x5c6)]();}catch(_0x6e80f0){}}},'renderPanel'(){const _0x1b1435={'oRVLw':_0x2e9525(0x6ca,0x99c),'mRBQK':function(_0x231747,_0x2a6eb1){return _0x231747(_0x2a6eb1);},'zUdTB':function(_0x51e92f,
-_0x145007){return _0x51e92f+_0x145007;},'pcGsd':_0x2e9525(0x2cd,0x1c1),'FYOXS':_0x2e9525(0xb2a,0x8ea),'DLJPu':_0x2e9525(0x8da,0x70d),'PWaUT':function(_0x125385,_0x3fd60b){return _0x125385+_0x3fd60b;},'LIpTZ':function(_0x2a2638,_0x5daa58){return _0x2a2638===_0x5daa58;},'UiiWe':function(_0x34a3cb,_0x353211){return _0x34a3cb===_0x353211;},'roYiW':_0x2e9525(0x7cd,0x845)},_0x22eb65=this[_0x2e9525(0xb18,0xdef)];function _0x2e9525(_0xe97b55,_0xa72591){return _0x5a0b42(_0xa72591,_0xe97b55-0x99);}const _0x1b81cf=[];_0x22eb65[_0x2e9525(0x9f0,0xb36)](_0x2e9525(0x3c8,0x795));_0x22eb65[_0x2e9525(0x499,0x5cc)](_0x2e9525(0x8e6,0xbc5),this[_0x2e9525(0x9e1,0x7e2)])&&(this[_0x2e9525(0x18e,0x1f9)]=Boolean(this[_0x2e9525(0x9e1,0x4f3)][_0x2e9525(0xb9e,0x69f)]),notifyToggle(_0x2e9525(0xd9,0x5d),this[_0x2e9525(0x18e,0xf)]),this[_0x2e9525(0x520,0x978)]());_0x22eb65[_0x2e9525(0x499,0x823)](_0x1b1435[_0x2e9525(0xb5b,0x10c5)],this[_0x2e9525(0x848,0xdf9)])&&(this[_0x2e9525(0x5fc,0x715)]=_0x1b1435[_0x2e9525(0x684,0xaba)](Boolean,this[_0x2e9525(0x848,0x367)][_0x2e9525(0xb9e,0xc94)]),this[_0x2e9525(0x520,0x31a)]());const _0x2031c6=this[_0x2e9525(0x118,-0x12)]();_0x22eb65[_0x2e9525(0x116,0x67c)](_0x1b1435[_0x2e9525(0x790,0x266)](_0x1b1435[_0x2e9525(0x5c5,0x186)]+this[_0x2e9525(0x281,0x1c9)][_0x2e9525(0x6bb,0x210)],_0x2e9525(0x36b,0x5f2))+(_0x2031c6?_0x2031c6[_0x2e9525(0x456,0x359)]:'无')),_0x22eb65[_0x2e9525(0x116,-0x29c)](_0x2e9525(0x4f6,0xa3f));if(_0x22eb65[_0x2e9525(0x959,0x9fb)])_0x22eb65[_0x2e9525(0x959,0x4e6)]();else _0x22eb65[_0x2e9525(0x116,0x18f)]('\x20');for(let _0xdbb0ed=0x0;_0xdbb0ed<this[_0x2e9525(0x281,0x10c)][_0x2e9525(0x6bb,0x673)];_0xdbb0ed++){const _0xbb3cff=this[_0x2e9525(0x281,-0x288)][_0xdbb0ed];if(_0xbb3cff['id']===this[_0x2e9525(0x45,0x610)]){if(_0x22eb65[_0x2e9525(0x544,0x100)](_0x1b1435[_0x2e9525(0x790,0xaa2)](_0x1b1435[_0x2e9525(0x790,0xa74)]('√\x20',_0xdbb0ed+0x1),'.\x20')+_0xbb3cff[_0x2e9525(0x456,-0x138)]+_0x2e9525(0x5d1,0x41e)))_0x1b81cf[_0x2e9525(0x94f,0x685)]({'t':_0x2e9525(0x674,0xde),'id':_0xbb3cff['id']});try{_0x22eb65[_0x2e9525(0x337,0x81)](0x0,0x3c);}catch(_0x36b348){_0x22eb65[_0x2e9525(0x337,0x7f)]();}if(_0x22eb65[_0x2e9525(0x544,0x1d0)]('导#'+(_0xdbb0ed+0x1)))_0x1b81cf[_0x2e9525(0x94f,0x6df)]({'t':_0x2e9525(0xb4b,0x99e),'id':_0xbb3cff['id']});try{_0x22eb65[_0x2e9525(0x337,0x835)](0x0,0x3c);}catch(_0x4117f6){_0x22eb65[_0x2e9525(0x337,0x5f8)]();}if(_0x22eb65[_0x2e9525(0x544,0x6de)]((this[_0x2e9525(0x617,0x11b)]===_0xbb3cff['id']?_0x1b1435[_0x2e9525(0x7db,0x390)]:'删#')+(_0xdbb0ed+0x1))){if(this[_0x2e9525(0x617,0x5db)]===_0xbb3cff['id'])_0x1b81cf[_0x2e9525(0x94f,0x582)]({'t':_0x1b1435[_0x2e9525(0x80d,0xbf6)],'id':_0xbb3cff['id']});else this[_0x2e9525(0x617,0x7a6)]=_0xbb3cff['id'];}}else{if(_0x22eb65[_0x2e9525(0x544,0x7b9)](_0x1b1435[_0x2e9525(0xb05,0x5f2)](_0xdbb0ed+0x1,'.\x20')+_0xbb3cff[_0x2e9525(0x456,0x8ce)]))_0x1b81cf[_0x2e9525(0x94f,0xa3c)]({'t':_0x2e9525(0x674,0x81e),'id':_0xbb3cff['id']});try{_0x22eb65[_0x2e9525(0x337,0x67c)](0x0,0x3c);}catch(_0x36a0c1){_0x22eb65[_0x2e9525(0x337,-0x1da)]();}if(_0x22eb65[_0x2e9525(0x544,0x2ef)]('导#'+(_0xdbb0ed+0x1)))_0x1b81cf[_0x2e9525(0x94f,0xe16)]({'t':_0x2e9525(0xb4b,0x760),'id':_0xbb3cff['id']});try{_0x22eb65[_0x2e9525(0x337,0x7fa)](0x0,0x3c);}catch(_0x59443a){_0x22eb65[_0x2e9525(0x337,0xcc)]();}if(_0x22eb65[_0x2e9525(0x544,-0x4)](_0x1b1435[_0x2e9525(0x790,0x20a)](this[_0x2e9525(0x617,0x33d)]===_0xbb3cff['id']?_0x1b1435[_0x2e9525(0x7db,0x7fa)]:'删#',_0x1b1435[_0x2e9525(0xb05,0x71c)](_0xdbb0ed,0x1)))){if(_0x1b1435[_0x2e9525(0x730,0x2d1)](this[_0x2e9525(0x617,0x9f7)],_0xbb3cff['id']))_0x1b81cf[_0x2e9525(0x94f,0x550)]({'t':_0x2e9525(0x8da,0x706),'id':_0xbb3cff['id']});else this[_0x2e9525(0x617,0x237)]=_0xbb3cff['id'];}}}if(this[_0x2e9525(0x617,0x4ac)]){const _0x3118b1=this[_0x2e9525(0x5f6,0x5a2)](this[_0x2e9525(0x617,0x13f)]);if(_0x3118b1){_0x22eb65[_0x2e9525(0x116,-0x333)](_0x2e9525(0x3dc,-0x1c4)+_0x3118b1[_0x2e9525(0x456,-0x79)]);if(_0x22eb65[_0x2e9525(0x544,0x52b)](_0x2e9525(0xa6e,
-0x798)))this[_0x2e9525(0x617,0xaea)]='';}else this[_0x2e9525(0x617,0x58f)]='';}if(_0x1b1435[_0x2e9525(0x511,0x853)](this[_0x2e9525(0x281,0x84e)][_0x2e9525(0x6bb,0x65c)],0x0))_0x22eb65[_0x2e9525(0x116,-0x458)](_0x2e9525(0xac6,0x54a));if(_0x22eb65[_0x2e9525(0x959,0xeb0)])_0x22eb65[_0x2e9525(0x959,0xb26)]();else _0x22eb65[_0x2e9525(0x116,0x41a)]('\x20');_0x22eb65[_0x2e9525(0x116,0x6b6)](_0x2e9525(0x5eb,0x1fb)),_0x22eb65[_0x2e9525(0x248,0x261)]('名称',this[_0x2e9525(0x17e,0xf0)]),_0x22eb65[_0x2e9525(0x248,0x135)](_0x2e9525(0x460,0x20f),this[_0x2e9525(0xa92,0x8f2)]);if(_0x22eb65[_0x2e9525(0x544,0x37)](_0x2e9525(0x111,0x55)))this[_0x2e9525(0x685,0x88d)]();this[_0x2e9525(0x8c0,0x5d2)]?(_0x22eb65[_0x2e9525(0x116,0x31e)](_0x1b1435[_0x2e9525(0x7fe,0x951)]),_0x22eb65[_0x2e9525(0x544,-0x5f)](_0x2e9525(0x2c5,-0x4f))&&(this[_0x2e9525(0x8c0,0x6dc)]=![])):_0x22eb65[_0x2e9525(0x544,0x950)](_0x2e9525(0x87e,0xae6))&&(this[_0x2e9525(0x8c0,0x58d)]=!![]);_0x22eb65[_0x2e9525(0x925,0xa3a)]();for(let _0x4b5b27=0x0;_0x4b5b27<_0x1b81cf[_0x2e9525(0x6bb,0x2fb)];_0x4b5b27++){if(_0x1b81cf[_0x4b5b27]['t']===_0x2e9525(0x674,0x29a))this[_0x2e9525(0x77c,0x9cd)](_0x1b81cf[_0x4b5b27]['id']);else{if(_0x1b81cf[_0x4b5b27]['t']===_0x2e9525(0xb4b,0x8f4))this[_0x2e9525(0x553,0x546)](_0x1b81cf[_0x4b5b27]['id']);else this[_0x2e9525(0x3c9,0x6e8)](_0x1b81cf[_0x4b5b27]['id']);}}}},moveCamera={'tag':_0x5a0b42(0xe99,0x93c),'enabled':![],'amplitude':0x3,'prev':[],'onModuleEvent'(_0x3214cd){const _0xa3d965={'wmFhF':function(_0x3782dc,_0x303057,_0x4f02e9,_0x37c36f){return _0x3782dc(_0x303057,_0x4f02e9,_0x37c36f);}};_0xa3d965[_0x4b9918(0x58a,0x433)](stdToggle,this,_0x3214cd,_0x4b9918(0x9df,0x5fa))&&(!this[_0x4b9918(-0x50,0x4e0)]&&(this[_0x4b9918(0x831,0x828)]=[],camera[_0x4b9918(0xc75,0x819)]({'x':0x0,'y':0x0,'z':0x0})));const _0x50ae2d=Number(_0x3214cd[_0x4b9918(0x975,0xbc0)]!==undefined?_0x3214cd[_0x4b9918(0x112c,0xbc0)]:_0x3214cd[_0x4b9918(0x96a,0xc42)]);function _0x4b9918(_0x1ca2c0,_0x4e6cb1){return _0x5a0b42(_0x1ca2c0,_0x4e6cb1-0x3eb);}!isNaN(_0x50ae2d)&&_0x50ae2d>0x0&&(this[_0x4b9918(0x91b,0x971)]=Math[_0x4b9918(0x11b3,0xcba)](0x1,Math[_0x4b9918(0x10f9,0xc96)](0x14,Math[_0x4b9918(0x3a8,0x756)](_0x50ae2d))));},'onTick'(){const _0x3e8d76={'JVtXF':function(_0xc71ede,_0x10eed6){return _0xc71ede-_0x10eed6;}};if(!this[_0x259f15(0x209,0x34a)])return;function _0x259f15(_0x4e6b46,_0x4107a0){return _0x5a0b42(_0x4e6b46,_0x4107a0-0x255);}try{if(options[_0x259f15(0x9c,0x3e3)]()===0x0){camera[_0x259f15(0x57b,0x683)]({'x':0x0,'y':0x0,'z':0x0});return;}const _0x5c4544=player[_0x259f15(0xa74,0x74f)]();if(!_0x5c4544)return;const _0x4e1ea8=_0x5c4544[_0x259f15(0x752,0x37d)]();if(!_0x4e1ea8)return;let _0x2465bc;this[_0x259f15(0x689,0x692)][_0x259f15(0x5d6,0x877)]<this[_0x259f15(0x8d7,0x7db)]?(_0x2465bc={'x':0x0,'y':0x0,'z':0x0},this[_0x259f15(0x4b9,0x692)][_0x259f15(0x552,0xb0b)](_0x2465bc)):(_0x2465bc=this[_0x259f15(0x731,0x692)][_0x259f15(0x621,0x9ec)](),this[_0x259f15(0xb00,0x692)][_0x259f15(0xfa9,0xb0b)](_0x2465bc));_0x2465bc['x']=_0x4e1ea8['x'],_0x2465bc['y']=_0x4e1ea8['y'],_0x2465bc['z']=_0x4e1ea8['z'];if(this[_0x259f15(0x127,0x692)][_0x259f15(0xce1,0x877)]<0x2)return;const _0x267c90=this[_0x259f15(0x51a,0x692)][0x0];camera[_0x259f15(0x3c2,0x683)]({'x':_0x267c90['x']-_0x4e1ea8['x'],'y':_0x3e8d76[_0x259f15(0x359,0x5d4)](_0x267c90['y'],_0x4e1ea8['y']),'z':-(_0x267c90['z']-_0x4e1ea8['z'])});}catch(_0x48a49d){}}},likeUser={'targetUid':_0x5a0b42(-0x52,0x540),'hasLike':!![],'lastLoginUid':'','timer':0x0,'run'(){function _0x4619d7(_0x54d9cc,_0x47ac31){return _0x5a0b42(_0x47ac31,_0x54d9cc-0x33);}const _0x9841b9=_0x4619d7(0x3f2,-0x53)+this[_0x4619d7(-0x19,0x1)]+_0x4619d7(0x521,0x9b6)+(this[_0x4619d7(0xf6,-0x469)]?_0x4619d7(0x609,0x133):_0x4619d7(0x9ac,0xf4f))+(_0x4619d7(0x93f,0x70d)+_0x4619d7(0x8a5,0xe1f)+_0x4619d7(0x9bc,0xedf)+_0x4619d7(0x121,0x4ac)+_0x4619d7(0x388,0x3b0)+(_0x4619d7(0x8e7,0xc10)+_0x4619d7(0x194,0x221)+_0x4619d7(0x8a9,0xe28)+_0x4619d7(0x830,0xaf5)+_0x4619d7(0x9f6,0x697))+
-(_0x4619d7(0x526,0x545)+_0x4619d7(0x630,0xb12)+_0x4619d7(0x4e4,0x789)));try{app[_0x4619d7(0x2a8,0x246)](_0x9841b9);}catch(_0x282a77){}},'checkLogin'(){let _0x52d375='';try{_0x52d375=netease[_0xa396ce(0x776,0x5ea)]()||'';}catch(_0x462de5){return;}function _0xa396ce(_0x59a091,_0x1b981e){return _0x5a0b42(_0x59a091,_0x1b981e-0x7f);}if(_0x52d375&&_0x52d375!==this[_0xa396ce(0x3b8,0x188)])this[_0xa396ce(-0x379,0x188)]=_0x52d375,this[_0xa396ce(-0x11b,0x15a)](),this[_0xa396ce(0xf18,0xa83)]&&(clearInterval(this[_0xa396ce(0xe50,0xa83)]),this[_0xa396ce(0x62d,0xa83)]=0x0);else!_0x52d375&&(this[_0xa396ce(-0x29a,0x188)]='');},'start'(){function _0x21844c(_0x30f8a9,_0x25fb78){return _0x5a0b42(_0x30f8a9,_0x25fb78- -0x1e8);}this[_0x21844c(0x689,0x890)](),!this[_0x21844c(0xaec,0x81c)]&&(this[_0x21844c(0x2c5,0x81c)]=setInterval(()=>this[_0x21844c(0xa11,0x890)](),0x1388));}},gamePkg=(function(){function _0x26320e(_0x382fbd,_0xdca2ef){return _0x5a0b42(_0xdca2ef,_0x382fbd-0x24e);}try{const _0x1c23d4=String(app[_0x26320e(0xc3a,0xf95)]('x'))[_0x26320e(0xc86,0x9a9)](/\/Android\/data\/([^\/]+)\/files\//);if(_0x1c23d4&&_0x1c23d4[0x1])return _0x1c23d4[0x1];}catch(_0x323c56){}return _0x26320e(0x507,0x56);}()),kuNative={'loaded':![],'soDst':_0x5a0b42(0x2ba,0x174)+gamePkg+_0x5a0b42(0x4ea,0x86a),'lastLogFlush':0x0,'load'(){const _0x589a96={'AKTUw':function(_0x590fe0,_0x18b797){return _0x590fe0===_0x18b797;},'oftsz':_0x42774e(0x82d,0x33f),'XqpgJ':_0x42774e(0xa01,0x652),'LSmFt':_0x42774e(0x1179,0xcfa),'acVzt':function(_0x2567ab,_0x36394c){return _0x2567ab&_0x36394c;},'vEwBX':function(_0x535484,_0x27af62){return _0x535484+_0x27af62;},'TMEZk':function(_0x2564f3,_0x15c60d){return _0x2564f3+_0x15c60d;},'GnDXo':_0x42774e(0x7c7,0x366),'brRhp':function(_0x21ad57,_0x183a6a){return _0x21ad57+_0x183a6a;},'EyTNr':function(_0x550bfe,_0x42da4e){return _0x550bfe*_0x42da4e;},'mOUfY':function(_0x4ea6bf,_0x15c677){return _0x4ea6bf!==_0x15c677;},'kcAIA':function(_0x1003f9,_0x176470){return _0x1003f9+_0x176470;},'RBeNP':_0x42774e(0xb10,0xc96),'dzJaf':function(_0x270880,_0x186764){return _0x270880+_0x186764;}};function _0x42774e(_0x5205ca,_0xd563e2){return _0x5a0b42(_0x5205ca,_0xd563e2-0x352);}if(this[_0x42774e(0xad5,0x959)])return'';if(_0x589a96[_0x42774e(0xc45,0xa01)](typeof globalThis[_0x42774e(0xa5d,0x9bf)],_0x589a96[_0x42774e(0x8b8,0x74d)])&&globalThis[_0x42774e(0xf51,0x9bf)]&&globalThis[_0x42774e(0x8b1,0x9bf)]['ok'])return this[_0x42774e(0x952,0x959)]=!![],'';const _0x4ca88c=app[_0x42774e(0xb2b,0xd3e)](_0x589a96[_0x42774e(0x5b0,0x89a)]);try{if(!fs[_0x42774e(0x888,0x98d)](_0x4ca88c))return _0x42774e(0x16d,0x4d1);}catch(_0x5a926f){}try{const _0x3250cf=fs[_0x42774e(0x5ea,0x2f7)](_0x4ca88c,_0x589a96[_0x42774e(0xaab,0xc22)]),_0x20558c=String(fs[_0x42774e(0x5ae,0x2f7)](_0x4ca88c));let _0x4eed58=0x811c9dc5;const _0x5fa62b=_0x20558c[_0x42774e(0xba9,0x974)];for(let _0x41f1f5=0x0;_0x41f1f5<_0x5fa62b;_0x41f1f5++){_0x4eed58^=_0x589a96[_0x42774e(0x8ed,0x492)](_0x20558c[_0x42774e(0x7f6,0x5a0)](_0x41f1f5),0xff),_0x4eed58=Math[_0x42774e(0x34d,0x66d)](_0x4eed58,0x1000193);}_0x4eed58=_0x4eed58>>>0x0;const _0x41086c=_0x589a96[_0x42774e(0x4b7,0x6ca)](_0x589a96[_0x42774e(0xa4e,0x493)](_0x42774e(0x1d5,0x4c6)+gamePkg,_0x42774e(0x121d,0xc75)),_0x4eed58[_0x42774e(0x40,0x5d7)](0x10))+'_'+_0x5fa62b+_0x589a96[_0x42774e(0xbc6,0x844)];if(!fs[_0x42774e(0xb22,0x98d)](_0x41086c))fs[_0x42774e(0xddd,0xb1e)](_0x41086c,_0x3250cf);this[_0x42774e(0xbb3,0x9b2)]=_0x41086c,os[_0x42774e(0x783,0x8be)](_0x41086c);if(String(this[_0x42774e(0x1125,0xccd)](0x3f,0xabcdef))!==String(_0x589a96[_0x42774e(0x9cc,0x91c)](_0x589a96[_0x42774e(0x782,0xc5b)](0x3f,0x1000000)+0xabcdef,0x1)))return _0x589a96[_0x42774e(0xaa6,0x6ca)](_0x42774e(0x4d8,0x942)+_0x4eed58[_0x42774e(0x474,0x5d7)](0x10)+':'+_0x5fa62b,']');if(Number(this[_0x42774e(0x9a7,0xccd)](0x34,0x0))<0x1)return _0x42774e(0xdda,0x97b)+_0x4eed58[_0x42774e(0xb6f,0x5d7)](0x10)+']';if(_0x589a96[_0x42774e(0xe47,0x9ba)](String(this[_0x42774e(0xacb,0xccd)](0x3d,0x0)),
-'1'))return _0x589a96[_0x42774e(0x337,0x2f0)](_0x589a96[_0x42774e(0x1e8,0x46d)],_0x4eed58[_0x42774e(0x141,0x5d7)](0x10))+']';}catch(_0x2b5182){return _0x42774e(0xbbb,0x9e8)+(_0x2b5182&&_0x2b5182[_0x42774e(0x900,0x5f7)]?_0x2b5182[_0x42774e(0x8a6,0x5f7)]:_0x2b5182);}this[_0x42774e(0x7ab,0x959)]=!![];try{fs[_0x42774e(0xd10,0x7a0)](_0x42774e(0x594,0x4c6)+gamePkg+_0x42774e(0xe21,0xbbc));}catch(_0x49372b){}try{const _0x3cb303=_0x589a96[_0x42774e(0x24b,0x6ca)](_0x42774e(0x181,0x4c6),gamePkg)+_0x42774e(0x1b2,0x4f2),_0x27c279=this[_0x42774e(0x9e5,0x9b2)][_0x42774e(0xd4a,0xdc3)](_0x589a96[_0x42774e(0x8f6,0x361)](this[_0x42774e(0x6a2,0x9b2)][_0x42774e(0x879,0xc0c)]('/'),0x1)),_0x40457f=fs[_0x42774e(0x79a,0x53a)](_0x3cb303);for(const _0x3dd69f of _0x40457f){if(!_0x3dd69f[_0x42774e(0x424,0x70f)]||_0x3dd69f[_0x42774e(0x373,0x70f)]===_0x27c279)continue;if(/^KuSug_[0-9a-f]+_[0-9]+\.so$/[_0x42774e(0xc63,0xa67)](_0x3dd69f[_0x42774e(0x78b,0x70f)]))try{fs[_0x42774e(0x716,0x7a0)](_0x3cb303+'/'+_0x3dd69f[_0x42774e(0x600,0x70f)]);}catch(_0x58a841){}}}catch(_0x38f8d7){}return'';},'addr'(_0x3b1e77){function _0x29e3cb(_0x2dea93,_0x5410e6){return _0x5a0b42(_0x5410e6,_0x2dea93-0x11c);}try{return os[_0x29e3cb(0x9af,0xea1)](this[_0x29e3cb(0x77c,0x846)],_0x29e3cb(0x878,0x571),_0x3b1e77*0x1000000);}catch(_0x56c8c3){return 0x0n;}},'call'(_0x3bef67,_0x26300f){const _0x1c8c45={'WBNpc':function(_0x3755af,_0xf84fb0){return _0x3755af<=_0xf84fb0;},'SxrMB':function(_0x37022c,_0x3d68ec){return _0x37022c/_0x3d68ec;},'fjJWK':function(_0x2554aa,_0x2cfffe){return _0x2554aa&_0x2cfffe;},'VTqmy':_0x162c0c(0x594,0x5e3),'LheWI':function(_0x98660a,_0x48cd76){return _0x98660a*_0x48cd76;}};function _0x162c0c(_0x5b68b4,_0x526555){return _0x5a0b42(_0x5b68b4,_0x526555- -0x179);}try{const _0x24c3ae=Math[_0x162c0c(0x264,0x53f)](_0x26300f||0x0);if(_0x3bef67>=0x2c&&_0x1c8c45[_0x162c0c(0x2a0,0x16e)](_0x3bef67,0x31)){const _0x4b6d80=Math[_0x162c0c(0x5e4,0x1f2)](_0x1c8c45[_0x162c0c(0x6b9,0x8f5)](_0x24c3ae,0x1000000));return os[_0x162c0c(0x4fe,0x71a)](this[_0x162c0c(0x960,0x4e7)],_0x162c0c(0x915,0x5e3),0x38*0x1000000+_0x1c8c45[_0x162c0c(0x521,0x8f4)](_0x4b6d80,0xffffff)),os[_0x162c0c(0xa85,0x71a)](this[_0x162c0c(0x6ec,0x4e7)],_0x1c8c45[_0x162c0c(-0x14a,0x367)],_0x3bef67*0x1000000+(_0x24c3ae-_0x1c8c45[_0x162c0c(0xba6,0x6ac)](_0x4b6d80,0x1000000)));}return os[_0x162c0c(0x461,0x71a)](this[_0x162c0c(0xa57,0x4e7)],_0x162c0c(0x6c7,0x5e3),_0x3bef67*0x1000000+(_0x24c3ae&0xffffff));}catch(_0x5a93c1){return 0x0n;}},'flushLog'(){if(!this[_0x3ca926(0x486,0x87)])return;const _0x1aac7c=Date[_0x3ca926(0x378,0x233)]();if(_0x1aac7c-this[_0x3ca926(0x345,-0x1d3)]<0x7d0)return;function _0x3ca926(_0x101af8,_0x299d8a){return _0x5a0b42(_0x299d8a,_0x101af8- -0x181);}this[_0x3ca926(0x345,0x75)]=_0x1aac7c;try{kuNative[_0x3ca926(0x7fa,0xae0)](0x4,0x0);}catch(_0x16ad2d){}}};function soPush(_0x1f46ba,_0x189bf9){const _0x4bded5=new Uint8Array(0x4+_0x189bf9[_0x5bef47(0x71c,0xa85)]);_0x4bded5[0x0]=_0x189bf9[_0x5bef47(0x97d,0xa85)]&0xff,_0x4bded5[0x1]=_0x189bf9[_0x5bef47(0xf0c,0xa85)]>>0x8&0xff,_0x4bded5[0x2]=_0x189bf9[_0x5bef47(0xcd3,0xa85)]>>0x10&0xff;function _0x5bef47(_0x1c80fb,_0x43386a){return _0x5a0b42(_0x1c80fb,_0x43386a-0x463);}_0x4bded5[0x3]=_0x189bf9[_0x5bef47(0x1050,0xa85)]>>0x18&0xff,_0x4bded5[_0x5bef47(0xd8,0x618)](_0x189bf9,0x4),os[_0x5bef47(0xebf,0xc1f)](_0x1f46ba,_0x4bded5[_0x5bef47(0xce3,0xa85)],_0x4bded5[_0x5bef47(0x101,0x67b)]);}const watermarkUid={'tag':_0x5a0b42(0x581,0x65),'enabled':![],'text':'','patchCode'(){function _0x2d8e35(_0x346349,_0x56ffee){return _0x5a0b42(_0x346349,_0x56ffee-0x26a);}const _0x3cd79f=this[_0x2d8e35(0xbc3,0xd60)][_0x2d8e35(0xbbf,0x68d)](/\\/g,'\x5c\x5c')[_0x2d8e35(0x422,0x68d)](/"/g,'\x5c\x22')[_0x2d8e35(0xbe5,0x68d)](/\n/g,'\x5cn');return _0x2d8e35(0xd6d,0xc86)+_0x3cd79f+(_0x2d8e35(0xb38,0x6c1)+_0x2d8e35(0xd5e,0xcd4)+_0x2d8e35(0x91d,0x42c));},'unpatchCode':_0x5a0b42(-0xfb,0x45e)+_0x5a0b42(0x406,0x344),'applyPatch'(){function _0x5c469e(_0x3d8b60,
-_0x9fc89d){return _0x5a0b42(_0x9fc89d,_0x3d8b60-0x508);}if(!this[_0x5c469e(0xffe,0x143a)])return;try{app[_0x5c469e(0x77d,0x7fe)](this[_0x5c469e(0xe1e,0xce5)]());}catch(_0x3265e0){}},'onModuleEvent'(_0x1b0d9a){if(typeof _0x1b0d9a[_0x2ed486(0xd55,0x104d)]===_0x2ed486(0x834,0x461)&&_0x1b0d9a[_0x2ed486(0xd55,0x12f7)][_0x2ed486(0x91a,0xa4c)]()){this[_0x2ed486(0xeb0,0xe87)]=_0x1b0d9a[_0x2ed486(0xd55,0x119f)][_0x2ed486(0x91a,0x503)]();if(this[_0x2ed486(0x4af,0x947)])this[_0x2ed486(0x513,0x6d2)]();}function _0x2ed486(_0x423f0f,_0x3d1e11){return _0x5a0b42(_0x3d1e11,_0x423f0f-0x3ba);}if(!stdToggle(this,_0x1b0d9a,_0x2ed486(0x7a7,0x7de),![]))return;try{this[_0x2ed486(0x4af,0x9f)]?this[_0x2ed486(0x513,0x8e)]():app[_0x2ed486(0x62f,0x284)](this[_0x2ed486(0xed1,0x13eb)]);}catch(_0xb6def2){}}},javaWatermark={'tag':_0x5a0b42(0x1a1,0x2b5),'enabled':![],'soDst':kuNative[_0x5a0b42(0xa3b,0x660)],'loaded':![],'hooked':![],'shown':![],'soOk':![],'loadSo'(){const _0x52a89c=kuNative[_0x712fc9(0xee2,0xa8e)]();if(_0x52a89c)return _0x52a89c;function _0x712fc9(_0x577fdc,_0x821340){return _0x5a0b42(_0x577fdc,_0x821340-0x441);}return this[_0x712fc9(0xb0b,0xa48)]=!![],this[_0x712fc9(0xbea,0xb47)]=!![],'';},'unhook'(){function _0x3a3066(_0x5323eb,_0x16e7fb){return _0x5a0b42(_0x16e7fb,_0x5323eb-0x22b);}try{kuNative[_0x3a3066(0xba6,0xb71)](0x25,0x0);}catch(_0x3bb2f8){}this[_0x3a3066(0x931,0x4ab)]=![],this[_0x3a3066(0x48e,0x8c)]=![];},'hide'(){try{kuNative[_0xf3e1f9(0x3e4,0x898)](0x25,0x0);}catch(_0x2d9134){}function _0xf3e1f9(_0x124cb0,_0x5dbacf){return _0x5a0b42(_0x124cb0,_0x5dbacf- -0xe3);}this[_0xf3e1f9(-0x360,0x180)]=![];},'onWorldExit'(){function _0x49d486(_0x8cf645,_0x4a74b0){return _0x5a0b42(_0x4a74b0,_0x8cf645-0x188);}if(this[_0x49d486(0x27d,0x802)]&&this[_0x49d486(0x779,0x29c)]&&this[_0x49d486(0x3eb,0x2bd)])this[_0x49d486(0x920,0x822)]();},'onTick'(){if(!this[_0xb0194c(0x960,0x9b2)])return;function _0xb0194c(_0x590284,_0x4aca8f){return _0x5a0b42(_0x4aca8f,_0x590284-0x36f);}let _0x391050=!![];try{_0x391050=app[_0xb0194c(0x3da,0x917)]();}catch(_0x10a998){}if(!_0x391050){if(this[_0xb0194c(0x5d2,0x99c)])this[_0xb0194c(0xb07,0xd08)]();return;}if(!this[_0xb0194c(0x5d2,0x5d5)]){this[_0xb0194c(0x5d2,0x20)]=!![];try{kuNative[_0xb0194c(0xcea,0xee4)](0x24,0x1);}catch(_0x4bf436){}}},'onModuleEvent'(_0x2492ef){const _0x5ab824={'CreLq':function(_0xbef81e,_0x530941){return _0xbef81e+_0x530941;}};if(!stdToggle(this,_0x2492ef,_0x40e091(0x71c,0xb38),![]))return;function _0x40e091(_0x3ad342,_0x5aea00){return _0x5a0b42(_0x5aea00,_0x3ad342-0x3ac);}if(this[_0x40e091(0x4a1,0x54b)]){let _0x4812b5='';if(!this[_0x40e091(0x9b3,0x729)]||!this[_0x40e091(0xab2,0xed8)])_0x4812b5=this[_0x40e091(0xcb2,0xb9d)]();if(_0x4812b5){this[_0x40e091(0x4a1,0x9b6)]=![],notifyToggle(_0x40e091(0x71c,0x6e7),![],'');try{app[_0x40e091(0xbaf,0xa61)](_0x5ab824[_0x40e091(0x57d,0x933)]('',_0x4812b5));}catch(_0x4234be){}return;}this[_0x40e091(0x99d,0xc31)]=!![],this[_0x40e091(0x60f,0x9cf)]=!![];try{kuNative[_0x40e091(0xd27,0xa20)](0x24,0x1);}catch(_0x21d70e){}}else{if(this[_0x40e091(0x99d,0x44e)]){this[_0x40e091(0x99d,0xba0)]=![];if(this[_0x40e091(0xab2,0xb0f)])this[_0x40e091(0xa21,0xda8)]();}}}},queryPlayer={'tag':_0x5a0b42(0x43a,0xe4),'lastInput':'','onModuleEvent'(_0x349164){const _0x274bd9={'EGYGy':_0x2aa044(0x6e1,0x5de),'pNiUA':function(_0x12c396,_0x424f41){return _0x12c396!==_0x424f41;}};if(_0x349164[_0x2aa044(0x5fd,0x506)]!==this[_0x2aa044(0xd7d,0x12b4)])return;if(typeof _0x349164[_0x2aa044(0xd79,0xa93)]===_0x274bd9[_0x2aa044(0x43d,0x728)]){this[_0x2aa044(0x8ff,0x738)]=_0x349164[_0x2aa044(0xd79,0xd8d)][_0x2aa044(0x7c7,0xc4a)]();return;}function _0x2aa044(_0x198966,_0x19e3cf){return _0x5a0b42(_0x19e3cf,_0x198966-0x267);}if(_0x274bd9[_0x2aa044(0x28d,-0x73)](_0x349164[_0x2aa044(0xd6c,0xd01)],!![]))return;const _0x164c95=this[_0x2aa044(0x8ff,0x67c)];if(!_0x164c95)return;this[_0x2aa044(0x257,-0x1c3)](_0x164c95);},'query'(_0x50c6ce){const _0x35e4f9=/^\d{10,}$/[_0x32728c(0x67c,
-0x972)](_0x50c6ce)?_0x50c6ce:'';function _0x32728c(_0x3ff609,_0x29bfb3){return _0x5a0b42(_0x29bfb3,_0x3ff609- -0x99);}const _0x23deda=_0x32728c(0x57b,0x683)+JSON[_0x32728c(0x554,0x35f)](JSON[_0x32728c(0x554,0x550)](_0x50c6ce))+_0x32728c(0xb5,-0x350)+(_0x35e4f9?_0x35e4f9:'0')+(_0x32728c(0x777,0x3f5)+_0x32728c(0x2f6,0x58a)+_0x32728c(0x8e,0x4d1)+_0x32728c(0x880,0xb6e)+_0x32728c(0x9c7,0xd9d)+(_0x32728c(0x50a,0x66e)+_0x32728c(0x3ec,-0x103)+_0x32728c(0x71d,0x608)+_0x32728c(0x1fd,0x7c3)+_0x32728c(-0x5e,0x106))+(_0x32728c(0x54e,0x205)+_0x32728c(0x826,0x98b)+_0x32728c(0xd7,0x29b)+_0x32728c(0xde,-0x39c)+_0x32728c(0x3fa,0x16d)));try{app[_0x32728c(0x1dc,0x682)](_0x23deda);}catch(_0x3dc809){}}},roomIp={'tag':_0x5a0b42(0x3cf,0x89e),'wantQuery':![],'pendingAddr':'','pendingErr':'','onModuleEvent'(_0x3c86f1){if(_0x3c86f1[_0x2a51cd(0x852,0xbe6)]!==this[_0x2a51cd(0xfd2,0x1296)]||_0x3c86f1[_0x2a51cd(0xfc1,0x11fe)]!==!![])return;function _0x2a51cd(_0x1a31c6,_0x10be54){return _0x5a0b42(_0x10be54,_0x1a31c6-0x4bc);}this[_0x2a51cd(0x5b3,0x126)]=!![];},'query'(){const _0x5db88c={'suDZf':function(_0x28049e,_0x401a44){return _0x28049e(_0x401a44);},'Uswog':function(_0xe519,_0x24d12e){return _0xe519+_0x24d12e;},'fLCDs':_0x1516b7(-0x3c,0x17e),'ArdVW':_0x1516b7(-0x14c,0x32e),'EJvTJ':_0x1516b7(0x91,-0x18a)},_0x39ef25=_0x1516b7(0x3df,0x4d9);function _0x1516b7(_0x470c62,_0x35e4a7){return _0x5a0b42(_0x35e4a7,_0x470c62- -0xf4);}const _0x147a02='{}';let _0x4548b9='',_0x459d3d='',_0x4b2884='';try{_0x4548b9=String(netease[_0x1516b7(0x477,0x676)]()||''),_0x459d3d=_0x5db88c[_0x1516b7(0x413,0x79e)](String,netease[_0x1516b7(0x3b4,0x36)]()||'');}catch(_0x34f78e){this[_0x1516b7(0x9e8,0xbdf)]=_0x5db88c[_0x1516b7(0x8c6,0x325)](_0x1516b7(-0x114,-0x4f3),_0x34f78e);return;}if(!_0x4548b9||!_0x459d3d){this[_0x1516b7(0x9e8,0x9ca)]=_0x1516b7(0x343,0x654);return;}try{_0x4b2884=netease[_0x1516b7(0x97c,0xc7b)](_0x459d3d,_0x39ef25,_0x147a02);}catch(_0x5ab75a){this[_0x1516b7(0x9e8,0xed1)]=_0x5db88c[_0x1516b7(0x60c,0x57e)]+_0x5ab75a;return;}const _0x53fc5e={'Content-Type':_0x1516b7(0x510,0x858),'User-Agent':_0x5db88c[_0x1516b7(0x60b,0xbd8)],'user-id':_0x4548b9,'user-token':_0x4b2884};try{https[_0x1516b7(0x7f3,0xa85)](_0x39ef25,_0x53fc5e,_0x147a02,(_0x1920da,_0xa5bdd6)=>this[_0x1516b7(0x7ba,0x47a)](_0x1920da,_0xa5bdd6));}catch(_0x4c7f9f){this[_0x1516b7(0x9e8,0x596)]=_0x5db88c[_0x1516b7(0x79e,0x96b)]+_0x4c7f9f;}},'onResult'(_0xe716df,_0x1a9e12){function _0x374170(_0x3dbed7,_0x19e3f1){return _0x5a0b42(_0x19e3f1,_0x3dbed7- -0x1fe);}let _0x3d44f8='';try{const _0x59158f=JSON[_0x374170(0x6b2,0x42d)](_0x1a9e12);_0x3d44f8=_0x59158f[_0x374170(0x6a5,0x522)][_0x374170(0xea,0x626)]+':'+_0x59158f[_0x374170(0x6a5,0x211)][_0x374170(-0x139,-0x17)];}catch(_0x128546){}if(!_0x3d44f8||_0x3d44f8[_0x374170(-0x1cd,-0x57c)](_0x374170(0x5e,-0x31f))>=0x0){this[_0x374170(0x8de,0xcf0)]=_0x374170(0x8aa,0x9b3)+_0xe716df+_0x374170(-0x26f,-0x598);return;}this[_0x374170(0x51,0x524)]=_0x3d44f8;},'onTick'(){function _0x18f604(_0x13b2f9,_0x5f3bdf){return _0x5a0b42(_0x13b2f9,_0x5f3bdf-0x316);}this[_0x18f604(0x570,0x40d)]&&(this[_0x18f604(-0x162,0x40d)]=![],this[_0x18f604(0x42a,0x306)]());if(this[_0x18f604(0x12d8,0xdf2)]){const _0x113ffa=this[_0x18f604(0x12fa,0xdf2)];this[_0x18f604(0x12f0,0xdf2)]='',this[_0x18f604(0x4cb,0x8d8)](_0x113ffa);}if(this[_0x18f604(0x545,0x565)]){const _0x28814d=this[_0x18f604(0xa70,0x565)];this[_0x18f604(0x7a7,0x565)]='',this[_0x18f604(0x556,0xa34)](_0x28814d);}},'show'(_0xb24e33){const _0x183aee={'Dvewv':_0x240866(0x3fe,-0x181),'pAfhf':function(_0x62a6d3,_0x563d9a){return _0x62a6d3+_0x563d9a;}};function _0x240866(_0x234631,_0x2ee061){return _0x5a0b42(_0x2ee061,_0x234631-0x10f);}showPyPopup(_0x183aee[_0x240866(0x2fa,0x39b)],[_0x183aee[_0x240866(0x31a,0x6e8)](_0x240866(0x42b,0x818),_0xb24e33)],_0xb24e33);},'log':mkLog(_0x5a0b42(-0x27e,0x256))},antiKick={'tag':_0x5a0b42(0x68f,0x17b),'enabled':![],'onModuleEvent'(_0x36a92e){const _0x4e4859={'unIQp':_0x195a64(0x218,-0x21a)};if(!stdToggle(this,
-_0x36a92e,_0x4e4859[_0x195a64(0x302,0x233)]))return;function _0x195a64(_0x4952de,_0x457c33){return _0x5a0b42(_0x457c33,_0x4952de-0x226);}this[_0x195a64(0x31b,0x23f)]&&this[_0x195a64(0x301,0x260)]();},'onReady'(){if(!this[_0x2551ac(0x2f9,-0x14b)])return;function _0x2551ac(_0x5e1478,_0x280c18){return _0x5a0b42(_0x5e1478,_0x280c18- -0x240);}setTimeout(()=>{function _0x3f10ce(_0xf1abe5,_0x12e92c){return _0x2551ac(_0xf1abe5,_0x12e92c-0x4f0);}if(this[_0x3f10ce(0x934,0x3a5)])this[_0x3f10ce(0x69f,0x38b)]();},0xc8);},'toast'(_0x2bd6a5){const _0x83ea44=_0x2bd6a5[_0x230d5b(0x3b3,0x397)](/\\/g,'\x5c\x5c')[_0x230d5b(0x16,0x397)](/"/g,'\x5c\x22')[_0x230d5b(0x820,0x397)](/\n/g,'\x5cn');function _0x230d5b(_0x465c04,_0x2effda){return _0x5a0b42(_0x465c04,_0x2effda- -0x8c);}const _0x48fce2=_0x230d5b(0x5d3,0x19d)+_0x83ea44+_0x230d5b(0x686,0x86a);try{app[_0x230d5b(0x5f7,0x1e9)](_0x48fce2);}catch(_0x3fba86){}},'postApi'(_0x5fc704,_0x2fc8f7,_0x308c10){const _0x1d1e1e={'UyyaN':_0x1a23d8(0x407,0x264)};function _0x1a23d8(_0x104dcb,_0x4c765c){return _0x5a0b42(_0x4c765c,_0x104dcb- -0x1fd);}const _0x3d2a5b={'Content-Type':_0x1d1e1e[_0x1a23d8(0x1ea,0xee)],'User-Agent':_0x1a23d8(-0x255,0x1ca),'user-id':netease[_0x1a23d8(0x36e,0x7c9)](),'user-token':netease[_0x1a23d8(0x873,0x8c9)](netease[_0x1a23d8(0x2ab,0x3f5)](),_0x5fc704,_0x2fc8f7)};https[_0x1a23d8(0x6ea,0x9bb)](_0x5fc704,_0x3d2a5b,_0x2fc8f7,_0x308c10);},'run'(){const _0x3d041f={'IrJIy':_0x8d55e7(0x9b4,0x48c),'TurYF':function(_0x254198,_0x495a51){return _0x254198===_0x495a51;},'aJQUA':_0x8d55e7(0x969,0x80c)};function _0x8d55e7(_0x4629eb,_0x25e129){return _0x5a0b42(_0x25e129,_0x4629eb-0x53a);}let _0x33af8d='';try{_0x33af8d=player[_0x8d55e7(0xa34,0xe46)]()[_0x8d55e7(0xf2d,0xe8c)]()||'';}catch(_0x32cdae){}if(!_0x33af8d)return;const _0x11cd32=_0x8d55e7(0xe5a,0xa1b),_0x1598d9=JSON[_0x8d55e7(0xb27,0xa17)]({'name_or_mail':_0x33af8d});try{this[_0x8d55e7(0xfbd,0x149e)](_0x11cd32,_0x1598d9,(_0x397d4d,_0x18e5af)=>{function _0x4279a8(_0xb702f6,_0x3c09e5){return _0x8d55e7(_0x3c09e5- -0x1bf,_0xb702f6);}try{if(typeof _0x18e5af!==_0x4279a8(0x293,0x7f5))_0x18e5af=String[_0x4279a8(0x68f,0x842)][_0x4279a8(0x775,0x4ec)](null,new Uint8Array(_0x18e5af));const _0x51f3c9=JSON[_0x4279a8(0x1171,0xc2b)](JSON[_0x4279a8(0xf75,0xc2b)](_0x18e5af)[_0x4279a8(0x1351,0xe01)][0x0][_0x4279a8(0xe9b,0xcc7)][_0x4279a8(0x653,0x43d)]);if(!_0x51f3c9)this[_0x4279a8(0x1423,0xe63)](_0x4279a8(0xd01,0xd5e));else{if(_0x51f3c9[_0x4279a8(0xf23,0xbf7)]===_0x3d041f[_0x4279a8(0xc87,0x7a0)]){const _0x1ff723=_0x4279a8(0xf43,0xc68),_0x4bf7d0=JSON[_0x4279a8(0x8ab,0x968)]({'room_id':_0x51f3c9[_0x4279a8(0xf4,0x375)],'team_quit':![]});this[_0x4279a8(0x963,0xdfe)](_0x1ff723,_0x4bf7d0,(_0x3812ea,_0x527021)=>{function _0x4730ed(_0x1c2981,_0x194f6c){return _0x4279a8(_0x194f6c,_0x1c2981- -0x186);}try{if(typeof _0x527021!==_0x3d041f[_0x4730ed(0x9ad,0xc96)])_0x527021=String[_0x4730ed(0x6bc,0x975)][_0x4730ed(0x366,0x8e4)](null,new Uint8Array(_0x527021));_0x3d041f[_0x4730ed(0xae7,0xeed)](JSON[_0x4730ed(0xaa5,0xbd2)](_0x527021)[_0x4730ed(0x49a,0x135)],_0x4730ed(0xae0,0x1030))?this[_0x4730ed(0xcdd,0x7f3)](_0x4730ed(0xb8f,0xae2)):this[_0x4730ed(0xcdd,0xff4)](_0x4730ed(0x73c,0x232));}catch(_0x2f946d){}});}}}catch(_0x439566){this[_0x4279a8(0x1277,0xe63)](_0x4279a8(0x633,0x6b0));}});}catch(_0x3d8e10){}}};function colorizeText(_0x299a19){const _0xc3d73={'blzbB':function(_0x582b8a,_0xa03019){return _0x582b8a%_0xa03019;},'IWpTY':function(_0x2fe47d,_0x2827d9){return _0x2fe47d+_0x2827d9;}},_0x4c3239=_0x4bb6c6(0x613,0x9eb);function _0x4bb6c6(_0x3b3f38,_0x46a079){return _0x5a0b42(_0x46a079,_0x3b3f38-0x25b);}let _0x3c4763='',_0x1aaeaa=-0x1;for(const _0x1471cf of _0x299a19){let _0x74c92d=Math[_0x4bb6c6(0x5c6,0x279)](Math[_0x4bb6c6(0x7fa,0x32c)]()*_0x4c3239[_0x4bb6c6(0x87d,0x715)]);if(_0x74c92d===_0x1aaeaa)_0x74c92d=_0xc3d73[_0x4bb6c6(0x493,0x42a)](_0x74c92d+0x1,_0x4c3239[_0x4bb6c6(0x87d,0xaee)]);_0x1aaeaa=_0x74c92d,_0x3c4763+=_0xc3d73[_0x4bb6c6(0x9b1,0x8d5)]('§',_0x4c3239[_0x74c92d])+
-_0x1471cf;}return _0x3c4763;}const msgBrush={'tag':_0x5a0b42(0x51d,0x4a5),'enabled':![],'text':'','speed':0x1,'tickCount':0x0,'onModuleEvent'(_0x123307){const _0xa10600=_0x123307[_0x3a8d94(0xaf3,0xa72)]!==undefined?_0x123307[_0x3a8d94(0xaf3,0xb83)]:_0x123307[_0x3a8d94(0xa79,0x717)];typeof _0xa10600===_0x3a8d94(0x4f8,0x2a0)&&(this[_0x3a8d94(0xb74,0xc13)]=_0xa10600);const _0x315b04=_0x123307[_0x3a8d94(0x763,0x4a6)]!==undefined?_0x123307[_0x3a8d94(0x763,0x316)]:_0x123307[_0x3a8d94(0x67c,0x7a8)];function _0x3a8d94(_0x183811,_0x57fda3){return _0x5a0b42(_0x57fda3,_0x183811-0x7e);}const _0x35a6fc=clampPos(_0x315b04,0x1,0x3c);if(_0x35a6fc)this[_0x3a8d94(0x7bd,0xb2f)]=_0x35a6fc;if(_0x123307[_0x3a8d94(0x414,0x6c8)]===this[_0x3a8d94(0xb94,0xd41)]&&_0x3a8d94(0xb83,0xb60)in _0x123307){if(!stdToggle(this,_0x123307,_0x3a8d94(0x518,0x43d),![]))return;this[_0x3a8d94(0x3fb,0x54)]=0x0,this[_0x3a8d94(0x173,-0x7)]&&!this[_0x3a8d94(0xb74,0x719)][_0x3a8d94(0x5de,0xa7a)]()&&app[_0x3a8d94(0x881,0x42e)](_0x3a8d94(0x1a0,0x4fc));}},'onTick'(){const _0x408826={'KLLkt':function(_0x3354e1,_0x41d828,_0x2d2d8f){return _0x3354e1(_0x41d828,_0x2d2d8f);},'XVLRM':function(_0x4543ad,_0xb4dbfa){return _0x4543ad(_0xb4dbfa);}};function _0x3e50bc(_0x6e2277,_0x432612){return _0x5a0b42(_0x6e2277,_0x432612-0x271);}if(!this[_0x3e50bc(0x444,0x366)]||!this[_0x3e50bc(0xd87,0xd67)][_0x3e50bc(0x65d,0x7d1)]()||!_0x408826[_0x3e50bc(0xf6f,0xa14)](tickEvery,this,this[_0x3e50bc(0x5d7,0x9b0)]))return;_0x408826[_0x3e50bc(0x76,0x425)](chatSend,this[_0x3e50bc(0x7cf,0xd67)]);}},killAura={'tag':_0x5a0b42(0x29,0x19c),'enabled':![],'targetPlayer':!![],'targetMob':![],'attackInvisible':![],'excludeNpc':!![],'multi':!![],'maxTargets':0x5,'swing':!![],'showCps':!![],'autoSelect':![],'throwOn':![],'throwCd':0x0,'lastThrowSlot':-0x1,'switchCd':0x0,'holdTicks':0x0,'hitsLog':[],'cpsTick':0x0,'listWhite':!![],'playerList':'','mobList':'','cps':0x8,'range':0x4,'junkTypes':/^minecraft:(item|xp_orb|fishing_hook|arrow|snowball|egg|ender_pearl|eye_of_ender_signal|splash_potion|lingering_potion|area_effect_cloud|dragon_fireball|wither_skull|fireball|small_fireball|llama_spit|shulker_bullet|thrown_trident|falling_block|tnt|primed_tnt|lightning_bolt|leash_knot|painting|fireworks_rocket)$/,'acc':0x0,'scanStamp':0x0,'scannedStamp':-0x1,'targetCache':EMPTY_LIST,'parseList'(_0x7d6111,_0xb08be5){function _0x56c678(_0xe8dc07,_0x23deb9){return _0x5a0b42(_0xe8dc07,_0x23deb9- -0x1c0);}const _0x485c53={'NyaqD':function(_0x395466,_0x757350){return _0x395466(_0x757350);},'rGAQu':function(_0x56580f,_0xafa476){return _0x56580f||_0xafa476;}},_0x31727c=new Set();for(const _0x55efd6 of _0x485c53[_0x56c678(0x565,0x5b1)](String,_0x485c53[_0x56c678(-0xb9,0x5f)](_0x7d6111,''))[_0x56c678(0x65,0x545)](/[,，;；\r\n]+/)){let _0x99f1d9=_0x55efd6[_0x56c678(0x415,0x3a0)]();if(!_0x99f1d9)continue;_0x99f1d9=_0x99f1d9[_0x56c678(-0xf,0x263)](STRIP_COLOR_RE,'');if(!_0x99f1d9)continue;_0x31727c[_0x56c678(0x28d,0x4f6)](_0xb08be5?(_0x99f1d9[_0x56c678(-0x3d8,-0x18f)](':')===-0x1?_0x56c678(-0x8f,0x186)+_0x99f1d9:_0x99f1d9)[_0x56c678(0x9ed,0x789)]():_0x99f1d9);}return _0x31727c;},'listed'(_0xc17ce4,_0x4808fc){function _0x3bfd71(_0x509732,_0x52f6d1){return _0x5a0b42(_0x52f6d1,_0x509732-0x45f);}return this[_0x3bfd71(0x649,0x3f4)]?!_0xc17ce4[_0x3bfd71(0x9ab,0x843)](_0x4808fc):_0xc17ce4[_0x3bfd71(0x9ab,0xd1f)](_0x4808fc);},'openListForm'(){const _0x5956f6={'IAokl':function(_0x464aa0,_0x34de45){return _0x464aa0(_0x34de45);},'pqwcj':_0x569f1d(0x74a,0x483),'isuEu':_0x569f1d(0x171,0x5fa)};let _0x15b471=!![];try{_0x15b471=app[_0x569f1d(-0x90,-0x47)]();}catch(_0x257414){}if(!_0x15b471){try{app[_0x569f1d(0x708,0xbae)](_0x569f1d(0x21b,0x679));}catch(_0x4cb246){}return;}const _0x57b230=this[_0x569f1d(-0x2e,-0x29d)](this[_0x569f1d(0x44a,0x351)],![]),_0x3dfcf6=[],_0xaf0385=new Set(),_0x56cdcb=new Set();let _0x4b284d=![];const _0x316c05=(_0x40ccc1,_0x30a319)=>{function _0x169a30(_0xe55dec,_0x58549b){return _0x569f1d(_0xe55dec-0x646,
-_0x58549b);}if(!_0x40ccc1||_0xaf0385[_0x169a30(0xa97,0xf4f)](_0x40ccc1))return;_0xaf0385[_0x169a30(0xc01,0xf81)](_0x40ccc1),_0x3dfcf6[_0x169a30(0xe01,0xb61)]({'key':_0x40ccc1,'label':_0x30a319});};let _0x43e90d='';try{_0x43e90d=String(player[_0x569f1d(0x3ff,-0x97)]()[_0x569f1d(0x927,0xb4e)]());}catch(_0x309c45){}try{const _0x11285e=world[_0x569f1d(0x883,0x952)]()[_0x569f1d(0x81f,0x48e)]();for(const _0x35ae7a in _0x11285e){const _0x5e244d=_0x11285e[_0x35ae7a];if(!_0x5e244d||!_0x5e244d['id'])continue;const _0x99b3fc=_0x5956f6[_0x569f1d(0x7d7,0x598)](String,_0x5e244d[_0x569f1d(0x2c2,0x56c)]||_0x5e244d['id']),_0x5ecf46=_0x99b3fc[_0x569f1d(0x328,0x877)](STRIP_COLOR_RE,'');_0x56cdcb[_0x569f1d(0x5bb,0x829)](_0x5ecf46),_0x316c05(_0x5ecf46,_0x99b3fc+(String(_0x5e244d['id'])===_0x43e90d?_0x569f1d(0x190,-0x266):''));}_0x4b284d=_0x56cdcb[_0x569f1d(0x63d,0x997)]>0x0;}catch(_0x5ec234){}function _0x569f1d(_0x233d8d,_0x3e20dc){return _0x5a0b42(_0x3e20dc,_0x233d8d- -0xfb);}if(_0x4b284d&&_0x57b230[_0x569f1d(0x63d,0xa10)]){const _0x52c46d=[],_0xec2d19=[];for(const _0x3a216e of _0x57b230){if(_0x56cdcb[_0x569f1d(0x451,0x5fe)](_0x3a216e))_0x52c46d[_0x569f1d(0x7bb,0x6e4)](_0x3a216e);else _0xec2d19[_0x569f1d(0x7bb,0xca2)](_0x3a216e);}if(_0xec2d19[_0x569f1d(0x527,0x9ff)]){this[_0x569f1d(0x44a,0x368)]=_0x52c46d[_0x569f1d(0x373,0x7cb)](','),_0x57b230[_0x569f1d(0x104,0x350)]();for(const _0x4e81c1 of _0x52c46d)_0x57b230[_0x569f1d(0x5bb,0x954)](_0x4e81c1);try{minecraft[_0x569f1d(-0x120,-0x646)](_0x569f1d(0x775,0x6fe)+_0xec2d19[_0x569f1d(0x373,0x458)]('、'));}catch(_0x238729){}}}if(!_0x3dfcf6[_0x569f1d(0x527,0x3fc)]){try{minecraft[_0x569f1d(-0x120,-0x590)](_0x5956f6[_0x569f1d(0x574,0x494)]);}catch(_0x1f0113){}return;}const _0x3a7382=[{'type':_0x5956f6[_0x569f1d(0x861,0xb16)],'text':_0x569f1d(-0x110,-0x6c7),'default':![]}];for(const _0x3f2f30 of _0x3dfcf6)_0x3a7382[_0x569f1d(0x7bb,0x239)]({'type':_0x569f1d(0x171,0x452),'text':_0x3f2f30[_0x569f1d(0x1ab,0x2f0)],'default':_0x57b230[_0x569f1d(0x451,-0xcc)](_0x3f2f30[_0x569f1d(-0x145,-0x87)])});const _0x1d3a1f=this;try{gui[_0x569f1d(0xa7,0x54a)](JSON[_0x569f1d(0x4f2,0x510)]({'type':_0x569f1d(0x4de,0x7e2),'title':_0x569f1d(-0xe0,-0x300),'content':_0x3a7382}),function(){const _0x4f9926=[];if(!arguments[0x0])for(let _0x30785e=0x0;_0x30785e<_0x3dfcf6[_0x143879(0x947,0x96c)];_0x30785e++){if(arguments[_0x30785e+0x1])_0x4f9926[_0x143879(0x6f1,0xc00)](_0x3dfcf6[_0x30785e][_0x143879(0x5f7,0x300)]);}function _0x143879(_0x4e9d98,_0x518fd5){return _0x569f1d(_0x518fd5-0x445,_0x4e9d98);}_0x1d3a1f[_0x143879(0x2fb,0x88f)]=_0x4f9926[_0x143879(0x54c,0x7b8)](',');try{minecraft[_0x143879(0xb0,0x325)](_0x143879(0x60e,0x575)+(_0x4f9926[_0x143879(0x760,0x96c)]?_0x4f9926[_0x143879(0x94c,0x96c)]+'\x20项':'空'));}catch(_0x7be71a){}},function(){});}catch(_0x2d2abf){try{minecraft[_0x569f1d(-0x120,-0x184)](_0x569f1d(-0xe4,0x316)+_0x2d2abf);}catch(_0x6f946c){}}},'onModuleEvent'(_0x48f35a){function _0x334dd5(_0x1357db,_0x25b3ac){return _0x5a0b42(_0x25b3ac,_0x1357db-0x31a);}const _0x298daf={'auWDF':function(_0x13fe5c,_0x2baa46){return _0x13fe5c(_0x2baa46);},'qONxW':function(_0x42c951,_0x3a88b5){return _0x42c951!==_0x3a88b5;},'BPevB':_0x334dd5(0x576,0x57),'jQRLG':function(_0x1fb7de,_0x2a61a1){return _0x1fb7de(_0x2a61a1);},'TrTCZ':function(_0x4c0eff,_0x46e38f){return _0x4c0eff!==_0x46e38f;},'rKAGC':_0x334dd5(0xbbe,0xbd3),'EtZTD':function(_0x42a6e8,_0x246770){return _0x42a6e8===_0x246770;}};if(_0x48f35a[_0x334dd5(0x2d0,0x4ed)]===_0x334dd5(0xa15,0x922)){this[_0x334dd5(0xa9e,0x859)]();return;}if(typeof _0x48f35a[_0x334dd5(0x760,0xae9)]!==_0x334dd5(0x576,0x121))this[_0x334dd5(0x350,0x92)]=_0x298daf[_0x334dd5(0x9a2,0xc87)](Boolean,_0x48f35a[_0x334dd5(0x760,0x894)]);if(_0x298daf[_0x334dd5(0x6f4,0x20e)](typeof _0x48f35a[_0x334dd5(0x33a,0x582)],_0x334dd5(0x576,0x255)))this[_0x334dd5(0xa7d,0xb82)]=Boolean(_0x48f35a[_0x334dd5(0x33a,0x1f9)]);if(typeof _0x48f35a[_0x334dd5(0x454,-0x99)]!==_0x334dd5(0x576,0x9f9))this[_0x334dd5(0x3bb,
--0x129)]=Boolean(_0x48f35a[_0x334dd5(0x454,0xde)]);if(typeof _0x48f35a[_0x334dd5(0x524,-0x76)]!==_0x334dd5(0x576,0x25c))this[_0x334dd5(0xc6d,0xa54)]=Boolean(_0x48f35a[_0x334dd5(0x524,0x867)]);if(typeof _0x48f35a[_0x334dd5(0x60c,0x4aa)]!==_0x334dd5(0x576,0x9ec))this[_0x334dd5(0xc08,0xdfe)]=Boolean(_0x48f35a[_0x334dd5(0x60c,0x32e)]);if(typeof _0x48f35a[_0x334dd5(0xbf3,0xfed)]!==_0x334dd5(0x576,0x3d8))this[_0x334dd5(0xa90,0xf17)]=Boolean(_0x48f35a[_0x334dd5(0xbf3,0xf1e)]);if(typeof _0x48f35a[_0x334dd5(0x7bc,0xa7e)]!==_0x298daf[_0x334dd5(0xad4,0xc3f)])this[_0x334dd5(0x946,0xd27)]=Boolean(_0x48f35a[_0x334dd5(0x7bc,0xc84)]);if(typeof _0x48f35a[_0x334dd5(0x567,0x98d)]!==_0x334dd5(0x576,0x3aa))this[_0x334dd5(0x8ff,0x781)]=_0x298daf[_0x334dd5(0x43b,0x6b6)](Boolean,_0x48f35a[_0x334dd5(0x567,0xad9)]);if(_0x298daf[_0x334dd5(0x6e8,0x1da)](typeof _0x48f35a[_0x334dd5(0xcbe,0xd32)],_0x334dd5(0x576,0x91e)))this[_0x334dd5(0x8d3,0xbbd)]=_0x298daf[_0x334dd5(0x43b,0x421)](Boolean,_0x48f35a[_0x334dd5(0xcbe,0xaac)]);radio2(_0x48f35a,_0x334dd5(0x4ff,0x46d),_0x334dd5(0x571,0x1e7),_0x298daf[_0x334dd5(0xab3,0xdee)],this,_0x334dd5(0x504,0xa43),!![],![]);const _0x3bada6=clampPos(_0x48f35a[_0x334dd5(0x317,0x312)],0x1,0x14);if(_0x3bada6)this[_0x334dd5(0xd6c,0xe13)]=_0x3bada6;if(typeof _0x48f35a[_0x334dd5(0x3c8,0x301)]===_0x334dd5(0x794,0x327))this[_0x334dd5(0x85f,0x4e4)]=_0x48f35a[_0x334dd5(0x3c8,0x4bf)];if(_0x298daf[_0x334dd5(0xd1b,0xcde)](typeof _0x48f35a[_0x334dd5(0x620,0xe5)],_0x334dd5(0x794,0x3dc)))this[_0x334dd5(0xa2c,0xe7f)]=_0x48f35a[_0x334dd5(0x620,0x360)];const _0x421d2c=clampPos(_0x48f35a[_0x334dd5(0xa37,0x853)],0x1,0x3c);if(_0x421d2c)this[_0x334dd5(0xc36,0xea0)]=_0x421d2c;const _0x298504=clampPos(_0x48f35a[_0x334dd5(0x578,0x456)],0x1,0xa);if(_0x298504)this[_0x334dd5(0x6c5,0x2c8)]=_0x298504;if(_0x48f35a[_0x334dd5(0x6b0,0xae2)]!==this[_0x334dd5(0xe30,0x13d8)]||!(_0x334dd5(0xe1f,0x115f)in _0x48f35a))return;const _0x25691a=Boolean(_0x48f35a[_0x334dd5(0xe1f,0xe72)]);if(_0x25691a===this[_0x334dd5(0x40f,-0x98)])return;if(_0x25691a&&!this[_0x334dd5(0x350,0x3bc)]&&!this[_0x334dd5(0xa7d,0x780)]){app[_0x334dd5(0xb1d,0xb4f)](_0x334dd5(0x4de,0x17b));return;}this[_0x334dd5(0x40f,0x760)]=_0x25691a,ensureHud(this,this[_0x334dd5(0xe30,0x128b)],_0x334dd5(0x4a6,0x769)),this[_0x334dd5(0xaae,0x5d7)][_0x334dd5(0x40f,0x51e)]=_0x25691a,notifyToggle(_0x334dd5(0x4a6,-0x61),_0x25691a),this[_0x334dd5(0xd98,0xb6d)]=0x0,this[_0x334dd5(0x3b7,0x781)]=0x0,this[_0x334dd5(0x566,0x7a6)]=0x0,this[_0x334dd5(0xc5a,0xb39)]=0x0,this[_0x334dd5(0x561,0x799)]=-0x1;if(!_0x25691a){this[_0x334dd5(0x327,-0x11e)]=[],this[_0x334dd5(0xba8,0xb8f)]=0x0;try{minecraft[_0x334dd5(0xb13,0x7a6)]('');}catch(_0x56c70b){}}},'autoSelectBest'(_0x44088f){const _0x2f578d={'Erxko':function(_0x174c6e,_0x3a2256){return _0x174c6e(_0x3a2256);},'qSYmw':function(_0x52abf5,_0x2fd16a){return _0x52abf5>=_0x2fd16a;},'lqrAJ':function(_0x58cae1,_0x14974f){return _0x58cae1<_0x14974f;},'Iwzjw':function(_0x20d305,_0x548db4){return _0x20d305>=_0x548db4;}};if(this[_0x404b85(0x5a,0x388)]>0x0)return![];let _0x5dad44=0x9;try{_0x5dad44=Number(_0x44088f[_0x404b85(0x7dc,0xb9c)]())||0x9;}catch(_0x399432){}let _0x31935c=-0x1;try{const _0x382bd7=Number(_0x44088f[_0x404b85(0x79d,0x1d8)]());if(!_0x2f578d[_0x404b85(0x1f6,0x3ce)](isNaN,_0x382bd7)&&_0x2f578d[_0x404b85(0x6c6,0x8ab)](_0x382bd7,0x0)&&_0x382bd7<_0x5dad44)_0x31935c=_0x382bd7;}catch(_0x5dafd8){}if(_0x2f578d[_0x404b85(0x612,0x874)](_0x31935c,0x0))_0x31935c=0x0;let _0x2c2027=-0x1,_0x543bb2=-0x1,_0x55abe1=0x0;for(let _0x3b7398=0x0;_0x2f578d[_0x404b85(0x612,0x142)](_0x3b7398,_0x5dad44);_0x3b7398++){let _0x5904fc=0x0;try{const _0x14d232=_0x44088f[_0x404b85(0xa77,0xe55)](_0x3b7398);if(_0x14d232&&!(_0x14d232[_0x404b85(0x9fe,0xd72)]&&_0x14d232[_0x404b85(0x9fe,0x73d)]()))_0x5904fc=Number(_0x14d232[_0x404b85(0x4fc,0x3f5)]())||0x0;}catch(_0x1e57ec){}if(_0x3b7398===_0x31935c)_0x55abe1=_0x5904fc;_0x5904fc>_0x543bb2&&(_0x543bb2=_0x5904fc,_0x2c2027=_0x3b7398);}function _0x404b85(_0x4fd4a2,
-_0x4c9e3d){return _0x5a0b42(_0x4c9e3d,_0x4fd4a2- -0x43);}if(_0x2f578d[_0x404b85(0x124,-0x42e)](_0x2c2027,0x0)&&_0x2c2027!==_0x31935c&&_0x543bb2>_0x55abe1)try{return _0x44088f[_0x404b85(0x36f,0x394)](_0x2c2027),this[_0x404b85(0x5a,-0x24b)]=0xa,this[_0x404b85(0x209,-0x2b7)]=0x1,!![];}catch(_0x3a3891){}return![];},'isThrowable'(_0x5452d0){const _0x5256fc={'amEbY':_0x273c54(0x6e0,0x659),'JKRlG':function(_0x4d3e9d,_0x3b3f35){return _0x4d3e9d===_0x3b3f35;}};let _0x228ae9=String(_0x5452d0||'')[_0x273c54(0x84f,0x95c)]()[_0x273c54(0x466,0x193)]();const _0x368af2=_0x228ae9[_0x273c54(-0xc9,0xad)](':');if(_0x368af2!==-0x1)_0x228ae9=_0x228ae9[_0x273c54(-0x15d,0x46c)](_0x368af2+0x1);if(_0x228ae9===_0x273c54(0x9c5,0xdde)||_0x228ae9==='雪球')return!![];if(_0x228ae9===_0x273c54(0x3c7,0x790)||_0x228ae9==='鸡蛋')return!![];function _0x273c54(_0x59713a,_0x560f09){return _0x5a0b42(_0x560f09,_0x59713a- -0xfa);}if(_0x228ae9[_0x273c54(-0x15d,-0x599)](-0x4)===_0x5256fc[_0x273c54(0x6a4,0x23c)]||_0x5256fc[_0x273c54(0x685,0x3df)](_0x228ae9[_0x273c54(-0x15d,-0xd8)](-0x4),_0x273c54(0x21b,0x53c)))return!![];if(_0x228ae9[_0x273c54(0x528,0x835)]>=0x3&&_0x228ae9[_0x273c54(-0x15d,0xef)](-0x2)==='鸡蛋')return!![];return![];},'autoThrow'(_0x4ff360){if(this[_0x1fb227(0xbeb,0xfff)]>0x0)return;let _0x784aae=0x9,_0x1755c2=0x0;function _0x1fb227(_0x19aefc,_0x44af84){return _0x5a0b42(_0x44af84,_0x19aefc-0x2ab);}try{_0x784aae=Number(_0x4ff360[_0x1fb227(0xaca,0x50e)]())||0x9;}catch(_0x535e2d){}try{const _0x504fd4=Number(_0x4ff360[_0x1fb227(0xa8b,0xa28)]());if(!isNaN(_0x504fd4)&&_0x504fd4>=0x0&&_0x504fd4<_0x784aae)_0x1755c2=_0x504fd4;}catch(_0x557d54){}let _0xbae452=[];for(let _0x31ec40=0x0;_0x31ec40<_0x784aae;_0x31ec40++){try{const _0xd98444=_0x4ff360[_0x1fb227(0xd65,0xeeb)](_0x31ec40);_0xd98444&&!(_0xd98444[_0x1fb227(0xcec,0x111a)]&&_0xd98444[_0x1fb227(0xcec,0xf94)]())&&!(_0xd98444[_0x1fb227(0xaf7,0xca7)]&&_0xd98444[_0x1fb227(0xaf7,0x6bd)]())&&_0xd98444[_0x1fb227(0xc9e,0x788)]&&this[_0x1fb227(0x911,0x65b)](_0xd98444[_0x1fb227(0xc9e,0xddf)]())&&_0xbae452[_0x1fb227(0xb61,0x90e)](_0x31ec40);}catch(_0x5cbdda){}}if(!_0xbae452[_0x1fb227(0x8cd,0xe44)])return;let _0x14c441=_0xbae452[0x0];for(const _0x107441 of _0xbae452){if(_0x107441>this[_0x1fb227(0x4f2,0x749)]){_0x14c441=_0x107441;break;}}this[_0x1fb227(0x4f2,0x940)]=_0x14c441;try{if(_0x14c441!==_0x1755c2)_0x4ff360[_0x1fb227(0x65d,0xbb1)](_0x14c441);_0x4ff360[_0x1fb227(0x651,0x41d)]();if(_0x14c441!==_0x1755c2)_0x4ff360[_0x1fb227(0x65d,0x6f1)](_0x1755c2);this[_0x1fb227(0xbeb,0x10db)]=0x4;}catch(_0x137b2b){}},'consider'(_0x21ca06,_0x4d4027,_0x122f28){const _0xc94c={'fBjRD':function(_0x235525,_0x5cd8a8){return _0x235525-_0x5cd8a8;},'jwRCI':function(_0x232c8b,_0x18fb50){return _0x232c8b+_0x18fb50;},'spVSe':function(_0x198719,_0x3359fa){return _0x198719*_0x3359fa;}};let _0xd7229a;try{_0xd7229a=_0x21ca06[_0x447a9(0x2c6,0x2ac)]();}catch(_0xe5d7f0){}if(!_0xd7229a)return;let _0x149bf3=!![];try{if(_0x21ca06[_0x447a9(0x924,0xdd2)])_0x149bf3=!!_0x21ca06[_0x447a9(0x924,0x941)]();}catch(_0x2fa3b9){}if(!_0x149bf3)return;const _0x48a586=_0xd7229a['x']-_0x4d4027['x'],_0x820f84=_0xc94c[_0x447a9(0x73b,0x6a7)](_0xd7229a['y'],_0x4d4027['y']),_0x1e615b=_0xd7229a['z']-_0x4d4027['z'],_0xd9b98a=Math[_0x447a9(0x16b,-0x45c)](_0xc94c[_0x447a9(0x880,0x560)](_0xc94c[_0x447a9(0x5ac,0xd0)](_0x48a586,_0x48a586),_0x820f84*_0x820f84)+_0x1e615b*_0x1e615b);if(_0xd9b98a>this[_0x447a9(0x549,0xa35)])return;function _0x447a9(_0x5b71ff,_0x3e6d5b){return _0x5a0b42(_0x3e6d5b,_0x5b71ff-0x19e);}if(!this[_0x447a9(0x23f,-0x2e2)]){let _0x544f8b=![];try{_0x544f8b=!!_0x21ca06[_0x447a9(0x73f,0xab3)](0x5);}catch(_0xfad191){}if(_0x544f8b)return;}_0x122f28[_0x447a9(0x386,0x3a6)][_0x447a9(0xa54,0x6a6)]({'a':_0x21ca06,'d':_0xd9b98a,'pos':_0xd7229a});},'scanTargets'(_0xd258ce){const _0xccc410={'OnsIx':function(_0x28ad6e,_0x1f32db){return _0x28ad6e(_0x1f32db);},'ULSVv':function(_0x375ac6,_0xe6189a){return _0x375ac6!==_0xe6189a;},'tQLSa':_0x4bbf1b(0x6db,0x738)};this[_0x4bbf1b(0x25e,
-0x6f8)]=EMPTY_LIST;let _0xd78518,_0x66b070,_0x327c38='';try{_0xd78518=world[_0x4bbf1b(0x655,0x77f)](),_0x66b070=_0xd258ce[_0x4bbf1b(0x3ca,-0xd7)](),_0x327c38=String(_0xd258ce[_0x4bbf1b(0x429,0x823)]()||'');}catch(_0xf4124e){}if(!_0xd78518||!_0x66b070)return;const _0x22e2cd=this[_0x4bbf1b(0x375,0x346)]+'|'+this[_0x4bbf1b(0x3a7,0x513)];_0x22e2cd!==this[_0x4bbf1b(0x323,0x1c1)]&&(this[_0x4bbf1b(-0x2b,0x40)]=this[_0x4bbf1b(-0xa,-0x132)](this[_0x4bbf1b(0x194,0x346)],![]),this[_0x4bbf1b(0xc3c,0x8b6)]=this[_0x4bbf1b(-0x416,-0x132)](this[_0x4bbf1b(0x799,0x513)],!![]),this[_0x4bbf1b(0x303,0x1c1)]=_0x22e2cd);const _0x14c66a=this[_0x4bbf1b(-0x58f,0x40)];function _0x4bbf1b(_0x52456b,_0x4b3fc9){return _0x5a0b42(_0x52456b,_0x4b3fc9- -0x1ff);}const _0x2603d5=this[_0x4bbf1b(0xa79,0x8b6)],_0x6bb1fa={'list':[]};if(this[_0x4bbf1b(0x382,-0x1c9)]){let _0x16ffdf=[];try{_0x16ffdf=_0xd78518[_0x4bbf1b(0xbfe,0x729)]()||[];}catch(_0x125c15){}let _0x2b1961=null;if(this[_0x4bbf1b(0xc23,0x754)]){const _0x51c3f3=new Set();try{const _0x3dbdbc=_0xd78518[_0x4bbf1b(0x24c,0x71b)]();for(const _0x227fda in _0x3dbdbc){const _0x2b33e1=_0x3dbdbc[_0x227fda];if(_0x2b33e1&&_0x2b33e1[_0x4bbf1b(0xb1,0x1be)])_0x51c3f3[_0x4bbf1b(0x28c,0x4b7)](String(_0x2b33e1[_0x4bbf1b(0x47e,0x1be)])[_0x4bbf1b(0xb1,0x224)](STRIP_COLOR_RE,''));}}catch(_0x5b2608){}if(_0x51c3f3[_0x4bbf1b(0x2b9,0x539)])_0x2b1961=_0x51c3f3;}for(const _0x109189 of _0x16ffdf){try{if(_0xccc410[_0x4bbf1b(-0xf4,-0x94)](String,_0x109189[_0x4bbf1b(0x26b,0x823)]()||'')===_0x327c38)continue;}catch(_0x5c5330){continue;}let _0x436773='';try{_0x436773=_0xccc410[_0x4bbf1b(0x449,-0x94)](String,_0x109189[_0x4bbf1b(0x61a,0x7f4)]()||'')[_0x4bbf1b(-0x1e2,0x224)](STRIP_COLOR_RE,'');}catch(_0x20a4b1){}if(!this[_0x4bbf1b(-0x442,-0x5b)](_0x14c66a,_0x436773))continue;if(this[_0x4bbf1b(0x768,0x754)]){if(_0x2b1961&&!_0x2b1961[_0x4bbf1b(0x807,0x34d)](_0x436773))continue;let _0x8a5637=0x0;try{const _0x1222d3=_0x109189[_0x4bbf1b(0x417,-0x21)](_0x4bbf1b(-0x32f,0x83));if(_0x1222d3&&_0xccc410[_0x4bbf1b(0x9d7,0x60e)](typeof _0x1222d3[_0x4bbf1b(-0xd4,-0x180)],_0x4bbf1b(-0x329,0x5d)))_0x8a5637=Number(_0x1222d3[_0x4bbf1b(-0x427,-0x180)])||0x0;}catch(_0x587045){}if(_0x8a5637>=0.5&&_0x436773[_0x4bbf1b(-0x2d8,-0x1ce)]('[')===-0x1)continue;}this[_0x4bbf1b(0x133,0x157)](_0x109189,_0x66b070,_0x6bb1fa);}}if(this[_0x4bbf1b(0x60d,0x564)]){let _0x40467b=[];try{_0x40467b=_0xd78518[_0x4bbf1b(-0x82,0x51a)]()||[];}catch(_0x40546){}for(const _0x446273 of _0x40467b){let _0x191778='';try{const _0xd50a41=_0x446273[_0x4bbf1b(0x3c8,0x7db)]();_0x191778=String(_0xd50a41&&(_0xd50a41[_0x4bbf1b(0x39c,0x451)]||_0xd50a41[_0x4bbf1b(-0x62b,-0x1d8)])||'')[_0x4bbf1b(0x504,0x224)](/<.*>/,'')[_0x4bbf1b(0x924,0x74a)]();}catch(_0x143331){}if(!_0x191778||_0x191778===_0xccc410[_0x4bbf1b(0x8ec,0x6f5)]||this[_0x4bbf1b(0x69a,0x89a)][_0x4bbf1b(0x8e4,0x516)](_0x191778))continue;if(!this[_0x4bbf1b(0x444,-0x5b)](_0x2603d5,_0x191778))continue;this[_0x4bbf1b(0x691,0x157)](_0x446273,_0x66b070,_0x6bb1fa);}}if(!_0x6bb1fa[_0x4bbf1b(-0x18,-0x17)][_0x4bbf1b(-0xa4,0x423)])return;_0x6bb1fa[_0x4bbf1b(0x290,-0x17)][_0x4bbf1b(-0x7a3,-0x243)]((_0x386ba9,_0x38d68a)=>_0x386ba9['d']-_0x38d68a['d']);for(let _0x4badd2=0x0;_0x4badd2<_0x6bb1fa[_0x4bbf1b(0x125,-0x17)][_0x4bbf1b(0x27f,0x423)];_0x4badd2++)_0x6bb1fa[_0x4bbf1b(-0x3c8,-0x17)][_0x4badd2]=_0x6bb1fa[_0x4bbf1b(-0x5b,-0x17)][_0x4badd2]['a'];this[_0x4bbf1b(0x907,0x6f8)]=_0x6bb1fa[_0x4bbf1b(0x425,-0x17)];},'attackOnce'(){const _0x1b87e7={'wLrWP':function(_0x273f07,_0x4667c0){return _0x273f07<_0x4667c0;}};if(this[_0x5e52c5(0x73d,0x5b5)]>0x0)return;let _0x42d9e2;try{_0x42d9e2=player[_0x5e52c5(0x9eb,0xd70)]();}catch(_0x4529c5){}if(!_0x42d9e2)return;this[_0x5e52c5(0xac6,0xd7f)]!==this[_0x5e52c5(0xfbe,0x9f1)]&&(this[_0x5e52c5(0xac6,0xeb4)]=this[_0x5e52c5(0xfbe,0xd9a)],this[_0x5e52c5(0x7a4,0xaa7)](_0x42d9e2));const _0x36f962=this[_0x5e52c5(0xde8,0x11ee)];if(!_0x36f962[_0x5e52c5(0xb13,0x62b)])return;if(this[_0x5e52c5(0xad6,0xaf8)]&&this[_0x5e52c5(0x584,
-0x45d)](_0x42d9e2))return;const _0x243cc4=this[_0x5e52c5(0xddf,0x84a)]?this[_0x5e52c5(0xf43,0x1080)]:0x1;let _0x561dc6=0x0;for(let _0x2a5503=0x0;_0x2a5503<_0x36f962[_0x5e52c5(0xb13,0x9e8)]&&_0x1b87e7[_0x5e52c5(0xb49,0x752)](_0x2a5503,_0x243cc4);_0x2a5503++){try{_0x42d9e2[_0x5e52c5(0x6ae,0x1e3)](_0x36f962[_0x2a5503]),_0x561dc6++;}catch(_0x303a27){}}if(_0x561dc6>0x0){const _0x51cd43=Date[_0x5e52c5(0x9ea,0x621)]();for(let _0x462a13=0x0;_0x462a13<_0x561dc6;_0x462a13++)this[_0x5e52c5(0x4fe,0x722)][_0x5e52c5(0xda7,0x127a)](_0x51cd43);}function _0x5e52c5(_0x484503,_0x300c4e){return _0x5a0b42(_0x300c4e,_0x484503-0x4f1);}if(_0x561dc6>0x0&&this[_0x5e52c5(0xc67,0x1220)])try{_0x42d9e2[_0x5e52c5(0xc67,0xf6f)]();}catch(_0x12935d){}if(this[_0x5e52c5(0xaaa,0x707)])this[_0x5e52c5(0x100c,0xcea)](_0x42d9e2);},'updateCps'(){const _0x3a9f02={'CdDqI':function(_0x5b8569,_0x4589d0){return _0x5b8569>_0x4589d0;}};function _0x34372b(_0xc7fa6d,_0x47a96d){return _0x5a0b42(_0x47a96d,_0xc7fa6d-0x33d);}const _0x8bd8f1=Date[_0x34372b(0x836,0x2bc)]();while(this[_0x34372b(0x34a,0x2a5)][_0x34372b(0x95f,0x6e9)]&&_0x3a9f02[_0x34372b(0x403,-0x77)](_0x8bd8f1-this[_0x34372b(0x34a,0x260)][0x0],0x3e8))this[_0x34372b(0x34a,-0x5f)][_0x34372b(0xad4,0xc24)]();try{minecraft[_0x34372b(0xb36,0xa6e)](_0x34372b(0xd1d,0xac4)+this[_0x34372b(0x34a,0x6d7)][_0x34372b(0x95f,0x7b5)]);}catch(_0x408ad9){}},'onTick'(){const _0x227223={'rzsbP':function(_0x271b3d,_0x31f953){return _0x271b3d*_0x31f953;},'HRMoW':function(_0x2fdb97,_0x29578d){return _0x2fdb97+_0x29578d;},'DCgSV':function(_0x349760,_0x46feae){return _0x349760<=_0x46feae;},'HerDp':function(_0xaf6d16,_0x3a41c7){return _0xaf6d16>_0x3a41c7;}};if(!this[_0x1f8aaf(0x37f,0x283)])return;if(this[_0x1f8aaf(0x327,-0x10d)]>0x0)this[_0x1f8aaf(0x327,0x8f4)]--;if(this[_0x1f8aaf(0xbca,0xde7)]>0x0)this[_0x1f8aaf(0xbca,0x7c7)]--;this[_0x1f8aaf(0x8b6,0x6f2)]&&(this[_0x1f8aaf(0xb18,0x6b9)]++,this[_0x1f8aaf(0xb18,0x827)]>=0x5&&(this[_0x1f8aaf(0xb18,0xc46)]=0x0,this[_0x1f8aaf(0xcd8,0x10aa)]()));if(this[_0x1f8aaf(0x4d6,0xa19)]>0x0){this[_0x1f8aaf(0x4d6,0x34)]--;return;}this[_0x1f8aaf(0xd08,0xf9b)]+=_0x227223[_0x1f8aaf(0x340,0x811)](this[_0x1f8aaf(0xba6,0x95f)]/0x14,_0x227223[_0x1f8aaf(0xd2f,0x1119)](0.9,Math[_0x1f8aaf(0x829,0x921)]()*0.2));function _0x1f8aaf(_0x4db4a3,_0x5b796e){return _0x5a0b42(_0x5b796e,_0x4db4a3-0x28a);}let _0x2b10bd=Math[_0x1f8aaf(0x5f5,0x6c5)](this[_0x1f8aaf(0xd08,0x811)]);if(_0x227223[_0x1f8aaf(0xd62,0x10e1)](_0x2b10bd,0x0))return;this[_0x1f8aaf(0xd08,0xbf8)]-=_0x2b10bd,this[_0x1f8aaf(0xd57,0xd54)]++;while(_0x227223[_0x1f8aaf(0x7e5,0x74c)](_0x2b10bd--,0x0))this[_0x1f8aaf(0x3b7,0x81b)]();}},scaffold={'tag':_0x5a0b42(0x5c9,0x1ec),'enabled':![],'lockY':!![],'ahead':0x2,'autoSelect':!![],'forcePlace':!![],'origSlot':-0x1,'lockedY':null,'lastPos':null,'placed':{},'placedCount':0x0,'verify':[],'queryNote':![],'log':mkLog(_0x5a0b42(0x63f,0x9a6)),'captureY'(){function _0x513a04(_0x3d12b9,_0x376aad){return _0x5a0b42(_0x3d12b9,_0x376aad-0x4d3);}const _0x11867b={'NiySv':function(_0x175001,_0x21023a){return _0x175001-_0x21023a;}};this[_0x513a04(0xbbe,0xbbd)]=null;try{const _0xd8b84b=player[_0x513a04(0xcfc,0x9cd)]()[_0x513a04(0x5ab,0x5fb)]();if(_0xd8b84b)this[_0x513a04(0xfa1,0xbbd)]=Math[_0x513a04(0xd39,0x83e)](_0x11867b[_0x513a04(0x4c3,0x4c1)](_0xd8b84b['y'],1.62))-0x1;}catch(_0x3d0b42){}},'onModuleEvent'(_0x2b3387){const _0x1ad9e8={'TDsbo':function(_0x53ed2c,_0x1310d9){return _0x53ed2c!==_0x1310d9;},'crQzY':function(_0x41d2d6,_0x75dd4){return _0x41d2d6===_0x75dd4;}};if(typeof _0x2b3387[_0x335404(0x4f0,0x2aa)]!==_0x335404(0x1d0,-0x20)){this[_0x335404(0x772,0x283)]=Boolean(_0x2b3387[_0x335404(0x4f0,0x7d6)]);if(this[_0x335404(0x772,0x603)]&&this[_0x335404(0x69,0x420)])this[_0x335404(0x783,0x9d0)]();if(!this[_0x335404(0x772,0x84c)])this[_0x335404(0x65e,0xa04)]=null;}if(typeof _0x2b3387[_0x335404(0x9b6,0x681)]!==_0x335404(0x1d0,0x6e3)){const _0x530943=Number(_0x2b3387[_0x335404(0x9b6,0xe57)]);if(!isNaN(_0x530943))this[_0x335404(0xbf,
-0x237)]=Math[_0x335404(0x843,0x648)](0x0,Math[_0x335404(0x81f,0xb18)](0x4,Math[_0x335404(0x2df,0x77)](_0x530943)));}if(typeof _0x2b3387[_0x335404(0x213,0x3dd)]!==_0x335404(0x1d0,0x672))this[_0x335404(0x559,-0x47)]=Boolean(_0x2b3387[_0x335404(0x213,0x65e)]);if(_0x1ad9e8[_0x335404(0xfa,0x43a)](typeof _0x2b3387[_0x335404(0x655,0xbe8)],_0x335404(0x1d0,0x124)))this[_0x335404(0x5a7,0x213)]=Boolean(_0x2b3387[_0x335404(0x655,0x391)]);if(_0x2b3387[_0x335404(0x30a,0x732)]!==this[_0x335404(0xa8a,0x6d3)]||!(_0x335404(0xa79,0xade)in _0x2b3387))return;const _0x3d797f=Boolean(_0x2b3387[_0x335404(0xa79,0xb72)]);if(_0x1ad9e8[_0x335404(-0xf1,-0x72)](_0x3d797f,this[_0x335404(0x69,0x636)]))return;this[_0x335404(0x69,0x94)]=_0x3d797f,this[_0x335404(0x860,0x950)]=null;function _0x335404(_0x1156a9,_0x38fd05){return _0x5a0b42(_0x38fd05,_0x1156a9- -0x8c);}this[_0x335404(0x3ce,0x7e9)]={},this[_0x335404(-0x13,0x3a7)]=0x0,this[_0x335404(0x8a5,0x929)]=[];if(_0x3d797f){this[_0x335404(0x65e,0x8cc)]=null;if(this[_0x335404(0x772,0x495)])this[_0x335404(0x783,0xd28)]();this[_0x335404(0x76,-0x347)]=-0x1;}else{if(this[_0x335404(0x76,-0x16d)]>=0x0){try{player[_0x335404(0x46e,0x2b3)]()[_0x335404(0x326,-0x39)](this[_0x335404(0x76,-0x339)]);}catch(_0x1dd8c0){}this[_0x335404(0x76,-0x51b)]=-0x1;}}notifyToggle(_0x335404(0x666,0x22d),_0x3d797f);},'blockName'(_0x2b0ab5,_0xedb1f5,_0x361ee7,_0x4eeb58){const _0x580336={'ZEpfU':_0x4c07a0(0xd88,0x8e3)};let _0x3d1fe4=null;try{_0x3d1fe4=_0x2b0ab5[_0x4c07a0(0x5f8,0x399)]({'x':_0xedb1f5,'y':_0x361ee7,'z':_0x4eeb58});}catch(_0x985324){}if(!_0x3d1fe4)return null;try{if(typeof _0x3d1fe4[_0x4c07a0(0x49d,0x6b4)]===_0x4c07a0(0xd88,0x95e)){const _0x4fbf99=_0x3d1fe4[_0x4c07a0(0x49d,0x82b)]();if(typeof _0x4fbf99===_0x4c07a0(0x818,0x288)&&_0x4fbf99)return _0x4fbf99[_0x4c07a0(0xce7,0xa95)]();}}catch(_0x8befe6){}try{if(typeof _0x3d1fe4[_0x4c07a0(0xdbf,0x8b8)]===_0x580336[_0x4c07a0(0xb61,0x1054)]){const _0xcdc9e8=_0x3d1fe4[_0x4c07a0(0xdbf,0xdda)]();if(typeof _0xcdc9e8===_0x4c07a0(0x818,0x491)&&_0xcdc9e8)return _0xcdc9e8[_0x4c07a0(0xce7,0xfd6)]();if(_0xcdc9e8&&typeof _0xcdc9e8===_0x4c07a0(0x38b,-0x5c)){const _0x1f4daf=String(_0xcdc9e8[_0x4c07a0(0x9ee,0x93c)]||_0xcdc9e8[_0x4c07a0(0x3c5,0x91e)]||_0xcdc9e8[_0x4c07a0(0xebf,0xfab)]||'');if(_0x1f4daf)return _0x1f4daf[_0x4c07a0(0xce7,0xe06)]();}}}catch(_0x3942d4){}function _0x4c07a0(_0x148100,_0x260bfe){return _0x5a0b42(_0x260bfe,_0x148100-0x39e);}try{const _0x28f436=String(_0x3d1fe4[_0x4c07a0(0x415,0x3f2)]()||''),_0x1f2bee=_0x28f436[_0x4c07a0(0xdd6,0xbeb)](/name:"?([^",}]+)"?/i);if(_0x1f2bee)return _0x1f2bee[0x1][_0x4c07a0(0xce7,0xe45)]();}catch(_0x43c425){}return null;},'isAirName'(_0x3bbf69){function _0x1ab4dc(_0x332d6a,_0x742166){return _0x5a0b42(_0x742166,_0x332d6a-0x3f1);}const _0x162a14={'Goquj':function(_0x281609,_0x9985de){return _0x281609===_0x9985de;},'QcPGm':_0x1ab4dc(0x777,0x541),'cXVyp':function(_0x18d7df,_0x2823f7){return _0x18d7df===_0x2823f7;}};return _0x3bbf69===_0x1ab4dc(0x991,0xd86)||_0x162a14[_0x1ab4dc(0x58b,0xa0c)](_0x3bbf69,_0x162a14[_0x1ab4dc(0xcad,0x9ad)])||_0x162a14[_0x1ab4dc(0x4ab,0x53b)](_0x3bbf69,_0x1ab4dc(0xeaf,0x11f9));},'replaceRe':/^minecraft:(short_grass|tallgrass|fern|large_fern|dandelion|poppy|.*_flower|.*_sapling|snow_layer|water|flowing_water|lava|flowing_lava|seagrass|kelp|dead_bush|deadbush|vine|cobweb|web|pink_petals|sweet_berry_bush|glow_lichen|hanging_roots|small_dripleaf|big_dripleaf|torchflower|brown_mushroom|red_mushroom|fire|soul_fire|crimson_roots|warped_roots|nether_sprouts)$/,'effAir'(_0x253bf5){if(this[_0x1bb370(0x59c,0x2de)](_0x253bf5))return!![];function _0x1bb370(_0x2449f4,_0x296478){return _0x5a0b42(_0x2449f4,_0x296478-0x2c);}return this[_0x1bb370(0x4e7,0x65f)]&&this[_0x1bb370(0x5d0,0x5dc)][_0x1bb370(0x7be,0x741)](_0x253bf5);},'badItemSet':{'short_grass':0x1,'tall_grass':0x1,'tallgrass':0x1,'fern':0x1,'large_fern':0x1,'dandelion':0x1,'poppy':0x1,'blue_orchid':0x1,'allium':0x1,'azure_bluet':0x1,'oxeye_daisy':0x1,'cornflower':0x1,'red_tulip':0x1,
-'orange_tulip':0x1,'white_tulip':0x1,'pink_tulip':0x1,'lily_of_the_valley':0x1,'torchflower':0x1,'sunflower':0x1,'lilac':0x1,'rose_bush':0x1,'peony':0x1,'wither_rose':0x1,'pitcher_plant':0x1,'brown_mushroom':0x1,'red_mushroom':0x1,'crimson_fungus':0x1,'warped_fungus':0x1,'dead_bush':0x1,'deadbush':0x1,'sweet_berry_bush':0x1,'cactus':0x1,'sugar_cane':0x1,'reeds':0x1,'sapling':0x1,'oak_sapling':0x1,'spruce_sapling':0x1,'birch_sapling':0x1,'jungle_sapling':0x1,'acacia_sapling':0x1,'dark_oak_sapling':0x1,'cherry_sapling':0x1,'mangrove_propagule':0x1,'bamboo_sapling':0x1,'wheat':0x1,'carrot':0x1,'carrots':0x1,'potato':0x1,'potatoes':0x1,'beetroot':0x1,'beetroots':0x1,'cocoa':0x1,'melon_stem':0x1,'pumpkin_stem':0x1,'attached_melon_stem':0x1,'attached_pumpkin_stem':0x1,'nether_wart':0x1,'seagrass':0x1,'kelp':0x1,'kelp_plant':0x1,'vine':0x1,'glow_lichen':0x1,'hanging_roots':0x1,'crimson_roots':0x1,'warped_roots':0x1,'nether_sprouts':0x1,'small_dripleaf':0x1,'big_dripleaf':0x1,'pink_petals':0x1,'spore_blossom':0x1,'azalea':0x1,'flowering_azalea':0x1,'lily_pad':0x1,'waterlily':0x1,'sea_pickle':0x1,'snow_layer':0x1,'cobweb':0x1,'web':0x1,'torch':0x1,'soul_torch':0x1,'redstone_torch':0x1,'ladder':0x1,'rail':0x1,'powered_rail':0x1,'detector_rail':0x1,'activator_rail':0x1,'golden_rail':0x1,'redstone_wire':0x1,'lever':0x1,'tripwire_hook':0x1,'trip_wire':0x1,'fire':0x1,'soul_fire':0x1,'water':0x1,'flowing_water':0x1,'lava':0x1,'flowing_lava':0x1,'chorus_flower':0x1,'chorus_plant':0x1,'frogspawn':0x1,'turtle_egg':0x1},'itemBad'(_0x3fe8f4){let _0x13136d='';try{_0x13136d=String(_0x3fe8f4[_0x99d19c(0xd4d,0x869)]()||'')[_0x99d19c(0x93d,0x7bf)]();}catch(_0x36003d){}if(!_0x13136d)return![];const _0x363cbe=_0x13136d[_0x99d19c(0x6a1,0x8ae)](/[a-z0-9_]+/g)||[];for(const _0x4e9322 of _0x363cbe){if(this[_0x99d19c(-0x116,0x2f)][_0x4e9322])return!![];}function _0x99d19c(_0x2767d1,_0x2cb795){return _0x5a0b42(_0x2767d1,_0x2cb795- -0x18a);}return![];},'badBlockRe':/\b(sand|gravel|concrete powder|anvil|dragon egg|pointed dripstone|bed|chest|barrel|shulker box|furnace|smoker|crafting table|brewing stand|jukebox|note block|hopper|dispenser|dropper|observer|piston|beacon|conduit|lectern|campfire|cauldron|composter|loom|stonecutter|grindstone|cartography table|fletching table|smithing table|bee nest|beehive|respawn anchor|enchanting table|end portal|nether portal|spawner|command block|structure block|daylight detector|sculk sensor|target|lightning rod|decorated pot|crafter|bell|tnt|slab|stairs|trapdoor|fence|gate|pane|wall|carpet|button|plate|door|torch|ladder|rail|sign|banner|cake|flower pot|snow layer|vine|lily pad|waterlily|wire|repeater|comparator|lever|string|chain|bars|armor stand)\b/,'badBlockName'(_0x2deb90){function _0xd686c8(_0x5b808b,_0x4b12d1){return _0x5a0b42(_0x5b808b,_0x4b12d1-0x55a);}let _0x42c76d='';try{_0x42c76d=String(_0x2deb90[_0xd686c8(0xb70,0xf4d)]()||'')[_0xd686c8(0x10ae,0xea3)]()[_0xd686c8(0xc92,0x97d)](/_/g,'\x20');}catch(_0x1d6f77){}return!!_0x42c76d&&this[_0xd686c8(0x2fd,0x80e)][_0xd686c8(0xc9d,0xc6f)](_0x42c76d);},'noFaceTok':{'torch':0x1,'button':0x1,'lever':0x1,'ladder':0x1,'sign':0x1,'rail':0x1,'wire':0x1,'repeater':0x1,'comparator':0x1,'tripwire':0x1,'vine':0x1,'vines':0x1,'carpet':0x1,'banner':0x1,'cake':0x1,'web':0x1,'fire':0x1,'pot':0x1,'egg':0x1,'plate':0x1,'fern':0x1,'sapling':0x1},'noFaceFull':{'short_grass':0x1,'tall_grass':0x1,'tallgrass':0x1,'red_mushroom':0x1,'brown_mushroom':0x1,'lily_pad':0x1,'waterlily':0x1,'snow_layer':0x1,'cobweb':0x1,'double_plant':0x1},'noStandTok':{'torch':0x1,'button':0x1,'lever':0x1,'ladder':0x1,'sign':0x1,'rail':0x1,'wire':0x1,'tripwire':0x1,'banner':0x1,'fire':0x1},'nameHit'(_0x13c7fc,_0x5f1509,_0x6ef900){const _0x51029e={'IdQif':function(_0x38ad27,_0x4ed2d8){return _0x38ad27>=_0x4ed2d8;}},_0x42e0b0=_0x51029e[_0x16ed0d(0x8c1,0x855)](_0x13c7fc[_0x16ed0d(-0x167,0xd0)](':'),0x0)?_0x13c7fc[_0x16ed0d(0x56d,
-0x5a6)](':')[0x1]:_0x13c7fc;if(_0x6ef900&&_0x6ef900[_0x42e0b0])return!![];const _0x34677f=_0x42e0b0[_0x16ed0d(0x56d,0x567)]('_');function _0x16ed0d(_0x3a001a,_0x34168f){return _0x5a0b42(_0x34168f,_0x3a001a- -0x198);}for(const _0x37f31f of _0x34677f){if(_0x5f1509[_0x37f31f])return!![];}return![];},'noFace'(_0x1dcc9f){function _0x3a983c(_0x8c1ea2,_0x55fb77){return _0x5a0b42(_0x8c1ea2,_0x55fb77-0x33f);}return this[_0x3a983c(0xbe6,0x69c)](_0x1dcc9f,this[_0x3a983c(0xa69,0x564)],this[_0x3a983c(0xf1d,0x9e6)]);},'noStand'(_0x3079f0){function _0x3391fe(_0x9d8926,_0x564562){return _0x5a0b42(_0x9d8926,_0x564562-0x3ae);}return this[_0x3391fe(0xbbf,0x70b)](_0x3079f0,this[_0x3391fe(0x78e,0x7b5)],null);},'itemTier'(_0x206975){const _0x4d1f21={'tsgVL':_0x1c0f58(0x62d,0x9e0),'gmLmk':function(_0x2a65a6,_0x176f58){return _0x2a65a6(_0x176f58);}};function _0x1c0f58(_0x16c2d8,_0xf5d525){return _0x5a0b42(_0x16c2d8,_0xf5d525- -0xa);}try{if(!_0x206975||_0x206975[_0x1c0f58(0xf8b,0xa37)]())return 0x0;if(!(_0x206975[_0x1c0f58(0xaef,0x842)]&&_0x206975[_0x1c0f58(0xc0c,0x842)]()))return 0x0;if(this[_0x1c0f58(0x31c,0xc8)](_0x206975))return 0x0;let _0x4b4b2f=null;try{const _0x5bae18=_0x206975[_0x1c0f58(0x38a,0x250)]();if(_0x5bae18&&typeof _0x5bae18[_0x1c0f58(-0x17d,0x3b2)]===_0x4d1f21[_0x1c0f58(0x9f5,0x801)])_0x4b4b2f=!!_0x5bae18[_0x1c0f58(0x64a,0x3b2)]();}catch(_0x2f9c05){}if(_0x4b4b2f===!![])return 0x2;if(this[_0x1c0f58(0x2cc,0x51d)](_0x206975))return 0x0;if(_0x4b4b2f===![]){let _0x2c4d88=![];try{_0x2c4d88=!!_0x4d1f21[_0x1c0f58(0x450,0x642)](String,_0x206975[_0x1c0f58(0xe46,0x9e9)]()||'');}catch(_0x4ca3fc){}return _0x2c4d88?0x1:0x0;}return 0x1;}catch(_0x43e87f){return 0x0;}},'isPlaced'(_0x26d3f8,_0x3955c3,_0x4dbdfa){const _0x2fe89d={'YyPgl':function(_0x530c2c,_0x8916c1){return _0x530c2c+_0x8916c1;}};function _0x1c3d34(_0x326625,_0x59b711){return _0x5a0b42(_0x326625,_0x59b711- -0x94);}const _0xebd29f=this[_0x1c3d34(0x545,0x3c6)][_0x2fe89d[_0x1c3d34(0xde6,0x93f)](_0x2fe89d[_0x1c3d34(0x79e,0x93f)](_0x26d3f8+',',_0x3955c3),',')+_0x4dbdfa];return!!_0xebd29f&&Date[_0x1c3d34(0x960,0x465)]()-_0xebd29f<0xfa0;},'markPlaced'(_0x2a105b,_0x55e8cb,_0x22ef17){const _0x3ff04c={'HQZpi':function(_0x1d38ca,_0x194205){return _0x1d38ca+_0x194205;}},_0x43a23f=_0x3ff04c[_0x7ba2d8(-0x674,-0x13f)](_0x3ff04c[_0x7ba2d8(0x3a0,-0x13f)](_0x2a105b,',')+_0x55e8cb+',',_0x22ef17);if(!this[_0x7ba2d8(0x280,0x2d9)][_0x43a23f])this[_0x7ba2d8(0x331,-0x108)]++;this[_0x7ba2d8(0x2ff,0x2d9)][_0x43a23f]=Date[_0x7ba2d8(0x1d0,0x378)]();for(const _0x470352 of this[_0x7ba2d8(0x962,0x7b0)]){if(_0x470352['x']===_0x2a105b&&_0x470352['y']===_0x55e8cb&&_0x470352['z']===_0x22ef17)return;}if(this[_0x7ba2d8(0x4e2,0x7b0)][_0x7ba2d8(0xa0e,0x4a1)]>0x60)this[_0x7ba2d8(0xaf5,0x7b0)][_0x7ba2d8(0x67a,0x616)]();function _0x7ba2d8(_0x6ff153,_0x337459){return _0x5a0b42(_0x6ff153,_0x337459- -0x181);}this[_0x7ba2d8(0x2fd,0x7b0)][_0x7ba2d8(0x464,0x735)]({'x':_0x2a105b,'y':_0x55e8cb,'z':_0x22ef17,'at':Date[_0x7ba2d8(0x8a3,0x378)](),'n':0x0});},'faceSolid'(_0x17ecf6,_0x322b74,_0x3aaefc,_0x24db6d){if(this[_0x3e4573(0x3ea,0x6f8)](_0x322b74,_0x3aaefc,_0x24db6d))return!![];function _0x3e4573(_0x54d5ce,_0x46348e){return _0x5a0b42(_0x46348e,_0x54d5ce- -0xcf);}const _0x54655d=this[_0x3e4573(0x42e,0x67a)](_0x17ecf6,_0x322b74,_0x3aaefc,_0x24db6d);return _0x54655d!==null&&!this[_0x3e4573(0x660,0xa18)](_0x54655d)&&!this[_0x3e4573(0x61a,0xb8d)](_0x54655d);},'standSolid'(_0x4440ad,_0x40e63e,_0x5c1a0c,_0x53fc4f){if(this[_0x431464(0x7e0,0x306)](_0x40e63e,_0x5c1a0c,_0x53fc4f))return!![];const _0xa4c01=this[_0x431464(0x8b5,0x34a)](_0x4440ad,_0x40e63e,_0x5c1a0c,_0x53fc4f);function _0x431464(_0x44edbd,_0x5d1eff){return _0x5a0b42(_0x44edbd,_0x5d1eff- -0x1b3);}return _0xa4c01!==null&&!this[_0x431464(-0x15,0x57c)](_0xa4c01)&&!this[_0x431464(0x37a,0x5ee)](_0xa4c01);},'noteQueryFail'(){function _0x262b87(_0x2a222e,_0x309a35){return _0x5a0b42(_0x309a35,_0x2a222e- -0x216);}if(this[_0x262b87(0xfb,-0x8b)])return;this[_0x262b87(0xfb,0x157)]=!![],
-this[_0x262b87(0x3ac,-0xec)](_0x262b87(-0x1e9,-0x2ac));},'findBlockSlot'(_0x593fbb){let _0x3a004c=0x0;try{_0x3a004c=this[_0x14c155(0x895,0x90c)](_0x593fbb[_0x14c155(0x983,0xe78)]());}catch(_0x5cf967){}if(_0x3a004c===0x2)return-0x1;let _0xd740da=-0x1;try{const _0x2ba7a6=_0x593fbb[_0x14c155(0x985,0xbb4)]();for(let _0x42addc=0x0;_0x42addc<_0x2ba7a6;_0x42addc++){const _0xd2b0e8=this[_0x14c155(0xd5b,0x90c)](_0x593fbb[_0x14c155(0x94a,0xe4f)](_0x42addc));if(_0xd2b0e8===0x2)return _0x42addc;if(_0xd2b0e8===0x1&&_0xd740da<0x0)_0xd740da=_0x42addc;}}catch(_0x323365){}function _0x14c155(_0x2bba3c,_0x241888){return _0x5a0b42(_0x2bba3c,_0x241888-0x395);}if(_0x3a004c===0x1)return-0x1;if(_0xd740da>=0x0)return _0xd740da;return-0x2;},'adjacentSolid'(_0x4669d3,_0x4ee664,_0x543926,_0x2a3640){function _0xbbcd65(_0x2eaa66,_0x135ef5){return _0x5a0b42(_0x135ef5,_0x2eaa66-0x222);}const _0x5ca162={'sTApZ':function(_0x314ff1,_0x5afd7a){return _0x314ff1<_0x5afd7a;}},_0x16c613=[[0x0,-0x1,0x0,0x1],[-0x1,0x0,0x0,0x5],[0x1,0x0,0x0,0x4],[0x0,0x0,-0x1,0x3],[0x0,0x0,0x1,0x2],[0x0,0x1,0x0,0x0]];for(let _0x1e0113=0x0;_0x5ca162[_0xbbcd65(0x54f,0x24b)](_0x1e0113,0x2);_0x1e0113++){for(const _0xfe8836 of _0x16c613){const _0x2b04f4=_0x4ee664+_0xfe8836[0x0],_0x1d243d=_0x543926+_0xfe8836[0x1],_0x31eedd=_0x2a3640+_0xfe8836[0x2];if(_0x1e0113===0x0){const _0x11478d=this[_0xbbcd65(0x71f,0x1ec)](_0x4669d3,_0x2b04f4,_0x1d243d,_0x31eedd);if(_0x11478d!==null&&!this[_0xbbcd65(0x951,0xce4)](_0x11478d)&&!this[_0xbbcd65(0x90b,0xb7c)](_0x11478d))return{'x':_0x2b04f4,'y':_0x1d243d,'z':_0x31eedd,'face':_0xfe8836[0x3]};}else{if(this[_0xbbcd65(0x6db,0x7c6)](_0x2b04f4,_0x1d243d,_0x31eedd))return{'x':_0x2b04f4,'y':_0x1d243d,'z':_0x31eedd,'face':_0xfe8836[0x3]};}}}return null;},'place'(_0x2335bc,_0x42a41a,_0x161737,_0xfd7f8,_0x4bb3cf,_0x47059e){const _0x2a7f12={'Kxivk':function(_0x3c748c,_0x507184){return _0x3c748c!==_0x507184;}};if(_0x2a7f12[_0x5d4d54(0x808,0x5d8)](_0x47059e,!![])&&this[_0x5d4d54(0x9e8,0x779)](_0x161737,_0xfd7f8,_0x4bb3cf))return!![];const _0xb96a8b=this[_0x5d4d54(0x215,0x7bd)](_0x42a41a,_0x161737,_0xfd7f8,_0x4bb3cf);if(_0xb96a8b===null)return this[_0x5d4d54(0xb02,0x7cf)](),![];if(!this[_0x5d4d54(0x6cc,0x9ef)](_0xb96a8b))return!![];const _0x11e33e=this[_0x5d4d54(-0x28a,0x2b8)](_0x42a41a,_0x161737,_0xfd7f8,_0x4bb3cf);if(!_0x11e33e)return![];const _0x35b212=this[_0x5d4d54(0xbfa,0x72f)](_0x2335bc);if(_0x35b212===-0x2)return![];if(_0x35b212!==-0x1&&!this[_0x5d4d54(0xd5c,0x8a5)])return![];let _0x2b7739=-0x1;try{_0x2b7739=_0x2335bc[_0x5d4d54(0x94c,0xaa0)]();}catch(_0x27c071){}let _0x50105a=![];try{if(_0x35b212>=0x0){if(this[_0x5d4d54(0x4eb,0x3c2)]<0x0)this[_0x5d4d54(0x7b9,0x3c2)]=_0x2b7739;_0x2335bc[_0x5d4d54(0x17e,0x672)](_0x35b212);}_0x2335bc[_0x5d4d54(0x1015,0xca2)]({'x':_0x11e33e['x'],'y':_0x11e33e['y'],'z':_0x11e33e['z']},_0x11e33e[_0x5d4d54(0x405,0x28a)]),_0x50105a=!![];}catch(_0x3f5bc1){}if(_0x50105a)this[_0x5d4d54(0x7a5,0xb96)](_0x161737,_0xfd7f8,_0x4bb3cf);function _0x5d4d54(_0x265fc0,_0x3be6f5){return _0x5a0b42(_0x265fc0,_0x3be6f5-0x2c0);}return _0x50105a;},'buildChain'(_0x72db37,_0x2f2fa8,_0x50e282,_0x2d30f4,_0x56c8e2,_0x9b7145,_0x437368,_0x520bbb){const _0x2a430a={'NcLHQ':function(_0x41465c,_0x232289){return _0x41465c<_0x232289;}};let _0x307a24=_0x50e282,_0x23f8c2=_0x2d30f4,_0x2c15ad=_0x56c8e2,_0x166874=0x0;while((_0x307a24!==_0x9b7145||_0x23f8c2!==_0x437368||_0x2c15ad!==_0x520bbb)&&_0x166874++<0x8){if(_0x307a24!==_0x9b7145)_0x307a24+=_0x307a24<_0x9b7145?0x1:-0x1;else{if(_0x2c15ad!==_0x520bbb)_0x2c15ad+=_0x2c15ad<_0x520bbb?0x1:-0x1;else _0x23f8c2+=_0x2a430a[_0x229794(0x6ee,0x42c)](_0x23f8c2,_0x437368)?0x1:-0x1;}if(!this[_0x229794(0x9a8,0x418)](_0x72db37,_0x2f2fa8,_0x307a24,_0x23f8c2,_0x2c15ad))return![];}function _0x229794(_0xc0d422,_0x24e3a6){return _0x5a0b42(_0xc0d422,_0x24e3a6- -0x94);}return!![];},'findSupport'(_0x433124,_0x2b6049,_0x1102b2,_0x57331d){const _0x24fd56={'tIwjK':function(_0x24853f,
-_0x3d4e83){return _0x24853f<=_0x3d4e83;}};function _0x4e833c(_0x588184,_0x4c2ed9){return _0x5a0b42(_0x588184,_0x4c2ed9- -0x217);}for(let _0x48c100=-0x1;_0x48c100<=0x1;_0x48c100++){for(let _0x37346c=-0x1;_0x24fd56[_0x4e833c(-0xd2,0x1f5)](_0x37346c,0x1);_0x37346c++){for(let _0x26ecc7=0x1;_0x26ecc7>=-0x1;_0x26ecc7--){if(!_0x48c100&&!_0x37346c&&!_0x26ecc7)continue;if(this[_0x4e833c(0x6af,0x39c)](_0x433124,_0x2b6049+_0x48c100,_0x1102b2+_0x26ecc7,_0x57331d+_0x37346c))return[_0x2b6049+_0x48c100,_0x1102b2+_0x26ecc7,_0x57331d+_0x37346c];}}}return null;},'onTick'(){const _0x1249c7={'gCZlp':function(_0x3fdb25,_0x2e4c3f){return _0x3fdb25<_0x2e4c3f;},'TwiNU':function(_0x281247,_0x875f59){return _0x281247-_0x875f59;},'eSBWQ':function(_0x2085c7,_0x5c0495){return _0x2085c7+_0x5c0495;},'rcRfL':function(_0x52f0a3,_0x2d2d94){return _0x52f0a3+_0x2d2d94;},'bHVFW':function(_0x18eb4a,_0x2e9024){return _0x18eb4a+_0x2e9024;},'Zngap':function(_0x15d8cc,_0x3d7180){return _0x15d8cc+_0x3d7180;},'fmIyK':function(_0x2f1f17,_0x14edd7){return _0x2f1f17*_0x14edd7;},'YCHpB':function(_0x219117,_0x22c29b){return _0x219117>_0x22c29b;},'qpyGH':function(_0x514f65,_0x447c2e){return _0x514f65*_0x447c2e;},'sdHaj':function(_0x3fad5a,_0xf38255){return _0x3fad5a/_0xf38255;}};if(!this[_0x5106ee(-0xf8,-0x3ec)])return;let _0x174f57=null,_0x48919c=null,_0x315ad4=null;try{_0x174f57=player[_0x5106ee(0x30d,0x73f)]();}catch(_0x59be98){}function _0x5106ee(_0x3b2b01,_0x45589b){return _0x5a0b42(_0x45589b,_0x3b2b01- -0x1ed);}if(!_0x174f57)return;try{_0x48919c=_0x174f57[_0x5106ee(-0xc5,-0x213)](),_0x315ad4=_0x174f57[_0x5106ee(0xa7,0x219)]();}catch(_0x3ced1b){}if(!_0x48919c||!_0x315ad4)return;if(this[_0x5106ee(-0x174,-0x657)]>0xc8){const _0x33846c=Date[_0x5106ee(0x30c,0x6d7)]();for(const _0x50c6ff in this[_0x5106ee(0x26d,0x1ef)]){_0x33846c-this[_0x5106ee(0x26d,0x555)][_0x50c6ff]>0xfa0&&(delete this[_0x5106ee(0x26d,0x249)][_0x50c6ff],this[_0x5106ee(-0x174,-0x168)]--);}}if(this[_0x5106ee(0x744,0xb19)][_0x5106ee(0x435,0x6da)]){const _0x52b73c=Date[_0x5106ee(0x30c,0xed)](),_0x5b6881=[];for(const _0x356eaa of this[_0x5106ee(0x744,0x417)]){if(_0x1249c7[_0x5106ee(0x491,-0x80)](_0x1249c7[_0x5106ee(-0x24,0x25)](_0x52b73c,_0x356eaa['at']),0x384)){_0x5b6881[_0x5106ee(0x6c9,0x50c)](_0x356eaa);continue;}const _0x5917a5=this[_0x5106ee(0x310,-0xc0)](_0x315ad4,_0x356eaa['x'],_0x356eaa['y'],_0x356eaa['z']);if(_0x5917a5===null){_0x5b6881[_0x5106ee(0x6c9,0x9fb)](_0x356eaa);continue;}const _0x38583b=_0x1249c7[_0x5106ee(-0x16b,-0x396)](_0x1249c7[_0x5106ee(0x828,0x435)](_0x356eaa['x']+',',_0x356eaa['y']),',')+_0x356eaa['z'];if(!this[_0x5106ee(0x542,-0x81)](_0x5917a5))continue;const _0x49da6c=_0x1249c7[_0x5106ee(0x51d,0x9ea)](_0x356eaa['x'],0.5)-_0x48919c['x'],_0x3d4915=_0x356eaa['y']+1.5-_0x48919c['y'],_0xdef741=_0x356eaa['z']+0.5-_0x48919c['z'];if(_0x1249c7[_0x5106ee(0x601,0x68c)](_0x49da6c*_0x49da6c,_0x1249c7[_0x5106ee(0x37c,0x205)](_0x3d4915,_0x3d4915))+_0xdef741*_0xdef741<0x20&&_0x356eaa['n']<0x5)_0x356eaa['n']++,this[_0x5106ee(0x2bf,-0x1bd)](_0x174f57,_0x315ad4,_0x356eaa['x'],_0x356eaa['y'],_0x356eaa['z'],!![]),_0x356eaa['at']=_0x52b73c,_0x5b6881[_0x5106ee(0x6c9,0x3f2)](_0x356eaa);else this[_0x5106ee(0x26d,-0x3b)][_0x38583b]&&(delete this[_0x5106ee(0x26d,-0x33e)][_0x38583b],this[_0x5106ee(-0x174,-0x32f)]--);}this[_0x5106ee(0x744,0x235)]=_0x5b6881;}const _0x59837f=Math[_0x5106ee(0x17e,0x54d)](_0x48919c['x']),_0x1f1de1=Math[_0x5106ee(0x17e,-0x24b)](_0x48919c['z']),_0x23ebaf=Math[_0x5106ee(0x17e,-0x3bb)](_0x48919c['y']-1.62)-0x1;let _0x3ab008=_0x23ebaf,_0x5d97d4=0x0,_0x1048ae=0x0,_0x2c85b1=![];this[_0x5106ee(0x6ff,0xcc9)]&&(_0x5d97d4=_0x48919c['x']-this[_0x5106ee(0x6ff,0x1e3)]['x'],_0x1048ae=_0x48919c['z']-this[_0x5106ee(0x6ff,0x4b1)]['z'],_0x2c85b1=_0x1249c7[_0x5106ee(-0x265,-0x65a)](_0x1249c7[_0x5106ee(0x37c,0x319)](_0x5d97d4,_0x5d97d4)+_0x1249c7[_0x5106ee(0x821,0xa47)](_0x1048ae,_0x1048ae),0.0004));if(this[_0x5106ee(0x611,0x49d)]){if(_0x2c85b1){if(this[_0x5106ee(0x4fd,
-0x82e)]===null)this[_0x5106ee(0x4fd,0xb3)]=_0x23ebaf;_0x3ab008=this[_0x5106ee(0x4fd,0x61d)];}else this[_0x5106ee(0x4fd,0x384)]=_0x23ebaf;}const _0x1e3170=this[_0x5106ee(0x310,0x2f7)](_0x315ad4,_0x59837f,_0x3ab008,_0x1f1de1);if(_0x1e3170===null){this[_0x5106ee(0x322,0x570)]();return;}if(this[_0x5106ee(0x542,0x534)](_0x1e3170)){if(!this[_0x5106ee(0x2bf,-0x22a)](_0x174f57,_0x315ad4,_0x59837f,_0x3ab008,_0x1f1de1)){const _0x365604=this[_0x5106ee(0x68b,0x199)](_0x315ad4,_0x59837f,_0x3ab008,_0x1f1de1);if(_0x365604)this[_0x5106ee(-0x40,0x141)](_0x174f57,_0x315ad4,_0x365604[0x0],_0x365604[0x1],_0x365604[0x2],_0x59837f,_0x3ab008,_0x1f1de1);}}if(this[_0x5106ee(-0xa2,0x377)]>0x0&&_0x2c85b1&&this[_0x5106ee(0x1dd,-0x320)](_0x315ad4,_0x59837f,_0x3ab008,_0x1f1de1)){const _0x22d10c=Math[_0x5106ee(-0x220,0x2e9)](_0x5d97d4*_0x5d97d4+_0x1249c7[_0x5106ee(0x821,0xaa8)](_0x1048ae,_0x1048ae)),_0x1fe6fa=_0x1249c7[_0x5106ee(-0x204,0x10b)](_0x5d97d4,_0x22d10c),_0x35c04d=_0x1048ae/_0x22d10c;let _0x26077=_0x59837f,_0x11bbd6=_0x1f1de1;for(let _0x26ff3b=0x1;_0x26ff3b<=this[_0x5106ee(-0xa2,-0x18f)];_0x26ff3b++){const _0x4e9062=_0x59837f+Math[_0x5106ee(0x84e,0xa2e)](_0x1fe6fa*_0x26ff3b),_0x3c87ad=_0x1f1de1+Math[_0x5106ee(0x84e,0x785)](_0x35c04d*_0x26ff3b);if(_0x4e9062===_0x26077&&_0x3c87ad===_0x11bbd6)continue;const _0x597849=this[_0x5106ee(0x310,0x4a6)](_0x315ad4,_0x4e9062,_0x3ab008,_0x3c87ad);_0x597849!==null&&this[_0x5106ee(0x542,0x6c8)](_0x597849)&&(this[_0x5106ee(-0x40,-0x64)](_0x174f57,_0x315ad4,_0x26077,_0x3ab008,_0x11bbd6,_0x4e9062,_0x3ab008,_0x3c87ad),_0x26077=_0x4e9062,_0x11bbd6=_0x3c87ad);}}this[_0x5106ee(0x6ff,0xb1d)]={'x':_0x48919c['x'],'z':_0x48919c['z']};}},nightVision={'tag':_0x5a0b42(-0xc9,0x39a),'enabled':![],'tickCount':0x0,'apply'(){function _0x27b456(_0x4407fd,_0x30f9d5){return _0x5a0b42(_0x30f9d5,_0x4407fd-0x17);}try{player[_0x27b456(0x511,0xb2)]()[_0x27b456(0x5f1,0xb29)]({'id':0x10,'duration':0x186a0,'amplifier':0x0,'ambient':!![],'noCounter':!![],'effectVisible':![]});}catch(_0x59bdd4){}},'onModuleEvent'(_0x2238b0){const _0x10cad0={'cdLBV':function(_0x1c2e58,_0x5db0e2,_0x5047bd,_0x359213){return _0x1c2e58(_0x5db0e2,_0x5047bd,_0x359213);},'SUSvI':_0x125488(0xdb9,0xd1d)};if(!_0x10cad0[_0x125488(0x952,0x80e)](stdToggle,this,_0x2238b0,_0x10cad0[_0x125488(0xfd3,0xc0e)]))return;function _0x125488(_0x20e4fc,_0x2ccb0a){return _0x5a0b42(_0x20e4fc,_0x2ccb0a-0x4ea);}this[_0x125488(0xc9f,0x867)]=0x0;try{this[_0x125488(0x66d,0x5df)]?this[_0x125488(0x572,0x65b)]():player[_0x125488(0x585,0x9e4)]()[_0x125488(0xd50,0xddf)](0x10);}catch(_0x429a2f){}},'onTick'(){const _0x1a44e7={'eKttR':function(_0x4b0ffd,_0x5ce5a3){return _0x4b0ffd<_0x5ce5a3;}};function _0x562e89(_0x379a3b,_0x51c175){return _0x5a0b42(_0x379a3b,_0x51c175- -0x1dd);}if(!this[_0x562e89(-0x479,-0xe8)]||!tickEvery(this,0x14))return;try{const _0x2d5380=player[_0x562e89(-0x220,0x31d)]()[_0x562e89(0x7f6,0x8b1)](0x10);(!_0x2d5380||!_0x2d5380[_0x562e89(0xcfe,0x91d)]||_0x1a44e7[_0x562e89(-0x47a,0x4b)](_0x2d5380[_0x562e89(0xd38,0x91d)],0x64))&&this[_0x562e89(-0x123,-0x6c)]();}catch(_0x5add22){}}},locateStructure={'tag':_0x5a0b42(0xaae,0x54d),'list':[[_0x5a0b42(0x2f9,0x4d6),'村庄'],[_0x5a0b42(0xd56,0x87a),_0x5a0b42(-0x45,0x4b8)],[_0x5a0b42(0x71e,0x903),'要塞'],[_0x5a0b42(0xf0a,0x97c),_0x5a0b42(0xd53,0x83c)],[_0x5a0b42(0xa54,0x620),_0x5a0b42(0x664,0x8cc)],[_0x5a0b42(0xa23,0xaf9),_0x5a0b42(-0x2d5,0x2a1)],[_0x5a0b42(0x93b,0x5d7),_0x5a0b42(0x7ed,0x385)],[_0x5a0b42(0x8c0,0x91f),'沉船'],[_0x5a0b42(-0x181,0x19f),_0x5a0b42(0x183,0x4e3)],[_0x5a0b42(0xab4,0x555),'神庙'],[_0x5a0b42(-0x173,0x5f),_0x5a0b42(-0x5a2,-0x74)],[_0x5a0b42(0x40e,0x3b5),_0x5a0b42(0x16a,0x49c)],[_0x5a0b42(0xf40,0xb02),_0x5a0b42(0x837,0x925)],[_0x5a0b42(0x505,0x4a6),_0x5a0b42(0x6f9,0x299)],[_0x5a0b42(0xcc8,0x6fc),_0x5a0b42(0x191,0x6f4)],[_0x5a0b42(0x703,0x227),_0x5a0b42(0x61e,0x1da)],[_0x5a0b42(0x89d,0x8d5),_0x5a0b42(-0x2a8,0x17d)]],'checked':{},'fired':![],'batchSize':0x3,'queue':null,'results':[],'level':null,'pos':null,
-'onModuleEvent'(_0x230a11){const _0xea1c41={'PNwcW':function(_0x602e0a,_0xaf30ff){return _0x602e0a===_0xaf30ff;}};for(const _0x46e883 of this[_0xdd09cf(0xc53,0x6de)]){const _0x2b4d0b=_0x230a11[_0x46e883[0x2]]!==undefined?_0x230a11[_0x46e883[0x2]]:_0x230a11[_0x46e883[0x3]];_0x2b4d0b!==undefined&&(this[_0xdd09cf(0xfb3,0xb53)][_0x46e883[0x0]]=Boolean(_0x2b4d0b));}function _0xdd09cf(_0x332dea,_0x27fd7a){return _0x5a0b42(_0x332dea,_0x27fd7a-0x4f6);}if(_0xea1c41[_0xdd09cf(0x142f,0xf70)](_0x230a11[_0xdd09cf(0x8fa,0x88c)],this[_0xdd09cf(0x1420,0x100c)])&&_0xdd09cf(0xf52,0xffb)in _0x230a11){if(fireLatch(this,Boolean(_0x230a11[_0xdd09cf(0x1085,0xffb)])))this[_0xdd09cf(0xb79,0x5d1)]();}},'run'(){function _0x7c85db(_0x2c47de,_0x39c8ee){return _0x5a0b42(_0x39c8ee,_0x2c47de-0x38f);}const _0x38859f=[];for(const _0x5f0f0b of this[_0x7c85db(0x577,0x7d9)]){if(this[_0x7c85db(0x9ec,0xf0d)][_0x5f0f0b[0x0]])_0x38859f[_0x7c85db(0xc45,0xafc)](_0x5f0f0b);}if(!_0x38859f[_0x7c85db(0x9b1,0x8db)]){app[_0x7c85db(0xb92,0x5e0)](_0x7c85db(0xae1,0x9ac));return;}try{this[_0x7c85db(0x9d7,0x89b)]=world[_0x7c85db(0xd0d,0xeb0)](),this[_0x7c85db(0xe2e,0x13b8)]=player[_0x7c85db(0x889,0x54a)]()[_0x7c85db(0x4b7,0x6db)]();}catch(_0x3ac70b){this[_0x7c85db(0x9d7,0x58a)]=null,this[_0x7c85db(0xe2e,0xa44)]=null;}if(!this[_0x7c85db(0x9d7,0x916)]||!this[_0x7c85db(0xe2e,0x1042)]){app[_0x7c85db(0xb92,0x101b)](_0x7c85db(0x9a7,0x561));return;}this[_0x7c85db(0xa15,0xdb4)]=_0x38859f[_0x7c85db(0x32c,0x128)](),this[_0x7c85db(0x3dd,0x39f)]=[];},'queryOne'(_0x26584c){function _0xdcd4aa(_0x4bfc6a,_0x4c73aa){return _0x5a0b42(_0x4bfc6a,_0x4c73aa-0x1aa);}const _0xd51d50={'UzDXF':function(_0x3355e4,_0xbb7dd){return _0x3355e4+_0xbb7dd;},'ieBqX':function(_0x102a26,_0x3d1105){return _0x102a26+_0x3d1105;},'nJPdU':function(_0x5ed728,_0x3577de){return _0x5ed728|_0x3577de;}},_0x22ee2c=_0x26584c[0x0],_0x187e31=_0x26584c[0x1];try{const _0x197bf5=this[_0xdcd4aa(0x8f2,0x7f2)][_0xdcd4aa(0x888,0x4b6)](_0xd51d50[_0xdcd4aa(0x815,0x78e)](_0xdcd4aa(0xd7,0x4f0),_0x22ee2c),{'x':this[_0xdcd4aa(0xb3f,0xc49)]['x'],'y':this[_0xdcd4aa(0xe4f,0xc49)]['y'],'z':this[_0xdcd4aa(0x80a,0xc49)]['z']});if(_0x197bf5&&_0x197bf5['x']!==undefined)return _0xd51d50[_0xdcd4aa(0x78b,0xc04)](_0x187e31+'：'+(Math[_0xdcd4aa(0x2d7,0x515)](_0x197bf5['x'])|0x0)+',\x20'+(Math[_0xdcd4aa(0xad5,0x515)](_0x197bf5['y'])|0x0)+',\x20',_0xd51d50[_0xdcd4aa(0x677,0x64e)](Math[_0xdcd4aa(0x2ca,0x515)](_0x197bf5['z']),0x0));return _0x187e31+_0xdcd4aa(0x5dd,0xa8e);}catch(_0x501b42){return _0x187e31+_0xdcd4aa(0x968,0xafb);}},'onTick'(){if(!this[_0x1cb3cc(0x54f,0x84b)])return;function _0x1cb3cc(_0x2a2a7a,_0xc57798){return _0x5a0b42(_0xc57798,_0x2a2a7a- -0x137);}for(let _0x558d91=0x0;_0x558d91<this[_0x1cb3cc(0x107,0x3d7)];_0x558d91++){const _0x24a769=this[_0x1cb3cc(0x54f,-0x6d)][_0x1cb3cc(0x660,0xc13)]();if(!_0x24a769){const _0x5545ff=_0x1cb3cc(0x7f5,0xa28)[_0x1cb3cc(0x5ce,0xae2)]('|');let _0x1da1b2=0x0;while(!![]){switch(_0x5545ff[_0x1da1b2++]){case'0':this[_0x1cb3cc(0x54f,0x91f)]=null;continue;case'1':this[_0x1cb3cc(0x968,0x547)]=null;continue;case'2':this[_0x1cb3cc(0x5e7,0x978)](this[_0x1cb3cc(-0xe9,-0x21d)]);continue;case'3':return;case'4':this[_0x1cb3cc(0x511,0x76e)]=null;continue;}break;}}this[_0x1cb3cc(-0xe9,-0x27f)][_0x1cb3cc(0x77f,0x7c3)](this[_0x1cb3cc(0x508,0x7f6)](_0x24a769));}},'show'(_0x3621fe){function _0x1170eb(_0x59abd4,_0x417bbb){return _0x5a0b42(_0x417bbb,_0x59abd4-0x9e);}const _0x23cf7a={'vwaDo':_0x1170eb(0x9e9,0xbcd)};showPyPopup(_0x23cf7a[_0x1170eb(0x20a,-0x13c)],_0x3621fe);}};for(const item of locateStructure[_0x5a0b42(0x6b8,0x1e8)]){const snake=_0x5a0b42(0x3df,0x3be)+item[0x0];item[0x2]=pascalKey(snake),item[0x3]=snake;}const posPrint={'tag':_0x5a0b42(0xf2,0xb1),'fired':![],'pending':0x0,'names':{},'myId':'','wantRun':![],'outbox':[],'onModuleEvent'(_0x3f2d66){if(_0x3f2d66[_0x712af(0x8d8,0x346)]!==this[_0x712af(0x1058,0xd29)]||!(_0x712af(0x1047,0xb71)in _0x3f2d66))return;function _0x712af(_0x177dc8,
-_0x2b17ad){return _0x5a0b42(_0x2b17ad,_0x177dc8-0x542);}if(!fireLatch(this,Boolean(_0x3f2d66[_0x712af(0x1047,0xfd6)])))return;this[_0x712af(0x822,0xd85)]=!![];},'log':mkLog(_0x5a0b42(0x1f,0x2ce)),'run'(){const _0x49a4b6={'yenzl':function(_0x3d7c8b,_0x41c675){return _0x3d7c8b(_0x41c675);},'aIiRy':function(_0x346f1e,_0x587ff1){return _0x346f1e+_0x587ff1;},'WcWVt':_0x48c082(0x6b0,0x288)};try{this[_0x48c082(0x2f9,0x11)]=String(player[_0x48c082(0x2b2,0x42a)]()[_0x48c082(0x7da,0xb25)]());}catch(_0x554f8e){this[_0x48c082(0x2f9,-0x2cc)]='';}let _0x41f69f=null;try{_0x41f69f=world[_0x48c082(0x736,0x36b)]()[_0x48c082(0x6d2,0xab8)]();}catch(_0x5a0126){}this[_0x48c082(-0xc1,-0x4c9)]={};const _0x4c7e85=[];function _0x48c082(_0x4cce4f,_0x3cc781){return _0x5a0b42(_0x3cc781,_0x4cce4f- -0x248);}if(_0x41f69f)for(const _0x5cb4df in _0x41f69f){const _0x24d283=_0x41f69f[_0x5cb4df];if(!_0x24d283)continue;const _0x5ee731=_0x49a4b6[_0x48c082(0x6b4,0xc52)](String,_0x24d283['id']||'');if(!_0x5ee731)continue;this[_0x48c082(-0xc1,0x364)][_0x5ee731]=_0x24d283[_0x48c082(0x175,-0x8)]||_0x48c082(-0x210,-0x76e);if(_0x5ee731!==this[_0x48c082(0x2f9,0xb4)])_0x4c7e85[_0x48c082(0x66e,0x99f)](_0x5ee731);}if(!_0x4c7e85[_0x48c082(0x3da,0x62a)]){this[_0x48c082(0x37a,0xef)](_0x48c082(0x561,0x64a));return;}this[_0x48c082(0x311,0x676)]=_0x4c7e85[_0x48c082(0x3da,0x610)],this[_0x48c082(0x37a,-0xba)](_0x49a4b6[_0x48c082(0x329,0x502)](_0x48c082(0x6ed,0x1a3),_0x4c7e85[_0x48c082(0x3da,0x8f2)])+_0x49a4b6[_0x48c082(0x290,-0x150)]);for(const _0x24838f of _0x4c7e85)this[_0x48c082(-0x35,-0x6f)](_0x24838f);setTimeout(()=>{function _0x579354(_0x5586c0,_0x343357){return _0x48c082(_0x5586c0-0x442,_0x343357);}this[_0x579354(0x753,0x82d)]>0x0&&(this[_0x579354(0x753,0xc90)]=0x0,this[_0x579354(0xcf2,0x847)][_0x579354(0xab0,0x64b)](_0x579354(0x3f4,-0x1ac)));},0x1388);},'onTick'(){this[_0x4faa0f(0x1e0,0xee)]&&(this[_0x4faa0f(-0x72,0xee)]=![],this[_0x4faa0f(-0x3fc,-0x117)]());function _0x4faa0f(_0x211ef2,_0x5bc76d){return _0x5a0b42(_0x211ef2,_0x5bc76d- -0x1f2);}if(this[_0x4faa0f(0x3df,0x906)][_0x4faa0f(0x344,0x430)]){const _0x2968c2=this[_0x4faa0f(0xaea,0x906)];this[_0x4faa0f(0xd59,0x906)]=[];for(const _0x2f074e of _0x2968c2)this[_0x4faa0f(-0x51,0x3d0)](_0x2f074e);}},'sendQuery'(_0x2f0038){const _0x2c02b2={'NdoCT':function(_0x1d6c3b,_0x2a2078){return _0x1d6c3b(_0x2a2078);},'VSAUz':function(_0x1df2fc,_0x2b6098){return _0x1df2fc+_0x2b6098;}};function _0x1118c3(_0x572f68,_0x4632c2){return _0x5a0b42(_0x4632c2,_0x572f68-0x3b8);}try{packet[_0x1118c3(0x420,0x33b)](0x5db23ae,_0x2c02b2[_0x1118c3(0x769,0x65a)](hex2buf,_0x1118c3(0xcc2,0xd56))),packet[_0x1118c3(0x420,0x3f6)](0x5db23ae,hex2buf(_0x2c02b2[_0x1118c3(0xc20,0xb22)](_0x1118c3(0x8ba,0x79f),_0x2f0038[_0x1118c3(0x9da,0xb71)][_0x1118c3(0x63d,0x64d)](0x10)[_0x1118c3(0x4d8,-0x1d)](0x2,'0'))+this[_0x1118c3(0x732,0x631)](_0x2f0038)+_0x1118c3(0x6ec,0x820)+this[_0x1118c3(0x8f9,0xa06)][_0x1118c3(0x9da,0x4cf)][_0x1118c3(0x63d,0x953)](0x10)[_0x1118c3(0x4d8,0x68d)](0x2,'0')+this[_0x1118c3(0x732,0x5e3)](this[_0x1118c3(0x8f9,0xc3e)])+'c0'));}catch(_0x3faa30){}},'onPyRpc'(_0x187bfd,_0x2147ac){const _0x42cfd8={'yUBWv':function(_0x310202,_0x4c7ffe){return _0x310202+_0x4c7ffe;},'KSohF':function(_0x2a9692,_0x193fd9){return _0x2a9692+_0x193fd9;},'euUhT':_0x42ccd7(0x5b2,0x3f0),'gusOF':_0x42ccd7(0x2f9,-0x70)};if(this[_0x42ccd7(0x4ed,0x681)]<=0x0)return;const _0x465701=this[_0x42ccd7(-0x87,0x93)](_0x2147ac);function _0x42ccd7(_0x22851d,_0x5d9a04){return _0x5a0b42(_0x5d9a04,_0x22851d- -0x6c);}if(!_0x465701||_0x465701[_0x42ccd7(0x5b6,0x73b)]<0x6)return;let _0x2c5bcf=![];for(let _0x50ecb6=0x0;_0x42cfd8[_0x42ccd7(0x681,0x37c)](_0x50ecb6,0x6)<=_0x465701[_0x42ccd7(0x5b6,0x9b)];_0x50ecb6++){if(_0x465701[_0x50ecb6]===0x70&&_0x465701[_0x42cfd8[_0x42ccd7(0x681,0x8b7)](_0x50ecb6,0x1)]===0x6f&&_0x465701[_0x42cfd8[_0x42ccd7(0x670,0xb48)](_0x50ecb6,0x2)]===0x73&&_0x465701[_0x50ecb6+0x3]===0x4d&&_0x465701[_0x50ecb6+0x4]===0x61&&_0x465701[_0x42cfd8[_0x42ccd7(0x670,0x6bc)](_0x50ecb6,
-0x5)]===0x70){_0x2c5bcf=!![];break;}}if(!_0x2c5bcf)return;let _0x511151='';for(let _0x186fa2=0x0;_0x186fa2<_0x465701[_0x42ccd7(0x5b6,0x48d)];_0x186fa2++)_0x511151+=_0x465701[_0x186fa2][_0x42ccd7(0x219,0x23a)](0x10)[_0x42ccd7(0xb4,-0x502)](0x2,'0');let _0x1b6643=null,_0x10ce5f=null;try{_0x1b6643=this[_0x42ccd7(0x46d,0x525)](_0x511151);}catch(_0x4e6ed8){}try{_0x10ce5f=this[_0x42ccd7(0x7ee,0xbb8)](this[_0x42ccd7(0x85c,0x583)](_0x511151));}catch(_0x1d08b8){}if(!_0x1b6643)return;const _0x40005f=_0x10ce5f&&this[_0x42ccd7(0x11b,0x208)][_0x10ce5f]||_0x42ccd7(-0x34,-0x5b0);this[_0x42ccd7(0xa8c,0x568)][_0x42ccd7(0x84a,0x2fa)]('§f'+_0x40005f+_0x42cfd8[_0x42ccd7(0xa2b,0xdfc)]+_0x1b6643['x']+_0x42cfd8[_0x42ccd7(0x2e3,0x68c)]+_0x1b6643['y']+_0x42ccd7(0x2f9,0x752)+_0x1b6643['z']+_0x42ccd7(0x4ce,0x1fd)),this[_0x42ccd7(0x4ed,0x623)]--;if(this[_0x42ccd7(0x4ed,0x5d1)]===0x0)this[_0x42ccd7(0xa8c,0xb96)][_0x42ccd7(0x84a,0xb37)](_0x42ccd7(0x3e0,0x504));},'toU8'(_0x46ab1d){const _0x48bf41={'GPJtb':function(_0x3a355c,_0x277319){return _0x3a355c===_0x277319;}};if(_0x48bf41[_0x41c508(0x47e,0x71)](typeof _0x46ab1d,_0x41c508(0x1cd,0x41d))){const _0x33a595=new Uint8Array(_0x46ab1d[_0x41c508(0x23d,0x5c5)]);for(let _0x4a5051=0x0;_0x4a5051<_0x46ab1d[_0x41c508(0x4cf,0x5c5)];_0x4a5051++)_0x33a595[_0x4a5051]=_0x46ab1d[_0x41c508(-0x319,0x1f1)](_0x4a5051)&0xff;return _0x33a595;}function _0x41c508(_0x473a21,_0x8bfdb8){return _0x5a0b42(_0x473a21,_0x8bfdb8- -0x5d);}if(_0x46ab1d instanceof ArrayBuffer)return new Uint8Array(_0x46ab1d);if(_0x46ab1d&&_0x46ab1d[_0x41c508(0x74b,0x1bb)])return new Uint8Array(_0x46ab1d[_0x41c508(-0x5b,0x1bb)],_0x46ab1d[_0x41c508(0x9aa,0x91b)]||0x0,_0x46ab1d[_0x41c508(0xda,0x691)]);return null;},'hex2str'(_0x555bd8){const _0x52fd86={'VhDuB':function(_0x17dad6,_0xe7121e,_0x4c23ad){return _0x17dad6(_0xe7121e,_0x4c23ad);}};if(!_0x555bd8)return'';function _0x46bd65(_0x3c0ff6,_0x3a54bd){return _0x5a0b42(_0x3a54bd,_0x3c0ff6-0x1a5);}let _0x21c8ed='';for(let _0x5203ee=0x0;_0x5203ee<_0x555bd8[_0x46bd65(0x7c7,0x50f)];_0x5203ee+=0x2)_0x21c8ed+=String[_0x46bd65(0x66c,0x2c5)](_0x52fd86[_0x46bd65(0x61c,0xa0d)](parseInt,_0x555bd8[_0x46bd65(0x760,0xced)](_0x5203ee,0x2),0x10));return _0x21c8ed;},'str2hex'(_0x45fd7d){function _0x6158cc(_0x4657af,_0x11d2cd){return _0x5a0b42(_0x11d2cd,_0x4657af-0x422);}let _0xfae950='';for(let _0x236b4d=0x0;_0x236b4d<_0x45fd7d[_0x6158cc(0xa44,0xb42)];_0x236b4d++)_0xfae950+=_0x45fd7d[_0x6158cc(0x670,0x74f)](_0x236b4d)[_0x6158cc(0x6a7,0x3ea)](0x10)[_0x6158cc(0x542,0x8a0)](0x2,'0');return _0xfae950;},'extractPlayerIdHex'(_0x169f24){const _0x4757b2={'exZBK':function(_0x2d04a8,_0x569a59){return _0x2d04a8===_0x569a59;},'lmKKj':function(_0x5c9ae4,_0x3df39f,_0x3b81a0){return _0x5c9ae4(_0x3df39f,_0x3b81a0);},'BgNaF':function(_0x502dcc,_0xbafbc6){return _0x502dcc<=_0xbafbc6;}},_0x173c6c=_0x169f24[_0x1aee78(-0x1b1,0x3be)](_0x1aee78(0x295,0x477));if(_0x173c6c===-0x1)return null;let _0x3176c7=_0x173c6c+0xc;_0x3176c7+=0x2;const _0x1ab4d7=_0x169f24[_0x1aee78(0xe72,0x948)](_0x3176c7,0x2);_0x3176c7+=0x2;function _0x1aee78(_0x4dd565,_0x16ef6a){return _0x5a0b42(_0x4dd565,_0x16ef6a-0x38d);}let _0xa9a64e;if(_0x4757b2[_0x1aee78(0xd3f,0xe4a)](_0x1ab4d7,'c4'))_0xa9a64e=parseInt(_0x169f24[_0x1aee78(0x41a,0x948)](_0x3176c7,0x2),0x10),_0x3176c7+=0x2;else{if(_0x1ab4d7==='c5')_0xa9a64e=parseInt(_0x169f24[_0x1aee78(0xe3d,0x948)](_0x3176c7,0x4),0x10),_0x3176c7+=0x4;else{if(_0x1ab4d7==='c6')_0xa9a64e=_0x4757b2[_0x1aee78(0xa87,0xda4)](parseInt,_0x169f24[_0x1aee78(0x5b3,0x948)](_0x3176c7,0x8),0x10),_0x3176c7+=0x8;else{if(_0x1ab4d7>='a0'&&_0x4757b2[_0x1aee78(-0x111,0x3df)](_0x1ab4d7,'bf'))_0xa9a64e=parseInt(_0x1ab4d7,0x10)-0xa0;else return null;}}}return _0x169f24[_0x1aee78(0xa8f,0x948)](_0x3176c7,_0xa9a64e*0x2);},'calHexPos'(_0x9c83a1){const _0x82646b={'zRMGy':_0x1efbea(0xc9f,0xb88),'ytwrt':_0x1efbea(0x3c3,0x715),'niGqd':function(_0x5162f7,_0x5b16bc){return _0x5162f7*_0x5b16bc;},'NchzI':function(_0x4e678b,_0x1ef2d0){return _0x4e678b(_0x1ef2d0);}},
-_0x335ec4=_0x1efbea(0x2e7,0x8a1),_0x5af2d6=_0x9c83a1[_0x1efbea(0x339,0x206)](_0x335ec4);if(_0x5af2d6===-0x1)throw new Error(_0x1efbea(0x50c,0x15a));let _0x4fcaba=_0x5af2d6+_0x335ec4[_0x1efbea(0x92a,0xbc0)];if(_0x9c83a1[_0x1efbea(0xd79,0xd64)](_0x4fcaba,_0x4fcaba+0x2)!=='93')throw new Error(_0x82646b[_0x1efbea(0x6d1,0xab1)]);_0x4fcaba+=0x2;const _0x3ed1b5=[];function _0x1efbea(_0x276c6e,_0x4eaf20){return _0x5a0b42(_0x4eaf20,_0x276c6e-0x308);}for(let _0x55ae14=0x0;_0x55ae14<0x3;_0x55ae14++){if(_0x9c83a1[_0x1efbea(0xd79,0xaff)](_0x4fcaba,_0x4fcaba+0x2)!=='cb')throw new Error(_0x82646b[_0x1efbea(0x76c,0x7d2)]);_0x4fcaba+=0x2;const _0x2fede1=_0x9c83a1[_0x1efbea(0xd79,0xe39)](_0x4fcaba,_0x4fcaba+0x10);_0x4fcaba+=0x10;const _0x159d44=new Uint8Array(0x8);for(let _0x4e2858=0x0;_0x4e2858<0x8;_0x4e2858++)_0x159d44[_0x4e2858]=parseInt(_0x2fede1[_0x1efbea(0xd79,0x11ac)](_0x82646b[_0x1efbea(0x751,0x825)](_0x4e2858,0x2),_0x82646b[_0x1efbea(0x751,0x3bd)](_0x4e2858,0x2)+0x2),0x10);_0x3ed1b5[_0x1efbea(0xbbe,0xb0b)](new DataView(_0x159d44[_0x1efbea(0x520,0x309)])[_0x1efbea(0x732,0x3ef)](0x0,![]));}return{'x':Number(_0x3ed1b5[0x0][_0x1efbea(0x52c,0x5a0)](0x2)),'y':_0x82646b[_0x1efbea(0xc68,0x9ba)](Number,_0x3ed1b5[0x1][_0x1efbea(0x52c,0x52a)](0x2)),'z':Number(_0x3ed1b5[0x2][_0x1efbea(0x52c,0xa4b)](0x2))};}};function toPythonMsgpack(_0x5629c3){const _0x54136f={'XwUji':_0x2cb048(0xacb,0x7b0),'yzogI':_0x2cb048(0x418,0x537)};function _0x2cb048(_0x504aa3,_0x1a265e){return _0x5a0b42(_0x1a265e,_0x504aa3-0x1ee);}if(!_0x5629c3||typeof _0x5629c3!==_0x2cb048(0x1db,0x349)||!(_0x54136f[_0x2cb048(0x97d,0xdf7)]in _0x5629c3))return _0x5629c3;switch(_0x5629c3[_0x2cb048(0xacb,0xb59)]){case _0x2cb048(0x9bd,0xde6):return _0x5629c3[_0x2cb048(0xcf3,0xae0)][_0x2cb048(0x6c9,0x6f8)](toPythonMsgpack);case _0x2cb048(0x1db,0x242):const _0x5c208a={};for(const {key:_0x2332bf,value:_0x350b5c}of _0x5629c3[_0x2cb048(0xcf3,0x104f)])_0x5c208a[toPythonMsgpack(_0x2332bf)]=toPythonMsgpack(_0x350b5c);return _0x5c208a;case _0x2cb048(0xb96,0xc15):return _0x5629c3[_0x2cb048(0xcf3,0xb80)][_0x2cb048(0x473,0x9cc)]();case _0x2cb048(0x7ea,0x465):return _0x5629c3[_0x2cb048(0xcf3,0x958)];case _0x2cb048(0xbaa,0x7df):return'u'+_0x5629c3[_0x2cb048(0xcf3,0x749)];case _0x2cb048(0x8b7,0xa28):return'f'+_0x5629c3[_0x2cb048(0xcf3,0xe67)];case _0x54136f[_0x2cb048(0x53a,0x4fd)]:return'd'+_0x5629c3[_0x2cb048(0xcf3,0xaca)];case _0x2cb048(0xbcb,0xafd):return _0x5629c3[_0x2cb048(0xcf3,0x111b)];case _0x2cb048(0x9d6,0x70e):return null;default:return _0x5629c3[_0x2cb048(0xcf3,0x104c)];}}let resDirPath='.';try{resDirPath=app[_0x5a0b42(0xa27,0x9ec)]();}catch(_0x169c45){}try{fs[_0x5a0b42(0xfd0,0xa58)](resDirPath+_0x5a0b42(-0x477,0xb9));}catch(_0x4297da){}const noInvis={'tag':_0x5a0b42(0x89,0x5f7),'enabled':![],'onModuleEvent'(_0x3e3eb0){function _0x1c0ad0(_0x23f2c3,_0xe5601d){return _0x5a0b42(_0x23f2c3,_0xe5601d-0x3b2);}stdToggle(this,_0x3e3eb0,_0x1c0ad0(0xb63,0x9a7),![]);},'onTick'(){function _0xff1fa9(_0x39c59d,_0x14faed){return _0x5a0b42(_0x14faed,_0x39c59d-0x244);}let _0x1aa542=null;try{_0x1aa542=world[_0xff1fa9(0xbc2,0xcd3)]()[_0xff1fa9(0xb6c,0xec7)]();}catch(_0x163537){}if(!_0x1aa542)return;for(const _0x3bc812 of _0x1aa542){try{_0x3bc812[_0xff1fa9(0xb39,0x953)](0xe);}catch(_0x367441){}try{_0x3bc812[_0xff1fa9(0xbd8,0x731)](0x5,![]);}catch(_0x3facb5){}}}},getUid={'tag':_0x5a0b42(0x9a,0x4),'waiting':![],'wantSend':![],'pendingEntries':null,'reqBytes':[0x93,0xc4,0x11,0x52,0x65,0x71,0x75,0x65,0x73,0x74,0x50,0x6c,0x61,0x79,0x65,0x72,0x73,0x55,0x49,0x44,0x90,0xc0],'uidFile':resDirPath+_0x5a0b42(0xa78,0xa00),'onModuleEvent'(_0x1e6e01){if(_0x1e6e01[_0x4f200b(0xa25,0x878)]!==this[_0x4f200b(0xf8b,0xff8)]||_0x1e6e01[_0x4f200b(0x14ff,0xfe7)]!==!![])return;function _0x4f200b(_0x2a73a7,_0x4efd98){return _0x5a0b42(_0x2a73a7,_0x4efd98-0x4e2);}this[_0x4f200b(0x1231,0xf40)]=!![];},'log':mkLog(_0x5a0b42(0x8d8,0x985)),'onTick'(){const _0x14ff87={'geqoI':function(_0x56ff7c,_0x1c6b36){return _0x56ff7c+
-_0x1c6b36;}};if(this[_0x4be3e1(0x8b,-0x27e)]){const _0x271516=this[_0x4be3e1(-0x1cf,-0x27e)];this[_0x4be3e1(-0x3ab,-0x27e)]=null;const _0x59c030={};try{const _0x4bd760=world[_0x4be3e1(0x5cb,0x730)]()[_0x4be3e1(0x136,0x6cc)]();if(_0x4bd760)for(const _0x203eae in _0x4bd760){const _0x430d5b=_0x4bd760[_0x203eae];if(_0x430d5b&&_0x430d5b['id'])_0x59c030[String(_0x430d5b['id'])]=_0x430d5b[_0x4be3e1(0x19a,0x16f)]||'';}}catch(_0x1b0edd){}let _0x453f58={};try{_0x453f58=JSON[_0x4be3e1(0x43b,0x662)](fs[_0x4be3e1(0x264,-0x2a9)](this[_0x4be3e1(-0x64b,-0x201)])||'{}')||{};}catch(_0x447be9){}let _0x14f77c=0x0;for(const _0x33bf8f of _0x271516){_0x453f58[_0x59c030[_0x33bf8f[0x0]]||_0x33bf8f[0x0]]=_0x33bf8f[0x1],_0x14f77c++;}try{fs[_0x4be3e1(0x5c3,0x57e)](this[_0x4be3e1(-0x5fe,-0x201)],JSON[_0x4be3e1(0xb8,0x39f)](_0x453f58,null,0x2),![]);}catch(_0x4eda6a){}this[_0x4be3e1(0x7fa,0x374)](_0x4be3e1(0x88c,0x442)+_0x14f77c+_0x4be3e1(-0xa7,-0x211));return;}if(!this[_0x4be3e1(0x9e4,0x810)])return;this[_0x4be3e1(0x6f5,0x810)]=![];function _0x4be3e1(_0x59b4ce,_0x13d8b2){return _0x5a0b42(_0x59b4ce,_0x13d8b2- -0x24e);}if(this[_0x4be3e1(0x579,0x53a)]){this[_0x4be3e1(0x81d,0x374)](_0x4be3e1(0xb5,0x1a7));return;}try{packet[_0x4be3e1(-0x4c3,-0x1e6)](0x5db23ae,new Uint8Array(this[_0x4be3e1(0x2b9,-0x1f9)])[_0x4be3e1(0x130,-0x36)]),this[_0x4be3e1(0x43a,0x53a)]=!![];}catch(_0x1db32f){this[_0x4be3e1(0x3a5,0x374)](_0x14ff87[_0x4be3e1(-0x3a,-0xbe)](_0x4be3e1(-0x1b5,-0x139),_0x1db32f));}},'onPyRpc'(_0x4a7928,_0x40e3ef,_0x44160a){if(!this[_0x467490(0xc77,0x727)]||!_0x44160a)return;let _0x2eb3f1=null;try{_0x2eb3f1=toPythonMsgpack(JSON[_0x467490(0xdfe,0x84f)](_0x44160a));}catch(_0x17fdcc){}if(!_0x2eb3f1||_0x2eb3f1[0x0]!==_0x467490(0x87a,0xa34))return;const _0x4cec14=_0x2eb3f1[0x1]&&_0x2eb3f1[0x1][0x0];function _0x467490(_0x5369be,_0x5e9f00){return _0x5a0b42(_0x5369be,_0x5e9f00- -0x61);}if(!_0x4cec14||typeof _0x4cec14!==_0x467490(-0x5a,-0x74))return;this[_0x467490(0x6c7,0x727)]=![];const _0x13778a=[];for(const _0x328c04 in _0x4cec14){_0x13778a[_0x467490(0xdd9,0x855)]([String(_0x328c04)[_0x467490(0x1ed,0x3c2)](/^[udf]/,''),String(_0x4cec14[_0x328c04])[_0x467490(0x2b5,0x3c2)](/^[udf]/,'')]);}this[_0x467490(0x31f,-0x91)]=_0x13778a;}},adventureEdit={'tag':_0x5a0b42(0x4f2,0x5c),'fired':![],'pending':![],'blocks':'','onModuleEvent'(_0x4f25ea){const _0x3ba962={'iisNk':function(_0x29e704,_0x2eb1fa){return _0x29e704!==_0x2eb1fa;},'SMOce':_0x596257(0xb7c,0xb72)};if(_0x3ba962[_0x596257(0xb69,0xf74)](_0x4f25ea[_0x596257(0x40d,0x4fa)],this[_0x596257(0xb8d,0x7bd)])||!(_0x3ba962[_0x596257(0x90d,0x5d2)]in _0x4f25ea))return;function _0x596257(_0x191417,_0x585ddc){return _0x5a0b42(_0x585ddc,_0x191417-0x77);}if(!fireLatch(this,Boolean(_0x4f25ea[_0x596257(0xb7c,0xa5b)])))return;let _0x2c2cd1='';try{_0x2c2cd1=String(fs[_0x596257(0x1c,0x180)](app[_0x596257(0xa63,0x54f)](_0x596257(0x3ce,0x6bd)))||'')[_0x596257(0x49a,0x4e7)](/\s+/g,'');}catch(_0x31edea){}if(!_0x2c2cd1){this[_0x596257(0x639,0x4c5)](_0x596257(0x94e,0xdef));return;}this[_0x596257(0x321,0x409)]=_0x2c2cd1,this[_0x596257(0x5d0,0x7)]=!![];},'log':mkLog(_0x5a0b42(0x411,0x31e)),'onTick'(){if(!this[_0x3c6f3d(0x762,0x73f)])return;this[_0x3c6f3d(0xbcd,0x73f)]=![];function _0x3c6f3d(_0x157e50,_0x3636f3){return _0x5a0b42(_0x157e50,_0x3636f3-0x1e6);}this[_0x3c6f3d(0xd29,0x994)]();},'doWrite'(){const _0x5e3968={'hcXAh':function(_0x4ecbf9){return _0x4ecbf9();},'Ibjpa':_0x30c406(0x999,0x844),'oGHhs':_0x30c406(0x3bf,0x75a),'JxBOV':function(_0xb42be6,_0x1c65ba){return _0xb42be6+_0x1c65ba;},'kvVrU':function(_0x1ec346,_0x298af2){return _0x1ec346!==_0x298af2;}};function _0x30c406(_0x532691,_0x35a618){return _0x5a0b42(_0x532691,_0x35a618-0x83);}try{const {lp:_0x215f50,it:_0x2a9446,nbt:_0x3e861b}=_0x5e3968[_0x30c406(0x226,0x44)](carriedNbt);if(!_0x2a9446||!_0x3e861b||_0x3e861b[_0x30c406(0x28d,0xb4)](_0x30c406(0x78c,0x4a0))>=0x0||_0x3e861b[_0x30c406(-0x3cf,0xb4)](_0x5e3968[_0x30c406(0x66c,0x24e)])>=0x0){this[_0x30c406(0x210,
-0x645)](_0x5e3968[_0x30c406(0x361,0x2fb)]);return;}const _0x27bd3a=_0x5e3968[_0x30c406(0xba7,0x869)](_0x30c406(0x43f,0xa1)+this[_0x30c406(0x8f9,0x32d)]+_0x30c406(0xcfd,0xb43),this[_0x30c406(0x72d,0x32d)])+',';if(_0x5e3968[_0x30c406(0xbfc,0x7d3)](_0x3e861b[_0x30c406(0xcd6,0xb78)](0x0),'{')){this[_0x30c406(0x77,0x645)](_0x30c406(0x46b,0xa19));return;}const _0x114e61='{'+_0x27bd3a+_0x3e861b[_0x30c406(-0x54e,0x20)](0x1);_0x2a9446[_0x30c406(0x164,0x69a)](_0x114e61),_0x215f50[_0x30c406(0x38e,0x94a)](_0x2a9446),this[_0x30c406(0x350,0x645)](_0x30c406(0xc02,0x9ae));}catch(_0x5542c5){this[_0x30c406(0x431,0x645)](_0x30c406(0x7ca,0x6b9)+_0x5542c5);}}},infDurability=makeNbtWriter({'tag':_0x5a0b42(0x16f,0x103),'logPrefix':_0x5a0b42(0x488,0x73d),'throwKey':_0x5a0b42(-0x316,0x1bc),'holdMsg':_0x5a0b42(0x509,0x6ef),'okText':_0x5a0b42(0x564,0x9cc),'transform':nbtSetInf}),goatEffect=makeNbtWriter({'tag':_0x5a0b42(0x218,0x4c),'logPrefix':_0x5a0b42(0x535,0x183),'throwKey':_0x5a0b42(-0xa8,0x10e),'radioKey':_0x5a0b42(-0x332,-0x3c),'need':_0x5a0b42(0x6a8,0x472),'holdMsg':_0x5a0b42(0x9e5,0x77d),'okText':_0x5a0b42(0xa20,0x877),'okVal':!![],'transform':nbtSetDamage}),bedColor=makeNbtWriter({'tag':_0x5a0b42(0xa34,0x4cb),'logPrefix':_0x5a0b42(-0x269,0x1f0),'throwKey':_0x5a0b42(-0x211,0x1d3),'radioKey':_0x5a0b42(0x620,0x2ff),'need':_0x5a0b42(0x266,0x29),'holdMsg':_0x5a0b42(-0x47,0x564),'okText':_0x5a0b42(0x7ea,0x7e1),'okVal':!![],'transform':nbtSetDamage});function _0x5a0b42(_0xf01e79,_0x4938ef){return _0x2f10(_0x4938ef- -0x183,_0xf01e79);}function _0x2f10(_0x10a140,_0x37a1b8){_0x10a140=_0x10a140-0x10a;const _0x2f1073=_0x37a1();let _0x17b30e=_0x2f1073[_0x10a140];return _0x17b30e;}const bannerColor=makeNbtWriter({'tag':_0x5a0b42(0x7a9,0x1f7),'logPrefix':_0x5a0b42(0x103,0xd5),'throwKey':_0x5a0b42(0x3b2,0x735),'radioKey':_0x5a0b42(0x2a7,0x7ac),'need':_0x5a0b42(-0x4ad,0xa),'holdMsg':_0x5a0b42(0x47f,-0x27),'okText':_0x5a0b42(0xaea,0x584),'okVal':!![],'transform':nbtSetDamage}),ominousBottle=makeNbtWriter({'tag':_0x5a0b42(0x91b,0x6bf),'logPrefix':_0x5a0b42(-0x80,0x461),'throwKey':_0x5a0b42(0x461,0x86d),'radioKey':_0x5a0b42(0x742,0xb03),'need':_0x5a0b42(0xcdd,0x7c4),'holdMsg':_0x5a0b42(0x28,0x497),'okText':_0x5a0b42(0x5cd,0x8a7),'okVal':!![],'transform':nbtSetDamage}),customDamage=makeNbtWriter({'tag':_0x5a0b42(0x6f8,0x82c),'logPrefix':_0x5a0b42(0xaf,0x4a),'throwKey':_0x5a0b42(0xaa2,0x642),'throwDefault':!![],'textKey':_0x5a0b42(0xe96,0xa1f),'holdMsg':_0x5a0b42(0x70e,0x6ef),'okText':_0x5a0b42(0x19c,0x152),'okVal':!![],'transform':nbtSetDamage}),attackDrops={'tag':_0x5a0b42(-0x39,0x76),'fired':![],'pending':![],'running':![],'range':0x5,'attackTimes':0x5,'queue':[],'hits':{},'onModuleEvent'(_0x2dd036){function _0x2fbb34(_0x5c2d3f,_0x5da03f){return _0x5a0b42(_0x5c2d3f,_0x5da03f- -0x51);}const _0x211c0c={'pcNqi':function(_0xf0bf86,_0x37b387,_0x573ecc){return _0xf0bf86(_0x37b387,_0x573ecc);}};if(_0x2dd036[_0x2fbb34(0x145,0x345)]!==this[_0x2fbb34(0xf8c,0xac5)]||!(_0x2fbb34(0x7d7,0xab4)in _0x2dd036))return;if(!_0x211c0c[_0x2fbb34(0x73e,0x62c)](fireLatch,this,Boolean(_0x2dd036[_0x2fbb34(0x9b7,0xab4)])))return;this[_0x2fbb34(-0x3d,0x508)]=!![];},'log':mkLog(_0x5a0b42(0x3c0,0x8e6)),'entityId'(_0x4a8b91){let _0x57b76a='?';function _0x4c891b(_0x4865af,_0x2f8b4b){return _0x5a0b42(_0x2f8b4b,_0x4865af- -0x80);}try{const _0x4f1516=_0x4a8b91[_0x4c891b(0x95a,0x4df)]();if(_0x4f1516)_0x57b76a=_0x4f1516[_0x4c891b(0x5d0,0xb46)]||_0x4f1516[_0x4c891b(-0x59,0x3c1)]||'?';_0x57b76a=_0x57b76a[_0x4c891b(0x3a3,0x410)](/<.*>/,'');}catch(_0x372fc2){}return _0x57b76a;},'findByUid'(_0x5337c3,_0x42ff82){const _0x34c0d2={'xewTr':function(_0x2436a6,_0x20a3f5){return _0x2436a6(_0x20a3f5);}},_0x291587=_0x5337c3[_0x15dd7c(0x929,0xb7e)]();if(!_0x291587)return null;for(const _0x3f9aac of _0x291587){try{if(_0x34c0d2[_0x15dd7c(0xbbd,0x67e)](String,_0x3f9aac[_0x15dd7c(0xd83,0xe87)]()||'')===_0x42ff82)return _0x3f9aac;}catch(_0x3c6a0b){}}function _0x15dd7c(_0x54030d,_0x4de5ce){return _0x5a0b42(_0x54030d,
-_0x4de5ce-0x465);}return null;},'onTick'(){this[_0x5cdb75(0x834,0xaf4)]&&(this[_0x5cdb75(0x834,0xa89)]=![],this[_0x5cdb75(0xaa9,0x71c)]());if(!this[_0x5cdb75(0x5b3,0x21e)])return;function _0x5cdb75(_0xaafe39,_0x47d3fe){return _0x5a0b42(_0x47d3fe,_0xaafe39-0x2db);}this[_0x5cdb75(0xc20,0xfc9)]();},'start'(){const _0x37ac8c={'aboeV':function(_0x197f02,_0x4c739d){return _0x197f02(_0x4c739d);},'sjzcB':function(_0xf5305f,_0x227efe){return _0xf5305f+_0x227efe;}};function _0x3c6080(_0x27f547,_0x4e6380){return _0x5a0b42(_0x4e6380,_0x27f547-0x3a);}try{const _0x54ff96=player[_0x3c6080(0x534,0xfe)](),_0x9379c3=world[_0x3c6080(0x9b8,0x9d2)]();if(!_0x54ff96||!_0x9379c3){this[_0x3c6080(0x5fc,0x4a5)](_0x3c6080(0xb1a,0x605));return;}const _0x27be84=_0x54ff96[_0x3c6080(0x162,0x30a)](),_0x2bb092=_0x9379c3[_0x3c6080(0x753,0xaf9)]()||[],_0x4718a1=[];for(const _0x29fb76 of _0x2bb092){if(this[_0x3c6080(0x12,0x1b5)](_0x29fb76)!==_0x3c6080(0x4e8,0x8b9))continue;let _0x32119e='';try{_0x32119e=_0x37ac8c[_0x3c6080(0xa6a,0x86b)](String,_0x29fb76[_0x3c6080(0xa5c,0xacf)]()||'');}catch(_0x54768e){}if(!_0x32119e)continue;let _0x1b88fe=-0x1;try{const _0x34fe44=_0x29fb76[_0x3c6080(0x162,0x4fe)](),_0x221990=_0x34fe44['x']-_0x27be84['x'],_0x236dd3=_0x34fe44['y']-_0x27be84['y'],_0x2f9a7c=_0x34fe44['z']-_0x27be84['z'];_0x1b88fe=Math[_0x3c6080(0x7,0x577)](_0x221990*_0x221990+_0x236dd3*_0x236dd3+_0x2f9a7c*_0x2f9a7c);}catch(_0x57fb43){}if(_0x1b88fe<0x0||_0x1b88fe>this[_0x3c6080(0x3e5,-0x68)])continue;_0x4718a1[_0x3c6080(0x8f0,0x888)](_0x32119e);}if(!_0x4718a1[_0x3c6080(0x65c,0x489)]){this[_0x3c6080(0x5fc,0x7a3)](_0x3c6080(0x1ff,0x603));return;}this[_0x3c6080(0x6c0,0x627)]=[],this[_0x3c6080(0x9fc,0xf33)]={};for(const _0xe8b948 of _0x4718a1){for(let _0x50bfac=0x0;_0x50bfac<this[_0x3c6080(0xb59,0x7ae)];_0x50bfac++)this[_0x3c6080(0x6c0,0x702)][_0x3c6080(0x8f0,0x56b)](_0xe8b948);}this[_0x3c6080(0x312,0x42)]=!![];}catch(_0x3919fa){this[_0x3c6080(0x5fc,0xba0)](_0x37ac8c[_0x3c6080(0x994,0xe1d)](_0x3c6080(0x5d,-0xce),_0x3919fa));}},'step'(){const _0x18017c={'YUxyV':function(_0x31ccad,_0x2dfcef){return _0x31ccad||_0x2dfcef;}},_0x4130c7=player[_0x59e0ac(0x7a1,0xcef)](),_0x52d889=world[_0x59e0ac(0xc25,0xff3)]();if(_0x18017c[_0x59e0ac(0x2a8,0x39f)](!_0x4130c7,!_0x52d889)){this[_0x59e0ac(0x57f,0x371)]=![],this[_0x59e0ac(0x92d,0x5ff)]=[],this[_0x59e0ac(0x869,0x838)](_0x59e0ac(0x347,-0x108));return;}const _0x33b69a=this[_0x59e0ac(0x92d,0x52c)][_0x59e0ac(0xa3e,0xa76)]();function _0x59e0ac(_0x28db2c,_0x80a3ea){return _0x5a0b42(_0x80a3ea,_0x28db2c-0x2a7);}const _0x1ba7d4=this[_0x59e0ac(0x691,0x6cf)](_0x52d889,_0x33b69a);if(!_0x1ba7d4)this[_0x59e0ac(0x92d,0x9cf)]=this[_0x59e0ac(0x92d,0xa5f)][_0x59e0ac(0x801,0x865)](_0x16f2d8=>_0x16f2d8!==_0x33b69a);else{try{_0x4130c7[_0x59e0ac(0x464,0x43d)](_0x1ba7d4);if(!this[_0x59e0ac(0xc69,0x92c)][_0x33b69a])this[_0x59e0ac(0x869,0x60d)](_0x59e0ac(0x451,0x875)+_0x33b69a+_0x59e0ac(0x7a3,0x398));}catch(_0x5320da){this[_0x59e0ac(0x869,0x3ae)](_0x59e0ac(0x5ce,0xb64)+_0x5320da);}this[_0x59e0ac(0xc69,0x11cb)][_0x33b69a]=(this[_0x59e0ac(0xc69,0xcb1)][_0x33b69a]||0x0)+0x1;}!this[_0x59e0ac(0x92d,0xbd4)][_0x59e0ac(0x8c9,0x84c)]&&(this[_0x59e0ac(0x57f,0x5f6)]=![]);}},auxEffect={'tag':_0x5a0b42(-0x54,0x2c9),'fired':![],'pending':![],'checked':{},'throwAfter':![],'dropDelay':0x0,'validNames':[_0x5a0b42(0x1e9,0x3ef),_0x5a0b42(0x7a3,0x6e0),_0x5a0b42(0xeeb,0x97d),_0x5a0b42(0x15d,0x4f4)],'onModuleEvent'(_0x10b82b){const _0x1f6d68={'KfEgf':function(_0x2d8fd0,_0x2932b4){return _0x2d8fd0!==_0x2932b4;},'BwxJn':function(_0x50b670,_0x50e073){return _0x50b670(_0x50e073);},'quCIG':function(_0x6108e1,_0x456e7a){return _0x6108e1!==_0x456e7a;},'LEsxY':_0xc6e4ce(0x985,0xab5),'ndhil':function(_0x1b7403,_0x2a0909){return _0x1b7403(_0x2a0909);},'seyXy':function(_0x576c6d,_0x39214b){return _0x576c6d in _0x39214b;}};function _0xc6e4ce(_0x297e9b,_0x167238){return _0x5a0b42(_0x167238,_0x297e9b-0x3fd);}_0x1f6d68[_0xc6e4ce(0xe22,0x1084)](typeof _0x10b82b[_0xc6e4ce(0xbd5,0x92f)],
-_0xc6e4ce(0x659,0x88a))&&(this[_0xc6e4ce(0xe50,0x10e2)]=Boolean(_0x10b82b[_0xc6e4ce(0xbd5,0xb48)]));if(typeof _0x10b82b[_0xc6e4ce(0xe64,0x1417)]===_0xc6e4ce(0x877,0xdde)){const _0x5cf9c4=/^aux_effect_(\d+)$/[_0xc6e4ce(0xf12,0xce8)](_0x10b82b[_0xc6e4ce(0xe64,0x993)]);_0x5cf9c4&&(this[_0xc6e4ce(0xa5a,0x516)]={},this[_0xc6e4ce(0xa5a,0x4f8)][_0x1f6d68[_0xc6e4ce(0xa87,0xf6a)](Number,_0x5cf9c4[0x1])]=!![]);}for(const _0x460464 in _0x10b82b){if(_0x1f6d68[_0xc6e4ce(0xece,0xc7d)](_0x460464[_0xc6e4ce(0x42e,0x74)](_0x1f6d68[_0xc6e4ce(0x5ee,0x808)]),0x0)||_0x460464===_0xc6e4ce(0xbd5,0x1035))continue;const _0x2d7553=Number(_0x460464[_0xc6e4ce(0x39a,0x6ac)](0xb));if(_0x1f6d68[_0xc6e4ce(0x6c0,0xa66)](isNaN,_0x2d7553))continue;if(_0x10b82b[_0x460464])this[_0xc6e4ce(0xa5a,0xca1)][_0x2d7553]=!![];else delete this[_0xc6e4ce(0xa5a,0x7bc)][_0x2d7553];}if(_0x10b82b[_0xc6e4ce(0x793,0x37d)]===this[_0xc6e4ce(0xf13,0xd35)]&&_0x1f6d68[_0xc6e4ce(0x7e3,0xaa3)](_0xc6e4ce(0xf02,0x1021),_0x10b82b)){if(!fireLatch(this,Boolean(_0x10b82b[_0xc6e4ce(0xf02,0xe92)])))return;this[_0xc6e4ce(0x956,0xa43)]=!![];}},'log':mkLog(_0x5a0b42(0xb61,0x981)),'onTick'(){const _0x18d21b={'YrjIk':_0x1daa3c(0x2ab,0x829),'vhwcf':_0x1daa3c(0x32a,0x384)};if(this[_0x1daa3c(0x81a,0x830)]>0x0){this[_0x1daa3c(0x29a,0x830)]--;if(this[_0x1daa3c(0x325,0x830)]===0x0)try{input[_0x1daa3c(0xa8d,0xbea)](_0x1daa3c(0xc95,0x829)),input[_0x1daa3c(0x4d1,0x3fe)](_0x18d21b[_0x1daa3c(0x28b,0x48d)]);}catch(_0x48ed4d){this[_0x1daa3c(0x320,0x723)](_0x18d21b[_0x1daa3c(0x18a,0x5fe)]+_0x48ed4d);}}if(!this[_0x1daa3c(0x8ca,0x6ba)])return;function _0x1daa3c(_0x7b0320,_0x4969c2){return _0x5a0b42(_0x7b0320,_0x4969c2-0x161);}this[_0x1daa3c(0x2ce,0x6ba)]=![],this[_0x1daa3c(0x3fa,0x90f)]();},'setRootDamage'(_0x5cd062,_0x32132a){function _0x1b9389(_0x2bb772,_0x263302){return _0x5a0b42(_0x2bb772,_0x263302-0x339);}const _0x52c425={'mIjlD':function(_0x43c233,_0x34ec16){return _0x43c233<_0x34ec16;},'CmlwI':function(_0x44518b,_0x20c53e){return _0x44518b+_0x20c53e;},'jtpRV':function(_0x3a78b8,_0x1540ca){return _0x3a78b8+_0x1540ca;},'lQxxY':function(_0x127424,_0x2d5519){return _0x127424+_0x2d5519;},'zYahf':_0x1b9389(0x506,0x5d4)};if(_0x5cd062[_0x1b9389(0x12e2,0xe2e)](0x0)!=='{')return null;const _0x2141d0=_0x5cd062[_0x1b9389(-0x10d,0x36a)](_0x1b9389(0xa95,0xc13)),_0x4d8b32=_0x52c425[_0x1b9389(0x617,0x48c)](_0x2141d0,0x0)?_0x5cd062:_0x5cd062[_0x1b9389(0x173,0x2d6)](0x0,_0x2141d0),_0x163642=_0x2141d0<0x0?'':_0x5cd062[_0x1b9389(0x7ec,0x2d6)](_0x2141d0);if(/Damage:-?\d+[a-z]?/[_0x1b9389(0xe62,0xa4e)](_0x4d8b32))return _0x4d8b32[_0x1b9389(0x58d,0x75c)](/Damage:-?\d+[a-z]?/,_0x1b9389(0x97f,0xa17)+_0x32132a+'s')+_0x163642;return _0x52c425[_0x1b9389(0x87e,0x323)](_0x52c425[_0x1b9389(0x28b,0x60f)](_0x52c425[_0x1b9389(0x738,0xc7c)](_0x52c425[_0x1b9389(0xf91,0xb94)]+_0x32132a,'s,'),_0x4d8b32[_0x1b9389(0x28f,0x2d6)](0x1)),_0x163642);},'doWrite'(){const _0x155394={'LwaUM':function(_0x582aaf,_0x1ff8f9){return _0x582aaf>_0x1ff8f9;},'xMwAy':_0x37e5f8(0x4a,0x42d)};function _0x37e5f8(_0x338c95,_0x546837){return _0x5a0b42(_0x338c95,_0x546837-0xb);}try{const _0x5b11ac=Object[_0x37e5f8(0x667,0x8c6)](this[_0x37e5f8(0x65a,0x668)]);if(!_0x5b11ac[_0x37e5f8(0x92,0x62d)]){app[_0x37e5f8(0xb6a,0x80e)](_0x37e5f8(0x1bb,0x32b)),this[_0x37e5f8(0x578,0x5cd)](_0x37e5f8(0x8c7,0x31a));return;}if(_0x155394[_0x37e5f8(0x486,0x55c)](_0x5b11ac[_0x37e5f8(0x844,0x62d)],0x1)){app[_0x37e5f8(0x3e2,0x80e)](_0x37e5f8(0x5f1,0x404)),this[_0x37e5f8(0x645,0x5cd)](_0x37e5f8(0xb19,0x67b));return;}const _0x9cd640=Number(_0x5b11ac[0x0]),{lp:_0x12a859,it:_0x252c9a,nbt:_0x5b592d}=carriedNbt();if(!_0x252c9a||!_0x5b592d||_0x5b592d[_0x37e5f8(-0x198,0x3c)](_0x37e5f8(0x313,0x428))>=0x0||_0x5b592d[_0x37e5f8(0x27e,0x3c)](_0x37e5f8(0x3cc,0x7cc))>=0x0){this[_0x37e5f8(0xa06,0x5cd)](_0x37e5f8(0x64f,0x45b));return;}let _0x4acf99='';const _0x5d014b=_0x5b592d[_0x37e5f8(0xbba,0xa43)](/Name:"([^"]*)"/);if(_0x5d014b)_0x4acf99=_0x5d014b[0x1];if(this[_0x37e5f8(0x2a2,-0x63)][_0x37e5f8(-0x348,
-0x3c)](_0x4acf99)<0x0){this[_0x37e5f8(0x4d2,0x5cd)](_0x37e5f8(0x17d,0x57d)+_0x4acf99);return;}const _0x49d3f3=_0x4acf99===_0x37e5f8(0x1b2,0x4ff)&&_0x155394[_0x37e5f8(0x5f5,0x55c)](_0x9cd640,0x0)?_0x9cd640+0x1:_0x9cd640,_0x4e4a32=this[_0x37e5f8(0x74e,0x238)](_0x5b592d,_0x49d3f3);if(!_0x4e4a32){this[_0x37e5f8(0x5a2,0x5cd)](_0x37e5f8(0xe5c,0x9a1));return;}_0x252c9a[_0x37e5f8(0x462,0x622)](_0x4e4a32),_0x12a859[_0x37e5f8(0xcdb,0x8d2)](_0x252c9a),this[_0x37e5f8(0xa6c,0x5cd)](_0x37e5f8(0x28d,0x292)+_0x49d3f3+'）'),this[_0x37e5f8(0x61b,0xa5e)]&&(this[_0x37e5f8(0x66f,0x6da)]=0x3);}catch(_0x5c27b6){this[_0x37e5f8(0x80f,0x5cd)](_0x155394[_0x37e5f8(0x956,0x4ce)]+_0x5c27b6);}}};function PatchAnvilNewlines(_0x3847b4){const _0x16e31b={'rPclp':function(_0x5e9929){return _0x5e9929();},'vmtLO':function(_0x23be87,_0x571549){return _0x23be87<_0x571549;},'vejYe':function(_0x5a94af,_0x5f115a){return _0x5a94af<_0x5f115a;},'kvpXZ':function(_0xa1fa60,_0x857451){return _0xa1fa60(_0x857451);},'RrtOZ':function(_0xbda0db,_0x39a1b2){return _0xbda0db===_0x39a1b2;}},_0xf29866=binReader(_0x3847b4),_0x4e1805=_0xf29866['u8'],_0x39158d=()=>{function _0x482b88(_0x4615d1,_0x5f69f2){return _0x2f10(_0x4615d1-0x74,_0x5f69f2);}_0xf29866[_0x482b88(0x87e,0x9df)](0x3),_0xf29866[_0x482b88(0x70e,0xbc7)]();},_0x430c56=()=>{if(_0xf29866[_0x396153(0x810,0xd67)]()===0x0)return;_0xf29866[_0x396153(0x980,0x3e1)](0x2);function _0x396153(_0x1d8a7b,_0x2f37e4){return _0x2f10(_0x1d8a7b-0x176,_0x2f37e4);}_0xf29866[_0x396153(0x2ee,0x52c)](),_0xf29866[_0x396153(0x810,0xc0f)](),_0xf29866[_0x396153(0x980,0xd1c)](_0xf29866[_0x396153(0x2ee,0x85f)]());},_0xf2598d=_0x255eea=>{function _0x19505b(_0xb2c0ec,_0x328ce5){return _0x2f10(_0xb2c0ec- -0x3ba,_0x328ce5);}switch(_0x255eea){case 0x0:case 0x1:case 0x7:case 0x8:_0xf29866[_0x19505b(0x2d4,0x15d)](),_0x39158d(),_0x39158d();break;case 0x2:case 0x9:_0x16e31b[_0x19505b(0x38f,-0x15)](_0x39158d),_0x39158d();break;case 0x3:_0xf29866[_0x19505b(0x2d4,0x36d)](),_0x39158d(),_0xf29866[_0x19505b(0x2d4,-0x1ad)]();break;case 0x4:case 0x5:_0xf29866[_0x19505b(0x2d4,-0x72)](),_0x16e31b[_0x19505b(0x38f,0x298)](_0x39158d);break;case 0x6:_0xf29866[_0x19505b(0x2d4,-0x258)]();break;case 0xa:_0xf29866[_0x19505b(0x2e0,-0x1f5)](),_0xf29866[_0x19505b(0x2e0,0x73b)]();break;case 0xb:_0xf29866[_0x19505b(0x2e0,0xd0)](),_0xf29866[_0x19505b(0x2e0,0x880)](),_0xf29866[_0x19505b(0x2e0,0x202)]();break;case 0xc:case 0xe:_0xf29866[_0x19505b(-0x242,-0x467)](),_0xf29866[_0x19505b(0x2d4,0x727)]();break;case 0xd:_0xf29866[_0x19505b(-0x242,0xe8)](),_0xf29866[_0x19505b(0x2d4,0x4aa)](),_0xf29866[_0x19505b(0x2d4,0x26f)]();break;case 0xf:_0xf29866[_0x19505b(-0x242,-0x39d)](),_0xf29866[_0x19505b(0x450,0x5a)](0x4);break;case 0x10:_0xf29866[_0x19505b(-0x242,-0x46f)](),_0xf29866[_0x19505b(0x2d4,-0x4e)](),_0xf29866[_0x19505b(0x2e0,0x244)]();break;case 0x11:{_0xf29866[_0x19505b(0x450,0x2ca)](_0xf29866[_0x19505b(-0x242,-0x19a)]()),_0xf29866[_0x19505b(0x2d4,0x4c7)]();break;}case 0x12:break;case 0x13:{const _0x48a830=_0xf29866[_0x19505b(-0x242,-0x331)]();for(let _0x4d7215=0x0;_0x16e31b[_0x19505b(0x4ee,-0x86)](_0x4d7215,_0x48a830);_0x4d7215++)_0x430c56();_0xf29866[_0x19505b(0x2d4,-0x157)]();break;}default:throw 0x0;}},_0x620ff9=[],_0x437abe=_0xf29866[_0x2787e7(0x208,0x41b)]();function _0x2787e7(_0x408953,_0x17df2f){return _0x5a0b42(_0x408953,_0x17df2f-0x426);}for(let _0x302b9e=0x0;_0x302b9e<_0x437abe;_0x302b9e++){_0xf29866[_0x2787e7(0x7d1,0x93d)]();const _0x3b5260=_0xf29866[_0x2787e7(-0x16e,0x41b)]();let _0x130ebc=![];for(let _0x24904a=0x0;_0x16e31b[_0x2787e7(-0xa1,0x3d9)](_0x24904a,_0x3b5260);_0x24904a++){const _0x14f6a4=_0xf29866[_0x2787e7(0x5d3,0x931)]();if(_0x14f6a4===0xf)_0x130ebc=!![];_0x16e31b[_0x2787e7(0xd2d,0xc44)](_0xf2598d,_0x14f6a4);}const _0x5b8b8b=_0xf29866[_0x2787e7(0x8b0,0x41b)]();for(let _0x185aec=0x0;_0x185aec<_0x5b8b8b;_0x185aec++){const _0x2b9056=_0xf29866[_0x2787e7(0xb53,0xda6)],_0x36e57d=_0xf29866[_0x2787e7(0x772,0x41b)]();_0xf29866[_0x2787e7(0xaef,
-0x794)](_0x36e57d);const _0x39c0a3=_0xf29866[_0x2787e7(0xe6e,0xda6)];_0xf29866[_0x2787e7(0x121a,0xda6)]+=_0x36e57d;if(_0x185aec===0x0&&_0x130ebc)_0x620ff9[_0x2787e7(0xb11,0xcdc)]({'segStart':_0x2b9056,'cStart':_0x39c0a3,'slen':_0x36e57d});}}const _0x2f91b4=[];for(const _0x285156 of _0x620ff9){const _0x25a16b=_0x285156[_0x2787e7(0xdbb,0xbaf)]+_0x285156[_0x2787e7(0x9d2,0x496)],_0x4c1d65=[];let _0x157f33=![];for(let _0x27a416=_0x285156[_0x2787e7(0xbfc,0xbaf)];_0x16e31b[_0x2787e7(-0xb7,0x3d9)](_0x27a416,_0x25a16b);_0x27a416++){if(_0x4e1805[_0x27a416]===0x5c&&_0x16e31b[_0x2787e7(0xba7,0xb4b)](_0x27a416+0x1,_0x25a16b)&&_0x16e31b[_0x2787e7(0x9a5,0xe4c)](_0x4e1805[_0x27a416+0x1],0x6e))_0x4c1d65[_0x2787e7(0xc0f,0xcdc)](0xa),_0x27a416++,_0x157f33=!![];else _0x4c1d65[_0x2787e7(0x125b,0xcdc)](_0x4e1805[_0x27a416]);}if(_0x157f33)_0x2f91b4[_0x2787e7(0xe0f,0xcdc)]({'start':_0x285156[_0x2787e7(0x568,0x9ad)],'end':_0x25a16b,'data':_0x4c1d65});}if(!_0x2f91b4[_0x2787e7(0xec6,0xa48)])return![];const _0x3542b6=[];let _0x2f158b=0x0;for(const _0x145c18 of _0x2f91b4){_0x3542b6[_0x2787e7(0x7c9,0xcdc)](_0x4e1805[_0x2787e7(0xeb,0x3c3)](_0x2f158b,_0x145c18[_0x2787e7(0x11a0,0xbf4)])),_0x3542b6[_0x2787e7(0xa41,0xcdc)](uvarintBytes(_0x145c18[_0x2787e7(0xa82,0x836)][_0x2787e7(0xc3e,0xa48)]),_0x145c18[_0x2787e7(0x34e,0x836)]),_0x2f158b=_0x145c18[_0x2787e7(0x12e9,0xe82)];}return _0x3542b6[_0x2787e7(0xcf2,0xcdc)](_0x4e1805[_0x2787e7(0xdf,0x3c3)](_0x2f158b)),joinParts(_0x3542b6);}const anvilLines={'tag':_0x5a0b42(0x6c3,0x71f),'enabled':![],'onModuleEvent'(_0x170dc4){function _0x3c6d05(_0x520839,_0x361a38){return _0x5a0b42(_0x361a38,_0x520839- -0xe3);}stdToggle(this,_0x170dc4,_0x3c6d05(0x500,0x90d));},'onSendServerPacket'(_0x200b2f,_0x28bc79,_0xf0199e){if(!this[_0x5b8d42(0x3b3,0x76d)]||_0x200b2f!==0x93)return![];function _0x5b8d42(_0x53dd5c,_0x13ac10){return _0x5a0b42(_0x13ac10,_0x53dd5c-0x2be);}try{return PatchAnvilNewlines(_0xf0199e);}catch(_0x52e718){}return![];}},noHunger={'tag':_0x5a0b42(0x12a,0x2cb),'enabled':![],'tickCount':0x0,'apply'(){const _0x316be9={'oIylQ':_0x1288e2(0xb53,0xa7c)};function _0x1288e2(_0x3b3f41,_0x361abe){return _0x5a0b42(_0x361abe,_0x3b3f41-0x4dd);}try{player[_0x1288e2(0x9d7,0x569)]()[_0x1288e2(0x986,0xa0b)](_0x316be9[_0x1288e2(0x4e4,0x860)],{'current':0x14});}catch(_0x50f6b0){}},'onModuleEvent'(_0x31a308){if(!stdToggle(this,_0x31a308,_0xb7119a(-0x136,-0xe2)))return;function _0xb7119a(_0x4730f2,_0xb343f1){return _0x5a0b42(_0x4730f2,_0xb343f1- -0x1db);}this[_0xb7119a(0x4da,0x1a2)]=0x0;if(this[_0xb7119a(0xe8,-0xe6)])this[_0xb7119a(0x397,-0x6a)]();},'onTick'(){function _0x441c70(_0x1fdef8,_0x2e2536){return _0x5a0b42(_0x1fdef8,_0x2e2536-0x10d);}const _0x19b817={'KTFhN':function(_0x22777d,_0x22ff7d,_0x5a2e48){return _0x22777d(_0x22ff7d,_0x5a2e48);}};if(!this[_0x441c70(-0x1c7,0x202)]||!_0x19b817[_0x441c70(0x8db,0x90d)](tickEvery,this,0x14))return;this[_0x441c70(-0x154,0x27e)]();}};function safeRegFun(_0x38325b){function _0x2980f2(_0x5905e8,_0x49de2f){return _0x5a0b42(_0x5905e8,_0x49de2f-0x10c);}try{menu[_0x2980f2(0x1054,0xc09)](_0x38325b);}catch(_0x586306){}}for(const t of[_0x5a0b42(0x42d,0x286),_0x5a0b42(0xb53,0x93c),_0x5a0b42(0x344,0x65),_0x5a0b42(-0x2a1,0x2b5),_0x5a0b42(0x2c6,0xe4),_0x5a0b42(0x8a0,0x89e),_0x5a0b42(-0x75,0x17b),_0x5a0b42(0x4b0,0x4a5),_0x5a0b42(0x539,0x19c),_0x5a0b42(-0xd3,0x39a),_0x5a0b42(0x7d3,0x54d),_0x5a0b42(0x2d6,0xb1),_0x5a0b42(0x2a3,0x2cb),_0x5a0b42(0x46f,0x4),_0x5a0b42(-0x20f,0x5c),_0x5a0b42(-0x21a,0x103),_0x5a0b42(0x466,0x4c),_0x5a0b42(0x1c4,0x4cb),_0x5a0b42(0x219,0x76),_0x5a0b42(0x819,0x9bf),_0x5a0b42(0x840,0x768),_0x5a0b42(0x967,0x946),_0x5a0b42(0xc37,0xb11),_0x5a0b42(0x530,0x86b),_0x5a0b42(0x658,0x793),_0x5a0b42(0x86c,0x2c9),_0x5a0b42(0x9c5,0x71f),_0x5a0b42(0x8a5,0x340),_0x5a0b42(0x6b4,0x926),_0x5a0b42(-0x46b,0xf3),_0x5a0b42(0xe94,0xacf),_0x5a0b42(0x67d,0x5b6),_0x5a0b42(0x99,0x99),_0x5a0b42(0x4a9,0x248),_0x5a0b42(0x2bf,0x420),_0x5a0b42(0x55d,0x7c8),_0x5a0b42(0x366,0x1f7),_0x5a0b42(0x3be,0x6bf),_0x5a0b42(0x4ac,
-0xa37),_0x5a0b42(0x706,0x82c),_0x5a0b42(0xf1,0x1ec),_0x5a0b42(0xba4,0x964),_0x5a0b42(0xbf8,0xac6),_0x5a0b42(0xa79,0xae7),_0x5a0b42(0x4ff,0x7c9),_0x5a0b42(0x7cb,0x9e5),_0x5a0b42(0x1f1,0x11c),_0x5a0b42(0x9e4,0x5c0),_0x5a0b42(0x84a,0x309),_0x5a0b42(0x3d1,0x6ae),_0x5a0b42(0x8a5,0x96d),_0x5a0b42(0xb6d,0x6d1),_0x5a0b42(0x4cf,0x5f7),_0x5a0b42(0xd37,0x7ca),_0x5a0b42(0x887,0x31a),_0x5a0b42(0x84c,0xa47),_0x5a0b42(0xaf4,0xab1),_0x5a0b42(-0x2ed,0x21d)])safeRegFun(t);const skinTryOn={'tag':_0x5a0b42(0x6c8,0x6d1),'enabled':![],'current':null,'deviceData':null,'tickCount':0x0,'sel':{},'selLoaded':![],'manual':'','pending':null,'pendingManual':'','PBR_TEST_UUIDS':{'361b9a81-09bb-40c1-a977-2c1f3df95a03':0x77,'1859a748-c854-4da7-8c34-f6c4c220ef40':0x8f,'13214da7-f7ca-46a4-991e-5ffc78743c31':0x94,'e494e015-7712-4c30-b2e7-98d90b4266e9':0x97,'10c85b7d-7975-4dc9-8cdf-c149d609417a':0x9a},'DEBUG_KEYS':{'test_crafting_table_uuid':0x1,'test_furnace_uuid':0x1,'chest_test_a':0x1,'chest_test_b':0x1},'CLEAR_PY':_0x5a0b42(0x6a8,0x94f)+_0x5a0b42(0x3fb,0x163)+_0x5a0b42(0xa2c,0x970)+_0x5a0b42(0xae0,0x912)+_0x5a0b42(0x507,0x49e)+(_0x5a0b42(-0xf4,0xbf)+_0x5a0b42(0x751,0x8be)+_0x5a0b42(0x406,0x59)+_0x5a0b42(0xb2a,0x574)+_0x5a0b42(-0x73,-0x2))+_0x5a0b42(0x8b1,0x9e6),'DUMP_PY':_0x5a0b42(-0x29c,0x14c)+_0x5a0b42(0x935,0x9c8)+_0x5a0b42(0x32,0x26e)+_0x5a0b42(0x7ae,0x5d4)+_0x5a0b42(0x129,0x685)+(_0x5a0b42(0x80d,0xaf7)+_0x5a0b42(-0x99,0x40a)),'buildDumpPy'(){let _0x5911df=_0x1ac808(0x119,0xb2);function _0x1ac808(_0x483511,_0x33e624){return _0x5a0b42(_0x33e624,_0x483511- -0x1f1);}try{_0x5911df=app[_0x1ac808(0x7fb,0xd25)](_0x5911df);}catch(_0x3192a4){}return this[_0x1ac808(0x6a6,0x7d1)][_0x1ac808(0x232,0x71)](_0x1ac808(0xaf,0x94),'u'+JSON[_0x1ac808(0x3fc,0x2ce)](_0x5911df));},'runDump'(){function _0x5b1463(_0x5b09e4,_0x4752c0){return _0x5a0b42(_0x4752c0,_0x5b09e4- -0x212);}try{app[_0x5b1463(0x63,0x2fd)](this[_0x5b1463(-0x27a,-0x688)]());}catch(_0xa1b33f){try{minecraft[_0x5b1463(-0x237,-0x7d8)](_0x5b1463(0x536,0x789)+String(_0xa1b33f)[_0x5b1463(-0x275,0x237)](0x0,0x50));}catch(_0x3a16c3){}return;}this[_0x5b1463(0x440,0x1b7)]=null;let _0x55a288=0x0;try{const _0x37ac58=String(app[_0x5b1463(0x63,-0x274)](_0x5b1463(0x12f,0x52b))||'');if(_0x37ac58)_0x55a288=JSON[_0x5b1463(0x69e,0xb9f)](_0x37ac58)[_0x5b1463(0x79c,0x96b)]||0x0;}catch(_0x1b5836){}try{minecraft[_0x5b1463(-0x237,0x5c)](_0x5b1463(0x5a9,0x307)+(_0x55a288?_0x5b1463(0x531,0x700)+_0x55a288+'\x20条':''));}catch(_0x388510){}},'loadDeviceData'(){if(this[_0x19ab9a(0x5bd,0x755)]!==null)return this[_0x19ab9a(0x2db,0x755)];this[_0x19ab9a(0x483,0x755)]={};let _0x338512='';try{_0x338512=String(fs[_0x19ab9a(0x40c,0xa8)](app[_0x19ab9a(0xd04,0xaef)](_0x19ab9a(-0x111,0x40d)))||'');}catch(_0x3504d0){}try{const _0xf34d42=JSON[_0x19ab9a(0x990,0x9b3)](_0x338512);if(_0xf34d42&&_0xf34d42[_0x19ab9a(-0x2a5,0x13f)])this[_0x19ab9a(0x2fe,0x755)]=_0xf34d42[_0x19ab9a(-0x3f5,0x13f)];}catch(_0x1b29b6){}function _0x19ab9a(_0x38b469,_0x3b9103){return _0x5a0b42(_0x38b469,_0x3b9103-0x103);}return this[_0x19ab9a(0xc91,0x755)];},'buildApplyPy'(_0x5d8a69,_0x2a9302){const _0x5b2f0c={'cHPzo':function(_0x29a49d,_0x11f4e5){return _0x29a49d(_0x11f4e5);}};function _0x5d4836(_0x2fec9b,_0xeedf67){return _0x5a0b42(_0xeedf67,_0x2fec9b-0x1c7);}const _0x502c05=_0x5d8a69[_0x5d4836(0x721,0xb26)](_0x32196e=>this[_0x5d4836(0x51b,0x9bb)][String(_0x32196e)]),_0x14fb10={};for(const _0x34980b of _0x502c05)_0x14fb10[_0x5b2f0c[_0x5d4836(0x42e,0x250)](String,_0x34980b)]=this[_0x5d4836(0x51b,0x907)][String(_0x34980b)];return _0x5d4836(0x905,0x41a)+JSON[_0x5d4836(0x7b4,0xb4a)](JSON[_0x5d4836(0x7b4,0x37e)](_0x5d8a69[_0x5d4836(0x6a2,0xc2d)](String)))+_0x5d4836(0x2a8,0x55b)+JSON[_0x5d4836(0x7b4,0x916)](JSON[_0x5d4836(0x7b4,0x831)](_0x502c05[_0x5d4836(0x6a2,0xf9)](String)))+_0x5d4836(0xccf,0x813)+JSON[_0x5d4836(0x7b4,0x797)](JSON[_0x5d4836(0x7b4,0x47a)](_0x14fb10))+_0x5d4836(0x35f,0x80f)+JSON[_0x5d4836(0x7b4,0xa19)](JSON[_0x5d4836(0x7b4,0x685)](_0x2a9302||''))+(_0x5d4836(0xa4b,0x846)+
-_0x5d4836(0x39b,0x5cb)+_0x5d4836(0x3d8,0x2a8)+_0x5d4836(0x5a2,0x524)+_0x5d4836(0x16e,0x3f)+(_0x5d4836(0x7d0,0x28f)+_0x5d4836(0x53d,0x865)+_0x5d4836(0x271,-0x24d)+_0x5d4836(0x9ba,0xb63)+_0x5d4836(0x482,0x3f9))+(_0x5d4836(0x630,0x6a8)+_0x5d4836(0x3dc,0x870)+_0x5d4836(0x1ba,-0xa9)+_0x5d4836(0xa64,0xf3d)+_0x5d4836(0x379,0x48f))+(_0x5d4836(0xcc3,0xdcb)+_0x5d4836(0x554,0xad4)+_0x5d4836(0xa28,0xcb4)+_0x5d4836(0x536,0x45a)+_0x5d4836(0x6a6,0x96d))+(_0x5d4836(0x89c,0x8d6)+_0x5d4836(0xc88,0x6fd)));},'apply'(_0x47f4c1,_0x36f833,_0x31ef94){const _0x4a1b45={'XJtUw':function(_0x357452,_0x109cf8){return _0x357452(_0x109cf8);},'bkLKo':_0x57604e(0xbff,0x96e),'nfuCT':_0x57604e(0xc33,0x106b)};if(!_0x47f4c1||!_0x47f4c1[_0x57604e(0x938,0x56a)])return;try{app[_0x57604e(0x58b,0x784)](this[_0x57604e(0x47e,0x347)](_0x47f4c1,_0x31ef94));}catch(_0x4f3e07){const _0x3814bb=_0x4a1b45[_0x57604e(0x545,0x921)](String,_0x4f3e07)[_0x57604e(0x2b3,0x3ea)](0x0,0x50);try{minecraft[_0x57604e(0x2f1,0x284)](_0x4a1b45[_0x57604e(0x36a,0x122)]+_0x3814bb);}catch(_0x4de1d8){}try{app[_0x57604e(0xb19,0x807)](_0x57604e(0x8c8,0x37c)+_0x3814bb);}catch(_0x3c7ea3){}return;}function _0x57604e(_0x46edfc,_0x215aa5){return _0x5a0b42(_0x215aa5,_0x46edfc-0x316);}this[_0x57604e(0x395,0x90)]={'uuids':_0x47f4c1[_0x57604e(0x2b3,0x150)](),'label':String(_0x36f833||_0x47f4c1[_0x57604e(0x784,0x222)](',')),'mountModel':_0x31ef94||''};let _0x36370e=_0x57604e(0x556,0x56d)+this[_0x57604e(0x395,0x712)][_0x57604e(0x5bc,0x73e)]+_0x57604e(0x6f9,0x40c);if(_0x31ef94)_0x36370e+=_0x4a1b45[_0x57604e(0x366,0x1e)];if(_0x47f4c1[_0x57604e(0xca0,0x103f)](_0x256158=>this[_0x57604e(0x66a,0x10a)][String(_0x256158)]))_0x36370e+=_0x57604e(0x9d4,0x4ee);try{minecraft[_0x57604e(0x2f1,0x685)](_0x36370e);}catch(_0x5d4e54){}},'clear'(){function _0x2929fe(_0x102a5f,_0x156d6a){return _0x5a0b42(_0x102a5f,_0x156d6a- -0x22a);}try{app[_0x2929fe(0x12,0x4b)](this[_0x2929fe(0x957,0x77d)]);}catch(_0x16b9a6){}},'deviceTypeOf'(_0x259553){const _0x5023a3={'tGwNv':function(_0x232657,_0x2283b0){return _0x232657(_0x2283b0);},'snEfa':_0x533b06(0x840,0xa6f),'gpjhY':_0x533b06(0x3b7,0x278),'hZMqb':function(_0x5cff99,_0x1b3d4c){return _0x5cff99(_0x1b3d4c);},'FImsL':_0x533b06(0x94e,0x750),'iWczT':function(_0x343421,_0x2facb){return _0x343421(_0x2facb);},'TfWzA':_0x533b06(0xb3f,0x993),'kKbwu':function(_0x39c44f,_0x2ace81){return _0x39c44f(_0x2ace81);},'cXgwQ':function(_0x717f6,_0x16f046){return _0x717f6===_0x16f046;}},_0x50b4eb=_0x259553[_0x533b06(0x2be,0x729)]||[],_0x2e5652=_0x54b03c=>_0x50b4eb[_0x533b06(0x70a,0x28a)](_0x54b03c)>=0x0;if(_0x5023a3[_0x533b06(0x7ea,0x34d)](_0x2e5652,_0x5023a3[_0x533b06(0x541,0x71d)]))return'皮肤';if(_0x2e5652(_0x533b06(0x207,0x2c8)))return'坐骑';if(_0x2e5652(_0x5023a3[_0x533b06(0x7fd,0x749)])||_0x5023a3[_0x533b06(0x1d7,0x730)](_0x2e5652,_0x5023a3[_0x533b06(0x872,0xd4a)])||_0x2e5652(_0x533b06(0x304,0x736)))return'武器';if(_0x50b4eb[_0x533b06(0xfcf,0xbe3)](_0x580070=>_0x580070[_0x533b06(0x376,0x28a)](_0x533b06(0xa17,0xc0f))===0x0))return'拆件';if(_0x5023a3[_0x533b06(0x77,0x34d)](_0x2e5652,_0x533b06(0x691,0x479)))return'盔甲';if(_0x5023a3[_0x533b06(-0x192,0x2e3)](_0x2e5652,_0x533b06(0x590,0x8b4))||_0x2e5652(_0x5023a3[_0x533b06(0x299,0x1fb)]))return _0x533b06(0x92f,0x790);if(_0x2e5652(_0x533b06(0xea,0x4a3))||_0x5023a3[_0x533b06(0xb3c,0xae8)](_0x2e5652,_0x533b06(0xa2c,0x516)))return'脚印';if(_0x5023a3[_0x533b06(0x93b,0x58c)](_0x259553[_0x533b06(0xe79,0xbc3)],'fz'))return'法阵';function _0x533b06(_0x14857c,_0x3b5bc4){return _0x5a0b42(_0x14857c,_0x3b5bc4-0x259);}return'其他';},'deviceList'(){const _0xb0fff=this[_0x3bd1ca(0xb8e,0x717)](),_0x20aa41=[];function _0x3bd1ca(_0x15cf70,_0x26b297){return _0x5a0b42(_0x26b297,_0x15cf70-0x220);}for(const _0x26f968 in _0xb0fff){if(this[_0x3bd1ca(0x78e,0x4ed)][_0x26f968]||_0x26f968[_0x3bd1ca(0x251,-0x111)](_0x3bd1ca(0x96e,0x705))===0x0||_0x26f968[_0x3bd1ca(0xd15,0x112a)](0x0)==='_')continue;const _0x18eae1=_0xb0fff[_0x26f968]||{},_0x1f9e97=String(_0x18eae1[_0x3bd1ca(0x5dd,
-0x76e)]||'')[_0x3bd1ca(0x780,0x67b)](),_0x25e22d=String(_0x18eae1[_0x3bd1ca(0xb74,0xaba)]||'')[_0x3bd1ca(0x780,0x3bf)](),_0x1353f4=String(_0x18eae1[_0x3bd1ca(0x273,-0x2d1)]||'')[_0x3bd1ca(0x780,0xbd3)]();_0x20aa41[_0x3bd1ca(0xad6,0x1053)]({'name':_0x1f9e97||_0x25e22d||_0x1353f4||_0x26f968[_0x3bd1ca(0x1bd,0x1b6)](0x0,0x8),'named':!!_0x1f9e97,'uuid':_0x26f968,'type':this[_0x3bd1ca(0x568,0x3bb)](_0x18eae1),'rarity':0x0,'model':_0x1353f4,'device':!![]});}const _0x583de7={'皮肤':0x1,'坐骑':0x2,'法阵':0x3,'武器':0x4,'拆件':0x5,'脚印':0x6,'盔甲':0x7,'功能方块':0x8,'其他':0x9};return _0x20aa41[_0x3bd1ca(0x1dc,0x12d)]((_0x3230b7,_0x136109)=>(_0x583de7[_0x3230b7[_0x3bd1ca(0xafd,0xe0b)]]||0x63)-(_0x583de7[_0x136109[_0x3bd1ca(0xafd,0x73b)]]||0x63)||(_0x3230b7[_0x3bd1ca(0x950,0x89a)]===_0x136109[_0x3bd1ca(0x950,0x8eb)]?0x0:_0x3230b7[_0x3bd1ca(0x950,0x66f)]?-0x1:0x1)||(_0x3230b7[_0x3bd1ca(0x5dd,0xb1d)]<_0x136109[_0x3bd1ca(0x5dd,0x162)]?-0x1:0x1)),_0x20aa41;},'selFilePath'(){function _0x4518f1(_0x11d47e,_0x126c45){return _0x5a0b42(_0x11d47e,_0x126c45-0x321);}return app[_0x4518f1(0x941,0xd0d)](_0x4518f1(0xe18,0x8e6));},'loadSel'(){const _0x344882={'lwLfx':function(_0x1bc601,_0x5112bc){return _0x1bc601===_0x5112bc;}};if(this[_0x4f1ebc(0xac2,0x766)])return;this[_0x4f1ebc(0xac2,0xf20)]=!![];function _0x4f1ebc(_0x23a8a1,_0x3ab911){return _0x5a0b42(_0x3ab911,_0x23a8a1-0x245);}try{const _0x57ed76=this[_0x4f1ebc(0x51e,0x33)]();if(fs[_0x4f1ebc(0x880,0x4c6)](_0x57ed76)){const _0x3c6083=JSON[_0x4f1ebc(0xaf5,0x77b)](String(fs[_0x4f1ebc(0x1ea,0x748)](_0x57ed76)||'{}'));if(_0x3c6083&&_0x3c6083[_0x4f1ebc(0x4bb,0x50d)]&&typeof _0x3c6083[_0x4f1ebc(0x4bb,0x92f)]===_0x4f1ebc(0x232,0x513))this[_0x4f1ebc(0x4bb,0x567)]=_0x3c6083[_0x4f1ebc(0x4bb,0x131)];if(_0x3c6083&&_0x344882[_0x4f1ebc(0x85f,0x5cf)](typeof _0x3c6083[_0x4f1ebc(0xbf7,0x744)],_0x4f1ebc(0x6bf,0x99e)))this[_0x4f1ebc(0xbf7,0x9bc)]=_0x3c6083[_0x4f1ebc(0xbf7,0xb16)];}}catch(_0x15f2e3){}},'saveSel'(){function _0x178241(_0x1aa13d,_0x90187f){return _0x5a0b42(_0x90187f,_0x1aa13d-0x23c);}try{const _0x1d7b66=app[_0x178241(0xc28,0xd0a)](_0x178241(0x38d,0x445));if(!fs[_0x178241(0x877,0x673)](_0x1d7b66))fs[_0x178241(0xc94,0x108d)](_0x1d7b66);fs[_0x178241(0xa08,0xda9)](this[_0x178241(0x515,0xad0)](),JSON[_0x178241(0x829,0x7c8)]({'sel':this[_0x178241(0x4b2,0x97a)],'manual':this[_0x178241(0xbee,0x95f)]}));}catch(_0x28b161){}},'initPending'(_0x5bbe7c){this[_0x3bcf71(0xd10,0xf0e)]();const _0x344786={};for(const _0x465acb in this[_0x3bcf71(0x46d,0x1d)]){const _0xd59da3=Array[_0x3bcf71(0xc3c,0xc8c)](this[_0x3bcf71(0x46d,0x425)][_0x465acb])?this[_0x3bcf71(0x46d,0x7ac)][_0x465acb]:[],_0x3d925b=_0xd59da3[_0x3bcf71(0x751,0xbba)](_0x3055e9=>_0x5bbe7c[_0x3bcf71(0xb81,0x62b)](_0xa83331=>_0xa83331[_0x3bcf71(0x36f,-0x86)]===_0x3055e9));if(_0x3d925b[_0x3bcf71(0x819,0xc5b)])_0x344786[_0x465acb]=_0x3d925b;}this[_0x3bcf71(0x750,0xa9d)]=_0x344786;function _0x3bcf71(_0x555851,_0xbd2db9){return _0x5a0b42(_0xbd2db9,_0x555851-0x1f7);}this[_0x3bcf71(0x4a4,-0x3b)]=String(this[_0x3bcf71(0xba9,0x922)]||'');},'prunePending'(_0x1fd05f){function _0x5629aa(_0x3e49e8,_0x33bfb0){return _0x5a0b42(_0x3e49e8,_0x33bfb0-0x519);}const _0x1be4d3=this[_0x5629aa(0xba0,0xa72)]||{};for(const _0x44ddf5 in _0x1be4d3){const _0x7a975a=_0x1be4d3[_0x44ddf5][_0x5629aa(0xd4f,0xa73)](_0x137f3a=>_0x1fd05f[_0x5629aa(0xbb3,0xea3)](_0x187e9f=>_0x187e9f[_0x5629aa(0x9eb,0x691)]===_0x137f3a));if(_0x7a975a[_0x5629aa(0xbe8,0xb3b)])_0x1be4d3[_0x44ddf5]=_0x7a975a;else delete _0x1be4d3[_0x44ddf5];}},'isMultiCat'(_0x357bdf){function _0x43a826(_0x2ef648,_0x155c7b){return _0x5a0b42(_0x155c7b,_0x2ef648-0x291);}const _0x46a45b={'vzreg':_0x43a826(0x7c8,0x789)};return _0x357bdf==='武器'||_0x357bdf===_0x46a45b[_0x43a826(0x664,0x1f7)];},'pendingCount'(){let _0x1582cb=0x0;const _0x5e43bd=this[_0x593ee2(0x959,0xcb6)]||{};function _0x593ee2(_0x19b47a,_0x5d884c){return _0x5a0b42(_0x5d884c,_0x19b47a-0x400);}for(const _0x38e518 in _0x5e43bd)_0x1582cb+=(_0x5e43bd[_0x38e518]||[])[_0x593ee2(0xa22,
-0xc59)];return _0x1582cb+=String(this[_0x593ee2(0x6ad,0x69f)]||'')[_0x593ee2(0xb05,0x565)](/[,，]/)[_0x593ee2(0x8db,0x366)](_0xda9c6b=>_0xda9c6b[_0x593ee2(0x960,0xbfb)]())[_0x593ee2(0x95a,0xc2a)](_0x52d194=>_0x52d194)[_0x593ee2(0xa22,0xafa)],_0x1582cb;},'openMainForm'(){const _0x4c60a7={'kYZYQ':_0x14243b(-0x9c,0xbc),'ZTbnY':function(_0x1035d5,_0x41951b){return _0x1035d5===_0x41951b;},'mvcRx':_0x14243b(0x359,0x4e7),'wAYcj':function(_0x4e2d76,_0x8949d1){return _0x4e2d76===_0x8949d1;},'QBdtf':_0x14243b(0x70e,0x9c9),'rOIoU':_0x14243b(0x8d2,0x949),'ShHwW':function(_0x16871e,_0x2cbb64){return _0x16871e+_0x2cbb64;},'ZuLMU':_0x14243b(0x4e9,0x457)};let _0x3e9a21=Object[_0x14243b(0x929,0x86b)](this[_0x14243b(0xa5d,0x91e)]())[_0x14243b(0x860,0x5d2)];!_0x3e9a21&&(this[_0x14243b(0x420,0x51d)](),_0x3e9a21=Object[_0x14243b(0xb8c,0x86b)](this[_0x14243b(0xd9a,0x91e)]())[_0x14243b(0x9bb,0x5d2)]);if(!_0x3e9a21){try{app[_0x14243b(0x760,0x7b3)](_0x14243b(0x637,0x740));}catch(_0x3cb342){}this[_0x14243b(0x333,0x509)]=null;return;}const _0x42e81c=['皮肤','坐骑','法阵','武器','拆件','脚印','盔甲',_0x4c60a7[_0x14243b(0xa95,0x91b)],'其他'],_0x243b07=this[_0x14243b(0x114,0x57d)]();if(_0x4c60a7[_0x14243b(0x3d8,0x518)](this[_0x14243b(0x1e4,0x509)],null))this[_0x14243b(0xdff,0x8df)](_0x243b07);const _0x31590e=this,_0x403288=[],_0x43d3b6=[];for(const _0x5740f7 of _0x42e81c){const _0x32c70f=_0x243b07[_0x14243b(0xad6,0x50a)](_0x11f600=>_0x11f600[_0x14243b(0xaa6,0x88d)]===_0x5740f7);if(!_0x32c70f[_0x14243b(0x90b,0x5d2)])continue;_0x403288[_0x14243b(0x874,0x866)]({'t':_0x14243b(0x3a2,0xbc),'cat':_0x5740f7,'opts':_0x32c70f});const _0x1d0402=(this[_0x14243b(0x881,0x509)]||{})[_0x5740f7]||[];let _0x3c0f34='无';if(this[_0x14243b(0x3fe,0x1b2)](_0x5740f7)){if(_0x1d0402[_0x14243b(0xf8,0x5d2)])_0x3c0f34='已选'+_0x1d0402[_0x14243b(0x62b,0x5d2)]+'个';}else{if(_0x1d0402[_0x14243b(0x323,0x5d2)]){const _0xc2b810=_0x32c70f[_0x14243b(0xa46,0x500)](_0x272eb9=>_0x272eb9[_0x14243b(0x535,0x128)]===_0x1d0402[0x0]);if(_0xc2b810)_0x3c0f34=_0xc2b810[_0x14243b(0x6e1,0x36d)];}}_0x43d3b6[_0x14243b(0x91f,0x866)]({'text':_0x5740f7+':\x20'+_0x3c0f34});}const _0x15271f=String(this[_0x14243b(0x49f,0x25d)]||'')[_0x14243b(0x970,0x6b5)](/[,，]/)[_0x14243b(0x717,0x48b)](_0x200457=>_0x200457[_0x14243b(0x762,0x510)]())[_0x14243b(0x7f9,0x50a)](_0x4ce7f7=>_0x4ce7f7)[_0x14243b(0x7c6,0x5d2)];_0x403288[_0x14243b(0xb1a,0x866)]({'t':_0x14243b(0xf29,0x962)}),_0x43d3b6[_0x14243b(0x7db,0x866)]({'text':_0x14243b(0x1f1,-0x4a)+(_0x15271f?':\x20'+_0x15271f+'个':'')}),_0x403288[_0x14243b(0x8f6,0x866)]({'t':_0x14243b(0xa2e,0x94e)}),_0x43d3b6[_0x14243b(0x3e8,0x866)]({'text':_0x14243b(0x3b1,0x387)});function _0x14243b(_0x3b0584,_0x506d91){return _0x5a0b42(_0x3b0584,_0x506d91- -0x50);}_0x403288[_0x14243b(0xe05,0x866)]({'t':_0x14243b(-0x136,0x1af)}),_0x43d3b6[_0x14243b(0xa8c,0x866)]({'text':_0x14243b(0x761,0x85c)}),_0x403288[_0x14243b(0xcec,0x866)]({'t':_0x4c60a7[_0x14243b(-0x187,-0x8b)]}),_0x43d3b6[_0x14243b(0xbe3,0x866)]({'text':_0x4c60a7[_0x14243b(0xb4d,0x79d)]});const _0x1e2eed=this[_0x14243b(-0x3,0x268)](),_0x49aa53=JSON[_0x14243b(0x5c2,0x59d)]({'type':_0x14243b(0x508,0x511),'title':_0x4c60a7[_0x14243b(0x3b0,0x139)](_0x4c60a7[_0x14243b(0x19a,0x48c)]+_0x243b07[_0x14243b(0x549,0x5d2)],')'),'content':_0x14243b(0x744,0xa37)+(_0x1e2eed?_0x1e2eed+'项':'无'),'buttons':_0x43d3b6});try{gui[_0x14243b(-0x36e,0x152)](_0x49aa53,function(_0x46cbe6){const _0x28a6ba=_0x403288[typeof _0x46cbe6===_0x3379ea(0x8b3,0xd56)?_0x46cbe6:parseInt(_0x46cbe6,0xa)];function _0x3379ea(_0x1eea86,_0x2e8473){return _0x14243b(_0x2e8473,_0x1eea86-0x251);}if(!_0x28a6ba){_0x31590e[_0x3379ea(0x598,0x43f)]();return;}if(_0x28a6ba['t']===_0x4c60a7[_0x3379ea(0xbff,0xd25)]){if(_0x31590e[_0x3379ea(0x403,0x1d7)](_0x28a6ba[_0x3379ea(0x30d,0x2d2)]))_0x31590e[_0x3379ea(0xc86,0x10b6)](_0x28a6ba[_0x3379ea(0x30d,0x53b)],_0x28a6ba[_0x3379ea(0xcda,0xfc7)]);else _0x31590e[_0x3379ea(0xccf,0x11cc)](_0x28a6ba[_0x3379ea(0x30d,-0x141)],_0x28a6ba[_0x3379ea(0xcda,
-0x1103)]);}else{if(_0x28a6ba['t']===_0x3379ea(0xbb3,0x1142))_0x31590e[_0x3379ea(0x318,0x85c)]();else{if(_0x28a6ba['t']===_0x3379ea(0xb9f,0xa4e))_0x31590e[_0x3379ea(0x76e,0x627)](),_0x31590e[_0x3379ea(0x711,0x7f9)](_0x31590e[_0x3379ea(0x7ce,0x251)]()),_0x31590e[_0x3379ea(0x490,0x672)]();else{if(_0x28a6ba['t']===_0x3379ea(0x400,0x898))_0x31590e[_0x3379ea(0x75a,0xb9b)]={},_0x31590e[_0x3379ea(0x4ae,0x436)]='',_0x31590e[_0x3379ea(0x598,0x3aa)]();else _0x4c60a7[_0x3379ea(0x2e9,0xc0)](_0x28a6ba['t'],_0x3379ea(0xc1a,0xc3b))&&_0x31590e[_0x3379ea(0x598,0xa1f)]();}}}},function(){function _0x175281(_0x40ebea,_0xf3af0e){return _0x14243b(_0x40ebea,_0xf3af0e-0xde);}_0x31590e[_0x175281(0xf9,0x5e7)]=null;});}catch(_0x4b5f9e){}},'openCatForm'(_0x902bab,_0x197b1d){const _0x48b2df={'ZAadY':function(_0x1f03ec,_0x2459e4){return _0x1f03ec+_0x2459e4;},'qhDUH':_0x3c3cb2(0x765,0x6ce)},_0x2d07a8=(this[_0x3c3cb2(0xaa9,0x9e6)]||{})[_0x902bab]||[];let _0x210f94=0x0;function _0x3c3cb2(_0x163d09,_0x21d9c6){return _0x5a0b42(_0x163d09,_0x21d9c6-0x48d);}if(_0x2d07a8[_0x3c3cb2(0x56c,0xaaf)])for(let _0x4f580f=0x0;_0x4f580f<_0x197b1d[_0x3c3cb2(0x6fd,0xaaf)];_0x4f580f++){if(_0x197b1d[_0x4f580f][_0x3c3cb2(0x936,0x605)]===_0x2d07a8[0x0]){_0x210f94=_0x48b2df[_0x3c3cb2(0xd63,0xbec)](_0x4f580f,0x1);break;}}const _0x36d788=this,_0x5b4af9=JSON[_0x3c3cb2(0xfe5,0xa7a)]({'type':_0x3c3cb2(0xab6,0xa66),'title':_0x902bab+'('+_0x197b1d[_0x3c3cb2(0xcb6,0xaaf)]+')','content':[{'type':_0x48b2df[_0x3c3cb2(0x118e,0xce0)],'text':_0x902bab,'options':['无'][_0x3c3cb2(0xf24,0x9c1)](_0x197b1d[_0x3c3cb2(0x441,0x968)](_0x44f168=>_0x44f168[_0x3c3cb2(0x839,0x84a)])),'default':_0x210f94}]});try{gui[_0x3c3cb2(0x2a8,0x62f)](_0x5b4af9,function(_0x5e44f5){function _0x144cab(_0x4ef5d8,_0x44f5d2){return _0x3c3cb2(_0x44f5d2,_0x4ef5d8- -0x3f4);}const _0x220548=parseInt(_0x5e44f5,0xa)||0x0;if(_0x220548>0x0&&_0x197b1d[_0x220548-0x1])_0x36d788[_0x144cab(0x5f2,0xabb)][_0x902bab]=[_0x197b1d[_0x220548-0x1][_0x144cab(0x211,0x1e8)]];else delete _0x36d788[_0x144cab(0x5f2,0xb57)][_0x902bab];_0x36d788[_0x144cab(0x328,0x6d1)]();},function(){function _0x5d1998(_0x45053e,_0x14aad0){return _0x3c3cb2(_0x14aad0,_0x45053e- -0x5a5);}_0x36d788[_0x5d1998(0x177,0x4db)]();});}catch(_0x3ae7a8){_0x36d788[_0x3c3cb2(0xb4b,0x71c)]();}},'openMultiForm'(_0x2e5faa,_0x4b800b){const _0x21dd94={'kNegt':function(_0x3c708e,_0x3a83bf){return _0x3c708e<_0x3a83bf;},'OnIxy':function(_0x56877c,_0x219067){return _0x56877c===_0x219067;},'WUypn':function(_0xa1045e,_0x977804){return _0xa1045e===_0x977804;},'lrZJG':_0x7932de(0x43a,0x7e7),'xedMF':function(_0x4f4dd6,_0xc6198e){return _0x4f4dd6>=_0xc6198e;},'vzoJF':function(_0x10f655,_0x3a4583){return _0x10f655+_0x3a4583;}},_0x5baa97=(this[_0x7932de(0x727,0x719)]||{})[_0x2e5faa]||[],_0x23c799=[];for(const _0x5cc316 of _0x4b800b){_0x23c799[_0x7932de(0xa84,0x760)]({'type':_0x21dd94[_0x7932de(0xc1f,0xfb0)],'text':_0x5cc316[_0x7932de(0x58b,0x77e)],'default':_0x21dd94[_0x7932de(0x1eb,0x1ad)](_0x5baa97[_0x7932de(0x1ff,0x5ab)](_0x5cc316[_0x7932de(0x346,0x3d2)]),0x0)});}const _0x5b4e8b=this;function _0x7932de(_0x583b4d,_0x3b159c){return _0x5a0b42(_0x3b159c,_0x583b4d-0x1ce);}const _0x3346ab=JSON[_0x7932de(0x7bb,0xc48)]({'type':_0x7932de(0x7a7,0x950),'title':_0x21dd94[_0x7932de(0x1ce,0x31e)](_0x2e5faa+'(',_0x4b800b[_0x7932de(0x7f0,0xbb8)])+')','content':_0x23c799});try{gui[_0x7932de(0x370,-0x190)](_0x3346ab,function(){function _0x2f93a9(_0xf2ad7c,_0x5e55e3){return _0x7932de(_0xf2ad7c-0xfc,_0x5e55e3);}const _0x1177cf=[];for(let _0x44d52a=0x0;_0x21dd94[_0x2f93a9(0x7b9,0x729)](_0x44d52a,_0x4b800b[_0x2f93a9(0x8ec,0x4c8)]);_0x44d52a++){const _0x358d68=arguments[_0x44d52a];if(_0x21dd94[_0x2f93a9(0xce4,0x1069)](_0x358d68,!![])||_0x358d68===_0x2f93a9(0xd91,0xf6f)||_0x21dd94[_0x2f93a9(0xbd8,0x891)](_0x358d68,0x1)||_0x358d68==='1')_0x1177cf[_0x2f93a9(0xb80,0x7f6)](_0x4b800b[_0x44d52a][_0x2f93a9(0x442,0x8fc)]);}if(_0x1177cf[_0x2f93a9(0x8ec,0x4c9)])_0x5b4e8b[_0x2f93a9(0x823,
-0x88f)][_0x2e5faa]=_0x1177cf;else delete _0x5b4e8b[_0x2f93a9(0x823,0x497)][_0x2e5faa];_0x5b4e8b[_0x2f93a9(0x559,0xa04)]();},function(){function _0x54bda5(_0x12350a,_0x398f78){return _0x7932de(_0x398f78- -0xa5,_0x12350a);}delete _0x5b4e8b[_0x54bda5(0x463,0x682)][_0x2e5faa],_0x5b4e8b[_0x54bda5(0x8b8,0x3b8)]();});}catch(_0x34b87c){_0x5b4e8b[_0x7932de(0x45d,0x396)]();}},'openManualForm'(){const _0xe3c8fc={'ARvtG':_0x5bfc73(0x62e,0x4c0)},_0x2fa45c=this;function _0x5bfc73(_0x2b39d4,_0x520822){return _0x5a0b42(_0x2b39d4,_0x520822- -0x119);}const _0x35583c=JSON[_0x5bfc73(0x70b,0x4d4)]({'type':_0xe3c8fc[_0x5bfc73(0x2e2,-0x65)],'title':_0x5bfc73(0x424,-0x113),'content':[{'type':_0x5bfc73(0x1b2,0x35d),'text':_0x5bfc73(0x3e3,0x8ea),'placeholder':_0x5bfc73(0x585,0x43b),'default':String(this[_0x5bfc73(0xe3,0x194)]||'')}]});try{gui[_0x5bfc73(-0x1f1,0x89)](_0x35583c,function(_0x35009b){_0x2fa45c[_0x2b10f3(0x938,0x75f)]=String(_0x35009b||'');function _0x2b10f3(_0x129ce8,_0x5322c3){return _0x5bfc73(_0x129ce8,_0x5322c3-0x5cb);}_0x2fa45c[_0x2b10f3(0x3ae,0x741)]();},function(){function _0x7ab9f8(_0x8855f5,_0xf2a443){return _0x5bfc73(_0x8855f5,_0xf2a443-0x27);}_0x2fa45c[_0x7ab9f8(0x37d,0x19d)]();});}catch(_0x4bc490){_0x2fa45c[_0x5bfc73(0x19f,0x176)]();}},'doApply'(){const _0x324cbb={'yniIP':function(_0x3da05a,_0x5b6cab){return _0x3da05a===_0x5b6cab;},'LyntJ':function(_0xdea1fa,_0x329c6c){return _0xdea1fa(_0x329c6c);},'ZdZCP':_0xe5b5c8(0x713,0x491)};if(_0x324cbb[_0xe5b5c8(0x103e,0xacb)](this[_0xe5b5c8(0xb5e,0x962)],null))return;const _0x17dd1a=this[_0xe5b5c8(0x83e,0x9d6)]();this[_0xe5b5c8(0x721,0x919)](_0x17dd1a);const _0x15054a=this[_0xe5b5c8(0x472,0x962)]||{};this[_0xe5b5c8(0x4ce,0x962)]=null;const _0x5288fa=[];let _0x235083='';function _0xe5b5c8(_0x454544,_0x4e0340){return _0x5a0b42(_0x454544,_0x4e0340-0x409);}for(const _0x5dac09 of['皮肤','坐骑','法阵','武器','拆件','脚印','盔甲',_0xe5b5c8(0x93a,0x940),'其他']){const _0x547d8c=_0x15054a[_0x5dac09]||[];for(const _0x4bfaa2 of _0x547d8c){const _0x5a2734=_0x17dd1a[_0xe5b5c8(0x544,0x959)](_0x5ec465=>_0x5ec465[_0xe5b5c8(0x206,0x581)]===_0x4bfaa2);if(!_0x5a2734)continue;_0x5288fa[_0xe5b5c8(0xe5f,0xcbf)](_0x5a2734);if(_0x5dac09==='坐骑'&&_0x5a2734[_0xe5b5c8(0x291,0x45c)])_0x235083=_0x5a2734[_0xe5b5c8(0x94f,0x45c)];}}const _0x574b60=_0x324cbb[_0xe5b5c8(0xf4,0x412)](String,this[_0xe5b5c8(0x8c8,0x6b6)]||'')[_0xe5b5c8(0x1082,0xb0e)](/[,，]/)[_0xe5b5c8(0xb3b,0x8e4)](_0x2596c0=>_0x2596c0[_0xe5b5c8(0x9b1,0x969)]())[_0xe5b5c8(0x3f0,0x963)](_0x3e1110=>_0x3e1110);for(const _0x3df699 of _0x574b60)_0x5288fa[_0xe5b5c8(0x1216,0xcbf)]({'uuid':_0x3df699,'name':_0x3df699[_0xe5b5c8(0x94,0x3a6)](0x0,0xd),'type':'手动'});this[_0xe5b5c8(0xbf1,0x67f)]={};for(const _0x22a66 in _0x15054a){if(_0x15054a[_0x22a66]&&_0x15054a[_0x22a66][_0xe5b5c8(0xea8,0xa2b)])this[_0xe5b5c8(0x5c5,0x67f)][_0x22a66]=_0x15054a[_0x22a66][_0xe5b5c8(-0x3f,0x3a6)]();}this[_0xe5b5c8(0xfa6,0xdbb)]=String(this[_0xe5b5c8(0xa87,0x6b6)]||''),this[_0xe5b5c8(0xf24,0xeb3)]();if(!_0x5288fa[_0xe5b5c8(0xda7,0xa2b)]){if(this[_0xe5b5c8(0x625,0x488)]){this[_0xe5b5c8(0x192,0x488)]=null,this[_0xe5b5c8(0x136,0x608)]();try{minecraft[_0xe5b5c8(0x414,0x3e4)](_0xe5b5c8(0x58c,0xb2b));}catch(_0x546c91){}}else try{app[_0xe5b5c8(0x6fb,0xc0c)](_0xe5b5c8(-0xc,0x56e));}catch(_0x3b0b8d){}return;}this[_0xe5b5c8(0x321,0x57a)](_0x5288fa[_0xe5b5c8(0xbb3,0x8e4)](_0x4ea0c9=>_0x4ea0c9[_0xe5b5c8(0x2a5,0x581)]),_0x5288fa[_0xe5b5c8(0xa99,0x8e4)](_0x284bbd=>_0x284bbd[_0xe5b5c8(0xb9d,0x7c6)]+'['+_0x284bbd[_0xe5b5c8(0x118e,0xce6)]+']')[_0xe5b5c8(0x834,0x877)](_0x324cbb[_0xe5b5c8(0x4fc,0x954)]),_0x235083);},'onModuleEvent'(_0x3eb536){const _0x5194d9={'xQJfH':function(_0x35e9ef,_0x44c050,_0x53474c,_0x2962c8){return _0x35e9ef(_0x44c050,_0x53474c,_0x2962c8);},'TVVcU':_0x362234(0x774,0xc4f)};function _0x362234(_0x81d54a,_0x243e38){return _0x5a0b42(_0x81d54a,_0x243e38-0x298);}if(!_0x5194d9[_0x362234(0x6f3,0x252)](stdToggle,this,_0x3eb536,_0x5194d9[_0x362234(0x560,0x91a)]))return;if(this[_0x362234(0x3ca,
-0x38d)])this[_0x362234(0x2c3,0x527)]();},'onTick'(){function _0x5c5751(_0x5dd856,_0x1a964e){return _0x5a0b42(_0x1a964e,_0x5dd856- -0xa4);}const _0x2dcf08={'sxyhL':_0x5c5751(0x2f8,0xfc)};if(!this[_0x5c5751(-0x25,0x45d)]||!tickEvery(this,0x28))return;try{app[_0x5c5751(0x1d1,0x3d4)](_0x2dcf08[_0x5c5751(0x25e,0x6ad)]);}catch(_0x16133d){}}},loginVideo={'tag':_0x5a0b42(-0x63,0x31a),'enabled':![],'restoreMode':![],'targetPath'(){function _0x3600d1(_0x26ea42,_0x51a75b){return _0x5a0b42(_0x26ea42,_0x51a75b- -0xc);}const _0x31881b={'cMTcz':function(_0xdbceca,_0x2269fa){return _0xdbceca+_0x2269fa;},'ICICA':_0x3600d1(-0x76,0x530)};let _0x2e584d=[_0x3600d1(-0x19e,0x1ae),_0x3600d1(0x4de,0x52f),_0x3600d1(0x7eb,0xa6b)][_0x3600d1(0x3d1,0x462)]('.');try{const _0x1577fa=String(app[_0x3600d1(0xcbc,0x9e0)]('x'))[_0x3600d1(0xe9e,0xa2c)](/\/Android\/data\/([^\/]+)\/files\//);if(_0x1577fa&&_0x1577fa[0x1])_0x2e584d=_0x1577fa[0x1];}catch(_0x403504){}return _0x31881b[_0x3600d1(0xbfa,0x772)](_0x31881b[_0x3600d1(-0x2e0,0x120)],_0x2e584d)+_0x3600d1(0xb52,0x90b);},'srcPath'(){function _0x1bfc67(_0x28f1f5,_0x3d55ae){return _0x5a0b42(_0x28f1f5,_0x3d55ae-0x3f3);}const _0x346267={'SxBVB':_0x1bfc67(0x9da,0x4ba)};return app[_0x1bfc67(0x978,0xddf)](_0x346267[_0x1bfc67(0x653,0x745)]);},'backupPath'(){const _0x550744={'lxocF':_0x25a1d5(0xa69,0x81b)};function _0x25a1d5(_0xc03682,_0x26a9ed){return _0x5a0b42(_0xc03682,_0x26a9ed- -0x1d2);}return app[_0x25a1d5(0x447,0x81a)](_0x550744[_0x25a1d5(0x76a,0x5a3)]);},'run'(){const _0x4aa4bc={'VvruD':_0x24a886(0x978,0x4a4),'KcMNb':function(_0x40e5cb,_0x4e7d7a){return _0x40e5cb(_0x4e7d7a);}},_0x1c3fc8=this[_0x24a886(0x72f,0x632)]();function _0x24a886(_0x448055,_0x228d63){return _0x5a0b42(_0x448055,_0x228d63-0x4c3);}const _0x3f11a8=this[_0x24a886(0x736,0xc96)](),_0x5e159a=this[_0x24a886(0x941,0xd21)]();try{if(!fs[_0x24a886(0x5db,0xafe)](_0x5e159a)){try{app[_0x24a886(0xdf1,0xcc6)](_0x24a886(0x44a,0x7b1)+_0x5e159a);}catch(_0x1dc567){}return;}if(this[_0x24a886(0xf95,0xa92)]){if(!fs[_0x24a886(0xe94,0xafe)](_0x3f11a8)){try{app[_0x24a886(0xa3d,0xcc6)](_0x24a886(0xd54,0x830));}catch(_0xdded67){}return;}fs[_0x24a886(0x11ee,0xc8f)](_0x5e159a,fs[_0x24a886(0x254,0x468)](_0x3f11a8,_0x24a886(0x1375,0xe6b)));try{app[_0x24a886(0xb88,0xcc6)](_0x24a886(0xd5a,0xccb));}catch(_0x56d8d1){}return;}if(!fs[_0x24a886(0x571,0xafe)](_0x1c3fc8)){try{app[_0x24a886(0x767,0xcc6)](_0x4aa4bc[_0x24a886(0xdab,0xb55)]);}catch(_0x3e5b9c){}return;}if(!fs[_0x24a886(0x791,0xafe)](_0x3f11a8))fs[_0x24a886(0x8b6,0xc8f)](_0x3f11a8,fs[_0x24a886(0x7f6,0x468)](_0x5e159a,_0x24a886(0x13ed,0xe6b)));fs[_0x24a886(0x915,0xc8f)](_0x5e159a,fs[_0x24a886(0x3d9,0x468)](_0x1c3fc8,_0x24a886(0x13c8,0xe6b)));try{app[_0x24a886(0xda8,0xcc6)](_0x24a886(0xc31,0x813));}catch(_0x1c8656){}}catch(_0x357874){try{app[_0x24a886(0xbcf,0xcc6)](_0x24a886(0x970,0x942)+_0x4aa4bc[_0x24a886(0xaa9,0xd6c)](String,_0x357874)[_0x24a886(0x15b,0x460)](0x0,0x50));}catch(_0xac427b){}}},'onModuleEvent'(_0x4940ca){const _0xbdef72={'VQxYP':_0x42a5de(-0xc8,0x49)};if(typeof _0x4940ca[_0x42a5de(0x39c,-0x1b3)]!==_0xbdef72[_0x42a5de(0x2ab,0x430)])this[_0x42a5de(0x23f,0x3bc)]=Boolean(_0x4940ca[_0x42a5de(0x230,-0x1b3)]);if(!stdToggle(this,_0x4940ca,_0x42a5de(0x597,0x799)))return;if(!this[_0x42a5de(-0xb4,-0x11e)])return;function _0x42a5de(_0x4c2e2b,_0x30e7cc){return _0x5a0b42(_0x4c2e2b,_0x30e7cc- -0x213);}this[_0x42a5de(-0x620,-0x138)]();}},gmPanel={'tag':_0x5a0b42(0xa19,0x96d),'enabled':![],'OPEN_PY':_0x5a0b42(-0x4ef,0x85)+_0x5a0b42(0x4ee,0xf0),'CLOSE_PY':_0x5a0b42(0x55a,-0x57)+_0x5a0b42(0x862,0x51c),'onModuleEvent'(_0x69df40){const _0x5a9d5a={'NUiht':function(_0x380dd0,_0x14b442){return _0x380dd0(_0x14b442);}};function _0x30ea8c(_0x1359e8,_0x41ecb0){return _0x5a0b42(_0x41ecb0,_0x1359e8-0x10d);}if(!stdToggle(this,_0x69df40,_0x30ea8c(0x122,0x3d)))return;if(!this[_0x30ea8c(0x202,0x81)]){try{app[_0x30ea8c(0x382,-0x78)](this[_0x30ea8c(0x563,0x799)]);}catch(_0xa73219){}return;}try{app[_0x30ea8c(0x382,0x706)](this[_0x30ea8c(0xae9,
-0x7b4)]);}catch(_0x2c9f70){this[_0x30ea8c(0x202,0x75f)]=![];if(this[_0x30ea8c(0x8a1,0xe49)])this[_0x30ea8c(0x8a1,0xbe8)][_0x30ea8c(0x202,0x2f6)]=![];try{app[_0x30ea8c(0x910,0xcfb)](_0x30ea8c(0x43f,-0x181)+_0x5a9d5a[_0x30ea8c(0xa80,0x9c6)](String,_0x2c9f70)[_0x30ea8c(0xaa,-0x457)](0x0,0x3c));}catch(_0x50d0b1){}}}},checkCmd={'tag':_0x5a0b42(-0x1ae,0x340),'enabled':![],'lastSig':'','jsMode':![],'tipN':0x0,'lastTipMsg':'','soDst':kuNative[_0x5a0b42(0x933,0x660)],'loaded':![],'showing':![],'bufAddr':0x0n,'BLOCKS':new Set([_0x5a0b42(0x614,0x33f),_0x5a0b42(0x894,0x791),_0x5a0b42(-0x9e,0x3cd)]),'extract'(_0x4f5ae7,_0x66a7c1){function _0x344b39(_0x11bcea,_0x4e3a64){return _0x5a0b42(_0x4e3a64,_0x11bcea-0xd2);}try{return String(_0x4f5ae7||'')[_0x344b39(0xb0a,0xe4d)](RegExp(_0x66a7c1))?.[0x1]||'';}catch(_0x550e97){return'';}},'decode'(_0x3daf1a){try{return decodeURIComponent(_0x3daf1a)||'';}catch(_0x269245){return String(_0x3daf1a||'');}},'unesc'(_0x5ce833){function _0xaec667(_0xa160e4,_0x4e1f34){return _0x5a0b42(_0xa160e4,_0x4e1f34-0x385);}const _0x522c98={'LxSab':function(_0x327b46,_0x15543c){return _0x327b46(_0x15543c);}};try{return _0x522c98[_0xaec667(0xcb9,0xb64)](String,_0x5ce833||'')[_0xaec667(0x290,0x7a8)](/\\(["'\\])/g,'$1');}catch(_0x4c450e){return _0x522c98[_0xaec667(0x777,0xb64)](String,_0x5ce833||'');}},'loadSo'(){const _0x33ab52=kuNative[_0x35b073(0x7dd,0x777)]();function _0x35b073(_0x415845,_0x38a5c7){return _0x5a0b42(_0x38a5c7,_0x415845-0x190);}if(_0x33ab52)return _0x33ab52;return this[_0x35b073(0x797,0x69f)]=!![],this[_0x35b073(0x96c,0xb95)]=kuNative[_0x35b073(0x2f0,-0x2b)](0x33),'';},'sc'(_0x464d0f,_0x52eb5d){function _0x550d9f(_0x5774b7,_0x457744){return _0x5a0b42(_0x5774b7,_0x457744-0x1f7);}kuNative[_0x550d9f(0xed3,0xb72)](_0x464d0f,_0x52eb5d);},'pushContent'(_0x3a87d2){const _0x3d22c3={'fouiH':function(_0x159bed,_0x5eb7e3){return _0x159bed(_0x5eb7e3);}};function _0x55b202(_0x4d34ef,_0xcc771){return _0x5a0b42(_0xcc771,_0x4d34ef-0xc4);}const _0x3b9a7a=_0x3a87d2[_0x55b202(0x532,0x8a9)]('|');if(_0x3b9a7a===this[_0x55b202(0x6c7,0xb45)])return;this[_0x55b202(0x6c7,0x4c3)]=_0x3b9a7a;if(!this[_0x55b202(0x8a0,0x82d)])return;wplChan[_0x55b202(0x41e,0x5a1)]=this;const _0x219853=_0x3d22c3[_0x55b202(0x454,-0x85)](encodeUtf8,_0x3a87d2[_0x55b202(0x532,0x340)]('\x0a'));if(_0x219853[_0x55b202(0x6e6,0xb40)]>0x1f40)return;try{soPush(this[_0x55b202(0x8a0,0x486)],_0x219853),kuNative[_0x55b202(0xa3f,0x5d4)](0x2a,0x0);}catch(_0xdcb87c){}},'hidePanel'(){if(wplChan[_0x285213(0x754,0x6db)]&&wplChan[_0x285213(0x325,0x6db)]!==this){this[_0x285213(0x623,0xad8)]=![],this[_0x285213(0x7e3,0x984)]='';return;}this[_0x285213(0x68e,0xad8)]&&(this[_0x285213(0x95e,0xad8)]=![],this['sc'](0x2b,0x0));function _0x285213(_0x5718bd,_0x1f0a8d){return _0x5a0b42(_0x5718bd,_0x1f0a8d-0x381);}this[_0x285213(0xa1b,0x984)]='';if(wplChan[_0x285213(0x343,0x6db)]===this)wplChan[_0x285213(0xabd,0x6db)]=null;},'hitBlock'(){function _0x12163b(_0x4967eb,_0x4a8473){return _0x5a0b42(_0x4a8473,_0x4967eb- -0xe1);}try{const _0x1dc028=world[_0x12163b(0x89d,0xace)]()[_0x12163b(0x2d2,0x35f)]();if(!_0x1dc028||!_0x1dc028[_0x12163b(0x511,0x341)])return null;const _0x4e3957=_0x1dc028[_0x12163b(0x7fc,0x3ce)];if(typeof _0x4e3957===_0x12163b(0x399,0x89a)&&/block|tile/i[_0x12163b(0x634,0x2e5)](_0x4e3957)||_0x4e3957===0x0||_0x4e3957==='0')return _0x1dc028[_0x12163b(0x511,-0x7c)];return null;}catch(_0x3f2bb3){return null;}},'clearTip'(){function _0x566870(_0x24deb7,_0x7a46df){return _0x5a0b42(_0x7a46df,_0x24deb7-0x10b);}if(!this[_0x566870(0x70e,0x4e2)])return;this[_0x566870(0x70e,0x39c)]='';try{minecraft[_0x566870(0x904,0xcb6)]('');}catch(_0x113eb8){}},'releaseWpl'(_0x289ed4){const _0x99fb32={'vojYd':function(_0x33ec0c,_0x4b6797){return _0x33ec0c!==_0x4b6797;},'YtPXw':_0x111349(0x674,0x78f),'supLj':function(_0x5007a5){return _0x5007a5();},'VmxoT':function(_0xc2ecb2,_0x447194,_0x1c4a69){return _0xc2ecb2(_0x447194,_0x1c4a69);}},_0x123cf5=this;function _0x111349(_0x33e35e,
-_0x2fbdcb){return _0x5a0b42(_0x33e35e,_0x2fbdcb-0x533);}const _0x5276ad=function(){function _0x1b7f61(_0x1aeb22,_0x5e4b05){return _0x111349(_0x5e4b05,_0x1aeb22- -0x22f);}if(_0x123cf5[_0x1b7f61(0x90b,0x903)]&&(!_0x123cf5[_0x1b7f61(0x3f9,0x8c5)]||_0x123cf5[_0x1b7f61(0xc65,0xd51)])&&!(_0x99fb32[_0x1b7f61(0x9c9,0xf14)](typeof structHud,_0x99fb32[_0x1b7f61(0xc34,0xd30)])&&structHud[_0x1b7f61(0x3f9,-0x3c)]&&!structHud[_0x1b7f61(0xc65,0x11e5)]))try{kuNative[_0x1b7f61(0xc7f,0xf8f)](0x29,0x0);}catch(_0xbd194c){}};if(_0x289ed4)_0x99fb32[_0x111349(0xde9,0xc4d)](_0x5276ad);else _0x99fb32[_0x111349(0xed9,0xf2f)](setTimeout,_0x5276ad,0x12c);},'switchMode'(_0x3e34aa){this[_0x21c3ec(0xbe1,0xbd0)]=_0x3e34aa,this[_0x21c3ec(0x342,0x872)]='';function _0x21c3ec(_0x56387d,_0x456a02){return _0x5a0b42(_0x56387d,_0x456a02-0x26f);}this[_0x21c3ec(0x9cf,0x9c6)]=![];if(!this[_0x21c3ec(0x72d,0x364)])return;if(_0x3e34aa)this[_0x21c3ec(0x1f0,0x29f)](),this[_0x21c3ec(0xdb,0x416)](!![]);else{try{minecraft[_0x21c3ec(0x8e1,0xa68)]('');}catch(_0x8507b1){}let _0x290c2a='';if(!this[_0x21c3ec(0xc26,0x876)])_0x290c2a=this[_0x21c3ec(0xe58,0xb75)]();if(!_0x290c2a)try{kuNative[_0x21c3ec(0xa73,0xbea)](0x29,0x1);}catch(_0x113754){}}},'onModuleEvent'(_0x389205){const _0x3617b4={'tRDIP':function(_0x279e43,_0x382414){return _0x279e43!==_0x382414;}};let _0x4077a2=this[_0x41557b(0xd11,0xeae)];const _0x5270cc=argPick(_0x389205,_0x41557b(0x714,0xcd4));if(_0x5270cc===_0x41557b(0xbe7,0x7e2))_0x4077a2=!![];else{if(_0x5270cc===_0x41557b(0x34c,-0x1b2))_0x4077a2=![];}function _0x41557b(_0x235ce9,_0x48a912){return _0x5a0b42(_0x48a912,_0x235ce9-0x3b0);}if(_0x389205[_0x41557b(0xbe7,0x73a)]===!![])_0x4077a2=!![];else{if(_0x389205[_0x41557b(0x34c,0x56)]===!![])_0x4077a2=![];}if(!stdToggle(this,_0x389205,_0x41557b(0x52e,0x347))){if(_0x3617b4[_0x41557b(0x692,0x703)](_0x4077a2,this[_0x41557b(0xd11,0x1158)]))this[_0x41557b(0xc37,0xc8b)](_0x4077a2);return;}if(this[_0x41557b(0x4a5,0x82e)]){if(this[_0x41557b(0xd11,0xdd4)]){this[_0x41557b(0x9b3,0x7c9)]='';return;}let _0xe5f8b8='';if(!this[_0x41557b(0x9b7,0xb6f)])_0xe5f8b8=this[_0x41557b(0xcb6,0x80d)]();if(_0xe5f8b8)try{app[_0x41557b(0xbb3,0xcef)](''+_0xe5f8b8);}catch(_0x5c53e0){}else try{kuNative[_0x41557b(0xd2b,0xc10)](0x29,0x1);}catch(_0x4caef0){}}else{if(this[_0x41557b(0xd11,0xabc)])this[_0x41557b(0xb4d,0x98d)]();else this[_0x41557b(0x3e0,0x5c5)](),this[_0x41557b(0x557,0x230)]();}},'onTick'(){const _0x7c14c={'iKhlp':function(_0x13f7f4,_0x5994f6){return _0x13f7f4(_0x5994f6);},'bixRr':function(_0x5a90ea,_0x1d11b2){return _0x5a90ea*_0x1d11b2;},'FTzdo':function(_0x56d282,_0x2f48e7){return _0x56d282===_0x2f48e7;},'Zyklg':_0x40f035(0x6c6,0xc30),'HsGSb':_0x40f035(0x2b3,-0x1e8),'Oostb':function(_0xfdebe3,_0x5efa53){return _0xfdebe3+_0x5efa53;}};if(!this[_0x40f035(0x2a,-0x32)])return;if(this[_0x40f035(0x896,0x471)]){this[_0x40f035(0xe1,0x242)]();return;}if(!this[_0x40f035(0x53c,-0x77)])return;let _0x2ef6a0=![];try{_0x2ef6a0=app[_0x40f035(-0x60,-0x591)]();}catch(_0x38792b){}if(!_0x2ef6a0||uiVis[_0x40f035(0x86f,0x702)]()){this[_0x40f035(-0x9b,-0x2aa)]();return;}try{const _0xde2439=player[_0x40f035(0x42f,0x118)]()[_0x40f035(0x5d,-0x439)]();_0xde2439&&_0x7c14c[_0x40f035(0x2f6,-0x288)](isFinite,_0xde2439['x'])&&(this['sc'](0x2c,Math[_0x40f035(0x970,0x977)](_0xde2439['x']*0x3e8)),this['sc'](0x2d,Math[_0x40f035(0x970,0x56e)](_0xde2439['y']*0x3e8)),this['sc'](0x2e,Math[_0x40f035(0x970,0xd23)](_0x7c14c[_0x40f035(-0xf5,0x2f4)](_0xde2439['z'],0x3e8))));}catch(_0x306e28){}const _0x406081=this[_0x40f035(0x16c,0x0)]();function _0x40f035(_0x55089c,_0x8aafd0){return _0x5a0b42(_0x8aafd0,_0x55089c- -0xcb);}if(!_0x406081){this[_0x40f035(-0x9b,-0x4a8)]();return;}const _0x14fc78=Math[_0x40f035(0x2a0,-0x20e)](_0x406081['x']),_0x461013=Math[_0x40f035(0x2a0,0x31d)](_0x406081['y']),_0xead145=Math[_0x40f035(0x2a0,0x385)](_0x406081['z']);try{const _0x360f2b=player[_0x40f035(0x42f,0xcb)]()[_0x40f035(0x1c9,0x55e)](),_0x20ca51=_0x360f2b[_0x40f035(0x18f,0x4d0)]({'x':_0x14fc78,
-'y':_0x461013,'z':_0xead145}),_0xeb3857=this[_0x40f035(0x77b,0x327)](_0x20ca51[_0x40f035(-0x54,-0x55b)]()),_0x18ed60=this[_0x40f035(0x41c,0x139)](_0xeb3857,_0x40f035(0x872,0x7a3))||'';if(!this[_0x40f035(0x514,0x83a)][_0x40f035(0x481,0xe7)](_0x18ed60)){this[_0x40f035(-0x9b,0x192)]();return;}let _0x2d550a='';try{const _0x48d32c=_0x360f2b[_0x40f035(0x839,0x878)]({'x':_0x14fc78,'y':_0x461013,'z':_0xead145});_0x2d550a=this[_0x40f035(0x77b,0xd1b)](_0x48d32c[_0x40f035(-0x54,-0x4ba)]());}catch(_0x116625){}const _0x38e6f3=!+this[_0x40f035(0x41c,0x24)](_0x2d550a,_0x40f035(-0x11e,0xf)),_0x37fc05=!!+this[_0x40f035(0x41c,0x647)](_0xeb3857,_0x40f035(0x8bd,0x6da))||!!+this[_0x40f035(0x41c,0x6a6)](_0x2d550a,_0x40f035(0x9c1,0x434)),_0x5abe97=this[_0x40f035(0xa58,0x8f9)](_0x2d550a?.[_0x40f035(0x96d,0x501)](/Command:"(.*?)",CustomName:/)?.[0x1]||this[_0x40f035(0x41c,0x7d6)](_0x2d550a,_0x40f035(0x610,0x966))),_0x1165bc=+this[_0x40f035(0x41c,-0x167)](_0x2d550a,_0x40f035(0x4db,0x564))||0x0,_0x21bde7=_0x7c14c[_0x40f035(0x966,0x665)](_0x18ed60,_0x40f035(0x274,-0x2c7))?'锁链':_0x18ed60===_0x7c14c[_0x40f035(0x8d6,0xa78)]?'循环':'脉冲',_0x24fd22=this[_0x40f035(0xa58,0xb2a)](this[_0x40f035(0x41c,0xba)](_0x2d550a,_0x40f035(0x441,0x51)));this[_0x40f035(0x467,0x2a2)]([_0x5abe97||'空链',_0x40f035(0x904,0x3e6)+_0x21bde7,_0x40f035(0x5d2,0x152)+(_0x37fc05?_0x40f035(0x22f,0xcc):_0x7c14c[_0x40f035(0x765,0x924)]),_0x40f035(0xa20,0x47a)+(_0x38e6f3?_0x40f035(0x2f8,-0x151):_0x40f035(0x312,-0x18b)),_0x40f035(0x271,-0x136)+_0x1165bc,_0x24fd22?_0x7c14c[_0x40f035(0x57c,0x272)](_0x40f035(0x6d4,0x5fe),_0x24fd22):'']),this['sc'](0x2f,_0x14fc78),this['sc'](0x30,_0x461013),this['sc'](0x31,_0xead145),!this[_0x40f035(0x68c,0x776)]&&(this[_0x40f035(0x68c,0xba1)]=!![],this['sc'](0x2b,0x1));}catch(_0x493343){}},'tickTip'(){const _0x2d3238={'IiaHg':function(_0x2d6af3,_0x209825){return _0x2d6af3===_0x209825;},'zVmCR':_0x54f1c4(0xafb,0x8a9),'SlHvp':_0x54f1c4(0xc13,0xf1f),'RdGPK':function(_0x3b3f5f,_0x1c2961){return _0x3b3f5f+_0x1c2961;},'dfpYJ':function(_0x213c51,_0x188b44){return _0x213c51+_0x188b44;},'jiQjz':function(_0x514049,_0x44c414){return _0x514049>=_0x44c414;},'JQqrC':_0x54f1c4(0x550,0x82e),'ukPVl':function(_0x33048d,_0x3634ae){return _0x33048d||_0x3634ae;},'FpxVM':_0x54f1c4(0x259,0x6b0)};let _0xd242b3=!![];try{_0xd242b3=app[_0x54f1c4(0x1de,0x654)]();}catch(_0x150335){}if(!_0xd242b3||uiVis[_0x54f1c4(0xaad,0xdbe)]()){this[_0x54f1c4(0x910,0xc10)]();return;}const _0x4ed52a=this[_0x54f1c4(0x3aa,-0x1ba)]();if(!_0x4ed52a){this[_0x54f1c4(0x910,0x8ca)]();return;}const _0x23114d=Math[_0x54f1c4(0x4de,0x319)](_0x4ed52a['x']),_0x1a26e5=Math[_0x54f1c4(0x4de,0x6c2)](_0x4ed52a['y']),_0x4f5bc0=Math[_0x54f1c4(0x4de,-0x7b)](_0x4ed52a['z']);function _0x54f1c4(_0x44bf53,_0x37e66c){return _0x5a0b42(_0x37e66c,_0x44bf53-0x173);}try{const _0x1e40ce=player[_0x54f1c4(0x66d,0xbf)]()[_0x54f1c4(0x407,0x2f)](),_0x352a1a=_0x1e40ce[_0x54f1c4(0x3cd,0x16e)]({'x':_0x23114d,'y':_0x1a26e5,'z':_0x4f5bc0}),_0x1ec1e4=this[_0x54f1c4(0x9b9,0xcc3)](_0x352a1a[_0x54f1c4(0x1ea,-0x26b)]()),_0x3ffe58=this[_0x54f1c4(0x65a,0x2d7)](_0x1ec1e4,_0x54f1c4(0xab0,0x8eb))||'';if(!this[_0x54f1c4(0x752,0x86c)][_0x54f1c4(0x6bf,0xc75)](_0x3ffe58)){this[_0x54f1c4(0x910,0xcb5)]();return;}let _0x3db271='';try{const _0x298162=_0x1e40ce[_0x54f1c4(0xa77,0xba6)]({'x':_0x23114d,'y':_0x1a26e5,'z':_0x4f5bc0});_0x3db271=this[_0x54f1c4(0x9b9,0xb0d)](_0x298162[_0x54f1c4(0x1ea,0x585)]());}catch(_0x5aacb5){}const _0x5077c0=_0x2d3238[_0x54f1c4(0x956,0xa89)](_0x3ffe58,_0x54f1c4(0x4b2,0x387))?'锁链':_0x3ffe58===_0x54f1c4(0x904,0x6b4)?'循环':'脉冲',_0x5136d1=!+this[_0x54f1c4(0x65a,0x86b)](_0x3db271,_0x54f1c4(0x120,-0x354)),_0x39b11f=!!+this[_0x54f1c4(0x65a,0xabe)](_0x1ec1e4,_0x2d3238[_0x54f1c4(0xa38,0x674)])||!!+this[_0x54f1c4(0x65a,0x9ab)](_0x3db271,_0x54f1c4(0xbff,0xe47)),_0x49a4c1=this[_0x54f1c4(0xc96,0x10fe)](_0x3db271?.[_0x54f1c4(0xbab,0x892)](/Command:"(.*?)",CustomName:/)?.[0x1]||this[_0x54f1c4(0x65a,0x68b)](_0x3db271,_0x54f1c4(0x84e,0x281))),_0x286436=+
-this[_0x54f1c4(0x65a,0x4a7)](_0x3db271,_0x54f1c4(0x719,0x3d5))||0x0,_0x39d693=this[_0x54f1c4(0xc96,0x1078)](this[_0x54f1c4(0x65a,0x596)](_0x3db271,_0x54f1c4(0x67f,0x633))),_0x132efc=!!+this[_0x54f1c4(0x65a,0x2c5)](_0x3db271,_0x54f1c4(0xa91,0xdf1)),_0x4d43cb=!!+this[_0x54f1c4(0x65a,0x298)](_0x3db271,_0x2d3238[_0x54f1c4(0xb9c,0xde5)]),_0x40085d=_0x2d3238[_0x54f1c4(0x826,0x98e)](_0x2d3238[_0x54f1c4(0x826,0x97d)](_0x2d3238[_0x54f1c4(0x812,0x8df)](_0x23114d+',',_0x1a26e5),',')+_0x4f5bc0+'|'+_0x49a4c1+'|',_0x39d693)+'|'+_0x286436+(_0x39b11f?0x1:0x0)+(_0x5136d1?0x1:0x0)+(_0x132efc?0x1:0x0)+(_0x4d43cb?0x1:0x0);if(_0x40085d===this[_0x54f1c4(0x776,0x5cb)]){if(_0x2d3238[_0x54f1c4(0x9a9,0x3ff)](++this[_0x54f1c4(0x112,0x460)],0xa)){this[_0x54f1c4(0x112,-0x240)]=0x0;try{minecraft[_0x54f1c4(0x96c,0x804)](this[_0x54f1c4(0xc79,0xbab)]);}catch(_0x42c286){}}return;}this[_0x54f1c4(0x776,0x484)]=_0x40085d,this[_0x54f1c4(0x112,0xde)]=0x0;const _0x196e46=_0x49a4c1||_0x39d693,_0x5e28c9=_0x196e46?_0x2d3238[_0x54f1c4(0x826,0x63c)](_0x54f1c4(0xb52,0x10ec)+(_0x54f1c4(0x40f,-0x107)+_0x5077c0+'\x0a')+(_0x54f1c4(0x89f,0xe64)+(_0x5136d1?_0x54f1c4(0x536,0xa2c):_0x2d3238[_0x54f1c4(0x9a2,0x829)])+'\x0a')+(_0x54f1c4(0x8e6,0xa03)+(_0x39b11f?'是':'否')+'\x0a')+(_0x54f1c4(0xa94,0x71c)+((_0x49a4c1||'')[_0x54f1c4(0xbab,0xf43)](/.{1,60}/g)?.[_0x54f1c4(0x64e,0xafc)]((_0x1dbed1,_0x321c4a,_0x30a03b)=>_0x321c4a<_0x30a03b[_0x54f1c4(0x795,0x6f4)]-0x1?_0x1dbed1+_0x54f1c4(0x5d6,0x44f):_0x1dbed1)[_0x54f1c4(0x5e1,0x14)]('')||'')+'\x0a')+(_0x54f1c4(0x523,0xaa5)+_0x2d3238[_0x54f1c4(0x22a,-0x6f)](_0x39d693,'无')+'\x0a')+(_0x54f1c4(0x2f7,0x2e0)+_0x286436+'刻\x0a')+(_0x54f1c4(0xbee,0xeab)+(_0x132efc?'是':'否')+'\x0a'),_0x54f1c4(0x3d3,0x973)+(_0x4d43cb?'是':'否')):_0x2d3238[_0x54f1c4(0x8a1,0xc37)];this[_0x54f1c4(0xc79,0xb56)]=_0x5e28c9;try{minecraft[_0x54f1c4(0x96c,0xd74)](_0x5e28c9);}catch(_0x334738){}}catch(_0x30fbf8){}}},wplChan={'owner':null},structHud={'tag':_0x5a0b42(0x864,0x926),'enabled':![],'lastSig':'','jsMode':![],'tipN':0x0,'lastTipMsg':'','soDst':kuNative[_0x5a0b42(0x698,0x660)],'loaded':![],'showing':![],'bufAddr':0x0n,'extract'(_0x4b595a,_0x276f87){function _0x16e3cc(_0x46b67a,_0x261964){return _0x5a0b42(_0x46b67a,_0x261964-0x53f);}const _0x3d5c16={'gIghe':function(_0x3ded11,_0x537f57){return _0x3ded11(_0x537f57);}};try{return _0x3d5c16[_0x16e3cc(0x1127,0xc0c)](String,_0x4b595a||'')[_0x16e3cc(0x1428,0xf77)](RegExp(_0x276f87))?.[0x1]||'';}catch(_0x169bc1){return'';}},'decode'(_0x519a0c){try{return decodeURIComponent(_0x519a0c)||'';}catch(_0x4b9dd4){return String(_0x519a0c||'');}},'unesc'(_0x1598f3){function _0xca1a8e(_0x5784f0,_0x266736){return _0x5a0b42(_0x5784f0,_0x266736-0x26f);}const _0x31260f={'YTERi':function(_0x2269b1,_0x3ba240){return _0x2269b1(_0x3ba240);},'ymmWt':function(_0x14c203,_0x48ea7b){return _0x14c203||_0x48ea7b;}};try{return _0x31260f[_0xca1a8e(0xf0c,0xa0f)](String,_0x31260f[_0xca1a8e(0x1d2,0x65f)](_0x1598f3,''))[_0xca1a8e(0x968,0x692)](/\\(["'\\])/g,'$1');}catch(_0x522612){return String(_0x1598f3||'');}},'loadSo'(){function _0x3a37a6(_0x27b843,_0x197c04){return _0x5a0b42(_0x197c04,_0x27b843-0x335);}const _0x443b89=kuNative[_0x3a37a6(0x982,0x77e)]();if(_0x443b89)return _0x443b89;return this[_0x3a37a6(0x93c,0xb6e)]=!![],this[_0x3a37a6(0xb11,0x1037)]=kuNative[_0x3a37a6(0x495,0x254)](0x33),'';},'sc'(_0x574422,_0x9b27e5){function _0x5befc2(_0x3edc2c,_0x35ca6d){return _0x5a0b42(_0x35ca6d,_0x3edc2c-0x40b);}kuNative[_0x5befc2(0xd86,0x1299)](_0x574422,_0x9b27e5);},'pushContent'(_0xbdde87){const _0x46aad5=_0xbdde87[_0x38fb8d(0x6b6,0x59e)]('|');if(_0x46aad5===this[_0x38fb8d(0x84b,0x46f)])return;this[_0x38fb8d(0x84b,0x977)]=_0x46aad5;if(!this[_0x38fb8d(0xa24,0xca2)])return;function _0x38fb8d(_0x3d9fb5,_0x595eda){return _0x5a0b42(_0x595eda,_0x3d9fb5-0x248);}wplChan[_0x38fb8d(0x5a2,0x8b)]=this;const _0x2ffb80=encodeUtf8(_0xbdde87[_0x38fb8d(0x6b6,0x249)]('\x0a'));if(_0x2ffb80[_0x38fb8d(0x86a,0x4cf)]>0x1f40)return;try{soPush(this[_0x38fb8d(0xa24,0x55c)],_0x2ffb80),
-kuNative[_0x38fb8d(0xbc3,0x1108)](0x2a,0x0);}catch(_0x22ec28){}},'hidePanel'(){const _0x695c5a={'AfNIU':function(_0x1e1ef7,_0x163039){return _0x1e1ef7===_0x163039;}};if(wplChan[_0x4cccce(-0x140,0x36b)]&&wplChan[_0x4cccce(0x315,0x36b)]!==this){this[_0x4cccce(0xc73,0x768)]=![],this[_0x4cccce(0x6fc,0x614)]='';return;}this[_0x4cccce(0xc26,0x768)]&&(this[_0x4cccce(0x918,0x768)]=![],this['sc'](0x2b,0x0));function _0x4cccce(_0x44a206,_0x1dfa81){return _0x5a0b42(_0x44a206,_0x1dfa81-0x11);}this[_0x4cccce(0xa27,0x614)]='';if(_0x695c5a[_0x4cccce(0x45,0x44d)](wplChan[_0x4cccce(0x3f5,0x36b)],this))wplChan[_0x4cccce(0x349,0x36b)]=null;},'hitBlock'(){const _0x1deb0f={'dLzuR':function(_0x345099,_0x44a47d){return _0x345099===_0x44a47d;}};function _0x10c169(_0x5b5535,_0x55b33a){return _0x5a0b42(_0x55b33a,_0x5b5535- -0x1c3);}try{const _0x5c82e3=world[_0x10c169(0x7bb,0x32f)]()[_0x10c169(0x1f0,0x6e5)]();if(!_0x5c82e3||!_0x5c82e3[_0x10c169(0x42f,0x5a3)])return null;const _0x376358=_0x5c82e3[_0x10c169(0x71a,0x4a7)];if(_0x1deb0f[_0x10c169(0x474,0x274)](typeof _0x376358,_0x10c169(0x2b7,0x164))&&/block|tile/i[_0x10c169(0x552,0x957)](_0x376358)||_0x376358===0x0||_0x376358==='0')return _0x5c82e3[_0x10c169(0x42f,0x769)];return null;}catch(_0x155d03){return null;}},'clearTip'(){if(!this[_0x4e43b6(0xb56,0xfb5)])return;this[_0x4e43b6(0xb56,0x9de)]='';function _0x4e43b6(_0x41ff1c,_0x1022bb){return _0x5a0b42(_0x1022bb,_0x41ff1c-0x553);}try{minecraft[_0x4e43b6(0xd4c,0xaf8)]('');}catch(_0x11a481){}},'releaseWpl'(_0x1eb7e0){function _0x1a3d8e(_0x53b930,_0x331c2f){return _0x5a0b42(_0x53b930,_0x331c2f-0x314);}const _0x40bda0={'fUHPE':function(_0x45bdf7){return _0x45bdf7();}},_0x48a568=this,_0x358aa6=function(){function _0x3ed4e4(_0x26a060,_0x42f35e){return _0x2f10(_0x42f35e-0x2a9,_0x26a060);}if(_0x48a568[_0x3ed4e4(0xd63,0xa33)]&&(!_0x48a568[_0x3ed4e4(0x143,0x521)]||_0x48a568[_0x3ed4e4(0xada,0xd8d)])&&!(typeof checkCmd!==_0x3ed4e4(0x3c0,0x688)&&checkCmd[_0x3ed4e4(0x858,0x521)]&&!checkCmd[_0x3ed4e4(0xc00,0xd8d)]))try{kuNative[_0x3ed4e4(0x1186,0xda7)](0x29,0x0);}catch(_0x37acdc){}};if(_0x1eb7e0)_0x40bda0[_0x1a3d8e(0xa44,0x784)](_0x358aa6);else setTimeout(_0x358aa6,0x12c);},'switchMode'(_0x16174d){this[_0x7cd6c0(0x4d0,0x82a)]=_0x16174d,this[_0x7cd6c0(0x3f9,0x4cc)]='';function _0x7cd6c0(_0x1e33a3,_0x71f78){return _0x5a0b42(_0x1e33a3,_0x71f78- -0x137);}this[_0x7cd6c0(0x55e,0x620)]=![];if(!this[_0x7cd6c0(-0xbf,-0x42)])return;if(_0x16174d)this[_0x7cd6c0(0x344,-0x107)](),this[_0x7cd6c0(0x308,0x70)](!![]);else{try{minecraft[_0x7cd6c0(0x562,0x6c2)]('');}catch(_0x3b1446){}let _0x1bde02='';if(!this[_0x7cd6c0(0x404,0x4d0)])_0x1bde02=this[_0x7cd6c0(0xbff,0x7cf)]();if(!_0x1bde02)try{kuNative[_0x7cd6c0(0xa4c,0x844)](0x29,0x1);}catch(_0x2dc8f2){}}},'onModuleEvent'(_0x336d7b){const _0x43e0f9={'QfcyY':function(_0x1b08ed,_0x1f0629){return _0x1b08ed===_0x1f0629;},'AoenX':function(_0x441753,_0x58650c){return _0x441753!==_0x58650c;}};let _0x51503c=this[_0x28dc17(0xa90,0x4c3)];function _0x28dc17(_0x31a197,_0xd86ca4){return _0x5a0b42(_0xd86ca4,_0x31a197-0x12f);}const _0x148355=argPick(_0x336d7b,_0x28dc17(0x29d,0x4cb));if(_0x148355===_0x28dc17(0x548,0x7af))_0x51503c=!![];else{if(_0x148355===_0x28dc17(0xb8c,0x1065))_0x51503c=![];}if(_0x336d7b[_0x28dc17(0x548,0x507)]===!![])_0x51503c=!![];else{if(_0x43e0f9[_0x28dc17(0x3f4,-0xc9)](_0x336d7b[_0x28dc17(0xb8c,0xe54)],!![]))_0x51503c=![];}if(!stdToggle(this,_0x336d7b,_0x28dc17(0x73e,0x462))){if(_0x43e0f9[_0x28dc17(0xc02,0x79e)](_0x51503c,this[_0x28dc17(0xa90,0xd9c)]))this[_0x28dc17(0x9b6,0x681)](_0x51503c);return;}if(this[_0x28dc17(0x224,0x3eb)]){if(this[_0x28dc17(0xa90,0xa36)]){this[_0x28dc17(0x732,0xb4a)]='';return;}let _0x11d472='';if(!this[_0x28dc17(0x736,0x23c)])_0x11d472=this[_0x28dc17(0xa35,0x496)]();if(_0x11d472)try{app[_0x28dc17(0x932,0x71c)](''+_0x11d472);}catch(_0x3cbffa){}else try{kuNative[_0x28dc17(0xaaa,0xefa)](0x29,0x1);}catch(_0x440053){}}else{if(this[_0x28dc17(0xa90,0x5ea)])this[_0x28dc17(0x8cc,0xd89)]();else this[_0x28dc17(0x15f,
--0x238)](),this[_0x28dc17(0x2d6,0x34c)]();}},'onTick'(){const _0x1317b4={'gytFV':function(_0x2fe64b,_0x1470ad){return _0x2fe64b*_0x1470ad;},'QRvZp':_0x79598f(0x61e,0x415),'hvwNu':function(_0x350f34,_0x10fa07){return _0x350f34+_0x10fa07;},'hfIzI':function(_0x1448c5,_0x1d1c8d){return _0x1448c5+_0x1d1c8d;},'bnFZf':function(_0x515a68,_0x207999){return _0x515a68+_0x207999;},'UhRml':function(_0x54b232,_0x3dd3aa){return _0x54b232+_0x3dd3aa;},'OPnMt':_0x79598f(0x746,0x6ca),'wEMSF':_0x79598f(0x384,0xde),'UtMhv':_0x79598f(0x9f2,0x896),'GbTgJ':function(_0x5d3b67,_0x21dbdc){return _0x5d3b67+_0x21dbdc;},'yWWox':function(_0xfd1e6f,_0x1fd730){return _0xfd1e6f+_0x1fd730;},'mVBuv':_0x79598f(0x123,0x52),'JCcRU':_0x79598f(0x6dd,0x915)};if(!this[_0x79598f(-0x4,-0x1d0)])return;function _0x79598f(_0x51620f,_0x2732a2){return _0x5a0b42(_0x2732a2,_0x51620f- -0xf9);}if(this[_0x79598f(0x868,0x3c1)]){this[_0x79598f(0xb3,-0x146)]();return;}if(!this[_0x79598f(0x50e,0x46a)])return;let _0x480c60=![];try{_0x480c60=app[_0x79598f(-0x8e,-0x4b0)]();}catch(_0x4e636b){}if(!_0x480c60||uiVis[_0x79598f(0x841,0x6d2)]()){this[_0x79598f(-0xc9,0x236)]();return;}try{const _0x49847a=player[_0x79598f(0x401,0x182)]()[_0x79598f(0x2f,-0x32e)]();_0x49847a&&isFinite(_0x49847a['x'])&&(this['sc'](0x2c,Math[_0x79598f(0x942,0xd59)](_0x49847a['x']*0x3e8)),this['sc'](0x2d,Math[_0x79598f(0x942,0x521)](_0x49847a['y']*0x3e8)),this['sc'](0x2e,Math[_0x79598f(0x942,0xde5)](_0x1317b4[_0x79598f(-0xe1,-0xa7)](_0x49847a['z'],0x3e8))));}catch(_0x1b3d75){}const _0x20c4f3=this[_0x79598f(0x13e,-0x350)]();if(!_0x20c4f3){this[_0x79598f(-0xc9,0x455)]();return;}const _0x264ba3=Math[_0x79598f(0x272,0x70e)](_0x20c4f3['x']),_0x5dd01d=Math[_0x79598f(0x272,0x780)](_0x20c4f3['y']),_0xaa744e=Math[_0x79598f(0x272,0x580)](_0x20c4f3['z']);try{const _0x40bad4=player[_0x79598f(0x401,0xa1)]()[_0x79598f(0x19b,-0x37d)](),_0x3111c5=_0x40bad4[_0x79598f(0x161,0x331)]({'x':_0x264ba3,'y':_0x5dd01d,'z':_0xaa744e}),_0x1ae46f=this[_0x79598f(0x74d,0x240)](_0x3111c5[_0x79598f(-0x82,0x10d)]()),_0x1cf343=this[_0x79598f(0x3ee,0x94a)](_0x1ae46f,_0x79598f(0x844,0x3fb))||'';if(_0x1cf343!==_0x79598f(0x2fd,0x782)){this[_0x79598f(-0xc9,0x41a)]();return;}let _0x174675='';try{const _0x27fe61=_0x40bad4[_0x79598f(0x80b,0xd52)]({'x':_0x264ba3,'y':_0x5dd01d,'z':_0xaa744e});_0x174675=this[_0x79598f(0x74d,0x539)](_0x27fe61[_0x79598f(-0x82,0x2b4)]());}catch(_0x34af13){}const _0xd64f15=+this[_0x79598f(0x3ee,0x227)](_0x174675,_0x79598f(-0x85,-0x214))||0x0,_0x2b8dba=['数据','保存','加载','角落','',_0x79598f(-0x5b,0x37)][_0xd64f15]||'无效',_0x4d69f3=+this[_0x79598f(0x3ee,0x1ef)](_0x174675,_0x79598f(0x5a8,0x37f))||0x0,_0x2aa0cc=+this[_0x79598f(0x3ee,0x548)](_0x174675,_0x79598f(0x406,0x619))||0x0,_0x1604e1=+this[_0x79598f(0x3ee,-0x18e)](_0x174675,_0x79598f(-0x8c,-0x2e9))||0x0,_0x1032a1=+this[_0x79598f(0x3ee,0x828)](_0x174675,_0x79598f(0x541,0x6b5))||0x0,_0x5e0fd1=+this[_0x79598f(0x3ee,0x776)](_0x174675,_0x79598f(0x957,0xc42))||0x0,_0x1e3d3b=+this[_0x79598f(0x3ee,0x436)](_0x174675,_0x79598f(0x943,0xd2b))||0x0,_0x207c09=(+this[_0x79598f(0x3ee,0x844)](_0x174675,_0x79598f(0x4c5,0x9d0))||0x0)*0x5a,_0x1e04b1=+this[_0x79598f(0x3ee,0x93d)](_0x174675,_0x79598f(0x797,0xd3b))||0x0,_0x4ba3e4=['无','X轴','Z轴',_0x79598f(-0xc0,0x2ce)][_0x1e04b1]||'未知',_0x2a76de=+this[_0x79598f(0x3ee,0x867)](_0x174675,_0x79598f(0x1fc,-0x383))||0x0,_0x5df92a=this[_0x79598f(0x3ee,0x701)](_0x174675,_0x79598f(0x411,0x514)),_0x106a7b=!!+this[_0x79598f(0x3ee,0x7a2)](_0x174675,_0x79598f(0x71f,0xb3e)),_0x342265=!!+this[_0x79598f(0x3ee,0x228)](_0x174675,_0x79598f(0x2bb,0x5e7)),_0x19c392=!!+this[_0x79598f(0x3ee,0xee)](_0x174675,_0x1317b4[_0x79598f(0x789,0x458)]),_0x5dbad1=!!+this[_0x79598f(0x3ee,0x7e2)](_0x174675,_0x79598f(0x6a9,0x482)),_0x589c04=!!+this[_0x79598f(0x3ee,0x4e0)](_0x174675,_0x79598f(0x8f,0x150)),_0x2bd82a=+this[_0x79598f(0x3ee,0x696)](_0x174675,_0x79598f(0x13d,-0x3e3))||0x0,_0x4ce409=+this[_0x79598f(0x3ee,0x72e)](_0x174675,_0x79598f(0x543,0xabd))||0x0,
-_0xc63079=_0x2bd82a===0x1?_0x79598f(0x7d0,0x34a):_0x2bd82a===0x2?_0x79598f(0x722,0x539):'无',_0x7856cb=+this[_0x79598f(0x3ee,0x404)](_0x174675,_0x79598f(0x366,0x4f3))||0x0;let _0xe826ce=this[_0x79598f(0xa2a,0xe61)](this[_0x79598f(0x3ee,0x8bb)](_0x174675,_0x79598f(0x6d,0x466)));if(_0xe826ce[_0x79598f(0x529,0x1f1)]>0x1a)_0xe826ce=_0xe826ce[_0x79598f(-0x15c,0x406)](0x0,0x1a)+'…';this[_0x79598f(0x439,0x1bd)]([_0x1317b4[_0x79598f(0xe9,-0x361)](_0x1317b4[_0x79598f(0x58b,0x161)](_0x1317b4[_0x79598f(0x271,0xbe)](_0x2b8dba,'\x20')+_0x4d69f3+'×'+_0x2aa0cc,'×'),_0x1604e1),_0x1317b4[_0x79598f(0x424,-0xf0)](_0x79598f(0x232,0x707)+_0x1032a1,',')+_0x5e0fd1+','+_0x1e3d3b,_0x79598f(0x6d8,0x534)+_0x207c09+'°',_0x1317b4[_0x79598f(0x83a,0x864)]+_0x4ba3e4,_0x79598f(0x83,0x13b)+(_0x2a76de%0x1?_0x2a76de[_0x79598f(0x12b,-0x1f1)](0x1):_0x2a76de)+'%',_0x1317b4[_0x79598f(0x4da,0x29d)]+(_0x5df92a&&_0x5df92a!=='0'?_0x5df92a:'随机'),_0x1317b4[_0x79598f(0xe9,0x34b)](_0x79598f(0x6b4,0xee),_0x106a7b?'忽略':'包含'),_0x79598f(0x4d7,0x8ce)+(_0x342265?'包含':'不含'),_0x79598f(0x288,-0xb8)+(_0x19c392?'是':'否'),_0x79598f(0x3fc,-0x16d)+(_0x5dbad1?'显示':'隐藏'),_0x1317b4[_0x79598f(0x254,-0x2c9)]+(_0x589c04?_0x79598f(0x1f,-0x206):_0x79598f(0x4b8,0x811)),_0x79598f(0xe3,0x346)+_0xc63079+(_0x2bd82a>0x0?_0x1317b4[_0x79598f(0x98f,0xd06)]('\x20',_0x4ce409%0x1?_0x4ce409[_0x79598f(0x12b,0x303)](0x1):_0x4ce409)+'s':''),_0x1317b4[_0x79598f(-0x21,0x4f1)](_0x1317b4[_0x79598f(0x2a8,0x5aa)],_0x7856cb===0x1?'硬盘':'内存'),_0xe826ce?_0x1317b4[_0x79598f(0x560,0x41b)]+_0xe826ce:'']),this['sc'](0x2f,_0x264ba3),this['sc'](0x30,_0x5dd01d),this['sc'](0x31,_0xaa744e),!this[_0x79598f(0x65e,0x147)]&&(this[_0x79598f(0x65e,0x72c)]=!![],this['sc'](0x2b,0x1));}catch(_0x35bda6){}},'tickTip'(){function _0x18e0ed(_0x2cb435,_0x30f53b){return _0x5a0b42(_0x30f53b,_0x2cb435- -0x18f);}const _0x3fffea={'LoyOI':_0x18e0ed(-0x11b,0x44),'wfHFr':function(_0x4a46ad,_0x190991){return _0x4a46ad===_0x190991;},'JXKas':_0x18e0ed(0x68c,0x2a2),'dsZqP':function(_0x31a8b2,_0x55a42e){return _0x31a8b2>_0x55a42e;},'ASgjT':function(_0x1a7655,_0x5ecd93){return _0x1a7655+_0x5ecd93;},'XAXUV':function(_0x3bfc20,_0x10986c){return _0x3bfc20+_0x10986c;},'ESIxh':function(_0x20da6b,_0xfaefe1){return _0x20da6b+_0xfaefe1;},'DMaWi':function(_0x3b3425,_0x1cffe4){return _0x3b3425+_0x1cffe4;},'mczLk':function(_0x105a85,_0x4429bf){return _0x105a85+_0x4429bf;},'xbURb':_0x18e0ed(0x422,0x24e),'JJPAy':function(_0x226be4,_0x1051bc){return _0x226be4+_0x1051bc;},'YwgQq':function(_0x5317fd,_0x22fe64){return _0x5317fd+_0x22fe64;},'csjsz':function(_0x237d69,_0x9d6556){return _0x237d69%_0x9d6556;}};let _0xda5a1c=!![];try{_0xda5a1c=app[_0x18e0ed(-0x124,-0x3b1)]();}catch(_0x16e125){}if(!_0xda5a1c||uiVis[_0x18e0ed(0x7ab,0x21a)]()){this[_0x18e0ed(0x60e,0x1e5)]();return;}const _0x4b13e6=this[_0x18e0ed(0xa8,-0x404)]();if(!_0x4b13e6){this[_0x18e0ed(0x60e,0x102)]();return;}const _0x1fd2aa=Math[_0x18e0ed(0x1dc,-0x3b1)](_0x4b13e6['x']),_0x1d4db6=Math[_0x18e0ed(0x1dc,0x6cd)](_0x4b13e6['y']),_0x32f1fb=Math[_0x18e0ed(0x1dc,0x3)](_0x4b13e6['z']);try{const _0x5e20ce=player[_0x18e0ed(0x36b,0x289)]()[_0x18e0ed(0x105,-0x2df)](),_0x9cea92=_0x5e20ce[_0x18e0ed(0xcb,-0x32d)]({'x':_0x1fd2aa,'y':_0x1d4db6,'z':_0x32f1fb}),_0x3ead3d=this[_0x18e0ed(0x358,0x94)](this[_0x18e0ed(0x6b7,0x809)](_0x9cea92[_0x18e0ed(-0x118,0x1e9)]()),_0x18e0ed(0x7ae,0x82d))||'';if(_0x3ead3d!==_0x18e0ed(0x267,0xe0)){this[_0x18e0ed(0x60e,0x320)]();return;}let _0x4b77f5='';try{const _0x33e3c9=_0x5e20ce[_0x18e0ed(0x775,0x371)]({'x':_0x1fd2aa,'y':_0x1d4db6,'z':_0x32f1fb});_0x4b77f5=this[_0x18e0ed(0x6b7,0x862)](_0x33e3c9[_0x18e0ed(-0x118,-0x688)]());}catch(_0x251cd2){}const _0x50b658=+this[_0x18e0ed(0x358,-0x97)](_0x4b77f5,_0x3fffea[_0x18e0ed(0x264,0x124)])||0x0,_0x3d35c9=['数据','保存','加载','角落','',_0x18e0ed(-0xf1,0x90)][_0x50b658]||'无效',_0x580e56=+this[_0x18e0ed(0x358,0x840)](_0x4b77f5,_0x18e0ed(0x512,0x45a))||0x0,_0x266322=+this[_0x18e0ed(0x358,0x204)](_0x4b77f5,_0x18e0ed(0x370,0x243))||0x0,_0x5a6c3c=+this[_0x18e0ed(0x358,
-0x5da)](_0x4b77f5,_0x18e0ed(-0x122,0x30e))||0x0,_0x385864=+this[_0x18e0ed(0x358,0x6ae)](_0x4b77f5,_0x18e0ed(0x4ab,0xa65))||0x0,_0x335fd9=+this[_0x18e0ed(0x358,0x79e)](_0x4b77f5,_0x18e0ed(0x8c1,0x8ed))||0x0,_0x3d4cb6=+this[_0x18e0ed(0x358,0xa5)](_0x4b77f5,_0x18e0ed(0x8ad,0x386))||0x0,_0x4b9f14=(+this[_0x18e0ed(0x358,0x786)](_0x4b77f5,_0x18e0ed(0x42f,0x679))||0x0)*0x5a,_0x1feda0=+this[_0x18e0ed(0x358,0x6f8)](_0x4b77f5,_0x18e0ed(0x701,0x137))||0x0,_0x587370=['无','X轴','Z轴',_0x18e0ed(-0x156,0x157)][_0x1feda0]||'未知',_0x3bbd09=+this[_0x18e0ed(0x358,-0xca)](_0x4b77f5,_0x18e0ed(0x166,0x12f))||0x0,_0x5b05a9=this[_0x18e0ed(0x358,0x779)](_0x4b77f5,_0x18e0ed(0x37b,0x69f)),_0x272fb0=!!+this[_0x18e0ed(0x358,-0x256)](_0x4b77f5,_0x18e0ed(0x689,0x33e)),_0x131304=!!+this[_0x18e0ed(0x358,0x1bc)](_0x4b77f5,_0x18e0ed(0x225,0x184)),_0x2a35ab=!!+this[_0x18e0ed(0x358,0x389)](_0x4b77f5,_0x18e0ed(0x588,0x79b)),_0x38accc=!!+this[_0x18e0ed(0x358,0x23f)](_0x4b77f5,_0x18e0ed(0x613,0xba2)),_0x4cfb07=!!+this[_0x18e0ed(0x358,0x8e3)](_0x4b77f5,_0x18e0ed(-0x7,-0x41e)),_0x3b5a44=+this[_0x18e0ed(0x358,0x2cf)](_0x4b77f5,_0x18e0ed(0xa7,0x50b))||0x0,_0x469436=+this[_0x18e0ed(0x358,0x5db)](_0x4b77f5,_0x18e0ed(0x4ad,0x347))||0x0,_0x3cd2d6=_0x3b5a44===0x1?_0x18e0ed(0x73a,0xc84):_0x3fffea[_0x18e0ed(0x643,0x122)](_0x3b5a44,0x2)?_0x3fffea[_0x18e0ed(0x481,0x35b)]:'无',_0x3c2d6f=+this[_0x18e0ed(0x358,-0x270)](_0x4b77f5,_0x18e0ed(0x2d0,-0xc4))||0x0;let _0x1ec60b=this[_0x18e0ed(0x994,0x5f3)](this[_0x18e0ed(0x358,0x6c0)](_0x4b77f5,_0x18e0ed(-0x29,0x4db)));if(_0x3fffea[_0x18e0ed(-0x70,0x2cc)](_0x1ec60b[_0x18e0ed(0x493,0x1cf)],0x1a))_0x1ec60b=_0x1ec60b[_0x18e0ed(-0x1f2,-0x179)](0x0,0x1a)+'…';const _0x1864d8=_0x3fffea[_0x18e0ed(0x5df,0x3d4)](_0x3fffea[_0x18e0ed(-0x61,-0x624)](_0x3fffea[_0x18e0ed(0x353,0x208)](_0x3fffea[_0x18e0ed(0x5df,0xa99)](_0x3fffea[_0x18e0ed(0xb7,-0x102)](_0x1fd2aa+','+_0x1d4db6+','+_0x32f1fb+'|'+_0x50b658+'|'+_0x580e56+','+_0x266322+','+_0x5a6c3c+'|'+_0x385864+','+_0x335fd9+','+_0x3d4cb6+'|'+_0x4b9f14+'|'+_0x1feda0+'|'+_0x3bbd09+'|'+_0x5b05a9,'|'),_0x272fb0?0x1:0x0)+(_0x131304?0x1:0x0)+(_0x2a35ab?0x1:0x0),_0x38accc?0x1:0x0)+(_0x4cfb07?0x1:0x0),'|')+_0x3b5a44+',',_0x469436)+'|'+_0x3c2d6f+'|'+_0x1ec60b;if(_0x3fffea[_0x18e0ed(0x643,0x3e2)](_0x1864d8,this[_0x18e0ed(0x474,-0x100)])){if(++this[_0x18e0ed(-0x1f0,-0x38)]>=0xa){this[_0x18e0ed(-0x1f0,-0x542)]=0x0;try{minecraft[_0x18e0ed(0x66a,0x357)](this[_0x18e0ed(0x977,0xb12)]);}catch(_0x2e0909){}}return;}this[_0x18e0ed(0x474,-0xce)]=_0x1864d8,this[_0x18e0ed(-0x1f0,-0x654)]=0x0;const _0x7d0b24=_0x3fffea[_0x18e0ed(0x860,0x98b)](_0x3fffea[_0x18e0ed(0x860,0x95f)](_0x18e0ed(0x409,0x16c)+(_0x18e0ed(0x59d,0xb26)+_0x3d35c9+'\x20'+_0x580e56+'×'+_0x266322+'×'+_0x5a6c3c+_0x18e0ed(0xe3,-0x7e)+_0x385864+','+_0x335fd9+','+_0x3d4cb6+'\x0a')+(_0x18e0ed(0x991,0xaa7)+_0x4b9f14+_0x18e0ed(0x6d8,0xc8b)+_0x587370+_0x18e0ed(0x615,0x763)+(_0x3bbd09%0x1?_0x3bbd09[_0x18e0ed(0x95,0x1dd)](0x1):_0x3bbd09)+'%\x0a')+(_0x18e0ed(0x133,-0x8d)+(_0x5b05a9&&_0x5b05a9!=='0'?_0x5b05a9:'随机')+'\x0a'),_0x18e0ed(-0x139,-0x452)+(_0x272fb0?'忽略':'包含')+_0x18e0ed(0x252,0x1b8)+(_0x131304?'包含':'不含')+'\x0a')+(_0x18e0ed(0x2f3,0x4d4)+(_0x2a35ab?'是':'否')+_0x18e0ed(-0x16d,-0x10d)+(_0x38accc?'显示':'隐藏')+'\x0a')+(_0x18e0ed(0x310,0x71e)+(_0x4cfb07?_0x18e0ed(-0x77,-0x4a1):_0x3fffea[_0x18e0ed(0x69c,0x953)])+_0x18e0ed(0x98f,0xec2)+_0x3cd2d6+(_0x3b5a44>0x0?_0x3fffea[_0x18e0ed(0x670,0x41c)](_0x3fffea[_0x18e0ed(0x3a4,-0x1e2)]('\x20',_0x3fffea[_0x18e0ed(0x928,0x51e)](_0x469436,0x1)?_0x469436[_0x18e0ed(0x95,0x100)](0x1):_0x469436),'s'):'')+'\x0a'),_0x18e0ed(0x449,0x7eb)+(_0x3c2d6f===0x1?'硬盘':'内存')+'\x0a')+(_0x18e0ed(0x148,0x37a)+(_0x1ec60b||'无')+'\x0a')+('§7'+_0x1fd2aa+','+_0x1d4db6+','+_0x32f1fb);this[_0x18e0ed(0x977,0xb78)]=_0x7d0b24;try{minecraft[_0x18e0ed(0x66a,0xba4)](_0x7d0b24);}catch(_0x2ae20b){}}catch(_0x1d307b){}}};function PatchChatMessage(_0xfd2c95,_0x1a857f){const _0x44ff2a={'FIlWq':function(_0x53ffd7,_0xfd6c2c){return _0x53ffd7(_0xfd6c2c);},'jYIcR':function(_0x221ac3,
-_0x26b528){return _0x221ac3+_0x26b528;}},_0x3adcfb=binReader(_0xfd2c95);_0x3adcfb[_0x161ead(0xa93,0x105c)](0x2),_0x3adcfb[_0x161ead(0xa93,0x868)](_0x3adcfb[_0x161ead(0x401,0x7d1)]());const _0x2c279f=_0x3adcfb[_0x161ead(0xd8c,0xc35)],_0x31bbbf=_0x3adcfb[_0x161ead(0x401,0x16a)]();_0x3adcfb[_0x161ead(0x77a,0x4e6)](_0x31bbbf);const _0x190d40=_0x3adcfb[_0x161ead(0xd8c,0x93c)];_0x3adcfb[_0x161ead(0xd8c,0xea6)]+=_0x31bbbf;const _0x511a34=decodeUtf8(_0x3adcfb['u8'][_0x161ead(0x3a9,-0x185)](_0x190d40,_0x190d40+_0x31bbbf)),_0xae645a=_0x1a857f(_0x511a34);function _0x161ead(_0x1e3d9b,_0x71ef8e){return _0x5a0b42(_0x71ef8e,_0x1e3d9b-0x40c);}if(typeof _0xae645a!==_0x161ead(0x886,0x33b)||_0xae645a===_0x511a34)return![];const _0x4ade3e=encodeUtf8(_0xae645a);return joinParts([_0x3adcfb['u8'][_0x161ead(0x3a9,0x765)](0x0,_0x2c279f),_0x44ff2a[_0x161ead(0xa9f,0x58a)](uvarintBytes,_0x4ade3e[_0x161ead(0xa2e,0xac7)]),_0x4ade3e,_0x3adcfb['u8'][_0x161ead(0x3a9,0x7ae)](_0x44ff2a[_0x161ead(0x75d,0x4dc)](_0x190d40,_0x31bbbf))]);}function ReadChatMessage(_0x482264){function _0x3eb0ab(_0x136b44,_0xe510b0){return _0x5a0b42(_0xe510b0,_0x136b44-0x31a);}const _0x4b1ad3={'QkAqu':function(_0xb67ba3,_0x266020){return _0xb67ba3+_0x266020;}};try{const _0x3a6609=binReader(_0x482264);_0x3a6609[_0x3eb0ab(0x9a1,0xe54)](0x2),_0x3a6609[_0x3eb0ab(0x9a1,0xe67)](_0x3a6609[_0x3eb0ab(0x30f,0x1a3)]());const _0x4109bd=_0x3a6609[_0x3eb0ab(0x30f,0x391)]();return _0x3a6609[_0x3eb0ab(0x688,0x4a4)](_0x4109bd),decodeUtf8(_0x3a6609['u8'][_0x3eb0ab(0x2b7,0x30b)](_0x3a6609[_0x3eb0ab(0xc9a,0x1178)],_0x4b1ad3[_0x3eb0ab(0xa42,0xb7b)](_0x3a6609[_0x3eb0ab(0xc9a,0xc6d)],_0x4109bd)));}catch(_0x21a40e){return null;}}const texInject={'tag':_0x5a0b42(0x400,0xf3),'enabled':![],'busy':![],'restoreMode':![],'bootAt':Date[_0x5a0b42(0x339,0x4f9)](),'soDst':kuNative[_0x5a0b42(0xa49,0x660)],'loaded':![],'bufAddr':0x0n,'loadSo'(){const _0x688498=kuNative[_0xacbf53(0x4c8,0x911)]();if(_0x688498)return _0x688498;this[_0xacbf53(0xb42,0x8cb)]=!![],this[_0xacbf53(0xd1f,0xaa0)]=kuNative[_0xacbf53(0x594,0x424)](0x28);function _0xacbf53(_0xc7d6e,_0x5957aa){return _0x5a0b42(_0xc7d6e,_0x5957aa-0x2c4);}return'';},'run0'(_0x93cf15){const _0x169242={'wxTCt':function(_0x1ee2e4,_0x37c4db){return _0x1ee2e4+_0x37c4db;},'CueKu':_0x2d4b4c(0x99c,0xa59)};function _0x2d4b4c(_0x568857,_0x43fcca){return _0x5a0b42(_0x43fcca,_0x568857- -0x3c);}if(!this[_0x2d4b4c(0x5cb,0x531)]){const _0x2d8622=this[_0x2d4b4c(0x8ca,0xbc8)]();if(_0x2d8622)return[_0x2d4b4c(0x47a,0x68a)+_0x2d8622];}if(!this[_0x2d4b4c(0x7a0,0xa07)])return[_0x2d4b4c(0x946,0xbd5)];const _0x355853=app[_0x2d4b4c(0x9b0,0x7da)](_0x2d4b4c(0xf5,0x45e)),_0x3e6913=app[_0x2d4b4c(0x9b0,0xb1f)](_0x2d4b4c(0x558,0x365)),_0x27d193=_0x169242[_0x2d4b4c(0x9f7,0x7aa)](_0x3e6913,'\x0a')+_0x355853+'\x0a'+_0x2d4b4c(0x138,0x486)+gamePkg+_0x169242[_0x2d4b4c(0x7d9,0x2ab)],_0x1a5e06=encodeUtf8(_0x27d193);try{soPush(this[_0x2d4b4c(0x7a0,0x2cc)],_0x1a5e06),kuNative[_0x2d4b4c(0x93f,0x97d)](0x27,_0x93cf15);}catch(_0x34022e){return[_0x2d4b4c(0x2a2,0x2d2)+(_0x34022e&&_0x34022e[_0x2d4b4c(0x269,0x466)]?_0x34022e[_0x2d4b4c(0x269,0x2a3)]:_0x34022e)];}try{const _0x72e46d=String(fs[_0x2d4b4c(-0x97,-0x5c9)](_0x355853)||'')[_0x2d4b4c(0x6c9,0x1c2)]('\x0a');try{fs[_0x2d4b4c(0x790,0x8fb)](_0x355853,'');}catch(_0x1385a5){}return _0x72e46d;}catch(_0x4a8c4d){return[_0x169242[_0x2d4b4c(0x9f7,0xc89)](_0x2d4b4c(0x801,0x27c),_0x4a8c4d)];}},'onModuleEvent'(_0x301908){const _0x2170fa={'NnZGS':function(_0x256b96,_0xbbe80c){return _0x256b96-_0xbbe80c;}};if(typeof _0x301908[_0x22f661(0x63f,0xa5b)]!==_0x22f661(0x75f,0x50d))this[_0x22f661(0xad2,0xd63)]=Boolean(_0x301908[_0x22f661(0x63f,0x3d4)]);if(!stdToggle(this,_0x301908,_0x22f661(0x6b1,0xb19)))return;if(!this[_0x22f661(0x5f8,0x3dc)])return;if(_0x2170fa[_0x22f661(0x4c3,0x233)](Date[_0x22f661(0x9fc,0x9b8)](),this[_0x22f661(0x910,0xdf6)])<0x1770)return;if(this[_0x22f661(0x719,0x695)])return;this[_0x22f661(0x719,0x604)]=!![];function _0x22f661(_0x2b59ff,
-_0x3003b8){return _0x5a0b42(_0x3003b8,_0x2b59ff-0x503);}try{const _0x138676=this[_0x22f661(0xc85,0x11a0)](this[_0x22f661(0xad2,0x7cd)]?0x0:0x1);let _0x37ce49='';for(const _0x4ab93c of _0x138676){if(/^(OK|ERR) /[_0x22f661(0xc18,0xd3e)](_0x4ab93c))_0x37ce49=_0x4ab93c;}if(_0x37ce49){const _0x181b3f=_0x37ce49[_0x22f661(0x534,0xa97)](_0x22f661(0x66d,0x101))===0x0?this[_0x22f661(0xad2,0x7a2)]?_0x22f661(0xdbb,0x1189):_0x22f661(0xd09,0x10e3):_0x37ce49[_0x22f661(0x4a0,0x7b1)](0x3);try{app[_0x22f661(0xd06,0xf26)](''+_0x181b3f);}catch(_0x3f8304){}try{minecraft[_0x22f661(0x4de,0xa76)](_0x22f661(0xf13,0x12b5)+_0x181b3f);}catch(_0x39393e){}}}finally{this[_0x22f661(0x719,0x9b3)]=![];}}},sendControl={'tag':_0x5a0b42(0xcb1,0xacf),'enabled':![],'prefix':'','suffix':'','meMode':![],'colour':!![],'colourSp':!![],'bold':![],'newline':![],'built':[],'meQueue':[],'meVersion':0x58,'clampText'(_0x837c6a){function _0x297fda(_0x1b0f06,_0x5eb60d){return _0x5a0b42(_0x1b0f06,_0x5eb60d-0x355);}return[...String(_0x837c6a)][_0x297fda(0xc2,0x2f2)](0x0,0x1e)[_0x297fda(0x56e,0x7c3)]('');},'onModuleEvent'(_0x459fec){const _0x552726={'erLYx':function(_0x4afbd8,_0x43fb13){return _0x4afbd8===_0x43fb13;},'mVrHj':function(_0x968f82,_0x2408dc){return _0x968f82!==_0x2408dc;},'kiahS':function(_0xa189f8,_0x1c02c6){return _0xa189f8(_0x1c02c6);}};if(typeof _0x459fec[_0x50e1f5(0x2b0,-0x257)]===_0x50e1f5(0x694,0xa50))this[_0x50e1f5(0x412,0x76)]=this[_0x50e1f5(0x955,0x943)](_0x459fec[_0x50e1f5(0x2b0,-0x2f3)]);if(_0x552726[_0x50e1f5(0x3fe,0x5f8)](typeof _0x459fec[_0x50e1f5(0xc7b,0x86d)],_0x50e1f5(0x694,0x103)))this[_0x50e1f5(0xc54,0xef3)]=this[_0x50e1f5(0x955,0x40f)](_0x459fec[_0x50e1f5(0xc7b,0x10f2)]);if(_0x552726[_0x50e1f5(0x9c2,0xddf)](typeof _0x459fec[_0x50e1f5(0x23e,0x39a)],_0x50e1f5(0x476,0x2d9)))this[_0x50e1f5(0x48b,0xa13)]=Boolean(_0x459fec[_0x50e1f5(0x23e,-0x225)]);if(typeof _0x459fec[_0x50e1f5(0x90f,0xcc9)]!==_0x50e1f5(0x476,0x676))this[_0x50e1f5(0x49d,0x95)]=_0x552726[_0x50e1f5(0x1ee,-0x163)](Boolean,_0x459fec[_0x50e1f5(0x90f,0xb43)]);if(typeof _0x459fec[_0x50e1f5(0xd15,0xa6d)]!==_0x50e1f5(0x476,0x705))this[_0x50e1f5(0x35f,0x919)]=_0x552726[_0x50e1f5(0x1ee,0x676)](Boolean,_0x459fec[_0x50e1f5(0xd15,0xa4d)]);if(typeof _0x459fec[_0x50e1f5(0x5a3,0x4c7)]!==_0x50e1f5(0x476,0x68a))this[_0x50e1f5(0x280,-0x33d)]=Boolean(_0x459fec[_0x50e1f5(0x5a3,0xa0f)]);if(typeof _0x459fec[_0x50e1f5(0x826,0x2c3)]!==_0x50e1f5(0x476,-0xa1))this[_0x50e1f5(0xd04,0x9ab)]=_0x552726[_0x50e1f5(0x1ee,0x181)](Boolean,_0x459fec[_0x50e1f5(0x826,0x69e)]);function _0x50e1f5(_0x266c63,_0x4ab637){return _0x5a0b42(_0x4ab637,_0x266c63-0x21a);}if(!stdToggle(this,_0x459fec,_0x50e1f5(0x6d1,0x4a0)))return;!this[_0x50e1f5(0x30f,0x54)]&&(this[_0x50e1f5(0x4c9,0x693)]=[],this[_0x50e1f5(0xa23,0x8fd)]=[]);},'buildText'(_0x14680c){const _0x137490={'TeXZs':function(_0x33c2b9,_0x3d134a){return _0x33c2b9!==_0x3d134a;}};let _0x21f4df=_0x14680c,_0x2b30c0=this[_0x41f26b(0x64b,0x752)];function _0x41f26b(_0x4d21b3,_0xcbca4a){return _0x5a0b42(_0xcbca4a,_0x4d21b3-0x453);}let _0x282136=this[_0x41f26b(0xe8d,0xb5e)];this[_0x41f26b(0xf3d,0x9a3)]&&(_0x21f4df=String(_0x21f4df)[_0x41f26b(0x876,0x586)](/\\n/g,'\x0a'),_0x2b30c0=_0x2b30c0[_0x41f26b(0x876,0x4a2)](/\\n/g,'\x0a'),_0x282136=_0x282136[_0x41f26b(0x876,0x76f)](/\\n/g,'\x0a'));if(this[_0x41f26b(0x6d6,0x88f)]&&!this[_0x41f26b(0x598,0x9b4)])_0x21f4df=colorizeText(_0x21f4df);if(_0x137490[_0x41f26b(0x85c,0x2ef)](_0x282136,'')&&this[_0x41f26b(0x6d6,0x2a3)]&&!this[_0x41f26b(0x598,0x28d)])_0x282136='§r'+(this[_0x41f26b(0x4b9,0x17a)]?'§l':'')+_0x282136;let _0x3a77fc=_0x2b30c0+_0x21f4df+_0x282136;if(this[_0x41f26b(0x6d6,0x251)]&&this[_0x41f26b(0x598,0x8ba)])_0x3a77fc=colorizeText(_0x3a77fc);if(this[_0x41f26b(0x4b9,0x116)])_0x3a77fc='§l'+_0x3a77fc;return _0x3a77fc;},'hasTextFeature'(){function _0x1ade67(_0x123cfa,_0x1ca6d5){return _0x5a0b42(_0x123cfa,_0x1ca6d5-0xa1);}return this[_0x1ade67(0x763,0x324)]||this[_0x1ade67(0x674,0x299)]!==''||this[_0x1ade67(0xf9e,
-0xadb)]!==''||this[_0x1ade67(0xb05,0xb8b)];},'learnVersion'(_0x39ea0d){function _0x5dcf30(_0x28943d,_0x2a21c1){return _0x5a0b42(_0x2a21c1,_0x28943d-0xbd);}try{const _0x1a1470=binReader(_0x39ea0d);_0x1a1470[_0x5dcf30(0x744,0x747)](_0x1a1470[_0x5dcf30(0xb2,-0x8e)]());const _0x34b33d=_0x1a1470[_0x5dcf30(0xb2,0x3a4)]();if(_0x34b33d!==0x0)return;_0x1a1470[_0x5dcf30(0x744,0x550)](0x10),_0x1a1470[_0x5dcf30(0x744,0x53c)](_0x1a1470[_0x5dcf30(0xb2,-0x5b)]()),_0x1a1470[_0x5dcf30(0x744,0x699)](0x1);const _0x229f30=_0x1a1470[_0x5dcf30(0xb2,0x4ac)]();if(_0x229f30>0x0&&_0x229f30<0x186a0)this[_0x5dcf30(0xaca,0x77c)]=_0x229f30;}catch(_0x55b519){}},'onSendServerPacket'(_0x901af4,_0x12fc90,_0x5491db){const _0x53b67a={'oMlcX':function(_0x5a3a64,_0x2a475c){return _0x5a3a64<_0x2a475c;}};if(_0x901af4===0x4d)return this[_0x230e90(0x677,0xc02)](_0x5491db),![];if(!this[_0x230e90(0x9de,0x625)]||_0x901af4!==0x9)return![];function _0x230e90(_0x49a577,_0x1b80ce){return _0x5a0b42(_0x49a577,_0x1b80ce-0x530);}if(this[_0x230e90(0xcb4,0x7a1)]){const _0x2bbb39=ReadChatMessage(_0x5491db);if(!_0x2bbb39||_0x2bbb39[_0x230e90(0x60e,0x561)]('/')===0x0)return![];if(_0x53b67a[_0x230e90(0xe3a,0xd24)](this[_0x230e90(0xa42,0xd39)][_0x230e90(0xc8c,0xb52)],0xa))this[_0x230e90(0x8c9,0xd39)][_0x230e90(0xf38,0xde6)](_0x2bbb39);return!![];}if(!this[_0x230e90(0x9c7,0xcca)]())return![];try{return PatchChatMessage(_0x5491db,_0x3cfd50=>{if(!_0x3cfd50||_0x3cfd50[_0x55f639(-0x538,-0x10e)]('/')===0x0)return null;const _0x4c95e9=this[_0x55f639(0x12f,0x170)][_0x55f639(0x73,-0x10e)](_0x3cfd50);if(_0x4c95e9!==-0x1)return this[_0x55f639(0x440,0x170)][_0x55f639(0x136,0x25c)](_0x4c95e9,0x1),null;const _0x5b3dc6=this[_0x55f639(0x3cd,0x71a)](_0x3cfd50);function _0x55f639(_0x5e0a17,_0x7e504a){return _0x230e90(_0x5e0a17,_0x7e504a- -0x66f);}this[_0x55f639(0x651,0x170)][_0x55f639(0x7b9,0x777)](_0x5b3dc6);if(this[_0x55f639(0x559,0x170)][_0x55f639(0x755,0x4e3)]>0xa)this[_0x55f639(-0x40f,0x170)][_0x55f639(0xc06,0x658)]();return _0x5b3dc6;});}catch(_0xda6a41){}return![];},'onTick'(){if(!this[_0x54ba68(-0x62,-0x50)]||!this[_0x54ba68(0x510,0x12c)]){this[_0x54ba68(0x7d7,0x6c4)][_0x54ba68(0x419,0x4dd)]=0x0;return;}function _0x54ba68(_0x2fbfd1,_0x14c401){return _0x5a0b42(_0x2fbfd1,_0x14c401- -0x145);}if(!this[_0x54ba68(0x63a,0x6c4)][_0x54ba68(0x584,0x4dd)])return;const _0x243a66=this[_0x54ba68(0x35b,0x6c4)][_0x54ba68(0xb29,0x652)]();try{packet[_0x54ba68(0xb60,0x796)]({'command':_0x54ba68(0x6fe,0x92a)+this[_0x54ba68(0x717,0x714)](_0x243a66),'version':this[_0x54ba68(0x937,0x8c8)]});}catch(_0xe39bb3){this[_0x54ba68(0x32d,0x47d)](_0x54ba68(0xb38,0x976)+_0xe39bb3);}},'log':mkLog(_0x5a0b42(0x6c6,0x9eb))};function chatSend(_0x453db5){try{minecraft[_0x55e0d1(0xea3,0x9bf)](_0x453db5);}catch(_0xeeb03f){}function _0x55e0d1(_0x2571da,_0x2b8a8b){return _0x5a0b42(_0x2571da,_0x2b8a8b-0x246);}return![];}function PatchTradeTiers(_0x39a6ef){const _0x22d65f={'ptNsI':function(_0x367afa,_0x3fdffe){return _0x367afa>_0x3fdffe;},'KLQZT':function(_0xe4bd6f){return _0xe4bd6f();},'ttMgz':function(_0x159574,_0x45177d){return _0x159574&_0x45177d;},'BSGTR':function(_0x6d5d3b,_0x5b39f9){return _0x6d5d3b/_0x5b39f9;},'PLUJE':function(_0xfb2d97,_0x37ee73){return _0xfb2d97+_0x37ee73;},'RyrQv':function(_0x48dd2d,_0x28948e){return _0x48dd2d===_0x28948e;},'wdPhv':_0x3cea5e(-0x4f,0x31c),'ZcEJe':function(_0x1cfb42,_0x170fa1){return _0x1cfb42(_0x170fa1);},'JhFSc':function(_0x42a6aa){return _0x42a6aa();},'MJafc':function(_0x216aba,_0xf593cc){return _0x216aba(_0xf593cc);},'CXRIi':function(_0x218e3f,_0x5d49a1,_0x3e8eab){return _0x218e3f(_0x5d49a1,_0x3e8eab);},'fahTO':function(_0x10f864){return _0x10f864();},'Xxzpi':_0x3cea5e(0x78f,0xa5a),'aniwD':function(_0xab1e14,_0x3a895e){return _0xab1e14+_0x3a895e;},'NAOhR':function(_0x5b7f9e){return _0x5b7f9e();},'eZOiO':function(_0x80c73a,_0x1ec7d8){return _0x80c73a<_0x1ec7d8;}},_0x2ade02=new Uint8Array(_0x39a6ef),_0x2d3668=_0x2ade02[_0x3cea5e(0x9e5,0x6ec)];let _0x427240=0x0;const _0x597cb6=[],
-_0x1ca50f=_0x531c48=>{function _0x35678e(_0x3774b1,_0x2f8306){return _0x3cea5e(_0x2f8306,_0x3774b1- -0x1ec);}if(_0x22d65f[_0x35678e(-0x189,0x22c)](_0x427240+_0x531c48,_0x2d3668))throw new Error(_0x35678e(0x7c3,0x28e)+_0x427240);},_0x5f36f0=()=>{return _0x1ca50f(0x1),_0x2ade02[_0x427240++];};function _0x3cea5e(_0x621131,_0x2ca03a){return _0x5a0b42(_0x621131,_0x2ca03a-0xca);}const _0x11d6c3=_0x32e8fe=>{_0x1ca50f(_0x32e8fe),_0x427240+=_0x32e8fe;},_0x299a5b=()=>{let _0x425a37=0x0,_0x4a1852=0x0,_0xeb3d73;function _0xc746d9(_0x3c5fd4,_0x280aa8){return _0x3cea5e(_0x3c5fd4,_0x280aa8- -0xd4);}do{_0xeb3d73=_0x22d65f[_0xc746d9(0x89a,0x497)](_0x5f36f0),_0x425a37+=_0x22d65f[_0xc746d9(-0x7,0x4c7)](_0xeb3d73,0x7f)*0x2**_0x4a1852,_0x4a1852+=0x7;}while(_0xeb3d73&0x80&&_0x4a1852<0x46);return _0x425a37;},_0x108e75=()=>{const _0x3f197f=_0x299a5b(),_0xd70d16=Math[_0x47c3ad(0x50d,0x879)](_0x22d65f[_0x47c3ad(0x739,0x63e)](_0x3f197f,0x2));function _0x47c3ad(_0x3e2581,_0x4e7035){return _0x3cea5e(_0x3e2581,_0x4e7035-0x444);}return _0x3f197f%0x2?-_0xd70d16-0x1:_0xd70d16;},_0x1fff7c=()=>{const _0x317aff=_0x299a5b();_0x1ca50f(_0x317aff);let _0x105deb='';for(let _0x26c88b=0x0;_0x26c88b<_0x317aff;_0x26c88b++)_0x105deb+=String[_0x4b76ee(0x90a,0x5ad)](_0x2ade02[_0x22d65f[_0x4b76ee(0x980,0xf36)](_0x427240,_0x26c88b)]);_0x427240+=_0x317aff;function _0x4b76ee(_0xded3d,_0x3f89e0){return _0x3cea5e(_0x3f89e0,_0xded3d-0x379);}return _0x105deb;},_0x3e34fb=()=>{for(;;){const _0x2062e7=_0x5f36f0();if(_0x2062e7===0x0)return;const _0x2b01cc=_0x1fff7c();_0x250e9f(_0x2062e7,_0x2b01cc);}},_0x250e9f=(_0x34be5d,_0x12cd10)=>{function _0x213ac2(_0x10a900,_0x21d8a3){return _0x3cea5e(_0x10a900,_0x21d8a3- -0xdb);}switch(_0x34be5d){case 0x1:_0x11d6c3(0x1);break;case 0x2:_0x11d6c3(0x2);break;case 0x3:{const _0x37058f=_0x427240;_0x108e75();if(_0x22d65f[_0x213ac2(0x432,0x484)](_0x12cd10,_0x22d65f[_0x213ac2(0xdc,0x588)])&&_0x427240-_0x37058f===0x1)_0x597cb6[_0x213ac2(0x6b4,0x8a5)](_0x37058f);break;}case 0x4:_0x108e75();break;case 0x5:_0x11d6c3(0x4);break;case 0x6:_0x22d65f[_0x213ac2(0x842,0x51f)](_0x11d6c3,0x8);break;case 0x7:{const _0x3dc177=_0x22d65f[_0x213ac2(0x1d8,0x64e)](_0x108e75);if(_0x3dc177<0x0)throw new Error(_0x213ac2(0xb3a,0x97f));_0x22d65f[_0x213ac2(-0xf0,-0x1b)](_0x11d6c3,_0x3dc177);break;}case 0x8:_0x1fff7c();break;case 0x9:{const _0x1620a9=_0x5f36f0(),_0x20eed0=_0x108e75();if(_0x20eed0<0x0)throw new Error(_0x213ac2(0x9a9,0x97f));for(let _0x3fa612=0x0;_0x3fa612<_0x20eed0;_0x3fa612++)_0x22d65f[_0x213ac2(-0x46b,0xec)](_0x250e9f,_0x1620a9,'');break;}case 0xa:_0x3e34fb();break;case 0xb:{const _0x355fd8=_0x22d65f[_0x213ac2(0x3e3,0x93c)](_0x108e75);if(_0x355fd8<0x0)throw new Error(_0x22d65f[_0x213ac2(0x85c,0x635)]);for(let _0x401290=0x0;_0x401290<_0x355fd8;_0x401290++)_0x108e75();break;}default:throw new Error(_0x22d65f[_0x213ac2(0xd5f,0x93d)](_0x213ac2(0xcce,0xb05)+_0x34be5d+'@',_0x427240));}};_0x11d6c3(0x2),_0x108e75(),_0x108e75(),_0x22d65f[_0x3cea5e(0x67f,0x7b5)](_0x108e75),_0x108e75(),_0x1fff7c();let _0x376abd=-0x1;for(let _0x44c46b=_0x427240;_0x22d65f[_0x3cea5e(0x518,0x836)](_0x44c46b,Math[_0x3cea5e(0x85a,0x975)](_0x427240+0x4,_0x2d3668));_0x44c46b++){if(_0x2ade02[_0x44c46b]===0xa){_0x376abd=_0x44c46b;break;}}if(_0x376abd<0x0)throw new Error(_0x3cea5e(0xab1,0x71d));_0x427240=_0x376abd,_0x22d65f[_0x3cea5e(0x809,0x56b)](_0x5f36f0),_0x1fff7c(),_0x3e34fb();const _0x2dfb2b=new Uint8Array(_0x2ade02);for(const _0x47978d of _0x597cb6)_0x2dfb2b[_0x47978d]=0x0;return{'buf':_0x597cb6[_0x3cea5e(0x324,0x6ec)]?_0x2dfb2b[_0x3cea5e(0x8a0,0x2e2)]:null,'n':_0x597cb6[_0x3cea5e(0xab4,0x6ec)]};}function entityNameById(_0x4a725d){try{const _0x14224a=world[_0x5b461d(0x997,0x4d5)]()[_0x5b461d(0x52e,0x457)](_0x4a725d);if(_0x14224a){const _0x2eeb60=String(_0x14224a[_0x5b461d(0xa0c,0xdc5)]()||'');if(_0x2eeb60)return _0x2eeb60;}}catch(_0x47fce0){}try{const _0x3807dd=world[_0x5b461d(0x997,0x71c)]()[_0x5b461d(0x933,
-0xa6c)]();for(const _0x468f09 in _0x3807dd){const _0x571695=_0x3807dd[_0x468f09];if(_0x571695&&String(_0x571695['id'])===String(_0x4a725d))return _0x571695[_0x5b461d(0x3d6,0x48)]||'';}}catch(_0x1932a0){}function _0x5b461d(_0x29c40c,_0x2b5d5c){return _0x5a0b42(_0x2b5d5c,_0x29c40c-0x19);}return'';}function argPick(_0x1f80ff,_0x5b456b){const _0x1b2bcb={'hdMie':function(_0x267c6d,_0x54d5f6){return _0x267c6d+_0x54d5f6;}};function _0x372e84(_0x27ea0d,_0x5cc9f7){return _0x5a0b42(_0x5cc9f7,_0x27ea0d-0x79);}const _0x3a784b=_0x5b456b[_0x372e84(0x77e,0x975)]('_');let _0x29fab0='';for(const _0x474a77 of _0x3a784b)_0x29fab0+=_0x1b2bcb[_0x372e84(0x143,-0x39c)]((_0x29fab0?'_':'')+_0x474a77[_0x372e84(0xb6e,0xb3a)](0x0)[_0x372e84(0x353,-0x20f)](),_0x474a77[_0x372e84(0x16,-0x4b2)](0x1));if(_0x1f80ff[_0x29fab0]!==undefined)return _0x1f80ff[_0x29fab0];if(_0x1f80ff[_0x5b456b]!==undefined)return _0x1f80ff[_0x5b456b];return _0x1f80ff[_0x5b456b[_0x372e84(0xb6e,0xa78)](0x0)[_0x372e84(0x353,0x247)]()+_0x5b456b[_0x372e84(0x16,-0x13)](0x1)];}const tauntDefaultText=[_0x5a0b42(0x195,0x6d4),_0x5a0b42(0x35d,0x5b),_0x5a0b42(0x42,0x3e0),_0x5a0b42(0x4db,0x35f)][_0x5a0b42(0x1a2,0x46e)]('\x0a');function ensureTauntFile(){function _0x5e669b(_0x56fcdc,_0x3d8864){return _0x5a0b42(_0x56fcdc,_0x3d8864- -0xf5);}try{const _0x2fa176=app[_0x5e669b(0x799,0x8f7)](_0x5e669b(0x799,0x877));if(fs[_0x5e669b(0x46e,0x546)](_0x2fa176))return;try{fs[_0x5e669b(0xb1d,0x963)](app[_0x5e669b(0xa9c,0x8f7)](_0x5e669b(-0x380,0x5c)));}catch(_0x41ef6){}fs[_0x5e669b(0x1ea,0x6d7)](_0x2fa176,tauntDefaultText);}catch(_0x53eea9){}}function tauntFire(_0xb715f8,_0x48cba1,_0x8535a9){const _0x5251fa={'YZPcf':function(_0x4d42f6){return _0x4d42f6();}};let _0x586b10='';if(_0x48cba1===_0x3a8581(0xffd,0xf63))_0x586b10=String(_0x8535a9||'')[_0x3a8581(0xa67,0xb4f)]();if(!_0x586b10){let _0x68ec78=[];try{_0x5251fa[_0x3a8581(0x535,0x972)](ensureTauntFile);const _0xd0a5ad=String(fs[_0x3a8581(0x4ac,0x5a3)](app[_0x3a8581(0xef3,0x105b)](_0x3a8581(0xe73,0x96f)))||'');for(const _0x30ec89 of _0xd0a5ad[_0x3a8581(0xc0c,0x782)](/\r?\n/)){const _0x56f263=_0x30ec89[_0x3a8581(0xa67,0x8ac)]();if(_0x56f263)_0x68ec78[_0x3a8581(0xdbd,0x802)](_0x56f263);}}catch(_0x59b978){}if(!_0x68ec78[_0x3a8581(0xb29,0xe9c)])_0x68ec78=[_0x3a8581(0xbdb,0xa09),_0x3a8581(0x562,0xa5e)];_0x586b10=_0x68ec78[Math[_0x3a8581(0x872,0xce9)](Math[_0x3a8581(0xaa6,0x609)]()*_0x68ec78[_0x3a8581(0xb29,0xc97)])];}function _0x3a8581(_0x536dda,_0x30d08e){return _0x5a0b42(_0x30d08e,_0x536dda-0x507);}let _0x215a98='';try{_0x215a98=String(player[_0x3a8581(0xa01,0xd1a)]()[_0x3a8581(0xefa,0xbed)]()||'');}catch(_0x28005e){}return _0x586b10[_0x3a8581(0x92a,0x90e)](/\{name\}/g,_0xb715f8)[_0x3a8581(0x92a,0x413)](/\{self\}/g,_0x215a98);}const tradeUnlock={'tag':_0x5a0b42(0x771,0x5b6),'enabled':![],'onModuleEvent'(_0xa559ec){function _0x534f21(_0x167015,_0x380e9e){return _0x5a0b42(_0x167015,_0x380e9e-0x222);}stdToggle(this,_0xa559ec,_0x534f21(0x495,0x1fc));},'onReceiveServerPacket'(_0x527286,_0x14e5dd,_0x1c43fe){if(!this[_0x5c8169(0x657,0x94)]||_0x527286!==0x50)return null;function _0x5c8169(_0x3605d2,_0x34fa33){return _0x5a0b42(_0x3605d2,_0x34fa33- -0x61);}try{const _0xe7d961=PatchTradeTiers(_0x1c43fe);if(_0xe7d961['n']>0x0)return _0xe7d961[_0x5c8169(0x39d,0xec)];}catch(_0x2abd8b){}return null;}},fpsHud={'tag':_0x5a0b42(-0x172,0x99),'enabled':!![],'applied':![],'tickCount':0x0,'PY_ON':_0x5a0b42(0xe9a,0xa23)+app[_0x5a0b42(0x9f0,0x9ec)](_0x5a0b42(0x71e,0x932))+(_0x5a0b42(0x6ee,0x206)+_0x5a0b42(0x5e4,0x8bd)+_0x5a0b42(0x803,0x708)+_0x5a0b42(0x254,-0x48)+_0x5a0b42(0x17d,0x406)+_0x5a0b42(0x8da,0x8aa)),'PY_OFF':_0x5a0b42(-0x533,0x8b)+_0x5a0b42(0x905,0x367),'applyOn'(){const _0xcf6cb7=app[_0x4d72fd(0xc4a,0xecb)](_0x4d72fd(0xb90,0xaf0));try{fs[_0x4d72fd(0xa2a,0x6a5)](_0xcf6cb7,'0');}catch(_0x502f5a){}try{app[_0x4d72fd(0x4d3,0x51)](this[_0x4d72fd(0x2a1,0x7bc)]);}catch(_0x11a856){return![];}function _0x4d72fd(_0x3aec6f,_0x10a927){return _0x5a0b42(_0x10a927,
-_0x3aec6f-0x25e);}try{return String(fs[_0x4d72fd(0x203,0x16b)](_0xcf6cb7)||'')[_0x4d72fd(0x7be,0x653)]()==='1';}catch(_0x54032c){return![];}},'onModuleEvent'(_0x42153a){function _0x1fb1ca(_0x94501e,_0x2f5093){return _0x5a0b42(_0x2f5093,_0x94501e-0x255);}const _0x1c0261={'SzTGt':_0x1fb1ca(0xa22,0xa9c)};if(!stdToggle(this,_0x42153a,_0x1c0261[_0x1fb1ca(0xcce,0xe27)]))return;if(this[_0x1fb1ca(0x34a,0x627)])this[_0x1fb1ca(0xd1f,0xd1f)]=this[_0x1fb1ca(0x41f,0x5f5)]();else{try{app[_0x1fb1ca(0x4ca,0x1da)](this[_0x1fb1ca(0xa75,0xd3a)]);}catch(_0x58ac63){}this[_0x1fb1ca(0xd1f,0x7e9)]=![];}},'onTick'(){function _0xe9f567(_0x265ac2,_0x2b07c3){return _0x5a0b42(_0x265ac2,_0x2b07c3-0xc0);}const _0x2de613={'xQTrd':function(_0x312e1a,_0x3a3f4c,_0x5bba0c){return _0x312e1a(_0x3a3f4c,_0x5bba0c);}};if(!this[_0xe9f567(0x37,0x1b5)]||this[_0xe9f567(0xf1c,0xb8a)]||!_0x2de613[_0xe9f567(0x67b,0x58d)](tickEvery,this,0x14))return;this[_0xe9f567(0xa0d,0xb8a)]=this[_0xe9f567(0x2ab,0x28a)]();}},killTaunt={'tag':_0x5a0b42(0xa2,0x248),'enabled':![],'attacks':[],'lastFire':0x0,'cdSec':0x3,'mode':_0x5a0b42(0x55e,0x3),'text':'','onModuleEvent'(_0x191781){const _0x43a174={'ZeQAR':_0x336474(0x834,0x8ba),'pteNn':_0x336474(-0x7c,-0xa2)},_0x40ab4d=clampPos(argPick(_0x191781,_0x43a174[_0x336474(0xc1,0x14a)]),0x1,0x3c);if(_0x40ab4d)this[_0x336474(0x323,-0x16)]=_0x40ab4d;radio2(_0x191781,_0x336474(0xf0,-0x117),_0x336474(0x5e0,0x26b),_0x336474(0x26,0x3ed),this,_0x336474(0x7e7,0x87f),_0x336474(0x778,0xa51),_0x43a174[_0x336474(-0x122,0x278)]);const _0x3ad5bd=argPick(_0x191781,_0x336474(-0x363,0x1ae));function _0x336474(_0x5485d2,_0x488b62){return _0x5a0b42(_0x5485d2,_0x488b62- -0xa5);}if(typeof _0x3ad5bd===_0x336474(0xa5,0x3d5))this[_0x336474(0x4e9,0xa51)]=_0x3ad5bd;if(!stdToggle(this,_0x191781,_0x336474(0x73c,0x419)))return;if(this[_0x336474(-0x1a3,0x50)])ensureTauntFile();else this[_0x336474(0x669,0x506)]=[];},'onPlayerAttack'(_0x2079a3,_0x2f4eca){const _0x312c2c={'VVkPH':function(_0x42c136,_0x907669){return _0x42c136(_0x907669);}};function _0x181ca6(_0x446914,_0x8b9ca2){return _0x5a0b42(_0x446914,_0x8b9ca2-0x29b);}if(!this[_0x181ca6(0x3f0,0x390)])return;this[_0x181ca6(0x52a,0x846)][_0x181ca6(0xdff,0xb51)]({'id':String(_0x2f4eca),'name':_0x312c2c[_0x181ca6(0x45c,0x623)](entityNameById,_0x2f4eca),'t':Date[_0x181ca6(0x76f,0x794)]()});if(this[_0x181ca6(0x33a,0x846)][_0x181ca6(0xd56,0x8bd)]>0x14)this[_0x181ca6(0xd0f,0x846)][_0x181ca6(0xe62,0xa32)]();},'onEntityBehavior'(_0x30ce36,_0x55a91f){function _0x4136c3(_0x147293,_0x10e8f0){return _0x5a0b42(_0x147293,_0x10e8f0-0x2c2);}const _0x31aedd={'GjOKM':function(_0x295994,_0x1cea80){return _0x295994(_0x1cea80);},'wYzjf':function(_0x4c9d92,_0x17bf6a){return _0x4c9d92>=_0x17bf6a;}};if(!this[_0x4136c3(0x51c,0x3b7)]||_0x55a91f!==0x3)return;const _0x510ddf=Date[_0x4136c3(0x870,0x7bb)]();if(_0x510ddf-this[_0x4136c3(0xa29,0x98d)]<this[_0x4136c3(0x3aa,0x351)]*0x3e8)return;const _0x1fec2b=_0x31aedd[_0x4136c3(0x627,0x953)](String,_0x30ce36);for(let _0x5b61bc=this[_0x4136c3(0x470,0x86d)][_0x4136c3(0x3d2,0x8e4)]-0x1;_0x31aedd[_0x4136c3(0x228,0x67c)](_0x5b61bc,0x0);_0x5b61bc--){const _0x234353=this[_0x4136c3(0x677,0x86d)][_0x5b61bc];if(_0x510ddf-_0x234353['t']>0x3a98){this[_0x4136c3(0x35c,0x86d)][_0x4136c3(0x745,0x65d)](_0x5b61bc,0x1);continue;}if(_0x234353['id']!==_0x1fec2b)continue;this[_0x4136c3(0x70f,0x86d)][_0x4136c3(0x474,0x65d)](_0x5b61bc,0x1),this[_0x4136c3(0xcaf,0x98d)]=_0x510ddf,_0x31aedd[_0x4136c3(0xa62,0x953)](chatSend,tauntFire(_0x234353[_0x4136c3(0xa71,0x67f)]||'对手',this[_0x4136c3(0xc9c,0xbe6)],this[_0x4136c3(0xf93,0xdb8)]));return;}}},attackTaunt={'tag':_0x5a0b42(0x530,0x420),'enabled':![],'cdSec':0x8,'mode':_0x5a0b42(-0x4d9,0x3),'text':'','lastFire':0x0,'onModuleEvent'(_0x31865d){const _0x48a506={'vNoGc':_0x5efe4a(0x609,0x9a),'qhBoq':_0x5efe4a(0x968,0x760)},_0x20cfb1=clampPos(argPick(_0x31865d,_0x5efe4a(0xc1f,0xfbc)),0x1,0x3c);if(_0x20cfb1)this[_0x5efe4a(0x21e,0x1a1)]=_0x20cfb1;radio2(_0x31865d,_0x5efe4a(0xc93,0xfce),
-_0x5efe4a(0xb61,0x1090),_0x5efe4a(0xb84,0xf1a),this,_0x5efe4a(0xab3,0xafb),_0x5efe4a(0xc85,0xe76),_0x5efe4a(0x192,0x322));const _0x26ef40=argPick(_0x31865d,_0x5efe4a(0x5c1,0xa8c));if(typeof _0x26ef40===_0x48a506[_0x5efe4a(0x8ea,0xb97)])this[_0x5efe4a(0xc85,0xaa3)]=_0x26ef40;if(!stdToggle(this,_0x31865d,_0x48a506[_0x5efe4a(0xb48,0xa8c)]))return;function _0x5efe4a(_0x86e162,_0x2236de){return _0x5a0b42(_0x2236de,_0x86e162-0x18f);}this[_0x5efe4a(0x284,0x1f3)]&&(this[_0x5efe4a(0x85a,0x933)]=0x0,ensureTauntFile());},'onPlayerAttack'(_0x30c054,_0x27834b){function _0x541b02(_0x3a5f91,_0x3b515f){return _0x5a0b42(_0x3a5f91,_0x3b515f- -0x1f3);}if(!this[_0x541b02(-0x284,-0xfe)])return;const _0x2ed466=Date[_0x541b02(0x589,0x306)]();if(_0x2ed466-this[_0x541b02(0x45e,0x4d8)]<this[_0x541b02(-0x3c4,-0x164)]*0x3e8)return;this[_0x541b02(0x52c,0x4d8)]=_0x2ed466,chatSend(tauntFire(entityNameById(_0x27834b)||'对手',this[_0x541b02(0x2cb,0x731)],this[_0x541b02(0x707,0x903)]));}},autoDrop={'tag':_0x5a0b42(0x7dd,0x9bf),'enabled':![],'iterateHotbar':!![],'mode':_0x5a0b42(0x524,0x399),'slot':0x0,'needSelect':![],'pyReady':![],'pyInstall':_0x5a0b42(0x163,0x138)+_0x5a0b42(0x652,0x6c3)+_0x5a0b42(0x7f5,0x458)+_0x5a0b42(0xb87,0x81a)+_0x5a0b42(0x164,0x597),'onModuleEvent'(_0x4c2dd1){const _0xb87124={'pVYFk':function(_0x1da0c7,_0x3538e3){return _0x1da0c7(_0x3538e3);},'KRiJK':_0x4f60f7(0x3cd,0x430)};if(typeof _0x4c2dd1[_0x4f60f7(-0x2e0,0x262)]!==_0x4f60f7(0x831,0x3dc))this[_0x4f60f7(-0x70,0x41a)]=_0xb87124[_0x4f60f7(0xa59,0x5f9)](Boolean,_0x4c2dd1[_0x4f60f7(-0x28e,0x262)]);radio2(_0x4c2dd1,_0x4f60f7(0x64d,0x4a6),_0x4f60f7(0x10d4,0xbae),_0x4f60f7(0x377,0x7a8),this,_0x4f60f7(0x1050,0xaa4),_0x4f60f7(0x193,0x519),_0x4f60f7(-0x16d,0x430));function _0x4f60f7(_0x541eb1,_0x620685){return _0x5a0b42(_0x541eb1,_0x620685-0x180);}if(!stdToggle(this,_0x4c2dd1,_0x4f60f7(0x356,0x4a1),![],this[_0x4f60f7(0xb61,0xaa4)]===_0xb87124[_0x4f60f7(0x17d,0x6dc)]?_0x4f60f7(0x2,0x22c):_0x4f60f7(0x7f3,0x83d)))return;this[_0x4f60f7(0x763,0x275)]&&(this[_0x4f60f7(0xe68,0xb72)]=0x0,this[_0x4f60f7(0x59a,0x207)]=this[_0x4f60f7(0x89e,0x41a)]&&this[_0x4f60f7(0x845,0xaa4)]===_0x4f60f7(0xad6,0x519));},'log':mkLog(_0x5a0b42(0x24,0x231)),'petDrop'(_0x336dbf){function _0x249c7a(_0x2974a1,_0x486802){return _0x5a0b42(_0x486802,_0x2974a1-0x4ab);}if(!this[_0x249c7a(0x8eb,0x644)]){this[_0x249c7a(0x8eb,0x3b4)]=!![];try{app[_0x249c7a(0x720,0x9d0)](this[_0x249c7a(0x84a,0xc57)]);}catch(_0x380966){}}try{return app[_0x249c7a(0x720,0x1f1)](_0x249c7a(0xda5,0x124f)+_0x336dbf+')'),!![];}catch(_0x552a41){return this[_0x249c7a(0xa6d,0xa64)](_0x249c7a(0xaf6,0x63e)+_0x552a41),![];}},'onTick'(){const _0x1a10f2={'xlEHF':_0x5db934(0x3fa,0x4bc),'XhQee':function(_0xa43936,_0x3cd697){return _0xa43936+_0x3cd697;},'hhZwZ':_0x5db934(0xa70,0xb43)};if(!this[_0x5db934(0xaef,0x570)])return;let _0x1de8b0;try{_0x1de8b0=player[_0x5db934(0xc5c,0x975)]();}catch(_0x12afe6){return;}if(this[_0x5db934(0x119f,0xd9f)]===_0x5db934(0x572,0x72b)){let _0x5cfd13=this[_0x5db934(0x138c,0xe6d)];if(!this[_0x5db934(0x164,0x715)])try{_0x5cfd13=Number(_0x1de8b0[_0x5db934(0x1208,0xc5b)]())||0x0;}catch(_0x27df1b){_0x5cfd13=0x0;}if(!this[_0x5db934(0xe7c,0xdb1)](_0x5cfd13)){this[_0x5db934(0x19f,0x570)]=![],this[_0x5db934(0x8ca,0xa3d)](_0x1a10f2[_0x5db934(0xdf4,0x843)]);return;}if(!this[_0x5db934(0x3d7,0x715)])return;this[_0x5db934(0xfb4,0xe6d)]++;let _0x56d008=0x9;try{_0x56d008=_0x1de8b0[_0x5db934(0x1021,0xc9a)]();}catch(_0x371d4d){}if(this[_0x5db934(0xe63,0xe6d)]>=_0x56d008)this[_0x5db934(0xfe3,0xe6d)]=0x0;return;}if(this[_0x5db934(0x347,0x715)]&&this[_0x5db934(0x81a,0x502)]){try{_0x1de8b0[_0x5db934(0x6e2,0x82d)](this[_0x5db934(0xdda,0xe6d)]);}catch(_0x23d027){this[_0x5db934(0xd70,0xa3d)](_0x1a10f2[_0x5db934(0x551,0x582)](_0x5db934(0xd4f,0x901),_0x23d027[_0x5db934(0x25b,0x720)])),this[_0x5db934(0x37d,0x570)]=![];return;}this[_0x5db934(0x570,0x502)]=![];}function _0x5db934(_0x5b90b0,_0x1e2219){return _0x5a0b42(_0x5b90b0,
-_0x1e2219-0x47b);}try{input[_0x5db934(0x1260,0xf04)](_0x5db934(0x7a6,0xb43)),input[_0x5db934(0x17d,0x718)](_0x1a10f2[_0x5db934(0xd6b,0xf29)]);}catch(_0x1fa87f){this[_0x5db934(0x536,0xa3d)](_0x5db934(0xe1,0x69e)+_0x1fa87f[_0x5db934(0x3e5,0x720)]),this[_0x5db934(0x3f6,0x570)]=![];return;}if(!this[_0x5db934(0x1e2,0x715)])return;this[_0x5db934(0x98d,0xe6d)]++;let _0x4f308f=0x9;try{_0x4f308f=_0x1de8b0[_0x5db934(0xfb4,0xc9a)]();}catch(_0x467eb8){}if(this[_0x5db934(0xa17,0xe6d)]>=_0x4f308f)this[_0x5db934(0x1139,0xe6d)]=0x0;this[_0x5db934(0x1c2,0x502)]=!![];}},attackFx={'tag':_0x5a0b42(0x5bc,0x768),'enabled':![],'sound':!![],'uid':'','boltSeq':0x0,'lastSound':0x0,'lastBolt':0x0,'boltCd':0x96,'dbgLines':[],'dbgPath':'','dbg'(_0x326223){function _0x49d993(_0x340c0f,_0x1ba1b4){return _0x5a0b42(_0x1ba1b4,_0x340c0f- -0x88);}const _0x526a14={'AIMht':function(_0x162013,_0x308145){return _0x162013%_0x308145;}};try{this[_0x49d993(0x422,0x714)][_0x49d993(0x82e,0xa67)](_0x526a14[_0x49d993(0x2e1,-0x9f)](Date[_0x49d993(0x471,0x67a)](),0xf4240)+'\x20'+_0x326223);if(this[_0x49d993(0x422,0xb1)][_0x49d993(0x59a,0xa43)]>0x1e)this[_0x49d993(0x422,0x26f)][_0x49d993(0x70f,0x34f)]();if(!this[_0x49d993(0xbc,0x41f)])this[_0x49d993(0xbc,0x22)]=app[_0x49d993(0x2bf,0x77d)]()+_0x49d993(0x925,0x7e8);fs[_0x49d993(0x744,0xbff)](this[_0x49d993(0xbc,0x1bf)],this[_0x49d993(0x422,0x331)][_0x49d993(0x3e6,0x87f)]('\x0a'));}catch(_0x3389dd){}},'pyOn':_0x5a0b42(0x3f9,0xc8)+_0x5a0b42(0x3d9,0x6cc)+_0x5a0b42(-0x39d,-0x31),'pyOff':_0x5a0b42(-0x51a,-0x1c),'onModuleEvent'(_0x4c55c8){const _0xa7fbb5={'YyLrP':_0x184623(-0x353,0xef),'MiTaF':function(_0x390d73,_0x2e24e6,_0x5df62c,_0x34f04f,_0x35c416,_0x367641){return _0x390d73(_0x2e24e6,_0x5df62c,_0x34f04f,_0x35c416,_0x367641);},'vHUTl':_0x184623(0x466,0x300)};typeof _0x4c55c8[_0x184623(0xb9a,0x89f)]!==_0xa7fbb5[_0x184623(0x83f,0x2ab)]&&(this[_0x184623(0xa8f,0x6a6)]=Boolean(_0x4c55c8[_0x184623(0xac6,0x89f)]));if(!_0xa7fbb5[_0x184623(0x4bc,0x761)](stdToggle,this,_0x4c55c8,_0xa7fbb5[_0x184623(-0x37f,-0xd6)],!![],_0x184623(-0x31f,0x27b)))return;function _0x184623(_0x8ec5bc,_0x5b5c4f){return _0x5a0b42(_0x8ec5bc,_0x5b5c4f- -0x16d);}this[_0x184623(0x7e5,0x5d8)](this[_0x184623(0x158,-0x78)]?'on':_0x184623(0x2d7,0x813));if(!this[_0x184623(0x4ab,-0x78)])this[_0x184623(0x4ae,-0xe7)]='';try{app[_0x184623(0x564,0x108)](this[_0x184623(-0x52a,-0x78)]?this[_0x184623(0x7d4,0x974)]:this[_0x184623(-0x1c1,-0x57)]);}catch(_0x4179d6){}},'onPlayerAttack'(_0x2f6268,_0x102821){const _0x563581={'NaPee':function(_0x1a9793,_0x17af41){return _0x1a9793!==_0x17af41;},'dTKjn':function(_0x34bbe6,_0x5e636f){return _0x34bbe6(_0x5e636f);}};if(!this[_0x62c148(0x48c,0x156)])return;if(!this[_0x62c148(0x620,0xe7)])try{this[_0x62c148(0x351,0xe7)]=String(player[_0x62c148(0x22c,0x55b)]()[_0x62c148(0x8a5,0xa83)]());}catch(_0x185687){this[_0x62c148(0x420,0xe7)]='?';}function _0x62c148(_0x4462fd,_0xad6a51){return _0x5a0b42(_0x4462fd,_0xad6a51-0x61);}if(_0x563581[_0x62c148(0x95a,0x669)](this[_0x62c148(0x636,0xe7)],'?')&&_0x563581[_0x62c148(0xd98,0x857)](String,_0x2f6268)!==this[_0x62c148(-0x411,0xe7)])return;const _0x44161d=this[_0x62c148(0x343,0x375)](_0x102821);if(_0x44161d)this[_0x62c148(0x390,0x27f)](_0x44161d);},'victimFootPos'(_0xf7c0ba){function _0x2b1b2a(_0x2ff55d,_0x29f3cc){return _0x5a0b42(_0x2ff55d,_0x29f3cc- -0xce);}try{const _0x3b3470=world[_0x2b1b2a(0xe33,0x8b0)]()[_0x2b1b2a(0x476,0x447)](_0xf7c0ba);if(!_0x3b3470)return null;try{const _0x5cec96=_0x3b3470[_0x2b1b2a(0x885,0x74b)]();if(_0x5cec96&&_0x5cec96[_0x2b1b2a(0x22f,0x36a)]&&_0x5cec96[_0x2b1b2a(-0xc,0x2f4)])return{'x':(_0x5cec96[_0x2b1b2a(0x8b3,0x36a)]['x']+_0x5cec96[_0x2b1b2a(-0x2ba,0x2f4)]['x'])/0x2,'y':_0x5cec96[_0x2b1b2a(0x8c6,0x36a)]['y'],'z':(_0x5cec96[_0x2b1b2a(0x259,0x36a)]['z']+_0x5cec96[_0x2b1b2a(0x680,0x2f4)]['z'])/0x2};}catch(_0xa7db19){}const _0x5dc525=_0x3b3470[_0x2b1b2a(0x4ff,0x5a)]();if(_0x5dc525)return{'x':_0x5dc525['x'],'y':_0x5dc525['y']-1.62,
-'z':_0x5dc525['z']};}catch(_0x1f2af7){}return null;},'strike'(_0x4e1816){const _0x356f67={'XgtHa':function(_0x1c3b13,_0x505149){return _0x1c3b13+_0x505149;},'kVRjm':function(_0x7b93db,_0x36e6d2){return _0x7b93db+_0x36e6d2;},'DJpKP':_0x4e8be8(0x801,0x62d),'krFcM':function(_0x1d7268,_0x37e80e){return _0x1d7268(_0x37e80e);},'DrPDs':function(_0x556af4,_0x5eae27){return _0x556af4+_0x5eae27;},'ruaOH':function(_0x18b955,_0xd1606b){return _0x18b955+_0xd1606b;},'OfSZr':function(_0x62ddf8,_0x409e80){return _0x62ddf8*_0x409e80;},'ymTbz':function(_0x2f7c7d,_0x85629e){return _0x2f7c7d+_0x85629e;},'QtNIe':_0x4e8be8(0xbe9,0xd7d)},_0x4db7ab=Date[_0x4e8be8(0xa8f,0x814)]();if(_0x4db7ab-this[_0x4e8be8(0x8e7,0x5ab)]<this[_0x4e8be8(0x77d,0x9dc)]){this[_0x4e8be8(0x93b,0xa60)](_0x4e8be8(0x675,0x54b));return;}this[_0x4e8be8(0x261,0x5ab)]=_0x4db7ab,this[_0x4e8be8(0x123d,0xcce)]=_0x356f67[_0x4e8be8(0x385,0x7e3)](this[_0x4e8be8(0xb48,0xcce)],0x1)%0x186a0,this[_0x4e8be8(0xbdd,0xa60)](_0x356f67[_0x4e8be8(-0x204,0x2c1)](_0x4e8be8(0xe6d,0xdad),this[_0x4e8be8(0x1133,0xcce)])+_0x4e8be8(0xcd4,0xdf8)+_0x4e1816['x'][_0x4e8be8(0x95e,0x53f)](0x1)+'\x20'+_0x4e1816['y'][_0x4e8be8(0x145,0x53f)](0x1)+'\x20'+_0x4e1816['z'][_0x4e8be8(0xa7,0x53f)](0x1));let _0xa5a784='?';try{const _0x2975fe=new packet[(_0x4e8be8(0x23c,0x594))]();_0x2975fe[_0x4e8be8(0x40b,0x5eb)](-(0x30d40+this[_0x4e8be8(0x11e7,0xcce)])),_0x2975fe[_0x4e8be8(0x7ce,0x3e7)](0x1ad27480+this[_0x4e8be8(0x83b,0xcce)]),_0x2975fe[_0x4e8be8(0x78b,0xa1c)](_0x356f67[_0x4e8be8(0x899,0x719)]),_0x2975fe[_0x4e8be8(0x99a,0xe2b)](_0x4e1816['x']),_0x2975fe[_0x4e8be8(0x10db,0xe2b)](_0x4e1816['y']),_0x2975fe[_0x4e8be8(0xc72,0xe2b)](_0x4e1816['z']),_0x2975fe[_0x4e8be8(0x87a,0xe2b)](0x0),_0x2975fe[_0x4e8be8(0x11e0,0xe2b)](0x0),_0x2975fe[_0x4e8be8(0xbce,0xe2b)](0x0),_0x2975fe[_0x4e8be8(0xea8,0xe2b)](0x0),_0x2975fe[_0x4e8be8(0xde2,0xe2b)](0x0),_0x2975fe[_0x4e8be8(0x101b,0xe2b)](0x0),_0x2975fe[_0x4e8be8(0xddb,0xe2b)](0x0),_0x2975fe[_0x4e8be8(0x78a,0x3e7)](0x0),_0x2975fe[_0x4e8be8(0x975,0x3e7)](0x0),_0x2975fe[_0x4e8be8(0x81f,0x3e7)](0x0),_0x2975fe[_0x4e8be8(0xa2,0x3e7)](0x0),_0x2975fe[_0x4e8be8(-0xce,0x3e7)](0x0),_0xa5a784=_0x356f67[_0x4e8be8(0xdf4,0x977)](String,_0x2975fe[_0x4e8be8(0x9e4,0x8c5)](0xd));}catch(_0x3526ec){_0xa5a784=_0x4e8be8(0x4d6,0x929)+_0x3526ec;}this[_0x4e8be8(0x729,0xa60)](_0x4e8be8(0xe59,0x8c9)+_0xa5a784);function _0x4e8be8(_0x4e2a76,_0x28ea40){return _0x5a0b42(_0x4e2a76,_0x28ea40-0x31b);}if(!this[_0x4e8be8(0xe75,0xb2e)])return;if(_0x4db7ab-this[_0x4e8be8(0xd16,0xb1f)]<0x3e8)return;this[_0x4e8be8(0x9c9,0xb1f)]=_0x4db7ab;try{app[_0x4e8be8(0x219,0x590)](_0x356f67[_0x4e8be8(0x7bb,0xaa5)](_0x356f67[_0x4e8be8(0x86b,0xa51)](_0x356f67[_0x4e8be8(0xe37,0xaa5)](_0x4e8be8(0x29f,0x3fb)+_0x4e1816['x'],',\x20')+_0x4e1816['y']+',\x20',_0x4e1816['z']),')'));}catch(_0x3db915){this[_0x4e8be8(0xcfb,0xa60)](_0x4e8be8(0x5d6,0x475)+_0x3db915);}if(Math[_0x4e8be8(0xaf4,0x8ba)]()<0.5){const _0x50553d=(0.9+_0x356f67[_0x4e8be8(0xadc,0x938)](Math[_0x4e8be8(0x86d,0x8ba)](),0.2))[_0x4e8be8(0x292,0x53f)](0x2);try{app[_0x4e8be8(0xa44,0x590)](_0x356f67[_0x4e8be8(0x4b4,0x986)](_0x356f67[_0x4e8be8(0x953,0x7e3)](_0x356f67[_0x4e8be8(0x6a1,0x2c1)](_0x356f67[_0x4e8be8(0x7a8,0xa51)](_0x4e8be8(0x6e2,0x8da),_0x4e1816['x'])+',\x20',_0x4e1816['y'])+',\x20'+_0x4e1816['z']+',\x20',_0x50553d),')'));}catch(_0x5996ab){this[_0x4e8be8(0x522,0xa60)](_0x356f67[_0x4e8be8(0x66f,0xa51)](_0x356f67[_0x4e8be8(0xda6,0xb07)],_0x5996ab));}}},'onWorldExit'(){function _0x2b7158(_0x382d4b,_0x13f546){return _0x5a0b42(_0x13f546,_0x382d4b-0xf6);}this[_0x2b7158(0x17c,0x4fc)]='';}},deathFx={'tag':_0x5a0b42(0x6fd,0x21d),'enabled':![],'onlyMob':![],'onlyPlayer':![],'sound':!![],'uid':'','watch':[],'boltSeq':0x0,'lastSound':0x0,'pyOn':_0x5a0b42(0x576,0xc8)+_0x5a0b42(0x4eb,0x6cc)+_0x5a0b42(-0x4fa,-0x31),'pyOff':_0x5a0b42(-0x1b3,-0x1c),'onModuleEvent'(_0x3f59f5){const _0x36db4d={'kUTba':function(_0x50cdb3,_0x15ff6d){return _0x50cdb3(_0x15ff6d);},'QXOOW':_0x557fad(0x27c,0x6e8),
-'aNdwO':function(_0x14d32e,_0x3f7dfc){return _0x14d32e!==_0x3f7dfc;}},_0x2758b0=_0x557fad(0x75e,0xb71)[_0x557fad(0x69b,0x8ab)]('|');let _0x3e0a64=0x0;function _0x557fad(_0x4a6887,_0x5f037b){return _0x5a0b42(_0x4a6887,_0x5f037b-0x1a6);}while(!![]){switch(_0x2758b0[_0x3e0a64++]){case'0':if(typeof _0x3f59f5[_0x557fad(0xd4c,0x9c8)]!==_0x557fad(0x111,0x402))this[_0x557fad(0x73a,0x546)]=_0x36db4d[_0x557fad(0x8cd,0x33a)](Boolean,_0x3f59f5[_0x557fad(0x99e,0x9c8)]);continue;case'1':if(typeof _0x3f59f5[_0x557fad(0x977,0xbb0)]!==_0x557fad(0x623,0x402))this[_0x557fad(0xedf,0x9b9)]=Boolean(_0x3f59f5[_0x557fad(0x83e,0xbb0)]);continue;case'2':if(!stdToggle(this,_0x3f59f5,_0x36db4d[_0x557fad(0x89d,0x81a)],!![],_0x557fad(0xfab,0xa1f)))return;continue;case'3':try{app[_0x557fad(-0x53,0x41b)](this[_0x557fad(-0xf,0x29b)]?this[_0x557fad(0x923,0xc87)]:this[_0x557fad(-0x276,0x2bc)]);}catch(_0x2ab0ec){}continue;case'4':if(_0x36db4d[_0x557fad(0x4e9,0x7d4)](typeof _0x3f59f5[_0x557fad(0xa02,0x59e)],_0x557fad(0x986,0x402)))this[_0x557fad(0xb02,0x665)]=_0x36db4d[_0x557fad(0x5be,0x33a)](Boolean,_0x3f59f5[_0x557fad(0x9de,0x59e)]);continue;case'5':!this[_0x557fad(0x6ae,0x29b)]&&(this[_0x557fad(0x185,0x22c)]='',this[_0x557fad(0xcd2,0x9a1)]=[]);continue;}break;}},'onPlayerAttack'(_0x13a9b4,_0x55168b){if(!this[_0x35b40c(0x598,0x22e)])return;function _0x35b40c(_0x169ed9,_0x4103a5){return _0x5a0b42(_0x169ed9,_0x4103a5-0x139);}if(!this[_0x35b40c(-0x1b4,0x1bf)])try{this[_0x35b40c(-0x3bb,0x1bf)]=String(player[_0x35b40c(0x46b,0x633)]()[_0x35b40c(0xe33,0xb5b)]());}catch(_0x2a5197){this[_0x35b40c(0x714,0x1bf)]='?';}if(this[_0x35b40c(0x47f,0x1bf)]!=='?'&&String(_0x13a9b4)!==this[_0x35b40c(-0x103,0x1bf)])return;let _0x1187bd=null;try{_0x1187bd=world[_0x35b40c(0x9f9,0xab7)]()[_0x35b40c(0x306,0x64e)](_0x55168b);}catch(_0x83a220){}if(!_0x1187bd)return;try{if(_0x1187bd[_0x35b40c(0x4de,0x8bf)]&&!_0x1187bd[_0x35b40c(0x61e,0x8bf)]())return;}catch(_0x3ea1b2){}let _0x35743e=![];try{_0x35743e=_0x1187bd[_0x35b40c(0xdc5,0xb13)]()[_0x35b40c(0x56d,0x789)]===_0x35b40c(0x1012,0xa70);}catch(_0x26eb16){}const _0x52a1af=String(_0x55168b);for(const _0x1b3d93 of this[_0x35b40c(0xa3a,0x934)]){if(_0x1b3d93['id']===_0x52a1af){_0x1b3d93[_0x35b40c(0xa27,0x7f2)]=_0x35743e;return;}}this[_0x35b40c(0x3a8,0x934)][_0x35b40c(0xd0b,0x9ef)]({'id':_0x52a1af,'isPlayer':_0x35743e});if(this[_0x35b40c(0xb6b,0x934)][_0x35b40c(0xa98,0x75b)]>0x14)this[_0x35b40c(0xac4,0x934)][_0x35b40c(0xa52,0x8d0)]();},'onTick'(){function _0xf1461b(_0x1d15d3,_0x2dea88){return _0x5a0b42(_0x1d15d3,_0x2dea88-0x38);}const _0x472cd0={'eXGvt':function(_0x4a5892,_0xb0bb6a){return _0x4a5892-_0xb0bb6a;}};for(let _0x185382=_0x472cd0[_0xf1461b(0x942,0x49a)](this[_0xf1461b(0x2e8,0x833)][_0xf1461b(0xb81,0x65a)],0x1);_0x185382>=0x0;_0x185382--){const _0x596d7f=this[_0xf1461b(0x3bf,0x833)][_0x185382];let _0x44c5db=null;try{_0x44c5db=world[_0xf1461b(0x9c1,0x9b6)]()[_0xf1461b(0x4c1,0x54d)](_0x596d7f['id']);}catch(_0x2f17b0){}if(!_0x44c5db){this[_0xf1461b(0x39e,0x833)][_0xf1461b(0x6db,0x3d3)](_0x185382,0x1);continue;}let _0x4234dc=!![];try{if(_0x44c5db[_0xf1461b(0xc09,0x7be)])_0x4234dc=!!_0x44c5db[_0xf1461b(0xa4b,0x7be)]();}catch(_0x3ef510){}if(_0x4234dc)continue;this[_0xf1461b(0x53b,0x833)][_0xf1461b(0x738,0x3d3)](_0x185382,0x1);if(this[_0xf1461b(0x65b,0x3d8)]&&!_0x596d7f[_0xf1461b(0x37e,0x6f1)])continue;if(this[_0xf1461b(0x23d,0x4f7)]&&_0x596d7f[_0xf1461b(0x990,0x6f1)])continue;const _0x48a21f=this[_0xf1461b(0xc1d,0x84a)](_0x44c5db);if(_0x48a21f)this[_0xf1461b(0x764,0x256)](_0x48a21f);}},'footPos'(_0x1a78f4){const _0x364341={'WAGFb':function(_0x4669c6,_0x285d7c){return _0x4669c6/_0x285d7c;}};function _0x81e1d1(_0x8984f4,_0x377ac2){return _0x5a0b42(_0x377ac2,_0x8984f4-0x275);}try{const _0x26a11d=_0x1a78f4[_0x81e1d1(0xa8e,0xa37)]();if(_0x26a11d&&_0x26a11d[_0x81e1d1(0x6ad,0x637)]&&_0x26a11d[_0x81e1d1(0x637,0x350)])return{'x':_0x364341[_0x81e1d1(0x3d4,0x11f)](_0x26a11d[_0x81e1d1(0x6ad,0x6a4)]['x']+_0x26a11d[_0x81e1d1(0x637,0x802)]['x'],0x2),
-'y':_0x26a11d[_0x81e1d1(0x6ad,0x4c4)]['y'],'z':(_0x26a11d[_0x81e1d1(0x6ad,0x94a)]['z']+_0x26a11d[_0x81e1d1(0x637,0x1da)]['z'])/0x2};}catch(_0x43e189){}try{const _0x4c1568=_0x1a78f4[_0x81e1d1(0x39d,0x5c3)]();if(_0x4c1568)return{'x':_0x4c1568['x'],'y':_0x4c1568['y']-1.62,'z':_0x4c1568['z']};}catch(_0x30c86d){}return null;},'strike'(_0xd72596){function _0x4202ba(_0x4cd5a7,_0x434155){return _0x5a0b42(_0x434155,_0x4cd5a7-0x2db);}const _0x358f00={'WuWSN':function(_0xd07d15,_0x9b451e){return _0xd07d15+_0x9b451e;},'pbISC':function(_0x41671a,_0x3ae019){return _0x41671a+_0x3ae019;}};this[_0x4202ba(0xc8e,0xa37)]=(this[_0x4202ba(0xc8e,0x90c)]+0x1)%0x186a0;try{const _0x5cb6a6=new packet[(_0x4202ba(0x554,0x5))]();_0x5cb6a6[_0x4202ba(0x5ab,0x9d3)](-_0x358f00[_0x4202ba(0x376,0x255)](0x30d40,this[_0x4202ba(0xc8e,0x729)])),_0x5cb6a6[_0x4202ba(0x3a7,0x56a)](_0x358f00[_0x4202ba(0x82e,0x52c)](0x1ad27480,this[_0x4202ba(0xc8e,0xa4b)])),_0x5cb6a6[_0x4202ba(0x9dc,0x5e4)](_0x4202ba(0x5ed,0x2b4)),_0x5cb6a6[_0x4202ba(0xdeb,0x108e)](_0xd72596['x']),_0x5cb6a6[_0x4202ba(0xdeb,0x1313)](_0xd72596['y']),_0x5cb6a6[_0x4202ba(0xdeb,0xe66)](_0xd72596['z']),_0x5cb6a6[_0x4202ba(0xdeb,0x136a)](0x0),_0x5cb6a6[_0x4202ba(0xdeb,0xd4d)](0x0),_0x5cb6a6[_0x4202ba(0xdeb,0xf58)](0x0),_0x5cb6a6[_0x4202ba(0xdeb,0x967)](0x0),_0x5cb6a6[_0x4202ba(0xdeb,0x97d)](0x0),_0x5cb6a6[_0x4202ba(0xdeb,0x1326)](0x0),_0x5cb6a6[_0x4202ba(0xdeb,0x133b)](0x0),_0x5cb6a6[_0x4202ba(0x3a7,-0xe9)](0x0),_0x5cb6a6[_0x4202ba(0x3a7,0x4e8)](0x0),_0x5cb6a6[_0x4202ba(0x3a7,0x2f6)](0x0),_0x5cb6a6[_0x4202ba(0x3a7,0x604)](0x0),_0x5cb6a6[_0x4202ba(0x3a7,0x146)](0x0),_0x5cb6a6[_0x4202ba(0x885,0x35f)](0xd);}catch(_0x5d70c2){}if(!this[_0x4202ba(0xaee,0x744)])return;const _0x55cc44=Date[_0x4202ba(0x7d4,0x9f8)]();if(_0x55cc44-this[_0x4202ba(0xadf,0xc2b)]<0x3e8)return;this[_0x4202ba(0xadf,0x723)]=_0x55cc44;try{app[_0x4202ba(0x550,0x2ab)](_0x358f00[_0x4202ba(0x376,0x8b0)](_0x4202ba(0x3bb,0x77f)+_0xd72596['x']+',\x20'+_0xd72596['y'],',\x20')+_0xd72596['z']+')');}catch(_0x456ea5){}if(Math[_0x4202ba(0x87a,0x9b8)]()<0.5){const _0x4e77df=(0.9+Math[_0x4202ba(0x87a,0x6ce)]()*0.2)[_0x4202ba(0x4ff,0x8ad)](0x2);try{app[_0x4202ba(0x550,0x1c4)](_0x4202ba(0x89a,0x582)+_0xd72596['x']+',\x20'+_0xd72596['y']+',\x20'+_0xd72596['z']+',\x20'+_0x4e77df+')');}catch(_0x264b0a){}}},'onWorldExit'(){this[_0x1824f2(0x134,0x3e9)]='';function _0x1824f2(_0x33035f,_0x5e557d){return _0x5a0b42(_0x5e557d,_0x33035f-0xae);}this[_0x1824f2(0x8a9,0x717)]=[];}},eatRepeat={'tag':_0x5a0b42(0xbb5,0x7ca),'enabled':![],'count':0xa,'onModuleEvent'(_0x5eb134){const _0x10c005={'nvlZV':function(_0x1ddfa3,_0x4ae3e9){return _0x1ddfa3!==_0x4ae3e9;},'zRHNY':_0x3f2e3c(0x12ab,0xd20)};if(_0x10c005[_0x3f2e3c(0x11b,0x461)](_0x5eb134[_0x3f2e3c(0xa28,0xd38)],undefined)){const _0x5f3753=Math[_0x3f2e3c(0xc57,0x7f0)](Number(_0x5eb134[_0x3f2e3c(0xe65,0xd38)]));if(!isNaN(_0x5f3753)&&_0x5f3753>0x0)this[_0x3f2e3c(0xf24,0xe33)]=_0x5f3753;if(this[_0x3f2e3c(0x499,0x57a)])this[_0x3f2e3c(0x8a4,0x549)]();}if(!stdToggle(this,_0x5eb134,_0x3f2e3c(0x944,0xb20),!![],_0x10c005[_0x3f2e3c(0x872,0xcc9)]+this[_0x3f2e3c(0x137a,0xe33)]+'\x20次'))return;function _0x3f2e3c(_0x1b16c6,_0x142797){return _0x5a0b42(_0x1b16c6,_0x142797-0x485);}if(this[_0x3f2e3c(0x8a2,0x57a)])this[_0x3f2e3c(0x830,0x549)]();},'setHud'(){function _0x251d14(_0x5860b7,_0x5ac9b5){return _0x5a0b42(_0x5860b7,_0x5ac9b5-0x4d8);}const _0x337380=_0x251d14(0x838,0xa8f)+this[_0x251d14(0x12e1,0xe86)];try{this[_0x251d14(0xf49,0xc6c)][_0x251d14(0x5b8,0x895)]=_0x337380;}catch(_0x48cdba){}try{this[_0x251d14(0xcdc,0xc6c)][_0x251d14(0x108b,0xe74)]=_0x337380;}catch(_0x2d71eb){}},'onSendServerPacket'(_0x21f060,_0x40eb46,_0xfc6586){if(!this[_0x3fd6e0(0xa5,-0x2d2)]||_0x21f060!==0x1b)return;function _0x3fd6e0(_0x5f5862,_0x51356b){return _0x5a0b42(_0x51356b,_0x5f5862- -0x50);}return this[_0x3fd6e0(0x95e,0x5ed)];}},chunkDisplay={'tag':_0x5a0b42(0xc89,0x946),'enabled':![],'onModuleEvent'(_0x349b1b){function _0x273e3c(_0x2d9e1f,
-_0x297e7f){return _0x5a0b42(_0x2d9e1f,_0x297e7f-0x445);}const _0x4cdc77={'LZBnD':function(_0x43b208,_0x2d8bde,_0x4c5f07,_0x4f6ca2,_0x26b9b0){return _0x43b208(_0x2d8bde,_0x4c5f07,_0x4f6ca2,_0x26b9b0);}};if(!_0x4cdc77[_0x273e3c(0x908,0x4c0)](stdToggle,this,_0x349b1b,_0x273e3c(0xa6c,0xd5a),![]))return;try{options[_0x273e3c(0xca4,0xc47)](0x121,{'value':this[_0x273e3c(0xc6,0x53a)],'defaultValue':![]});}catch(_0x1be8ac){}}},selfAttack={'tag':_0x5a0b42(0xe1d,0xb11),'enabled':![],'cps':0x4,'acc':0x0,'onModuleEvent'(_0x1bd92e){const _0x332819={'bvZEg':_0x11dc76(0x84a,0x6ab)};function _0x11dc76(_0x31be57,_0x1884d4){return _0x5a0b42(_0x31be57,_0x1884d4-0x4ec);}const _0x3d960d=clampPos(_0x1bd92e[_0x11dc76(0x2d1,0x6e1)],0x1,0x14);if(_0x3d960d)this[_0x11dc76(0x878,0xe08)]=_0x3d960d;if(!stdToggle(this,_0x1bd92e,_0x332819[_0x11dc76(0x6d6,0xa53)],![],'以\x20'+this[_0x11dc76(0xb7a,0xe08)]+_0x11dc76(0x956,0x6f4)))return;this[_0x11dc76(0xe79,0xf6a)]=0x0;},'onTick'(){if(!this[_0x31556d(0x1d3,0x799)])return;this[_0x31556d(0xb5c,0xca2)]+=this[_0x31556d(0x9fa,0x5ae)]/0x14;if(this[_0x31556d(0xb5c,0x8e3)]<0x1)return;function _0x31556d(_0x1b5b7d,_0x5c376c){return _0x5a0b42(_0x5c376c,_0x1b5b7d-0xde);}let _0x2ba815;try{_0x2ba815=player[_0x31556d(0x5d8,0x200)]();}catch(_0x4a7edd){return;}if(!_0x2ba815)return;while(this[_0x31556d(0xb5c,0xa09)]>=0x1){this[_0x31556d(0xb5c,0x95f)]-=0x1;try{_0x2ba815[_0x31556d(0x29b,0x3c6)](_0x2ba815);}catch(_0x4fc97e){}try{_0x2ba815[_0x31556d(0x854,0x5f3)]();}catch(_0x3ba44f){}}}},ghostBarrier={'tag':_0x5a0b42(0xdd5,0x86b),'enabled':![],'target':_0x5a0b42(0x5e3,0x1fb),'shape':_0x5a0b42(0x8cf,0x38c),'rx':0x1,'ry':0x2,'rz':0x1,'scale':0x1,'spin':0x0,'yOff':0x0,'xOff':0x0,'zOff':0x0,'orient':'v','writing':_0x5a0b42(0x542,0x49b),'flipX':![],'flipY':![],'interval':0x2,'skipSelf':!![],'excludeMe':!![],'text':'','pickIds':{},'presetPts':null,'textPts':null,'textKey':'','boxPts':null,'boxKey':'','angle':0x0,'acc':0x0,'failCount':0x0,'cjkFont':null,'cjkWarned':![],'scanInit':{},'MAXPTS':0x12c,'FONT_CHARS':_0x5a0b42(0x9c3,0x9e9),'FONT_HEX':_0x5a0b42(0x743,0x2fd)+_0x5a0b42(0xe3e,0xa8b)+(_0x5a0b42(0x83d,0x85f)+_0x5a0b42(-0x37d,-0x38))+_0x5a0b42(0x431,0x8c6),'fontMap':null,'radioSel'(_0xf8b0a2,_0x378cfd,_0x51254f){const _0x2ef486={'HNDuU':function(_0x55341f,_0x2d6f60){return _0x55341f===_0x2d6f60;}};function _0x2cc40a(_0x10dfc7,_0x1ffe08){return _0x5a0b42(_0x10dfc7,_0x1ffe08-0x2e4);}const _0x34d3af=argPick(_0xf8b0a2,_0x378cfd);if(typeof _0x34d3af===_0x2cc40a(0x595,0x75e)&&_0x34d3af!==''){const _0x10c79c=_0x2ef486[_0x2cc40a(0xcd1,0xa28)](_0x34d3af[_0x2cc40a(0x7e0,0x315)](_0x378cfd+'_'),0x0)?_0x34d3af[_0x2cc40a(-0x154,0x281)](_0x378cfd[_0x2cc40a(0xbcc,0x906)]+0x1):_0x34d3af;return _0x51254f[_0x2cc40a(0x239,0x315)](_0x10c79c)>=0x0?_0x10c79c:null;}for(const _0x1dcc3b in _0xf8b0a2){if(_0x1dcc3b[_0x2cc40a(0x5b9,0x315)](_0x378cfd+'_')!==0x0||!_0xf8b0a2[_0x1dcc3b])continue;const _0x801604=_0x1dcc3b[_0x2cc40a(-0x113,0x281)](_0x378cfd[_0x2cc40a(0x83d,0x906)]+0x1);if(_0x51254f[_0x2cc40a(-0x164,0x315)](_0x801604)>=0x0)return _0x801604;}return null;},'clampInt'(_0x14170c,_0x4ba55e,_0x246d0e,_0x197f28){const _0x411a47={'NQnBp':function(_0x270ddd,_0x51475b){return _0x270ddd(_0x51475b);}},_0x5cc332=Number(_0x14170c);function _0x3d5db2(_0x2ce379,_0x1cced8){return _0x5a0b42(_0x2ce379,_0x1cced8-0xaf);}if(_0x411a47[_0x3d5db2(-0x43e,0x18e)](isNaN,_0x5cc332))return _0x197f28;return Math[_0x3d5db2(0x3c4,0x97e)](_0x4ba55e,Math[_0x3d5db2(0x973,0x95a)](_0x246d0e,Math[_0x3d5db2(0x8f1,0x41a)](_0x5cc332)));},'onModuleEvent'(_0x2b7b1b){const _0xac2d2e={'poXjF':function(_0x554228,_0x2e3e16){return _0x554228===_0x2e3e16;},'cgHlu':function(_0x49c3a8,_0xbfc294,_0x448dbf){return _0x49c3a8(_0xbfc294,_0x448dbf);},'dZnuh':_0x327b40(0x458,0x3b7),'YQvVt':_0x327b40(0x255,0x4dd),'fpZLJ':function(_0x290384,_0x4d1d4d){return _0x290384!==_0x4d1d4d;},'HBINy':_0x327b40(0xaec,0x780),'AzDBR':function(_0x5b6342,_0x40ed0e){return _0x5b6342!==_0x40ed0e;},'ZFQcg':_0x327b40(0xd2a,0xa2f),
-'hRzcI':function(_0x26438a,_0x14981c,_0x4c3eb9){return _0x26438a(_0x14981c,_0x4c3eb9);},'VIRlB':_0x327b40(0xd38,0x84c),'PMIbc':function(_0x5b7fb6,_0x419181){return _0x5b7fb6!==_0x419181;}},_0x324930=this[_0x327b40(0x2a3,0x685)](_0x2b7b1b,_0x327b40(0x284,0x10a),[_0x327b40(0x65c,0x356),_0x327b40(0x92e,0x88e),_0x327b40(-0x45a,0x110)]);if(_0x324930){if(this[_0x327b40(0x1d3,0x4f9)][_0x327b40(0xa7c,0xc67)]&&_0x324930!==this[_0x327b40(0xc6c,0xc67)]){this[_0x327b40(0xe8f,0xc67)]=_0x324930;if(_0xac2d2e[_0x327b40(0x7ed,0x2b9)](_0x324930,_0x327b40(-0x347,0x110)))this[_0x327b40(0x679,0xaf3)]();}else this[_0x327b40(0x1119,0xc67)]=_0x324930;this[_0x327b40(0x32f,0x4f9)][_0x327b40(0xf0d,0xc67)]=!![];}const _0x4fd00f=this[_0x327b40(0xb3a,0x685)](_0x2b7b1b,_0x327b40(0x783,0x30e),[_0x327b40(0x810,0x4e7),_0x327b40(0x27a,0xf5),_0x327b40(0xf9c,0xc51)]);if(_0x4fd00f){if(this[_0x327b40(0x1d3,0x4f9)][_0x327b40(-0x138,0x199)]&&_0x4fd00f!==this[_0x327b40(-0x3b7,0x199)]){this[_0x327b40(0x5bd,0x199)]=_0x4fd00f;if(_0x4fd00f===_0x327b40(0x5df,0xf5))this[_0x327b40(0xc0b,0x7c4)]();}else this[_0x327b40(0x56b,0x199)]=_0x4fd00f;this[_0x327b40(0x315,0x4f9)][_0x327b40(-0x388,0x199)]=!![];}const _0x3423b0=_0xac2d2e[_0x327b40(0x262,0x663)](argPick,_0x2b7b1b,_0x327b40(0x589,0xa68));if(typeof _0x3423b0===_0x327b40(0x742,0x5d5))this[_0x327b40(0x100c,0xc51)]=_0x3423b0;let _0x55bbf7=argPick(_0x2b7b1b,_0x327b40(0x972,0x3f3));if(typeof _0x55bbf7!==_0x327b40(-0xa5,0x3b7))this['rx']=this[_0x327b40(0x529,0x67e)](_0x55bbf7,0x0,0x8,this['rx']);_0x55bbf7=argPick(_0x2b7b1b,_0x327b40(0x805,0xbf6));if(typeof _0x55bbf7!==_0x327b40(0x786,0x3b7))this['ry']=this[_0x327b40(0x8cc,0x67e)](_0x55bbf7,0x0,0x8,this['ry']);_0x55bbf7=argPick(_0x2b7b1b,_0x327b40(0x7c3,0x200));if(typeof _0x55bbf7!==_0x327b40(-0x151,0x3b7))this['rz']=this[_0x327b40(0x8d7,0x67e)](_0x55bbf7,0x0,0x8,this['rz']);_0x55bbf7=argPick(_0x2b7b1b,_0x327b40(0x29b,0x438));if(typeof _0x55bbf7!==_0xac2d2e[_0x327b40(0x9df,0x901)])this[_0x327b40(-0x1b,0x279)]=this[_0x327b40(0x8da,0x67e)](_0x55bbf7,0x1,0x4,this[_0x327b40(0x7f9,0x279)]);_0x55bbf7=argPick(_0x2b7b1b,_0xac2d2e[_0x327b40(0x7df,0x4e2)]);if(_0xac2d2e[_0x327b40(-0x8e,0x1be)](typeof _0x55bbf7,_0x327b40(0x1d9,0x3b7)))this[_0x327b40(-0x3f,0xee)]=this[_0x327b40(0x79c,0x67e)](_0x55bbf7,0x0,0x24,this[_0x327b40(0x13e,0xee)]);_0x55bbf7=argPick(_0x2b7b1b,_0xac2d2e[_0x327b40(0x821,0x6ca)]);if(typeof _0x55bbf7!==_0x327b40(0x225,0x3b7))this[_0x327b40(0x760,0x806)]=this[_0x327b40(0x483,0x67e)](_0x55bbf7,0x0,0x8,this[_0x327b40(0x338,0x806)]);_0x55bbf7=argPick(_0x2b7b1b,_0x327b40(0x669,0x4a0));if(typeof _0x55bbf7!==_0x327b40(0x350,0x3b7)){const _0x513242=Number(_0x55bbf7);if(!isNaN(_0x513242))this[_0x327b40(0x566,0xb22)]=Math[_0x327b40(0x5b8,0xa2a)](-0x10,Math[_0x327b40(0x93d,0xa06)](0x10,Math[_0x327b40(0x930,0x4c6)](_0x513242)));}function _0x327b40(_0xf45bc0,_0x3d48ff){return _0x5a0b42(_0xf45bc0,_0x3d48ff-0x15b);}_0x55bbf7=argPick(_0x2b7b1b,_0x327b40(0x359,0x54f));if(_0xac2d2e[_0x327b40(0x695,0xa1c)](typeof _0x55bbf7,_0xac2d2e[_0x327b40(0x5b4,0x901)])){const _0x2af9bd=Number(_0x55bbf7);if(!isNaN(_0x2af9bd))this[_0x327b40(0x342,0x88d)]=Math[_0x327b40(0x5b3,0xa2a)](-0x10,Math[_0x327b40(0xd02,0xa06)](0x10,Math[_0x327b40(0x7c4,0x4c6)](_0x2af9bd)));}const _0x1e0456=this[_0x327b40(0x679,0x685)](_0x2b7b1b,_0x327b40(0xe7f,0x90b),['v','h']);if(_0x1e0456)this[_0x327b40(-0xf3,0x300)]=_0x1e0456;const _0x54396c=this[_0x327b40(0xcb,0x685)](_0x2b7b1b,_0x327b40(0xb21,0x7c9),[_0x327b40(0x69b,0x5f6),_0xac2d2e[_0x327b40(0x86b,0x78d)]]);if(_0x54396c)this[_0x327b40(0xe58,0x897)]=_0x54396c;_0x55bbf7=_0xac2d2e[_0x327b40(0xa92,0x5cc)](argPick,_0x2b7b1b,_0x327b40(0x6e2,0xa3e));if(typeof _0x55bbf7!==_0x327b40(0x616,0x3b7))this[_0x327b40(0xa4d,0x66f)]=Boolean(_0x55bbf7);_0x55bbf7=argPick(_0x2b7b1b,_0xac2d2e[_0x327b40(0x937,0x57a)]);if(typeof _0x55bbf7!==_0x327b40(0x82e,0x3b7))this[_0x327b40(0xb58,0x7d7)]=Boolean(_0x55bbf7);_0x55bbf7=argPick(_0x2b7b1b,_0x327b40(0xb86,0x65e));if(typeof _0x55bbf7!==_0x327b40(0x514,
-0x3b7))this[_0x327b40(0xe07,0xbea)]=this[_0x327b40(0x863,0x67e)](_0x55bbf7,0x1,0x14,this[_0x327b40(0xdcd,0xbea)]);_0x55bbf7=argPick(_0x2b7b1b,_0x327b40(0x9f9,0xb9e));if(_0xac2d2e[_0x327b40(0xaf5,0xb34)](typeof _0x55bbf7,_0x327b40(-0x200,0x3b7)))this[_0x327b40(0xc27,0x854)]=Boolean(_0x55bbf7);_0x55bbf7=argPick(_0x2b7b1b,_0x327b40(0x10e,0x6d5));if(typeof _0x55bbf7!==_0xac2d2e[_0x327b40(0xaf4,0x901)])this[_0x327b40(0x5a6,0x263)]=Boolean(_0x55bbf7);if(!stdToggle(this,_0x2b7b1b,_0x327b40(-0x8a,0x53d),![]))return;this[_0x327b40(0xfaa,0xbd9)]=0x0,this[_0x327b40(0xb84,0x7a0)]=0x0,this[_0x327b40(0x3c3,0x316)]=0x0;},'sendOne'(_0x120f50,_0x5844cc,_0x7a27b,_0x5545a2){function _0x105300(_0x3b1e89,_0x46245f){return _0x5a0b42(_0x3b1e89,_0x46245f-0x1e0);}packet[_0x105300(0xe49,0xc76)]({'id':_0x120f50,'pos':{'x':_0x5844cc,'y':_0x7a27b,'z':_0x5545a2},'action':0x11});},'openPlayerForm'(){const _0x156e20={'ZUfaN':function(_0x3b569a,_0x2ab907){return _0x3b569a+_0x2ab907;},'ydDyj':function(_0x4327ba,_0x8dc763){return _0x4327ba===_0x8dc763;},'aqRGZ':_0x420ec9(0x3e0,0x73d),'xrtKb':function(_0x835e22,_0x1f4dec){return _0x835e22+_0x1f4dec;}},_0x2a9988=[];let _0x1bcf1e='';try{_0x1bcf1e=String(player[_0x420ec9(0x686,0xc46)]()[_0x420ec9(0xbae,0x88b)]());}catch(_0x418adc){}try{const _0x166e3f=world[_0x420ec9(0xb0a,0x88e)]()[_0x420ec9(0xaa6,0x5d6)]();for(const _0x3754ef in _0x166e3f){const _0x4e89cc=_0x166e3f[_0x3754ef];if(!_0x4e89cc||!_0x4e89cc['id'])continue;const _0x32f64b=String(_0x4e89cc['id']);_0x2a9988[_0x420ec9(0xa42,0xc4b)]({'id':_0x32f64b,'name':String(_0x4e89cc[_0x420ec9(0x549,0x5e4)]||_0x32f64b)+(_0x156e20[_0x420ec9(0x81a,0x677)](_0x32f64b,_0x1bcf1e)?_0x420ec9(0x417,0x370):'')});}}catch(_0x2b8a1f){}function _0x420ec9(_0x255a17,_0x14b485){return _0x5a0b42(_0x14b485,_0x255a17-0x18c);}if(!_0x2a9988[_0x420ec9(0x7ae,0x270)]){this[_0x420ec9(0x74e,0x42a)](_0x420ec9(0xc19,0xa9a));return;}const _0x1d5387=[];for(const _0x624e20 of _0x2a9988){_0x1d5387[_0x420ec9(0xa42,0xaad)]({'type':_0x420ec9(0x3f8,0x6dd),'text':_0x624e20[_0x420ec9(0x549,0x9e8)],'default':!!this[_0x420ec9(0x1db,0x586)][_0x624e20['id']]});}const _0x1e14e5=this;try{gui[_0x420ec9(0x32e,0x8c6)](JSON[_0x420ec9(0x779,0x457)]({'type':_0x420ec9(0x765,0xceb),'title':_0x156e20[_0x420ec9(0xa0f,0xc86)],'content':_0x1d5387}),function(){const _0x4e361e={};for(let _0xbad7be=0x0;_0xbad7be<arguments[_0x2f0ab4(0x6c1,0xbcb)]&&_0xbad7be<_0x2a9988[_0x2f0ab4(0x6c1,0x123)];_0xbad7be++){if(arguments[_0xbad7be])_0x4e361e[_0x2a9988[_0xbad7be]['id']]=!![];}function _0x2f0ab4(_0x1213a9,_0x26a159){return _0x420ec9(_0x1213a9- -0xed,_0x26a159);}_0x1e14e5[_0x2f0ab4(0xee,0x4a1)]=_0x4e361e,_0x1e14e5[_0x2f0ab4(0x661,0x365)](_0x156e20[_0x2f0ab4(0x22e,0x34a)](_0x2f0ab4(0x3c8,-0xd9),Object[_0x2f0ab4(0x95a,0xf02)](_0x4e361e)[_0x2f0ab4(0x6c1,0x23b)])+_0x2f0ab4(0x763,0x8a4));},function(){});}catch(_0x26b00a){this[_0x420ec9(0x74e,0x5a5)](_0x156e20[_0x420ec9(0x12d,-0x6a)](_0x420ec9(0x75a,0xa80),_0x26b00a));}},'presetDir'(){function _0x36ad3b(_0x27c452,_0x3e1752){return _0x5a0b42(_0x27c452,_0x3e1752-0x12c);}const _0x4d8b89={'WEcqg':_0x36ad3b(0x763,0x475)};return app[_0x36ad3b(0x81a,0xb18)](_0x4d8b89[_0x36ad3b(0x51c,0x32f)]);},'initPresetDir'(){function _0x504f7e(_0x41c8dc,_0x47fc29){return _0x5a0b42(_0x47fc29,_0x41c8dc-0xd3);}const _0x53bdea=this[_0x504f7e(0x69e,0xb4e)]();if(!fs[_0x504f7e(0x70e,0x9cc)](_0x53bdea))fs[_0x504f7e(0xb2b,0x765)](_0x53bdea);},'openPresetForm'(){const _0x591d30={'OjYjp':_0x48bcac(0x3d1,-0xec),'UvtGh':function(_0x24bcea,_0x466ca7){return _0x24bcea+_0x466ca7;}},_0x24e5cf=this[_0x48bcac(0x497,0x82a)]();function _0x48bcac(_0x309d91,_0x3c2171){return _0x5a0b42(_0x3c2171,_0x309d91- -0x134);}try{this[_0x48bcac(0x87c,0xb49)]();}catch(_0x1d5cc3){}const _0x4d9479=[];try{const _0x20b711=fs[_0x48bcac(0xb4,0x1eb)](_0x24e5cf);for(const _0x36257c of _0x20b711){if(_0x36257c[_0x48bcac(0x289,0x6cf)]&&_0x36257c[_0x48bcac(0x289,-0x327)][_0x48bcac(0x8df,0xb81)](_0x48bcac(0x29c,0x460)))_0x4d9479[_0x48bcac(0x782,
-0x650)](_0x36257c[_0x48bcac(0x289,-0xe2)]);}}catch(_0x4c3d3b){}if(!_0x4d9479[_0x48bcac(0x4ee,0x3b8)]){this[_0x48bcac(0x48e,0x7a7)](_0x591d30[_0x48bcac(0x498,0x51b)]+_0x24e5cf);return;}const _0x47c9aa=this;try{gui[_0x48bcac(0x6e,0x18e)](JSON[_0x48bcac(0x4b9,0x6c6)]({'type':_0x48bcac(0x4a5,0x745),'title':_0x48bcac(0x8e9,0x7e4),'content':[{'type':_0x48bcac(0x10d,0x2c7),'text':_0x48bcac(-0x60,-0x296),'options':_0x4d9479}]}),function(_0x4d7726){function _0x354e70(_0x1be4d1,_0x283538){return _0x48bcac(_0x1be4d1-0x112,_0x283538);}_0x47c9aa[_0x354e70(0x85e,0xd32)](_0x24e5cf,_0x4d9479[_0x4d7726]);},function(){});}catch(_0x164eea){this[_0x48bcac(0x48e,0x8f2)](_0x591d30[_0x48bcac(-0xd3,-0x411)](_0x48bcac(0x49a,0x4a0),_0x164eea));}},'loadPreset'(_0x334e44,_0x5f22e9){const _0x34c4ff={'VpuRZ':function(_0x146d8f,_0x5b291d){return _0x146d8f(_0x5b291d);},'ovCBU':function(_0xc687ae,_0x3d74e8){return _0xc687ae+_0x3d74e8;}};function _0x41037f(_0x2018f7,_0x4a228b){return _0x5a0b42(_0x2018f7,_0x4a228b-0x153);}try{const _0x41146c=JSON[_0x41037f(0xc73,0xa03)](String(fs[_0x41037f(0x55c,0xf8)](_0x334e44+'/'+_0x5f22e9)||''));if(!Array[_0x41037f(0x918,0xb98)](_0x41146c)||!_0x41146c[_0x41037f(0x55f,0x775)]){this[_0x41037f(0xbbe,0x715)](_0x41037f(0x535,0x97d));return;}const _0x56a298=[];for(const _0x4b9dba of _0x41146c){if(_0x4b9dba&&typeof _0x4b9dba['x']!==_0x41037f(0x8f0,0x3af))_0x56a298[_0x41037f(0x5ff,0xa09)]([_0x34c4ff[_0x41037f(0x77a,0xbf1)](Number,_0x4b9dba['x'])||0x0,Number(_0x4b9dba['y'])||0x0,_0x34c4ff[_0x41037f(0xa6a,0xbf1)](Number,_0x4b9dba['z'])||0x0]);if(_0x56a298[_0x41037f(0x430,0x775)]>=0x200)break;}if(!_0x56a298[_0x41037f(0x6aa,0x775)]){this[_0x41037f(0x561,0x715)](_0x41037f(-0x1ac,0x1e1));return;}this[_0x41037f(0x418,0x77d)]=_0x56a298,this[_0x41037f(0x438,0x715)](_0x34c4ff[_0x41037f(0x3ad,0x688)](_0x41037f(0xb56,0x8c0)+_0x5f22e9+'（'+_0x56a298[_0x41037f(0xcbf,0x775)],'点）'));}catch(_0x208bc1){this[_0x41037f(0x613,0x715)](_0x41037f(0x710,0x42f)+_0x208bc1);}},'initFont'(){const _0x1534eb={'VASJR':function(_0x49afd1,_0x4fbe55){return _0x49afd1<_0x4fbe55;}};if(this[_0x2aa59c(0xd21,0xd4c)])return;function _0x2aa59c(_0x37d539,_0x5186d7){return _0x5a0b42(_0x37d539,_0x5186d7-0x275);}const _0x127b73={};for(let _0x3099eb=0x0;_0x3099eb<this[_0x2aa59c(0x356,0x5f0)][_0x2aa59c(0x97c,0x897)];_0x3099eb++){const _0x3cbeda=[];for(let _0x123ea0=0x0;_0x1534eb[_0x2aa59c(0xb06,0x623)](_0x123ea0,0x5);_0x123ea0++)_0x3cbeda[_0x2aa59c(0x6d5,0xb2b)](parseInt(this[_0x2aa59c(-0xb,0x4ca)][_0x2aa59c(0xb91,0x830)](_0x3099eb*0xa+_0x123ea0*0x2,0x2),0x10));_0x127b73[this[_0x2aa59c(0x7c9,0x5f0)][_0x2aa59c(0x3a3,0x4c3)](_0x3099eb)]=_0x3cbeda;}this[_0x2aa59c(0xb09,0xd4c)]=_0x127b73;},'loadCjkFont'(){function _0x5381fd(_0x1790bb,_0x300f6a){return _0x5a0b42(_0x1790bb,_0x300f6a-0x56b);}const _0x24c699={'WiHQF':function(_0x24fa88,_0x899bae){return _0x24fa88(_0x899bae);},'SRRCn':function(_0x415fca,_0x4923b4,_0x14e25f){return _0x415fca(_0x4923b4,_0x14e25f);},'tjkTj':function(_0x4b94ce,_0x676398){return _0x4b94ce<_0x676398;},'OHkKc':function(_0x1fc932,_0x358a90){return _0x1fc932*_0x358a90;}};try{const _0x16ee24=_0x24c699[_0x5381fd(0x45c,0x800)](String,fs[_0x5381fd(0x3b3,0x510)](this[_0x5381fd(0xece,0xb36)]()+_0x5381fd(0x1252,0xf73))||''),_0x162c97={},_0x93a92e=_0x16ee24[_0x5381fd(0xd9c,0xc70)]('\x0a');for(const _0x4615b9 of _0x93a92e){if(_0x4615b9[_0x5381fd(0xe87,0xb8d)]<0x45)continue;const _0x16f3e4=_0x24c699[_0x5381fd(0x708,0x676)](parseInt,_0x4615b9[_0x5381fd(0xd40,0xb26)](0x0,0x4),0x10);if(isNaN(_0x16f3e4))continue;const _0x345222=[];for(let _0x4017cc=0x0;_0x24c699[_0x5381fd(0x617,0xbd2)](_0x4017cc,0x10);_0x4017cc++)_0x345222[_0x5381fd(0xef9,0xe21)](parseInt(_0x4615b9[_0x5381fd(0xddf,0xb26)](0x5+_0x24c699[_0x5381fd(0x10fc,0xbc9)](_0x4017cc,0x4),0x4),0x10));_0x162c97[_0x16f3e4]=_0x345222;}if(!Object[_0x5381fd(0x1024,0xe26)](_0x162c97)[_0x5381fd(0xbb5,0xb8d)])throw new Error(_0x5381fd(0xc83,0xd2d));this[_0x5381fd(0x9de,0xdad)]=_0x162c97;}catch(_0x2c7c56){this[_0x5381fd(0xccd,
-0xdad)]=null,!this[_0x5381fd(0x3ae,0x531)]&&(this[_0x5381fd(0x5af,0x531)]=!![],this[_0x5381fd(0x9f3,0xb2d)](_0x5381fd(0x541,0xaf6)+this[_0x5381fd(0xcb3,0xb36)]()+_0x5381fd(0xa8b,0xc5b)));}},'centerY'(_0x5e923d){const _0x4d01d1={'sFtlC':function(_0x305809,_0x14b7a6){return _0x305809+_0x14b7a6;}};if(!_0x5e923d[_0x308307(0xd8a,0xa3a)])return;let _0xfb2499=Infinity,_0x356ab2=-Infinity;function _0x308307(_0xf89be9,_0x18d459){return _0x5a0b42(_0xf89be9,_0x18d459-0x418);}for(const _0x209a56 of _0x5e923d){if(_0x209a56[0x1]<_0xfb2499)_0xfb2499=_0x209a56[0x1];if(_0x209a56[0x1]>_0x356ab2)_0x356ab2=_0x209a56[0x1];}const _0x4cb32e=-Math[_0x308307(0xc70,0x783)](_0x4d01d1[_0x308307(0x7fc,0xdc9)](_0xfb2499,_0x356ab2)/0x2);for(const _0x59d652 of _0x5e923d)_0x59d652[0x1]+=_0x4cb32e;},'buildCjkPts'(_0x238678){const _0x32ac7f={'dSizm':function(_0x4e0aa3,_0x39038a){return _0x4e0aa3*_0x39038a;},'zanlP':function(_0x58be2c,_0x1ba63e){return _0x58be2c>>_0x1ba63e;},'wQeho':function(_0xb942ce,_0x3727ac){return _0xb942ce<_0x3727ac;},'MOGso':function(_0x249819,_0x3bb58e){return _0x249819*_0x3bb58e;},'fRAIX':function(_0x3b8d90,_0x18f262){return _0x3b8d90-_0x18f262;}};if(!this[_0x566a29(0x743,0xabc)])this[_0x566a29(0x9f0,0xcf7)]();if(!this[_0x566a29(0x743,0x36e)])return[];const _0x58d0b1=[],_0x3d913b=_0x238678[_0x566a29(-0x162,0x208)](0x0,0xa),_0x26d425=this[_0x566a29(0x1f,-0x98)],_0x4f2eff=this[_0x566a29(0x63d,0x5ae)]===_0x566a29(0x7d5,0xd77),_0x45a0b9=0x11,_0x3a2091=-Math[_0x566a29(0x26c,0x709)](_0x32ac7f[_0x566a29(0x33c,0x83b)](_0x3d913b[_0x566a29(0x523,0x748)]*_0x45a0b9-0x1,_0x26d425)/0x2),_0x422bce=[0xffff][_0x566a29(0x435,0x2dc)](Array(0xe)[_0x566a29(-0x2f,0xd9)](0x8001),[0xffff]);for(let _0x140e1c=0x0;_0x140e1c<_0x3d913b[_0x566a29(0x523,0x980)];_0x140e1c++){const _0xc84341=this[_0x566a29(0x743,0x60b)][_0x3d913b[_0x566a29(0x14f,-0x219)](_0x140e1c)]||_0x422bce;for(let _0x446016=0x0;_0x446016<0x10;_0x446016++){const _0x314b90=_0xc84341[_0x446016];if(!_0x314b90)continue;for(let _0x59f145=0x0;_0x59f145<0x10;_0x59f145++){if(!(_0x32ac7f[_0x566a29(0x759,0x9b6)](_0x314b90,0xf-_0x59f145)&0x1))continue;for(let _0x5c4680=0x0;_0x32ac7f[_0x566a29(-0xe3,-0x126)](_0x5c4680,_0x26d425);_0x5c4680++){for(let _0x299b84=0x0;_0x299b84<_0x26d425;_0x299b84++){if(_0x4f2eff)_0x58d0b1[_0x566a29(0x7b7,0xcbf)]([_0x32ac7f[_0x566a29(0x322,0x1d1)](_0x59f145-0x8,_0x26d425)+_0x5c4680,_0x32ac7f[_0x566a29(0x49f,0x14f)](_0x32ac7f[_0x566a29(0x49f,0x441)](0xf,_0x446016)*_0x26d425+_0x299b84,_0x140e1c*_0x45a0b9*_0x26d425)]);else _0x58d0b1[_0x566a29(0x7b7,0x66c)]([_0x3a2091+(_0x140e1c*_0x45a0b9+_0x59f145)*_0x26d425+_0x5c4680,(0xf-_0x446016)*_0x26d425+_0x299b84]);}}}}}function _0x566a29(_0x5804aa,_0x1d05d0){return _0x5a0b42(_0x1d05d0,_0x5804aa- -0xff);}if(_0x4f2eff)this[_0x566a29(0x74b,0xa5b)](_0x58d0b1);return _0x58d0b1;},'buildTextPts'(){const _0x207f9a={'ENuHq':function(_0x3f2493,_0x377ec7){return _0x3f2493*_0x377ec7;}},_0x4061ea=String(this[_0x6351ab(0x10b9,0xc7c)]||'');if(!_0x4061ea)return[];for(let _0x2796c8=0x0;_0x2796c8<_0x4061ea[_0x6351ab(0x9dd,0x7a8)];_0x2796c8++){const _0x49763a=_0x4061ea[_0x6351ab(0x4f5,0x3d4)](_0x2796c8);if(_0x49763a<0x20||_0x49763a>0x7e)return this[_0x6351ab(0x3e2,0x8a1)](_0x4061ea);}function _0x6351ab(_0x57d9f0,_0x5d4d8c){return _0x5a0b42(_0x57d9f0,_0x5d4d8c-0x186);}this[_0x6351ab(0xc99,0x9eb)]();const _0x28e91f=[],_0x288905=_0x4061ea[_0x6351ab(0x4ed,0x460)]()[_0x6351ab(0x4aa,0x123)](0x0,0x10),_0x334294=this[_0x6351ab(0x32b,0x2a4)],_0x4b7b4a=this[_0x6351ab(0x416,0x8c2)]===_0x6351ab(0xa06,0xa5a),_0x35eead=-Math[_0x6351ab(0x12e,0x4f1)]((_0x207f9a[_0x6351ab(0x234,0x5da)](_0x288905[_0x6351ab(0xbbd,0x7a8)],0x6)-0x1)*_0x334294/0x2);for(let _0x42b822=0x0;_0x42b822<_0x288905[_0x6351ab(0xab8,0x7a8)];_0x42b822++){const _0x129876=this[_0x6351ab(0x11e6,0xc5d)][_0x288905[_0x6351ab(0x74d,0x3d4)](_0x42b822)]||[0x7f,0x41,0x41,0x41,
-0x7f];for(let _0x2d9ffc=0x0;_0x2d9ffc<0x5;_0x2d9ffc++){for(let _0x1d0eac=0x0;_0x1d0eac<0x7;_0x1d0eac++){if(!(_0x129876[_0x2d9ffc]>>_0x1d0eac&0x1))continue;for(let _0x5bacb3=0x0;_0x5bacb3<_0x334294;_0x5bacb3++){for(let _0x5a1422=0x0;_0x5a1422<_0x334294;_0x5a1422++){if(_0x4b7b4a)_0x28e91f[_0x6351ab(0x493,0xa3c)]([(_0x2d9ffc-0x2)*_0x334294+_0x5bacb3,(0x6-_0x1d0eac)*_0x334294+_0x5a1422-_0x42b822*0x8*_0x334294]);else _0x28e91f[_0x6351ab(0xf33,0xa3c)]([_0x35eead+(_0x42b822*0x6+_0x2d9ffc)*_0x334294+_0x5bacb3,(0x6-_0x1d0eac)*_0x334294+_0x5a1422]);}}}}}if(_0x4b7b4a)this[_0x6351ab(0x62f,0x9d0)](_0x28e91f);return _0x28e91f;},'finalizeTextPts'(_0x49c5f3){const _0x37c673={'tMSxo':function(_0x2365ed,_0x51fba7){return _0x2365ed===_0x51fba7;}},_0x152764=[],_0x54ce3b=this[_0x22be7a(0x7a1,0x99b)],_0x1111c8=this[_0x22be7a(0xe70,0xb03)],_0x5da7a7=_0x37c673[_0x22be7a(0x79b,0x9a9)](this[_0x22be7a(0x9d4,0x62c)],'h');for(const _0x454fa6 of _0x49c5f3){const _0x333c0f=_0x54ce3b?-_0x454fa6[0x0]:_0x454fa6[0x0],_0x609222=_0x1111c8?-_0x454fa6[0x1]:_0x454fa6[0x1];_0x152764[_0x22be7a(0xe58,0xd3d)](_0x5da7a7?[_0x333c0f,0x0,_0x609222]:[_0x333c0f,_0x609222,0x0]);}function _0x22be7a(_0x4337c9,_0x10138c){return _0x5a0b42(_0x4337c9,_0x10138c-0x487);}return _0x152764;},'shapePoints'(){const _0x1c176b={'uQHTJ':_0x2071ff(0xe24,0xa59),'hEmLZ':function(_0x4c2986,_0x24fc14){return _0x4c2986+_0x24fc14;},'NOkEY':function(_0x367267,_0x10e928){return _0x367267+_0x10e928;},'hXXJo':function(_0x2948a2,_0x2c67a1){return _0x2948a2<=_0x2c67a1;}};if(this[_0x2071ff(0x36c,0x15a)]===_0x2071ff(0x2c8,0x4af))return this[_0x2071ff(0x958,0x90f)];if(this[_0x2071ff(0x36c,0x1c3)]===_0x1c176b[_0x2071ff(0x373,-0xb8)]){const _0xd2dab6=[this[_0x2071ff(0xe24,0xc7a)],this[_0x2071ff(0x44c,0xa)],this[_0x2071ff(0xa6a,0x1020)],this[_0x2071ff(0x4d3,0x42d)],this[_0x2071ff(0x842,0x755)],this[_0x2071ff(0x9aa,0x7a2)]][_0x2071ff(0x79c,0xa09)]('|');return _0xd2dab6!==this[_0x2071ff(0x706,0x711)]&&(this[_0x2071ff(0xd91,0xb71)]=this[_0x2071ff(0xb1e,0xa76)](this[_0x2071ff(0x2c4,0x49c)]()),this[_0x2071ff(0x706,0x737)]=_0xd2dab6),this[_0x2071ff(0xd91,0x9d8)];}function _0x2071ff(_0x3e7c57,_0x1fd933){return _0x5a0b42(_0x1fd933,_0x3e7c57-0x32e);}const _0x4c468a=_0x1c176b[_0x2071ff(0xa08,0xf79)](_0x1c176b[_0x2071ff(0xbcd,0x670)](this['rx']+'|'+this['ry'],'|')+this['rz']+'|',this[_0x2071ff(0xa27,0x7f7)]?0x1:0x0);if(_0x4c468a!==this[_0x2071ff(0xb57,0xda9)]){const _0x2fbdcd=[];for(let _0x1106b3=-this['rx'];_0x1c176b[_0x2071ff(0x587,0x5a5)](_0x1106b3,this['rx']);_0x1106b3++){for(let _0x48a536=0x0;_0x48a536<=this['ry'];_0x48a536++){for(let _0x48fb6f=-this['rz'];_0x48fb6f<=this['rz'];_0x48fb6f++){if(this[_0x2071ff(0xa27,0x992)]&&_0x1106b3===0x0&&_0x48fb6f===0x0&&_0x48a536<=0x1)continue;_0x2fbdcd[_0x2071ff(0xbe4,0x66c)]([_0x1106b3,_0x48a536,_0x48fb6f]);}}}this[_0x2071ff(0xbb6,0xde6)]=_0x2fbdcd,this[_0x2071ff(0xb57,0x8fb)]=_0x4c468a;}return this[_0x2071ff(0xbb6,0xfa4)];},'onTick'(){const _0x5601e6={'IpPcE':function(_0x131485,_0x1640e5){return _0x131485||_0x1640e5;},'jqpAZ':function(_0x121317,_0x5ee3c8){return _0x121317===_0x5ee3c8;},'gvLgX':_0x575ed6(0x120b,0xc89),'wUMbZ':function(_0x2c4505,_0x5c090b){return _0x2c4505!==_0x5c090b;},'WMTaP':function(_0x25b171,_0x943b0c){return _0x25b171*_0x943b0c;},'LPeEr':function(_0x206e6c,_0x13af96){return _0x206e6c*_0x13af96;},'GLPnG':function(_0x393da,_0x234293){return _0x393da+_0x234293;},'wQgTX':function(_0xee5a8b,_0x426a3e){return _0xee5a8b+_0x426a3e;},'jlqPr':function(_0x4ab2c3,_0x1ed106){return _0x4ab2c3+_0x1ed106;},'XcSEk':function(_0x30319e,_0xc7d8b7){return _0x30319e>=_0xc7d8b7;}};if(!this[_0x575ed6(0x331,0x288)])return;this[_0x575ed6(0x10a0,0xc11)]++;if(this[_0x575ed6(0xc74,0xc11)]<this[_0x575ed6(0x1086,0xc22)])return;this[_0x575ed6(0x105a,0xc11)]=0x0;let _0x28ba1c,_0x2deb1b,_0x474249;try{_0x28ba1c=player[_0x575ed6(0x27d,0x68d)](),_0x2deb1b=_0x28ba1c?String(_0x28ba1c[_0x575ed6(0xc64,0xbb5)]()):'',_0x474249=world[_0x575ed6(0xfd8,
-0xb11)]();}catch(_0x1fc0b9){return;}if(_0x5601e6[_0x575ed6(0xf2b,0xbb1)](!_0x28ba1c,!_0x2deb1b)||!_0x474249)return;function _0x575ed6(_0xce744f,_0x242d0d){return _0x5a0b42(_0xce744f,_0x242d0d-0x193);}const _0x27713b=[];if(this[_0x575ed6(0x8e2,0xc9f)]===_0x575ed6(0x655,0x38e)){let _0x10bfa3=null;try{_0x10bfa3=_0x28ba1c[_0x575ed6(0x288,0x2bb)]();}catch(_0x2c4a31){}if(_0x10bfa3)_0x27713b[_0x575ed6(0x563,0xa49)](_0x10bfa3);}else{const _0x1f1c23=[];if(this[_0x575ed6(0x1143,0xc9f)]===_0x575ed6(0x97b,0x8c6))try{const _0x11efef=_0x474249[_0x575ed6(0xa0e,0xaad)]();for(const _0x396ea1 in _0x11efef){const _0x1a244d=_0x11efef[_0x396ea1];if(_0x1a244d&&_0x1a244d['id'])_0x1f1c23[_0x575ed6(0x66a,0xa49)](String(_0x1a244d['id']));}}catch(_0x5ec141){}else{for(const _0x1154af in this[_0x575ed6(-0x29c,0x1e2)])_0x1f1c23[_0x575ed6(0xae0,0xa49)](_0x1154af);}for(const _0x14cfd5 of _0x1f1c23){if(this[_0x575ed6(0x1163,0xc9f)]===_0x575ed6(0x573,0x8c6)&&this[_0x575ed6(-0x2d8,0x29b)]&&_0x14cfd5===_0x2deb1b)continue;try{const _0xa2878f=_0x474249[_0x575ed6(0x5d3,0x6a8)](_0x14cfd5),_0x318bab=_0xa2878f?_0xa2878f[_0x575ed6(-0x170,0x2bb)]():null;if(_0x318bab)_0x27713b[_0x575ed6(0x796,0xa49)](_0x318bab);}catch(_0x4e64af){}}}if(!_0x27713b[_0x575ed6(0xd29,0x7b5)])return;let _0x10dce3=this[_0x575ed6(0x251,0x2eb)]();if(!_0x10dce3||!_0x10dce3[_0x575ed6(0x327,0x7b5)])return;const _0x46bdb4=_0x5601e6[_0x575ed6(0x81c,0x379)](this[_0x575ed6(0x198,0x1d1)],_0x5601e6[_0x575ed6(0xebf,0xb07)]),_0x1f9532=Math[_0x575ed6(0xbda,0xa62)](0x1e,Math[_0x575ed6(0xe43,0xa3e)](_0x46bdb4?0x384:this[_0x575ed6(0x13e,0x478)],Math[_0x575ed6(0x641,0x4fe)]((_0x46bdb4?0x708:0x384)/_0x27713b[_0x575ed6(0xc2b,0x7b5)])));if(_0x10dce3[_0x575ed6(0xceb,0x7b5)]>_0x1f9532){const _0x1f9094=_0x10dce3[_0x575ed6(0xcd0,0x7b5)]/_0x1f9532,_0x3c2c6e=[];for(let _0xd624fd=0x0;_0xd624fd<_0x1f9532;_0xd624fd++)_0x3c2c6e[_0x575ed6(0x969,0xa49)](_0x10dce3[Math[_0x575ed6(0x8ed,0x4fe)](_0xd624fd*_0x1f9094)]);_0x10dce3=_0x3c2c6e;}const _0x28fa8c=_0x5601e6[_0x575ed6(0xb2,0x379)](this[_0x575ed6(-0x2b4,0x1d1)],_0x5601e6[_0x575ed6(0xc62,0xb07)])?0x1:this[_0x575ed6(-0x1f8,0x2b1)],_0x16ca13=this[_0x575ed6(0x772,0x1d1)]!==_0x575ed6(0xe1a,0xc89)&&(this[_0x575ed6(0x9cd,0x6a7)]||this[_0x575ed6(0xd06,0x80f)]),_0x5b49f1=_0x5601e6[_0x575ed6(0xf85,0xb08)](this[_0x575ed6(0xae4,0x7d8)]%0x168,0x0),_0x585a35=this[_0x575ed6(0x22c,0x7d8)]*Math['PI']/0xb4,_0x2fd40e=Math[_0x575ed6(0xa01,0x585)](_0x585a35),_0x2a020d=Math[_0x575ed6(0x743,0x994)](_0x585a35);for(const _0x2fa781 of _0x27713b){const _0x1140ae=Math[_0x575ed6(0x9d9,0x4fe)](_0x2fa781['x']),_0x583157=Math[_0x575ed6(0xa1e,0x4fe)](_0x2fa781['y']),_0x166f6f=Math[_0x575ed6(0x41c,0x4fe)](_0x2fa781['z']);for(const _0x58fbfa of _0x10dce3){let _0x429779=_0x5601e6[_0x575ed6(0xef4,0x99a)](_0x58fbfa[0x0],_0x28fa8c),_0x298d35=_0x58fbfa[0x1]*_0x28fa8c;const _0x1cdc2e=_0x58fbfa[0x2]*_0x28fa8c;if(_0x16ca13){if(this[_0x575ed6(0x448,0x6a7)])_0x429779=-_0x429779;if(this[_0x575ed6(0xa45,0x80f)])_0x298d35=-_0x298d35;}let _0x50200e=_0x429779,_0x555f76=_0x1cdc2e;_0x5b49f1&&(_0x50200e=_0x5601e6[_0x575ed6(0x426,0x99a)](_0x429779,_0x2fd40e)-_0x1cdc2e*_0x2a020d,_0x555f76=_0x5601e6[_0x575ed6(0x321,0x889)](_0x429779,_0x2a020d)+_0x1cdc2e*_0x2fd40e);try{this[_0x575ed6(0xedc,0xb67)](_0x2deb1b,_0x5601e6[_0x575ed6(0x6c3,0xc4f)](_0x1140ae+_0x50200e,this[_0x575ed6(0xf55,0xb5a)]),_0x5601e6[_0x575ed6(0x1043,0xc4f)](_0x5601e6[_0x575ed6(0x556,0x765)](_0x583157,_0x298d35),this[_0x575ed6(0x4ef,0x83e)]),_0x5601e6[_0x575ed6(0x8de,0xb1e)](_0x166f6f+_0x555f76,this[_0x575ed6(0x958,0x8c5)])),this[_0x575ed6(-0x240,0x34e)]=0x0;}catch(_0x3ebb6a){this[_0x575ed6(0x2b7,0x34e)]++;if(_0x5601e6[_0x575ed6(-0x3bd,0x17f)](this[_0x575ed6(0x715,0x34e)],0x3)){this[_0x575ed6(0x108,0x288)]=![],this[_0x575ed6(0x745,0x755)](_0x575ed6(0x9cb,0xb81)+(_0x3ebb6a&&_0x3ebb6a[_0x575ed6(0x2a3,0x438)]?_0x3ebb6a[_0x575ed6(0x5b1,0x438)]:_0x3ebb6a));return;}}}}this[_0x575ed6(0xac0,0x7d8)]=(this[_0x575ed6(0xa70,0x7d8)]+this[_0x575ed6(0x47e,0x126)])%0x168;},
-'log':mkLog(_0x5a0b42(0x71d,0x64f))};try{ghostBarrier[_0x5a0b42(0xd45,0x9b0)]();}catch(_0x31e8f5){}const miniMap={'tag':_0x5a0b42(0x72b,0x793),'enabled':![],'showBiome':!![],'zoom':0x5a,'buildPyOn'(){function _0x218622(_0xb8b0c0,_0x2fe7d5){return _0x5a0b42(_0xb8b0c0,_0x2fe7d5-0x440);}const _0x5dde5a={'VCRAD':_0x218622(0xc76,0xa16)};return _0x218622(0x75f,0x71f)+(this[_0x218622(0x1420,0xe94)]?_0x5dde5a[_0x218622(0x9ca,0x652)]:_0x218622(0x810,0xdb9))+_0x218622(0x5ee,0x4e4)+(this[_0x218622(0x535,0xaba)]/0x64)[_0x218622(0x560,0x664)](0x2)+(_0x218622(0xc22,0x9c0)+_0x218622(0xacd,0xf2e)+_0x218622(0xf80,0xab8)+_0x218622(0xa0f,0x85a)+_0x218622(0x7a1,0x55a)+(_0x218622(0xa39,0x572)+_0x218622(0x823,0x9bd)+_0x218622(0x9be,0x6b7)+_0x218622(0x7f1,0x5cd)+_0x218622(0x35,0x52d))+(_0x218622(0x61a,0xbd2)+_0x218622(0xe2c,0x952)+_0x218622(0x1e0,0x6e2)+_0x218622(0xbf3,0x75f)+_0x218622(0xc85,0xb86))+(_0x218622(0xda1,0x8bb)+_0x218622(0x475,0x666)+_0x218622(0x80d,0xaec)+_0x218622(0x437,0x729)+_0x218622(0xb00,0xb63))+(_0x218622(0xf9c,0xb33)+_0x218622(0xa71,0xe01)+_0x218622(0xb2e,0xa66)+_0x218622(0x46d,0xa39)+_0x218622(0x9ed,0x4ba))+(_0x218622(0x8a2,0x8f0)+_0x218622(0x7c6,0x8bc)+_0x218622(0xd41,0xe36)+_0x218622(0x194,0x623)+_0x218622(0x8a2,0xa45))+(_0x218622(0xba2,0xde2)+_0x218622(0x3f8,0x4fc)));},'pyOff':_0x5a0b42(0x459,-0x2d)+_0x5a0b42(-0x40a,0x126)+_0x5a0b42(0x443,0x268)+_0x5a0b42(0x633,0xa68)+_0x5a0b42(-0x9b,0x4b2)+(_0x5a0b42(0x503,0xaa2)+_0x5a0b42(0x1da,0x62d)+_0x5a0b42(0xfd7,0xa32)+_0x5a0b42(0xcb9,0x86f)),'onModuleEvent'(_0x46a9b2){function _0x5435a1(_0x5c7348,_0x6b8aeb){return _0x5a0b42(_0x5c7348,_0x6b8aeb- -0x144);}const _0x705819={'tyNsy':_0x5435a1(0x5dd,0x536)};if(typeof _0x46a9b2[_0x5435a1(-0x5e0,-0xb2)]!==_0x5435a1(0x26c,0x118)){this[_0x5435a1(0x4ae,0x910)]=Boolean(_0x46a9b2[_0x5435a1(0xa7,-0xb2)]);if(this[_0x5435a1(0x2ad,-0x4f)])this[_0x5435a1(-0x23e,0x2d)](_0x5435a1(-0x21,0x12b),this[_0x5435a1(0x9a9,0x910)]?_0x5435a1(0x2d4,0x492):_0x5435a1(0x2fe,0x835));}if(typeof _0x46a9b2[_0x5435a1(0x1d3,0x414)]!==_0x5435a1(0x547,0x118)){const _0x3dfc5c=clampPos(_0x46a9b2[_0x5435a1(-0x68,0x414)],0x32,0x12c);if(_0x3dfc5c)this[_0x5435a1(0x44d,0x536)]=_0x3dfc5c;if(this[_0x5435a1(-0x393,-0x4f)])this[_0x5435a1(0x3b7,0x2d)](_0x705819[_0x5435a1(0x288,0x63c)],(this[_0x5435a1(0x58,0x536)]/0x64)[_0x5435a1(0x5cd,0xe0)](0x2));}if(!stdToggle(this,_0x46a9b2,_0x5435a1(0xb15,0x9bc),![]))return;try{app[_0x5435a1(-0x39c,0x131)](this[_0x5435a1(-0x348,-0x4f)]?this[_0x5435a1(0x63c,0x88c)]():this[_0x5435a1(0x15c,-0x2e)]);}catch(_0x49207c){}},'apply'(_0x2ba553,_0x420892){const _0xe5808e={'dJicQ':_0x3c954f(0x12a8,0xe35),'bQwEs':_0x3c954f(0x1232,0xd6b),'wVVxw':_0x3c954f(0xee1,0xb05),'lXJgq':function(_0x2c489f,_0x34d921){return _0x2c489f+_0x34d921;},'IurhM':_0x3c954f(0x790,0xb8a),'swrbr':_0x3c954f(0xa5c,0xc9c),'RHsXz':_0x3c954f(0x2fb,0x7cc)},_0x321367=[_0x3c954f(0xaf9,0x59d),_0x3c954f(0xc9b,0xe76),_0x3c954f(0x32e,0x62d),_0xe5808e[_0x3c954f(0x13a5,0xe71)],_0x3c954f(0x42a,0x7cc),_0xe5808e[_0x3c954f(0x919,0x936)],_0x3c954f(0xacd,0x53c),_0x3c954f(0x6a3,0x9d6),_0x3c954f(0x1078,0xdc1),_0x3c954f(0x1bf,0x71a)+_0x2ba553+_0x3c954f(0x1c9,0x48a)+_0x420892,_0xe5808e[_0x3c954f(0xaec,0xeaf)],_0x3c954f(0xb60,0xcb4),_0x3c954f(0xb8c,0x7e0),_0x3c954f(0x6ff,0x549),_0x3c954f(0x851,0xa18),_0x3c954f(0xa7a,0xc80),_0xe5808e[_0x3c954f(0x375,0x8d2)](_0x3c954f(0xa62,0x712),_0x2ba553)+_0xe5808e[_0x3c954f(0x2b5,0x470)]+_0x420892+')',_0xe5808e[_0x3c954f(0x62d,0x34f)],_0x3c954f(0xdb1,0xb71),_0xe5808e[_0x3c954f(0x14e,0x444)],_0x3c954f(0x19e,0x766),_0x3c954f(0xf61,0xcf6),_0x3c954f(0xf85,0xb05),_0x3c954f(0xc1e,0x907)][_0x3c954f(0x3e9,0x80f)]('\x0a');function _0x3c954f(_0x37281e,_0x1caea7){return _0x5a0b42(_0x37281e,_0x1caea7-0x3a1);}try{app[_0x3c954f(0x9c7,0x616)](_0x321367);}catch(_0x3a941e){}}},batchCmd={'tag':_0x5a0b42(0xc59,0x7c8),'enabled':![],'loop':![],'sync':![],'interval':0x1,'source':_0x5a0b42(-0x1df,0x3),'execMode':_0x5a0b42(0x3b4,0x468),'inputText':'','commands':[],'index':0x0,'tickCount':0x0,
-'cmdFile':resDirPath+_0x5a0b42(0xbeb,0x778),'parseLines'(_0x4f81f6){function _0x34ff39(_0x27cf41,_0x39cd9d){return _0x5a0b42(_0x39cd9d,_0x27cf41- -0x24b);}const _0x4ec303=[];for(const _0x33bb4f of String(_0x4f81f6||'')[_0x34ff39(0x4ba,0x297)](/\r?\n/)){const _0x1b4faa=_0x33bb4f[_0x34ff39(0x315,0x193)]();if(!_0x1b4faa||_0x1b4faa[_0x34ff39(0x8aa,0x88e)](0x0)==='#')continue;_0x4ec303[_0x34ff39(0x66b,0xbb8)](_0x1b4faa[_0x34ff39(0x8aa,0x646)](0x0)==='/'?_0x1b4faa:'/'+_0x1b4faa);}return _0x4ec303;},'loadFile'(){function _0x3e8b76(_0x53cfe1,_0x6dacfb){return _0x5a0b42(_0x6dacfb,_0x53cfe1-0x11c);}const _0x15f237={'QmzYh':_0x3e8b76(0x9ce,0xa9b)};let _0x40a0e0=![];try{_0x40a0e0=!fs[_0x3e8b76(0x757,0x77d)](this[_0x3e8b76(0xe8,0x442)]);}catch(_0x370f3a){}if(_0x40a0e0){try{fs[_0x3e8b76(0x8e8,0x433)](this[_0x3e8b76(0xe8,0x3c5)],_0x3e8b76(0x484,0x200));}catch(_0x4e8615){}return app[_0x3e8b76(0x91f,0xcc4)](_0x3e8b76(0x655,0xc0a)),null;}let _0x547cc7='';try{_0x547cc7=String(fs[_0x3e8b76(0xc1,-0x198)](this[_0x3e8b76(0xe8,0x33d)])||'');}catch(_0x3747a3){}const _0x46cd65=this[_0x3e8b76(0x25f,0x26e)](_0x547cc7);if(!_0x46cd65[_0x3e8b76(0x73e,0x9fd)])return app[_0x3e8b76(0x91f,0xc63)](_0x15f237[_0x3e8b76(0x36d,0x371)]),null;return _0x46cd65;},'loadInput'(){const _0xf8d5a9=this[_0xc84e17(0x156,0x112)](this[_0xc84e17(0x878,0x421)]);function _0xc84e17(_0x453595,_0xec7023){return _0x5a0b42(_0x453595,_0xec7023- -0x31);}if(!_0xf8d5a9[_0xc84e17(0xac7,0x5f1)])return app[_0xc84e17(0x858,0x7d2)](_0xc84e17(0x1ba,0x3d1)),null;return _0xf8d5a9;},'exec'(_0x164431){function _0x48b36b(_0x7cf52f,_0x2d9fba){return _0x5a0b42(_0x7cf52f,_0x2d9fba-0x413);}const _0x46475b={'PqoPB':_0x48b36b(0x393,0x8c0)};if(this[_0x48b36b(0x6ce,0x8a9)]===_0x46475b[_0x48b36b(0x6fe,0x5f2)]){this[_0x48b36b(0x9b9,0x4de)](_0x164431);return;}try{packet[_0x48b36b(0x102f,0xcee)]({'command':_0x164431,'version':0x58});}catch(_0x373244){}},'rpcExec'(_0x4cd679){let _0x33d181='';function _0x3c775e(_0x2e1483,_0x3f3bee){return _0x5a0b42(_0x3f3bee,_0x2e1483-0x67);}try{_0x33d181=String(player[_0x3c775e(0x561,0x4fd)]()[_0x3c775e(0xa89,0x9df)]());}catch(_0x2610c5){}if(!_0x33d181)return;try{packet[_0x3c775e(0xcf,-0x69)](0x5db23ae,hex2buf(_0x3c775e(-0x2,0x57c))),packet[_0x3c775e(0xcf,0x4ad)](0x5db23ae,hex2buf(_0x3c775e(0x5f1,0x148)+this[_0x3c775e(0x794,0x88e)](_0x33d181)+_0x3c775e(0xb20,0x93e)+this[_0x3c775e(0x794,0x833)](_0x4cd679)+'c0'));}catch(_0x53f41e){}},'binSeg'(_0x2b9df5){const _0x492476={'rkGTb':function(_0x7a504e,_0xd5264f){return _0x7a504e+_0xd5264f;},'sQXpL':function(_0x931412,_0x494461){return _0x931412+_0x494461;}},_0x461f2c=this[_0x4b5a60(0xd71,0x8a2)](_0x2b9df5),_0x23fc31=_0x461f2c[_0x4b5a60(0x968,0x4b6)]/0x2;if(_0x23fc31<=0xff)return'c4'+_0x23fc31[_0x4b5a60(0x5cb,0xa37)](0x10)[_0x4b5a60(0x466,0x822)](0x2,'0')+_0x461f2c;function _0x4b5a60(_0x14d632,_0x8384e7){return _0x5a0b42(_0x8384e7,_0x14d632-0x346);}return _0x492476[_0x4b5a60(0x39e,-0xd1)](_0x492476[_0x4b5a60(0x600,0x8f5)]('c5',_0x23fc31[_0x4b5a60(0x5cb,0x4bb)](0x10)[_0x4b5a60(0x466,0x2b5)](0x4,'0')),_0x461f2c);},'utf8hex'(_0x56fe70){const _0x2f9208=encodeUtf8(_0x56fe70);let _0x8fe0a2='';for(let _0x501075=0x0;_0x501075<_0x2f9208[_0x4a24d1(0xad3,0x662)];_0x501075++)_0x8fe0a2+=_0x2f9208[_0x501075][_0x4a24d1(0x736,0x8e7)](0x10)[_0x4a24d1(0x5d1,0x39a)](0x2,'0');function _0x4a24d1(_0x1cd4b5,_0x56103f){return _0x5a0b42(_0x56103f,_0x1cd4b5-0x4b1);}return _0x8fe0a2;},'onModuleEvent'(_0x588d26){const _0x52d4d7={'KDnSc':function(_0x323999,_0x485482){return _0x323999(_0x485482);},'BAQIu':function(_0x32eed6,_0xb4df9,_0x34c28a,_0x425555){return _0x32eed6(_0xb4df9,_0x34c28a,_0x425555);},'jxvZq':_0x5bb8ba(0xd1d,0x98f),'Xyesr':_0x5bb8ba(0x997,0x9a2),'SmCtp':_0x5bb8ba(0x481,0x518),'kaFZS':_0x5bb8ba(0xdb8,0x8db),'JopfA':_0x5bb8ba(0xa75,0xe24),'hmzUG':_0x5bb8ba(0xdb9,0x9c2),'LYCYK':_0x5bb8ba(0x1304,0x101a),'vCJpB':function(_0x2b106c,_0x4036e8){return _0x2b106c===_0x4036e8;},'fkmKM':function(_0x1c2c56,_0xd57b1d,_0x1d27b3,_0x39c8ce){return _0x1c2c56(_0xd57b1d,
-_0x1d27b3,_0x39c8ce);},'aODiu':function(_0x401838,_0xa27f14){return _0x401838+_0xa27f14;},'eQHFJ':_0x5bb8ba(0xe41,0x891)};if(typeof _0x588d26[_0x5bb8ba(0x233,0x79e)]!==_0x5bb8ba(0xa56,0x771))this[_0x5bb8ba(0x925,0xb56)]=Boolean(_0x588d26[_0x5bb8ba(0x999,0x79e)]);if(typeof _0x588d26[_0x5bb8ba(0x51b,0x7cb)]!==_0x5bb8ba(0x6de,0x771))this[_0x5bb8ba(0xa2b,0xc9c)]=_0x52d4d7[_0x5bb8ba(0x804,0xc55)](Boolean,_0x588d26[_0x5bb8ba(0xd50,0x7cb)]);const _0x39df36=_0x52d4d7[_0x5bb8ba(0x7c1,0x4e3)](clampPos,_0x588d26[_0x5bb8ba(0x5bd,0x863)],0x1,0x3c);if(_0x39df36)this[_0x5bb8ba(0x1548,0xfa4)]=_0x39df36;function _0x5bb8ba(_0x555bbc,_0x169675){return _0x5a0b42(_0x555bbc,_0x169675-0x515);}if(typeof _0x588d26[_0x5bb8ba(0x9a4,0x544)]===_0x52d4d7[_0x5bb8ba(0x103d,0xac2)])this[_0x5bb8ba(0xc5c,0x967)]=_0x588d26[_0x5bb8ba(-0x26,0x544)];radio2(_0x588d26,_0x52d4d7[_0x5bb8ba(0xa35,0x875)],_0x5bb8ba(0x5a6,0xa42),_0x5bb8ba(0xa16,0x819),this,_0x5bb8ba(0x1034,0xbee),_0x52d4d7[_0x5bb8ba(0x5ef,0x752)],_0x5bb8ba(0x7de,0x98b)),radio2(_0x588d26,_0x5bb8ba(0x43a,0x9ef),_0x52d4d7[_0x5bb8ba(0xd91,0xa02)],_0x52d4d7[_0x5bb8ba(0x47b,0x708)],this,_0x5bb8ba(0xc22,0x9ab),_0x5bb8ba(0x77e,0x97d),_0x52d4d7[_0x5bb8ba(0xc03,0xb81)]);if(_0x588d26[_0x5bb8ba(0x77c,0x8ab)]!==this[_0x5bb8ba(0xfd8,0x102b)]||!(_0x52d4d7[_0x5bb8ba(0x869,0x6aa)]in _0x588d26))return;const _0x376a42=Boolean(_0x588d26[_0x5bb8ba(0x1490,0x101a)]);if(_0x52d4d7[_0x5bb8ba(0x1209,0xf60)](_0x376a42,this[_0x5bb8ba(0x5ec,0x60a)]))return;if(_0x376a42){const _0x31d9ff=this[_0x5bb8ba(0x938,0xbee)]===_0x5bb8ba(0xbd6,0x98b)?this[_0x5bb8ba(0xd26,0xeeb)]():this[_0x5bb8ba(0xa98,0xc5c)]();if(!_0x31d9ff)return;this[_0x5bb8ba(0x7ad,0x97f)]=_0x31d9ff,this[_0x5bb8ba(0xa68,0xc29)]=0x0,this[_0x5bb8ba(0x844,0x892)]=0x0,this[_0x5bb8ba(0x42,0x60a)]=!![];}else this[_0x5bb8ba(0x778,0x60a)]=![];ensureHud(this,this[_0x5bb8ba(0xdae,0x102b)],_0x5bb8ba(0x4d7,0x7fb)),this[_0x5bb8ba(0x11ee,0xca9)][_0x5bb8ba(0x220,0x60a)]=this[_0x5bb8ba(0x286,0x60a)],_0x52d4d7[_0x5bb8ba(0x947,0x8a0)](notifyToggle,_0x5bb8ba(0x922,0x7fb),this[_0x5bb8ba(0x2cf,0x60a)],this[_0x5bb8ba(0x548,0x60a)]?_0x52d4d7[_0x5bb8ba(0xacf,0x670)](_0x52d4d7[_0x5bb8ba(0x652,0x670)](_0x52d4d7[_0x5bb8ba(0x4e6,0x670)]((_0x52d4d7[_0x5bb8ba(0x128b,0xf60)](this[_0x5bb8ba(0x794,0xbee)],_0x5bb8ba(0x79a,0x98b))?_0x5bb8ba(0x707,0xcd2):_0x5bb8ba(0x8c0,0x5d2))+_0x5bb8ba(0x1048,0xb30)+this[_0x5bb8ba(0xf1a,0x97f)][_0x5bb8ba(0x975,0xb37)]+_0x5bb8ba(0xbc5,0xe3c)+(this[_0x5bb8ba(0xd06,0x9ab)]===_0x5bb8ba(0x81a,0x9c2)?_0x5bb8ba(0x103,0x672):_0x5bb8ba(0x1140,0xf4b)),_0x52d4d7[_0x5bb8ba(0x1170,0xeb8)])+(this[_0x5bb8ba(0xe9b,0xc9c)]?'同步':'顺序'),_0x5bb8ba(0x84d,0x6ee))+this[_0x5bb8ba(0xd43,0xfa4)]+_0x5bb8ba(0xaa6,0xa90),this[_0x5bb8ba(0xcd9,0xb56)]?_0x5bb8ba(0x8cd,0x54c):''):'');},'onTick'(){function _0xdd1e2c(_0x3b4c61,_0x217c82){return _0x5a0b42(_0x3b4c61,_0x217c82-0x109);}if(!this[_0xdd1e2c(-0x9f,0x1fe)]||!this[_0xdd1e2c(0x63b,0x573)][_0xdd1e2c(0x1ce,0x72b)]||!tickEvery(this,this[_0xdd1e2c(0xfc7,0xb98)]))return;if(this[_0xdd1e2c(0xc19,0x890)]){for(const _0x402690 of this[_0xdd1e2c(0x834,0x573)])this[_0xdd1e2c(0xe6b,0xc1e)](_0x402690);if(!this[_0xdd1e2c(0x330,0x74a)])this[_0xdd1e2c(0x88f,0x352)]();return;}this[_0xdd1e2c(0x9e2,0xc1e)](this[_0xdd1e2c(-0x31,0x573)][this[_0xdd1e2c(0x28d,0x81d)]]),this[_0xdd1e2c(0xbde,0x81d)]++,this[_0xdd1e2c(0xaef,0x81d)]>=this[_0xdd1e2c(0x3ca,0x573)][_0xdd1e2c(0xcb3,0x72b)]&&(this[_0xdd1e2c(0x6c1,0x74a)]?this[_0xdd1e2c(0x533,0x81d)]=0x0:this[_0xdd1e2c(0x393,0x352)]());},'stop'(){function _0x4c77af(_0x59027d,_0x2432d8){return _0x5a0b42(_0x59027d,_0x2432d8-0x301);}this[_0x4c77af(0x1a4,0x3f6)]=![];if(this[_0x4c77af(0xfb0,0xa95)])this[_0x4c77af(0xec8,0xa95)][_0x4c77af(0x63b,0x3f6)]=![];}},bypassServer={'tag':_0x5a0b42(0xa5e,0x964),'serverName':'','password':'','addr':'','log':mkLog(_0x5a0b42(0x87d,0x856)),'buildPy'(_0xd32b79,_0xe99f5){function _0x2fe619(_0x530d7a,_0x2b7296){return _0x5a0b42(_0x530d7a,
-_0x2b7296- -0x16);}const _0x45fd77=function(_0x5ef469){function _0x1e4887(_0x51fe51,_0xe98380){return _0x2f10(_0xe98380- -0x158,_0x51fe51);}return JSON[_0x1e4887(0x317,0x618)](JSON[_0x1e4887(0x65b,0x618)](_0x5ef469));};return _0x2fe619(0x396,0x513)+_0x2fe619(0x1e0,0x6a5)+_0x45fd77(this[_0x2fe619(0x684,0x2e0)])+_0x2fe619(0xaf5,0xae8)+_0x45fd77(this[_0x2fe619(-0x1ea,0x1d3)])+_0x2fe619(0x8f9,0x744)+_0x45fd77(_0xd32b79)+_0x2fe619(-0x4da,0xea)+_0xe99f5+(_0x2fe619(-0x202,0x1d8)+_0x2fe619(0x461,-0x64)+_0x2fe619(0xb51,0x6b8)+_0x2fe619(0x85,0x4b3)+_0x2fe619(0x2ff,0x1fe)+(_0x2fe619(0x899,0x38c)+_0x2fe619(0x551,0x107)+_0x2fe619(0x539,0x9e4)+_0x2fe619(0x49e,0x44a)+_0x2fe619(0x77,0x515))+(_0x2fe619(0x6ca,0xa41)+_0x2fe619(-0x95,0x114)+_0x2fe619(0xba1,0x91e)+_0x2fe619(0x4ff,0x52e)+_0x2fe619(0x2bc,0x9d))+(_0x2fe619(0x561,0x7dc)+_0x2fe619(0x9fd,0x8dd)+_0x2fe619(0x349,0x2e3)));},'onModuleEvent'(_0x30f3f9){const _0x2cd263={'nouQg':_0x5c5de7(0x485,0x6d6),'KqUya':_0x5c5de7(0x339,-0x62),'kmnPF':function(_0x18ccfa,_0x15cca4){return _0x18ccfa>_0x15cca4;},'zXIYn':function(_0x45fc2b,_0x3e0ecd){return _0x45fc2b+_0x3e0ecd;},'VjqMi':function(_0x2683eb,_0x28d14f){return _0x2683eb+_0x28d14f;},'VxfWn':_0x5c5de7(0x65,-0x2ac)};if(typeof _0x30f3f9[_0x5c5de7(0x3d7,0x217)]===_0x2cd263[_0x5c5de7(0x5dc,0xaa4)])this[_0x5c5de7(0x301,-0x253)]=_0x30f3f9[_0x5c5de7(0x3d7,0x6eb)][_0x5c5de7(0x56b,0x9fd)]();if(typeof _0x30f3f9[_0x5c5de7(0x212,0x666)]===_0x5c5de7(0x485,0x593))this[_0x5c5de7(0x1f4,0x575)]=_0x30f3f9[_0x5c5de7(0x212,0x4c1)][_0x5c5de7(0x56b,0x242)]();if(typeof _0x30f3f9[_0x5c5de7(0x9b,0x28e)]===_0x2cd263[_0x5c5de7(0x5dc,0x9f9)])this[_0x5c5de7(0x16b,0x6f2)]=_0x30f3f9[_0x5c5de7(0x9b,0x563)][_0x5c5de7(0x56b,0x5a2)]();if(_0x30f3f9[_0x5c5de7(0x3a1,0x8fa)]!==this[_0x5c5de7(0xb21,0xee9)]||!(_0x5c5de7(0xb10,0xa1a)in _0x30f3f9))return;if(!Boolean(_0x30f3f9[_0x5c5de7(0xb10,0xe12)]))return;if(!this[_0x5c5de7(0x301,0x1f5)]){app[_0x5c5de7(0x80e,0xaba)](_0x2cd263[_0x5c5de7(0x9ec,0x77a)]);return;}const _0x16e0d3=/^([^\s:]+):(\d{1,5})$/[_0x5c5de7(0xb20,0x5e0)](this[_0x5c5de7(0x16b,0x47)]);function _0x5c5de7(_0x366518,_0x5c4427){return _0x5a0b42(_0x5c4427,_0x366518-0xb);}if(!_0x16e0d3){app[_0x5c5de7(0x80e,0x290)](_0x5c5de7(0x632,0x2d3));return;}const _0x66730b=_0x16e0d3[0x1],_0x8f24a2=parseInt(_0x16e0d3[0x2],0xa);if(!(_0x2cd263[_0x5c5de7(0x4d9,0x431)](_0x8f24a2,0x0)&&_0x8f24a2<=0xffff)){app[_0x5c5de7(0x80e,0xb2b)](_0x5c5de7(0x85d,0x990));return;}try{app[_0x5c5de7(0x280,0x345)](this[_0x5c5de7(0x1bb,-0x34c)](_0x66730b,_0x8f24a2)),this[_0x5c5de7(0x5cd,0x1b)](_0x2cd263[_0x5c5de7(0xa5a,0x974)](_0x2cd263[_0x5c5de7(-0x12,-0x54d)](_0x5c5de7(0x974,0xe25)+this[_0x5c5de7(0x301,-0x205)],_0x2cd263[_0x5c5de7(0x66c,0x3a0)])+_0x66730b,':')+_0x8f24a2);}catch(_0x5d4783){this[_0x5c5de7(0x5cd,0x10b)](_0x5c5de7(0x52,0x27a)+_0x5d4783);}}},gyroView={'tag':_0x5a0b42(0xdec,0xac6),'enabled':![],'sens':0x1,'log':mkLog(_0x5a0b42(0x917,0x66a)),'pyOn':_0x5a0b42(0xf4,0x68c)+_0x5a0b42(0x90e,0x967)+_0x5a0b42(0x9b4,0x68d)+_0x5a0b42(0x523,0x699)+_0x5a0b42(0xbff,0xa98)+(_0x5a0b42(0x168,0x3a)+_0x5a0b42(0x806,0x9c4)+_0x5a0b42(0x8e2,0x4c5)+_0x5a0b42(0xc9c,0x839)+_0x5a0b42(0xa22,0x511))+(_0x5a0b42(-0xd3,0x10a)+_0x5a0b42(0x165,0x20d)+_0x5a0b42(0x1ec,0x48f)+_0x5a0b42(0x213,0x2d4)+_0x5a0b42(0x67d,0xaa3))+(_0x5a0b42(0x9d,0x465)+_0x5a0b42(0x74b,0x7de)+_0x5a0b42(0xb68,0x6ec)+_0x5a0b42(0x5e6,0xa46)+_0x5a0b42(0x96c,0x9d1))+(_0x5a0b42(-0x167,0xbe)+_0x5a0b42(0x53c,0x1b1)+_0x5a0b42(0x296,0x3a3)),'pyOff':_0x5a0b42(0xc8a,0xaa1),'onModuleEvent'(_0x29096d){const _0x5901c3={'LEwSI':function(_0x558cb8,_0x20ee26){return _0x558cb8/_0x20ee26;},'mvtVY':function(_0xa2456,_0x36b236,_0x7e5c04,_0x4085b5,_0x301307,_0x3ea4c0){return _0xa2456(_0x36b236,_0x7e5c04,_0x4085b5,_0x301307,_0x3ea4c0);},'MxxwR':_0x410806(0xdb7,0x131c)};if(_0x29096d[_0x410806(0xc23,0xb1e)]!==undefined){const _0x1b9852=Number(_0x29096d[_0x410806(0xc23,0x7e7)]);if(!isNaN(_0x1b9852)&&_0x1b9852>0x0){this[_0x410806(0x894,0xba4)]=Math[_0x410806(0xb7b,0x6f0)](0.1,
-Math[_0x410806(0xb57,0xae5)](0xa,_0x5901c3[_0x410806(0x56d,0x4ab)](_0x1b9852,0x64)));if(this[_0x410806(0x3a1,0x165)])this[_0x410806(0xb31,0x10ca)]();}}if(!_0x5901c3[_0x410806(0x738,0x50d)](stdToggle,this,_0x29096d,_0x5901c3[_0x410806(0x573,0x220)],![],_0x410806(0xa0c,0x7b3)+this[_0x410806(0x894,0xcea)]))return;try{app[_0x410806(0x521,0x6e)](this[_0x410806(0x3a1,0x84a)]?this[_0x410806(0xd8d,0xb2f)]:this[_0x410806(0x3c2,0x12f)]);}catch(_0x1dd635){this[_0x410806(0x86e,0x6a6)](_0x410806(0x385,-0x1c8)+_0x1dd635);}function _0x410806(_0x3b7345,_0x26f95a){return _0x5a0b42(_0x26f95a,_0x3b7345-0x2ac);}if(this[_0x410806(0x3a1,0xd1)])this[_0x410806(0xb31,0xa77)]();},'setSensFlag'(){function _0x5ef7fb(_0x8d2f6a,_0x519ee7){return _0x5a0b42(_0x8d2f6a,_0x519ee7- -0x1d5);}try{app[_0x5ef7fb(0x3b9,0xa0)](_0x5ef7fb(-0x4a8,-0x232)+this[_0x5ef7fb(0x22f,0x413)]);}catch(_0x3e03fd){}}},bigGyro={'tag':_0x5a0b42(0x72c,0xae7),'enabled':![],'running':![],'speed':0x2d0,'head':!![],'headSpeed':0x168,'headPhase':0x0,'yaw':0x0,'lastMs':0x0,'pyUp':![],'pyOn':_0x5a0b42(0x86e,0x873)+_0x5a0b42(-0x4b3,0x91)+_0x5a0b42(0x2a7,0x4ec)+_0x5a0b42(0xd2f,0x78c)+_0x5a0b42(0x330,0x431)+(_0x5a0b42(0x512,0x679)+_0x5a0b42(0x742,0x783)+_0x5a0b42(0x3a9,0x3ff)+_0x5a0b42(0xebb,0xaad)+_0x5a0b42(0x559,0x380))+_0x5a0b42(0x637,0x585),'onModuleEvent'(_0xbeb931){const _0x21dde5={'ugnav':function(_0xce8554,_0x324327){return _0xce8554(_0x324327);}};let _0x167182=![];if(_0xbeb931[_0x3b8efd(-0x6ee,-0x1f5)]!==undefined){const _0x32b0e4=_0x21dde5[_0x3b8efd(0x461,0xcf)](Number,_0xbeb931[_0x3b8efd(-0x5a6,-0x1f5)]);!isNaN(_0x32b0e4)&&_0x32b0e4>0x0&&(this[_0x3b8efd(0x8f8,0x54f)]=Math[_0x3b8efd(0xb81,0x6df)](0x3c,Math[_0x3b8efd(0xacd,0x6bb)](0xbb8,Math[_0x3b8efd(-0x175,0x17b)](_0x32b0e4))),_0x167182=!![]);}function _0x3b8efd(_0xc1c51a,_0x28b013){return _0x5a0b42(_0xc1c51a,_0x28b013- -0x1f0);}typeof _0xbeb931[_0x3b8efd(0xb07,0x7ad)]!==_0x3b8efd(-0x426,0x6c)&&(this[_0x3b8efd(-0x3f,0x422)]=Boolean(_0xbeb931[_0x3b8efd(0xa5b,0x7ad)]),_0x167182=!![]);if(_0xbeb931[_0x3b8efd(0x695,0x464)]!==undefined){const _0x3294f6=Number(_0xbeb931[_0x3b8efd(0x950,0x464)]);!isNaN(_0x3294f6)&&_0x3294f6>0x0&&(this[_0x3b8efd(0x1c4,0x1e1)]=Math[_0x3b8efd(0x1cb,0x6df)](0x1e,Math[_0x3b8efd(0xa6b,0x6bb)](0x708,Math[_0x3b8efd(-0x2fa,0x17b)](_0x3294f6))),_0x167182=!![]);}if(!stdToggle(this,_0xbeb931,_0x3b8efd(0x924,0x508),![])){if(_0x167182)this[_0x3b8efd(-0x278,0x25a)]();return;}this[_0x3b8efd(0x2a3,-0xfb)]?this[_0x3b8efd(-0x287,0x283)]():this[_0x3b8efd(-0x76,-0xfe)](!![]);},'pushPy'(){const _0x3c1e2d={'NhUMP':function(_0x447db3,_0x39c9d2){return _0x447db3+_0x39c9d2;}},_0x2fab4a=this[_0x2de20d(0x58a,0x60c)]&&this[_0x2de20d(0x3a7,0x371)]?_0x2de20d(0x888,0xa70):_0x2de20d(0xc2b,0x900);try{app[_0x2de20d(0x527,0x7eb)](_0x2de20d(0x64a,0x99d)+_0x2fab4a);}catch(_0x4f692d){}function _0x2de20d(_0x5c3454,_0x27b921){return _0x5a0b42(_0x27b921,_0x5c3454-0x2b2);}try{app[_0x2de20d(0x527,0x107)](_0x3c1e2d[_0x2de20d(0x5ae,0x257)](_0x2de20d(0xc6a,0x1223),this[_0x2de20d(0x9f1,0x43b)]));}catch(_0x526918){}try{app[_0x2de20d(0x527,0xbc)](_0x2de20d(0xcfa,0xfe6)+(this[_0x2de20d(0x8c4,0xcd5)]?_0x2de20d(0x888,0xac1):_0x2de20d(0xc2b,0x10b4)));}catch(_0xf4cc09){}try{app[_0x2de20d(0x527,0x4ef)](_0x2de20d(0xcff,0x937)+this[_0x2de20d(0x683,0x327)]);}catch(_0x3ca9dc){}},'tryStart'(){const _0x29b790={'UzyfO':_0x8ee09c(-0x409,0xb6)};if(this[_0x8ee09c(0x660,0xa3)])return;let _0x3547ca;try{_0x3547ca=player[_0x8ee09c(0x44e,0x2c5)]();}catch(_0x5bb676){return;}if(!_0x3547ca)return;try{camera[_0x8ee09c(0x8d1,0x322)]();}catch(_0x598963){}this[_0x8ee09c(0x3e3,0xa3)]=!![];function _0x8ee09c(_0x4543f4,_0x2c6ed3){return _0x5a0b42(_0x4543f4,_0x2c6ed3- -0x235);}this[_0x8ee09c(0x225,0x74f)]=0x0,this[_0x8ee09c(0x6f8,0x7a6)]=0x0,this[_0x8ee09c(-0x416,-0x77)]=Date[_0x8ee09c(0x3bc,0x2c4)]();if(!this[_0x8ee09c(0xbaa,0x5ff)])try{app[_0x8ee09c(0x5bb,0x40)](this[_0x8ee09c(0x4bf,0x8ac)]),this[_0x8ee09c(0xba5,0x5ff)]=!![];}catch(_0x57051f){this[_0x8ee09c(0x9e7,
-0x5ff)]=![];}if(this[_0x8ee09c(0x5f,0x5ff)])try{app[_0x8ee09c(-0x51,0x40)](_0x29b790[_0x8ee09c(0x7a,-0x134)]);}catch(_0x21b1cf){}this[_0x8ee09c(-0x3b,0x215)]();},'onTick'(){const _0x8ca34c={'dsgmH':_0x7d5464(0xa9d,0xd1e)};if(this[_0x7d5464(0x8fe,0x429)]&&!this[_0x7d5464(0x137,0x60c)])this[_0x7d5464(0xa35,0x7a7)]();if(!this[_0x7d5464(0x4d6,0x60c)])return;function _0x7d5464(_0x47f656,_0x1a0d32){return _0x5a0b42(_0x47f656,_0x1a0d32-0x334);}const _0x319ae5=Date[_0x7d5464(0xa91,0x82d)]();let _0x3fa622=(_0x319ae5-this[_0x7d5464(0x8c2,0x4f2)])/0x3e8;this[_0x7d5464(0x7a5,0x4f2)]=_0x319ae5;if(_0x3fa622<=0x0||_0x3fa622>0.25)_0x3fa622=0.033;this[_0x7d5464(0x7d9,0xcb8)]=(this[_0x7d5464(0xdc7,0xcb8)]+this[_0x7d5464(0xaf4,0xa73)]*_0x3fa622)%0x168;let _0x3c361e=0xb4;this[_0x7d5464(0x825,0x946)]&&(this[_0x7d5464(0xdf4,0xd0f)]=(this[_0x7d5464(0xff8,0xd0f)]+this[_0x7d5464(0x9a2,0x705)]*_0x3fa622)%0x168,_0x3c361e=this[_0x7d5464(0xcab,0xd0f)]);let _0x1592a2;try{_0x1592a2=player[_0x7d5464(0xd7c,0x82e)]();}catch(_0x3490b5){_0x1592a2=null;}if(!_0x1592a2)return;try{camera[_0x7d5464(0x7ea,0x88b)]();}catch(_0x437655){}if(this[_0x7d5464(0x1020,0xb68)])return;try{if(typeof _0x1592a2[_0x7d5464(0x10ab,0xddb)]===_0x7d5464(0xa00,0xd1e))_0x1592a2[_0x7d5464(0xe31,0xddb)]({'yaw':this[_0x7d5464(0x1252,0xcb8)],'pitch':_0x3c361e});}catch(_0x2fe8b9){}try{if(typeof _0x1592a2[_0x7d5464(0x742,0x3fd)]===_0x8ca34c[_0x7d5464(0xaca,0xc7b)])_0x1592a2[_0x7d5464(0x7f2,0x3fd)](this[_0x7d5464(0xbd0,0xcb8)]);}catch(_0x524cb0){}try{if(typeof _0x1592a2[_0x7d5464(0x1242,0xcb7)]===_0x7d5464(0xdb3,0xd1e))_0x1592a2[_0x7d5464(0xaf1,0xcb7)](this[_0x7d5464(0x6fb,0xcb8)]);}catch(_0x1c2a5d){}},'stopLoop'(_0x225006){this[_0x4c7e2e(0x1ab,0x418)]=![],this[_0x4c7e2e(0x962,0x58a)]();if(!_0x225006)return;let _0x506aca=null;try{_0x506aca=camera[_0x4c7e2e(-0xc7,0x4e7)]();}catch(_0x134ec7){}function _0x4c7e2e(_0x3262a5,_0xd1f61e){return _0x5a0b42(_0x3262a5,_0xd1f61e-0x140);}try{const _0x474c54=player[_0x4c7e2e(0xfa,0x63a)]();_0x474c54&&typeof _0x474c54[_0x4c7e2e(0xb99,0xbe7)]===_0x4c7e2e(0xce2,0xb2a)&&_0x506aca&&isFinite(_0x506aca[_0x4c7e2e(0xc39,0xac4)])&&_0x474c54[_0x4c7e2e(0x10d7,0xbe7)]({'yaw':_0x506aca[_0x4c7e2e(0xb18,0xac4)],'pitch':isFinite(_0x506aca[_0x4c7e2e(0x401,0x6e7)])?_0x506aca[_0x4c7e2e(0xc96,0x6e7)]:0x0});}catch(_0x4a3875){}try{camera[_0x4c7e2e(0x7fa,0xc4a)]();}catch(_0x2943ba){}},'onWorldExit'(){function _0x2d9d5c(_0x54e9b2,_0x3eb44f){return _0x5a0b42(_0x54e9b2,_0x3eb44f-0x145);}this[_0x2d9d5c(0x766,0x237)](![]),this[_0x2d9d5c(0xaf5,0x979)]=![];try{camera[_0x2d9d5c(0xce4,0xc4f)]();}catch(_0x18f7b7){}}},customCamera={'tag':_0x5a0b42(0x86b,0x7c9),'enabled':![],'offX':0x0,'offY':0x0,'offZ':0x0,'pyUp':![],'tries':0x0,'pyOn':_0x5a0b42(0x486,0x1e7)+_0x5a0b42(0x1c6,0x26a)+_0x5a0b42(0x638,0x8c)+_0x5a0b42(0x2fd,0x173)+_0x5a0b42(0x170,0x98)+(_0x5a0b42(0x85a,0x2be)+_0x5a0b42(0x579,0x6e7)+_0x5a0b42(0x83,0x30b)),'onModuleEvent'(_0x17d81c){const _0x39c11b={'uAXec':function(_0x37e2e7,_0x4b0ec3){return _0x37e2e7!==_0x4b0ec3;},'sahrC':function(_0x25f8d3,_0x1d1288){return _0x25f8d3(_0x1d1288);}};function _0x1516ba(_0x3f50b2,_0x236ab2){return _0x5a0b42(_0x236ab2,_0x3f50b2-0x7);}let _0x38cb2a=![];if(_0x17d81c[_0x1516ba(0x640,0xe4)]!==undefined){const _0x2c93a6=Number(_0x17d81c[_0x1516ba(0x640,0xac9)]);if(!isNaN(_0x2c93a6)){const _0x54ecf1=Math[_0x1516ba(0x8d6,0x838)](-0x32,Math[_0x1516ba(0x8b2,0xc1e)](0x32,Math[_0x1516ba(0x372,0xbd)](_0x2c93a6)));_0x39c11b[_0x1516ba(0xb7,-0x469)](_0x54ecf1,this[_0x1516ba(0x351,0x5d7)])&&(this[_0x1516ba(0x351,-0xe3)]=_0x54ecf1,_0x38cb2a=!![]);}}if(_0x17d81c[_0x1516ba(0x7c,-0x1c8)]!==undefined){const _0x2f3dc1=Number(_0x17d81c[_0x1516ba(0x7c,-0x25)]);if(!isNaN(_0x2f3dc1)){const _0x349e26=Math[_0x1516ba(0x8d6,0xae5)](-0x32,Math[_0x1516ba(0x8b2,0xb81)](0x32,Math[_0x1516ba(0x372,0x7cb)](_0x2f3dc1)));_0x349e26!==this[_0x1516ba(-0x5,-0x27b)]&&(this[_0x1516ba(-0x5,-0x80)]=_0x349e26,_0x38cb2a=!![]);}}if(_0x17d81c[_0x1516ba(0x54a,
-0x35e)]!==undefined){const _0x23d0bb=_0x39c11b[_0x1516ba(0x7ee,0x5de)](Number,_0x17d81c[_0x1516ba(0x54a,0x407)]);if(!isNaN(_0x23d0bb)){const _0x2c2959=Math[_0x1516ba(0x8d6,0x799)](-0x32,Math[_0x1516ba(0x8b2,0xc95)](0x32,Math[_0x1516ba(0x372,0x431)](_0x23d0bb)));_0x2c2959!==this[_0x1516ba(0x4ec,0x13f)]&&(this[_0x1516ba(0x4ec,0x67c)]=_0x2c2959,_0x38cb2a=!![]);}}if(!stdToggle(this,_0x17d81c,_0x1516ba(0x7a3,0xbbc),![])){if(_0x38cb2a)this[_0x1516ba(0x451,0x60c)]();return;}this[_0x1516ba(0xfc,-0x475)]&&(this[_0x1516ba(0xb16,0xdfe)]=0x0,this[_0x1516ba(0xe4,-0x2f)]()),this[_0x1516ba(0x451,-0x25)]();},'ensurePy'(){function _0x58ff7a(_0x164414,_0x3481aa){return _0x5a0b42(_0x3481aa,_0x164414-0x542);}if(this[_0x58ff7a(0xd76,0xe7f)]||this[_0x58ff7a(0x1051,0xb61)]>=0x64)return;this[_0x58ff7a(0x1051,0xc07)]++;try{app[_0x58ff7a(0x7b7,0x361)](this[_0x58ff7a(0x1023,0x10d4)]),this[_0x58ff7a(0xd76,0xc3c)]=!![];}catch(_0x34ca9f){this[_0x58ff7a(0xd76,0xe88)]=![];}},'pushPy'(){const _0x4e71ba={'CkWeR':function(_0x2345cd,_0x1b2c31){return _0x2345cd+_0x1b2c31;},'lTztn':function(_0x40eba6,_0x1ed573){return _0x40eba6+_0x1ed573;},'nQTAS':_0x24cd38(0x75e,0x30a)},_0x43e238=this[_0x24cd38(0x254,0x13a)]?_0x24cd38(0x735,0xcf3):_0x24cd38(0xad8,0xc75);function _0x24cd38(_0x3a2c2a,_0x3b871a){return _0x5a0b42(_0x3b871a,_0x3a2c2a-0x15f);}const _0x2305d0=this[_0x24cd38(0x254,-0x231)]?_0x24cd38(0xad8,0x66f):_0x24cd38(0x735,0x3d7);try{app[_0x24cd38(0x3d4,-0x41)](_0x4e71ba[_0x24cd38(0x430,0x47f)](_0x4e71ba[_0x24cd38(0x36b,0x521)](_0x24cd38(0x3de,-0x87)+_0x43e238,_0x4e71ba[_0x24cd38(0x6ee,0xc1c)]),_0x2305d0)+_0x24cd38(0x57a,0x565)+this[_0x24cd38(0x4a9,0x91d)]/0xa+','+this[_0x24cd38(0x153,0x18f)]/0xa+','+this[_0x24cd38(0x644,0x6e3)]/0xa+')');}catch(_0x333bf0){}},'onTick'(){if(!this[_0x392415(0x586,0x423)])return;function _0x392415(_0x3f9acd,_0x2a38b8){return _0x5a0b42(_0x2a38b8,_0x3f9acd-0x491);}if(!this[_0x392415(0xcc5,0xc10)]){this[_0x392415(0x56e,0x204)]();if(this[_0x392415(0xcc5,0xae0)])this[_0x392415(0x8db,0xd5a)]();}},'onWorldExit'(){function _0x57700c(_0x3d86a0,_0x169289){return _0x5a0b42(_0x3d86a0,_0x169289-0x302);}this[_0x57700c(0xccc,0xb36)]=![],this[_0x57700c(0xe99,0xe11)]=0x0;}},motionBlur={'tag':_0x5a0b42(0x673,0x309),'enabled':![],'shown':!![],'intensity':0x3c,'soDst':kuNative[_0x5a0b42(0x158,0x660)],'loaded':![],'hooked':![],'lastPos':null,'lastRot':null,'cur':0x0,'sent':-0x1,'loadSo'(){const _0x22b3c2=kuNative[_0x2e8d29(0x79e,0x653)]();if(_0x22b3c2)return _0x22b3c2;this[_0x2e8d29(0x758,0x678)]=!![];function _0x2e8d29(_0x21675c,_0x133cab){return _0x5a0b42(_0x133cab,_0x21675c-0x151);}return this[_0x2e8d29(0x857,0x5f5)]=!![],'';},'setPermil'(_0x2f8d6d){function _0x5f2cae(_0x1cd041,_0x3ce60e){return _0x5a0b42(_0x1cd041,_0x3ce60e-0x531);}try{kuNative[_0x5f2cae(0x1005,0xeac)](0x5,_0x2f8d6d+0x1);}catch(_0x49e808){}},'unhook'(){function _0x3aa6f8(_0x112d4f,_0xd2beae){return _0x5a0b42(_0x112d4f,_0xd2beae-0xda);}this[_0x3aa6f8(0x154,0x367)](0x0),this[_0x3aa6f8(0xb93,0x7e0)]=![];},'onModuleEvent'(_0x269d7c){const _0x5b91a4={'HpBrt':function(_0x32bbb1,_0x4975cb,_0x183926,_0x1428e5){return _0x32bbb1(_0x4975cb,_0x183926,_0x1428e5);},'MXhVX':function(_0x3235e4,_0x4b06d4){return _0x3235e4 in _0x4b06d4;},'PxKSi':_0x3f3f67(0x111a,0xe0f),'aPSaJ':_0x3f3f67(0x1018,0xb51)},_0x1ee3b6=_0x5b91a4[_0x3f3f67(0x303,0x59d)](clampPos,_0x269d7c[_0x3f3f67(0xb6f,0x5d4)],0xa,0x64);if(_0x1ee3b6)this[_0x3f3f67(0x977,0x592)]=_0x1ee3b6;function _0x3f3f67(_0x258532,_0x4761c2){return _0x5a0b42(_0x258532,_0x4761c2-0x30a);}if(_0x269d7c[_0x3f3f67(0x9f7,0x6a0)]!==this[_0x3f3f67(0x12b3,0xe20)]||!_0x5b91a4[_0x3f3f67(0x89d,0xcaf)](_0x5b91a4[_0x3f3f67(0x122f,0xdf0)],_0x269d7c))return;const _0x21fea3=Boolean(_0x269d7c[_0x3f3f67(0x10f6,0xe0f)]);if(_0x21fea3===this[_0x3f3f67(0x481,0x3ff)])return;if(_0x21fea3){let _0x250759='';if(!this[_0x3f3f67(0xd01,0x911)]||!this[_0x3f3f67(0xe61,0xa10)])_0x250759=this[_0x3f3f67(0xcfa,0xc10)]();if(_0x250759){try{app[_0x3f3f67(0x102e,0xb0d)](''+
-_0x250759);}catch(_0x10c95d){}return;}this[_0x3f3f67(0xf1a,0xbf6)]=null,this[_0x3f3f67(0x8d1,0x87f)]=null,this[_0x3f3f67(0xa03,0x6f5)]=0x0,this[_0x3f3f67(0x565,0x461)]=-0x1,this[_0x3f3f67(0x360,0x3ff)]=!![],this[_0x3f3f67(0x533,0x56d)]=!![];}else{this[_0x3f3f67(0x1d6,0x3ff)]=![];if(this[_0x3f3f67(0x95c,0xa10)])this[_0x3f3f67(0x443,0x97f)]();}ensureHud(this,this[_0x3f3f67(0x1212,0xe20)],_0x5b91a4[_0x3f3f67(0x77,0x2e8)]),this[_0x3f3f67(0x8fa,0xa9e)][_0x3f3f67(0x31e,0x3ff)]=this[_0x3f3f67(0x103,0x3ff)],notifyToggle(_0x5b91a4[_0x3f3f67(0x73,0x2e8)],this[_0x3f3f67(0x436,0x3ff)],this[_0x3f3f67(0x5de,0x3ff)]?_0x3f3f67(0x75c,0x6f3)+this[_0x3f3f67(0x5c9,0x592)]+'%':'');},'onWorldExit'(){function _0x1605ba(_0x25d491,_0x2d053d){return _0x5a0b42(_0x25d491,_0x2d053d- -0xb6);}this[_0x1605ba(-0x6f,0x3f)]&&this[_0x1605ba(0x42d,0x1ad)]&&(this[_0x1605ba(0xf1,0x1ad)]=![],this[_0x1605ba(-0x3c0,0xa1)]=0x0,this[_0x1605ba(-0x54,0x1d7)](0x0));},'onTick'(){const _0x261544={'AZbOM':function(_0x5d1a44,_0x19b282){return _0x5d1a44-_0x19b282;},'jBFgZ':function(_0x36ea71,_0x4c103e){return _0x36ea71*_0x4c103e;},'QqbVJ':function(_0x37600f,_0x4d88aa){return _0x37600f+_0x4d88aa;},'fsUuK':function(_0x3875a6,_0xeb0ac5){return _0x3875a6*_0xeb0ac5;},'ZdECW':function(_0x2bd3d5,_0x340406){return _0x2bd3d5-_0x340406;},'yKaXs':function(_0x1b084b,_0x24c1dc){return _0x1b084b/_0x24c1dc;}};if(!this[_0x2e2c98(0xad,-0x161)]||!this[_0x2e2c98(0x5bf,0x5f)])return;function _0x2e2c98(_0x1d6979,_0x4d6734){return _0x5a0b42(_0x4d6734,_0x1d6979- -0x48);}let _0x2662a3=!![];try{_0x2662a3=app[_0x2e2c98(0x23,0x1ec)]();}catch(_0x26d2b5){}if(!_0x2662a3){this[_0x2e2c98(0x10f,0x6d3)]!==0x0&&(this[_0x2e2c98(0x10f,0x2da)]=0x0,this[_0x2e2c98(0x245,-0x206)](0x0));return;}let _0x1123da=null;try{_0x1123da=player[_0x2e2c98(0x4b2,0x827)]()[_0x2e2c98(0xe0,0x2e5)]();}catch(_0x3ba8d6){}let _0x13dd06=null;try{_0x13dd06=camera[_0x2e2c98(0x35f,0x7c0)]();}catch(_0xc3003a){}let _0x2cd485=0x0;if(_0x1123da&&this[_0x2e2c98(0x8a4,0x79f)]){const _0xcd75db=_0x1123da['x']-this[_0x2e2c98(0x8a4,0x703)]['x'],_0x57a4c4=_0x261544[_0x2e2c98(0x5d7,0x60)](_0x1123da['y'],this[_0x2e2c98(0x8a4,0xaff)]['y']),_0x4eccc8=_0x1123da['z']-this[_0x2e2c98(0x8a4,0xa5d)]['z'],_0xe5972e=_0x261544[_0x2e2c98(-0x23,0x4be)](Math[_0x2e2c98(-0x7b,-0x61f)](_0x261544[_0x2e2c98(0x860,0x58b)](_0x261544[_0x2e2c98(0x57b,0x155)](_0xcd75db,_0xcd75db)+_0x57a4c4*_0x57a4c4,_0x4eccc8*_0x4eccc8)),0x14);_0x2cd485=_0x261544[_0x2e2c98(0x66f,0xf4)](_0xe5972e,0x2)/0x4;}if(_0x13dd06&&this[_0x2e2c98(0x52d,0xafc)]){let _0x4f0175=_0x13dd06[_0x2e2c98(0x93c,0x7e8)]-this[_0x2e2c98(0x52d,0x5e2)][_0x2e2c98(0x93c,0xbc0)];if(_0x4f0175>0xb4)_0x4f0175-=0x168;if(_0x4f0175<-0xb4)_0x4f0175+=0x168;const _0x35d2fd=_0x13dd06[_0x2e2c98(0x55f,-0x27)]-this[_0x2e2c98(0x52d,0x963)][_0x2e2c98(0x55f,0x513)],_0x2c1560=Math[_0x2e2c98(-0x7b,-0x3a)](_0x4f0175*_0x4f0175+_0x35d2fd*_0x35d2fd)*0x14,_0x45e099=_0x261544[_0x2e2c98(-0x4f,-0x15f)](_0x261544[_0x2e2c98(0x5d7,0x352)](_0x2c1560,0x14),0x78);if(_0x45e099>_0x2cd485)_0x2cd485=_0x45e099;}if(_0x1123da)this[_0x2e2c98(0x8a4,0xbe1)]=_0x1123da;if(_0x13dd06)this[_0x2e2c98(0x52d,0xa26)]=_0x13dd06;if(_0x2cd485<0.06)_0x2cd485=0x0;if(_0x2cd485>0x1)_0x2cd485=0x1;const _0x2eac52=_0x261544[_0x2e2c98(0x57b,0xa12)]((_0x2cd485>0x0?Math[_0x2e2c98(-0x7b,-0x5ea)](_0x2cd485):0x0)*9.3,this[_0x2e2c98(0x240,0x13c)]);this[_0x2e2c98(0x3a3,0x816)]+=(_0x2eac52-this[_0x2e2c98(0x3a3,0x496)])*0.35;if(this[_0x2e2c98(0x3a3,0x3bf)]<0x5)this[_0x2e2c98(0x3a3,0x5fd)]=0x0;const _0x944b4b=Math[_0x2e2c98(0x9f3,0xde4)](this[_0x2e2c98(0x3a3,0x56b)]);_0x944b4b!==this[_0x2e2c98(0x10f,0x4ad)]&&(this[_0x2e2c98(0x10f,0x442)]=_0x944b4b,this[_0x2e2c98(0x245,0xe7)](_0x944b4b));}},itemHud={'tag':_0x5a0b42(0x30d,0x5c0),'enabled':![],'shown':!![],'soDst':kuNative[_0x5a0b42(0xa8c,0x660)],'loaded':![],'hooked':![],'bufAddr':0x0n,'lastSig':'','tickCount':0x0,'agg':{},'side':0x0,'offX':0x0,'offY':0x0,'maxRows':0xe,'pickRadio'(_0xfb429f,_0x2653bf,
-_0x11f026){const _0x3ae1dc={'pFVHl':_0x2d5b43(0x657,0x459)},_0x25b92c=argPick(_0xfb429f,_0x2653bf);function _0x2d5b43(_0x21c1be,_0x5a36c1){return _0x5a0b42(_0x5a36c1,_0x21c1be-0x1dd);}if(typeof _0x25b92c===_0x3ae1dc[_0x2d5b43(0x690,0x6fd)]){for(let _0x917267=0x0;_0x917267<_0x11f026;_0x917267++)if(_0x25b92c===_0x2653bf+'_'+_0x917267)return _0x917267;}for(let _0x9f9b23=0x0;_0x9f9b23<_0x11f026;_0x9f9b23++)if(_0xfb429f[_0x2653bf+'_'+_0x9f9b23]===!![])return _0x9f9b23;return-0x1;},'pushCfg'(){const _0x23b26d={'bRjjt':function(_0x153d4e,_0x157b2b){return _0x153d4e+_0x157b2b;}};if(!this[_0x5d263e(0x8bc,0x38a)])return;try{kuNative[_0x5d263e(0xc30,0xfee)](0x9,this[_0x5d263e(0x581,0x470)]+0x1);}catch(_0x3604e2){}try{kuNative[_0x5d263e(0xc30,0xe5f)](0xa,this[_0x5d263e(0x5ff,0x404)]+0x191);}catch(_0x318f98){}function _0x5d263e(_0x1570cd,_0x502267){return _0x5a0b42(_0x502267,_0x1570cd-0x2b5);}try{kuNative[_0x5d263e(0xc30,0x1029)](0xb,_0x23b26d[_0x5d263e(0x39c,-0xfa)](this[_0x5d263e(0x2a9,-0x1a2)],0x191));}catch(_0x274c7b){}try{kuNative[_0x5d263e(0xc30,0x8c2)](0xc,this[_0x5d263e(0x679,0x1d6)]);}catch(_0x3a48e7){}},'loadSo'(){const _0x52c728=kuNative[_0x5a6374(0x920,0xca5)]();if(_0x52c728)return _0x52c728;function _0x5a6374(_0x21d2aa,_0x144b8a){return _0x5a0b42(_0x144b8a,_0x21d2aa-0x2d3);}return this[_0x5a6374(0x8da,0x328)]=!![],this[_0x5a6374(0x9d9,0xe66)]=!![],this[_0x5a6374(0xaaf,0x503)]=kuNative[_0x5a6374(0x433,-0x88)](0xd),'';},'unhook'(){function _0x246dc7(_0x3fec37,_0x3bb957){return _0x5a0b42(_0x3bb957,_0x3fec37- -0x1ea);}try{kuNative[_0x246dc7(0x791,0x5c6)](0x7,0x2);}catch(_0x13027d){}this[_0x246dc7(0x51c,0x670)]=![];},'push'(_0x44f3b6){const _0x2e8f0d={'Onjpo':function(_0x1c6a6d,_0x585475){return _0x1c6a6d===_0x585475;}},_0x1e3bd4=_0x44f3b6[_0x4b34a4(0x298,0x84a)]('|');if(_0x2e8f0d[_0x4b34a4(0x337,0x686)](_0x1e3bd4,this[_0x4b34a4(0x42d,0x1a3)]))return;this[_0x4b34a4(0x42d,0x2ab)]=_0x1e3bd4;if(!this[_0x4b34a4(0x606,0x196)])return;function _0x4b34a4(_0x2414f5,_0x3ccecb){return _0x5a0b42(_0x3ccecb,_0x2414f5- -0x1d6);}const _0x1730f5=encodeUtf8(_0x44f3b6[_0x4b34a4(0x298,0x2d0)]('\x0a'));if(_0x1730f5[_0x4b34a4(0x44c,0x8c8)]>0x1f40)return;try{soPush(this[_0x4b34a4(0x606,0xdf)],_0x1730f5),kuNative[_0x4b34a4(0x7a5,0x5e6)](0x8,0x0);}catch(_0x1193eb){}},'liveName'(_0x13ce39,_0x4a6ebb){try{const _0x2907a6=String(_0x13ce39[_0x4bc911(0x987,0x566)]()||'')[_0x4bc911(0x3b7,0x8d8)](/§./g,'')[_0x4bc911(0x4f4,0x2c8)]();if(_0x2907a6)return _0x2907a6;}catch(_0x7030d4){}function _0x4bc911(_0xb72694,_0x52355b){return _0x5a0b42(_0x52355b,_0xb72694- -0x6c);}return _0x4a6ebb[_0x4bc911(0x3b7,0x704)](/^minecraft:/,'');},'extractStack'(_0x9db00b){function _0xe768fa(_0x1cd68a,_0x48030e){return _0x5a0b42(_0x1cd68a,_0x48030e-0x3b1);}let _0x4c0908='';try{_0x4c0908=String(_0x9db00b[_0xe768fa(0xa1a,0xb12)]()||'');}catch(_0x543e74){}let _0x46bb35='';const _0x5226ca=_0x4c0908[_0xe768fa(0x532,0x3e2)](_0xe768fa(0xb13,0x7f4));if(_0x5226ca>=0x0){let _0x3be90a=0x0,_0x47fc5f=-0x1;for(let _0x5ae0e0=_0x5226ca+0x5;_0x5ae0e0<_0x4c0908[_0xe768fa(0x596,0x9d3)];_0x5ae0e0++){const _0xe4f882=_0x4c0908[_0xe768fa(0x11f8,0xea6)](_0x5ae0e0);if(_0xe4f882==='{')_0x3be90a++;else{if(_0xe4f882==='}'){_0x3be90a--;if(_0x3be90a===0x0){_0x47fc5f=_0x5ae0e0;break;}}}}if(_0x47fc5f<0x0)return null;_0x46bb35=_0x4c0908[_0xe768fa(0x5d6,0x34e)](_0x5226ca,_0x47fc5f+0x1);}else _0x46bb35=_0x4c0908;const _0x5a42d7=/Name:"([^"]*)"/[_0xe768fa(0xe13,0xec6)](_0x46bb35),_0xb5d038=/Count:(\d+)b/[_0xe768fa(0x1175,0xec6)](_0x46bb35),_0x2a13be=_0x5a42d7?_0x5a42d7[0x1]:'';if(!_0x2a13be)return null;return{'id':_0x2a13be[_0xe768fa(0x6f1,0x7d4)](/^minecraft:/,''),'count':_0xb5d038?parseInt(_0xb5d038[0x1],0xa):0x1};},'onModuleEvent'(_0x4e7e8e){const _0x26771f={'xzixj':_0x49d662(0xc47,0x884),'vTXpM':function(_0x71d2f0,_0x5d52c2){return _0x71d2f0(_0x5d52c2);},'FXWFw':function(_0x5648f8,_0x22c64f,_0xc4b86b){return _0x5648f8(_0x22c64f,_0xc4b86b);},'kRbDJ':function(_0x35e361,_0x5497df,_0x4604a6,
-_0x2e2268){return _0x35e361(_0x5497df,_0x4604a6,_0x2e2268);}};let _0x3abcff=![];const _0x2e2845=this[_0x49d662(0x28f,0x1a3)](_0x4e7e8e,_0x49d662(0x84e,0x4e6),0x2);_0x2e2845>=0x0&&(this[_0x49d662(0x521,0x158)]=_0x2e2845,_0x3abcff=!![]);if(_0x4e7e8e[_0x49d662(0xb53,0x884)]!==undefined||argPick(_0x4e7e8e,_0x26771f[_0x49d662(0x31f,0x341)])!==undefined){const _0x114ec7=Number(argPick(_0x4e7e8e,_0x49d662(0x9d4,0x884)));!isNaN(_0x114ec7)&&(this[_0x49d662(0x147,0x1d6)]=Math[_0x49d662(0xcdb,0x75b)](-0xc8,Math[_0x49d662(0x9f2,0x737)](0xc8,Math[_0x49d662(0x48a,0x1f7)](_0x114ec7))),_0x3abcff=!![]);}if(_0x4e7e8e[_0x49d662(0x96,0x5fc)]!==undefined||argPick(_0x4e7e8e,_0x49d662(0x593,0x5fc))!==undefined){const _0x4c5f03=_0x26771f[_0x49d662(-0x634,-0x163)](Number,argPick(_0x4e7e8e,_0x49d662(0x8bf,0x5fc)));!isNaN(_0x4c5f03)&&(this[_0x49d662(-0x126,-0x180)]=Math[_0x49d662(0x661,0x75b)](-0xc8,Math[_0x49d662(0x2be,0x737)](0xc8,Math[_0x49d662(0x418,0x1f7)](_0x4c5f03))),_0x3abcff=!![]);}const _0x5f1dc7=clampPos(argPick(_0x4e7e8e,_0x49d662(0x500,0xe4)),0x1,0xe);_0x5f1dc7&&(this[_0x49d662(-0x376,0x250)]=_0x5f1dc7,_0x3abcff=!![]);if(_0x3abcff&&this[_0x49d662(0xf2,-0x7f)]&&this[_0x49d662(0x261,0x493)])this[_0x49d662(0x963,0x440)]();function _0x49d662(_0x110e06,_0x581d65){return _0x5a0b42(_0x110e06,_0x581d65- -0x174);}if(_0x4e7e8e[_0x49d662(0x675,0x222)]!==this[_0x49d662(0x755,0x9a2)]||!(_0x49d662(0xe3c,0x991)in _0x4e7e8e))return;const _0x1f6589=Boolean(_0x4e7e8e[_0x49d662(0x7fd,0x991)]);if(_0x1f6589===this[_0x49d662(0x24d,-0x7f)])return;if(_0x1f6589){let _0x37ac5f='';if(!this[_0x49d662(-0x7a,0x493)]||!this[_0x49d662(0x141,0x592)])_0x37ac5f=this[_0x49d662(0x872,0x792)]();if(_0x37ac5f){try{app[_0x49d662(0x691,0x68f)](''+_0x37ac5f);}catch(_0x4f9f3f){}return;}try{kuNative[_0x49d662(0xca9,0x807)](0x7,0x1);}catch(_0x4928f3){}this[_0x49d662(-0x16e,-0x7f)]=!![],this[_0x49d662(0x326,0xef)]=!![],this[_0x49d662(0xad,0x48f)]='',this[_0x49d662(-0x175,0x440)]();}else{this[_0x49d662(-0x2cf,-0x7f)]=![],this[_0x49d662(0xc5d,0x742)]([]);const _0x2c2846=this;_0x26771f[_0x49d662(0x444,-0x20)](setTimeout,function(){function _0x11bfaa(_0xaec29f,_0x24910e){return _0x49d662(_0xaec29f,_0x24910e- -0xa7);}if(!_0x2c2846[_0x11bfaa(0x259,-0x126)]&&_0x2c2846[_0x11bfaa(0x22e,0x4eb)])_0x2c2846[_0x11bfaa(0x48c,0x45a)]();},0x1c2);}_0x26771f[_0x49d662(0x3a4,0x6b9)](ensureHud,this,this[_0x49d662(0xf14,0x9a2)],_0x49d662(-0x31c,0xd1)),this[_0x49d662(0xa86,0x620)][_0x49d662(-0x6e,-0x7f)]=this[_0x49d662(-0x2d2,-0x7f)],notifyToggle(_0x49d662(0x231,0xd1),this[_0x49d662(0x322,-0x7f)],'');},'onWorldExit'(){function _0x29103d(_0xf52145,_0x2c49ab){return _0x5a0b42(_0x2c49ab,_0xf52145-0x260);}this[_0x29103d(0x355,-0x40)]&&this[_0x29103d(0x4c3,-0x15)]&&(this[_0x29103d(0x4c3,0x3a8)]=![],this[_0x29103d(0xb16,0x9ee)]([]));},'onTick'(){const _0x177c6e={'mCGmR':function(_0x1b43f9,_0x344a2b,_0x19c0b9){return _0x1b43f9(_0x344a2b,_0x19c0b9);},'ToNTm':function(_0x27ddba,_0x25a676){return _0x27ddba<_0x25a676;}};if(!_0x177c6e[_0x8f3e9(-0x7d,-0x3f2)](tickEvery,this,0x5))return;let _0x50f87f=!![];function _0x8f3e9(_0x32b93c,_0x5cc58d){return _0x5a0b42(_0x5cc58d,_0x32b93c- -0x208);}try{_0x50f87f=app[_0x8f3e9(-0x19d,0x284)]();}catch(_0x513f77){}if(!_0x50f87f||uiVis[_0x8f3e9(0x732,0x9c9)]()){this[_0x8f3e9(0x5b,0x627)]&&(this[_0x8f3e9(0x5b,0x186)]=![],this[_0x8f3e9(0x6ae,0xb4f)]([]));return;}this[_0x8f3e9(0x5b,0x1bb)]=!![];const _0x78eb8d=this[_0x8f3e9(0x388,0x8ab)];for(const _0x6d5f00 in _0x78eb8d)delete _0x78eb8d[_0x6d5f00];let _0xd8019d=null;try{const _0x388592=world[_0x8f3e9(0x776,0xbe3)]();_0xd8019d=_0x388592?_0x388592[_0x8f3e9(0x511,0x1c7)]():null;}catch(_0x47be0c){}if(_0xd8019d)for(const _0x1227f1 of _0xd8019d){let _0x163886='';try{const _0x625189=_0x1227f1[_0x8f3e9(0x7d2,0x90c)]();_0x163886=String(_0x625189&&_0x625189[_0x8f3e9(0x448,0x658)]||'');}catch(_0x343708){}if(_0x163886!==_0x8f3e9(0x2a6,0x64d))continue;const _0x4bde30=this[_0x8f3e9(0x43,
-0x2df)](_0x1227f1);if(!_0x4bde30)continue;if(!_0x78eb8d[_0x4bde30['id']])_0x78eb8d[_0x4bde30['id']]={'name':this[_0x8f3e9(0x16d,0x3e1)](_0x1227f1,_0x4bde30['id']),'count':0x0};_0x78eb8d[_0x4bde30['id']][_0x8f3e9(0x7a6,0x375)]+=_0x4bde30[_0x8f3e9(0x7a6,0xc4c)];}const _0x19f1d7=Object[_0x8f3e9(0x6b3,0x544)](_0x78eb8d);_0x19f1d7[_0x8f3e9(-0x24c,-0x275)]((_0x223039,_0x557b9e)=>_0x78eb8d[_0x557b9e][_0x8f3e9(0x7a6,0x4f6)]-_0x78eb8d[_0x223039][_0x8f3e9(0x7a6,0x4c7)]||(_0x223039<_0x557b9e?-0x1:_0x223039>_0x557b9e?0x1:0x0));const _0x2d5673=[];for(let _0x1e72e6=0x0;_0x177c6e[_0x8f3e9(0x509,0x6f6)](_0x1e72e6,_0x19f1d7[_0x8f3e9(0x41a,0xea)])&&_0x1e72e6<this[_0x8f3e9(0x1bc,-0x2fd)];_0x1e72e6++)_0x2d5673[_0x8f3e9(0x6ae,0x132)](_0x78eb8d[_0x19f1d7[_0x1e72e6]][_0x8f3e9(0x1b5,0x5b6)]+'\x09'+_0x78eb8d[_0x19f1d7[_0x1e72e6]][_0x8f3e9(0x7a6,0xb1d)]);this[_0x8f3e9(0x6ae,0x9c8)](_0x2d5673);}},dirHud={'tag':_0x5a0b42(0x58a,0x9e5),'enabled':![],'soDst':kuNative[_0x5a0b42(0x641,0x660)],'loaded':![],'hooked':![],'shown':!![],'lastSent':-0x1,'infoAddr':0x0n,'lastInfo':'','infoTick':0x0,'fpsVal':0x0,'offX':0x0,'offY':0x0,'loadSo'(){const _0x2d8361=kuNative[_0x152d65(0x7a0,0xb2d)]();if(_0x2d8361)return _0x2d8361;this[_0x152d65(0x75a,0x82f)]=!![];function _0x152d65(_0x29fb9c,_0x5444d4){return _0x5a0b42(_0x5444d4,_0x29fb9c-0x153);}return this[_0x152d65(0x859,0x8b6)]=!![],this[_0x152d65(0xb3b,0xc0f)]=kuNative[_0x152d65(0x2b3,-0x22f)](0x15),'';},'pushCfg'(){if(!this[_0x11cf87(0xb63,0xb10)])return;try{kuNative[_0x11cf87(0xed7,0xd67)](0x12,this[_0x11cf87(0x8a6,0x97d)]+0x191);}catch(_0x250625){}function _0x11cf87(_0x249f52,_0xc8c28f){return _0x5a0b42(_0xc8c28f,_0x249f52-0x55c);}try{kuNative[_0x11cf87(0xed7,0xdb1)](0x13,this[_0x11cf87(0x550,0x79d)]+0x191);}catch(_0x29bbab){}},'unhook'(){try{kuNative[_0x4805df(0xcca,0x826)](0x11,0x0);}catch(_0x475bda){}this[_0x4805df(0x84,0x5b1)]=![];function _0x4805df(_0x4e3bbf,_0x2617b2){return _0x5a0b42(_0x4e3bbf,_0x2617b2- -0x155);}this[_0x4805df(0x48c,0x10e)]=![],this[_0x4805df(0x573,0x6d9)]='';},'hide'(){try{kuNative[_0x320986(0xc26,0xa62)](0x11,0x0);}catch(_0x25f801){}this[_0x320986(0x764,0x34a)]=![];function _0x320986(_0x531187,_0x1d39ee){return _0x5a0b42(_0x531187,_0x1d39ee-0xe7);}this[_0x320986(0xb1f,0x915)]='';},'onWorldExit'(){function _0x1fd7ea(_0x58a8e7,_0x1a199e){return _0x5a0b42(_0x1a199e,_0x58a8e7-0x528);}if(this[_0x1fd7ea(0x61d,0xc9)]&&this[_0x1fd7ea(0x78b,0xbd2)])this[_0x1fd7ea(0xcc0,0x8cb)]();},'onModuleEvent'(_0x3e006c){const _0x4f71de={'djtYs':_0x1088d5(0x81a,0x93b),'AuZWJ':_0x1088d5(0x720,0x7c4)};let _0x10adaf=![];if(argPick(_0x3e006c,_0x4f71de[_0x1088d5(0x98d,0x405)])!==undefined){const _0xb2d4b7=Number(argPick(_0x3e006c,_0x4f71de[_0x1088d5(0x98d,0x7d0)]));!isNaN(_0xb2d4b7)&&(this[_0x1088d5(0x48c,0x29b)]=Math[_0x1088d5(0xa11,0x9e6)](-0xc8,Math[_0x1088d5(0x9ed,0x8e7)](0xc8,Math[_0x1088d5(0x4ad,0x50a)](_0xb2d4b7))),_0x10adaf=!![]);}if(argPick(_0x3e006c,_0x1088d5(0x39f,0x72e))!==undefined){const _0x5708e6=Number(argPick(_0x3e006c,_0x1088d5(0x39f,0x23)));!isNaN(_0x5708e6)&&(this[_0x1088d5(0x136,0x1ce)]=Math[_0x1088d5(0xa11,0x8d1)](-0xc8,Math[_0x1088d5(0x9ed,0xa12)](0xc8,Math[_0x1088d5(0x4ad,0x89)](_0x5708e6))),_0x10adaf=!![]);}if(_0x10adaf&&this[_0x1088d5(0x237,-0x397)]&&this[_0x1088d5(0x749,0xaa1)])this[_0x1088d5(0x6f6,0xc4e)]();if(_0x3e006c[_0x1088d5(0x4d8,0x65)]!==this[_0x1088d5(0xc58,0xf42)]||!(_0x1088d5(0xc47,0x1194)in _0x3e006c))return;const _0x3cc1d6=Boolean(_0x3e006c[_0x1088d5(0xc47,0xe19)]);function _0x1088d5(_0x2e1544,_0x26b6f1){return _0x5a0b42(_0x26b6f1,_0x2e1544-0x142);}if(_0x3cc1d6===this[_0x1088d5(0x237,0x498)])return;if(_0x3cc1d6){let _0x1d56d1='';if(!this[_0x1088d5(0x749,0x5cb)]||!this[_0x1088d5(0x848,0x389)])_0x1d56d1=this[_0x1088d5(0xa48,0xf94)]();if(_0x1d56d1){try{app[_0x1088d5(0x945,0xd26)](''+_0x1d56d1);}catch(_0x40fbd8){}return;}try{kuNative[_0x1088d5(0xabd,0x787)](0xe,0x1);}catch(_0x371c7b){}this[_0x1088d5(0x237,0x15f)]=!![],this[_0x1088d5(0x3a5,-0x207)]=!![],this[_0x1088d5(0x384,
-0x902)]=-0x1,this[_0x1088d5(0x970,0xca1)]='',this[_0x1088d5(0x966,0x6eb)]=0x0,this[_0x1088d5(0x7e5,0x44a)](),this[_0x1088d5(0x6f6,0xac6)](),this[_0x1088d5(0x215,-0x1ee)]();}else{this[_0x1088d5(0x237,0x503)]=![];if(this[_0x1088d5(0x848,0x58c)])this[_0x1088d5(0x7b7,0xb65)]();}ensureHud(this,this[_0x1088d5(0xc58,0x1146)],_0x4f71de[_0x1088d5(0x7a6,0x240)]),this[_0x1088d5(0x8d6,0xb2d)][_0x1088d5(0x237,-0x6a)]=this[_0x1088d5(0x237,-0x40)],notifyToggle(_0x1088d5(0x720,0x58d),this[_0x1088d5(0x237,0x37d)],'');},'buildInfo'(){const _0x3e6a81={'PzeKw':function(_0x335733,_0x2313e4){return _0x335733(_0x2313e4);},'tCHrV':function(_0x5ead7d,_0x519566){return _0x5ead7d+_0x519566;},'CzOgd':function(_0x2c8181,_0x15798c){return _0x2c8181+_0x15798c;},'uFCvS':function(_0x4f8a35,_0x23b334){return _0x4f8a35-_0x23b334;},'ugyEi':_0x589068(0x100a,0xc52)};function _0x589068(_0x2f07bc,_0x1dcf58){return _0x5a0b42(_0x2f07bc,_0x1dcf58-0x3ef);}let _0x1bf078=null;try{_0x1bf078=player[_0x589068(0x742,0x8e9)]()[_0x589068(0x68f,0x517)]();}catch(_0x526f93){}if(!_0x1bf078||!_0x3e6a81[_0x589068(0x2e1,0x558)](isFinite,_0x1bf078['x'])||!isFinite(_0x1bf078['y'])||!_0x3e6a81[_0x589068(0x60d,0x558)](isFinite,_0x1bf078['z']))return'';let _0x2b145e=_0x3e6a81[_0x589068(0x7e8,0xa00)](_0x3e6a81[_0x589068(0x47e,0xa00)](_0x3e6a81[_0x589068(0xa79,0xa89)](_0x589068(0xbbe,0xe38),Math[_0x589068(0x79e,0x75a)](_0x1bf078['x']))+_0x589068(0xb84,0xce0)+Math[_0x589068(0x885,0x75a)](_0x3e6a81[_0x589068(0x52c,0x697)](_0x1bf078['y'],1.62)),_0x3e6a81[_0x589068(0xc8b,0xae9)]),Math[_0x589068(0xbc4,0x75a)](_0x1bf078['z']));if(!fpsHud[_0x589068(0x21d,0x4e4)]&&this[_0x589068(0xc28,0xd65)])_0x2b145e+=_0x3e6a81[_0x589068(0x844,0xa00)](_0x589068(0x6ed,0x76b),this[_0x589068(0xce5,0xd65)])+_0x589068(0x300,0x725);return _0x2b145e;},'refreshFps'(){function _0x453922(_0x489ffd,_0x41a565){return _0x5a0b42(_0x41a565,_0x489ffd-0x36e);}const _0x2c3e9b={'anxOg':function(_0x5d7c78,_0x311a98){return _0x5d7c78(_0x311a98);}};if(fpsHud[_0x453922(0x463,0x55)])return;try{const _0x28982b=app[_0x453922(0xd5a,0xb95)](_0x453922(0x676,0x376));app[_0x453922(0x5e3,0x54b)](_0x453922(0xdad,0x126d)+_0x28982b+_0x453922(0x525,0xa59));const _0x1cc303=Number(String(fs[_0x453922(0x313,0x5cb)](_0x28982b)||'')[_0x453922(0x8ce,0x98b)]());this[_0x453922(0xce4,0xb0f)]=_0x2c3e9b[_0x453922(0xdab,0x1097)](isNaN,_0x1cc303)?0x0:Math[_0x453922(0x6d9,0x65c)](_0x1cc303);}catch(_0x4b5b72){}},'pushInfo'(){if(!this[_0xc5fe65(0x5b8,0xaa7)]||!this[_0xc5fe65(0x726,0x425)]||!this[_0xc5fe65(0xeab,0xc1f)])return;function _0xc5fe65(_0x4ceee8,_0x1786d3){return _0x5a0b42(_0x1786d3,_0x4ceee8-0x4c3);}const _0x5bb328=this[_0xc5fe65(0xca7,0xd1a)]();if(_0x5bb328===this[_0xc5fe65(0xcf1,0xe30)])return;const _0x2a2ef9=encodeUtf8(_0x5bb328);if(_0x2a2ef9[_0xc5fe65(0xae5,0xbb7)]>0x190)return;this[_0xc5fe65(0xcf1,0xe18)]=_0x5bb328;try{soPush(this[_0xc5fe65(0xeab,0x121c)],_0x2a2ef9),kuNative[_0xc5fe65(0xe3e,0x1075)](0x10,0x0);}catch(_0x1e8bb3){}},'onTick'(){const _0x58b586={'qkHRl':function(_0x407195,_0x5c4d94){return _0x407195(_0x5c4d94);},'ccrKv':function(_0x536f35,_0x263617){return _0x536f35+_0x263617;}};let _0x14b16f=!![];try{_0x14b16f=app[_0x206700(0xea,0x569)]();}catch(_0x11f94e){}if(!_0x14b16f||uiVis[_0x206700(0xda6,0xe38)]()){if(this[_0x206700(0xd03,0x761)])this[_0x206700(0x912,0xc96)]();return;}if(!this[_0x206700(0x93e,0x761)]){this[_0x206700(0x204,0x761)]=!![],this[_0x206700(0xee4,0xd2c)]='',this[_0x206700(0xceb,0xd22)]=0x0,this[_0x206700(0x7be,0xba1)]();try{kuNative[_0x206700(0x12e1,0xe79)](0xe,0x1);}catch(_0x38ae18){}this[_0x206700(0x7a4,0xab2)](),this[_0x206700(0x8c3,0x740)]=-0x1;}let _0x3fab74=NaN;try{const _0x5aafbc=camera[_0x206700(0x47f,0x8a5)]();if(_0x5aafbc)_0x3fab74=_0x58b586[_0x206700(0x8f1,0x639)](Number,_0x5aafbc[_0x206700(0x1322,0xe82)]);}catch(_0x24bba3){}if(isFinite(_0x3fab74)){let _0xdc11b7=(0x168-(_0x3fab74%0x168+0x168)%0x168)%0x168;const _0x3e104c=Math[_0x206700(0xf08,0xf39)](_0xdc11b7*0x64);if(_0x3e104c!==this[_0x206700(0x9dd,
-0x740)]){this[_0x206700(0x525,0x740)]=_0x3e104c;try{kuNative[_0x206700(0x1373,0xe79)](0xf,_0x58b586[_0x206700(0x89a,0x6a4)](_0x3e104c,0x1));}catch(_0x24c993){}}}this[_0x206700(0x107e,0xd22)]++;function _0x206700(_0x537066,_0x1413fd){return _0x5a0b42(_0x537066,_0x1413fd-0x4fe);}this[_0x206700(0x8e6,0xd22)]>=0x14&&(this[_0x206700(0xb34,0xd22)]=0x0,this[_0x206700(0xe10,0xba1)]()),this[_0x206700(0x2f,0x5d1)]();}},uiVis={'path':_0x5a0b42(0x7d3,0x4b4)+gamePkg+_0x5a0b42(0xf73,0xb22),'pyUp':![],'tries':0x0,'lastV':![],'lastT':0x0,'pyOn':_0x5a0b42(-0x1c7,-0x4f)+_0x5a0b42(0xa9d,0x6a8)+_0x5a0b42(0x83e,0x5c7)+_0x5a0b42(0x84f,0x55f)+_0x5a0b42(0x740,0x2cf)+(_0x5a0b42(0xc2d,0x7eb)+_0x5a0b42(0x54b,-0x70)+_0x5a0b42(0xa85,0x70d)+_0x5a0b42(0x9bf,0x519)+_0x5a0b42(0x297,0x429))+(_0x5a0b42(-0x458,0x150)+_0x5a0b42(0x2e3,0x4ca)),'ensurePy'(){function _0x123a59(_0x5ac2ea,_0x2d5875){return _0x5a0b42(_0x2d5875,_0x5ac2ea-0x101);}if(this[_0x123a59(0x935,0x3f8)]||this[_0x123a59(0xc10,0xd1a)]>=0x64)return;this[_0x123a59(0xc10,0xd74)]++;try{app[_0x123a59(0x376,0x588)](this[_0x123a59(0xbe2,0xde2)]),this[_0x123a59(0x935,0x852)]=!![];}catch(_0x50467d){this[_0x123a59(0x935,0x706)]=![];}},'poll'(){const _0xf68e25={'NsJeP':function(_0x2c1159,_0xef9e18){return _0x2c1159(_0xef9e18);},'LNqWf':function(_0x4669aa,_0x213ad4){return _0x4669aa===_0x213ad4;}},_0xbc097f=Date[_0x232e0c(0x8ce,0x3fb)]();function _0x232e0c(_0x421a23,_0x39e90a){return _0x5a0b42(_0x39e90a,_0x421a23-0x3d5);}if(_0xbc097f-this[_0x232e0c(0x80e,0x6b7)]<0xc8)return this[_0x232e0c(0x98d,0xa4a)];this[_0x232e0c(0x80e,0x4c3)]=_0xbc097f;if(!this[_0x232e0c(0xc09,0x894)])this[_0x232e0c(0x4b2,0x996)]();if(!this[_0x232e0c(0xc09,0x8e0)])return![];let _0x321874='';try{_0x321874=_0xf68e25[_0x232e0c(0x56b,0x58c)](String,fs[_0x232e0c(0x37a,0x665)](this[_0x232e0c(0x6dc,0x2dd)])||'')[_0x232e0c(0x935,0xcaf)]();}catch(_0x1a9709){}if(_0x321874==='1'||_0x321874==='0')this[_0x232e0c(0x98d,0xea9)]=_0xf68e25[_0x232e0c(0x4c0,0x262)](_0x321874,'1');return this[_0x232e0c(0x98d,0xdfc)];},'onWorldExit'(){this[_0x3d3d0a(0xd59,0xb6b)]=![];function _0x3d3d0a(_0x4612dc,_0x2207ae){return _0x5a0b42(_0x4612dc,_0x2207ae-0x337);}this[_0x3d3d0a(0x8b0,0xe46)]=0x0,this[_0x3d3d0a(0x3a5,0x8ef)]=![];}},crosshair={'tag':_0x5a0b42(0x2cf,0x11c),'enabled':![],'soDst':kuNative[_0x5a0b42(0x53c,0x660)],'loaded':![],'hooked':![],'shown':!![],'preset':0x0,'size':0x12,'thick':0x3,'gap':0x6,'colorIdx':0x0,'dynSpread':!![],'amp':0xa,'offX':-0x3,'offY':-0x3,'uid':'','CH_COLORS':[0xffffff,0x3dff6e,0x41e8ff,0xff4dd8,0xffe14d,0xff4d4d,0xff9a3d,0xa06bff],'loadSo'(){const _0x4c77fa=kuNative[_0x19e8af(0x777,0x5a5)]();function _0x19e8af(_0x4d905f,_0x5a8910){return _0x5a0b42(_0x4d905f,_0x5a8910- -0xa8);}if(_0x4c77fa)return _0x4c77fa;return this[_0x19e8af(0x489,0x55f)]=!![],this[_0x19e8af(0xbfe,0x65e)]=!![],'';},'unhook'(){function _0x469744(_0x237628,_0x44c056){return _0x5a0b42(_0x237628,_0x44c056- -0x1c1);}try{kuNative[_0x469744(0x86d,0x7ba)](0x17,0x0);}catch(_0x3a1c6e){}this[_0x469744(0x8e5,0x545)]=![],this[_0x469744(0x21e,0xa2)]=![];},'hide'(){function _0x5e5903(_0xd9a513,_0x336795){return _0x5a0b42(_0xd9a513,_0x336795-0x35);}try{kuNative[_0x5e5903(0xbdc,0x9b0)](0x17,0x0);}catch(_0x385e11){}this[_0x5e5903(-0x165,0x298)]=![];},'pickRadio'(_0x29aaa7,_0x8e4df,_0x347066){const _0x80760b={'DApLY':function(_0x3d3032,_0x28e4c3,_0x5be409){return _0x3d3032(_0x28e4c3,_0x5be409);},'IcgPi':function(_0x810fec,_0xa1688){return _0x810fec===_0xa1688;},'Naqts':function(_0x507c95,_0xdb3acb){return _0x507c95+_0xdb3acb;}},_0x272dc1=_0x80760b[_0x35c4cc(0x5d7,0x1c8)](argPick,_0x29aaa7,_0x8e4df);if(_0x80760b[_0x35c4cc(0x78d,0x9b3)](typeof _0x272dc1,_0x35c4cc(0x58,0x311))){for(let _0x3a545d=0x0;_0x3a545d<_0x347066;_0x3a545d++)if(_0x272dc1===_0x8e4df+'_'+_0x3a545d)return _0x3a545d;}for(let _0x43808e=0x0;_0x43808e<_0x347066;_0x43808e++)if(_0x29aaa7[_0x80760b[_0x35c4cc(0xdfb,0x94f)](_0x8e4df+'_',_0x43808e)]===!![])return _0x43808e;function _0x35c4cc(_0x470c78,
-_0x110742){return _0x5a0b42(_0x470c78,_0x110742- -0x169);}return-0x1;},'pushCfg'(){if(!this[_0xaf47dd(0x2ea,0x690)])return;try{kuNative[_0xaf47dd(0x7a2,0xa04)](0x18,this[_0xaf47dd(0x37b,0x23)]);}catch(_0x4135e7){}try{kuNative[_0xaf47dd(0x92e,0xa04)](0x1d,this[_0xaf47dd(0xc43,0x7c1)]);}catch(_0x37c4d0){}try{kuNative[_0xaf47dd(0x9d4,0xa04)](0x1e,this[_0xaf47dd(0xc5e,0x7d8)]);}catch(_0x5aa568){}try{kuNative[_0xaf47dd(0xc01,0xa04)](0x1f,this[_0xaf47dd(-0x23,0x227)]);}catch(_0xf932c2){}try{kuNative[_0xaf47dd(0xb0a,0xa04)](0x19,this[_0xaf47dd(0x6cf,0x125)][this[_0xaf47dd(-0x28d,0x9f)]]||0xffffff);}catch(_0xccf337){}try{kuNative[_0xaf47dd(0x716,0xa04)](0x1a,0x5a);}catch(_0x445fb9){}try{kuNative[_0xaf47dd(0x4b8,0xa04)](0x22,this[_0xaf47dd(0x5b1,0x921)]?0x1:0x0);}catch(_0x5f50a1){}function _0xaf47dd(_0x36733d,_0x4bd4e5){return _0x5a0b42(_0x36733d,_0x4bd4e5-0x89);}try{kuNative[_0xaf47dd(0xdc5,0xa04)](0x1b,this[_0xaf47dd(0xb73,0x7e2)]);}catch(_0x53150a){}try{kuNative[_0xaf47dd(0xb2d,0xa04)](0x20,this[_0xaf47dd(0x106,0x3d3)]);}catch(_0x1d7d87){}try{kuNative[_0xaf47dd(0x487,0xa04)](0x21,this[_0xaf47dd(-0x4de,0x7d)]);}catch(_0x2cb762){}},'onModuleEvent'(_0x4d408f){const _0x146632={'bDSlO':_0x31314a(0x273,0x813),'NpolH':_0x31314a(0x59c,0x2b2),'xVfvJ':function(_0x370927,_0x4406c6){return _0x370927(_0x4406c6);},'xAmHh':function(_0x3ec3d1,_0x3490d8){return _0x3ec3d1 in _0x3490d8;},'vkrle':_0x31314a(0xe31,0xe22),'Dfkwl':function(_0x2349a9,_0x71ff26){return _0x2349a9(_0x71ff26);}};let _0x18e1f5=![];const _0x2fa6ca=clampPos(argPick(_0x4d408f,_0x146632[_0x31314a(0x6d7,0x8b3)]),0x4,0x50);_0x2fa6ca&&(this[_0x31314a(0xefc,0xa55)]=_0x2fa6ca,_0x18e1f5=!![]);const _0x567183=clampPos(argPick(_0x4d408f,_0x31314a(0xd91,0x941)),0x1,0xc);_0x567183&&(this[_0x31314a(0xf5e,0xa6c)]=_0x567183,_0x18e1f5=!![]);if(_0x4d408f[_0x31314a(0x24b,0x2b2)]!==undefined){const _0x27bee1=Number(argPick(_0x4d408f,_0x146632[_0x31314a(0x86f,0x2ff)]));!_0x146632[_0x31314a(0xa76,0x516)](isNaN,_0x27bee1)&&(this[_0x31314a(0x1a7,0x4bb)]=Math[_0x31314a(0xf37,0xbec)](0x0,Math[_0x31314a(0x79c,0xbc8)](0x28,Math[_0x31314a(0x646,0x688)](_0x27bee1))),_0x18e1f5=!![]);}function _0x31314a(_0x40e64d,_0x18d7e7){return _0x5a0b42(_0x40e64d,_0x18d7e7-0x31d);}const _0x41576e=this[_0x31314a(0x563,0x634)](_0x4d408f,_0x31314a(0x842,0x3d2),0x5);_0x41576e>=0x0&&(this[_0x31314a(0x82,0x2b7)]=_0x41576e,_0x18e1f5=!![]);const _0x5c8317=this[_0x31314a(0x4cd,0x634)](_0x4d408f,_0x31314a(0xc7e,0xdcc),0x8);_0x5c8317>=0x0&&(this[_0x31314a(0x298,0x333)]=_0x5c8317,_0x18e1f5=!![]);typeof _0x4d408f[_0x31314a(0x237,0x45c)]!==_0x31314a(0x3af,0x579)&&(this[_0x31314a(0xb0d,0xbb5)]=Boolean(_0x4d408f[_0x31314a(0x3d8,0x45c)]),_0x18e1f5=!![]);const _0x1b7f80=clampPos(argPick(_0x4d408f,_0x31314a(0x7b9,0xc0c)),0x2,0x28);_0x1b7f80&&(this[_0x31314a(0x551,0xa76)]=_0x1b7f80,_0x18e1f5=!![]);if(_0x4d408f[_0x31314a(0x92e,0x42f)]!==undefined){const _0x26a8e1=Number(argPick(_0x4d408f,_0x31314a(0x10e,0x42f)));!isNaN(_0x26a8e1)&&(this[_0x31314a(0xb3a,0x667)]=Math[_0x31314a(0x8de,0xbec)](-0x64,Math[_0x31314a(0x879,0xbc8)](0x64,Math[_0x31314a(0x61a,0x688)](_0x26a8e1))),_0x18e1f5=!![]);}if(_0x4d408f[_0x31314a(0x2eb,0x752)]!==undefined){const _0x47272e=Number(argPick(_0x4d408f,_0x31314a(0xb53,0x752)));!isNaN(_0x47272e)&&(this[_0x31314a(0x9b,0x311)]=Math[_0x31314a(0x7fd,0xbec)](-0x64,Math[_0x31314a(0xc1f,0xbc8)](0x64,Math[_0x31314a(0x7d3,0x688)](_0x47272e))),_0x18e1f5=!![]);}if(_0x18e1f5&&this[_0x31314a(0x43c,0x412)]&&this[_0x31314a(0x39a,0x924)])this[_0x31314a(0x63b,0x8d1)]();if(_0x4d408f[_0x31314a(0x17c,0x6b3)]!==this[_0x31314a(0xc73,0xe33)]||!_0x146632[_0x31314a(0x75b,0x492)](_0x146632[_0x31314a(0x2b6,0x690)],_0x4d408f))return;const _0x2bcfc5=_0x146632[_0x31314a(0xcb7,0x933)](Boolean,_0x4d408f[_0x31314a(0x1328,0xe22)]);if(_0x2bcfc5===this[_0x31314a(0x2b1,0x412)])return;if(_0x2bcfc5){let _0x48f954='';if(!this[_0x31314a(0xd7a,0x924)]||!this[_0x31314a(0xca3,0xa23)])_0x48f954=this[_0x31314a(0xc89,0xc23)]();if(_0x48f954){try{app[_0x31314a(0xcc3,
-0xb20)](''+_0x48f954);}catch(_0x4204ae){}return;}try{kuNative[_0x31314a(0xcc1,0xc98)](0x16,0x1);}catch(_0x5dd9dc){}this[_0x31314a(0x873,0x412)]=!![],this[_0x31314a(0xa5f,0x580)]=!![],this[_0x31314a(0xa3b,0x8d1)]();}else{this[_0x31314a(0x517,0x412)]=![];if(this[_0x31314a(0xcd7,0xa23)])this[_0x31314a(0xf09,0x992)]();}notifyToggle(_0x31314a(0x253,0x640),this[_0x31314a(-0x151,0x412)],'');},'onPlayerAttack'(_0x1e5d29,_0x210e89){function _0x52439a(_0x509751,_0x1affc4){return _0x5a0b42(_0x509751,_0x1affc4-0x7e);}if(!this[_0x52439a(-0x289,0x173)]||!this[_0x52439a(0x1ef,0x2e1)]||!this[_0x52439a(0xa83,0x685)])return;if(!this[_0x52439a(-0x2b7,0x104)])try{this[_0x52439a(0x539,0x104)]=String(player[_0x52439a(0x29c,0x578)]()[_0x52439a(0x9f6,0xaa0)]());}catch(_0x162403){this[_0x52439a(-0xda,0x104)]='?';}if(this[_0x52439a(0x5ae,0x104)]!=='?'&&String(_0x1e5d29)!==this[_0x52439a(0xb4,0x104)])return;try{kuNative[_0x52439a(0x9a0,0x9f9)](0x1c,0x2);}catch(_0x12374b){}},'onTick'(){let _0x2744b6=!![];function _0x515b32(_0x5555d8,_0x477cb8){return _0x5a0b42(_0x477cb8,_0x5555d8-0x35a);}try{_0x2744b6=options[_0x515b32(0x4e8,0x7b2)]()===0x0;}catch(_0x2db6c8){}if(!_0x2744b6||uiVis[_0x515b32(0xc94,0xcf1)]()){if(this[_0x515b32(0x5bd,0x283)])this[_0x515b32(0xaf2,0x9e7)]();return;}if(!this[_0x515b32(0x5bd,0xa6e)]){this[_0x515b32(0x5bd,0x6e4)]=!![];try{kuNative[_0x515b32(0xcd5,0xb84)](0x16,0x1);}catch(_0x8e6e73){}this[_0x515b32(0x90e,0xcd8)]();}},'onWorldExit'(){function _0x50f5bf(_0x2cf64a,_0x514ffe){return _0x5a0b42(_0x2cf64a,_0x514ffe-0x240);}if(this[_0x50f5bf(0x29a,0x335)]&&this[_0x50f5bf(0xe0,0x4a3)])this[_0x50f5bf(0xae7,0x9d8)]();this[_0x50f5bf(0x189,0x2c6)]='';}},radarHud={'tag':_0x5a0b42(0x954,0xa47),'enabled':![],'loaded':![],'bufAddr':0x0n,'offX':0x41,'offY':0x10,'range':0x40,'tickCount':0x0,'selfUid':'','shown':!![],'showPlayer':!![],'showMob':!![],'hide'(){try{kuNative[_0x1cfb03(0xdf7,0x12ef)](0x39,0x0);}catch(_0x41c273){}function _0x1cfb03(_0x316646,_0x2d44f8){return _0x5a0b42(_0x2d44f8,_0x316646-0x47c);}this[_0x1cfb03(0x6df,0x469)]=![];},'onWorldExit'(){function _0x4d2610(_0x1e17bc,_0x89dbad){return _0x5a0b42(_0x1e17bc,_0x89dbad- -0xcb);}if(this[_0x4d2610(0x214,0x2a)]&&this[_0x4d2610(-0x197,0x198)])this[_0x4d2610(0x626,0x6cd)]();},'loadSo'(){const _0x2e3259=kuNative[_0x3fe393(0xa2a,0x733)]();if(_0x2e3259)return _0x2e3259;function _0x3fe393(_0x562865,_0xdaf4a6){return _0x5a0b42(_0x562865,_0xdaf4a6-0xe6);}return this[_0x3fe393(0xab5,0x6ed)]=!![],'';},'pushCfg'(){function _0x1123d1(_0x55b508,_0x7d73b1){return _0x5a0b42(_0x55b508,_0x7d73b1-0x358);}if(!this[_0x1123d1(0xbeb,0x95f)])return;try{kuNative[_0x1123d1(0x93d,0xcd3)](0x3a,(this[_0x1123d1(0x60c,0x34c)]&0xff)<<0x8|this[_0x1123d1(0x175,0x6a2)]&0xff);}catch(_0x57f1a5){}},'pushYaw'(){function _0x41b792(_0x4ceaa7,_0x829ae9){return _0x5a0b42(_0x4ceaa7,_0x829ae9-0x62);}if(!this[_0x41b792(0x1f8,0x669)])return;let _0x5621fe=NaN;try{const _0x5c0a1a=camera[_0x41b792(0x308,0x409)]();if(_0x5c0a1a)_0x5621fe=Number(_0x5c0a1a[_0x41b792(0x5dd,0x9e6)]);}catch(_0x4ed2c0){}if(!isFinite(_0x5621fe))return;_0x5621fe=(_0x5621fe%0x168+0x168)%0x168;try{kuNative[_0x41b792(0xe06,0x9dd)](0x3b,Math[_0x41b792(0xae3,0xa9d)](_0x5621fe*0x40));}catch(_0x5a8928){}},'scan'(){function _0x445105(_0x58f19c,_0x35e8bc){return _0x5a0b42(_0x35e8bc,_0x58f19c-0x40c);}const _0x2bfc80={'SSlmL':function(_0x252c46,_0x39c5f1){return _0x252c46-_0x39c5f1;},'Nlkvt':function(_0x54e63d,_0x386e33){return _0x54e63d>_0x386e33;},'WnbwT':function(_0x323399,_0x2d7801){return _0x323399&_0x2d7801;},'feNAA':function(_0x40bad7,_0x4973ab){return _0x40bad7>>_0x4973ab;},'xgvVj':function(_0x26cbc0,_0xd3a2f6){return _0x26cbc0(_0xd3a2f6);},'WfdKx':function(_0x189c3f,_0x1be831,_0x11ac61){return _0x189c3f(_0x1be831,_0x11ac61);}};let _0x57dbaa=null;try{_0x57dbaa=player[_0x445105(0x906,0xbc0)]()[_0x445105(0x534,0xa86)]();}catch(_0x3f7d54){}if(!_0x57dbaa||!isFinite(_0x57dbaa['x']))return;const _0x16302d=this[_0x445105(0x7b7,0x5b2)],_0x261fd1=_0x16302d*_0x16302d,
-_0x2f3049=[0x0];let _0x4be047=0x0;const _0xdfed25=function(_0x51d279,_0x43c70c){if(!_0x51d279||!isFinite(_0x51d279['x']))return;const _0x19fcac=_0x2bfc80[_0x472a71(0xda3,0x9ab)](_0x51d279['x'],_0x57dbaa['x']),_0x5dee05=_0x51d279['z']-_0x57dbaa['z'];if(_0x19fcac*_0x19fcac+_0x5dee05*_0x5dee05>_0x261fd1)return;let _0x3606f3=Math[_0x472a71(0xe76,0xb45)](_0x19fcac*0x10),_0xecd169=Math[_0x472a71(0xe76,0x1347)](_0x5dee05*0x10);if(_0x3606f3<-0x8000)_0x3606f3=-0x8000;if(_0x3606f3>0x7fff)_0x3606f3=0x7fff;if(_0xecd169<-0x8000)_0xecd169=-0x8000;if(_0x2bfc80[_0x472a71(0xb65,0x8f1)](_0xecd169,0x7fff))_0xecd169=0x7fff;_0x2f3049[_0x472a71(0xcf1,0x77c)](_0x3606f3&0xff,_0x3606f3>>0x8&0xff,_0xecd169&0xff,_0x2bfc80[_0x472a71(0x9f7,0x566)](_0x2bfc80[_0x472a71(0xaa0,0x6c9)](_0xecd169,0x8),0xff),_0x43c70c);function _0x472a71(_0x97a518,_0x384498){return _0x445105(_0x97a518-0x2f,_0x384498);}_0x4be047++;},_0x3e703a=world[_0x445105(0xd8a,0xbbf)]();if(!_0x3e703a)return;if(!this[_0x445105(0x69e,0xa89)])try{this[_0x445105(0x69e,0x9c4)]=String(player[_0x445105(0x906,0x903)]()[_0x445105(0xe2e,0xaf5)]()||'');}catch(_0x105c61){}let _0x16e756=[];if(this[_0x445105(0xee2,0xaed)])try{_0x16e756=_0x3e703a[_0x445105(0xd34,0xaab)]()||[];}catch(_0xfa7934){}for(const _0x150db3 of _0x16e756){if(_0x4be047>=0x40)break;try{if(this[_0x445105(0x69e,0xac5)]&&_0x2bfc80[_0x445105(0x502,0x49d)](String,_0x150db3[_0x445105(0xe2e,0xb52)]())===this[_0x445105(0x69e,0x1b4)])continue;_0x2bfc80[_0x445105(0xe34,0xd56)](_0xdfed25,_0x150db3[_0x445105(0x534,0xa5f)](),0x0);}catch(_0x13a1d1){}}let _0x124497=[];if(this[_0x445105(0xc5d,0xe26)])try{_0x124497=_0x3e703a[_0x445105(0xb25,0x70a)]()||[];}catch(_0x399f67){}for(const _0x3f0b1d of _0x124497){if(_0x4be047>=0x40)break;try{const _0x3ed154=_0x3f0b1d[_0x445105(0xde6,0x122e)](),_0x652fc9=_0x3ed154?String(_0x3ed154[_0x445105(0xa5c,0x653)]||''):'';if(_0x652fc9===_0x445105(0xd43,0x918)||!_0x652fc9||killAura[_0x445105(0xea5,0xf8f)][_0x445105(0xb21,0x6ed)](_0x652fc9))continue;_0x2bfc80[_0x445105(0xe34,0xa21)](_0xdfed25,_0x3f0b1d[_0x445105(0x534,0x2e7)](),0x1);}catch(_0x41b92e){}}_0x2f3049[0x0]=_0x4be047;try{os[_0x445105(0xbc8,0x8de)](this[_0x445105(0xbe8,0xf1f)],_0x2f3049[_0x445105(0xa2e,0xd7c)],new Uint8Array(_0x2f3049)[_0x445105(0x624,0x806)]),kuNative[_0x445105(0xd87,0xdc9)](0x3c,0x0);}catch(_0x1bf833){}},'onModuleEvent'(_0x2b37c2){const _0xa1be07={'yHNCN':function(_0x20cfe2,_0x555262,_0x3ddcb3){return _0x20cfe2(_0x555262,_0x3ddcb3);},'JorSF':_0x1159f4(-0x62b,-0x74),'ULiIU':function(_0x2cddff,_0x57c1db,_0x418896){return _0x2cddff(_0x57c1db,_0x418896);},'bVkVS':function(_0x4985f5,_0x219d05){return _0x4985f5(_0x219d05);},'tPCQl':_0x1159f4(-0x2,0x160),'yxdJt':function(_0x298f40,_0x130d83){return _0x298f40(_0x130d83);}};let _0x24625b=![];function _0x1159f4(_0x53a896,_0x53c380){return _0x5a0b42(_0x53a896,_0x53c380- -0x24c);}if(argPick(_0x2b37c2,_0x1159f4(-0x8f,0x15c))!==undefined){const _0x541f32=Number(_0xa1be07[_0x1159f4(0x5c,0x1f)](argPick,_0x2b37c2,_0x1159f4(0x4d,0x15c)));!isNaN(_0x541f32)&&(this[_0x1159f4(0x6b4,0xfe)]=Math[_0x1159f4(0x438,0x683)](0x0,Math[_0x1159f4(0x1f0,0x65f)](0x64,Math[_0x1159f4(-0x258,0x11f)](_0x541f32))),_0x24625b=!![]);}if(argPick(_0x2b37c2,_0xa1be07[_0x1159f4(-0x2ba,-0x24d)])!==undefined){const _0x53c26a=Number(argPick(_0x2b37c2,_0xa1be07[_0x1159f4(0x76,-0x24d)]));!isNaN(_0x53c26a)&&(this[_0x1159f4(-0x316,-0x258)]=Math[_0x1159f4(0xc45,0x683)](0x0,Math[_0x1159f4(0x1ad,0x65f)](0x64,Math[_0x1159f4(0x135,0x11f)](_0x53c26a))),_0x24625b=!![]);}if(_0xa1be07[_0x1159f4(0x48d,0x97)](argPick,_0x2b37c2,_0x1159f4(0x624,0x1c7))!==undefined){const _0x64d1ef=_0xa1be07[_0x1159f4(-0x159,0x205)](Number,argPick(_0x2b37c2,_0x1159f4(0x113,0x1c7)));!isNaN(_0x64d1ef)&&(this[_0x1159f4(0x287,0x15f)]=Math[_0x1159f4(0xc31,0x683)](0x10,Math[_0x1159f4(0x2a0,0x65f)](0x64,Math[_0x1159f4(-0x44b,0x11f)](_0x64d1ef))),_0x24625b=!![]);}if(typeof _0x2b37c2[_0x1159f4(0xcc,0x2ca)]!==_0x1159f4(-0x57,0x10))this[_0x1159f4(0xaf0,
-0x88a)]=Boolean(_0x2b37c2[_0x1159f4(-0xe9,0x2ca)]);if(typeof _0x2b37c2[_0x1159f4(0x2c3,0x45e)]!==_0x1159f4(-0x24d,0x10))this[_0x1159f4(0x158,0x605)]=Boolean(_0x2b37c2[_0x1159f4(0x63c,0x45e)]);if(_0x24625b&&this[_0x1159f4(0x1f,-0x157)]&&this[_0x1159f4(0x860,0x3bb)])this[_0x1159f4(0x244,0x368)]();if(!stdToggle(this,_0x2b37c2,'雷达'))return;if(!this[_0x1159f4(-0x23b,-0x157)]){this[_0x1159f4(0x387,0x17)]=![];try{kuNative[_0x1159f4(0x899,0x72f)](0x39,0x0);}catch(_0xe7997c){}return;}if(!this[_0x1159f4(0x3b,0x3bb)]){const _0x381a60=this[_0x1159f4(0x191,0x6ba)]();if(_0x381a60){this[_0x1159f4(0x40c,-0x157)]=![];if(this[_0x1159f4(0x89a,0x548)])this[_0x1159f4(-0x31,0x548)][_0x1159f4(-0x5a2,-0x157)]=![];try{app[_0x1159f4(0x1d0,0x5b7)](_0xa1be07[_0x1159f4(0x96e,0x898)]+_0x381a60);}catch(_0x15d219){}return;}}try{this[_0x1159f4(0x94,0x590)]=_0xa1be07[_0x1159f4(0x3f1,-0x1da)](BigInt,kuNative[_0x1159f4(0x8a9,0x72f)](0x39,0x1));}catch(_0x62c175){}this[_0x1159f4(0x547,0x17)]=!![],this[_0x1159f4(0xcd,0x368)](),this[_0x1159f4(0x8a8,0x645)]();},'onTick'(){if(!this[_0x5e47a4(0x2a9,0x296)]||!this[_0x5e47a4(0xa3a,0x7a8)]||!this[_0x5e47a4(0x925,0x97d)])return;function _0x5e47a4(_0x375e37,_0x10adb9){return _0x5a0b42(_0x375e37,_0x10adb9-0x1a1);}let _0x1de2df=!![];try{_0x1de2df=app[_0x5e47a4(0x428,0x20c)]();}catch(_0x379fd9){}if(!_0x1de2df||uiVis[_0x5e47a4(0xd81,0xadb)]()){if(this[_0x5e47a4(0x1c2,0x404)])this[_0x5e47a4(0x463,0x939)]();return;}if(!this[_0x5e47a4(0x129,0x404)]){this[_0x5e47a4(0x409,0x404)]=!![];try{kuNative[_0x5e47a4(0x5c3,0xb1c)](0x39,0x1);}catch(_0xcc4b4e){}this[_0x5e47a4(0x22d,0x755)]();}this[_0x5e47a4(0xd94,0xa32)]();if(!tickEvery(this,0x4))return;this[_0x5e47a4(0x934,0xc55)]();}},hideClutter={'tag':_0x5a0b42(0xbce,0xa37),'enabled':![],'patchCode':_0x5a0b42(0x1f3,0x720)+_0x5a0b42(0x931,0x48a)+_0x5a0b42(0x51a,0x2c8)+_0x5a0b42(0x8e6,0x9a9)+_0x5a0b42(0x538,0xa65)+(_0x5a0b42(0x1fc,0x3d4)+_0x5a0b42(0x722,0x74c)+_0x5a0b42(0xa47,0x56a)+_0x5a0b42(-0x114,0x2e1)+_0x5a0b42(-0x357,0x18a))+(_0x5a0b42(0x4e,0x162)+_0x5a0b42(-0x48,0x33a)+_0x5a0b42(0x5c7,0x362)+_0x5a0b42(0x1e3,0x106)+_0x5a0b42(0x70c,0x27a)),'unpatchCode':_0x5a0b42(0x8c1,0x3b7)+_0x5a0b42(0x8e9,0x591)+_0x5a0b42(0x454,-0x9)+_0x5a0b42(0x97e,0x5ba)+_0x5a0b42(0x182,0x10d)+(_0x5a0b42(0x556,0x182)+_0x5a0b42(0x8ad,0x615)+_0x5a0b42(0x603,0x8ad)+_0x5a0b42(0x374,0x36c)+_0x5a0b42(-0x323,0x172)),'onModuleEvent'(_0x59ec77){if(!stdToggle(this,_0x59ec77,_0x5d058d(0x736,0x8ec)))return;function _0x5d058d(_0x2ed93a,_0x28a093){return _0x5a0b42(_0x2ed93a,_0x28a093- -0xa0);}try{app[_0x5d058d(-0x2eb,0x1d5)](this[_0x5d058d(0x2a1,0x55)]?this[_0x5d058d(0x9bc,0x876)]:this[_0x5d058d(0xd7d,0xa77)]);}catch(_0x1e915a){}}},containerBlur={'tag':_0x5a0b42(0x990,0xab1),'enabled':![],'intensity':0x3c,'buildPatchCode'(){function _0x52af4f(_0x3f23a1,_0xf8f823){return _0x5a0b42(_0xf8f823,_0x3f23a1-0x10b);}return _0x52af4f(0x1f7,-0x3ac)+_0x52af4f(0x410,0x461)+_0x52af4f(0x2fd,0x338)+_0x52af4f(0xa5b,0xbf9)+_0x52af4f(0x7d5,0x6b0)+(_0x52af4f(0x6cf,0x304)+_0x52af4f(0xa1b,0x8c6)+_0x52af4f(0x76e,0x87c)+_0x52af4f(0x566,0x7e7)+_0x52af4f(0x4ba,0x11a))+(_0x52af4f(0x834,0x7ca)+_0x52af4f(0x1cb,-0x9c)+_0x52af4f(0x533,0xa92)+_0x52af4f(0xa85,0x591))+(this[_0x52af4f(0x393,0x21b)]/0x64)[_0x52af4f(0x32f,0xf5)](0x2)+_0x52af4f(0x946,0xe3f);},'buildSetCode'(){function _0x246b64(_0x424951,_0x40d795){return _0x5a0b42(_0x40d795,_0x424951-0x34c);}return _0x246b64(0x549,-0x8)+(this[_0x246b64(0x5d4,0x592)]/0x64)[_0x246b64(0x570,0x39c)](0x2)+_0x246b64(0xb51,0xb67);},'unpatchCode':_0x5a0b42(0xa4a,0x986),'onModuleEvent'(_0x187eff){const _0x552602={'GkdKf':function(_0x447625,_0x182719){return _0x447625(_0x182719);},'LmJTt':_0x149091(0x5fd,0x93f)};if(argPick(_0x187eff,_0x149091(0xa01,0xc9d))!==undefined){const _0x45f9ee=_0x552602[_0x149091(0x3b8,0x2ff)](Number,argPick(_0x187eff,_0x149091(0xa01,0xc7a)));if(!isNaN(_0x45f9ee)){this[_0x149091(0x33f,0x7cd)]=Math[_0x149091(0x986,0x53c)](0xa,Math[_0x149091(0x962,0x5e0)](0x64,Math[_0x149091(0x422,
--0x128)](_0x45f9ee)));if(this[_0x149091(0x1ac,-0x15f)])try{app[_0x149091(0x32c,0xd8)](this[_0x149091(0x957,0xb16)]());}catch(_0x4c1666){}}}function _0x149091(_0x31f149,_0x370268){return _0x5a0b42(_0x370268,_0x31f149-0xb7);}if(!stdToggle(this,_0x187eff,_0x552602[_0x149091(0x7c6,0x3d9)]))return;try{app[_0x149091(0x32c,0x28b)](this[_0x149091(0x1ac,-0x247)]?this[_0x149091(0x7c3,0x659)]():this[_0x149091(0xbce,0xcee)]);}catch(_0x2269f8){}}},autoSign={'tag':_0x5a0b42(0x43a,0x6ae),'enabled':![],'text':'','pending':[],'MAX_PENDING':0x8,'TICK_EXPIRE':0xc8,'VERIFY_DELAY':0xa,'DUP_TICKS':0x5,'PKT_TICKS':0x5,'tickNow':0x0,'lastEv':{'tick':-0x270f,'x':0x0,'y':0x0,'z':0x0,'face':-0x1},'pktUntil':-0x270f,'pktSeen':0x0,'FACE_OFF':[[0x0,-0x1,0x0],[0x0,0x1,0x0],[0x0,0x0,-0x1],[0x0,0x0,0x1],[-0x1,0x0,0x0],[0x1,0x0,0x0]],'escape'(_0x123f96){function _0x14957b(_0x3233d4,_0x71b08d){return _0x5a0b42(_0x71b08d,_0x3233d4- -0x262);}return String(_0x123f96)[_0x14957b(0x4a3,0x313)]('\x5c')[_0x14957b(0x20c,0xfd)]('\x5c\x5c')[_0x14957b(0x4a3,0x5dd)]('\x22')[_0x14957b(0x20c,0x189)]('\x5c\x22');},'buildNbt'(_0x117cd5,_0x5577d0,_0x3f2111,_0x5d408f,_0x4759ce){function _0x404054(_0x1bf419,_0x1da270){return _0x5a0b42(_0x1da270,_0x1bf419-0x29f);}const _0x483b5d={'FawGn':_0x404054(0xa76,0xd90),'clYea':function(_0x363e49,_0x49e6d5){return _0x363e49+_0x49e6d5;},'gwWcK':_0x404054(0xc53,0xec4)},_0x417845=_0x404054(0x706,0x456)+_0x4759ce+_0x483b5d[_0x404054(0xbc9,0xf2e)];return _0x483b5d[_0x404054(0x4d1,0x3c3)](_0x483b5d[_0x404054(0x4d1,0x8a1)](_0x404054(0xc34,0xe17),_0x5d408f?_0x404054(0x58c,0x29f):_0x404054(0x39a,-0x117))+_0x483b5d[_0x404054(0x520,0xf2)]+_0x117cd5+_0x404054(0x8dc,0x3e6)+_0x5577d0,_0x404054(0x7c3,0xcf9))+_0x3f2111+_0x404054(0x243,-0x2d5)+_0x417845+_0x404054(0xa24,0x522)+_0x417845+'}';},'blockName'(_0x52e876,_0x192ee3){const _0x416bc2={'bQSnA':function(_0xfdde5f,_0x3b1465){return _0xfdde5f(_0x3b1465);}};function _0x39332d(_0x486472,_0x7e3525){return _0x5a0b42(_0x486472,_0x7e3525-0xb7);}try{const _0x2a36a2=_0x416bc2[_0x39332d(0xcda,0xa95)](String,_0x52e876[_0x39332d(0x6a7,0x311)]({'x':_0x192ee3[0x0],'y':_0x192ee3[0x1],'z':_0x192ee3[0x2]})[_0x39332d(0x6ad,0x12e)]())[_0x39332d(0x8b7,0xaef)](/name:"([^"]*)"/i);return _0x2a36a2?_0x2a36a2[0x1][_0x39332d(0xb7f,0xa00)]():'';}catch(_0x1a348c){return'';}},'readText'(_0x16c8db,_0x4c2a0a){function _0x4bfd41(_0x462343,_0x21be42){return _0x5a0b42(_0x21be42,_0x462343-0x340);}const _0x4b3f4b={'PybbU':function(_0x28cba1,_0x52051f){return _0x28cba1(_0x52051f);}};try{const _0x5d113d=_0x4b3f4b[_0x4bfd41(0xbdc,0xf31)](String,_0x16c8db[_0x4bfd41(0xc44,0x6a3)](_0x4c2a0a)[_0x4bfd41(0x3b7,-0x49)]())[_0x4bfd41(0xd78,0x921)](/Text:"([^"]*)"/);return _0x5d113d?_0x5d113d[0x1]:'';}catch(_0x380057){return null;}},'editorOpen'(){function _0x363a43(_0x54ec64,_0x875aca){return _0x5a0b42(_0x875aca,_0x54ec64-0x2fb);}try{return/sign/i[_0x363a43(0xa10,0x795)](String(gui[_0x363a43(0xdef,0xc23)]()||''));}catch(_0xfa6934){return![];}},'write'(_0x4a5195,_0x373097){blockApi[_0x185f30(0x68b,0xa0d)](_0x373097[_0x185f30(0xefe,0xdae)],this[_0x185f30(0x9c3,0xc74)](_0x373097[_0x185f30(0xdbb,0xdae)]['x'],_0x373097[_0x185f30(0x845,0xdae)]['y'],_0x373097[_0x185f30(0xfa1,0xdae)]['z'],_0x373097[_0x185f30(0xc56,0x827)],this[_0x185f30(0x10fc,0xd03)](this[_0x185f30(0x12c0,0xe05)][_0x185f30(0xb60,0x86f)]()))),_0x373097[_0x185f30(0x6bd,0x51f)]++;function _0x185f30(_0x5417c6,_0x30f5b2){return _0x5a0b42(_0x5417c6,_0x30f5b2-0x30f);}_0x373097[_0x185f30(0xa64,0xa46)]=this[_0x185f30(0xd0c,0xac3)];},'onModuleEvent'(_0x261e35){const _0x37ce10={'sbMCc':_0x3c26b5(0xb1f,0x74a)};function _0x3c26b5(_0x4e4d2b,_0x1a9a73){return _0x5a0b42(_0x4e4d2b,_0x1a9a73-0x47d);}if(typeof _0x261e35[_0x3c26b5(0x56d,0x5d3)]===_0x3c26b5(0xa37,0x8f7))this[_0x3c26b5(0xba8,0xf73)]=_0x261e35[_0x3c26b5(0x20e,0x5d3)];if(!stdToggle(this,_0x261e35,_0x37ce10[_0x3c26b5(0x9f3,0xc43)]))return;this[_0x3c26b5(0xa30,0x9d6)][_0x3c26b5(0xac4,0xa9f)]=0x0;},
-'heldSign'(){const _0x42eb62={'TrfMH':function(_0x559a9,_0x5cb2ea){return _0x559a9>=_0x5cb2ea;}};function _0x1d7882(_0x3ae5e6,_0x3187d9){return _0x5a0b42(_0x3187d9,_0x3ae5e6-0x24d);}try{const _0xc53c84=String(player[_0x1d7882(0x747,0x1ec)]()[_0x1d7882(0xd30,0xdc3)]()[_0x1d7882(0x2c4,0x3c8)]()||'')[_0x1d7882(0xc85,0x11f3)](/name:"([^"]*)"/i);return!!_0xc53c84&&_0x42eb62[_0x1d7882(0x397,0x865)](_0xc53c84[0x1][_0x1d7882(0xb96,0xa57)]()[_0x1d7882(0x27e,0x3f2)](_0x1d7882(0x204,0xcc)),0x0);}catch(_0x39a96d){return![];}},'onPlayerBuildBlockEvent'(_0x513195,_0x6ed973,_0x4bfbf5,_0x342f5a,_0x53167c){const _0x27f144={'maXzv':function(_0x19eae7,_0x2b52c0){return _0x19eae7<=_0x2b52c0;},'PmBKV':function(_0x28c5c8,_0x36fee7){return _0x28c5c8===_0x36fee7;},'ClyRD':function(_0xe14e85,_0x6a7bb1){return _0xe14e85+_0x6a7bb1;}};if(!this[_0x422fd9(0x619,0x93)])return![];try{if(String(_0x513195)!==String(player[_0x422fd9(0x6a2,0x498)]()[_0x422fd9(0x896,0x9c0)]()))return![];}catch(_0x281494){return![];}const _0x5366d0=this[_0x422fd9(-0x2d2,-0x1e)]();if(_0x5366d0&&_0x27f144[_0x422fd9(0x172,0x2b1)](this[_0x422fd9(0x18b,0x686)]-this[_0x422fd9(0x302,0x42f)][_0x422fd9(0xa50,0x519)],this[_0x422fd9(0x64c,0xab6)])&&this[_0x422fd9(0x152,0x42f)]['x']===_0x6ed973&&_0x27f144[_0x422fd9(0x3c6,0x751)](this[_0x422fd9(0x5ad,0x42f)]['y'],_0x4bfbf5)&&this[_0x422fd9(0x6e0,0x42f)]['z']===_0x342f5a&&this[_0x422fd9(0x99e,0x42f)][_0x422fd9(-0x30b,-0x98)]===_0x53167c)return!![];_0x5366d0&&(this[_0x422fd9(0x3fa,0x42f)]={'tick':this[_0x422fd9(0x2a5,0x686)],'x':_0x6ed973,'y':_0x4bfbf5,'z':_0x342f5a,'face':_0x53167c},this[_0x422fd9(0xc4f,0x7c6)]=this[_0x422fd9(0x26d,0x686)]+this[_0x422fd9(-0x1b6,0x21e)],this[_0x422fd9(-0xe6,0xd4)]=0x0);const _0x580dc9=[[_0x6ed973,_0x4bfbf5,_0x342f5a]];if(_0x53167c>=0x0&&_0x53167c<=0x5){const _0x21c201=this[_0x422fd9(0xb3b,0x8df)][_0x53167c];_0x580dc9[_0x422fd9(0x644,0x854)]([_0x6ed973+_0x21c201[0x0],_0x27f144[_0x422fd9(-0x210,0x2db)](_0x4bfbf5,_0x21c201[0x1]),_0x342f5a+_0x21c201[0x2]]);}this[_0x422fd9(0x39a,0x4f7)][_0x422fd9(0xc61,0x854)]({'cands':_0x580dc9,'pos':null,'hanging':![],'age':0x0,'wrote':0x0,'verifyIn':-0x1});while(this[_0x422fd9(0x475,0x4f7)][_0x422fd9(0x8f,0x5c0)]>this[_0x422fd9(0xef6,0x93d)])this[_0x422fd9(0x82b,0x4f7)][_0x422fd9(0x746,0x735)]();function _0x422fd9(_0x94d012,_0x34ebfa){return _0x5a0b42(_0x94d012,_0x34ebfa- -0x62);}return![];},'onSendServerPacket'(_0x350757,_0xe01a05,_0x4207b0){const _0x45e955={'PXMrq':_0x540389(0xea5,0x124b),'sGXMJ':function(_0x15589d,_0x2e923d){return _0x15589d>_0x2e923d;}};function _0x540389(_0x1b2360,_0x3f62e4){return _0x5a0b42(_0x3f62e4,_0x1b2360-0x3da);}const _0x2792ce=_0x45e955[_0x540389(0xc36,0xdc7)][_0x540389(0xadf,0xee6)]('|');let _0x220919=0x0;while(!![]){switch(_0x2792ce[_0x220919++]){case'0':if(!this[_0x540389(0x4cf,0x38b)]||_0x45e955[_0x540389(0x9bc,0x6ea)](this[_0x540389(0xac2,0x5f7)],this[_0x540389(0xc02,0xb21)]))return![];continue;case'1':this[_0x540389(0x510,0xa75)]++;continue;case'2':return!![];case'3':if(!/inventorytransaction/i[_0x540389(0xaef,0x7e6)](String(_0xe01a05||'')))return![];continue;case'4':if(this[_0x540389(0x510,0x6b7)]===0x1)return![];continue;}break;}},'onTick'(){function _0xf5e517(_0x3bc354,_0x414958){return _0x5a0b42(_0x414958,_0x3bc354- -0x1cb);}const _0x1768e4={'GopBw':_0xf5e517(-0x214,0x225),'yFmwR':function(_0x5d2896,_0x2c544a){return _0x5d2896===_0x2c544a;}};this[_0xf5e517(0x51d,0x511)]++;if(!this[_0xf5e517(-0xd6,-0x5c1)]||!this[_0xf5e517(0x38e,0x937)][_0xf5e517(0x457,0x3e8)])return;let _0x1960c2=null;try{_0x1960c2=player[_0xf5e517(0x32f,0x604)]()[_0xf5e517(0xc9,-0xc3)]();}catch(_0x12ac4a){}if(!_0x1960c2)return;const _0x2ccdad=this[_0xf5e517(0x5c0,0x22e)](),_0x4e2250=this[_0xf5e517(0x92b,0xdcb)][_0xf5e517(0x395,0x3c8)](),_0x2041c1=[];for(const _0x208d50 of this[_0xf5e517(0x38e,0x14d)]){_0x208d50[_0xf5e517(0x448,0x245)]++;if(_0x208d50[_0xf5e517(0x448,0x150)]>this[_0xf5e517(0x1df,0x653)])continue;if(!_0x208d50[_0xf5e517(0x8d4,
-0x70b)]){for(const _0x57c01c of _0x208d50[_0xf5e517(0x733,0x49b)]){const _0x26b3c1=this[_0xf5e517(0x332,0x352)](_0x1960c2,_0x57c01c);if(_0x26b3c1[_0xf5e517(-0x19a,-0x4b6)](_0x1768e4[_0xf5e517(0x277,0x25b)])>=0x0){_0x208d50[_0xf5e517(0x8d4,0xe74)]={'x':_0x57c01c[0x0],'y':_0x57c01c[0x1],'z':_0x57c01c[0x2]},_0x208d50[_0xf5e517(0x34d,0x4ac)]=_0x26b3c1[_0xf5e517(-0x19a,-0x19c)](_0xf5e517(0x34d,0x4a6))>=0x0;break;}}if(!_0x208d50[_0xf5e517(0x8d4,0xb66)]){_0x2041c1[_0xf5e517(0x6eb,0x96b)](_0x208d50);continue;}}if(_0x208d50[_0xf5e517(0x56c,0x5b3)]>=0x0){_0x208d50[_0xf5e517(0x56c,0x150)]--;if(_0x208d50[_0xf5e517(0x56c,0x68c)]>0x0){_0x2041c1[_0xf5e517(0x6eb,0x147)](_0x208d50);continue;}const _0x205113=this[_0xf5e517(0x213,-0x21a)](_0x1960c2,_0x208d50[_0xf5e517(0x8d4,0xd24)]);if(_0x1768e4[_0xf5e517(0x319,-0x21d)](_0x205113,null)||_0x205113!==''||_0x208d50[_0xf5e517(0x45,0x2d)]>=0x2)continue;if(_0x2ccdad){_0x208d50[_0xf5e517(0x56c,0x3c6)]=0x1,_0x2041c1[_0xf5e517(0x6eb,0x3e6)](_0x208d50);continue;}if(!_0x4e2250)continue;this[_0xf5e517(0x601,0x57b)](_0x1960c2,_0x208d50),_0x2041c1[_0xf5e517(0x6eb,0x8a4)](_0x208d50);continue;}if(_0x2ccdad){_0x2041c1[_0xf5e517(0x6eb,0x501)](_0x208d50);continue;}const _0x4b8340=this[_0xf5e517(0x213,0x5e3)](_0x1960c2,_0x208d50[_0xf5e517(0x8d4,0x34c)]);if(_0x4b8340===null){_0x2041c1[_0xf5e517(0x6eb,0x1e8)](_0x208d50);continue;}if(_0x4b8340!=='')continue;if(!_0x4e2250)continue;this[_0xf5e517(0x601,0x140)](_0x1960c2,_0x208d50),_0x2041c1[_0xf5e517(0x6eb,0x408)](_0x208d50);}this[_0xf5e517(0x38e,0x3bc)]=_0x2041c1;}},Z1_MCP_FILE=_0x5a0b42(0x25b,0x134),MCP_PY=_0x5a0b42(0x792,0x8d3)+_0x5a0b42(0x23a,0x6fd)+_0x5a0b42(0xceb,0x772)+_0x5a0b42(0xd96,0xae9)+_0x5a0b42(0x982,0x657)+(_0x5a0b42(0xe4d,0xa8a)+_0x5a0b42(0x965,0x5fb)+_0x5a0b42(0x4f9,0x702)+_0x5a0b42(0x7b4,0x656)+_0x5a0b42(0x1ef,0x1fe))+(_0x5a0b42(0x75b,0x250)+_0x5a0b42(0x774,0x731)+_0x5a0b42(0x7a,0x408)+_0x5a0b42(0x578,0x5c9)+_0x5a0b42(0xa0b,0x88d))+(_0x5a0b42(0x73a,0x606)+_0x5a0b42(0xa94,0xa82)+_0x5a0b42(0x8f6,0x8a5)+_0x5a0b42(0xbbb,0x7b5)+_0x5a0b42(0x98d,0x87b))+(_0x5a0b42(0xe87,0x93e)+_0x5a0b42(0xc58,0x8b7)+_0x5a0b42(-0x392,0x1cc)+_0x5a0b42(0x256,0x64a)+_0x5a0b42(0x9ee,0x8f0))+(_0x5a0b42(0x631,0x328)+_0x5a0b42(0x23e,0xfc)+_0x5a0b42(0xe8a,0x90b)+_0x5a0b42(0x66,0x209)+_0x5a0b42(0xe4d,0xa27))+(_0x5a0b42(0x6d6,0x3fc)+_0x5a0b42(-0x56f,0x57)+_0x5a0b42(0x452,0x70b)+_0x5a0b42(0x638,0x10f)+_0x5a0b42(0x165,0x570))+(_0x5a0b42(0x99e,0x4ea)+_0x5a0b42(0x854,0x2f3)+_0x5a0b42(0x3e0,0x417)+_0x5a0b42(0x9e,-0x2f)+_0x5a0b42(0x351,0x27e))+(_0x5a0b42(0x47c,0x749)+_0x5a0b42(0xb09,0x7fa)+_0x5a0b42(0x89f,0x5f6)+_0x5a0b42(-0x2e1,0x12)+_0x5a0b42(0xcfb,0x76f))+(_0x5a0b42(-0x55,0x3df)+_0x5a0b42(0x720,0x9b5)+_0x5a0b42(0x5a5,0x358)+_0x5a0b42(0x8a0,0x81c)+_0x5a0b42(0x69c,0x2a9))+(_0x5a0b42(0x6e3,0xab0)+_0x5a0b42(0xde7,0x9af)+_0x5a0b42(-0x39e,0x20e)+_0x5a0b42(0x5b5,0x525)+_0x5a0b42(0x182,0x319))+(_0x5a0b42(0x771,0x39d)+_0x5a0b42(0x5bf,0x13d)+_0x5a0b42(0xef5,0xa12)+_0x5a0b42(0x2b3,0x6dd)+_0x5a0b42(0x554,-0x3e))+(_0x5a0b42(0xef3,0xa7c)+_0x5a0b42(0xa4,0x4eb)+_0x5a0b42(-0x3aa,0xa2)+_0x5a0b42(0x6b7,0x5a9)+_0x5a0b42(0x4a2,-0x6f))+(_0x5a0b42(-0x164,0xad)+_0x5a0b42(0xcde,0x922)+_0x5a0b42(0x590,0x71)+_0x5a0b42(0x7be,0x838)+_0x5a0b42(-0xd5,0x104))+(_0x5a0b42(0x4c6,0x41c)+_0x5a0b42(0xa2d,0xa9c)+_0x5a0b42(0x610,0x43a)+_0x5a0b42(0x9a7,0x95e)+_0x5a0b42(-0x34,0x269))+(_0x5a0b42(-0x34e,0x67)+_0x5a0b42(0xbaa,0x8f9)+_0x5a0b42(0xd52,0x9e7)+_0x5a0b42(0x119,0x27d)+_0x5a0b42(0x4b0,-0x79))+(_0x5a0b42(0x486,0x5f8)+_0x5a0b42(-0x575,0x2)+_0x5a0b42(0x853,0x4fb)+_0x5a0b42(0x7ae,0x7cb)+_0x5a0b42(0x4f8,0x963))+(_0x5a0b42(-0x1e2,0x3bb)+_0x5a0b42(0x76a,0x866)+_0x5a0b42(0xc5,0x176)+_0x5a0b42(-0x12a,0x1d7)+_0x5a0b42(0x9c5,0xb1a))+(_0x5a0b42(0x72e,0x862)+_0x5a0b42(0x4eb,0x353)+_0x5a0b42(0x40c,0x42c)+_0x5a0b42(0xe7a,0xb09)+_0x5a0b42(0x722,0x8a2))+(_0x5a0b42(0x6d7,0x9f0)+_0x5a0b42(0x787,0x2ea)+_0x5a0b42(0x162,0x651)+_0x5a0b42(0x380,0x416)+_0x5a0b42(-0x54c,-0x2b))+(_0x5a0b42(0x407,0x67f)+_0x5a0b42(-0xe,0x25b)+_0x5a0b42(0x9fb,0x821)+
-_0x5a0b42(0x7c6,0x4fe)+_0x5a0b42(0x2e2,0x500))+(_0x5a0b42(0x893,0xac5)+_0x5a0b42(0xa43,0xac3)+_0x5a0b42(0x5d9,0x23c)+_0x5a0b42(0x342,0x741)+_0x5a0b42(0xb26,0x905))+(_0x5a0b42(0x91f,0x7ab)+_0x5a0b42(0x1e,-0x60)+_0x5a0b42(0x32e,0x197)+_0x5a0b42(0x8a,0x45c)+_0x5a0b42(-0x36,0x48e))+(_0x5a0b42(0x153,0x455)+_0x5a0b42(-0x3e9,0x1ce)+_0x5a0b42(-0x426,0x6c)+_0x5a0b42(0x879,0x488)+_0x5a0b42(0xc0,0x44b))+(_0x5a0b42(0x1d4,0x273)+_0x5a0b42(0x961,0x6d0)+_0x5a0b42(0x177,0x5a5)+_0x5a0b42(0xdf8,0xb0d)+_0x5a0b42(0x990,0x942))+(_0x5a0b42(0x540,0x83a)+_0x5a0b42(0xd06,0x900)+_0x5a0b42(-0x7,0x54a)+_0x5a0b42(0xc21,0x9e4)+_0x5a0b42(0xb55,0x826))+(_0x5a0b42(0x2e1,0x427)+_0x5a0b42(0x71f,0x871)+_0x5a0b42(0xa5e,0x895)+_0x5a0b42(0x3b4,0x73)+_0x5a0b42(0x812,0x74a))+(_0x5a0b42(-0x259,0xd1)+_0x5a0b42(0xf93,0xa2c)+_0x5a0b42(0x21e,0x393)+_0x5a0b42(0x9c8,0x77c)+_0x5a0b42(0xb4c,0x95b))+_0x5a0b42(0x39e,0x5e),Z1_TOPUP_PY=_0x5a0b42(0x2bc,0x72b)+_0x5a0b42(0x968,0xaed)+_0x5a0b42(0xb0e,0x7f8)+_0x5a0b42(-0x59b,0x10)+_0x5a0b42(0x71b,0x5c8)+(_0x5a0b42(-0x247,-0x37)+_0x5a0b42(0x4bf,0x124)+_0x5a0b42(0xd43,0x811)+_0x5a0b42(0x553,0x4f1)+_0x5a0b42(-0x169,0x3dc))+(_0x5a0b42(0x543,0x363)+_0x5a0b42(-0x554,-0x50)+_0x5a0b42(-0x278,0x28a)+_0x5a0b42(0x24,0x164)+_0x5a0b42(0x3e1,0x1ed))+(_0x5a0b42(0xa9d,0x680)+_0x5a0b42(0xbf,-0x77)+_0x5a0b42(0x566,0x147)+_0x5a0b42(0x40b,0x721)+_0x5a0b42(0x7f2,0x53e))+(_0x5a0b42(0x5e1,0x8fd)+_0x5a0b42(0x64d,0x433)+_0x5a0b42(0x7ec,0x8a1)+_0x5a0b42(0x267,0x2b7)+_0x5a0b42(0x809,0x704))+(_0x5a0b42(-0x4c,0x3cf)+_0x5a0b42(0x9d1,0x44d)+_0x5a0b42(0x6e4,0x412)+_0x5a0b42(0x335,0x2fe)+_0x5a0b42(0x5a8,0x8dc))+(_0x5a0b42(0x585,0xab)+_0x5a0b42(0x436,0x114)+_0x5a0b42(0xa6,0xfe)+_0x5a0b42(0x508,0x777)+_0x5a0b42(-0x13,0x5a4))+(_0x5a0b42(0x399,0x30d)+_0x5a0b42(-0x45e,0x89)+_0x5a0b42(0xc6,0x51a)+_0x5a0b42(0xd40,0x796)+_0x5a0b42(-0x4d5,0xc1))+(_0x5a0b42(-0x46,0x3ad)+_0x5a0b42(-0x16d,0x3d9)+_0x5a0b42(0xf81,0xb14)+_0x5a0b42(-0x40e,0xb)+_0x5a0b42(0x289,0x1cd))+(_0x5a0b42(-0x22a,0x1d2)+_0x5a0b42(0xed,0x47e)+_0x5a0b42(0x6fd,0x434)+_0x5a0b42(-0x300,0x27c)+_0x5a0b42(0x2d1,0x51f))+(_0x5a0b42(0x4cb,0x501)+_0x5a0b42(0x9b5,0x962)+_0x5a0b42(0x170,0x475)+_0x5a0b42(0x76c,0x38a)+_0x5a0b42(0x3dc,0x483))+(_0x5a0b42(0x317,0x3ee)+_0x5a0b42(0x162,0x445)+_0x5a0b42(-0xbb,0x436)+_0x5a0b42(0x84c,0x874)+_0x5a0b42(0xc0b,0x6b0))+(_0x5a0b42(0x40f,0x32)+_0x5a0b42(0x21b,0x4cf)+_0x5a0b42(0x27d,0x494)+_0x5a0b42(0x97b,0x6ba)+_0x5a0b42(0x55a,0x7c0))+(_0x5a0b42(0x108,-0x47)+_0x5a0b42(0x3b4,0x453)+_0x5a0b42(0x547,0x361)+_0x5a0b42(0x478,0x929)+_0x5a0b42(0xc24,0x889));function z1Wrap(_0x27c61f){function _0x582555(_0x7634ae,_0xf4af0d){return _0x5a0b42(_0x7634ae,_0xf4af0d-0x4d4);}const _0x5594c7={'SlMOE':_0x582555(0x349,0x88a),'LpWmn':function(_0x99f6aa,_0x2ed5bf){return _0x99f6aa+_0x2ed5bf;}};let _0x4497e4='';for(const _0x549f05 of MCP_PY[_0x582555(0xde0,0xbd9)]('\x0a'))_0x4497e4+=_0x5594c7[_0x582555(0xc57,0xb12)]+_0x549f05;let _0x46051a='';for(const _0x3955bb of Z1_TOPUP_PY[_0x582555(0x88f,0xbd9)]('\x0a'))_0x46051a+=_0x582555(0x910,0x88a)+_0x3955bb;return _0x5594c7[_0x582555(0xe8a,0xa70)](_0x5594c7[_0x582555(0x102d,0xa70)](_0x582555(0xa7b,0x6ca)+_0x4497e4,_0x582555(0x2e5,0x49b))+_0x46051a+'\x0a',_0x27c61f);}function z1Toast(_0x5cbaf2){function _0x57642e(_0x24bc44,_0x445706){return _0x5a0b42(_0x24bc44,_0x445706-0x1d7);}try{app[_0x57642e(0x9e6,0x9da)](_0x5cbaf2);}catch(_0x3254c0){}}function z1Lit(_0x5b0238){function _0x8d8a6b(_0x6f6629,_0x173c95){return _0x5a0b42(_0x6f6629,_0x173c95- -0x21d);}const _0xd97926={'khAFx':function(_0x2150d9,_0x538e31){return _0x2150d9+_0x538e31;}};return _0xd97926[_0x8d8a6b(-0x5a,0xb6)]('u\x27'+String(_0x5b0238)[_0x8d8a6b(0x293,0x206)](/\\/g,'\x5c\x5c')[_0x8d8a6b(-0x131,0x206)](/'/g,'\x5c\x27')[_0x8d8a6b(-0x55,0x206)](/[^\x20-\x7e]/g,function(_0x39cfa3){function _0x385655(_0x1ee982,_0x5f1abf){return _0x8d8a6b(_0x5f1abf,_0x1ee982-0x19a);}const _0xd875ce=_0x39cfa3[_0x385655(0x1cb,0x750)](0x0)[_0x385655(0x202,-0x13d)](0x10);return'\x5cu'+_0x385655(0x85f,0x640)[_0x385655(-0xe6,
-0x270)](_0xd875ce[_0x385655(0x59f,0x175)])+_0xd875ce;}),'\x27');}function z1RetFile(){function _0x54f803(_0x388e54,_0x176ca1){return _0x5a0b42(_0x176ca1,_0x388e54-0x177);}const _0x374404={'urXWq':function(_0x5a3681,_0x1e1c79){return _0x5a3681+_0x1e1c79;}};let _0x27c0d5='';try{_0x27c0d5=app[_0x54f803(0xb63,0x1089)](_0x54f803(0x9cb,0x837));}catch(_0x5b95c8){}return _0x374404[_0x54f803(0x18a,0x6a2)](_0x27c0d5,_0x54f803(0x198,0x5bb));}function z1ReadFile(_0x5bb555){let _0x398418='';function _0x2425e4(_0x561832,_0x9e1739){return _0x5a0b42(_0x9e1739,_0x561832- -0x54);}try{_0x398418=String(fs[_0x2425e4(-0xaf,-0x452)](_0x5bb555)||'')[_0x2425e4(0x50c,0x838)]();}catch(_0x2cda0f){}if(/[\x80-\xff]/[_0x2425e4(0x6c1,0x7dd)](_0x398418))try{_0x398418=decodeURIComponent(escape(_0x398418));}catch(_0x3704f7){}return _0x398418;}function _0x37a1(){const _0x538ed9=['\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x0a\x0adef\x20_zerr(e):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20str(e)[:60]\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27?\x27\x0a\x0a\x0adef\x20_zwrite(rp,\x20s):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20io\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20isinstance(s,\x20_ZU):\x0a\x20\x20\x20\x20','YCHpB','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20n\x20+=\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20TypeError:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20f2()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20n\x20+=\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','ATSdx','fqvLY','古迹废墟','GHhBX','kill_taunt_mode',')，请在联机房间内使用','eplay;\x20screens\x20killed\x20by\x20world\x20switch\x20never\x20fire\x20Pop,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20#\x20so\x20force\x20depth\x20reset\x20here\x20(pure\x20event\x20self-heal,\x20no\x20polling)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.depth\x20=\x200\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_kc_vwrite(0)\x0a\x20\x20\x20\x20\x20\x20','\x20+\x20\x27.\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20alias\x20=\x20mn[len(name)\x20+\x201:]\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20alias\x20and\x20alias\x20not\x20in\x20sys.modules:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sys.modules[alias]\x20=\x20sys.modules[mn]\x0a\x20\x20\x20\x20\x20\x20\x20','validNames','spin','jxpRm','ch_gap','buildTextPts','93c40172920cc42d4d696e6563726166743a6169436f6d6d616e643a4578656375746555736566756c436f6d6d616e644576656e74c0','buildDumpPy','ptNsI','preset','crQzY','cb_mode_so','slice','kcAIA','tipN','|noclip|speed|speed|num\x27,\x0a\x20\x20\x20\x20\x27z1c_killaura_onweapon|killaura|onweapon|onweapon|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_killaura_onhold|killaura|onhold|onhold|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_killaura_onholdattack|killaura|onholdattack|onhol','xrtKb','TfWzA','globals()[\x22_kusug_gyro_sens\x22]\x20=\x20',',TextOwner:\x22\x22,FrontText:','read','kVRjm',
-'\x20\x27KUSUG_FAKE_PID\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20_fu\x20or\x20not\x20_fp:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20entity_module.is_entity_exist(_fp):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_cur\x20=\x20set(x[0]\x20for\x20x\x20in\x20ge','libhttpclient/1.0.0.0','\x0afrom\x20gui_2d\x20import\x20GUI,\x20ui_const\x0afrom\x20gui_2d.ui.easy_debug_ui.debug_ui\x20import\x20DebugUI\x0ainst\x20=\x20DebugUI.get_instance()\x0aif\x20inst\x20is\x20not\x20None:\x0a\x20\x20\x20\x20inst.visible\x20=\x20False\x0atry:\x0a\x20\x20\x20\x20GUI.ui_mgr.hide_gui(ui_const','潜行延迟','Cookie数据为空','lastUsed','auto:(\x5cd)b','swrbr','gb_target','\x20pass\x0a\x0a\x0adef\x20_zstateall(rp):\x0a\x20\x20\x20\x20s\x20=\x20_zsys()\x0a\x20\x20\x20\x20out\x20=\x20[]\x0a\x20\x20\x20\x20if\x20s\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20m\x20=\x20getattr(s,\x20\x27_manager\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20d\x20=\x20getattr(m,\x20\x27_modules\x27,\x20{})\x20if\x20m\x20is\x20not\x20None\x20else\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20k\x20in','def\x20_kc_pkg():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20with\x20open(\x27/proc/self/cmdline\x27,\x20\x27rb\x27)\x20as\x20_f:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_s\x20=\x20_f.read(256)\x0a\x20\x20\x20\x20\x20\x20\x20\x20_s\x20=\x20_s.split(chr(0))[0].split(\x27:\x27)[0].strip()\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20len(_s)\x20>\x203\x20and\x20\x27.\x27\x20in\x20_s:\x0a','er_name\x20=\x20SERVER_NAME\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.server_entity\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.final_ip\x20=\x20CUSTOM_IP\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.final_port\x20=\x20CUSTOM_PORT\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.game_info\x20=\x20None\x0a\x0a\x20\x20\x20\x20def\x20start(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20','vejYe','targetUid','pick','key','sign','\x20\x22FPS:--\x22\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20def\x20_ks_fps_tick():\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fps\x20=\x20clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId()).GetFps()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20t.text\x20=\x20\x22FPS:\x22\x20+\x20str(int(flo','=\x20\x27%g\x27\x20%\x20v\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20vs\x20=\x20str(v)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20out.append(ctl\x20+\x20\x27=\x27\x20+\x20vs)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20_zwrite(rp,\x20\x27;\x27.join(out)\x20if\x20out\x20else','xQJfH','weaponmode','sort','ridetpaura','sOFHl','z1_reach_dist','NnZGS','hcXAh','n:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20low\x20=\x20name.lower()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20low\x20==\x20name:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20raise\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20name\x20=\x20low\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20mod\x20=\x20__import__(name\x20+\x20\x27.modMain\x27,\x20fromlist=[\x27\x27])\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20mk\x20in\x20dir(mod):\x0a\x20\x20','policy_content','goat_effect','QBdtf','cjkWarned','\x0aelif\x20\x27z1setq\x27\x20not\x20in\x20__main__.KUSUG_MCP:','3f4040403f1f2040201f3f4038403f631408146307087008076151494543',
-'Z1yrClientSystem\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20so\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20so\x20=\x20getattr(r,\x20\x27newSystemInstances\x27,\x20{}).get(\x27z1yr:Z1yrClientSystem\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20so\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20so\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20d\x20in\x20(getattr(','face','targethud','cmdFile','sqrt','BAQIu','pi.GetLevelId()).PlayCustomMusic(\x27ambient.weather.lightning.impact\x27,\x20(x,\x20y,\x20z),\x204.0,\x20pitch,\x20False,\x20None)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a','pendingEntries','so):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20lk\x20=\x20k.lower()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20hit\x20=\x20False\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20m\x20in\x20keys:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20m\x20in\x20lk:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20hit\x20=\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20break\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20hit:\x0a\x20\x20\x20\x20\x20\x20\x20\x20','scaffold','#\x20-*-\x20coding:\x20utf-8\x20-*-\x0aimport\x20mod.client.extraClientApi\x20as\x20clientApi\x0a\x0adef\x20_anchor():\x0a\x20\x20\x20\x20import\x20client.ui.uiManager\x20as\x20uiManager\x0a\x20\x20\x20\x20return\x20uiManager.instance()\x0a\x0atry:\x0a\x20\x20\x20\x20_anchor()._kusug_mmap_dead\x20=','kiahS',',\x0a\x20\x20\x20\x20\x27z1n_combatbot_trackrange|combatbot|track_range|track_range|int\x27,\x0a\x20\x20\x20\x20\x27z1n_combatbot_attackrange|combatbot|attack_range|attack_range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_combatbot_keepdist|combatbot|keep_distance|kee','bixRr','autotool','entityId','§c请先手持旗帜','跨等级交易','clientMessage','nvlZV','yUaTb','aPSaJ','76616c7565','§c凭证获取失败:\x20','未找到视频,请先放入:\x20资源目录/kusug/loginVideoNew.mp4','NpolH','VjqMi','\x0apass\x0a','toU8','camera','missing','箱子视野','sdHaj','CmlwI','§c清空名单','XcSEk','object','NiySv','状态同步失败:\x20开关方向可能不准','query','fallspeed','联机防踢','\x20\x20\x20\x20\x20model.vipChange4DSkin(pid,\x20vip_skin.get(\x27season\x27,\x20\x274d_skin\x27),\x20skin_list[0])\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20pass\x0aif\x20MOUNT_MODEL:\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20m','offY','uvarint','MJafc','\x20\x20\x20\x20return\x20None\x0a\x0adef\x20_hc_pet_screen2():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20n\x20=\x20clientApi.GetUI(\x27neteasePetMod\x27,\x20\x27petChatHud\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20n\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20n\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20','adjacentSolid','yKaXs','room_id','big_gyro_speed','debug','ka_max_targets','s\x0a\x20\x20\x20\x20_owner\x20=\x20getattr(__main__,\x20\x27KUSUG_MOUNT_OWNER\x27,\x20None)\x0a\x20\x20\x20\x20_hook\x20=\x20getattr(__main__,\x20\x27KUSUG_MOUNT_HOOK\x27,\x20None)\x0a\x20\x20\x20\x20if\x20_owner\x20is\x20not\x20None\x20and\x20_hook\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20eventUtil.','JorSF','vzoJF','YUxyV','()\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x0adef\x20_zstateall(rp):\x0a\x20\x20\x20\x20s\x20=\x20_zsys()\x0a\x20\x20\x20\x20out\x20=\x20[]\x0a\x20\x20\x20\x20if\x20s\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20m\x20=\x20getattr(s,\x20\x27_manager\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20d\x20=\x20getattr(m,\x20\x27_modules\x27,\x20{})\x20if\x20m\x20is\x20n','file',
-'fun_get_uid','准星最近','手动UUID','oIylQ','AOsEn','LyntJ','minecraft:banner\x22','ool\x27,\x0a\x20\x20\x20\x20\x27z1c_aimbot_leftclick|aimbot|leftclick|leftclick|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_aimbot_sticky|aimbot|sticky|sticky|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_triggerbot_onweapon|triggerbot|onweapon|onweapon|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_triggerbo','nobreakdelay','hitsLog','.killaura\x20switchdelay\x20','dzJaf','t(\x27z1yr:Z1yrClientSystem\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20so\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20so\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20a\x20=\x20_zapi()\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20a\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20so\x20=\x20a.GetSystem(\x27z1yr\x27,\x20\x27Z1yrClientSystem\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','vTXpM','s\x27]:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20ev\x20in\x20skip\x20or\x20ev\x20in\x20s[\x27bound\x27]\x20or\x20ev\x20in\x20seen:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20seen[ev]\x20=\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20l\x20=\x20_KListener(ev)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20eu.ListenForEngin','urXWq','.so','GM菜单','colorIdx','§b[杀戮光环]\x20§c表单打开失败:\x20','gytFV','switchtick','crdFc','玩家名单(可多选,首行清空)','wQeho','xedMF','CanPlaceOn:','weapon_model','ka_target_mob','/z1_ret.txt','\x20§6边框:\x20§f','§c启动失败:\x20','send_me','jBFgZ','pNiUA','fullName','移动修正','minecraft:bed\x22','e\x27:\x20u\x22','IgbrF','按住锁定','§c方块查询接口不可用,\x20自动搭路无法工作(请反馈)','YZPcf','batch_cmd_text','hidePanel','indexOf','ty|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_autorod_restoremode|autorod|restoremode|restore_mode|enum\x27,\x0a)\x0a\x0a\x0adef\x20_zcfgall(rp):\x0a\x20\x20\x20\x20s\x20=\x20_zsys()\x0a\x20\x20\x20\x20out\x20=\x20[]\x0a\x20\x20\x20\x20if\x20s\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20m\x20=\x20getattr(s,\x20\x27_manager\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20','自动瞄准','kLJeV','inf','targetPlayer','\x20·\x20循环','未知玩家','X+Z轴','_get_comp()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.schedule_retry()\x0a\x0a\x20\x20\x20\x20def\x20schedule_retry(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.dead\x20or\x20self.retries\x20>=\x2040:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20retur','\x20u\x27本地联机\x27,\x20\x270\x27:\x20u\x27单人游戏\x27}\x0a\x09\x09\x09if\x20play_text\x20==\x20u\x27在线\x27\x20and\x20game_type\x20in\x20type_names:\x0a\x09\x09\x09\x09res_name\x20=\x20gi.get(\x27res_name\x27,\x20\x27\x27)\x0a\x09\x09\x09\x09play_text\x20=\x20type_names[game_type]\x20+\x20(u\x27-\x27\x20+\x20res_name\x20if\x20res_name\x20else\x20u\x27\x27)\x0a\x09\x09els','items','\x20名玩家uid到\x20KuSug/玩家uid.json','shape','bRsjv','Cookie登录','§c已自动关闭','HQZpi','PY_ON','heldSign','uQHTJ','ExvrV','§c执行失败:\x20','wmFhF','CE桥接','§b[特殊值修改]\x20','radioKey','fun_goat_effect','uidFile','results','pickIds','nfuCT','4dskin','BgNaF','model','bkLKo','reqBytes','§6实体:\x20§f','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20so\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20so\x20=\x20getattr(reg,\x20\x27newSystemInstances\x27,\x20{}).get(key)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20so\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20objs.append(so)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_kstate()','rkGTb',
-'import\x20mod.client.extraClientApi\x20as\x20clientApi\x0a\x20\x20\x20\x20from\x20common\x20import\x20eventUtil\x0a\x20\x20\x20\x20import\x20__main__\x0a\x20\x20\x20\x20pid\x20=\x20entity_module.get_local_player_id()\x0a\x20\x20\x20\x20if\x20pid:\x0a\x20\x20\x20\x20\x20\x20\x20\x20model.resetSkinToSteve(pid)\x0a\x20\x20\x20\x20try','\x20→\x20','§f{name}\x20§7就这？','fun_adventure_place_break','wyjcp','ad\x27:\x20_zload,\x20\x27z1exit\x27:\x20_zexit}\x0a','trail_ruins','lv_restore','UvtGh','swingair','fpZLJ','panel','fun_watermark_uid','bold','systemInstances\x27,\x20{}).get(\x27z1yr:Z1yrClientSystem\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20so\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20so\x20=\x20getattr(r,\x20\x27newSystemInstances\x27,\x20{}).get(\x27z1yr:Z1yrClientSystem\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20so\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20retu','sendPyRpcPacket','noclip','fDgKU','isInGame','ypass|ecbypass|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_autorod_canattack|autorod|canattack|can_attack|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_autorod_silentswitch|autorod|silentswitch|silent_switch|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_combatbot_criticals|combatbot|crit','zStructureSize:(-?\x5cd+)','.autoclicker\x20reach\x20','horse_anim','slen','eption:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20raise\x20Exception(_kep(u\x27导入失败:\x20\x27\x20+\x20_kerr(e)))\x0a\x20\x20\x20\x20cap.end()\x0a\x20\x20\x20\x20s[\x27loaded\x27][path]\x20=\x20{\x27name\x27:\x20name,\x20\x27systems\x27:\x20cap.systems,\x20\x27recs\x27:\x20cap.recs,\x20\x27aliases\x27:\x20aliases}\x0a\x20\x20\x20\x20','yxdJt','\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20at[:4]\x20==\x20\x27ore:\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20v\x20=\x20o.get_ore(at[4:])\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20v\x20=\x20getattr(o,\x20at,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20v\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','data:(-?\x5cd+)','cam_y','fun_attack_drops','getNBT','保存为新\x20Cookie','placedCount','info_panel/biome_panel\x27,\x20bool(val))\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20elif\x20key\x20==\x20\x27zoom\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20import\x20gui\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gui.minimap_zoom(self.node.screen_name,\x20self.node.component_path\x20+\x20self.node.GetMapPath()','LZBnD','spammer','Text','坐骑百米','current','cookies','z1_xray_max','eSBWQ','clip','autosoup','\x0afrom\x20gui_2d\x20import\x20GUI,\x20ui_const\x0afrom\x20gui_2d.ui.easy_debug_ui.debug_ui\x20import\x20DebugUI\x0aroot\x20=\x20getattr(GUI.ui_mgr.try_get_scene(ui_const.DEBUGUI_SCENE),\x20\x27_root\x27,\x20None)\x0aif\x20not\x20root:\x0a\x20\x20\x20\x20import\x20cc\x0a\x20\x20\x20\x20ro','uid','needSelect','\x20+\x20','\x20\x27z1n_gaussblur_intensity|gaussblur|intensity|intensity|num\x27,\x0a\x20\x20\x20\x20\x27z1n_fogchange_density|fogchange|density|density|int\x27,\x0a\x20\x20\x20\x20\x27z1n_fogchange_r|fogchange|color_r|color_r|num\x27,\x0a\x20\x20\x20\x20\x27z1n_fogchange_g|fogch','iWczT','\x0afrom\x20gui_2d\x20import\x20GUI,\x20ui_const\x0a\x0awin\x20=\x20GUI.ui_mgr.try_get_gui(ui_const.USER_INFO_WATER_MARK)\x0aif\x20win\x20and\x20win.is_valid():\x0a\x20\x20\x20\x20old\x20=\x20getattr(win,\x20\x22_ks_fps_timer\x22,\x200)\x0a\x20\x20\x20\x20if\x20old:\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',
-'stenForEvent(ns2,\x20sn2,\x20\x27GameRenderTickEvent\x27,\x20self,\x20self.on_frame)\x0a\x0a\x20\x20\x20\x20def\x20on_frame(self,\x20args):\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20_CAM_HAS:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.frame\x20+=\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20globals().get(\x27_kus','.xray\x20range\x20','§c预设无有效坐标','cdSec','bypass_server_addr','S):\x0a\x20\x20\x20\x20def\x20__init__(self,\x20ns,\x20sn):\x0a\x20\x20\x20\x20\x20\x20\x20\x20super(_KuSugSpin,\x20self).__init__(ns,\x20sn)\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.rotComp\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.last\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.yaw\x20=\x200.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.phase\x20=\x200.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20ns2\x20=\x20','minimap_show_biome','autoSelectBest','sQwtw','退出异常:\x20','send_prefix','vHUTl','\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20globals().get(\x27_kusug_cam_dirty\x27)\x20and\x20self.frame\x20%\x2020:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20globals()[\x27_kusug_cam_dirty\x27]\x20=\x20','fun_fps','XdULG','WuWSN','CH_COLORS','switchCd','3D导出','respawn','§c玩家或世界丢失，中断','attackInvisible','f,\x20\x27InitClient\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20f()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20errors.append(mk\x20+\x20\x27.\x27\x20+\x20ck\x20+\x20\x27:\x20\x27\x20+\x20_kerr(e))\x0a\x20\x20','RHsXz','\x0aZOOM_LEVEL\x20=\x20','gb_range_z','z1exit','title\x27:\x20d[\x27ptitle\x27],\x20\x27content\x27:\x20chr(10).join(d[\x27pcontent\x27])}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20d.get(\x27tab_a\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.announce_tab.set_tab_info(d[\x27tab_a\x27],\x20d[\x27tab_a\x27],\x20self.on_change_announce)\x0a\x20\x20\x20\x20','num','false','\x20_a\x20=\x20{\x27id\x27:\x20_fp,\x20\x27uids\x27:\x20_merged,\x20\x27skinItemId\x27:\x20getattr(_v,\x20\x27playerId2SkinItemId\x27,\x20{}).get(_fp),\x20\x27skinUuid\x27:\x20getattr(_v,\x20\x27playerId2SkinUuid\x27,\x20{}).get(_fp)}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_v.PreDeliverItems({\x27uids\x27:\x20lis','bot_healhp|combatbot|heal_hp|heal_hp|int\x27,\x0a\x20\x20\x20\x20\x27z1n_combatbot_healkeep|combatbot|heal_keep_distance|heal_keep_distance|int\x27,\x0a\x20\x20\x20\x20\x27z1n_kbchange_yaw|kbchange|yaw|yaw|int\x27,\x0a\x20\x20\x20\x20\x27z1n_kbchange_range|kbchan','宠物通道','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20aliases.append(alias)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20cap.end()\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20notify.remove_mod_mcp(_k','ka_player_list','刀刀暴击','uAXec','fun_pos_print','PvIAx',
-'mgr\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20mgr\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20mgr.leave_main_city(callback=self.enter_game)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.enter_game()\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self','ARvtG','ch_preset','rzsbP','ukPVl','§c凭证加密失败:\x20','/KuSug','cXVyp','no\x20float64\x20tag','=\x20_KuSugMiniMap(\x27KuSugMiniMap\x27,\x20\x27KuSugMiniMap\x27)\x0aglobals()[\x27_kusug_mmap\x27]\x20=\x20_inst','CMD.txt','\x20\x20pitch\x20=\x2089.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20elif\x20pitch\x20<\x20-89.0:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pitch\x20=\x20-89.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.rotComp.SetRot((pitch,\x20yaw))\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.pendYaw\x20-=\x20dyaw\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.pendPitch\x20-=\x20dpitch\x0a\x20\x20\x20\x20\x20\x20\x20','\x27,\x20{}).get(_fp),\x20\x27skinUuid\x27:\x20getattr(_v,\x20\x27playerId2SkinUuid\x27,\x20{}).get(_fp)}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_v.DeliverItemsWithECS(_a)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_v.DeliverItems(_a)\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20pass\x0atry:\x0a\x20\x20\x20\x20from\x20gui_2d.ui.ea','def\x20on_pop(self,\x20args):\x0a\x20\x20\x20\x20\x20\x20\x20\x20ns\x20=\x20args.get(\x27namespace\x27)\x20or\x20\x27\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.depth.get(ns):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.depth[ns]\x20-=\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.blurred\x20and\x20not\x20any(self.depth.values()):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20se','hud_range|hud|range|range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_hud_fov|hud|fov|fov|int\x27,\x0a\x20\x20\x20\x20\x27z1n_pyrpc_maxdisplay|pyrpc|maxdisplay|maxDisplay|int\x27,\x0a\x20\x20\x20\x20\x27z1n_whitelist_range|whitelist|range|range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_invisible_r','game-info','hasLike','setHud','server_port','CdDqI','kusug/loginVideoNew.mp4','\x0aimport\x20mod.client.extraClientApi\x20as\x20clientApi\x0a\x0adef\x20_kusug_afx_thunder(x,\x20y,\x20z):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20clientApi.GetEngineCompFactory().CreateCustomAudio(clientApi.GetLevelId()).PlayCustomMusic(\x27ambient.we','setYBodyRotation','hdMie','rpcExec','writeUnsignedVarInt','parseList','GPJtb','IurhM','fill','\x20float):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20vs\x20=\x20\x27%g\x27\x20%\x20v\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20vs\x20=\x20str(v)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20out.append(ctl\x20+\x20\x27=\x27\x20+\x20vs)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20_zwri','badBlockName','pushInfo','文件(相对坐标json)','§b[旗帜颜色修改]\x20','#\x20-*-\x20coding:\x20utf-8\x20-*-\x0aimport\x20json\x0aimport\x20minecraft\x0afrom\x20gui_2d\x20import\x20GUI,\x20ui_const\x0a\x0aTITLE\x20=\x20json.loads(','sWZyv','yWWox','§c调用异常:\x20','QlFda','run','unIQp','ensurePy','坐骑速度','NQnBp','_f\x20=\x20globals().get(\x27_kusug_afx_thunder\x27)\x0aif\x20_f\x20is\x20not\x20None:\x0a\x20\x20\x20\x20_f(',')\x0aSKIP\x20=\x20set(json.loads(','auto_drop_hotbar','llback\x27:\x20on_copy\x0a\x09})\x0aexcept\x20Exception:\x0a\x09pass\x0a','query_player','ivName','§l§c〉空链〈','bRjjt','ZTbnY','\x27]\x20=\x20','706f734d6170','LNqWf',
-'\x0aimport\x20mod.client.extraClientApi\x20as\x20clientApi\x0a\x0a_CS\x20=\x20clientApi.GetClientSystemCls()\x0a\x0a_CB_KEYS\x20=\x20(\x27chest\x27,\x20\x27inventory_screen\x27,\x20\x27crafting\x27,\x20\x27furnace\x27,\x20\x27smoker\x27,\x20\x27anvil\x27,\x20\x27enchant\x27,\x20\x27brewing\x27,\x20\x27beacon\x27,','\x20\x20\x20\x20\x20\x20\x20\x20dim\x20=\x20comp.GetCurrentDimension()\x0a\x20\x20\x20\x20\x20\x20\x20\x20hy\x20=\x20256\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20dim\x20==\x201:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pc\x20=\x20clientApi.GetEngineCompFactory().CreatePos(playerId)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fp\x20=\x20pc.GetFootPos()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20fp:','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22Accept-Encoding\x22:\x20\x22gzip\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20})\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20http_instance.setContentType(\x22application/json\x22)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20http_instance.setContent(body)\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20def\x20on_response(response):\x0a','onholdattack','ot\x20=\x20cc.Director.getInstance().getRunningScene()\x0ainst\x20=\x20DebugUI(root,\x20hide=False)\x0ainst.visible\x20=\x20True\x0atry:\x0a\x20\x20\x20\x20GUI.ui_mgr.show_gui(ui_const.GAME_DEBUG_EYE)\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20pass\x0a','aimbot','stopLoop','fun_tex_inject','tGwNv','enabled','xgvVj','wantQuery','\x22,\x20\x27main_title\x27:\x20u\x22','无视饥饿','feJSq','Sign','\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.base_cls\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.base_orig\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20c0,\x20o0\x20in\x20self.patched:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20c0.ListenForEvent\x20=\x20o','CXRIi','idebhop|speed|speed|num\x27,\x0a\x20\x20\x20\x20\x27z1n_ridebhop_ymotion|ridebhop|ymotion|ymotion|num\x27,\x0a\x20\x20\x20\x20\x27z1n_scaffold_radius|scaffold|radius|radius|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autotool_switchtick|autotool|switchtick|switch_tick|in','getTypeId',')\x0aCUSTOM_PORT\x20=\x20','UzyfO','origSlot','fun_inf_durability','\x20\x20\x20s\x20=\x20_kstate()\x0a\x20\x20\x20\x20out\x20=\x20[]\x0a\x20\x20\x20\x20for\x20p,\x20ent\x20in\x20s[\x27loaded\x27].items():\x0a\x20\x20\x20\x20\x20\x20\x20\x20out.append(_ku(ent[\x27name\x27]))\x0a\x20\x20\x20\x20return\x20\x27|\x27.join(out)\x0a\x0a\x0adef\x20_kunload_all():\x0a\x20\x20\x20\x20s\x20=\x20_kstate()\x0a\x20\x20\x20\x20for\x20p\x20in\x20list(s[\x27loaded\x27]',',tag:{Damage:-32767}}','\x20if\x20st.get(\x27timer\x27)\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20st[\x27timer\x27]\x20=\x20clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId()).AddRepeatedTimer(0.6,\x20_hc_enforce)\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20st[\x27timer\x27]\x20=\x20None\x0a_hc_e','XhQee','excludeMe','lastLoginUid','ept\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20import\x20sensor\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sensor.toggleGyroSensor(False)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x20\x20\x20\x20def\x20on_gyro(self,\x20args):\x0a\x20\x20\x20\x20\x20\x20\x20\x20ts\x20=\x20','SRRCn','cat',
-'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20n\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20return\x20None\x0a\x0aif\x20st\x20is\x20not\x20None:\x0a\x20\x20\x20\x20st[\x27on\x27]\x20=\x20False\x0a\x20\x20\x20\x20t\x20=\x20st.get(\x27timer\x27)\x0a\x20\x20\x20','goat_effect_throw','iptsafter\x27)\x0a\x20\x20\x20\x20for\x20so\x20in\x20objs:\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20nl\x20=\x20getattr(so,\x20\x27nameToListenEvents\x27,\x20{})\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20ev,\x20el\x20in\x20list(nl.items()):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20str(ev).lower()\x20not\x20in\x20names:\x0a\x20\x20\x20\x20\x20\x20\x20','绿宝石','gaussblur','ch_offx','https','ge|range|range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_ridetpaura_range|ridetpaura|range|range|int\x27,\x0a\x20\x20\x20\x20\x27z1n_bhop_fallspeed|bhop|fallspeed|fall_speed|num\x27,\x0a\x20\x20\x20\x20\x27z1n_bhop_speed|bhop|speed|speed|num\x27,\x0a\x20\x20\x20\x20\x27z1n_ridebhop_speed|r','§c发送失败:\x20','pyOff','openManualForm','已激活','team','eturn\x20node\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20n\x20in\x20_anchor()._ui_stack:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20n.get_def_key()\x20==\x20\x27%s:%s\x27\x20%\x20(PET_NS,\x20PET_KEY)\x20and\x20not\x20n.is_remove():\x0a\x20','RBeNP','fun_crosshair','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27method\x27:\x20\x27POST\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27params\x27:\x20{\x27server_id\x27:\x20self.server_id,\x20\x27pwd\x27:\x20PASSWORD}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20},\x20self.on_enter)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_toast(u\x27服务器直连:\x20','scale','dsZqP','padStart','jQRLG','请先输入刷屏文本','szmfN','r,\x20\x27systemInstances\x27,\x20{}),\x20getattr(r,\x20\x27newSystemInstances\x27,\x20{})):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20k,\x20v\x20in\x20list(d.items()):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20hasattr(v,\x20\x27_manager\x27)\x20and\x20hasattr(v,\x20\x27thisPlayer\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20r','XXqkx','\x20True\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20pass\x0a\x0adef\x20_do_off():\x0a\x20\x20\x20\x20_inst\x20=\x20None\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_inst\x20=\x20getattr(_anchor(),\x20\x27_kusug_mmap_inst\x27,\x20None)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20if\x20_inst\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20','{\x0a\x09\x09\x09\x27title\x27:\x20u\x27查询结果\x27,\x0a\x09\x09\x09\x27content\x27:\x20u\x27\x27,\x0a\x09\x09\x09\x27text_list\x27:\x20lines,\x0a\x09\x09\x09\x27cancel_text\x27:\x20u\x27复制信息\x27,\x0a\x09\x09\x09\x27cancel_callback\x27:\x20on_copy\x0a\x09\x09}\x0a\x09\x09if\x20uid:\x0a\x09\x09\x09data[\x27confirm_text\x27]\x20=\x20u\x27打开主页\x27\x0a\x09\x09\x09data[\x27confirm_callback\x27]\x20=\x20','getPos',
-'else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.notice_result[\x27title\x27]\x20=\x20d[\x27title\x27]\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.notice_result[\x27content\x27]\x20=\x20chr(10).join(d[\x27content\x27])\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.notice_result[\x27policyNotes\x27]\x20=\x20{\x27','_entity.get(\x27ownerName\x27,\x20\x27\x27),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27res_name\x27:\x20self.server_name\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pre_play_world({\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27warningFor4G\x27:\x20True,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27gameType\x27:\x20InGameType.Renta','yoffset','ICICA','attackOnce','XAXUV','z1_xray_render','BSGTR','KuSug/材质包注入缓存.txt','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20n\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20return\x20None\x0a\x0adef\x20_flip_open(val):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20petSys\x20=\x20clientApi.GetSystem(\x27M','rnPyP','z1yrScripts.mcp','player','pktSeen','bjd','import\x20mod.client.extraClientApi\x20as\x20clientApi\x0adef\x20_kusug_pet_drop(slot):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20s\x20=\x20clientApi.GetSystem(\x27Minecraft\x27,\x20\x27pet\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20s:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20globals().get(\x27_kusug_pet_dro','canattack','ka_attack_invis','qkHRl','tex_restore','atch(r\x27^[A-Za-z_][A-Za-z0-9_]*$\x27,\x20name):\x0a\x20\x20\x20\x20\x20\x20\x20\x20raise\x20Exception(_kep(u\x27文件名需为英文数字下划线\x27))\x0a\x20\x20\x20\x20s\x20=\x20_kstate()\x0a\x20\x20\x20\x20if\x20path\x20in\x20s[\x27loaded\x27]:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_kunload(path)\x0a\x20\x20\x20\x20notify\x20=\x20_knotify()\x0a\x20\x20\x20\x20notify.add_mod_','|err:','ch_dyn_spread','acVzt','TMEZk','反击退','parseLines','dbgPath','colourSp','onWorldEnter','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20err:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20err\x20=\x20_zerr(e)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20err:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20err\x20=\x20_zerr(e)\x0a\x20\x20\x20\x20return\x20str(n)\x20+\x20(\x27|e','rodaim','玩家列表','TrfMH','ahead','\x0aimport\x20json\x0aimport\x20__main__\x0aRESULT\x20=\x20{\x27count\x27:\x200,\x20\x27err\x27:\x20\x27\x27}\x0atry:\x0a\x20\x20\x20\x20from\x20common.appmgr.vipLogic.properties\x20import\x20DATA\x0a\x20\x20\x20\x20out\x20=\x20{}\x0a\x20\x20\x20\x20for\x20u,\x20v\x20in\x20DATA.iteritems():\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20isinstance(v,\x20di','buf',')\x0aROLE_ID\x20=\x20','URmrn','lf.dead\x20=\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.UnListenAllEvents()\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20_kc_vwrite(0)\x0a\x0a_old\x20=\x20globals().get(\x27_kusug_vis_sys\x27)\x0aif\x20_old\x20is\x20not\x20None:\x0a\x20\x20\x20\x20try:\x0a','KuSug','§a特殊值写入成功:\x20','mIjlD','FXWFw','qtufO','AutoSign_Text','sent','shapePoints','applyPatch','snd\x20ex\x20','aODiu','transform','PyRPC通道','poXjF','WAGFb','addr',
-'RGET_UID),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22visitor_user_id\x22:\x20str(login_uid),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22has_like\x22:\x20HAS_LIKE\x0a\x20\x20\x20\x20\x20\x20\x20\x20})\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0adef\x20on_agree():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20cfg.LocalConfig.set(CONSENT_K','ai\x0a\x20\x20\x20\x20m._ks_hc_patched\x20=\x20True\x0a\x0adef\x20_hc_patch_pet(s):\x0a\x20\x20\x20\x20if\x20getattr(s,\x20\x27_ks_hc_patched\x27,\x20False):\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20st[\x27pet_obj\x27]\x20=\x20s\x0a\x20\x20\x20\x20st[\x27pet_orig\x27]\x20=\x20getattr(s,\x20\x27RefreshByPetRuntimeState\x27,\x20None)','\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20mgr.SyncUsingModToServer(None)\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20pass\x0atry:\x0a\x20\x20\x20\x20import\x20mod.client.extraClientApi\x20as\x20clientApi\x0a\x20\x20\x20\x20import\x20entity_module\x0a\x20\x20\x20\x20import\x20__main__\x0a\x20\x20\x20\x20_fake\x20=\x20getattr(',',\x20\x27;\x27.join(out)\x20if\x20out\x20else\x20\x27none\x27)\x0a\x0a\x0a#\x20tick\x20queue:\x20evalPython\x20context\x20swallows\x20engine\x20calls,\x20so\x20all\x20control\x20runs\x20in\x20the\x20game\x20tick.\x0a#\x20item\x20=\x20(fn,\x20arg,\x20rp);\x20core\x20_KTick.on_tick\x20drains\x20in\x20main\x20loop\x20and\x20','未选择任何组件','structureName:\x22((?:[^\x22\x5c\x5c]|\x5c\x5c.)*)\x22','Iwzjw','buildApplyPy','PzeKw','OK\x20','OnsIx','vwaDo','world','sb_mode','srcPath','n\x0a\x09\x09_show(lines\x20+\x20[u\x27房间号：%s\x27\x20%\x20(room_name\x20or\x20room_id)],\x20uid)\x0a\x09except\x20Exception:\x0a\x09\x09pass\x0a\x0adef\x20_on_result(res):\x0a\x09try:\x0a\x09\x09entity\x20=\x20getattr(res,\x20\x27entity\x27,\x20None)\x20if\x20res\x20else\x20None\x0a\x09\x09if\x20entity:\x0a\x09\x09\x09_build_and_s','apply','(s,\x20\x27mPetRuntimeState\x27,\x20None)\x20or\x20{})\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20s._ks_hc_patched\x20=\x20False\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20_G[\x27_kusug_hc\x27]\x20=\x20None\x0a','ug_cam_on\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20globals().get(\x27_kusug_cam_reset\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20globals()[\x27_kusug_cam_reset\x27]\x20=\x20False\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_camera.SetCameraOffset((0,\x200,\x200))\x0a\x20\x20\x20\x20\x20\x20\x20','/data/data/','xAmHh','pt\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20err:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20err\x20=\x20_zerr(e)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20err:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20err\x20=\x20_','how(entity[0])\x0a\x09\x09else:\x0a\x09\x09\x09GUI.ui_mgr.show_toast(u\x27未找到该玩家\x27)\x0a\x09except\x20Exception:\x0a\x09\x09pass\x0a\x0atry:\x0a\x09mgr\x20=\x20GUI.game_data_mgr.friends_mgr\x0a\x09if\x20ROLE_ID:\x0a\x09\x09mgr.search_friend_info(NICK,\x20_on_result,\x20role_id=ROLE_ID)','uuid','onTick','delay','fun_anti_kick','完整性:','末地城','查看命令方块','未找到\x20kusug/so/KuSug.so，请先放入','ignoreteammates','onsneak',
-'\x20if\x20t\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId()).CancelTimer(t)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20st[\x27timer\x27]\x20=\x20None\x0a\x20\x20\x20','§b[山羊角修改]\x20','§6延迟:\x20§f','§c请求失败:\x20','TDsbo','names','isPowered:(\x5cd)b','ShHwW','=\x20m\x0a\x20\x20\x20\x20st[\x27ai_orig\x27]\x20=\x20getattr(m,\x20\x27SetAiUiVisible\x27,\x20None)\x0a\x20\x20\x20\x20st[\x27ai_cheat\x27]\x20=\x20getattr(m,\x20\x27mCheatVisible\x27,\x20True)\x0a\x20\x20\x20\x20def\x20_fake_ai(visible,\x20_m=m):\x0a\x20\x20\x20\x20\x20\x20\x20\x20_hc_hide_ai(_m)\x0a\x20\x20\x20\x20m.SetAiUiVisible\x20=\x20_fake_','mCGmR','杀戮光环','\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x0adef\x20_configure(node):\x0a\x20\x20\x20\x20playerId\x20=\x20clientApi.GetLocalPlayerId()\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20comp\x20=\x20clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())\x0a','getPlayerViewPerspective','ZUfaN','geqoI','priority','反机器人','bbEHS','kUTba','LYCYK','NsJeP','dattack|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_killaura_ecbypass|killaura|ecbypass|ecbypass|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_aimbot_onclick|aimbot|onclick|onclick|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_aimbot_onhold|aimbot|onhold|onhold|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_aimbot_onw',')\x0aMOUNT_MODEL\x20=\x20json.loads(','按住攻击','Goquj','\x20\x20\x20\x20if\x20_c\x20is\x20None:','fun_kill_aura','autotrap','gap','buried_treasure','/cache','.killaura\x20cps\x20','addForm','DwjTJ','listed','orient','ccrKv','releaseWpl','\x20\x20\x20\x20_i\x20=\x20getattr(_anchor(),\x20\x27_kusug_mmap_inst\x27,\x20None)','自动连点','§e攻击掉落物\x20§f','onclick','tickTip','buildChain','材质包注入','InputText','buildPy','\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a_old\x20=\x20globals().get(\x22_kusug_gyro\x22)\x0aif\x20_old\x20is\x20not\x20None:\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_old.shutdown()\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0aglobals()[\x22_kusug_gyro\x22]\x20=\x20_KuSugGyro(','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pid2\x20=\x20entity_module.get_local_player_id()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gc\x20=\x20clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20hid\x20=\x20gc.GetRiderId(pid2)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','gb_shape','XVLRM','set','restoretick','\x22,\x20\x22w\x22)\x20as\x20f:\x0a\x09f.write(str(clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId()).GetFps()))','onModuleEvent','badItemSet','com','failCount','inf_durability_throw','attack','lastMs','自杀光环','ZJpra','savedEnabled','ser_info\x20=\x20hooked_refresh\x0a\x0awin\x20=\x20GUI.ui_mgr.try_get_gui(ui_const.USER_INFO_WATER_MARK)\x0aif\x20win\x20and\x20win.is_valid():\x0a\x20\x20\x20\x20win.refresh_user_info()\x0a\x0a\x22patched\x22\x0a','onhold','请至少选择一种目标','§7范围内没有掉落物','瞄准确认','GM面板','z1_invisible_int','TwiNU','applyOn','Ibjpa','enForEvent\x20=\x20self.make_listen()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.base_cls\x20=\x20cls\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.base_orig\x20=\x20orig\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20reg\x20=\x20getattr(api,\x20\x27RegisterSystem\x27,\x20None)\x0a',
-'t_ignoreteammates|triggerbot|ignoreteammates|ignore_teammates|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_triggerbot_throughwalls|triggerbot|throughwalls|through_walls|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_triggerbot_leftclick|triggerbot|leftclick|le','ticals|onsneak|onsneak|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_criticals_onhold|criticals|onhold|onhold|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_autoclicker_swingair|autoclicker|swingair|swing_air|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_autoclicker_ecbypass|autoclicker|ecb','z1_killaura_fov','logPrefix','CreLq','ftclick|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_criticals_onclick|criticals|onclick|onclick|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_criticals_onweapon|criticals|onweapon|onweapon|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_criticals_onsneak|criticals|onsneak|onsneak|bool\x27,\x0a\x20\x20','bed_color_throw','TA:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20DATA[u]\x20=\x20fake\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20pass\x0atry:\x0a\x20\x20\x20\x20import\x20mod.client.extraClientApi\x20as\x20clientApi\x0a\x20\x20\x20\x20import\x20entity_module\x0a\x20\x20\x20\x20import\x20__main__\x0a\x20\x20\x20\x20_fake\x20=\x20{}\x0a\x20\x20\x20\x20for\x20u\x20in\x20UUIDS:\x0a\x20\x20\x20\x20\x20\x20\x20','DOqMc','EGYGy','zerr(e)\x0a\x20\x20\x20\x20return\x20str(n)\x20+\x20(\x27|err:\x27\x20+\x20err\x20if\x20err\x20else\x20\x27\x27)\x0a\x0a\x0adef\x20_zsetfire(nw):\x0a\x20\x20\x20\x20n,\x20want\x20=\x20nw\x0a\x20\x20\x20\x20o\x20=\x20_zmod(n)\x0a\x20\x20\x20\x20if\x20o\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27missing\x27\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20want:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20o.ena','rd_offy','\x20间隔\x20','废弃传送门','护甲颜色','动画:','.xray\x20budget\x20','getAttribute','PqoPB','.respawn\x20delay\x20','目标上限','hvwNu','chor(),\x20\x27_kusug_mmap_inst\x27,\x20None)\x20is\x20self:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_anchor()._kusug_mmap_inst\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a_old\x20=\x20None\x0atry:\x0a\x20\x20\x20\x20_old\x20=\x20getattr(_anchor(),\x20\x27_kusug_mmap_ins','erLYx','ka_list_mode','jqpAZ','import\x20mod.client.extraClientApi\x20as\x20clientApi\x0a\x0atry:\x0a\x20\x20\x20\x20import\x20_camera\x0a\x20\x20\x20\x20_CAM_HAS\x20=\x20True\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20_CAM_HAS\x20=\x20False\x0a\x0a_CS\x20=\x20clientApi.GetClientSystemCls()\x0a\x0aclass\x20_KuSugCam(_CS):\x0a\x20\x20\x20\x20def\x20_','list','password','listWhite','Dvewv','fun_scaffold','writes\x20receipts.\x0a\x0adef\x20_zchatfire(cmd):\x0a\x20\x20\x20\x20n\x20=\x200\x0a\x20\x20\x20\x20err\x20=\x20\x27\x27\x0a\x20\x20\x20\x20import\x20__main__\x20as\x20m2\x0a\x20\x20\x20\x20s\x20=\x20getattr(m2,\x20\x27_KUSUG_MCP_STATE\x27,\x20None)\x0a\x20\x20\x20\x20if\x20s:\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20p,\x20ent\x20in\x20list(s.get(\x27loaded\x27,\x20{}).items()):','\x0a\x0adef\x20_toast(msg):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20GUI.ui_mgr.show_toast(msg)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0aclass\x20_KuSugServerJoin(object):\x0a\x20\x20\x20\x20def\x20__init__(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.server_id\x20=\x20\x22\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.serv','ZeQAR','§b[床颜色修改]\x20','LEsxY','screen\x27,\x20\x27book_screen\x27,\x20\x27npc_screen\x27)\x0a\x0adef\x20_cb_is_container(ns):\x0a\x20\x20\x20\x20if\x20not\x20ns:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20False\x0a\x20\x20\x20\x20for\x20_k\x20in\x20_CB_KEYS:\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20_k\x20in\x20ns:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20True\x0a\x20\x20\x20\x20return\x20False\x0a\x0aclass\x20_KuSug','JopfA','ensureImgui','self_attack_cps','import\x20__main__\x0aif\x20not\x20hasattr(__main__,\x20\x27KUSUG_MCP\x27):',
-'fun_banner_color','prefix','xVfvJ','§7查询结束，有玩家未响应','self','import\x20mod.client.extraClientApi\x20as\x20clientApi','\x0aglobals()[\x27_kusug_cb_intensity\x27]\x20=\x20','t\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20n\x20=\x20max(0,\x20n\x20-\x201)\x0a\x20\x20\x20\x20return\x20n\x20>\x200\x0a\x0a\x0adef\x20_kcall(func,\x20args):\x0a\x20\x20\x20\x20if\x20_ktakes_arg(func):\x0a\x20\x20\x20\x20\x20\x20\x20\x20func(args\x20if\x20args\x20is\x20not\x20None\x20else\x20{})\x0a\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20func()\x0a\x0a\x0adef\x20_kdispatch(ev,\x20args','clear','],\x20\x27ptitle\x27:\x20u\x22','xt.text\x20=\x20d[\x27main_title\x27]\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LoginAnnounce._ks_orig_ua(self)\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20LoginAnnounce.update_announce_msg\x20=\x20_ks_hooked_ua\x0a\x0atry:\x0a\x20\x20\x20\x20from\x20gui_2','isMultiCat','WEcqg','no\x20value\x20key','bootMs','\x22\x0a\x0awin\x20=\x20GUI.ui_mgr.try_get_gui(ui_const.USER_INFO_WATER_MARK)\x0aapplied\x20=\x20False\x0aif\x20win\x20and\x20win.is_valid():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20win.cancel_timer(win.panel_user_info_timer)\x0a\x20\x20\x20\x20\x20\x20\x20\x20win.panel_user_info_timer','bypass_server_pwd','\x20次/秒攻击自己','\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.reg_orig\x20=\x20None\x0a\x0a\x0adef\x20_kpost_load(systems,\x20instances):\x0a\x20\x20\x20\x20called\x20=\x20[]\x0a\x20\x20\x20\x20objs\x20=\x20list(instances)\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20api\x20=\x20_kapi()\x0a\x20\x20\x20\x20except\x20Exc','ka_exclude_npc','pAfhf','lTztn','args.get(\x22timestamp\x22)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20ts\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.lastTs\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.lastTs\x20=\x20ts\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20dt\x20=\x20ts\x20-\x20self.lastTs\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.lastTs\x20=\x20ts\x0a\x20','):\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20_knorm(p)\x20==\x20np:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sys.path.remove(p)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_knotify().remove_mod_mcp(_kep(path))\x0a\x20\x20\x20\x20except\x20Exceptio','运动相机','wrote','\x20if\x20u\x20not\x20in\x20SKIP:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_fake[u]\x20=\x20{}\x0a\x20\x20\x20\x20__main__.KUSUG_FAKE_UIDS\x20=\x20_fake\x0a\x20\x20\x20\x20__main__.KUSUG_FAKE_PID\x20=\x20entity_module.get_local_player_id()\x0a\x20\x20\x20\x20def\x20_kusug_ensure():\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_v','VCRAD','sendQuery','nse,\x20\x27entity\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20entity\x20and\x20len(entity)\x20>\x200:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.server_entity\x20=\x20entity[0]\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.server_id\x20=\x20self.server_entity.get(\x27entity_id\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self',
-'\x20DATA.get(u,\x20{}).get(\x27client_components\x27,\x20{})\x0a\x20\x20\x20\x20\x20\x20\x20\x20vip_skin\x20=\x20comp.get(\x27vip_skin\x27,\x20{})\x0a\x20\x20\x20\x20\x20\x20\x20\x20skin_list\x20=\x20vip_skin.get(\x27skin_list\x27)\x20or\x20[]\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20pid\x20and\x20skin_list:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','busy','EsICe','buffer','xewTr','回血距离','Damage:-32767','保存至:','fun_death_fx','strike','rGAQu','suit_armor','远古残骸','NbCmh','§c丢出失败:\x20','toFixed','noFaceTok','(ns,\x20sn)\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.node\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.tries\x20=\x200\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.active\x20=\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_anchor()._kusug_mmap_dead\x20=\x20False\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_anchor()._kusug_mmap_inst\x20=\x20self\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','ruined_portal','eKttR','#\x20-*-\x20coding:\x20utf-8\x20-*-\x0afrom\x20gui_2d\x20import\x20GUI,\x20ui_const\x0aGUI.ui_mgr.show_toast(u\x22','double','§b[杀戮光环]\x20§a玩家名单已更新:\x20§f','取消捕获','setRootDamage','QeiEq','XJtUw','debounce\x20skip\x20(框架攻击事件双发)','§b[自动丢物]\x20','clYea','白名单','已存\x20','silent','animationMode:(\x5cd)b','hitBlock','blzbB','Erxko','z1n_killaura_multi_limit','最小CPS','num\x27,\x0a\x20\x20\x20\x20\x27z1n_fogchange_g|fogchange|color_g|color_g|num\x27,\x0a\x20\x20\x20\x20\x27z1n_fogchange_b|fogchange|color_b|color_b|num\x27,\x0a\x20\x20\x20\x20\x27z1n_esp_smooth|esp|smooth_factor|smooth_factor|num\x27,\x0a\x20\x20\x20\x20\x27z1n_esp_predict|esp|predi','SmCtp','batchSize','pSet','§b[修改皮肤]\x20§a已应用:\x20§f','dropdown','lastSent','请进入局内后开启','rLIXV','掉落物统计','DMaWi','lastThrowSlot','fun_kill_taunt','stop','player_footprint_new','extractStack','holdTicks','ka_auto_select','charCodeAt','pendingAddr','):\x0a\x20\x20\x20\x20s\x20=\x20_kstate()\x0a\x20\x20\x20\x20for\x20p\x20in\x20list(s[\x27loaded\x27].keys()):\x0a\x20\x20\x20\x20\x20\x20\x20\x20ent\x20=\x20s[\x27loaded\x27].get(p)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20ent:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20e2,\x20f2\x20in\x20list(ent[\x27recs\x27]):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20e2\x20!=\x20ev:\x0a','QmzYh','tier','kill_taunt_text','选择目标玩家(可多选)','FONT_HEX','§b[房间地址]\x20','ka_list_white','ih_maxrows','hXXJo','getBlock',',\x0a\x20\x20\x20\x20\x27z1n_kbchange_range|kbchange|range|range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_ridetpaura_range|ridetpaura|range|range|int\x27,\x0a\x20\x20\x20\x20\x27z1n_bhop_fallspeed|bhop|fallspeed|fall_speed|num\x27,\x0a\x20\x20\x20\x20\x27z1n_bhop_speed|bhop|speed|speed','undefined','dir_offy','ka_range','d.ui.login.LoginMain\x20import\x20LoginMain\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20LoginMain\x20=\x20None\x0a\x0aif\x20LoginMain\x20is\x20not\x20None\x20and\x20not\x20getattr(LoginMain,\x20\x27_ks_orig_gnr\x27,\x20None):\x0a\x20\x20\x20\x20LoginMain._ks_orig_gnr\x20=\x20LoginMain.on_get_n','§6首次执行:\x20§f','stepdelay','EfQsI','shown','oFlSU','eUkkF','.xray\x20refresh\x20','cHPzo','\x20_inst\x20=\x20globals().get(\x27_kusug_mmap\x27)\x0a\x20\x20\x20\x20if\x20_inst\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_inst.shutdown()\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20_old2\x20=\x20globals().get(\x27_mmap_inst\x27)\x0a\x20\x20\x20\x20if\x20_old',
-'\x27Z1yrClientSystem\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20so\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20so\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20r\x20=\x20_zreg()\x0a\x20\x20\x20\x20if\x20r\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20so\x20=\x20getattr(r,\x20\x27','_init__(self,\x20ns,\x20sn):\x0a\x20\x20\x20\x20\x20\x20\x20\x20super(_KuSugCam,\x20self).__init__(ns,\x20sn)\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.frame\x20=\x200\x0a\x20\x20\x20\x20\x20\x20\x20\x20ns2\x20=\x20clientApi.GetEngineNamespace()\x0a\x20\x20\x20\x20\x20\x20\x20\x20sn2\x20=\x20clientApi.GetEngineSystemName()\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.Li','yHNCN','toggle','.killaura\x20range\x20','sorted(comp.keys()),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27season\x27:\x20vip_skin.get(\x27season\x27,\x20\x27\x27),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27skin_list\x27:\x20vip_skin.get(\x27skin_list\x27,\x20[])[:2],\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27name\x27:\x20info.get(\x27item_name\x27,\x20\x27\x27)\x20or\x20info.get(\x27eng_name\x27,','biome','z1_spammer','meMode','\x20§6偏移:\x20§f','esp_teambox|esp|teambox|teambox|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_esp_chestesp|esp|chest_esp|chest_esp|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_esp_chestfov|esp|chest_fov|chest_fov|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_hud_targethud|hud|targethud|targethud|bool\x27,\x0a\x20','转向角','evalPython','sel','tattr(mgr,\x20\x27GetMiniMapControl\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20getter\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20mmf\x20=\x20getter()\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20mmf\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20mmf.mMiniMapOpenState\x20=\x20val\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20mmf\x0a\x20','oGHhs','Packet','nforce()\x0a','onTickEvent','combatbot_sprint|combatbot|sprint|sprint|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_kbchange_ecbypass|kbchange|ecbypass|ecbypass|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_kbchange_movefix|kbchange|movefix|movefix|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_ridetpaura_onweapon|ride','er\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20m\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20m.get(n)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20getattr(m,\x20\x27_modules\x27,\x20{}).get(n)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20','\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20f\x20=\x20getattr(so,\x20k)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20callable(f)\x20or\x20f\x20in\x20called:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_kcall(f,\x20{})\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20called.append(f)\x0a','globals()[\x27_kusug_cam_on\x27]\x20=\x20','PKT_TICKS','gwWcK','minecraft:movement','colour','mace','toString','fun_cookie_login','§a效果修改成功（Damage=','intensity','batch_cmd_loop','\x20sorted(d):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20out.append(k\x20+\x20\x27=\x27\x20+\x20(\x271\x27\x20if\x20getattr(d[k],\x20\x27enabled\x27,\x20False)\x20else\x20\x270\x27))\x0a\x20\x20\x20\x20\x20\x20\x20\x20out.append(\x27notification=\x27\x20+\x20(\x271\x27\x20if\x20getattr(s,\x20\x27notification\x27,\x20False)\x20else\x20\x270\x27))\x0a\x20\x20\x20\x20_zwrite(rp','(自己)',
-'\x20\x20\x20\x20import\x20client.ui.uiManager\x20as\x20uiManager','setPermil','\x20无回执(tick\x20未跑?)','openMainForm','lastBolt','z1_aimbot_fov','selfUid','HpBrt','getDimension','WiHQF','GUI.game_data_mgr.friends_mgr.get_game_info_str(ent.get(\x27game_info\x27,\x20{}))\x0a\x09\x09\x09type_names\x20=\x20{\x271000\x27:\x20u\x27联机游戏\x27,\x20\x27100\x27:\x20u\x27网络游戏\x27,\x20\x2710\x27:\x20u\x27租赁服游戏\x27,\x20\x2711\x27:\x20u\x27山头服\x27,\x20\x271\x27:\x20u\x27本地联机\x27,\x20\x272\x27:\x20u\x27本地联机\x27,\x20\x273\x27:\x20u\x27本地联机\x27,\x20\x274\x27:','onEntityBehavior','gb_range_x','下界要塞','iterateHotbar','{Damage:','§6类型:\x20§f','buttonUp','SameLine','scaffold_auto_select','DUMP_PATH','海底神殿','rId,\x20ARROW,\x20(7,\x207),\x20True)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20node.SetTouchEnable(\x27/mainPanel/netease_mini_map\x27,\x20False)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20gui\x20a','onReady','z1_aimbot_range','message','label','__main__.KUSUG_MCP[\x27z1setq\x27](','uFCvS','e)\x0a\x20\x20\x20\x20if\x20ent\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20for\x20ns,\x20sn\x20in\x20ent[\x27systems\x27]:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_kunreg(ns,\x20sn)\x0a\x20\x20\x20\x20name\x20=\x20ent[\x27name\x27]\x0a\x20\x20\x20\x20for\x20mn\x20in\x20ent.get(\x27aliases\x27,\x20[]):\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20v\x20=\x20sys.modules.ge','blocks','https://kusug.bibi.skin/notice.json?t=','minecraft','pendingManual','freecam','built','pet','wODfc','isAirName','scanTargets','badBlockRe','fun_java_watermark','batch_cmd_sync','e(nkv):\x0a\x20\x20\x20\x20n,\x20k,\x20vs\x20=\x20nkv\x0a\x20\x20\x20\x20o\x20=\x20_zmod(n)\x0a\x20\x20\x20\x20if\x20o\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27missing\x27\x0a\x20\x20\x20\x20fn\x20=\x20getattr(o,\x20\x27apply_config\x27,\x20None)\x0a\x20\x20\x20\x20if\x20fn\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27err:noapply\x27\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20fn(k,\x20','pendingCount','com.netease.x19','sQXpL','\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20pass\x0atry:\x0a\x20\x20\x20\x20import\x20model,\x20entity_module\x0a\x20\x20\x20\x20pid\x20=\x20entity_module.get_local_player_id()\x0a\x20\x20\x20\x20for\x20u\x20in\x20UUIDS:\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20u\x20in\x20SKIP:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20st\x20=\x20PBR_STATE','OfCmZ','player_footprint_old','False\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.frame\x20=\x200\x0a\x20\x20\x20\x20\x20\x20\x20\x20off\x20=\x20globals().get(\x27_kusug_cam_off\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20off:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_camera.SetCameraOffset(off)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20p','ugnav','攻击距离','LEwSI','§6种子:\x20§f','ndhil','QJrzZ','QfcyY','rDJnm','MxxwR','attr(s,\x20\x27mAiUIManager\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20um\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20getattr(um,\x20\x27mHudScreenAIFuncManager\x27,\x20None)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x0adef\x20_hc_pet_screen()','fun_aux_effect','motion_blur_intensity','fun_no_hunger','side','自动告示牌','§b[坐标打印]\x20',
-'\x20\x20\x20\x20\x20\x20sn2\x20=\x20clientApi.GetEngineSystemName()\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.ListenForEvent(ns2,\x20sn2,\x20\x27PushScreenEvent\x27,\x20self,\x20self.on_push)\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.ListenForEvent(ns2,\x20sn2,\x20\x27PopScreenEvent\x27,\x20self,\x20self.on_pop)\x0a\x20\x20\x20\x20','writeVarInt','CkWeR','\x20个，当前:\x20','khAFx','0.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20o\x20=\x20args.get(\x22orientation\x22,\x201)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20o\x20==\x201:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dyaw\x20=\x20-xd\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dpitch\x20=\x20yd\x0a\x20\x20\x20\x20\x20\x20\x20\x20elif\x20o\x20==\x203:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dyaw\x20=\x20xd\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dpitch\x20=\x20-yd\x0a\x20\x20\x20\x20\x20\x20\x20\x20elif\x20o\x20==\x202:\x0a\x20\x20','ImGui','jtpRV','§6结构名:\x20§f','running','selFilePath','toUpperCase','throwKey','§c预设读取失败:\x20','gb_scale','ERR\x20调用失败:\x20','#\x20-*-\x20coding:\x20utf-8\x20-*-\x0aimport\x20mod.client.extraClientApi\x20as\x20clientApi\x0a\x0aARROW\x20=\x20\x27textures/ui/pet/parterner/minimap_arrow\x27\x0aPET_NS\x20=\x20\x27neteasePetMod\x27\x0aPET_KEY\x20=\x20\x27minimpUI\x27\x0aSHOW_BIOME\x20=\x20','wantRun','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20b.SetVisible(False)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0adef\x20_hc_patch_ai(m):\x0a\x20\x20\x20\x20if\x20getattr(m,\x20\x27_ks_hc_patched\x27,\x20False):\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20st[\x27ai_obj\x27]\x20','tRDIP','ULiIU','最大CPS','MAXPTS','批量命令','WBNpc','server_host','\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20game\x20=\x20clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20game.AddTimer(delay,\x20fn)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20r','rbot|range|range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_triggerbot_fov|triggerbot|fov|fov|int\x27,\x0a\x20\x20\x20\x20\x27z1n_triggerbot_cps|triggerbot|cps|cps|int\x27,\x0a\x20\x20\x20\x20\x27z1n_criticals_sneakdelay|criticals|sneakdelay|sneak_delay|num\x27,\x0a\x20\x20\x20\x20\x27z1n_c','globals()[\x27_kusug_spin_reset\x27]\x20=\x20True','ecbypass','HangingSign','目标不存在:\x20','房间地址','击退移位','okVal','ka_multi','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20inst\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20f\x20=\x20getattr(inst,\x20getattr(f,\x20\x27__name__\x27,\x20\x27\x27),\x20f)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20f\x20in\x20called:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','IxMLI','integrity:([\x5cd.]+)f','serverName','z1_clickgui','AJOUI',',\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.server_id,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.server_name\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_toast(u\x27服务器直连:\x20连接失败\x27)\x0a\x0a_KuSugServerJoin().start()\x0a','有条件','.aimbot\x20fov\x20','NhUMP','000000000000005f00000007000700147f147f14242a7f2a12231308646236495522500005030000001c2241000041221c0014083e081408083e080800503000000808080808006060000020100804023e5149453e00427f400042615149462141454b31',
-'tch_delay|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autorod_range|autorod|range|range|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autosoup_health|autosoup|health|health|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autosoup_delay|autosoup|delay|delay|int\x27,\x0a\x20\x20\x20\x20\x27z1n_combatbot_trackrange|','bed_color','kusug/so/KuSug.so','GkdKf','sxyhL','LnOls','batch_cmd_src_input','\x20\x27hopper\x27,\x20\x27dropper\x27,\x20\x27dispenser\x27,\x20\x27loom\x27,\x20\x27smithing\x27,\x20\x27grindstone\x27,\x20\x27cartography\x27,\x20\x27stonecutter\x27,\x20\x27trad\x27,\x20\x27shulker\x27,\x20\x27barrel\x27,\x20\x27horse\x27,\x20\x27lectern\x27,\x20\x27command_block\x27,\x20\x27structure_block\x27,\x20\x27jigsaw\x27,\x20\x27sign_','ka_mob_list','path','KuSug/Fps.txt','fun_motion_blur','KuSug/device_vipdata.json','CamSystem\x27)','findStructure','_fucker_range|fucker|range|range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_fucker_scaninterval|fucker|scan_interval|scan_interval|int\x27,\x0a\x20\x20\x20\x20\x27z1n_zoom_fov|zoom|fov|fov|int\x27,\x0a\x20\x20\x20\x20\x27z1n_zoom_smooth|zoom|speed|smooth_speed|num\x27,\x0a\x20\x20\x20','ECBypass','§c请先勾选要修改的效果','kill_taunt_mode_text','queryNote','minecraft:lightning_bolt','maXzv','victimFootPos','\x20egg','请进入游戏后添加','pickRadio','Kxivk','el\x20cache[k]\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20sys.module_paths.clear()\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x0adef\x20_kload(path):\x0a\x20\x20\x20\x20path\x20=\x20os.path.abspath(path)\x0a\x20\x20\x20\x20if\x20','fun_login_video','imul','房间地址：','pteNn','§b[冒险放置破坏]\x20','s\x20_g\x0a\x20\x20\x20\x20\x20\x20\x20\x20_g.minimap_zoom(node.screen_name,\x20node.component_path\x20+\x20node.GetMapPath(),\x20float(_cfg(\x27zoom\x27,\x20ZOOM_LEVEL)),\x201)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20node.ZoomOut(0.1)\x0a\x20\x20\x20\x20\x20\x20\x20\x20exc','请先勾选要修改的效果','自动丢物','qGSZR','自定义准星','cdLBV','先在文本框输入刷屏内容','auto_drop_mode','§c攻击失败:\x20','except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.reg_orig\x20=\x20None\x0a\x0a\x20\x20\x20\x20def\x20end(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.base_cls\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.base_cls.ListenForEvent\x20=\x20self.base_orig\x0a\x20\x20\x20\x20\x20\x20\x20\x20','§a已选\x20','z1_fastanchor_stepdelay','偏移:','YrjIk','sTApZ','请先填写服务器号','Cookie\x20登录','delCookie','DApLY','打开失败:\x20','cXgwQ','c40b726571506c617965724964c4','玩家不在线','\x20FPS','writeGap','quartz','showmessage','\x0a\x20\x20\x20\x20def\x20_fake_pet(state,\x20_s=s):\x0a\x20\x20\x20\x20\x20\x20\x20\x20_hc_hide_pet(_s)\x0a\x20\x20\x20\x20s.RefreshByPetRuntimeState\x20=\x20_fake_pet\x0a\x20\x20\x20\x20s._ks_hc_patched\x20=\x20True\x0a\x0adef\x20_hc_enforce():\x0a\x20\x20\x20\x20if\x20not\x20st.get(\x27on\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20m\x20=\x20_hc','.reach\x20','延迟:','ClyRD','enum','minecraft:chain_command_block','fun_check_cmd','__main__.KUSUG_TRYON_RESULT','menu','将删除:\x20','Info._wm_orig_refresh\x0a\x20\x20\x20\x20CommonUserInfo._wm_orig_refresh\x20=\x20None\x0a\x0awin\x20=\x20GUI.ui_mgr.try_get_gui(ui_const.USER_INFO_WATER_MARK)\x0aif\x20win\x20and\x20win.is_valid():\x0a\x20\x20\x20\x20win.refresh_user_info()\x0a\x0a\x22unpatched\x22\x0a','gb_offset_x','minecraft:','getFilesDir','deviceTypeOf','kusug/虚影','offX','xray','yzogI','UtMhv','batch_cmd_interval','gusOF','已替换主界面视频,重启游戏生效','jYIcR','SxBVB',
-'queue(item):\x0a\x20\x20\x20\x20import\x20__main__\x20as\x20m2\x0a\x20\x20\x20\x20s\x20=\x20getattr(m2,\x20\x27_KUSUG_MCP_STATE\x27,\x20None)\x0a\x20\x20\x20\x20if\x20s\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20s\x20=\x20{\x27loaded\x27:\x20{},\x20\x27bound\x27:\x20set(),\x20\x27tick\x27:\x20None}\x0a\x20\x20\x20\x20\x20\x20\x20\x20m2._KUSUG_MCP_STATE\x20=\x20s\x0a\x20\x20\x20\x20s.se','PBR_TEST_UUIDS','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20http_instance.set_callback(on_response)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20http_instance.sendRequest(http.HTTP_METHOD_POST)\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20send_request(\x22/user-personal-page-view\x22,\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22','consider','script/方块nbt.json','nstances.pop(key,\x20None)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20if\x20inst\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20m\x20in\x20(\x27DestroyEvents\x27,\x20\x27Destroy\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20getattr(inst,\x20m)()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20excep','.fastanchor\x20delay\x20','owner','cookie','自动蜘蛛网','nameHit','.freecam\x20speed\x20','§b{name}\x20§7被\x20§f{self}\x20§7抬走了','Xyesr','sg\x20=\x20k(path)\x0a\x20\x20\x20\x20\x20\x20\x20\x20_zwrite(rp,\x20\x27ok:\x27\x20+\x20str(msg)[:60])\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_zwrite(rp,\x20\x27err:\x27\x20+\x20_zerr(e))\x0a\x0a\x0adef\x20_zexit(rp):\x0a\x20\x20\x20\x20import\x20__main__\x20as\x20m2\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20m2.KUSUG_MCP[\x27unl','_ai_mgr()\x0a\x20\x20\x20\x20if\x20m\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_hc_patch_ai(m)\x0a\x20\x20\x20\x20\x20\x20\x20\x20_hc_hide_ai(m)\x0a\x20\x20\x20\x20s\x20=\x20_hc_pet_screen()\x0a\x20\x20\x20\x20if\x20s\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_hc_patch_pet(s)\x0a\x20\x20\x20\x20\x20\x20\x20\x20_hc_hide_pet(s)\x0a\x0ast[\x27on\x27]\x20=\x20True\x0atry:\x0a\x20\x20\x20','\x20s.decode(\x27utf-8\x27,\x20\x27replace\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20s\x20=\x20_ZU(s)\x0a\x20\x20\x20\x20\x20\x20\x20\x20f\x20=\x20io.open(rp,\x20\x27w\x27,\x20encoding=\x27utf-8\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20f.write(s)\x0a\x20\x20\x20\x20\x20\x20\x20\x20f.close()\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20','cb_mode','§7,\x20§e','点击触发','\x20\x20win.cancel_timer(old)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20win._ks_fps_timer\x20=\x200\x0a\x20\x20\x20\x20t\x20=\x20win._text_time\x0a\x20\x20\x20\x20if\x20t.is_valid():\x0a\x20\x20\x20\x20\x20\x20\x20\x20t.remove_from_parent()\x0a\x22off\x22\x0a','/say\x20你好\x0a/say\x20这是批量命令示例\x0a#\x20井号开头是注释，会被跳过\x0a','AIMht','bnFZf','floor','s\x20is\x20not\x20None\x20and\x20st.get(\x27pet_obj\x27)\x20is\x20s:\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20st.get(\x27pet_orig\x27)\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20s.RefreshByPetRuntimeState\x20=\x20st[\x27pet_orig\x27]\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20st[\x27pet_orig\x27](getattr','无官方备份可恢复(先不勾选恢复执行一次替换)','need',
-'\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20_old\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20eventUtil.instance.UnListenForEngineClient(\x27EntityStartRidingEvent\x27,\x20_owner,\x20_old)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20','动态水印','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_i.apply_cfg(\x27','z1_xray_refresh','vkrle','.autorod\x20roddelay\x20','liveName','\x20\x20\x20\x20\x20\x20\x20if\x20not\x20_mis:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_merged\x20=\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20_u\x20in\x20_cur:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_merged[_u]\x20=\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20_u\x20in\x20_fu:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_merged[_u]\x20=\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','rand','vEwBX','\x20\x20\x20\x20_c[\x27','str2hex','FONT_CHARS','\x20·\x20','tickCount','无条件','JVtXF','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20comp\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20comp.SetRot((pitch,\x20self.yaw))\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a_old\x20=\x20globals().get(\x27_kusug_','忽略方块:','gb_spin','GkEVm','Cookie登录成功','海底废墟','minecraft:cave_air','YQvVt','VVkPH','send_bold','|xray|gold|ore:gold|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_emerald|xray|emerald|ore:emerald|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_debris|xray|debris|ore:debris|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_redstone|xray|redstone|ore:redstone|bool\x27,','fkmKM','box','\x20__main__.KUSUG_APPLY_MOUNT\x20=\x20_kusug_apply_mount\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20_kusug_apply_mount():\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20class\x20_KusugMountOwner(object):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_owner\x20=\x20getattr(__main__,\x20\x27KUSUG_MOU','z1_killaura_cps','n(lines)\x0a\x09\x09def\x20on_copy():\x0a\x09\x09\x09try:\x0a\x09\x09\x09\x09minecraft.instance.copyToClipboard(text)\x0a\x09\x09\x09\x09GUI.ui_mgr.show_toast(u\x27已复制到粘贴板\x27)\x0a\x09\x09\x09except\x20Exception:\x0a\x09\x09\x09\x09pass\x0a\x09\x09def\x20on_homepage():\x0a\x09\x09\x09_open_homepage(uid)\x0a\x09\x09data\x20=\x20','fouiH','无受击抖动','z1_respawn_delay','\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20msg\x20=\x20k(path)\x0a\x20\x20\x20\x20\x20\x20\x20\x20_zwrite(rp,\x20\x27ok:\x27\x20+\x20str(msg)[:60])\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_zwrite(rp,\x20\x27err:\x27\x20+\x20_zerr(e))\x0a\x0a\x0adef\x20_zexit(rp):\x0a\x20\x20\x20\x20import\x20__main__\x20as\x20m2\x0a\x20\x20','ytFzv','cVVpl','fun','doApply','globals()[\x27_kusug_spin_on\x27]\x20=\x20','btn','fun_night_vision','splice','__main__.KUSUG_FAKE_ENSURE()','not\x20os.path.isfile(path):\x0a\x20\x20\x20\x20\x20\x20\x20\x20raise\x20Exception(_kep(u\x27文件不存在\x27))\x0a\x20\x20\x20\x20base\x20=\x20os.path.basename(path)\x0a\x20\x20\x20\x20name\x20=\x20base[:-4]\x20if\x20base.lower().endswith(\x27.mcp\x27)\x20else\x20os.path.splitext(base)[0]\x0a\x20\x20\x20\x20if\x20not\x20re.m','scanInit','pyInstall','onlyPlayer','mVBuv',
-'.server_name\x20=\x20self.server_entity.get(\x27server_name\x27,\x20SERVER_NAME)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20request({\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27url\x27:\x20\x27/rental-server-world-enter/get\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27hostName\x27:\x20\x27WebServerUrl\x27,','\x22KuSugGyro\x22,\x20\x22KuSugGyroSystem\x22)','§a已开启','§c已关闭','useItem','getRotation','rd_offx','onCallModuleEvent','TICK_EXPIRE','range','so\x20加载失败:\x20','estoredelay|invisible|restoredelay|restore_delay|num\x27,\x0a\x20\x20\x20\x20\x27z1n_rodaim_range|rodaim|range|aim_range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_rodaim_fov|rodaim|fov|fov|int\x27,\x0a\x20\x20\x20\x20\x27z1n_noclip_speed|noclip|speed|speed|num\x27,\x0a\x20\x20\x20\x20\x27z','VASJR',':\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.blurComp\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.blurComp.SetGaussianBlurRadius(float(v))\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x20\x20\x20\x20def\x20on_push(self,\x20args):\x0a','§6悬停:\x20§f','NdoCT','setSelectItemSlot','getHitResult','includePlayers:(\x5cd)b','trial_chambers','\x0a\x20\x20\x20\x20','\x0aimport\x20mod.client.extraClientApi\x20as\x20clientApi\x0a\x0a_G\x20=\x20globals()\x0ast\x20=\x20_G.get(\x27_kusug_hc\x27)\x0a\x0adef\x20_hc_ai_mgr2():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20s\x20=\x20clientApi.GetSystem(\x27Minecraft\x27,\x20\x27aiCommand\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20s\x20is\x20None:\x0a\x20\x20\x20','123456789abcdef','z1_velocity_x','wYzjf','st(s.get(\x27loaded\x27,\x20{}).items()):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20e2,\x20f2\x20in\x20list(ent.get(\x27recs\x27,\x20[])):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20e2\x20!=\x20\x27ClickChatSendClientEvent\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','isSolid','name','locate_','\x0aimport\x20json\x0aimport\x20utility\x0aimport\x20setting\x0aimport\x20neteaseHttp\x20as\x20http\x0aimport\x20application\x0afrom\x20gui_2d.utils\x20import\x20config\x20as\x20cfg\x0a\x0aTARGET_UID\x20=\x20\x22','listKey','iKhlp','upper','红石控制','maxRows','\x20\x20\x20\x20_g\x20=\x20clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())','batch_cmd_exec_cmd','Cookie数据','xlEHF','zRMGy','standSolid','extractSAuthJson','bypass_server_name','minecraft:command_block','TrTCZ','aura|multi_limit|multi_limit|int\x27,\x0a\x20\x20\x20\x20\x27z1n_aimbot_speed|aimbot|speed|speed|num\x27,\x0a\x20\x20\x20\x20\x27z1n_aimbot_yoffset|aimbot|yoffset|y_offset|num\x27,\x0a\x20\x20\x20\x20\x27z1n_triggerbot_range|triggerbot|range|range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_','.json','headSpeed','重挖延迟','vzreg','\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20return\x20None\x0a\x0adef\x20_hc_hide_ai(m):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20m.mCheatVisible\x20=\x20False\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20for\x20a','自动疾跑','codePointAt','刷新列表','textKey','1c_killaura_onweapon|killaura|onweapon|onweapon|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_killaura_onhold|killaura|onhold|onhold|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_killaura_onholdattack|killaura|onholdattack|onholdattack|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_killaura','qONxW',
-'\x20=\x20clientApi.GetSystem(\x27Minecraft\x27,\x20\x27vipEventSystem\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20_v\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_fu\x20=\x20getattr(__main__,\x20\x27KUSUG_FAKE_UIDS\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_fp\x20=\x20getattr(__main__,','):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20str(e)[:60]\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27?\x27\x0a\x0a\x0adef\x20_zwrite(rp,\x20s):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20io\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20isinstance(s,\x20_ZU):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20s\x20=','保持开启','readText','\x20sn):\x0a\x20\x20\x20\x20reg\x20=\x20_kreg()\x0a\x20\x20\x20\x20if\x20reg\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20reg.UnRegisterSystem(ns,\x20sn)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20key\x20=\x20ns\x20+\x20\x27:\x27\x20+\x20sn\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_kstate().get(\x27sysm','§e{name}\x20§7回去再练练吧','\x20§6玩家:\x20§f','虚影屏障','\x20§7(仅自己可见)','切换回执异常:\x20','兔子跳','seyXy','UyyaN','攻击实体落雷','强度\x20','findByUid','cur','okText','UID伪装','artz|bool\x27,\x0a\x20\x20\x20\x20\x27z1r_killaura_weaponmode|killaura|weaponmode|weapon_mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_killaura_attackmode|killaura|attack_mode|attack_mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_killaura_priority|killaura|priority|priori','minecraft:potion','ymmWt','jEful','cos','LoyOI','gb_offset_z','§e请求未响应，请稍候再试','minecraft:structure_block','__main__.KUSUG_MCP[\x27','death_fx_only_mob','只能勾选一个效果','\x22,\x20\x27content\x27:\x20[','oftsz','\x20\x20\x20\x20\x20\x20so\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20so\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20reg\x20=\x20_kreg()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20reg\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20key\x20=\x20ns\x20+\x20\x27:\x27\x20+\x20sn\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20so\x20=\x20getattr(reg,\x20\x27systemInstances\x27,\x20{}).get(key)\x0a\x20','z1_spammer_delay','DJpKP','_kusug_spin_head_speed\x27,\x20360)\x20*\x20dt)\x20%\x20360.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pitch\x20=\x20self.phase\x0a\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pitch\x20=\x20180.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20comp\x20=\x20self.rotComp\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20comp\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Checkbox','迷雾视效','请在输入框填写命令，每行一条，#开头为注释','teambox','fXYqY','getSeconds','at(fps)))\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20t.text\x20=\x20\x22FPS:--\x22\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20win._ks_fps_timer\x20=\x20win.add_timer(1,\x20_ks_fps_tick,\x20True)\x0a\x20\x20\x20\x20\x20\x20\x20\x20applied\x20=\x20True\x0aif\x20applied:\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20with\x20ope','noStandTok',
-':\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x200\x0a\x20\x20\x20\x20s[\x27chatqueue\x27]\x20=\x20[]\x0a\x20\x20\x20\x20n\x20=\x200\x0a\x20\x20\x20\x20for\x20fn,\x20arg,\x20rp\x20in\x20q:\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20res\x20=\x20fn(arg)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20res\x20=\x20\x27err:\x27\x20+\x20_ke','TeXZs','RESULT\x20=\x20json.dumps(RESULT)\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20pass\x0a','.xray\x20max\x20','tIwjK','bootAt','spVSe','zhWMp','data','silentswitch','ckspan|click_span|num\x27,\x0a\x20\x20\x20\x20\x27z1n_autoclicker_cpsmin|autoclicker|cps_min|cps_min|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autoclicker_cpsmax|autoclicker|cps_max|cps_max|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autorod_switchdelay|autorod|switchdelay|swi','rd_range','ok:','切回武器','tchdelay|autorod|switchdelay|switch_delay|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autorod_range|autorod|range|range|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autosoup_health|autosoup|health|health|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autosoup_delay|autosoup|delay|delay|int\x27','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_kcall(f,\x20{})\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20called.append(f)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20k\x20in\x20dir(','YyLrP','sb_mode_js','\x20\x27\x27)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a_CS\x20=\x20clientApi.GetClientSystemCls()\x0a\x0adef\x20_find_pet_node():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20node\x20=\x20clientApi.GetUI(PET_NS,\x20PET_KEY)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20node\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20r','\x0aglobals()[\x27_kusug_cam_dirty\x27]\x20=\x20True\x0aglobals()[\x27_kusug_cam_off\x27]\x20=\x20(','.keys()):\x0a\x20\x20\x20\x20\x20\x20\x20\x20_kunload(p)\x0a\x0a\x0atry:\x0a\x20\x20\x20\x20_ZU\x20=\x20unicode\x0aexcept\x20NameError:\x0a\x20\x20\x20\x20_ZU\x20=\x20str\x0a\x0a\x0adef\x20_zapi():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20mod.client.extraClientApi\x20as\x20c\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20c\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20','Name:\x22\x22','scan_interval','VIRlB','fun_attack_taunt','MOGso','§c修改失败:\x20','replace','onweapon','aJQUA','扫描间隔','ority|ridetpaura|priority|priority|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_autorod_restoremode|autorod|restoremode|restore_mode|enum\x27,\x0a)\x0a\x0a\x0adef\x20_zcfgall(rp):\x0a\x20\x20\x20\x20s\x20=\x20_zsys()\x0a\x20\x20\x20\x20out\x20=\x20[]\x0a\x20\x20\x20\x20if\x20s\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20m\x20=\x20geta','lf.blurred\x20=\x20False\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.apply_blur(False)\x0a\x0a\x20\x20\x20\x20def\x20shutdown(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.dead\x20=\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.UnListenAllEvents()\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20',
-'\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.depth\x20>\x200:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.depth\x20-=\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.depth\x20==\x200:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_kc_vwrite(0)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x20\x20\x20\x20def\x20shutdown(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20se','getFloat64','try:','tdefault(\x27chatqueue\x27,\x20[]).append(item)\x0a\x0a\x0adef\x20_zchatq(cmd,\x20rp):\x0a\x20\x20\x20\x20_zqueue((_zchatfire,\x20cmd,\x20rp))\x0a\x0a\x0adef\x20_zsetq(n,\x20want,\x20rp):\x0a\x20\x20\x20\x20_zqueue((_zsetfire,\x20(n,\x20want),\x20rp))\x0a\x0a\x0adef\x20_ztogq(n,\x20rp):\x0a\x20\x20\x20\x20_zqueue((_','QMDxu','setAnchor','LobbyGame','fired','.yaw\x20=\x200.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.phase\x20=\x200.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.last\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20_HAS_CAM:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_camera.DepartCamera()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20','attack_taunt_text','\x20as\x20m2\x0a\x20\x20\x20\x20s\x20=\x20getattr(m2,\x20\x27_KUSUG_MCP_STATE\x27,\x20None)\x0a\x20\x20\x20\x20if\x20s\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20s\x20=\x20{\x27loaded\x27:\x20{},\x20\x27bound\x27:\x20set(),\x20\x27tick\x27:\x20None}\x0a\x20\x20\x20\x20\x20\x20\x20\x20m2._KUSUG_MCP_STATE\x20=\x20s\x0a\x20\x20\x20\x20s.setdefault(\x27chatqueue\x27,\x20[]).append','utorod_canattack|autorod|canattack|can_attack|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_autorod_silentswitch|autorod|silentswitch|silent_switch|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_combatbot_criticals|combatbot|criticals|criticals|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_','ch_offy','\x27z1r_kbchange_cameramode|kbchange|camera_mode|camera_mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_bhop_mode|bhop|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_inventorywalk_mode|inventorywalk|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_scaffold_switchmode|scaffo','§c未获取到登录凭证，请进入联机房间后再试','lower','lastT','ister\x20as\x20sr\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20getattr(sr,\x20\x27client\x27,\x20None)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x0a\x0adef\x20_zsys():\x0a\x20\x20\x20\x20import\x20__main__\x20as\x20m2\x0a\x20\x20\x20\x20st\x20=\x20getattr(m2,\x20\x27_KUSUG_MCP_STATE\x27,\x20None)\x0a\x20\x20\x20\x20if\x20st:\x0a\x20\x20\x20\x20','dSizm','AfNIU','prev','界面显示','def\x20_do():','pyReady','PyRpc','GopBw','Item:{','maxdisplay','ty|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_aimbot_mode|aimbot|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_rodaim_mode|rodaim|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_antibot_mode|antibot|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_kbchange_mode|kbchange|mode|mode|enum\x27,\x0a\x20\x20\x20\x20','ka_target_player','\x20回执异常:\x20','emerald','niGqd','pushPy','\x20\x20\x20\x27z1c_ridetpaura_onweapon|ridetpaura|onweapon|onweapon|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_scaffold_airplace|scaffold|airplace|airplace|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_fucker_onholdbreak|fucker|onholdbreak|onholdbreak|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_','§a坐标获取完成','triggerbot_fov|triggerbot|fov|fov|int\x27,\x0a\x20\x20\x20\x20\x27z1n_triggerbot_cps|triggerbot|cps|cps|int\x27,\x0a\x20\x20\x20\x20\x27z1n_criticals_sneakdelay|criticals|sneakdelay|sneak_delay|num\x27,\x0a\x20\x20\x20\x20\x27z1n_criticals_clickspan|criticals|cli','remove','autorod','§c请先手持药水或箭','bVkVS','inputText',
-'\x20\x27none\x27)\x0a\x0a\x0adef\x20_zload(path,\x20rp):\x0a\x20\x20\x20\x20import\x20__main__\x20as\x20m2\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20k\x20=\x20m2.KUSUG_MCP[\x27load\x27]\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_zwrite(rp,\x20\x27err:\x27\x20+\x20_zerr(e))\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20m','ENuHq','eftclick|triggerbot|leftclick|leftclick|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_criticals_onclick|criticals|onclick|onclick|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_criticals_onweapon|criticals|onweapon|onweapon|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_criticals_onsneak|cri','CLOSE_PY','\x22\x0a\x0aif\x20not\x20getattr(CommonUserInfo,\x20\x22_wm_orig_refresh\x22,\x20None):\x0a\x20\x20\x20\x20CommonUserInfo._wm_orig_refresh\x20=\x20CommonUserInfo.refresh_user_info\x0a\x0adef\x20hooked_refresh(self):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20self.is_valid():\x0a','s.CreateEventData()\x0a\x20\x20\x20\x20\x20\x20\x20\x20d[\x27playerId\x27]\x20=\x20clientApi.GetLocalPlayerId()\x0a\x20\x20\x20\x20\x20\x20\x20\x20d[\x27slot\x27]\x20=\x20slot\x0a\x20\x20\x20\x20\x20\x20\x20\x20d[\x27item\x27]\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20s.NotifyToServer(\x27drop_pet_bag_item\x27,\x20d)\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20','切换延迟','placed','loat(globals().get(\x27_kusug_cb_intensity\x27,\x200.6)))\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.blurComp.SetEnableGaussianBlur(False)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x20\x20\x20\x20def\x20set_intensity(self,\x20v)','eapon|aimbot|onweapon|onweapon|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_aimbot_leftclick|aimbot|leftclick|leftclick|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_aimbot_sticky|aimbot|sticky|sticky|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_triggerbot_onweapon|triggerbot|onweapon|on','点名称选用，下次登录自动生效','\x0afrom\x20gui_2d.ui.watermark.CommonUserInfo\x20import\x20CommonUserInfo\x0afrom\x20gui_2d\x20import\x20GUI,\x20ui_const\x0a\x0aif\x20getattr(CommonUserInfo,\x20\x22_wm_orig_refresh\x22,\x20None):\x0a\x20\x20\x20\x20CommonUserInfo.refresh_user_info\x20=\x20CommonUser','redstoneSaveMode:(-?\x5cd+)','None):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20res_ip\x20=\x20response.entity.get(\x27mcserver_host\x27,\x20\x27\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20res_port\x20=\x20response.entity.get(\x27mcserver_port\x27,\x200)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20res_ip:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.final_ip','§b[不祥药水修改]\x20','eXGvt','\x0a§f','ytwrt','>\x2045.0:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.pendYaw\x20=\x2045.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20elif\x20self.pendYaw\x20<\x20-45.0:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.pendYaw\x20=\x20-45.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.pendPitch\x20>\x2045.0:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.pendPitch\x20=\x2045.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20elif\x20self.pendPi','sneakdelay','{Text:\x22','cmd','S.get(u,\x200)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20st:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dnr._execute_pbr_skin_state(st,\x20\x27KuSug\x27,\x20user_click=False)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20comp\x20=','commands','按住挖掘','NNKzs','攻击特效','join','findBlockSlot','fUHPE','hRzcI','goat_horn','tryStart','青金石',
-'st|send|send|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_rodaim_onhold|rodaim|onhold|onhold|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_diamond|xray|diamond|ore:diamond|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_iron|xray|iron|ore:iron|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_gold','input','VhDuB','UiiWe','pVYFk','string',':\x0a\x20\x20\x20\x20\x20\x20\x20\x20node.SetVisible(\x27/mainPanel/netease_mini_map\x27,\x20True)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0aclass\x20_KuSugMiniMap(_CS):\x0a\x20\x20\x20\x20def\x20__init__(self,\x20ns,\x20sn):\x0a\x20\x20\x20\x20\x20\x20\x20\x20super(_KuSugMiniMap,\x20self).__init__','Visible(False)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.node.SetVisible(\x27/mainPanel/netease_mini_map\x27,\x20False)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','种子:','\x20\x20\x27z1c_criticals_onhold|criticals|onhold|onhold|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_autoclicker_swingair|autoclicker|swingair|swing_air|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_autoclicker_ecbypass|autoclicker|ecbypass|ecbypass|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_a','操作失败:\x20','\x22,\x20\x27tab_p\x27:\x20u\x22','ZpDxz','§6忽略方块:\x20§f','\x0a\x20\x20\x20\x20\x27z1c_xray_ore_lapis|xray|lapis|ore:lapis|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_coal|xray|coal|ore:coal|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_copper|xray|copper|ore:copper|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_quartz|xray|quartz|ore:qu','\x27](','get(\x27game-type\x27,\x20\x27-1\x27)\x20or\x20\x27-1\x27)\x0a\x09\x09origin_info\x20=\x20gi_raw.get(\x27game-info\x27,\x20\x27\x27)\x0a\x09\x09try:\x0a\x09\x09\x09gi\x20=\x20json.loads(origin_info)\x20if\x20origin_info\x20else\x20{}\x0a\x09\x09except\x20Exception:\x0a\x09\x09\x09gi\x20=\x20{}\x0a\x09\x09room_id\x20=\x20str(gi.get(\x27id\x27,\x20\x27\x27','§c选槽失败:\x20','save','icals|criticals|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_combatbot_sprint|combatbot|sprint|sprint|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_kbchange_ecbypass|kbchange|ecbypass|ecbypass|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_kbchange_movefix|kbchange|movefix|movefix|bool\x27,\x0a\x20','潜行触发','\x27:\x20None,\x20\x27pet_orig\x27:\x20None}\x0a\x20\x20\x20\x20_G[\x27_kusug_hc\x27]\x20=\x20st\x0a\x0adef\x20_hc_ai_mgr():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20s\x20=\x20clientApi.GetSystem(\x27Minecraft\x27,\x20\x27aiCommand\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20s\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20um\x20=\x20get','导出失败:\x20','mvtVY','batch_cmd_source','weapon|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_triggerbot_ignoreteammates|triggerbot|ignoreteammates|ignore_teammates|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_triggerbot_throughwalls|triggerbot|throughwalls|through_walls|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_triggerbot_l','\x20\x20\x20\x20\x20\x20\x20if\x20dt\x20<=\x200.0\x20or\x20dt\x20>\x200.5:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20k\x20=\x2057.29577951308232\x20*\x20dt\x20*\x20globals().get(\x22_kusug_gyro_sens\x22,\x201.0)\x0a\x20\x20\x20\x20\x20\x20\x20\x20xd\x20=\x20args.get(\x22xDiff\x22)\x20or\x200.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20yd\x20=\x20args.get(\x22yDiff\x22)\x20or\x20','tQuAe','lastEv','kill_taunt_mode_file','\x0a\x09else:\x0a\x09\x09mgr.search_friend_info(NICK,\x20_on_result)\x0aexcept\x20Exception:\x0a\x09pass\x0a',
-'\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20o\x20=\x20m.get(n)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20o\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20o\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20at[:4]','RyrQv','execMode','§c请先手持不祥之瓶','取不到资源目录','fygYC','自定义刷屏','row','试炼密室','vhwcf','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_cur.discard(_u)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_uids\x20=\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20_u\x20in\x20_cur:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_uids[_u]\x20=\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_a\x20=\x20{\x27id\x27:\x20_fp,\x20\x27uids\x27:\x20_uids,\x20\x27skinItemId\x27:\x20getattr(_v,\x20\x27playerId2SkinItemId','§6红石:\x20§f','该记录内容为空','KLQZT','ka_show_cps','ClickGUI','nJPdU','fun_msg_brush','fortress','修改皮肤(','getLoginToken','setAttribute','dbgLines','Button','place','rpc','minecraft:item','PyRpc日志',',\x20float(val),\x201)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x20\x20\x20\x20def\x20shutdown(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.active\x20=\x20False\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.node\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.node.SetMiniMap','()\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20pass\x0a','\x27neteasePetMod\x27,\x20\x27minimpUI\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20_n\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_n.SetMiniMapVisible(False)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_n.SetVisible(\x27/mainPanel/netease_mini_map\x27,\x20False)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20','pFVHl','/storage/emulated/0/Android/data/','xzixj','ERR\x20','发言控制','废弃矿井','isPlaced','exportCookie','§b[','已加载:\x20','dist','击杀嘲讽','onlyMob','NcLHQ','egg','pyRpcRecv','xMwAy','snEfa','on:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x20\x20\x20\x20def\x20retry_sensor(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.dead\x20or\x20self.sensorOn:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.try_enable_sensor()\x0a\x0a\x20\x20\x20\x20def\x20try_get_comp(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.rotComp\x20is\x20not','lastLogFlush','fromCharCode','XgtHa','VER_NAME,\x20\x27offset\x27:\x200}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20},\x20self.on_search)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_toast(u\x27服务器直连:\x20请求发送失败\x27)\x0a\x0a\x20\x20\x20\x20def\x20on_search(self,\x20response):\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20entity\x20=\x20getattr(respo','\x20\x20\x20\x20\x20\x20\x20\x20_old.shutdown()\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0aglobals()[\x27_kusug_vis_sys\x27]\x20=\x20_KuSugVis(\x27KuSugVis\x27,\x20\x27KuSugVisSystem\x27)','fun_bed_color','ylimit','xQTrd','kmnPF',
-'\x20for\x20ln\x20in\x20_ZCFGS:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20p5\x20=\x20ln.split(\x27|\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20len(p5)\x20!=\x205:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20ctl,\x20n,\x20k,\x20at,\x20ty\x20=\x20p5\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20o\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20m\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','types','ttMgz','copper','https://g79apigatewayobt.minecraft.cn/online-lobby-game-enter','boot','color_b','village','hZMqb','WcWVt','calHexPos','batch_cmd_exec','map','ZuLMU','offhand_weapon_model','inWorld','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20def\x20_kusug_on_ride(data):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20h\x20=\x20getattr(__main__,\x20\x27KUSUG_APPLY_MOUNT\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20h:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','VTqmy','pyrpc','ESIxh','埋藏的宝藏','yFmwR','offZ','reach','extract','restarttick','writesLeft','\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20getattr(f,\x20\x27__self__\x27,\x20None)\x20is\x20None\x20and\x20getattr(f,\x20\x27im_self\x27,\x20None)\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20inst\x20=\x20getattr(e,\x20\x27instance\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','errors.append(mk\x20+\x20\x27():\x20\x27\x20+\x20_kerr(e))\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20instances.append(inst)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20ck\x20in\x20dir(inst):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20f\x20=\x20getattr(inst,\x20ck)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20hasattr(','clientApi.GetEngineNamespace()\x0a\x20\x20\x20\x20\x20\x20\x20\x20sn2\x20=\x20clientApi.GetEngineSystemName()\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.ListenForEvent(ns2,\x20sn2,\x20\x27GameRenderTickEvent\x27,\x20self,\x20self.on_frame)\x0a\x0a\x20\x20\x20\x20def\x20on_frame(self,\x20args):\x0a\x20\x20\x20\x20\x20\x20\x20\x20if','kaFZS','\x22\x0aHAS_LIKE\x20=\x20','kNegt','gpjhY','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20m.get(n)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20getattr(m,\x20\x27_modules\x27,\x20{}).get(n)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x0a\x0adef\x20_zerr(e','GnDXo','rn\x0a\x20\x20\x20\x20\x20\x20\x20\x20GUI.ui_mgr.show_gui(ui_const.COMMON_POP_WINDOW,\x20data={\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22title\x22:\x20\x22感谢您对KuSug的支持\x22,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22content\x22:\x20\x22再次感谢您使用KuSug！\x5cn也感谢您对KuSug的支持！\x5cn能为我们点点免费的赞喵？\x5cn完全自愿不影响使用！\x22,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22co','minecraft:arrow','边框:','ch_size','bow_weapon_model','uDqlY','now','getLocalPlayer',
-'ot\x20None\x20else\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20k\x20in\x20sorted(d):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20out.append(k\x20+\x20\x27=\x27\x20+\x20(\x271\x27\x20if\x20getattr(d[k],\x20\x27enabled\x27,\x20False)\x20else\x20\x270\x27))\x0a\x20\x20\x20\x20\x20\x20\x20\x20out.append(\x27notification=\x27\x20+\x20(\x271\x27\x20if\x20getattr(s,\x20\x27notification\x27,\x20','\x20§a成功','blockName','totool|switchtick|switch_tick|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autotool_restoretick|autotool|restoretick|restore_tick|int\x27,\x0a\x20\x20\x20\x20\x27z1n_blockin_speed|blockin|speed|speed|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autotrap_range|autotrap|range|range|','yStructureSize:(-?\x5cd+)','num\x27,\x0a\x20\x20\x20\x20\x27z1n_autoweb_delay|autoweb|delay|delay|num\x27,\x0a\x20\x20\x20\x20\x27z1n_nobreakdelay_restarttick|nobreakdelay|restarttick|restart_tick|int\x27,\x0a\x20\x20\x20\x20\x27z1n_nobreakdelay_aimconfirmticks|nobreakdelay|aimconfirmticks|','bool\x27,\x0a\x20\x20\x20\x20\x27z1c_esp_chestesp|esp|chest_esp|chest_esp|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_esp_chestfov|esp|chest_fov|chest_fov|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_hud_targethud|hud|targethud|targethud|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_hud_bjd|hud|bjd|bjd|bool','93c40163920082c407706c617965727391c4','gb_interval','restoredelay','§c预设目录无json文件:\x20','smooth_factor','suDZf','cgHlu','antibot','seed:(-?\x5cd+)l','byte','CustomName:\x22((?:[^\x22\x5c\x5c]|\x5c\x5c.)*)\x22','Onjpo','.velocity\x20','noteQueryFail','prunePending','(pid)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20self.rotComp\x20is\x20not\x20None\x0a\x0a\x20\x20\x20\x20def\x20shutdown(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.dead\x20=\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.UnListenAllEvents()\x0a\x20\x20\x20\x20\x20\x20\x20\x20exc','h\x20+\x20node.GetMapPath(),\x200)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20deco\x20=\x20getattr(node,\x20\x27mDecorationArray\x27,\x20{})\x20or\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20playerId\x20not\x20in\x20deco:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20node.AddEntityMarker(playe','aZQOs','flipX','getEntity','rd_show_player','svarint','hanging','space\x27)\x20or\x20u\x27\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20ns\x20==\x20u\x27hud.hud_screen\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20#\x20hud\x20pop\x20=\x20leaving\x20world;\x20screens\x20above\x20hud\x20die\x20with\x20it,\x20reset\x20counter\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.depth\x20=\x200\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20','ange|color_g|color_g|num\x27,\x0a\x20\x20\x20\x20\x27z1n_fogchange_b|fogchange|color_b|color_b|num\x27,\x0a\x20\x20\x20\x20\x27z1n_esp_smooth|esp|smooth_factor|smooth_factor|num\x27,\x0a\x20\x20\x20\x20\x27z1n_esp_predict|esp|predict_ticks|predict_ticks|num\x27,\x0a\x20\x20\x20','static','.GAME_DEBUG_EYE)\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20pass\x0a','UhRml','capture','tpaura|onweapon|onweapon|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_scaffold_airplace|scaffold|airplace|airplace|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_fucker_onholdbreak|fucker|onholdbreak|onholdbreak|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_esp_teambox|esp|teambox|teambox|','请局外开启','packet','tMSxo','clampInt',',z:',
-'n:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20cache\x20=\x20getattr(sys,\x20\x27path_importer_cache\x27,\x20None)\x0a\x20\x20\x20\x20if\x20cache\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20k\x20in\x20list(cache):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20_knorm(k)\x20==\x20np:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20d','natJX','itemBad','filePath','#\x20-*-\x20coding:\x20utf-8\x20-*-\x0aimport\x20json\x0afrom\x20gui_2d\x20import\x20GUI\x0afrom\x20gui_2d.ui_service.ui_request\x20import\x20request\x0aimport\x20mc_game_ctrl\x0aimport\x20realms_main\x0afrom\x20gui_2d.consts\x20import\x20InGameType\x0afrom\x20gui_2d.util','radioSel','\x20=\x20res_ip\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.final_port\x20=\x20res_port\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.game_info\x20=\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27gameType\x27:\x20InGameType.RentalGame,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27id\x27:\x20self.server_id,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27room_n','pcGsd','batch_cmd_src_file','最近距离','vROcb','ZcEJe','lXJgq','pushContent','YwgQq','concat','ovCBU','camera_mode','功能方块','（当前）','已创建\x20KuSug/CMD.txt\x20示例，请编辑后使用','§7]','netease','/data/user/0/','PLUJE','o.disable()\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x271\x27\x20if\x20getattr(o,\x20\x27enabled\x27,\x20False)\x20else\x20\x270\x27\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27err:\x27\x20+\x20_zerr(e)\x0a\x0a\x0adef\x20_ztogfire(n):\x0a\x20\x20\x20\x20o\x20=\x20_zmod(n)\x0a\x20\x20\x20\x20if\x20o\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20retur','getAttackDamage','2662744921','myId','死亡特效','cam_z','on_pre_check(self,\x20is_success,\x20msg=\x27\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20is_success:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_toast(msg\x20or\x20u\x27服务器直连:\x20进入游戏失败\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20mgr\x20=\x20getattr(GUI.game_data_mgr,\x20\x27lobby_game_','playerList','容器模糊','失败了请重试','XqpgJ','鱼竿自瞄','e|kbchange|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_kbchange_cameramode|kbchange|camera_mode|camera_mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_bhop_mode|bhop|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_inventorywalk_mode|inventorywalk|mode|mode|enum\x27,\x0a\x20\x20\x20','ZdZCP','has','fun_locate_structure','onWorldExit','目标面板','find','LwaUM','新增\x20Cookie','pbISC','列表没有的外观填这里','temple','oonbG','departCamera','minimap_zoom','pending','filter','HerDp','KRiJK','findById','BQuky','\x0a\x0aclass\x20_KuSugVis(_CS):\x0a\x20\x20\x20\x20def\x20__init__(self,\x20ns,\x20sn):\x0a\x20\x20\x20\x20\x20\x20\x20\x20super(_KuSugVis,\x20self).__init__(ns,\x20sn)\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.dead\x20=\x20False\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.depth\x20=\x200\x0a\x20\x20\x20\x20\x20\x20\x20\x20ns2\x20=\x20clientApi.GetEngineNamespace()\x0a\x20\x20','trim','form','BdRDD','autoLogin','§c请先手持床','.spammer\x20','\x20\x20\x20\x20_do()','bvZEg','wAYcj','fmIyK','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0adef\x20_hc_hide_pet(s):\x0a\x20\x20\x20\x20for\x20a\x20in\x20(\x27mChatBtn\x27,\x20\x27mToggleBtn\x27,\x20\x27mKeyHintBg\x27,\x20\x27mRootNode\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20b\x20=\x20getattr(s,\x20a,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20b\x20is\x20not\x20None:\x0a\x20\x20','getLoginUid','dlopen','runDump','DEBUG_KEYS','HBINy',
-'\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20e\x20in\x20list(el):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20f\x20=\x20getattr(e,\x20\x27funcName\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20f\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','aIiRy','§c手持物品不是药水或箭:\x20','main_title',':\x0a\x20\x20\x20\x20\x20\x20\x20\x20gc\x20=\x20clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())\x0a\x20\x20\x20\x20\x20\x20\x20\x20hid\x20=\x20gc.GetRiderId(pid)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20hid:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20model.reset_model(hid)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pas','lastRot','lowhop','itemTier','z1_xray_budget','sAdZd','gb_exclude_me','tick','scaffold_lock_y','inecraft\x27,\x20\x27pet\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20petSys\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20mgr\x20=\x20getattr(petSys,\x20\x27mConvinientFuncMgrClient\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20mgr\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20getter\x20=\x20ge','pendingDel','restoremode','\x0a\x0adef\x20_anchor():\x0a\x20\x20\x20\x20import\x20client.ui.uiManager\x20as\x20uiManager\x0a\x20\x20\x20\x20return\x20uiManager.instance()\x0a\x0adef\x20_dead():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20getattr(_anchor(),\x20\x27_kusug_mmap_dead\x27,\x20False)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20','CPS','XbiAd','uStvu','§a旗帜颜色写入成功:\x20','spin_sys\x27)\x0aif\x20_old\x20is\x20not\x20None:\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_old.UnListenAllEvents()\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0aglobals()[\x27_kusug_spin_sys\x27]\x20=\x20_KuSugSpin(\x27KuSugSpin\x27,\x20\x27KuSugSpinSystem\x27)','amplitude','segStart','aux_effect_','\x22}\x0a\x20\x20\x20\x20if\x20not\x20getattr(LoginAnnounce,\x20\x27_ks_orig_ua\x27,\x20None):\x0a\x20\x20\x20\x20\x20\x20\x20\x20LoginAnnounce._ks_orig_ua\x20=\x20LoginAnnounce.update_announce_msg\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20def\x20_ks_hooked_ua(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20d\x20=\x20LoginAnnounce._ks_not','93c40163920c82c408706c617965724964','§c缺中文字体文件：把\x20font16.hex\x20放到\x20','uxTIC','ophKo','KZYut','nQTAS','agg','\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20um\x20=\x20getattr(s,\x20\x27mAiUIManager\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20um\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20getattr(um,\x20\x27mHudScreenAIFuncManager\x27,\x20None)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20','airplace','自动鱼竿','KuSug/resource_packs','bQwEs','bDSlO','t(u\x27宠物通道丢物失败:\x20%s\x27\x20%\x20e)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0aglobals()[\x27_kusug_pet_drop\x27]\x20=\x20_kusug_pet_drop','[§fＳｔｒｕｃｔｕｒｅ-Ｉｎｆｏｒｍａｔｉｏｎ§7]\x0a','wdPhv','onRender','z1_fastanchor_delay','LpWmn','fBjRD','fRAIX','random','minecraft:air','getStatusFlag','midclick',
-'_text\x20=\x20u\x27\x5cu2714\x27\x20if\x20is_online\x20else\x20u\x27\x5cu2718\x27\x0a\x09\x09last_text\x20=\x20GUI.game_data_mgr.friends_mgr.get_last_login_time(ent.get(\x27tLogout\x27,\x200))\x0a\x09\x09gi_raw\x20=\x20ent.get(\x27game_info\x27,\x20{})\x20or\x20{}\x0a\x09\x09game_type\x20=\x20str(gi_raw.','oweb|delay|delay|num\x27,\x0a\x20\x20\x20\x20\x27z1n_nobreakdelay_restarttick|nobreakdelay|restarttick|restart_tick|int\x27,\x0a\x20\x20\x20\x20\x27z1n_nobreakdelay_aimconfirmticks|nobreakdelay|aimconfirmticks|aim_confirm_ticks|int\x27,\x0a\x20\x20\x20\x20\x27z1n','ick|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_list_send|list|send|send|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_rodaim_onhold|rodaim|onhold|onhold|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_diamond|xray|diamond|ore:diamond|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_iron|xray|iron|ore:ir','TickDelay:(\x5cd+)','pitch','kusug/mcp','\x20\x20\x20\x20\x20\x20#\x20包内顶层绝对\x20import\x20兼容(如\x20z1yr\x20的\x20from\x20module.config\x20import\x20...):\x0a\x20\x20\x20\x20\x20\x20\x20\x20#\x20把内层模块映射到顶层,\x20与原生环境一致(不覆盖已存在的同名模块)\x0a\x20\x20\x20\x20\x20\x20\x20\x20aliases\x20=\x20[]\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20mn\x20in\x20list(sys.modules):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20mn.startswith(name','sendToLocal','attacks','RJqDX','jxvZq','bolt\x20sendToLocal(13)=','已退出\x20z1yr\x20组件','replaceRe','未激活','应用失败:\x20','faceSolid','pushCfg','left','fun_trade_unlock','暴饮暴食\x20x','lastV','throwOn','\x20\x20\x20\x20\x20\x20\x20import\x20client.ui.uiManager\x20as\x20uiManager\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20n\x20in\x20uiManager.instance()._ui_stack:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20n.get_def_key()\x20==\x20\x27neteasePetMod:petChatHud\x27\x20and\x20not\x20n.is_remove():','substr','WnbwT','z1yr\x20未加载','rotation:(\x5cd)b','_f\x20=\x20globals().get(\x27_kusug_afx_impact\x27)\x0aif\x20_f\x20is\x20not\x20None:\x0a\x20\x20\x20\x20_f(','fun_item_hud','radius','log','fsUuK',',\x20\x27PopScreenEvent\x27,\x20self,\x20self.on_pop)\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.try_get_comp()\x0a\x0a\x20\x20\x20\x20def\x20try_get_comp(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.blurComp\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.blurComp\x20=\x20c','KuSug/SkinTryOn.json','rPclp','):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20with\x20open(_KC_VFILE,\x20\x27wb\x27)\x20as\x20f:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20f.write(str(v))\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0aimport\x20mod.client.extraClientApi\x20as\x20clientApi\x0a\x0a_CS\x20=\x20clientApi.GetClientSystemCls()','if\x20so\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20so\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20r\x20=\x20_zreg()\x0a\x20\x20\x20\x20if\x20r\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20so\x20=\x20getattr(r,\x20\x27systemInstances\x27,\x20{}).get(\x27z1yr:','rr(e)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20res\x20=\x20\x27err:?\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20n\x20+=\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20import\x20io\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fq\x20=\x20io.open(rp,\x20\x27w\x27,\x20encoding=\x27utf-8\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fq.write(_UNI(res))\x0a','brRhp','presetDir','OjYjp','deviceList','§c表单打开失败:\x20','restoreMode','玩家:','nouQg','wQgTX','wEMSF',
-'\x20\x27\x27),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27itype\x27:\x20info.get(\x27item_type\x27,\x20\x27\x27),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27rarity\x27:\x20info.get(\x27rarity\x27,\x20\x27\x27),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27comment\x27:\x20v.get(\x27comment\x27,\x20\x27\x27),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27model\x27:\x20comp.get(\x27horse_anim\x27,\x20{}).get(\x27mo','scannedStamp','True','ruins','§6保存至:\x20§f','custom_form','addEffect','use','雾浓度','onPlayerAttack','方向标','BLOCKS','err:','z1stateall','sGXMJ','铁砧换行','UzDXF','autoSelect','onSAuthJsonHook','e:\x0a\x09\x09\x09play_text\x20=\x20u\x27未在游戏中\x27\x0a\x09\x09lines\x20=\x20[\x0a\x09\x09\x09u\x27玩家昵称：%s\x27\x20%\x20nickname,\x0a\x09\x09\x09u\x27UID：%s\x27\x20%\x20uid,\x0a\x09\x09\x09u\x27是否在线：%s\x27\x20%\x20online_text,\x0a\x09\x09\x09u\x27最后登录时间：%s\x27\x20%\x20last_text,\x0a\x09\x09\x09u\x27游玩状态：%s\x27\x20%\x20play_text\x0a\x09\x09]\x0a\x09\x09if\x20not\x20is_online\x20or\x20not\x20r','sens','MAZRy','WicGe','mRBQK','addFromInput','stringify','criticals','sauth_json','so\x20入口自检失败(桥参数位宽)[','soOk','blockPos','z1_xray_range','rhqtD','移除隐身','ntAddonScriptsAfter\x27,\x20\x27OnScriptTickClient\x27)\x0a\x20\x20\x20\x20seen\x20=\x20{}\x0a\x20\x20\x20\x20for\x20p\x20in\x20list(s[\x27loaded\x27].keys()):\x0a\x20\x20\x20\x20\x20\x20\x20\x20ent\x20=\x20s[\x27loaded\x27].get(p)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20ent:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20ev,\x20f\x20in\x20ent[\x27rec','fun_no_invis','\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20s\x20=\x20s.decode(\x27utf-8\x27,\x20\x27replace\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20s\x20=\x20_ZU(s)\x0a\x20\x20\x20\x20\x20\x20\x20\x20f\x20=\x20io.open(rp,\x20\x27w\x27,\x20encoding=\x27utf-8\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20f.write(s)\x0a\x20\x20\x20\x20\x20\x20\x20\x20f.close','小地图]\x20找不到官方小地图屏\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x0a\x20\x20\x20\x20def\x20apply_cfg(self,\x20key,\x20val):\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.node\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20key\x20==\x20\x27biome\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.node.SetVisible(\x27/','__main__.KUSUG_MCP[\x27ztogq\x27](','(e)\x0a\x0a\x0adef\x20_kstate():\x0a\x20\x20\x20\x20import\x20__main__\x0a\x20\x20\x20\x20s\x20=\x20getattr(__main__,\x20\x27_KUSUG_MCP_STATE\x27,\x20None)\x0a\x20\x20\x20\x20if\x20s\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20s\x20=\x20{\x27loaded\x27:\x20{},\x20\x27bound\x27:\x20set(),\x20\x27tick\x27:\x20None}\x0a\x20\x20\x20\x20\x20\x20\x20\x20__main__._KUSUG_MCP_STAT','int','nfirm_text\x22:\x20\x22同意\x22,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22cancel_text\x22:\x20\x22不同意\x22,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22show_close_btn\x22:\x20False,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22confirm_callback\x22:\x20on_agree,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22cancel_callback\x22:\x20on_disagree\x0a\x20\x20\x20\x20\x20\x20\x20\x20})\x0a\x0atry:\x0a\x20\x20\x20\x20main','msg_speed','\x0aglobals()[\x27_kusug_cam_reset\x27]\x20=\x20','名字前缀','xMWrD','Cookie-','lastSig','application/json',
-'t\x27,\x20None)\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20pass\x0aif\x20_old\x20is\x20None:\x0a\x20\x20\x20\x20_old\x20=\x20globals().get(\x27_kusug_mmap\x27)\x0aif\x20_old\x20is\x20not\x20None:\x0a\x20\x20\x20\x20def\x20_kill_old(o=_old):\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20o.shutdown()\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Excep','\x0a\x0aclass\x20_KListener(object):\x0a\x20\x20\x20\x20def\x20__init__(self,\x20ev):\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.ev\x20=\x20ev\x0a\x0a\x20\x20\x20\x20def\x20on_event(self,\x20args=None):\x0a\x20\x20\x20\x20\x20\x20\x20\x20_kdispatch(self.ev,\x20args)\x0a\x0a\x0aclass\x20_KCapture(object):\x0a\x20\x20\x20\x20def\x20__init__(self):\x0a\x20\x20','loaded','NaPee','tattr(_v,\x20\x27playerUsingMods\x27,\x20{}).get(_fp,\x20set()))\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_mis\x20=\x20False\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20_u\x20in\x20_fu:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20_u\x20not\x20in\x20_cur:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_mis\x20=\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20break\x0a\x20\x20\x20\x20\x20','KuSug/Cookies.json','bool','send_newline','esp','ex:','查看结构方块','JXKas','tCHrV','head','age','#\x20-*-\x20coding:\x20utf-8\x20-*-\x0aimport\x20json\x0aimport\x20minecraft\x0afrom\x20gui_2d\x20import\x20GUI,\x20ui_const,\x20event_const\x0a\x0aNICK\x20=\x20json.loads(','\x20m\x20=\x20_hc_ai_mgr2()\x0a\x20\x20\x20\x20if\x20m\x20is\x20not\x20None\x20and\x20st.get(\x27ai_obj\x27)\x20is\x20m:\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20st.get(\x27ai_orig\x27)\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20m.SetAiUiVisible\x20=\x20st[\x27ai_orig\x27]\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20st[\x27ai_or','Dfkwl','setNBT','获取世界信息失败','fogchange','lwLfx','\x20共\x20','\x20异常:\x20','OfSZr','\x20§7[§e','AZbOM','mansion','rMFLn','length','heal_keep_distance','ch_thick','gb_offset_y','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_configure(pet)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_chat(u\x27§a[小地图]\x20已接管官方屏\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.tries\x20<\x2010:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.game_timer(1.0,\x20self.create_step)\x0a\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_chat(u\x27§c[','请正确填写IP和端口，例如\x20127.0.0.1:19132','auto_drop_mode_pet','so\x20引导失败(so\x20与脚本构建不配对)[','presetPts','triggerbot','showCps','if\x20_mgr\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_mmf\x20=\x20_mgr.GetMiniMapControl()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20_mmf\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_mmf.mMiniMapOpenState\x20=\x20False\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_an','aNdwO','.fly\x20speed\x20','z1_autoclicker_reach','自动登录','ZFQcg','forcePlace','.xray\x20ylimit\x20','\x20\x20\x20\x20\x20\x20\x20\x20_c\x20=\x20{}','§c写入失败:\x20','dLzuR','ice\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20from\x20gui_2d\x20import\x20GUI\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20new_mode\x20=\x20bool(getattr(GUI.login_mgr,\x20\x27use_new_notice\x27,\x20True))\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20new_mode\x20=\x20Tru','cam_x','xStructureOffset:(-?\x5cd+)','exists','animationSeconds:([\x5cd.]+)f',',y:','SlMOE','queryOne',
-'rNToG','loop','custom_damage_throw','VQxYP','__main__.KUSUG_MCP[\x27z1chatq\x27](','angle','Xxzpi','Oostb','level','ymotion','\x20\x20\x20\x20\x20\x20\x20\x20if\x20reg\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.reg_orig\x20=\x20reg\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cap\x20=\x20self\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20def\x20_rec_register(namespace,\x20system_name,\x20cls_path):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cap.systems.append((namespace,\x20syst','§c宠物通道调用失败:\x20','gmLmk','load','cookieText','§b[虚影屏障]\x20','canonicalName','riticals_clickspan|criticals|clickspan|click_span|num\x27,\x0a\x20\x20\x20\x20\x27z1n_autoclicker_cpsmin|autoclicker|cps_min|cps_min|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autoclicker_cpsmax|autoclicker|cps_max|cps_max|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autorod_swi','deviceData','no-nbt','big_gyro_head_speed','lqrAJ','tattr(im,\x20\x27func_code\x27,\x20None)\x0a\x20\x20\x20\x20if\x20code\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20True\x0a\x20\x20\x20\x20n\x20=\x20getattr(code,\x20\x27co_argcount\x27,\x201)\x0a\x20\x20\x20\x20if\x20getattr(func,\x20\x27__self__\x27,\x20None)\x20is\x20not\x20None\x20or\x20getattr(func,\x20\x27im_self\x27,\x20None)\x20is\x20no','urn\x20None\x0a\x0a\x0adef\x20_kep(p):\x0a\x20\x20\x20\x20if\x20sys.version_info[0]\x20>=\x203:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20p\x0a\x20\x20\x20\x20if\x20isinstance(p,\x20_UNI):\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20p.encode(\x27utf-8\x27,\x20\x27replace\x27)\x0a\x20\x20\x20\x20return\x20p\x0a\x0a\x0adef\x20_ku(s):\x0a\x20\x20\x20\x20if\x20sys.version_info[0]\x20','wLrWP','JCcRU','ih_side','function_block','krFcM','checked','OHkKc','JhFSc','soDst','VxfWn','自动拆床','self.dead\x20or\x20not\x20self.try_get_comp():\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20on:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.blurComp.SetEnableGaussianBlur(True)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.blurComp.SetGaussianBlurRadius(f','AuZWJ','feNAA','isThrowable','tjkTj','mOUfY','openPresetForm','§b§l[KuSug·陀螺仪]§r§f\x20','ymTbz','hmzUG','__KS_PRE__','gb_writing','pqwcj','§c只能勾选一个效果，请取消多余勾选','fastanchor','DWkQk','title','QXOOW','unhook','minecraft:player.hunger','\x20\x20\x20\x20if\x20_i\x20is\x20not\x20None:','\x20\x20return\x20default\x0a\x0adef\x20_chat(msg):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20clientlevel\x0a\x20\x20\x20\x20\x20\x20\x20\x20m\x20=\x20msg\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20isinstance(m,\x20unicode):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20m\x20=\x20m.encode(\x27utf-8\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20clientlevel.display_message(1,\x20m,\x20\x27\x27,','\x20\x20\x20\x20\x20now\x20=\x20time.time()\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.last\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.last\x20=\x20now\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20dt\x20=\x20now\x20-\x20self.last\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.last\x20=\x20now\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20dt\x20<=\x200\x20or\x20dt\x20>\x200.25:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dt','zoom','ridebhop','flipY','pcNqi','gCZlp','p_distance|num\x27,\x0a\x20\x20\x20\x20\x27z1n_combatbot_healhp|combatbot|heal_hp|heal_hp|int\x27,\x0a\x20\x20\x20\x20\x27z1n_combatbot_healkeep|combatbot|heal_keep_distance|heal_keep_distance|int\x27,\x0a\x20\x20\x20\x20\x27z1n_kbchange_yaw|kbchange|yaw|yaw|int\x27',
-'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20e2,\x20f2\x20in\x20list(ent.get(\x27recs\x27,\x20[])):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20e2\x20!=\x20\x27ClickChatSendClientEvent\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20f2({\x27message\x27:\x20cmd})\x0a\x20\x20','syncCheckbox','TVVcU','switchmode','hfIzI','del\x27,\x20\x27\x27)\x20or\x20comp.get(\x27ui_model\x27,\x20{}).get(\x27model\x27,\x20\x27\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20fp\x20=\x20DUMP_PATH\x0a\x20\x20\x20\x20import\x20os\x0a\x20\x20\x20\x20dp\x20=\x20os.path.dirname(fp)\x0a\x20\x20\x20\x20if\x20dp\x20and\x20not\x20os.path.exists(dp):\x0a\x20\x20\x20\x20\x20\x20\x20\x20os.makedirs(dp)\x0a\x20\x20\x20\x20f\x20=\x20ope','queue','skip','auWDF','qLkTu','BwxJn','自动发言','import\x20mod.client.extraClientApi\x20as\x20clientApi\x0a\x0a_CS\x20=\x20clientApi.GetClientSystemCls()\x0a\x0aclass\x20_KuSugGyro(_CS):\x0a\x20\x20\x20\x20def\x20__init__(self,\x20ns,\x20sn):\x0a\x20\x20\x20\x20\x20\x20\x20\x20super(_KuSugGyro,\x20self).__init__(ns,\x20sn)\x0a\x20\x20\x20\x20\x20\x20\x20\x20sel','tApi.GetEngineNamespace()\x0a\x20\x20\x20\x20\x20\x20\x20\x20sn2\x20=\x20clientApi.GetEngineSystemName()\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.ListenForEvent(ns2,\x20sn2,\x20\x22GyroSensorChangedClientEvent\x22,\x20self,\x20self.on_gyro)\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.ListenForEvent(ns2,\x20sn2,\x20','ydDyj','QDDct','§a已保存\x20','GjOKM','VvruD','FIlWq','namecolor','axe','加载失败:\x20','LIpTZ','lastInput','\x22GameRenderTickEvent\x22,\x20self,\x20self.on_render_tick)\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.try_enable_sensor()\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.try_get_comp()\x0a\x0a\x20\x20\x20\x20def\x20try_enable_sensor(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.dead\x20or\x20self.sensorOn:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20retu','CzOgd','暴饮暴食','KjmOa','条件:','z1_ridefly_speed','dfpYJ','RaShI','xStructureSize:(-?\x5cd+)','kbchange','refreshFps','fov','renderPanel','render','noFaceFull','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20_s\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20return\x20\x27com.netease.x19\x27\x0a\x0a_KC_VFILE\x20=\x20\x27/storage/emulated/0/Android/data/\x27\x20+\x20_kc_pkg()\x20+\x20\x27/files/resources/KuSug/UI隐显.txt\x27\x0a\x0adef\x20_kc_vwrite(v','jaZpO','rd_show_mob','yOff','\x20\x20_anchor()._kusug_mmap_cfg\x20=\x20{\x27biome\x27:\x20SHOW_BIOME,\x20\x27zoom\x27:\x20ZOOM_LEVEL}\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.game_timer(0.5,\x20self.create_step)\x0a\x0a\x20\x20\x20\x20def\x20game_timer(self,\x20delay,\x20fn):\x0a','crasher','fun_auto_sign','AKTUw','de|team|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_crasher_mode|crasher|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_ridetpaura_attackmode|ridetpaura|attack_mode|attack_mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_ridetpaura_priority|ridetpaura|priority|priori','\x20§7','number','RdGPK','显示消息','get','add','ZdECW','trunc','isPlayer','\x20==\x20\x27ore:\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20v\x20=\x20o.get_ore(at[4:])\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20v\x20=\x20getattr(o,\x20at,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20v\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20vs\x20=\x20\x27inf\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20el',
-'s\x20import\x20util\x0afrom\x20gui_2d.utils.PrePlayWorld\x20import\x20pre_play_world\x0a\x0aSERVER_NAME\x20=\x20json.loads(','z1cfgall','按键模式','\x20§7(测试皮走状态机)','fun_ominous_bottle','gold','boltCd','yniIP','p_noted\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20globals()[\x27_kusug_pet_drop_noted\x27]\x20=\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20from\x20gui_2d\x20import\x20GUI\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20GUI.ui_mgr.show_toast(u\x27该服未开启宠物系统，无法使用宠物通道\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20d\x20=\x20','\x20名玩家','vojYd','.fastanchor\x20stepdelay\x20','忽略队友','button.drop','float','\x20\x20\x20\x20ns2\x20=\x20clientApi.GetEngineNamespace()\x0a\x20\x20\x20\x20\x20\x20\x20\x20sn2\x20=\x20clientApi.GetEngineSystemName()\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.ListenForEvent(ns2,\x20sn2,\x20\x27PushScreenEvent\x27,\x20self,\x20self.on_push)\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.ListenForEvent(ns2,\x20sn2','lastFire','ather.thunder\x27,\x20(x,\x20y,\x20z),\x201.0,\x201.0,\x20False,\x20None)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0adef\x20_kusug_afx_impact(x,\x20y,\x20z,\x20pitch):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20clientApi.GetEngineCompFactory().CreateCustomAudio(clientA','gIghe','\x20\x20\x20\x20\x20request({\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27url\x27:\x20\x27/rental-server/query/search-by-name\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27hostName\x27:\x20\x27WebServerUrl\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27method\x27:\x20\x27POST\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27params\x27:\x20{\x27server_name\x27:\x20SER','dropDelay','\x20\x20\x20\x27z1c_hud_bjd|hud|bjd|bjd|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_pyrpc_decode|pyrpc|decode|decode|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_pyrpc_showmessage|pyrpc|showmessage|showMessage|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_whitelist_midclick|whitelist|midclick|midcl','fun_skin_tryon','learnVersion','e\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20new_mode:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.notice_result[\x27content\x27]\x20=\x20\x27<h1>\x27\x20+\x20d[\x27title\x27]\x20+\x20\x27</h1>\x27\x20+\x20\x27\x27.join([\x27<p>\x27\x20+\x20c\x20+\x20\x27</p>\x27\x20for\x20c\x20in\x20d[\x27content\x27]])\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','§7{name}\x20不过如此','\x20h()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20__main__.KUSUG_MOUNT_HOOK\x20=\x20_kusug_on_ride\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20eventUtil.instance.ListenForEngineClient(\x27EntityStartRidingEvent\x27,\x20_o','fly','§c请先手持要写入的物品','dir_offx','source','hEmLZ','Command:\x22((?:[^\x22\x5c\x5c]|\x5c\x5c.)*)\x22','KSohF','th.insert(0,\x20path)\x0a\x20\x20\x20\x20cap\x20=\x20_KCapture()\x0a\x20\x20\x20\x20cap.begin()\x0a\x20\x20\x20\x20instances\x20=\x20[]\x0a\x20\x20\x20\x20errors\x20=\x20[]\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20mod\x20=\x20__import__(name\x20+\x20\x27.modMain\x27,\x20fromlist=[\x27\x27])\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exceptio','Damage:','跳跃重置','minecraft:splash_potion','scaffold_force_place','jwRCI','useCookie','JNrZz','Msg_Speed','redstone',
-'ass\x0a\x0a_old\x20=\x20globals().get(\x27_kusug_cam_sys\x27)\x0aif\x20_old\x20is\x20not\x20None:\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_old.UnListenAllEvents()\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0aglobals()[\x27_kusug_cam_sys\x27]\x20=\x20_KuSugCam(\x27KuSugCam\x27,\x20\x27KuSug','tickNow','noFace','lockedY','NAOhR','Comp\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20self.try_get_comp():\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.pendYaw\x20=\x200.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.pendPitch\x20=\x200.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20mag\x20<\x200.05:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dyaw\x20=\x20self.pend','yUBWv','byteLength','§c请先手持要修改的物品','/\x20目录下','gb_flip_y','自动搭路','lPlayerId()\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20playerId\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20playerId\x20or\x20playerId\x20==\x20\x27-1\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.tries\x20<\x2010:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.game_timer(1.0,\x20self.create_step)\x0a\x20\x20','堡垒遗迹','send_colour','LPeEr','zUdTB','大陀螺','skipSelf','ugyEi','ka_player_list_form','bastion_remnant','\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20_notify\x20as\x20n\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20hasattr(n,\x20\x27add_mod_mcp\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20n\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20import\x20minecraft.notify\x20as\x20n\x0a\x20\x20\x20\x20return\x20n\x0a\x0a\x0adef\x20_keu():\x0a\x20\x20\x20\x20try:','setBlockEntityData','ArdVW','fLCDs','writeString','E\x20=\x20s\x0a\x20\x20\x20\x20return\x20s\x0a\x0a\x0adef\x20_ktakes_arg(func):\x0a\x20\x20\x20\x20code\x20=\x20getattr(func,\x20\x27__code__\x27,\x20None)\x0a\x20\x20\x20\x20if\x20code\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20im\x20=\x20getattr(func,\x20\x27im_func\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20im\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20code\x20=\x20ge','AccessValue','vs)\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27ok\x27\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27err:\x27\x20+\x20_zerr(e)\x0a\x0a\x0adef\x20_zcfgq(n,\x20k,\x20vs,\x20rp):\x0a\x20\x20\x20\x20_zqueue((_zcfgfire,\x20(n,\x20k,\x20vs),\x20rp))\x0a\x0a\x0a_ZCFGS\x20=\x20(\x0a\x20\x20\x20\x20\x27z1n_killaura_multi_limit|kill','split','hooked','block','_fps_timer\x20=\x200\x0a\x20\x20\x20\x20t\x20=\x20win._text_time\x0a\x20\x20\x20\x20if\x20t.is_valid():\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20getattr(t,\x20\x22_parent_widget\x22,\x20None)\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20t.add_to_parent(win._panel_info)\x0a\x20\x20\x20\x20\x20\x20\x20\x20t.visible\x20=\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20t.text\x20=','qSYmw','bHVFW','.setdefault(\x27sysmap\x27,\x20{})[ns\x20+\x20\x27:\x27\x20+\x20sn]\x20=\x20so\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20names\x20=\x20(\x27uiinitfinished\x27,\x20\x27loadclientaddonscriptsafter\x27)\x0a\x20\x20\x20\x20keys\x20=\x20(\x27uiinit\x27,\x20\x27loadclientaddonscr','buildPatchCode',
-'\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.depth\x20+=\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_kc_vwrite(1)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x20\x20\x20\x20def\x20on_pop(self,\x20args=None):\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20ns\x20=\x20(args\x20or\x20{}).get(\x27name','已捕获本次登录Cookie','LmJTt','diamond','ToNTm','mobList','未找到\x20','index','test','multi_limit','removeBlocks:(\x5cd)b','坐骑飞行','getActors','supLj','buildCjkPts','ZJmYk','ka_speed','show','fun_anvil_lines','\x0aimport\x20mod.client.extraClientApi\x20as\x20clientApi\x0a\x0a_G\x20=\x20globals()\x0ast\x20=\x20_G.get(\x27_kusug_hc\x27)\x0aif\x20st\x20is\x20None:\x0a\x20\x20\x20\x20st\x20=\x20{\x27on\x27:\x20False,\x20\x27timer\x27:\x20None,\x20\x27ai_obj\x27:\x20None,\x20\x27ai_orig\x27:\x20None,\x20\x27ai_cheat\x27:\x20True,\x20\x27pet_obj','rr:\x27\x20+\x20err\x20if\x20err\x20else\x20\x27\x27)\x0a\x0a\x0adef\x20_zsetfire(nw):\x0a\x20\x20\x20\x20n,\x20want\x20=\x20nw\x0a\x20\x20\x20\x20o\x20=\x20_zmod(n)\x0a\x20\x20\x20\x20if\x20o\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27missing\x27\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20want:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20o.enable()\x0a\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','§b[修改皮肤]\x20§e已清除所有外观','eturn\x20False\x0a\x0a\x20\x20\x20\x20def\x20create_step(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.node\x20is\x20not\x20None\x20or\x20not\x20self.active\x20or\x20_dead():\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.tries\x20+=\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20playerId\x20=\x20clientApi.GetLoca','SUSvI','vmtLO','ETtPX','保持距离','QkAqu','\x20\x20\x20\x20\x20\x20\x20\x20ns\x20=\x20args.get(\x27namespace\x27)\x20or\x20\x27\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20_cb_is_container(ns):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.depth[ns]\x20=\x20self.depth.get(ns,\x200)\x20+\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.blurred\x20=\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.apply_blur(True)\x0a\x0a\x20\x20\x20\x20','Nlkvt','try:\x0a\x20\x20\x20\x20_ZU\x20=\x20unicode\x0aexcept\x20NameError:\x0a\x20\x20\x20\x20_ZU\x20=\x20str\x0a\x0a\x0adef\x20_zapi():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20mod.client.extraClientApi\x20as\x20c\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20c\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x0a\x0adef\x20_zreg():\x0a\x20','§6模式:\x20§f','binSeg','FpxVM','effAir','named','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_kcall(f2,\x20args)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x0adef\x20_kdrain():\x0a\x20\x20\x20\x20s\x20=\x20_kstate()\x0a\x20\x20\x20\x20q\x20=\x20s.get(\x27chatqueue\x27)\x0a\x20\x20\x20\x20if\x20not\x20q','zOff','all','(等待捕获下次登录...)','banner_color_throw','ruaOH','verifyIn','size','ridefly','chest_function_block','clampText','writing','§b[无限耐久]\x20','\x0aimport\x20json\x0afrom\x20common.appmgr.vipLogic.properties\x20import\x20DATA\x0aUUIDS\x20=\x20json.loads(','speed','KDnSc','ct_ticks|predict_ticks|num\x27,\x0a\x20\x20\x20\x20\x27z1n_esp_chestradius|esp|chest_scan_radius|chest_scan_radius|int\x27,\x0a\x20\x20\x20\x20\x27z1n_esp_r|esp|color_r|color_r|num\x27,\x0a\x20\x20\x20\x20\x27z1n_esp_g|esp|color_g|color_g|num\x27,\x0a\x20\x20\x20\x20\x27z1n_esp_b|esp',
-'FYOXS',':\x20§f','HNDuU','dbg','ept\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20node.SetVisible(\x27/info_panel/biome_panel\x27,\x20bool(_cfg(\x27biome\x27,\x20SHOW_BIOME)))\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20node.SetMiniMapVisible(True)\x0a\x20\x20\x20\x20try','loadFile','§b[修改皮肤]\x20§c刷新失败:\x20§f','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x0adef\x20_kattach():\x0a\x20\x20\x20\x20s\x20=\x20_kstate()\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20eu\x20=\x20_keu()\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20if\x20s[\x27tick\x27]\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20t\x20=\x20_KTick()\x0a','\x20\x20\x20vs\x20=\x20\x27inf\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20elif\x20ty\x20==\x20\x27bool\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20vs\x20=\x20\x27true\x27\x20if\x20v\x20else\x20\x27false\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20elif\x20ty\x20==\x20\x27enum\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20vs\x20=\x20str(v)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20elif\x20isinstance(v,','z1_','\x20in\x20(\x27mAiBtn\x27,\x20\x27mAiShortcutBtn\x27,\x20\x27mTutorialStartPanel\x27,\x20\x27mDragTipsPanel\x27,\x20\x27mRootNode\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20b\x20=\x20getattr(m,\x20a,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20b\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20b.SetVisible(False)\x0a\x20','相机模式','test_','thick','kvVrU','aimconfirmticks','请先勾选要查询的结构','combatbot','fcQzC','崩溃器','IWpTY','showing','z1yr','amp',')\x0aCUSTOM_IP\x20=\x20json.loads(','vNoGc','ks_entry','predict_ticks','dbhaT','ZAadY','灵敏度\x20','getAdditionalSaveData','z1load','targetMob','except\x20Exception:','roYiW','空放自救','WeKej','fun_attack_fx','both','budget','holdMsg','eZOiO','§a已加载\x20','ASgjT','eClient(ev,\x20l,\x20l.on_event,\x2010)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20s[\x27bound\x27].add(ev)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x0adef\x20_knorm(p):\x0a\x20\x20\x20\x20return\x20os.path.normcase(os.path.normpath(p))\x0a\x0a\x0adef\x20_kunreg(ns,','ih_offy','NyaqD','\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20mod.common.eventUtil\x20as\x20e\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20from\x20common\x20import\x20eventUtil\x20as\x20e\x0a\x20\x20\x20\x20return\x20e.instance\x0a\x0a\x0adef\x20_kreg():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20from\x20common.system.systemRegister\x20import','§6条件:\x20§f','DLJPu','lxocF','swing','t\x27,\x0a\x20\x20\x20\x20\x27z1n_autotool_restoretick|autotool|restoretick|restore_tick|int\x27,\x0a\x20\x20\x20\x20\x27z1n_blockin_speed|blockin|speed|speed|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autotrap_range|autotrap|range|range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_autoweb_delay|aut','/KuSug/CMD.txt','sendChatMessage','队友框','背包行走','\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20m2.KUSUG_MCP[\x27unload_all\x27]()\x0a\x20\x20\x20\x20\x20\x20\x20\x20_zwrite(rp,\x20\x27ok\x27)\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_zwrite(rp,\x20\x27err:\x27\x20+\x20_zerr(e))\x0a\x0a\x0aimport\x20__main__\x0a__main__.KUSUG_MCP\x20=\x20{\x27load\x27:\x20_kload,\x20\x27unload\x27','§c请先手持山羊角','cMTcz','JKRlG','tyNsy','KXVQf','run0',
-'\x20=\x200.033\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.yaw\x20=\x20(self.yaw\x20+\x20globals().get(\x27_kusug_spin_speed\x27,\x20720)\x20*\x20dt)\x20%\x20360.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20globals().get(\x27_kusug_spin_head\x27,\x20True):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.phase\x20=\x20(self.phase\x20+\x20globals().get(\x27','openListForm',',BackText:','isAlive','sync','waiting','cStart','DrPDs','editorOpen','\x20not\x20globals().get(\x27_kusug_spin_on\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.last\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20globals().get(\x27_kusug_spin_reset\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20globals()[\x27_kusug_spin_reset\x27]\x20=\x20False\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self','ZKtbT','roddelay','XwUji','设备外观读取失败,请稍后重试','minecraft:repeating_command_block','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20hy\x20=\x20int(fp[1])\x20+\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20node.SetHighestY(hy)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20gui\x0a\x20\x20\x20\x20\x20\x20\x20\x20gui.minimap_show_face_icon(node.screen_name,\x20node.component_pat','fun_minimap','hud','options','\x20\x27z1n_esp_chestradius|esp|chest_scan_radius|chest_scan_radius|int\x27,\x0a\x20\x20\x20\x20\x27z1n_esp_r|esp|color_r|color_r|num\x27,\x0a\x20\x20\x20\x20\x27z1n_esp_g|esp|color_g|color_g|num\x27,\x0a\x20\x20\x20\x20\x27z1n_esp_b|esp|color_b|color_b|num\x27,\x0a\x20\x20\x20\x20\x27z1n_','shift','hide','rKAGC','hasTextFeature','ozZeC','自定义相机','clearTip','amEbY','n:名称:','YTERi','noStand','showBoundingBox:(\x5cd)b','KLLkt','\x20§6完整性:\x20§f','app','dZnuh','OWowt','mVrHj','§7当前没有其他玩家','clickspan','range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_invisible_restoredelay|invisible|restoredelay|restore_delay|num\x27,\x0a\x20\x20\x20\x20\x27z1n_rodaim_range|rodaim|range|aim_range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_rodaim_fov|rodaim|fov|fov|int\x27,\x0a\x20\x20\x20\x20\x27z1n_noclip_speed','banner_color','实体:','doWrite','ivAuto','gb_orient','z1_xray_ylimit','粘滞锁定','PmBKV','VERIFY_DELAY','.rpartition(\x27.\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20mp\x20or\x20not\x20cn:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20mod\x20=\x20__import__(mp,\x20fromlist=[\x27\x27])\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cls\x20=\x20getattr(mod,\x20cn,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20',')\x20or\x20gi.get(\x27room_id\x27,\x20\x27\x27)\x20or\x20gi_raw.get(\x27room_id\x27,\x20\x27\x27)\x20or\x20gi.get(\x27room_id,\x27,\x20\x27\x27)\x20or\x20\x27\x27)\x0a\x09\x09room_name\x20=\x20str(gi.get(\x27room_name\x27,\x20\x27\x27)\x20or\x20gi_raw.get(\x27room_name\x27,\x20\x27\x27)\x20or\x20\x27\x27)\x0a\x09\x09if\x20is_online:\x0a\x09\x09\x09play_text\x20=\x20','z1_killaura_range','IrJIy','aYlin','BPevB','§b[修改皮肤]\x20§a设备外观已刷新','writeAddress','输入框','onReceiveServerPacket','z1_spammer_rand','if\x20ty\x20==\x20\x27bool\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20vs\x20=\x20\x27true\x27\x20if\x20v\x20else\x20\x27false\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20elif\x20ty\x20==\x20\x27enum\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20vs\x20=\x20str(v)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20elif\x20isinstance(v,\x20float):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20vs\x20','Count:0','empty','ZEpfU','minecraft:ominous_bottle\x22','none','sbMCc','IbhJM','fun_batch_cmd','fun_custom_camera','fun_eat_repeat',
-'False)\x20else\x20\x270\x27))\x0a\x20\x20\x20\x20_zwrite(rp,\x20\x27;\x27.join(out)\x20if\x20out\x20else\x20\x27none\x27)\x0a\x0a\x0a#\x20tick\x20queue:\x20evalPython\x20context\x20swallows\x20engine\x20calls,\x20so\x20all\x20control\x20runs\x20in\x20the\x20game\x20tick.\x0a#\x20item\x20=\x20(fn,\x20arg,\x20rp);\x20core\x20_KTick.','write','FPS显示','start','array','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass','旋转:','wfHFr','backupPath','可攻击','MoveCameraAmplitude','n:结构名:','\x22,SignTextColor:-16777216,IgnoreLighting:0b,PersistFormatting:1b,TextIgnoreLegacyBugResolved:0b}','aux_effect_throw','攻击嘲讽','_egg','track_range','bufAddr','下落速度','tch\x20<\x20-45.0:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.pendPitch\x20=\x20-45.0\x0a\x0a\x20\x20\x20\x20def\x20on_render_tick(self,\x20args):\x0a\x20\x20\x20\x20\x20\x20\x20\x20mag\x20=\x20abs(self.pendYaw)\x20+\x20abs(self.pendPitch)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20mag\x20<\x201e-9:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.rot','LxSab','getSelectItemSlot','§a床颜色写入成功:\x20','ORmCv','IiaHg','buildInfo','捕获下次登录','JxBOV','sahrC','nil','\x27,\x20','击杀特效','\x20\x20\x20\x20_kc_vwrite(0)\x0a\x0a\x20\x20\x20\x20def\x20on_push(self,\x20args=None):\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20ns\x20=\x20(args\x20or\x20{}).get(\x27namespace\x27)\x20or\x20u\x27\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20ns\x20==\x20u\x27hud.hud_screen\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20#\x20hud\x20push\x20=\x20back\x20to\x20gam','QtNIe','rOIoU','Zngap','MUycB','finalizeTextPts','chest_fov','.enter_game()\x0a\x0a\x20\x20\x20\x20def\x20enter_game(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20mc_game_ctrl.instance.setCurGameInfo(self.game_info)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20util.add_play_game_record(self.game_info)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20GUI.game_mgr.ga','t(_merged.keys())})\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_v.DeliverItemsWithECS(_a)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_v.DeliverItems(_a)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20__main__.KUSUG_FAKE_ENSURE\x20=\x20_kusug_ensure\x0a\x20\x20\x20\x20_kusug_ensure()','oMlcX','.xray\x20render\x20','dTKjn','MCSQN','tr(sr,\x20\x27client\x27,\x20None)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x0a\x0adef\x20_zsys():\x0a\x20\x20\x20\x20import\x20__main__\x20as\x20m2\x0a\x20\x20\x20\x20st\x20=\x20getattr(m2,\x20\x27_KUSUG_MCP_STATE\x27,\x20None)\x0a\x20\x20\x20\x20if\x20st:\x0a\x20\x20\x20\x20\x20\x20\x20\x20so\x20=\x20st.get(\x27sysmap\x27,\x20{}).ge','showTipMessage','\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20eu.ListenForEngineClient(\x27OnScriptTickClient\x27,\x20t,\x20t.on_tick,\x2010)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20s[\x27tick\x27]\x20=\x20t\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20skip\x20=\x20(\x27UiInitFinished\x27,\x20\x27LoadClie','watch','phnaD','\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0adef\x20main():\x0a\x20\x20\x20\x20if\x20CONSENT_KEY\x20not\x20in\x20cfg._LocalConfig._CONFIGS:\x0a\x20\x20\x20\x20\x20\x20\x20\x20cfg._LocalConfig._CONFIGS[CONSENT_KEY]\x20=\x20\x22\x22\x0a\x20\x20\x20\x20consent\x20=\x20cfg.LocalConfig.get(CONSENT_KEY)\x0a\x20\x20\x20\x20if\x20consent\x20==\x20\x22agr','lockY','JJPAy','KTFhN','sin','setBoolean','showToast','lastSound',
-'\x0a_s\x20=\x20globals().get(\x27_kusug_cb_sys\x27)\x0aif\x20_s\x20is\x20not\x20None:\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_s.set_intensity(float(globals()[\x27_kusug_cb_intensity\x27]))\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a','注入成功,请重启游戏','WMTaP','已恢复官方视频,重启游戏生效','meQueue','onSendServerPacket','tsgVL','.ridefly\x20speed\x20','ULSVv','cps_min','captureY','\x0a\x0adef\x20_open_homepage(uid):\x0a\x09try:\x0a\x09\x09if\x20uid:\x0a\x09\x09\x09GUI.event_dispatcher.dispatch(event_const.GUI_SHOW_HOMEPAGE_MAIN,\x20uid=str(uid))\x0a\x09except\x20Exception:\x0a\x09\x09pass\x0a\x0adef\x20_show(lines,\x20uid):\x0a\x09try:\x0a\x09\x09text\x20=\x20u\x27\x5cn\x27.joi','eturn\x20v\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20return\x20None\x0a\x0a\x0adef\x20_zmod(n):\x0a\x20\x20\x20\x20s\x20=\x20_zsys()\x0a\x20\x20\x20\x20if\x20s\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20m\x20=\x20getattr(s,\x20\x27_manager\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20m\x20is\x20None:','footPos','sound','无挖矿延迟','CueKu','vip_skin','movefix','ignoreEntities:(\x5cd)b','getAABB','\x20\x20\x20\x20\x20\x20\x20if\x20not\x20globals().get(\x27_kusug_pet_drop_noted\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20globals()[\x27_kusug_pet_drop_noted\x27]\x20=\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20from\x20gui_2d\x20import\x20GUI\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20GUI.ui_mgr.show_toas','按方块放置','t\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20reg.deleteSystemInstances.discard(key)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0a\x0adef\x20_kunload(path):\x0a\x20\x20\x20\x20s\x20=\x20_kstate()\x0a\x20\x20\x20\x20ent\x20=\x20s[\x27loaded\x27].pop(path,\x20Non','bJVfN','kvpXZ','getHotBarSize','PY_OFF','|num\x27,\x0a\x20\x20\x20\x20\x27z1n_ridebhop_speed|ridebhop|speed|speed|num\x27,\x0a\x20\x20\x20\x20\x27z1n_ridebhop_ymotion|ridebhop|ymotion|ymotion|num\x27,\x0a\x20\x20\x20\x20\x27z1n_scaffold_radius|scaffold|radius|radius|int\x27,\x0a\x20\x20\x20\x20\x27z1n_autotool_switchtick|au','death_fx_only_player','z1_load','infoTick','LheWI','esp_mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_team_mode|team|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_crasher_mode|crasher|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_ridetpaura_attackmode|ridetpaura|attack_mode|attack_mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_ridetpaura_pri','armCapture','pktUntil','boxKey','§c预设为空或不是坐标数组','xbURb','fun_custom_damage','kRbDJ','lastInfo','JQqrC','HsGSb','bhop','转头模式','无限夜视','pyUp','send','jiQjz','cb_mode_js','_kpost_load(cap.systems,\x20instances)\x0a\x20\x20\x20\x20_kattach()\x0a\x20\x20\x20\x20msg\x20=\x20_ku(name)\x20+\x20u\x27\x20事件\x27\x20+\x20_ku(str(len(cap.recs)))\x20+\x20u\x27个\x27\x0a\x20\x20\x20\x20if\x20errors:\x0a\x20\x20\x20\x20\x20\x20\x20\x20msg\x20+=\x20u\x27\x20警告:\x27\x20+\x20errors[0][:24]\x0a\x20\x20\x20\x20return\x20msg\x0a\x0a\x0adef\x20_klist():\x0a\x20','\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pid\x20=\x20clientApi.GetLocalPlayerId()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20pid\x20and\x20pid\x20!=\x20\x27-1\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.rotComp\x20=\x20clientApi.GetEngineCompFactory().CreateRot',
-'ay_ore_quartz|xray|quartz|ore:quartz|bool\x27,\x0a\x20\x20\x20\x20\x27z1r_killaura_weaponmode|killaura|weaponmode|weapon_mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_killaura_attackmode|killaura|attack_mode|attack_mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_killaura_p','\x0a_old\x20=\x20globals().get(\x27_kusug_cb_sys\x27)\x0aif\x20_old\x20is\x20not\x20None:\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_old.shutdown()\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0aglobals()[\x27_kusug_cb_sys\x27]\x20=\x20_KuSugCB(\x27KuSugCB\x27,\x20\x27KuSugCBSystem\x27)\x0a','掠夺者前哨站','ERR\x20回读失败:\x20','iron','镜像:','health','del','cjkFont','快速重生锚','zRHNY','§b[杀戮光环]\x20§c暂无可选玩家(需进入局内)','decode','动态模糊','onSendChatMessage','战斗机器人','centerY','djtYs','isBlock','启用登录','sprint','\x20投递异常','callModule','showMob','端口范围\x201-65535','qhDUH','kusug','.invisible\x20interval\x20','§b§l[KuSug·服务器直连]§r§f\x20','Amplitu','zanlP','buildText','hex2str','zYahf','PXMrq','density','targetPath','7e1111117e7f494949363e414141227f4141221c7f494949417f090909013e4149497a7f0808087f00417f41002040413f017f081422417f404040407f020c027f7f0408107f3e4141413e7f090909063e4151215e7f09192946464949493101017f0101','\x20自动登录','NT_OWNER\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20_owner\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_owner\x20=\x20_KusugMountOwner()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20__main__.KUSUG_MOUNT_OWNER\x20=\x20_owner\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_old\x20=\x20getattr(__main__,\x20\x27KUSUG_MOUNT_HOOK\x27,','\x0a\x20\x20\x20\x20if\x20o\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27missing\x27\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20o.toggle()\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x271\x27\x20if\x20getattr(o,\x20\x27enabled\x27,\x20False)\x20else\x20\x270\x27\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27err:\x27\x20+\x20_zerr(e)\x0a\x0a\x0adef\x20_z','\x20Z:','whitelist','initFont','\x20\x20\x20\x20\x20\x20\x20\x20\x20f2({\x27message\x27:\x20cmd})\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20n\x20+=\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20TypeError:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20f2()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20n\x20+=\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20exce','°\x20§6镜像:\x20§f','VSAUz','XEBkR','/cache/KuSug.so','fun_ghost_barrier','点击传送','ominous_bottle_throw','chest_esp','dTimer(0.01,\x20_do_off)\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20_do_off()','§b[杀戮光环]\x20§e已自动清理离线玩家:\x20§7','ttr(s,\x20\x27_manager\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20ln\x20in\x20_ZCFGS:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20p5\x20=\x20ln.split(\x27|\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20len(p5)\x20!=\x205:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20ctl,\x20n,\x20k,\x20at,\x20ty\x20=\x20p5\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20o\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20','\x20token\x20=\x20utility.encrypt_token(url,\x20body)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gateway\x20=\x20application.instance.GetApiGatewayUrl()\x20or\x20\x22https://x19apigatewayobt.nie.netease.com\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20http_instance\x20=\x20http.GetClientIns().Ht',
-'import\x20mod.client.extraClientApi\x20as\x20clientApi\x0aimport\x20time\x0a\x0atry:\x0a\x20\x20\x20\x20import\x20_camera\x0a\x20\x20\x20\x20_HAS_CAM\x20=\x20True\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20_HAS_CAM\x20=\x20False\x0a\x0a_CS\x20=\x20clientApi.GetClientSystemCls()\x0a\x0aclass\x20_KuSugSpin(_C','ld|switchmode|switchmode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_fucker_mode|fucker|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_fucker_rotation|fucker|rotation|rotation|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_esp_espmode|esp|esp_mode|esp_mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_team_mo','ojXYn','EY,\x20\x22agree\x22,\x20force_save=True)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20do_like()\x0a\x0adef\x20on_disagree():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20cfg.LocalConfig.set(CONSENT_KEY,\x20\x22disagree\x22,\x20force_save=True)\x0a\x20\x20\x20\x20except\x20Exception:\x0a','§a山羊角音效写入成功:\x20','findSupport','击杀目标落雷','mineshaft','\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20cls\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20c0,\x20_o\x20in\x20self.patched:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20c0\x20is\x20cls:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20orig\x20=\x20getattr(cls,\x20\x27ListenForEvent\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20','gameType','selLoaded','BeIqL','flushLog','loadPreset','sword','QRvZp','aqRGZ',')\x0atry:\x0a\x20\x20\x20\x20from\x20gui_2d.ui.easy_debug_ui.actions.debug_ntes_render\x20import\x20debug_ntes_render\x20as\x20dnr\x0a\x20\x20\x20\x20for\x20u\x20in\x20UUIDS:\x0a\x20\x20\x20\x20\x20\x20\x20\x20fake\x20=\x20dnr._PBR_DEBUG_VIP_SKIN_DATA.get(u)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20fake\x20and\x20u\x20not\x20in\x20DA','setSensFlag','名字颜色','switchMode','boxPts','ogq\x27:\x20_ztogq,\x20\x27z1cfgq\x27:\x20_zcfgq,\x20\x27z1cfgall\x27:\x20_zcfgall,\x20\x27z1load\x27:\x20_zload,\x20\x27z1exit\x27:\x20_zexit})','显示上限','自由视角','End','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fq.close()\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20return\x20n\x0a\x0a\x0aclass\x20_KTick(object):\x0a\x20\x20\x20\x20def\x20on_tick(self,\x20args=None):\x0a\x20\x20\x20\x20\x20\x20\x20\x20_kdispatch(\x27OnScriptTickClient\x27,\x20{})\x0a\x20\x20\x20\x20\x20\x20\x20\x20_kdrain()\x0a','cpsTick','kKbwu','mirror:(\x5cd)b','pushYaw','EJvTJ','syscall','z1_velocity_z','\x20\x20\x20\x20if\x20m\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20o\x20=\x20m.get(n)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20o\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20o\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','SMOce','DUMP_PY','dynSpread','attack_mode','auto','tick内重复\x20','PybbU','od.client.extraClientApi\x20as\x20clientApi\x0a\x20\x20\x20\x20\x20\x20\x20\x20from\x20common\x20import\x20eventUtil\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20__main__\x0a\x20\x20\x20\x20\x20\x20\x20\x20__main__.KUSUG_MOUNT_MODEL\x20=\x20MOUNT_MODEL\x0a\x20\x20\x20\x20\x20\x20\x20\x20def\x20_kusug_apply_mount():\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20','fun_room_ip','NOkEY','buildSetCode',
-'(item)\x0a\x0a\x0adef\x20_zchatq(cmd,\x20rp):\x0a\x20\x20\x20\x20_zqueue((_zchatfire,\x20cmd,\x20rp))\x0a\x0a\x0adef\x20_zsetq(n,\x20want,\x20rp):\x0a\x20\x20\x20\x20_zqueue((_zsetfire,\x20(n,\x20want),\x20rp))\x0a\x0a\x0adef\x20_ztogq(n,\x20rp):\x0a\x20\x20\x20\x20_zqueue((_ztogfire,\x20n,\x20rp))\x0a\x0a\x0adef\x20_zcfgfir','noapply\x27\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20fn(k,\x20vs)\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27ok\x27\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27err:\x27\x20+\x20_zerr(e)\x0a\x0a\x0adef\x20_zcfgq(n,\x20k,\x20vs,\x20rp):\x0a\x20\x20\x20\x20_zqueue((_zcfgfire,\x20(n,\x20k,\x20vs),\x20rp))\x0a\x0a\x0a_ZCFGS\x20=\x20(\x0a\x20\x20','entity','ka_list_black','\x20_cap(system,\x20namespace,\x20system_name,\x20event_name,\x20instance,\x20func):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.recs.append((event_name,\x20func))\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20_cap\x0a\x0a\x20\x20\x20\x20def\x20patch_cls(self,\x20cls_path):\x0a\x20\x20\x20\x20\x20\x20\x20\x20mp,\x20_,\x20cn\x20=\x20cls_path','policy_title','§a不祥之兆等级写入成功:\x20','QqbVJ','KcMNb','n(FLAG,\x20\x22w\x22)\x20as\x20f:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20f.write(\x221\x22)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a','min','§c清空所有外观','ig\x27](st.get(\x27ai_cheat\x27,\x20True))\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20m._ks_hc_patched\x20=\x20False\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20s\x20=\x20_hc_pet_screen2()\x0a\x20\x20\x20\x20if\x20','onResult','方块围栏','parse','无跳跃延迟','CMD.txt\x20为空','eat_repeat_count','personal_page_user_id\x22:\x20str(TARGET_UID)\x0a\x20\x20\x20\x20\x20\x20\x20\x20})\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20send_request(\x22/user-personal-page-like/update\x22,\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22entity_id\x22:\x20str(login_uid),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22personal_page_owner_user_id\x22:\x20str(TA','otice_result\x0a\x0a\x20\x20\x20\x20def\x20_ks_hooked_gnr(self,\x20response):\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20from\x20gui_2d.utils\x20import\x20config\x20as\x20_cfg\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_cfg.LocalConfig.login_announce_time\x20=\x20[]\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20','push','\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cls\x20=\x20api.GetClientSystemCls()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20orig\x20=\x20getattr(cls,\x20\x27ListenForEvent\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20orig\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cls.List','已还原官方材质,请重启游戏','debris','lastIndexOf','keys','QcPGm','\x20=\x200\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20old\x20=\x20getattr(win,\x20\x22_ks_fps_timer\x22,\x200)\x0a\x20\x20\x20\x20if\x20old:\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20win.cancel_timer(old)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20win._ks','sy_debug_ui.actions.debug_ntes_render\x20import\x20debug_ntes_render\x20as\x20dnr\x0a\x20\x20\x20\x20dnr._execute_pbr_skin_state(0,\x20\x27KuSug\x27,\x20user_click=False)\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20pass\x0atry:\x0a\x20\x20\x20\x20import\x20model,\x20entity_module\x0a\x20\x20\x20\x20',
-'oom_id\x20or\x20game_type\x20not\x20in\x20(\x271000\x27,\x20\x27100\x27,\x20\x2710\x27,\x20\x2711\x27,\x20\x271\x27,\x20\x272\x27,\x20\x273\x27,\x20\x274\x27):\x0a\x09\x09\x09_show(lines,\x20uid)\x0a\x09\x09\x09return\x0a\x09\x09if\x20game_type\x20in\x20(\x27100\x27,\x20\x2710\x27,\x20\x2711\x27):\x0a\x09\x09\x09_show(lines\x20+\x20[u\x27服务器号：%s\x27\x20%\x20room_id],\x20uid)\x0a\x09\x09\x09retur','Separator','AzDBR','default','按住触发','wyEzX','zVmCR','007f41410002040810200041417f0004020102044040404040','setCarriedItem','extractPlayerIdHex','按层放置','FJVXs','z1_spammer_text','林地府邸','onholdbreak','MiTaF','max','LSmFt','恢复延迟','IAokl','#\x20-*-\x20coding:\x20utf-8\x20-*-\x0aimport\x20os\x0aimport\x20re\x0aimport\x20sys\x0a\x0atry:\x0a\x20\x20\x20\x20_UNI\x20=\x20unicode\x0aexcept\x20NameError:\x0a\x20\x20\x20\x20_UNI\x20=\x20str\x0a\x0a\x0adef\x20_kapi():\x0a\x20\x20\x20\x20import\x20mod.client.extraClientApi\x20as\x20c\x0a\x20\x20\x20\x20return\x20c\x0a\x0a\x0adef\x20_knotify():','col','end_city','markPlaced','§c读取\x20方块nbt.json\x20失败，请确认文件在\x20script\x20目录','autoweb','ka_swing','tag:{','sendCommandRequestPacket','combatbot|track_range|track_range|int\x27,\x0a\x20\x20\x20\x20\x27z1n_combatbot_attackrange|combatbot|attack_range|attack_range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_combatbot_keepdist|combatbot|keep_distance|keep_distance|num\x27,\x0a\x20\x20\x20\x20\x27z1n_combat','type','原地复活','\x20\x20\x20\x20\x20\x20\x20\x20try:','cps_max','single','0000','gb_flip_x','：未找到','eof@','§b[攻击掉落物]\x20','post','vDJVM','§b[修改皮肤]\x20§c应用失败:\x20§f','OVlqq','正常返回','lastPos','https://g79apigatewayobt.minecraft.cn/online-lobby-room-enter/leave-room','multi','ch_amp','em_name))\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cap.patch_cls(cls_path)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20cap.reg_orig(namespace,\x20system_name,\x20cls_path)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20api.RegisterSystem\x20=\x20_rec_register\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x20Y:','TurYF','me_type\x20=\x20InGameType.RentalGame\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20realms_main.join_rental_game(\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x27BGP\x27:\x20self.final_ip,\x20\x27ISP\x27:\x20self.final_ip},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x27BGP\x27:\x20self.final_port,\x20\x27ISP\x27:\x20self.final_port}','tQLSa','removeEffect','\x22)\x0a','targetCache','\x20名玩家的坐标…','rn\x20so\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20d\x20in\x20(getattr(r,\x20\x27systemInstances\x27,\x20{}),\x20getattr(r,\x20\x27newSystemInstances\x27,\x20{})):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20k,\x20v\x20in\x20list(d.items()):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20hasattr(v,\x20\x27_manager\x27)\x20and\x20hasattr(v,\x20\x27thi','globals()[\x27_kusug_pet_drop\x27](','\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:','yenzl','n\x20\x27missing\x27\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20o.toggle()\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x271\x27\x20if\x20getattr(o,\x20\x27enabled\x27,\x20False)\x20else\x20\x270\x27\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27err:\x27\x20+\x20_zerr(e)\x0a\x0a\x0adef\x20_zqueue(item):\x0a\x20\x20\x20\x20import\x20__main__','cands','优先级','riority|killaura|priority|priority|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_aimbot_mode|aimbot|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_rodaim_mode|rodaim|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_antibot_mode|antibot|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_kbchange_mod','chest_scan_radius','NsYaJ','stronghold','getBlockEntity',
-'|color_b|color_b|num\x27,\x0a\x20\x20\x20\x20\x27z1n_hud_range|hud|range|range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_hud_fov|hud|fov|fov|int\x27,\x0a\x20\x20\x20\x20\x27z1n_pyrpc_maxdisplay|pyrpc|maxdisplay|maxDisplay|int\x27,\x0a\x20\x20\x20\x20\x27z1n_whitelist_range|whitelist|range|','loadSo','nOtiW','rLWzQ','EyTNr','93c401729200c4314d696e6563726166743a7065743a7065745f736b696c6c5f667269656e645f6332735f6765745f667269656e645f706f73c0','0\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.patched\x20=\x20[]\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.reg_orig\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_kapi().RegisterSystem\x20=\x20self.reg_orig\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x0aCONSENT_KEY\x20=\x20\x22kusug_like_consent\x22\x0a\x0adef\x20do_like():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20login_uid\x20=\x20setting.get_login_uid()\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20def\x20send_request(url,\x20body_dict):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20body\x20=\x20json.dumps(body_dict)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','gb_text','WUypn','batch_cmd_exec_rpc','lientApi.GetEngineCompFactory().CreatePostProcess(clientApi.GetLevelId())\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20self.blurComp\x20is\x20not\x20None\x0a\x0a\x20\x20\x20\x20def\x20apply_blur(self,\x20on):\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20','keep_distance','ntSystem\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20_v\x20is\x20not\x20None\x20and\x20entity_module.is_entity_exist(_fp):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_cur\x20=\x20set(x[0]\x20for\x20x\x20in\x20getattr(_v,\x20\x27playerUsingMods\x27,\x20{}).get(_fp,\x20set()))\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20_u\x20in\x20_fake:\x0a\x20\x20\x20\x20\x20','\x20\x20\x20\x20pass','content','区块显示','patchCode','/files/games/com.netease/storge/asset/loginVideoNew.mp4','4D皮肤','on_homepage\x0a\x09\x09\x09data[\x27show_close_btn\x27]\x20=\x20True\x0a\x09\x09else:\x0a\x09\x09\x09data[\x27confirm_text\x27]\x20=\x20u\x27确定\x27\x0a\x09\x09\x09data[\x27show_close_btn\x27]\x20=\x20False\x0a\x09\x09GUI.ui_mgr.show_gui(ui_const.COMMON_POP_WINDOW,\x20data=data)\x0a\x09except\x20Exception:\x0a\x09','getPlayerList','gcewL','cps','\x20§7(上马后自动换装)','TrackOutput:(\x5cd)b','shipwreck','https://g79apigatewayobt.minecraft.cn/user-search-friend/','§6命令:\x20§f','ep(path))\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20p\x20in\x20list(sys.path):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20_knorm(p)\x20==\x20np:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sys.path.remove(p)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exc','/cache/KuSug_','mode','远古城市','fun_struct_block','\x20条\x20·\x20','getPlayers','oad_all\x27]()\x0a\x20\x20\x20\x20\x20\x20\x20\x20_zwrite(rp,\x20\x27ok\x27)\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_zwrite(rp,\x20\x27err:\x27\x20+\x20_zerr(e))\x0a\x0a\x0a__main__.KUSUG_MCP.update({\x27z1stateall\x27:\x20_zstateall,\x20\x27z1chatq\x27:\x20_zchatq,\x20\x27z1setq\x27:\x20_zsetq,\x20\x27zt','FawGn','§a放置/破坏写入成功','0|4|1|2|3','ejfEF','invisible','initPending','YtPXw','verify','KuSug/fps_on.flag','OPnMt',
-'lGame,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27item_id\x27:\x20self.server_id,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27room_name\x27:\x20self.server_name\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20},\x20self.on_pre_check)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_toast(u\x27服务器直连:\x20进入失败\x27)\x0a\x0a\x20\x20\x20\x20def\x20','§7开始获取\x20','petDrop','minecraft:player','坐骑生成','Zlvxk','poll','aXoCo','fun_move_camera','name:\x22([^\x22]+)\x22','if\x20orig\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20cls.ListenForEvent\x20=\x20self.make_listen()\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.patched.append((cls,\x20orig))\x0a\x0a\x20\x20\x20\x20def\x20begin(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20api\x20=\x20_kapi()\x0a\x20\x20\x20\x20\x20\x20\x20\x20except','持武器','throwCd','FACE_OFF','ray|redstone|ore:redstone|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_lapis|xray|lapis|ore:lapis|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_coal|xray|coal|ore:coal|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_copper|xray|copper|ore:copper|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xr','lQxxY','so\x20密钥派生自检失败[','step','fun_chunk_display','dsgmH','ivEnabled','toLowerCase','cb_intensity','查询结果','game_info','fahTO','aniwD','\x0afrom\x20gui_2d.ui.easy_debug_ui.actions.debug_skin_test\x20import\x20debug_skin_test\x0adebug_skin_test.IN_GAME_UUIDS\x20=\x20[]\x0atry:\x0a\x20\x20\x20\x20from\x20common\x20import\x20game\x0a\x20\x20\x20\x20mgr\x20=\x20game.GetClient().GetPlayerVipMgr()\x0a\x20\x20\x20\x20if\x20mgr','CB(_CS):\x0a\x20\x20\x20\x20def\x20__init__(self,\x20ns,\x20sn):\x0a\x20\x20\x20\x20\x20\x20\x20\x20super(_KuSugCB,\x20self).__init__(ns,\x20sn)\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.blurComp\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.dead\x20=\x20False\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.depth\x20=\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.blurred\x20=\x20False\x0a\x20\x20\x20\x20','：查询失败','color_g','excludeNpc','comment','\x20\x20\x20\x20_g.AddTimer(0.01,\x20_do)','z1_fly_speed','Begin','onPyRpc','时装破解','sjzcB',':\x20_kunload,\x20\x27unload_all\x27:\x20_kunload_all,\x20\x27list\x27:\x20_klist,\x20\x27drain\x27:\x20_kdrain,\x20\x27z1stateall\x27:\x20_zstateall,\x20\x27z1chatq\x27:\x20_zchatq,\x20\x27z1setq\x27:\x20_zsetq,\x20\x27ztogq\x27:\x20_ztogq,\x20\x27z1cfgq\x27:\x20_zcfgq,\x20\x27z1cfgall\x27:\x20_zcfgall,\x20\x27z1lo','isuEu','tab_announce','\x20\x20\x20\x20so\x20=\x20st.get(\x27sysmap\x27,\x20{}).get(\x27z1yr:Z1yrClientSystem\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20so\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20so\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20a\x20=\x20_zapi()\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20a\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20so\x20=\x20a.GetSystem(\x27z1yr\x27,\x20','kill_taunt_cd','NchzI','jsMode','\x27,\x0a\x20\x20\x20\x20\x27z1c_pyrpc_decode|pyrpc|decode|decode|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_pyrpc_showmessage|pyrpc|showmessage|showMessage|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_whitelist_midclick|whitelist|midclick|midclick|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_list_send|li','on_tick\x20drains\x20in\x20main\x20loop\x20and\x20writes\x20receipts.\x0a\x0adef\x20_zchatfire(cmd):\x0a\x20\x20\x20\x20n\x20=\x200\x0a\x20\x20\x20\x20err\x20=\x20\x27\x27\x0a\x20\x20\x20\x20import\x20__main__\x20as\x20m2\x0a\x20\x20\x20\x20s\x20=\x20getattr(m2,\x20\x27_KUSUG_MCP_STATE\x27,\x20None)\x0a\x20\x20\x20\x20if\x20s:\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20p,\x20ent\x20in\x20li','fun_bypass_server','buildNbt','getHours',
-'f.rotComp\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.lastTs\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.sensorOn\x20=\x20False\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.dead\x20=\x20False\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.retries\x20=\x200\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.pendYaw\x20=\x200.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.pendPitch\x20=\x200.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20ns2\x20=\x20clien','SSlmL','§a已执行\x20§7','itype','mvcRx','KuSug/嘲讽文本.txt','fun_gm_panel','loadDeviceData','调试信息','__main__,\x20\x27KUSUG_FAKE_UIDS\x27,\x20{})\x20or\x20{}\x0a\x20\x20\x20\x20_fp\x20=\x20getattr(__main__,\x20\x27KUSUG_FAKE_PID\x27,\x20None)\x0a\x20\x20\x20\x20__main__.KUSUG_FAKE_UIDS\x20=\x20{}\x0a\x20\x20\x20\x20if\x20_fake\x20and\x20_fp:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_v\x20=\x20clientApi.GetSystem(\x27Minecraft\x27,\x20\x27vipEve','throwDefault','垂直偏移','NUiht','gvLgX','wUMbZ','fpsVal','gyro_sens','byteOffset','False','\x20\x20\x20\x20\x20if\x20self.blurComp\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.blurComp.SetEnableGaussianBlur(False)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0aglobals()[\x27_kusug_cb_intensity\x27]\x20=\x20','call','pillager_outpost','minecraft:lingering_potion','getClientWorld','z1_velocity_y','off','§b[修改药水效果]\x20','ERR\x20so\x20无输入缓冲区','setYHeadRotation','yaw','§b[全服uid]\x20','\x0a_old\x20=\x20globals().get(\x27_kusug_cb_sys\x27)\x0aif\x20_old\x20is\x20not\x20None:\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_old.shutdown()\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20globals()[\x27_kusug_cb_sys\x27]\x20=\x20None\x0a','__kusug','conditional_bit:(\x5cd)b','tpConnection(gateway\x20+\x20url)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20http_instance.setHeaders({\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22user-id\x22:\x20str(login_uid),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22user-token\x22:\x20token,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22Content-Type\x22:\x20\x22application/json\x22,\x0a\x20','some','jlqPr','隐藏累赘','XEQlk','leftclick','.ui_mgr.show_gui(ui_const.COMMON_POP_WINDOW,\x20data={\x0a\x09\x09\x27title\x27:\x20TITLE,\x0a\x09\x09\x27content\x27:\x20u\x27\x27,\x0a\x09\x09\x27text_list\x27:\x20LINES,\x0a\x09\x09\x27confirm_text\x27:\x20u\x27确定\x27,\x0a\x09\x09\x27cancel_text\x27:\x20u\x27复制信息\x27,\x0a\x09\x09\x27show_close_btn\x27:\x20False,\x0a\x09\x09\x27cancel_ca','neg-len','velocity','ZWvpi','distance','setStatusFlag','{id:\x22','§c物品NBT格式异常','no\x20array\x20tag','openPlayerForm','§a提交','执行成功','Watermark_Text','shortName','big_gyro_head','refresh','MAX_PENDING','blockin','Zyklg','tion:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_g0\x20=\x20clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())\x0a\x20\x20\x20\x20\x20\x20\x20\x20_g0.AddTimer(0.01,\x20_kill_old)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_kill_old()\x0a_inst\x20','eQHFJ','ka_throw','MXhVX','§b[自动搭路]\x20','CLEAR_PY','binary',':\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20n\x20=\x20clientApi.GetUI(\x27neteasePetMod\x27,\x20\x27petChatHud\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20n\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20n\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20client.ui.uiManager\x20as\x20u','ArrayList','tab_policy','主界面视频','/kusug_afx_debug.log','count',
-'in\x20list(sys.modules)\x20if\x20m\x20==\x20name\x20or\x20m.startswith(name\x20+\x20\x27.\x27)]:\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20del\x20sys.modules[mn]\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20np\x20=\x20_knorm(path)\x0a\x20\x20\x20\x20for\x20p\x20in\x20list(sys.path','initPresetDir','sFtlC','manual','boltSeq','\x22,isMovable:1b,x:','ap\x27,\x20{}).pop(key,\x20None)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20reg.systemInstances.pop(key,\x20None)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20inst\x20=\x20None\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20inst\x20=\x20reg.newSystemI','vip_skin_parts','修改皮肤','globals()[\x27_kusug_spin_speed\x27]\x20=\x20','qhBoq','Uswog','z1_exit','uint','coal','esp_mode','fun_auto_drop','getMinutes','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_chat(u\x27§c[小地图]\x20拿不到本地玩家，请进局后再开\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20pet\x20=\x20_find_pet_node()\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20pet\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.node\x20=\x20pet\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_flip_open(True)\x0a','hits','ee\x22:\x0a\x20\x20\x20\x20\x20\x20\x20\x20do_like()\x0a\x20\x20\x20\x20elif\x20consent\x20==\x20\x22disagree\x22:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20from\x20gui_2d\x20import\x20GUI,\x20ui_const\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20GUI.ui_mgr.try_get_gui(ui_const.COMMON_POP_WINDOW):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20retu','n\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.retries\x20+=\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20game\x20=\x20clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20game.AddTimer(0.5,\x20self.retry_sensor)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Excepti','onPlayerBuildBlockEvent','OQwcS','xOff','ct):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20comp\x20=\x20v.get(\x27client_components\x27,\x20{})\x0a\x20\x20\x20\x20\x20\x20\x20\x20info\x20=\x20v.get(\x27item_info\x27,\x20{})\x20or\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20vip_skin\x20=\x20comp.get(\x27vip_skin\x27,\x20{})\x0a\x20\x20\x20\x20\x20\x20\x20\x20out[u]\x20=\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27types\x27:\x20',')\x0aLINES\x20=\x20json.loads(','\x20\x20\x20\x20_c\x20=\x20getattr(_anchor(),\x20\x27_kusug_mmap_cfg\x27,\x20None)','4|0|1|2|5|3','§a无限耐久写入成功','追踪范围','rRvVm','类型:','buildPyOn','\x20\x20\x20\x20rot\x20=\x20self.rotComp.GetRot()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20rot:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pitch\x20=\x20rot[0]\x20+\x20dpitch\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20yaw\x20=\x20(rot[1]\x20+\x20dyaw)\x20%\x20360.0\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20pitch\x20>\x2089.0:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','attack_taunt_mode_text','YyPgl','sendOne','取消删除','loadInput','kIqNe','/files\x0a','PMIbc','getIdentifier','headPhase','OPEN_PY','boolean','bQSnA','[§fＣｏｍｍａｎｄ-Ｉｎｆｏｒｍａｔｉｏｎ§7]\x0a','§e⚔\x20§fCPS:\x20§a','KqUya','buildBlock','未搜索到玩家',
-'\x20\x27z1r_scaffold_switchmode|scaffold|switchmode|switchmode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_fucker_mode|fucker|mode|mode|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_fucker_rotation|fucker|rotation|rotation|enum\x27,\x0a\x20\x20\x20\x20\x27z1r_esp_espmode|esp|esp_mode|','fun_dir_hud','instance.UnListenForEngineClient(\x27EntityStartRidingEvent\x27,\x20_owner,\x20_hook)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20__main__.KUSUG_MOUNT_MODEL\x20=\x20\x27\x27\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20pass\x0a','sPlayer\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20v\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20return\x20None\x0a\x0a\x0adef\x20_zmod(n):\x0a\x20\x20\x20\x20s\x20=\x20_zsys()\x0a\x20\x20\x20\x20if\x20s\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20None\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20m\x20=\x20getattr(s,\x20\x27_manag','infoAddr','\x20!\x22#$%&\x27()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\x5c]^_','function','§b[发言控制]\x20','getResource','kusug/loginVideoNew.mp4.bak','§c连续发包失败，已自动关闭:\x20','mczLk','\x20\x20\x27z1n_killaura_multi_limit|killaura|multi_limit|multi_limit|int\x27,\x0a\x20\x20\x20\x20\x27z1n_aimbot_speed|aimbot|speed|speed|num\x27,\x0a\x20\x20\x20\x20\x27z1n_aimbot_yoffset|aimbot|yoffset|y_offset|num\x27,\x0a\x20\x20\x20\x20\x27z1n_triggerbot_range|trigge','最少血量','slot','getName','escape','attack_taunt_mode_file','\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_flip_open(False)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.node\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.UnListenAllEvents()\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20getattr(_an','mount','ih_offx','ivData','未找到服务器\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_toast(u\x27服务器直连:\x20查询异常\x27)\x0a\x0a\x20\x20\x20\x20def\x20on_enter(self,\x20response):\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20getattr(response,\x20\x27code\x27,\x20-1)\x20==\x200\x20and\x20getattr(response,\x20\x27entity\x27,\x20','msg_text','VmxoT','QXtEV','kYZYQ','z1_killaura_switchdelay','/KuSug/玩家uid.json','EtZTD','已导出:\x20KuSug/导出/','手动UUID(可选,多个逗号分隔)','timer','switchdelay','#\x20-*-\x20coding:\x20utf-8\x20-*-\x0atry:\x0a\x20\x20\x20\x20from\x20gui_2d.ui.login.LoginAnnounce\x20import\x20LoginAnnounce\x0aexcept\x20Exception:\x0a\x20\x20\x20\x20LoginAnnounce\x20=\x20None\x0a\x0aif\x20LoginAnnounce\x20is\x20not\x20None:\x0a\x20\x20\x20\x20LoginAnnounce._ks_notice\x20=\x20{\x27titl','surround','/font16.hex','布吉岛','death_fx_sound','模糊强度','attack_fx_sound','meVersion','qpyGH','armor','§b[材质包注入]\x20§f','QDYiF','mcp(_kep(path))\x0a\x20\x20\x20\x20np\x20=\x20_knorm(path)\x0a\x20\x20\x20\x20for\x20p\x20in\x20list(sys.path):\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20_knorm(p)\x20==\x20np:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sys.path.remove(p)\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20sys.pa','endsWith','throughwalls','rcRfL','dynamic','lmKKj','color_r','submit','OnIxy','自动工具','\x0afrom\x20gui_2d.ui.watermark.CommonUserInfo\x20import\x20CommonUserInfo\x0afrom\x20gui_2d\x20import\x20GUI,\x20ui_const\x0a\x0aTARGET\x20=\x20\x22','选择预设文件','IpPcE','custom_damage_value','\x20\x20\x20\x20\x20\x20\x20\x20_anchor()._kusug_mmap_cfg\x20=\x20_c','getType','getUniqueID',
-'\x0afrom\x20gui_2d\x20import\x20GUI,\x20ui_const\x0aimport\x20mod.client.extraClientApi\x20as\x20clientApi\x0a\x0aFLAG\x20=\x20\x22','.clickgui','KfEgf','RrtOZ','eption:\x0a\x20\x20\x20\x20\x20\x20\x20\x20api\x20=\x20None\x0a\x20\x20\x20\x20for\x20ns,\x20sn\x20in\x20systems:\x0a\x20\x20\x20\x20\x20\x20\x20\x20so\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20api\x20is\x20not\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20so\x20=\x20api.GetSystem(ns,\x20sn)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','WfdKx','SlHvp','.aimbot\x20range\x20','utf8hex','te(rp,\x20\x27;\x27.join(out)\x20if\x20out\x20else\x20\x27none\x27)\x0a\x0a\x0adef\x20_zload(path,\x20rp):\x0a\x20\x20\x20\x20import\x20__main__\x20as\x20m2\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20k\x20=\x20m2.KUSUG_MCP[\x27load\x27]\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_zwrite(rp,\x20\x27err:\x27\x20+\x20_zerr(e))\x0a\x20','(暂无，下方新增或用旧通道捕获)','auto_drop_mode_btn','heal_hp','aboeV','FTzdo','chor()._kusug_mmap_inst\x20=\x20None\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20globals()[\x27_kusug_mmap\x27]\x20=\x20None\x0a\x0atry:\x0a\x20\x20\x20\x20_game\x20=\x20clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())\x0a\x20\x20\x20\x20_game.Ad','wxTCt','点击间隔','VOXix','原版命令','fun_hide_clutter','match','bed','suffix','round','zStructureOffset:(-?\x5cd+)','anxOg','kKUKN','import\x20mod.client.extraClientApi\x20as\x20clientApi\x0awith\x20open(\x22','fucker','isNull','scaffold_ahead','gb_skip_self','XANmO','isArray','Yaw\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dpitch\x20=\x20self.pendPitch\x0a\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20a\x20=\x200.7\x20+\x200.3\x20*\x20min(1.0,\x20mag\x20/\x2030.0)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dyaw\x20=\x20self.pendYaw\x20*\x20a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dpitch\x20=\x20self.pendPitch\x20*\x20a\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20','fun_radar','globals()[\x27_kusug_spin_head\x27]\x20=\x20','KuSug\x20·\x20X:','.killaura\x20fov\x20','vCJpB','vanilla','globals()[\x27_kusug_spin_head_speed\x27]\x20=\x20','updateCps','zXIYn','yStructureOffset:(-?\x5cd+)','lrZJG','maxTargets','throwAfter','showBiome','motion','_(\x5cd+)$','ame\x27:\x20self.server_name,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27min_level\x27:\x20self.server_entity.get(\x27min_level\x27,\x200),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27ownerId\x27:\x20self.server_entity.get(\x27owner_id\x27,\x20\x27\x27),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27ownerName\x27:\x20self.server','createDirectories','IdQif','ieBqX','攻击模式','end','sb_mode_so','wantSend','自动围人','\x09pass\x0a\x0adef\x20_build_and_show(ent):\x0a\x09try:\x0a\x09\x09uid\x20=\x20ent.get(\x27uid\x27,\x20\x27\x27)\x0a\x09\x09nickname\x20=\x20ent.get(\x27nickname\x27,\x20\x27\x27)\x20or\x20NICK\x0a\x09\x09is_online\x20=\x20ent.get(\x27online_type\x27,\x200)\x20==\x201\x20and\x20bool(ent.get(\x27online_pcpe\x27,\x200))\x0a\x09\x09online','send_suffix','snd2\x20ex\x20','textPts','回血阈值','iManager\x0a\x20\x20\x20\x20\x20\x20\x20\x20for\x20n\x20in\x20uiManager.instance()._ui_stack:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20n.get_def_key()\x20==\x20\x27neteasePetMod:petChatHud\x27\x20and\x20not\x20n.is_remove():\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20n\x0a\x20\x20\x20\x20\x20\x20\x20\x20','SVxKA','aux_effect',
-'2\x20is\x20not\x20None\x20and\x20_old2\x20is\x20not\x20_inst:\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_old2.shutdown()\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20globals()[\x27_mmap_inst\x27]\x20=\x20None\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_n\x20=\x20clientApi.GetUI(','\x22,\x20\x27pcontent\x27:\x20[','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x0a\x20\x20\x20\x20\x20\x20\x20\x20self._text_id.text\x20=\x20TARGET\x20+\x20\x27\x20\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.refresh_delay()\x0a\x20\x20\x20\x20\x20\x20\x20\x20self._panel_info.get_soul().refreshView()\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x0aCommonUserInfo.refresh_u','__main__.KUSUG_MCP[\x27z1cfgq\x27](','PWaUT','fjJWK','SxrMB','/me\x20','encryptToken','substring','Cookie无效，登录失败','z1_freecam_speed','onImGuiRenderEvent','Msg_Text','箱子半径','x19','checkLogin','SzTGt','PNwcW','§6追踪输出:\x20§f','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cls\x20=\x20getattr(mod,\x20mk)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20not\x20hasattr(cls,\x20\x27MOD_NAME\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20continue\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20inst\x20=\x20cls()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','切换模式','acc','gui','静默切换','隔墙攻击','\x20\x20\x20\x20\x20\x20self.recs\x20=\x20[]\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.systems\x20=\x20[]\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.patched\x20=\x20[]\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.base_cls\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.base_orig\x20=\x20None\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.reg_orig\x20=\x20None\x0a\x0a\x20\x20\x20\x20def\x20make_listen(self):\x0a\x20\x20\x20\x20\x20\x20\x20\x20def','postApi','JObvq','openMultiForm','entities','待应用:\x20','GbTgJ','buttonDown','>=\x203:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20s\x0a\x20\x20\x20\x20if\x20isinstance(s,\x20str):\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20s.decode(\x27utf-8\x27,\x20\x27replace\x27)\x0a\x20\x20\x20\x20return\x20s\x0a\x0a\x0adef\x20_kerr(e):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20_ku(str(e))\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20repr','1814127f1027454545393c4a49493001710905033649494936064949291e003636000000563600000814224100141414141400412214080201510906324979413e','conditionalMode:(\x5cd)b','§c未发现玩家（需进入局内）','getEffect','interval','attack_taunt_cd','确认删#','bolt\x20build\x20seq=','sauth_json_','\x20\x20\x20\x20return\x20uiManager.instance()','SetPlayersUID','sendPlayerActionPacket','euUhT','rn\x0a\x20\x20\x20\x20\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20import\x20sensor\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20sensor.toggleGyroSensor(True):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sensor.setGyroSensorReportRate(60)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.sensorOn\x20=\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.try','junkTypes','err','gb_range_y','\x20\x20\x20\x20return\x20None\x0a\x0a\x0adef\x20_zreg():\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20from\x20common.system.systemRegister\x20import\x20client\x20as\x20r\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20r\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20common.system.systemReg',
-'\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20d.get(\x27tab_p\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.policy_tab.set_tab_info(d[\x27tab_p\x27],\x20d[\x27tab_p\x27],\x20self.on_change_policy)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20d.get(\x27main_title\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20self.panel_te','VpuRZ','pos','ExecuteOnFirstTick:(\x5cd)b','_old\x20=\x20globals().get(\x22_kusug_gyro\x22)\x0aif\x20_old\x20is\x20not\x20None:\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_old.shutdown()\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0aglobals()[\x22_kusug_gyro\x22]\x20=\x20None','Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20_ps\x20=\x20clientApi.GetSystem(\x27Minecraft\x27,\x20\x27pet\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20_mgr\x20=\x20getattr(_ps,\x20\x27mConvinientFuncMgrClient\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dyaw\x20=\x20yd\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dpitch\x20=\x20xd\x0a\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dyaw\x20=\x20-yd\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dpitch\x20=\x20-xd\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.pendYaw\x20+=\x20dyaw\x20*\x20k\x0a\x20\x20\x20\x20\x20\x20\x20\x20self.pendPitch\x20+=\x20dpitch\x20*\x20k\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20self.pendYaw\x20','箱子透视','HRMoW','EIBtx','setRotation','§c未获取到房间地址(code=','killaura','saveSel','inventorywalk','wnzuu','\x20pid\x20=\x20clientApi.GetLocalPlayerId()\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20pid\x20and\x20pid\x20!=\x20\x27-1\x27:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20comp\x20=\x20self.rotComp\x20=\x20clientApi.GetEngineCompFactory().CreateRot(pid)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20','hhZwZ','ch_color','t(mn)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20v\x20is\x20not\x20None\x20and\x20(getattr(v,\x20\x27__name__\x27,\x20\x27\x27)\x20or\x20\x27\x27).startswith(name\x20+\x20\x27.\x27):\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20del\x20sys.modules[mn]\x0a\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20for\x20mn\x20in\x20[m\x20for\x20m\x20','fun_container_blur','exp','武器选择','scan','mSet','SIkmF','csjsz','Naqts','c407636f6d6d616e64','getInventoryItem','转换失败:\x20','GLPnG','exZBK','minecraft:void_air','snowball',',CanDestroy:','wner,\x20_kusug_on_ride)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a','oRVLw','oom|speed|smooth_speed|num\x27,\x0a\x20\x20\x20\x20\x27z1n_gaussblur_intensity|gaussblur|intensity|intensity|num\x27,\x0a\x20\x20\x20\x20\x27z1n_fogchange_density|fogchange|density|density|int\x27,\x0a\x20\x20\x20\x20\x27z1n_fogchange_r|fogchange|color_r|color_r|','Ykcrx','aim_confirm_ticks|int\x27,\x0a\x20\x20\x20\x20\x27z1n_fucker_range|fucker|range|range|num\x27,\x0a\x20\x20\x20\x20\x27z1n_fucker_scaninterval|fucker|scan_interval|scan_interval|int\x27,\x0a\x20\x20\x20\x20\x27z1n_zoom_fov|zoom|fov|fov|int\x27,\x0a\x20\x20\x20\x20\x27z1n_zoom_smooth|z','fun_gyro_view','true','attack_range','XKfqL','applied','0|3|1|4|2','z1_autorod_roddelay','scanStamp','openCatForm','fun_send_control','dJicQ','quCIG','sticky','AoenX','right','def\x20_anchor():','showPlayer','fontMap','DCgSV','opts','无回执','lapis','pendingErr','\x20pos=','KuSug/导出','rotation','§c获取玩家或世界失败','pyOn',
-'\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20LoginMain._ks_orig_gnr(self,\x20response)\x0a\x0a\x20\x20\x20\x20LoginMain.on_get_notice_result\x20=\x20_ks_hooked_gnr\x0a','getCarriedItem','tPCQl','自动喝汤','PxKSi','fun_big_gyro','toast','\x20client\x20as\x20r\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20r\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20common.system.systemRegister\x20as\x20sr\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20getattr(sr,\x20\x27client\x27,\x20None)\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20ret','newline','红石:','],\x20\x27tab_a\x27:\x20u\x22','\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20from\x20common.system.systemRegister\x20import\x20client\x20as\x20r\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20r\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20import\x20common.system.systemRegister\x20as\x20sr\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20getat','\x20\x20\x20\x20\x20\x20\x20return\x20False\x0a\x0adef\x20_cfg(key,\x20default):\x0a\x20\x20\x20\x20try:\x0a\x20\x20\x20\x20\x20\x20\x20\x20c\x20=\x20getattr(_anchor(),\x20\x27_kusug_mmap_cfg\x27,\x20None)\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20c\x20and\x20key\x20in\x20c:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20c[key]\x0a\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20','loadCjkFont',')\x0aCOPY\x20=\x20json.loads(','FImsL','iisNk','FOV','getCurrentScreenName','charAt','text','n(fp,\x20\x27w\x27)\x0a\x20\x20\x20\x20f.write(json.dumps({\x27count\x27:\x20len(out),\x20\x27items\x27:\x20out}))\x0a\x20\x20\x20\x20f.close()\x0a\x20\x20\x20\x20RESULT[\x27count\x27]\x20=\x20len(out)\x0aexcept\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20RESULT[\x27err\x27]\x20=\x20str(e)[:80]\x0atry:\x0a\x20\x20\x20\x20__main__.KUSUG_TRYON_','outbox','monument','duration','send_colour_sp','\x20\x20\x20\x20\x20if\x20hid:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20model.change_model(hid,\x20__main__.KUSUG_MOUNT_MODEL)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20True\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20except\x20Exception:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pass\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20False\x0a\x20\x20\x20\x20\x20\x20\x20','regFun',')\x0aPASSWORD\x20=\x20json.loads(',')\x0a\x0atry:\x0a\x09text\x20=\x20COPY\x20if\x20COPY\x20is\x20not\x20None\x20else\x20u\x27\x5cn\x27.join(LINES)\x0a\x09def\x20on_copy():\x0a\x09\x09try:\x0a\x09\x09\x09minecraft.instance.copyToClipboard(text)\x0a\x09\x09\x09GUI.ui_mgr.show_toast(u\x27已复制到粘贴板\x27)\x0a\x09\x09except\x20Exception:\x0a\x09\x09\x09pass\x0a\x09GUI','小地图','autoclicker','ancient_city','ominous_bottle','attack_taunt_mode','value','lastTipMsg','onPyRpcReceiveEvent','))\x0aPBR_STATES\x20=\x20json.loads(','ztogfire,\x20n,\x20rp))\x0a\x0a\x0adef\x20_zcfgfire(nkv):\x0a\x20\x20\x20\x20n,\x20k,\x20vs\x20=\x20nkv\x0a\x20\x20\x20\x20o\x20=\x20_zmod(n)\x0a\x20\x20\x20\x20if\x20o\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27missing\x27\x0a\x20\x20\x20\x20fn\x20=\x20getattr(o,\x20\x27apply_config\x27,\x20None)\x0a\x20\x20\x20\x20if\x20fn\x20is\x20None:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27err:','resetCamera','陀螺仪视角','target','on|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_gold|xray|gold|ore:gold|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_emerald|xray|emerald|ore:emerald|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_debris|xray|debris|ore:debris|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_xray_ore_redstone|x','wVVxw','tries','writeFloat','fun_self_attack','playername','switch',
-'_ecbypass|killaura|ecbypass|ecbypass|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_aimbot_onclick|aimbot|onclick|onclick|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_aimbot_onhold|aimbot|onhold|onhold|bool\x27,\x0a\x20\x20\x20\x20\x27z1c_aimbot_onweapon|aimbot|onweapon|onweapon|b','exec','tag','unpatchCode','DUP_TICKS','loadSel','ble()\x0a\x20\x20\x20\x20\x20\x20\x20\x20else:\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20o.disable()\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x271\x27\x20if\x20getattr(o,\x20\x27enabled\x27,\x20False)\x20else\x20\x270\x27\x0a\x20\x20\x20\x20except\x20Exception\x20as\x20e:\x0a\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27err:\x27\x20+\x20_zerr(e)\x0a\x0a\x0adef\x20_ztogfire(n):\x0a\x20\x20\x20\x20o\x20=\x20_zmod(n)','autoThrow','IcgPi','垂直速度','\x20§6动画:\x20§f','attackTimes','§6旋转:\x20§f','identifier','/files/resources/KuSug/UI隐显.txt','unesc'];_0x37a1=function(){return _0x538ed9;};return _0x37a1();}function z1Op(_0x1bfb28){function _0x5ab5d3(_0x5b16d7,_0x1700c4){return _0x5a0b42(_0x1700c4,_0x5b16d7-0x4a9);}const _0x368feb={'AOsEn':function(_0x470b08){return _0x470b08();},'RaShI':function(_0x1ef091,_0x2ac1e7){return _0x1ef091(_0x2ac1e7);}},_0x565700=_0x368feb[_0x5ab5d3(0x4b1,0x81)](z1RetFile);try{fs[_0x5ab5d3(0xc75,0xa84)](_0x565700,'');}catch(_0x4e9c93){}try{app[_0x5ab5d3(0x71e,0x802)](z1Wrap(_0x1bfb28));}catch(_0x55541d){return'';}return _0x368feb[_0x5ab5d3(0xb49,0x5ed)](z1ReadFile,_0x565700);}function z1Cmd(_0x3d240e,_0x5b8c7b){function _0x24a5e7(_0x38cfd7,_0x335155){return _0x5a0b42(_0x38cfd7,_0x335155- -0x105);}const _0x5c10c4={'ETtPX':function(_0x59861a,_0x3be591){return _0x59861a(_0x3be591);},'WicGe':function(_0x383450,_0x25341a){return _0x383450+_0x25341a;}};return _0x5c10c4[_0x24a5e7(0x59a,0x621)](z1Op,_0x5c10c4[_0x24a5e7(0x77f,0x4e5)](_0x24a5e7(0x896,0x2f2)+_0x3d240e,_0x24a5e7(0x7ad,0x37f))+(_0x5b8c7b?_0x5b8c7b+',':'')+z1Lit(z1RetFile())+')');}const Z1_SEQ={'n':0x0};function z1TickOp(_0x2ce299,_0x4ec9f8,_0x38ef41,_0x5d049d){function _0x5aee29(_0x2f15cc,_0x545897){return _0x5a0b42(_0x545897,_0x2f15cc- -0x231);}const _0x2a5468={'JObvq':function(_0x3c49c4,_0x52a157){return _0x3c49c4+_0x52a157;},'EfQsI':_0x5aee29(0x3eb,0x367),'feJSq':_0x5aee29(0x61e,0x28c)},_0x1c2709=_0x2a5468[_0x5aee29(0x853,0x8cc)](z1RetFile(),'.')+Z1_SEQ['n']++;try{fs[_0x5aee29(0x59b,0x624)](_0x1c2709,'');}catch(_0x50f8d6){}try{app[_0x5aee29(0x44,-0x580)](z1Wrap(_0x2ce299(_0x1c2709)));}catch(_0x2916ab){z1Toast(_0x4ec9f8+_0x2a5468[_0x5aee29(-0x137,-0x422)]);if(_0x5d049d)_0x5d049d();return;}setTimeout(function(){const _0x646d7c=z1ReadFile(_0x1c2709);function _0x2ee193(_0x5b4eb1,_0x46da42){return _0x5aee29(_0x5b4eb1-0x157,_0x46da42);}try{fs[_0x2ee193(0x374,-0x1ee)](_0x1c2709);}catch(_0x557147){}if(_0x646d7c===''){z1Toast(_0x4ec9f8+_0x2ee193(0x1b4,0x6f6));if(_0x5d049d)_0x5d049d();return;}if(_0x646d7c[_0x2ee193(-0xa9,0x348)](_0x2ee193(0x506,0x6de))===0x0){z1Toast(_0x2a5468[_0x2ee193(0x9aa,0xa8f)](_0x4ec9f8,_0x2a5468[_0x2ee193(0x188,0x3f1)])+_0x646d7c[_0x2ee193(-0x13d,-0x60d)](0x4,0x2c));if(_0x5d049d)_0x5d049d();return;}if(_0x38ef41)_0x38ef41(_0x646d7c);},0xc8);}function z1ChatTick(_0x584290,_0x24e01f,_0x23d819,_0xcf3c3b){const _0x4434d8={'qtufO':function(_0x4f85b8,_0x4f05c3){return _0x4f85b8+_0x4f05c3;},'rLIXV':_0x639428(0x589,0x99f),'EIBtx':function(_0x1c8903){return _0x1c8903();},'ExvrV':function(_0x179338,_0x5eee7c){return _0x179338>_0x5eee7c;},'XKfqL':function(_0x439579,_0x3bd8be){return _0x439579+_0x3bd8be;},'nOtiW':_0x639428(0x738,0x977)};function _0x639428(_0x3e019c,_0x470c4d){return _0x5a0b42(_0x3e019c,_0x470c4d-0x35b);}z1TickOp(function(_0x412155){function _0x5236a7(_0x184484,_0x4bbd67){return _0x639428(_0x4bbd67,_0x184484- -0x3ea);}return _0x4434d8[_0x5236a7(0xc6,-0x27b)](_0x4434d8[_0x5236a7(0x1b5,0x2b0)]+z1Lit(_0x584290),',')+z1Lit(_0x412155)+')';},_0x24e01f,function(_0x4c6956){if(_0x4c6956==='0'){z1Toast(_0x453a08(0xad8,0x64c));if(_0xcf3c3b)_0x4434d8[_0x453a08(0xa01,0xb35)](_0xcf3c3b);return;}function _0x453a08(_0xfccd1a,
-_0x1f0b33){return _0x639428(_0xfccd1a,_0x1f0b33- -0x2cc);}if(_0x4434d8[_0x453a08(0x524,0xd5)](_0x4c6956[_0x453a08(0x4c2,0xc0)](_0x453a08(0x26d,0x1cd)),0x0)){z1Toast(_0x4434d8[_0x453a08(0x7da,0xb58)](_0x24e01f,_0x4434d8[_0x453a08(0xc54,0x996)])+_0x4c6956[_0x453a08(0x241,0x794)](_0x453a08(0x5f6,0x1cd))[0x1][_0x453a08(0x31f,0x2c)](0x0,0x28));if(_0xcf3c3b)_0xcf3c3b();return;}if(_0x23d819)_0x23d819(_0x4c6956);},_0xcf3c3b);}function z1DirectTick(_0x521699,_0x30368f,_0x9e1e97){function _0x549209(_0x36a19d,_0x493c3a){return _0x5a0b42(_0x493c3a,_0x36a19d- -0x36);}const _0x47abdf={'SIkmF':function(_0xf6ceac,_0x28d6d1){return _0xf6ceac+_0x28d6d1;},'QDYiF':_0x549209(0x5c4,0x11d),'XbiAd':function(_0x5121ed,_0x186e2a){return _0x5121ed+_0x186e2a;},'KZYut':function(_0x306237,_0xd694a1){return _0x306237(_0xd694a1);},'BeIqL':function(_0x4e4165,_0x41ceaf){return _0x4e4165===_0x41ceaf;},'IxMLI':function(_0x4db08a,_0x55c415){return _0x4db08a===_0x55c415;},'jEful':function(_0x3d594f,_0x4b05a9,_0x1ac72c){return _0x3d594f(_0x4b05a9,_0x1ac72c);}};z1TickOp(function(_0x47371f){function _0x1b268b(_0x152272,_0x5c994a){return _0x549209(_0x5c994a-0x566,_0x152272);}return _0x30368f===null?_0x47abdf[_0x1b268b(0xf9b,0xfe6)](_0x47abdf[_0x1b268b(0x118f,0xf41)]+z1Lit(_0x521699)+','+z1Lit(_0x47371f),')'):_0x47abdf[_0x1b268b(0xcd8,0xab2)](_0x47abdf[_0x1b268b(0x7e1,0xab2)](_0x1b268b(0x52e,0x7d7),z1Lit(_0x521699))+','+(_0x30368f?_0x1b268b(0xe36,0xb06):_0x1b268b(0xeed,0xea9))+',',z1Lit(_0x47371f))+')';},_0x9e1e97,function(_0x281b97){if(_0x281b97===_0x342b71(0x596,0xb8)){_0x47abdf[_0x342b71(0xb07,0x65f)](z1Toast,_0x342b71(0x25d,0x68e));if(_0x30368f!==null)Z1_STATE[_0x521699]=!_0x30368f;return;}function _0x342b71(_0x21668e,_0x211c4d){return _0x549209(_0x211c4d-0x107,_0x21668e);}if(_0x47abdf[_0x342b71(0xe75,0x94f)](_0x281b97,'0')||_0x281b97==='1')Z1_STATE[_0x521699]=_0x47abdf[_0x342b71(0x7f9,0x3c5)](_0x281b97,'1'),_0x47abdf[_0x342b71(-0xdb,0x4c2)](notifyToggle,_0x9e1e97,_0x281b97==='1');else z1Toast(_0x342b71(0x96f,0x4b5)+_0x281b97[_0x342b71(-0x4c9,0x6e)](0x0,0x28));},function(){if(_0x30368f!==null)Z1_STATE[_0x521699]=!_0x30368f;});}const Z1_MODS={'killaura':_0x5a0b42(-0x335,0x18c),'aimbot':_0x5a0b42(-0x57e,0x33),'reach':_0x5a0b42(-0xc3,0x2c0),'velocity':_0x5a0b42(-0x250,0x142),'autoclicker':_0x5a0b42(0x3de,0x1a9),'triggerbot':'扳机','antibot':_0x5a0b42(0x6eb,0x192),'combatbot':_0x5a0b42(0x47b,0x849),'criticals':_0x5a0b42(0x274,0xaf),'autosoup':_0x5a0b42(0xf95,0xae5),'autorod':_0x5a0b42(0x923,0x593),'rodaim':_0x5a0b42(0x19,0x549),'jumpreset':_0x5a0b42(0x4a7,0x6df),'fastanchor':_0x5a0b42(0x7ea,0x843),'kbchange':_0x5a0b42(-0xd6,0x2f0),'ridetpaura':_0x5a0b42(0x25c,0x7e),'fly':'飞行','noclip':'穿墙','bhop':'速度','sprint':_0x5a0b42(-0xa7,0x3d5),'nojumpdelay':_0x5a0b42(0xbca,0x8b1),'clicktp':_0x5a0b42(0x89f,0x86c),'inventorywalk':_0x5a0b42(0x4e9,0x77b),'ridefly':_0x5a0b42(0xa66,0x718),'ridebhop':_0x5a0b42(0x6e,0xde),'respawn':_0x5a0b42(0xe68,0x8de),'xray':'矿透','scaffold':_0x5a0b42(0x9a5,0x6f2),'autotool':_0x5a0b42(0x6c4,0xa1b),'autoweb':_0x5a0b42(-0x17f,0x35c),'autotrap':_0x5a0b42(0xc8a,0xa5f),'blockin':_0x5a0b42(0x4ec,0x8af),'fucker':_0x5a0b42(0x431,0x662),'nobreakdelay':_0x5a0b42(0xb91,0x814),'esp':'透视','freecam':_0x5a0b42(0x7d6,0x88b),'invisible':'隐身','killeffect':_0x5a0b42(0xc79,0x7ea),'motioncamera':_0x5a0b42(0x5be,0x20f),'nohurtcam':_0x5a0b42(0xab,0x391),'gaussblur':_0x5a0b42(0x3f6,0x546),'fogchange':_0x5a0b42(-0x5f,0x401),'zoom':'缩放','hud':_0x5a0b42(0x4aa,0x43e),'spammer':_0x5a0b42(0x179,0x68b),'team':'队伍','mount':_0x5a0b42(0x57e,0x938),'fashionunlock':_0x5a0b42(0x492,0x959),'list':_0x5a0b42(-0x92,0x149),'whitelist':_0x5a0b42(0x179,0x233),'debug':_0x5a0b42(0x477,0x96f),'gmpanel':_0x5a0b42(0x253,0x1c7),'pyrpc':_0x5a0b42(0x4b7,0x4af),'cebridge':_0x5a0b42(0x141,0x49),'crasher':_0x5a0b42(0x6ba,0x755),'notification':'通知'},Z1_PARAMS={'z1_killaura_range':[_0x5a0b42(0x72b,0xaa9),_0x5a0b42(0x747,0x3ab)],'z1_killaura_fov':[_0x5a0b42(0x9c7,0xaa9),_0x5a0b42(0x1d8,0x6a4)],
-'z1_killaura_cps':[_0x5a0b42(0x5f6,0xaa9),_0x5a0b42(0xa86,0x91c)],'z1_killaura_switchdelay':[_0x5a0b42(0xa66,0xaa9),_0x5a0b42(0x459,0xa05)],'z1_autoclicker_reach':[_0x5a0b42(0xe9d,0xb01),_0x5a0b42(0x237,0x4e6)],'z1_aimbot_range':[_0x5a0b42(-0x41,0xf1),_0x5a0b42(0x642,0x3ab)],'z1_aimbot_fov':[_0x5a0b42(-0x4cd,0xf1),_0x5a0b42(0x1d3,0x6a4)],'z1_reach_dist':[_0x5a0b42(0x65b,0x4e6),_0x5a0b42(0x3bf,0x4bd)],'z1_velocity_x':[_0x5a0b42(0x57c,0x991),'x'],'z1_velocity_y':[_0x5a0b42(0x49d,0x991),'y'],'z1_velocity_z':[_0x5a0b42(0x713,0x991),'z'],'z1_fly_speed':[_0x5a0b42(0x6ae,0x6d6),_0x5a0b42(0x514,0x73f)],'z1_ridefly_speed':[_0x5a0b42(0x2fd,0x739),_0x5a0b42(0x76b,0x73f)],'z1_freecam_speed':[_0x5a0b42(0x717,0x2ae),_0x5a0b42(0x4bd,0x73f)],'z1_autorod_roddelay':[_0x5a0b42(0x61c,0x44f),_0x5a0b42(0x931,0x78e)],'z1_respawn_delay':[_0x5a0b42(0x18,0x9f),_0x5a0b42(0xce,0x17a)],'z1_fastanchor_delay':[_0x5a0b42(0x6fd,0x671),_0x5a0b42(-0x39b,0x17a)],'z1_fastanchor_stepdelay':[_0x5a0b42(0xb52,0x671),_0x5a0b42(0x5c,0x261)],'z1_xray_range':[_0x5a0b42(-0xef,0x34b),_0x5a0b42(0x7f8,0x3ab)],'z1_xray_ylimit':[_0x5a0b42(0x6a1,0x34b),_0x5a0b42(0x400,0x4cc)],'z1_xray_budget':[_0x5a0b42(0x21a,0x34b),_0x5a0b42(0xbb9,0x76a)],'z1_xray_refresh':[_0x5a0b42(0x185,0x34b),_0x5a0b42(0x872,0x99e)],'z1_xray_max':[_0x5a0b42(-0x1a2,0x34b),_0x5a0b42(0x382,0x8cf)],'z1_xray_render':[_0x5a0b42(-0x30,0x34b),_0x5a0b42(0x643,0x6a6)],'z1_invisible_int':[_0x5a0b42(0x824,0x92e),_0x5a0b42(0x580,0xa8f)],'z1_spammer_text':[_0x5a0b42(-0x88,0x7c),_0x5a0b42(0x8f8,0xaf6)],'z1_spammer_delay':[_0x5a0b42(0x27b,0x7c),_0x5a0b42(-0x18e,0x17a)],'z1_spammer_rand':[_0x5a0b42(0x175,0x7c),_0x5a0b42(-0xfc,0x377)]},Z1_CMD={'noclip':_0x5a0b42(-0x32a,0x83)},Z1_ONESHOT={'mount':_0x5a0b42(0xb5c,0x9f7),'gmpanel':'gm','debug':_0x5a0b42(0x3bd,-0x4),'list':_0x5a0b42(0x4d6,0x1e8)},Z1_DIRECT={'whitelist':0x1,'kbchange':0x1,'ridetpaura':0x1,'hud':0x1,'autotrap':0x1,'blockin':0x1,'fucker':0x1,'zoom':0x1},Z1_PARAMVALS={},Z1_COMPOUND_LEAD={'z1_velocity_y':_0x5a0b42(0x298,0x3b9),'z1_velocity_z':_0x5a0b42(-0x189,0x3b9),'z1_spammer_delay':_0x5a0b42(0x733,0x8cb),'z1_spammer_rand':_0x5a0b42(0x953,0x8cb)},Z1_PARAM_AUTOEN={'z1_killaura_range':0x1,'z1_killaura_fov':0x1,'z1_killaura_cps':0x1,'z1_killaura_switchdelay':0x1,'z1_autoclicker_reach':0x1,'z1_reach_dist':0x1,'z1_velocity_x':0x1,'z1_velocity_y':0x1,'z1_velocity_z':0x1,'z1_spammer_text':0x1,'z1_spammer_delay':0x1,'z1_spammer_rand':0x1},Z1_STATE={},Z1_CFG={'z1n_killaura_multi_limit':[_0x5a0b42(0x92e,0xaa9),_0x5a0b42(0xb35,0x716),_0x5a0b42(0xb3a,0x5fc),_0x5a0b42(0x355,0x1e1)],'z1n_aimbot_speed':[_0x5a0b42(-0x5,0xf1),_0x5a0b42(0xb56,0x73f),_0x5a0b42(0x2ba,0xa8),'速度'],'z1n_aimbot_yoffset':[_0x5a0b42(-0x487,0xf1),_0x5a0b42(-0x42e,0x12b),_0x5a0b42(-0x165,0xa8),_0x5a0b42(0x44a,0x972)],'z1n_triggerbot_range':[_0x5a0b42(0x581,0x62b),_0x5a0b42(-0x196,0x3ab),_0x5a0b42(-0xb8,0xa8),'范围'],'z1n_triggerbot_fov':[_0x5a0b42(0x25b,0x62b),_0x5a0b42(0x69b,0x6a4),_0x5a0b42(0x53a,0x5fc),_0x5a0b42(0xf5f,0xaf3)],'z1n_triggerbot_cps':[_0x5a0b42(0x332,0x62b),_0x5a0b42(0xaa5,0x91c),_0x5a0b42(0x2a5,0x5fc),_0x5a0b42(0x14b,0x581)],'z1n_criticals_sneakdelay':[_0x5a0b42(0x689,0x5ee),_0x5a0b42(0x2b1,0x466),_0x5a0b42(-0x3db,0xa8),_0x5a0b42(0x298,-0x56)],'z1n_criticals_clickspan':[_0x5a0b42(0x62a,0x5ee),_0x5a0b42(0x36b,0x7aa),_0x5a0b42(0x455,0xa8),_0x5a0b42(0x7af,0xa34)],'z1n_autoclicker_cpsmin':[_0x5a0b42(0xbef,0xb01),_0x5a0b42(0x324,0x80e),_0x5a0b42(0x1db,0x5fc),_0x5a0b42(-0xb8,0x23b)],'z1n_autoclicker_cpsmax':[_0x5a0b42(0xef0,0xb01),_0x5a0b42(0xcab,0x8e0),_0x5a0b42(0x968,0x5fc),_0x5a0b42(-0x2a4,0x2e4)],'z1n_autorod_switchdelay':[_0x5a0b42(0x449,0x44f),_0x5a0b42(0xbbc,0xa05),_0x5a0b42(0x2e8,0x5fc),_0x5a0b42(0x60b,0x459)],'z1n_autorod_range':[_0x5a0b42(0x5a5,0x44f),_0x5a0b42(0x53b,0x3ab),_0x5a0b42(0x61d,0x5fc),'范围'],'z1n_autosoup_health':[_0x5a0b42(-0x20b,0x84),_0x5a0b42(0xc24,0x840),_0x5a0b42(0x819,0x5fc),'血量'],'z1n_autosoup_delay':[_0x5a0b42(0x1bf,0x84),_0x5a0b42(-0x323,0x17a),_0x5a0b42(0x2a7,0x5fc),
-'延迟'],'z1n_combatbot_trackrange':[_0x5a0b42(0xd17,0x753),_0x5a0b42(0xc1f,0x7db),_0x5a0b42(0xbc1,0x5fc),_0x5a0b42(0x72f,0x9cd)],'z1n_combatbot_attackrange':[_0x5a0b42(0xb15,0x753),_0x5a0b42(0x1071,0xac8),_0x5a0b42(0x2f,0xa8),_0x5a0b42(0x58f,0x2c0)],'z1n_combatbot_keepdist':[_0x5a0b42(0x458,0x753),_0x5a0b42(0x7c4,0x911),_0x5a0b42(0x2e1,0xa8),_0x5a0b42(0x9c2,0x727)],'z1n_combatbot_healhp':[_0x5a0b42(0x6ad,0x753),_0x5a0b42(0xd59,0xa2f),_0x5a0b42(0x7eb,0x5fc),_0x5a0b42(0x7b3,0xa64)],'z1n_combatbot_healkeep':[_0x5a0b42(0x222,0x753),_0x5a0b42(0x8c,0x623),_0x5a0b42(0x3fc,0x5fc),_0x5a0b42(-0x3b4,0x21a)],'z1n_kbchange_yaw':[_0x5a0b42(0x833,0x6a2),_0x5a0b42(0xab5,0x984),_0x5a0b42(0x6a9,0x5fc),_0x5a0b42(0x417,0x274)],'z1n_kbchange_range':[_0x5a0b42(0x9a0,0x6a2),_0x5a0b42(0x1a4,0x3ab),_0x5a0b42(0x60,0xa8),'范围'],'z1n_ridetpaura_range':[_0x5a0b42(0x582,-0x43),_0x5a0b42(-0x97,0x3ab),_0x5a0b42(0x731,0x5fc),'范围'],'z1n_bhop_fallspeed':[_0x5a0b42(0xcc5,0x831),_0x5a0b42(0x3d3,-0xf),_0x5a0b42(-0x36f,0xa8),_0x5a0b42(0xa9d,0x7dd)],'z1n_bhop_speed':[_0x5a0b42(0x52e,0x831),_0x5a0b42(0x925,0x73f),_0x5a0b42(0x133,0xa8),'速度'],'z1n_ridebhop_speed':[_0x5a0b42(0x407,0x67b),_0x5a0b42(0xa71,0x73f),_0x5a0b42(0x42b,0xa8),'速度'],'z1n_ridebhop_ymotion':[_0x5a0b42(0x8fb,0x67b),_0x5a0b42(0x7e1,0x649),_0x5a0b42(0x4a6,0xa8),_0x5a0b42(0xb1e,0xb1d)],'z1n_scaffold_radius':[_0x5a0b42(-0x2bc,-0x2e),_0x5a0b42(0xa48,0x5c1),_0x5a0b42(0x95d,0x5fc),'半径'],'z1n_autotool_switchtick':[_0x5a0b42(0x286,-0x29),_0x5a0b42(0x187,0x19),_0x5a0b42(0x1ba,0x5fc),_0x5a0b42(0x2d5,0x459)],'z1n_autotool_restoretick':[_0x5a0b42(-0x5a3,-0x29),_0x5a0b42(0x150,0x1b6),_0x5a0b42(0x4a4,0x5fc),_0x5a0b42(0x5fc,0x8d1)],'z1n_blockin_speed':[_0x5a0b42(0xe3b,0x9a0),_0x5a0b42(0xa6d,0x73f),_0x5a0b42(0x161,0x5fc),'速度'],'z1n_autotrap_range':[_0x5a0b42(0xf1,0x19d),_0x5a0b42(0x88,0x3ab),_0x5a0b42(0xa2,0xa8),'范围'],'z1n_autoweb_delay':[_0x5a0b42(0x494,0x8d8),_0x5a0b42(0x194,0x17a),_0x5a0b42(0x2b9,0xa8),'延迟'],'z1n_nobreakdelay_restarttick':[_0x5a0b42(0x1d1,0xc),_0x5a0b42(0x610,0x4e8),_0x5a0b42(0xba8,0x5fc),_0x5a0b42(0x738,0x3d2)],'z1n_nobreakdelay_aimconfirmticks':[_0x5a0b42(-0x5b4,0xc),_0x5a0b42(0x974,0x751),_0x5a0b42(0x6cb,0x5fc),_0x5a0b42(0xd3,0x1c6)],'z1n_fucker_range':[_0x5a0b42(0x7a9,0xa40),_0x5a0b42(0xd1,0x3ab),_0x5a0b42(0x559,0xa8),'范围'],'z1n_fucker_scaninterval':[_0x5a0b42(0x9e6,0xa40),_0x5a0b42(0x388,0x41e),_0x5a0b42(0x33,0x5fc),_0x5a0b42(0x906,0x426)],'z1n_zoom_fov':[_0x5a0b42(0x356,0x67a),_0x5a0b42(0x600,0x6a4),_0x5a0b42(0x33e,0x5fc),'视野'],'z1n_zoom_smooth':[_0x5a0b42(0xbb1,0x67a),_0x5a0b42(0x1af,0x73f),_0x5a0b42(-0x441,0xa8),'平滑'],'z1n_gaussblur_intensity':[_0x5a0b42(-0x463,0x111),_0x5a0b42(-0x287,0x288),_0x5a0b42(0x4ad,0xa8),_0x5a0b42(0x94b,0xa0b)],'z1n_fogchange_density':[_0x5a0b42(0xab4,0x619),_0x5a0b42(0x451,0x85d),_0x5a0b42(0xb7,0x5fc),_0x5a0b42(0x4ec,0x5dc)],'z1n_fogchange_r':[_0x5a0b42(0x6f8,0x619),_0x5a0b42(0xad7,0xa18),_0x5a0b42(0xb3,0xa8),'红色'],'z1n_fogchange_g':[_0x5a0b42(0x7fe,0x619),_0x5a0b42(0xcb5,0x952),_0x5a0b42(-0x368,0xa8),'绿色'],'z1n_fogchange_b':[_0x5a0b42(0x438,0x619),_0x5a0b42(0x973,0x4d5),_0x5a0b42(0x653,0xa8),'蓝色'],'z1n_esp_smooth':[_0x5a0b42(0x3c5,0x60d),_0x5a0b42(0x891,0x506),_0x5a0b42(0x461,0xa8),'平滑'],'z1n_esp_predict':[_0x5a0b42(0x630,0x60d),_0x5a0b42(0x660,0x75d),_0x5a0b42(-0x4c7,0xa8),'预测'],'z1n_esp_chestradius':[_0x5a0b42(0x7c9,0x60d),_0x5a0b42(0x534,0x901),_0x5a0b42(0x723,0x5fc),_0x5a0b42(0x8b4,0xa76)],'z1n_esp_r':[_0x5a0b42(0x31e,0x60d),_0x5a0b42(0xe8a,0xa18),_0x5a0b42(-0x42e,0xa8),'红色'],'z1n_esp_g':[_0x5a0b42(0x840,0x60d),_0x5a0b42(0xf08,0x952),_0x5a0b42(-0x307,0xa8),'绿色'],'z1n_esp_b':[_0x5a0b42(0xbaf,0x60d),_0x5a0b42(0x848,0x4d5),_0x5a0b42(-0x5b,0xa8),'蓝色'],'z1n_hud_range':[_0x5a0b42(0x1ff,0x794),_0x5a0b42(0x308,0x3ab),_0x5a0b42(0x2dd,0xa8),'范围'],'z1n_hud_fov':[_0x5a0b42(0x9c8,0x794),_0x5a0b42(0x7ef,0x6a4),_0x5a0b42(0x5d4,0x5fc),_0x5a0b42(0xc09,0xaf3)],'z1n_pyrpc_maxdisplay':[_0x5a0b42(0xa6a,0x4e1),_0x5a0b42(0x4b7,0x444),_0x5a0b42(0x6a,0x5fc),_0x5a0b42(0x957,0x88a)],
-'z1n_whitelist_range':[_0x5a0b42(0xdb2,0x864),_0x5a0b42(0x817,0x3ab),_0x5a0b42(0x673,0xa8),'范围'],'z1n_invisible_restoredelay':[_0x5a0b42(0x668,0x92e),_0x5a0b42(0x30e,0x504),_0x5a0b42(-0x4d,0xa8),_0x5a0b42(0x5c3,0x8d1)],'z1n_rodaim_range':[_0x5a0b42(0x5a3,0x148),_0x5a0b42(0x39e,0x3ab),_0x5a0b42(0x396,0xa8),'范围'],'z1n_rodaim_fov':[_0x5a0b42(-0x2d3,0x148),_0x5a0b42(0x694,0x6a4),_0x5a0b42(0x3d,0x5fc),_0x5a0b42(0x7eb,0xaf3)],'z1n_noclip_speed':[_0x5a0b42(0x376,0x69),_0x5a0b42(0x38e,0x73f),_0x5a0b42(-0x21a,0xa8),'速度'],'z1c_killaura_onweapon':[_0x5a0b42(0xca6,0xaa9),_0x5a0b42(0x626,0x424),_0x5a0b42(0x226,0x60b),_0x5a0b42(0x541,0x93f)],'z1c_killaura_onhold':[_0x5a0b42(0xb93,0xaa9),_0x5a0b42(0x64f,0x1c3),_0x5a0b42(0x60,0x60b),_0x5a0b42(0x868,0x8c3)],'z1c_killaura_onholdattack':[_0x5a0b42(0x784,0xaa9),_0x5a0b42(-0xa8,0xef),_0x5a0b42(0x5f7,0x60b),_0x5a0b42(-0x2c8,0x199)],'z1c_killaura_ecbypass':[_0x5a0b42(0xc65,0xaa9),_0x5a0b42(-0x258,0x2ec),_0x5a0b42(0x316,0x60b),_0x5a0b42(0x180,0x30e)],'z1c_aimbot_onclick':[_0x5a0b42(0x66d,0xf1),_0x5a0b42(-0x65,0x1ab),_0x5a0b42(0x4ae,0x60b),_0x5a0b42(0x284,0x366)],'z1c_aimbot_onhold':[_0x5a0b42(0x14,0xf1),_0x5a0b42(-0x22a,0x1c3),_0x5a0b42(0x9a1,0x60b),_0x5a0b42(0x4f7,0x8c3)],'z1c_aimbot_onweapon':[_0x5a0b42(0x591,0xf1),_0x5a0b42(0x57d,0x424),_0x5a0b42(0x290,0x60b),_0x5a0b42(0x88e,0x93f)],'z1c_aimbot_leftclick':[_0x5a0b42(0x1a2,0xf1),_0x5a0b42(0xead,0x98e),_0x5a0b42(0x95e,0x60b),_0x5a0b42(0x5b0,0x2c)],'z1c_aimbot_sticky':[_0x5a0b42(0x6,0xf1),_0x5a0b42(0xb5b,0xad2),_0x5a0b42(0xa1f,0x60b),_0x5a0b42(0x206,0x7b2)],'z1c_triggerbot_onweapon':[_0x5a0b42(0x8df,0x62b),_0x5a0b42(0x20f,0x424),_0x5a0b42(0x82d,0x60b),_0x5a0b42(0xc7f,0x93f)],'z1c_triggerbot_ignoreteammates':[_0x5a0b42(0x385,0x62b),_0x5a0b42(0x161,0x180),_0x5a0b42(0x8d9,0x60b),_0x5a0b42(0xb84,0x6c7)],'z1c_triggerbot_throughwalls':[_0x5a0b42(0x42f,0x62b),_0x5a0b42(0xa67,0xa14),_0x5a0b42(0x7d5,0x60b),_0x5a0b42(0xbc7,0xa81)],'z1c_triggerbot_leftclick':[_0x5a0b42(0x8ed,0x62b),_0x5a0b42(0x8cd,0x98e),_0x5a0b42(0x415,0x60b),_0x5a0b42(-0x524,0x2c)],'z1c_criticals_onclick':[_0x5a0b42(0x2f3,0x5ee),_0x5a0b42(-0x16f,0x1ab),_0x5a0b42(0xa5b,0x60b),_0x5a0b42(0x858,0x366)],'z1c_criticals_onweapon':[_0x5a0b42(0x7c4,0x5ee),_0x5a0b42(0x18,0x424),_0x5a0b42(0x2a0,0x60b),_0x5a0b42(0x522,0x93f)],'z1c_criticals_onsneak':[_0x5a0b42(0x607,0x5ee),_0x5a0b42(0x23b,0x181),_0x5a0b42(0x61b,0x60b),_0x5a0b42(0x6b0,0x489)],'z1c_criticals_onhold':[_0x5a0b42(0xaec,0x5ee),_0x5a0b42(0x587,0x1c3),_0x5a0b42(0x83b,0x60b),_0x5a0b42(0x585,0x8c3)],'z1c_autoclicker_swingair':[_0x5a0b42(0x94a,0xb01),_0x5a0b42(-0x259,0x62),_0x5a0b42(0x7ef,0x60b),'空挥'],'z1c_autoclicker_ecbypass':[_0x5a0b42(0x10be,0xb01),_0x5a0b42(-0x2b1,0x2ec),_0x5a0b42(0x27e,0x60b),_0x5a0b42(0x77e,0x30e)],'z1c_autorod_canattack':[_0x5a0b42(0x2c8,0x44f),_0x5a0b42(-0x3ae,0x139),_0x5a0b42(0x8de,0x60b),_0x5a0b42(0x9f7,0x7d4)],'z1c_autorod_silentswitch':[_0x5a0b42(0x621,0x44f),_0x5a0b42(-0x59,0x411),_0x5a0b42(0x75,0x60b),_0x5a0b42(0xecd,0xa80)],'z1c_combatbot_criticals':[_0x5a0b42(0xce8,0x753),_0x5a0b42(0x982,0x5ee),_0x5a0b42(0x511,0x60b),'暴击'],'z1c_combatbot_sprint':[_0x5a0b42(0xbd0,0x753),_0x5a0b42(0xc9e,0x84e),_0x5a0b42(0x283,0x60b),'疾跑'],'z1c_kbchange_ecbypass':[_0x5a0b42(0x234,0x6a2),_0x5a0b42(0x37a,0x2ec),_0x5a0b42(0x4fa,0x60b),_0x5a0b42(-0x89,0x30e)],'z1c_kbchange_movefix':[_0x5a0b42(0x7cb,0x6a2),_0x5a0b42(0xdb6,0x817),_0x5a0b42(0xaa8,0x60b),_0x5a0b42(0x480,0x28)],'z1c_ridetpaura_onweapon':[_0x5a0b42(0x96,-0x43),_0x5a0b42(0x55c,0x424),_0x5a0b42(0x140,0x60b),_0x5a0b42(0x523,0x93f)],'z1c_scaffold_airplace':[_0x5a0b42(-0x222,-0x2e),_0x5a0b42(0x535,0x592),_0x5a0b42(0x318,0x60b),_0x5a0b42(0x1a2,0x766)],'z1c_fucker_onholdbreak':[_0x5a0b42(0x9f8,0xa40),_0x5a0b42(0x6a7,0x8cd),_0x5a0b42(0xa06,0x60b),_0x5a0b42(0xa10,0x46b)],'z1c_esp_teambox':[_0x5a0b42(0x2cd,0x60d),_0x5a0b42(0x77d,0x403),_0x5a0b42(0x568,0x60b),_0x5a0b42(0x6c4,0x77a)],'z1c_esp_chestesp':[_0x5a0b42(0x6a9,0x60d),_0x5a0b42(0x577,0x86e),_0x5a0b42(0x22d,0x60b),_0x5a0b42(0x5eb,
-0xaa4)],'z1c_esp_chestfov':[_0x5a0b42(0x415,0x60d),_0x5a0b42(0x43d,0x7f1),_0x5a0b42(0x437,0x60b),_0x5a0b42(-0x14f,-0x18)],'z1c_hud_targethud':[_0x5a0b42(0xa0a,0x794),_0x5a0b42(-0x82,-0x35),_0x5a0b42(0xa3b,0x60b),_0x5a0b42(0x3ce,0x54f)],'z1c_hud_bjd':[_0x5a0b42(0x2ec,0x794),_0x5a0b42(-0x1ef,0x137),_0x5a0b42(0x9b6,0x60b),_0x5a0b42(0xe5e,0xa09)],'z1c_pyrpc_decode':[_0x5a0b42(0x9be,0x4e1),_0x5a0b42(0x732,0x846),_0x5a0b42(0x597,0x60b),'解码'],'z1c_pyrpc_showmessage':[_0x5a0b42(0x39a,0x4e1),_0x5a0b42(-0x150,0x339),_0x5a0b42(0x13e,0x60b),_0x5a0b42(0xae8,0x6b4)],'z1c_whitelist_midclick':[_0x5a0b42(0xdf0,0x864),_0x5a0b42(0x5cb,0x5a2),_0x5a0b42(0x447,0x60b),'中键'],'z1c_list_send':[_0x5a0b42(0x524,0x1e8),_0x5a0b42(0x2e0,0x835),_0x5a0b42(0x477,0x60b),'发送'],'z1c_rodaim_onhold':[_0x5a0b42(0xbf,0x148),_0x5a0b42(0x661,0x1c3),_0x5a0b42(0xb26,0x60b),_0x5a0b42(0x35a,0x8c3)],'z1c_xray_ore_diamond':[_0x5a0b42(0x23c,0x34b),_0x5a0b42(0x99f,0x710),_0x5a0b42(0xab5,0x60b),'钻石'],'z1c_xray_ore_iron':[_0x5a0b42(-0x11e,0x34b),_0x5a0b42(0x910,0x83e),_0x5a0b42(0x7b0,0x60b),'铁矿'],'z1c_xray_ore_gold':[_0x5a0b42(0x117,0x34b),_0x5a0b42(0x6ff,0x6c0),_0x5a0b42(0x6d3,0x60b),'金矿'],'z1c_xray_ore_emerald':[_0x5a0b42(0x7aa,0x34b),_0x5a0b42(0x52d,0x448),_0x5a0b42(0xe0,0x60b),_0x5a0b42(-0x28b,0x110)],'z1c_xray_ore_debris':[_0x5a0b42(0x394,0x34b),_0x5a0b42(0x5f1,0x8b9),_0x5a0b42(0x7f4,0x60b),_0x5a0b42(-0x1d3,0x221)],'z1c_xray_ore_redstone':[_0x5a0b42(0x85,0x34b),_0x5a0b42(0x46a,0x6e6),_0x5a0b42(0x201,0x60b),'红石'],'z1c_xray_ore_lapis':[_0x5a0b42(0x130,0x34b),_0x5a0b42(0xeae,0xadb),_0x5a0b42(0xadd,0x60b),_0x5a0b42(0x7a2,0x474)],'z1c_xray_ore_coal':[_0x5a0b42(0x802,0x34b),_0x5a0b42(0xf24,0x9bd),_0x5a0b42(0x7c4,0x60b),'煤矿'],'z1c_xray_ore_copper':[_0x5a0b42(0x32e,0x34b),_0x5a0b42(0x614,0x4d2),_0x5a0b42(0x1a4,0x60b),'铜矿'],'z1c_xray_ore_quartz':[_0x5a0b42(0x196,0x34b),_0x5a0b42(0x21b,0x338),_0x5a0b42(0x57f,0x60b),'石英'],'z1r_killaura_weaponmode':[_0x5a0b42(0x4f3,0xaa9),_0x5a0b42(0x7a,-0x45),_0x5a0b42(0x329,0x33e),_0x5a0b42(0x746,0xab3)],'z1r_killaura_attackmode':[_0x5a0b42(0xeba,0xaa9),_0x5a0b42(0xd5b,0x899),_0x5a0b42(0xbf,0x33e),_0x5a0b42(0xcb8,0xa5b)],'z1r_killaura_priority':[_0x5a0b42(0xe1e,0xaa9),_0x5a0b42(-0x2fc,0x191),_0x5a0b42(0x721,0x33e),_0x5a0b42(0xaac,0x8ff)],'z1r_aimbot_mode':[_0x5a0b42(0x58f,0xf1),_0x5a0b42(0x3b8,0x924),_0x5a0b42(0x721,0x33e),'模式'],'z1r_rodaim_mode':[_0x5a0b42(0x10a,0x148),_0x5a0b42(0xbd4,0x924),_0x5a0b42(0x65,0x33e),'模式'],'z1r_antibot_mode':[_0x5a0b42(-0xa6,0x509),_0x5a0b42(0x8cb,0x924),_0x5a0b42(0x3fa,0x33e),'模式'],'z1r_kbchange_mode':[_0x5a0b42(0x53b,0x6a2),_0x5a0b42(0xc07,0x924),_0x5a0b42(0x324,0x33e),'模式'],'z1r_kbchange_cameramode':[_0x5a0b42(0x1a5,0x6a2),_0x5a0b42(0x85b,0x536),_0x5a0b42(-0x25d,0x33e),_0x5a0b42(0xb25,0x74d)],'z1r_bhop_mode':[_0x5a0b42(0xa82,0x831),_0x5a0b42(0xd02,0x924),_0x5a0b42(0x481,0x33e),'模式'],'z1r_inventorywalk_mode':[_0x5a0b42(0xaff,0xaab),_0x5a0b42(0xbde,0x924),_0x5a0b42(0x876,0x33e),'模式'],'z1r_scaffold_switchmode':[_0x5a0b42(-0xbc,-0x2e),_0x5a0b42(0x9de,0x683),_0x5a0b42(-0x175,0x33e),_0x5a0b42(0x901,0xa7d)],'z1r_fucker_mode':[_0x5a0b42(0xfaf,0xa40),_0x5a0b42(0xbd2,0x924),_0x5a0b42(0x771,0x33e),'模式'],'z1r_fucker_rotation':[_0x5a0b42(0xe4a,0xa40),_0x5a0b42(0x57e,0xadf),_0x5a0b42(0x7de,0x33e),_0x5a0b42(0xdf9,0x832)],'z1r_esp_espmode':[_0x5a0b42(0x441,0x60d),_0x5a0b42(0xaeb,0x9be),_0x5a0b42(0x61b,0x33e),'模式'],'z1r_team_mode':[_0x5a0b42(-0x33e,0x119),_0x5a0b42(0xc95,0x924),_0x5a0b42(0x356,0x33e),'模式'],'z1r_crasher_mode':[_0x5a0b42(0x853,0x6ad),_0x5a0b42(0x46b,0x924),_0x5a0b42(0x211,0x33e),'模式'],'z1r_ridetpaura_attackmode':[_0x5a0b42(0x43,-0x43),_0x5a0b42(0xbce,0x899),_0x5a0b42(-0x140,0x33e),_0x5a0b42(0xb5b,0xa5b)],'z1r_ridetpaura_priority':[_0x5a0b42(-0x2c5,-0x43),_0x5a0b42(0x250,0x191),_0x5a0b42(0x3c,0x33e),_0x5a0b42(0x4b3,0x8ff)],'z1r_autorod_restoremode':[_0x5a0b42(0xaa,0x44f),_0x5a0b42(0x153,0x57f),_0x5a0b42(-0xf4,0x33e),_0x5a0b42(0x535,0x415)]},Z1_CFG_OPTS={'z1r_killaura_weaponmode':[[_0x5a0b42(0xe2b,0x8c2),'默认'],
-[_0x5a0b42(0xd71,0x881),'剑'],[_0x5a0b42(0x5cc,0x695),'斧头'],[_0x5a0b42(0x21,0x284),'重锤']],'z1r_killaura_attackmode':[[_0x5a0b42(0x54c,0x8e1),'单体'],[_0x5a0b42(0xd20,0xb13),'多体'],[_0x5a0b42(0xd53,0x8ee),'群体']],'z1r_killaura_priority':[[_0x5a0b42(0xa0b,0x993),_0x5a0b42(0x40e,0x52e)],[_0x5a0b42(0xca9,0x840),_0x5a0b42(0xabe,0x9f1)],[_0x5a0b42(0xace,0x645),_0x5a0b42(0x1b8,0x5)]],'z1r_aimbot_mode':[[_0x5a0b42(0xa47,0xa16),'动态'],[_0x5a0b42(0x9c7,0x51b),'静态']],'z1r_rodaim_mode':[[_0x5a0b42(0xd3c,0xa16),'动态'],[_0x5a0b42(0x3af,0x51b),'静态']],'z1r_antibot_mode':[[_0x5a0b42(0x2ca,0x137),_0x5a0b42(0x966,0xa09)],[_0x5a0b42(0x754,0x8c2),'默认']],'z1r_kbchange_mode':[[_0x5a0b42(0xb84,0xad4),'右'],[_0x5a0b42(0x845,0x5b5),'左']],'z1r_kbchange_cameramode':[[_0x5a0b42(0x4d1,0x51b),'静态'],[_0x5a0b42(0xae4,0xa16),'动态']],'z1r_bhop_mode':[[_0x5a0b42(0x344,0x576),'低跳'],[_0x5a0b42(0x65e,0xa55),_0x5a0b42(0x390,0x3e5)]],'z1r_inventorywalk_mode':[[_0x5a0b42(0x72f,0xa55),'动态'],[_0x5a0b42(0x565,0xa4c),'原版']],'z1r_scaffold_switchmode':[[_0x5a0b42(0x3ab,0x8c2),'默认'],[_0x5a0b42(0xdf7,0x89a),'自动'],[_0x5a0b42(0x655,0x235),'静默']],'z1r_fucker_mode':[[_0x5a0b42(0x5d4,0xa39),'床'],[_0x5a0b42(0x5b3,0xa07),'围堵']],'z1r_fucker_rotation':[[_0x5a0b42(0xd9f,0x980),'关闭'],[_0x5a0b42(0xb04,0xa16),'动态'],[_0x5a0b42(0x459,0x51b),'静态']],'z1r_esp_espmode':[['2d','2D'],['3d','3D'],[_0x5a0b42(0x258,0x769),'两者']],'z1r_team_mode':[[_0x5a0b42(0x931,0xa0f),_0x5a0b42(-0x27f,0x1db)],[_0x5a0b42(0xbf0,0x694),_0x5a0b42(0xd58,0x886)],[_0x5a0b42(0x4af,0x1f8),_0x5a0b42(0x70e,0x600)],[_0x5a0b42(0x187,0x733),'全部']],'z1r_crasher_mode':[[_0x5a0b42(0x23a,0x4e1),_0x5a0b42(0x722,0x441)],[_0x5a0b42(0x618,0x51),_0x5a0b42(0xade,0x918)]],'z1r_ridetpaura_attackmode':[[_0x5a0b42(0x72f,0x8e1),'单体'],[_0x5a0b42(0xe94,0xb13),'多体']],'z1r_ridetpaura_priority':[[_0x5a0b42(0x812,0x993),_0x5a0b42(0x36b,0x52e)],[_0x5a0b42(0xdd9,0x840),_0x5a0b42(0xd17,0x9f1)],[_0x5a0b42(0x7c3,0x645),_0x5a0b42(0x313,0x5)]],'z1r_autorod_restoremode':[[_0x5a0b42(0xa2a,0x8c2),'默认'],[_0x5a0b42(0x8c2,0x881),'剑'],[_0x5a0b42(0xc2b,0x695),'斧头']]},Z1_CFGVALS={};let Z1_CFGSEEDED=![];function z1CfgSame(_0x56b81b,_0x1967ba,_0x2ea214){const _0x43060c=Z1_CFGVALS[_0x56b81b];function _0x1cffa9(_0x16803e,_0x298bf5){return _0x5a0b42(_0x298bf5,_0x16803e-0x2bf);}if(_0x43060c===undefined)return![];if(_0x43060c===_0x2ea214)return!![];if(_0x1967ba===_0x1cffa9(0x8ca,0xae7)||_0x1967ba===_0x1cffa9(0x5fd,0x9f2))return![];return Number(_0x43060c)===Number(_0x2ea214);}function z1CfgTick(_0x206e50,_0x3159c7){const _0x1b9ed2={'wyEzX':function(_0x3b05a9,_0x47ab15){return _0x3b05a9+_0x47ab15;},'XdULG':function(_0x44b0e3,_0x521782){return _0x44b0e3+_0x521782;},'DwjTJ':_0x443fb3(0x727,0x6ce),'sAdZd':function(_0x52f637,_0xce3fa6){return _0x52f637===_0xce3fa6;},'uDqlY':function(_0x27f67e,_0x5ec959){return _0x27f67e(_0x5ec959);},'XXqkx':function(_0x149a20,_0x43918a){return _0x149a20+_0x43918a;},'IbhJM':function(_0x397419,_0x24890e){return _0x397419+_0x24890e;},'ZJmYk':_0x443fb3(0x638,0x50a),'ozZeC':function(_0x488631,_0x5536b1,_0x416e49,_0x222fdd){return _0x488631(_0x5536b1,_0x416e49,_0x222fdd);}};function _0x443fb3(_0x8800b1,_0x3df3c9){return _0x5a0b42(_0x8800b1,_0x3df3c9-0xc3);}const _0x18411f=Z1_CFG[_0x206e50],_0x50707b=_0x1b9ed2[_0x443fb3(0x6a1,0x88a)](Z1_MODS[_0x18411f[0x0]],'\x20')+_0x18411f[0x3];_0x1b9ed2[_0x443fb3(0xbbc,0x85e)](z1TickOp,function(_0x283146){function _0x2d19b2(_0x5acc64,_0x4c6c8b){return _0x443fb3(_0x5acc64,_0x4c6c8b-0x432);}return _0x1b9ed2[_0x2d19b2(0x134c,0xdb9)](_0x1b9ed2[_0x2d19b2(0x814,0x58f)](_0x2d19b2(0x1478,0xf60)+z1Lit(_0x18411f[0x0]),',')+z1Lit(_0x18411f[0x1])+','+z1Lit(_0x3159c7)+',',z1Lit(_0x283146))+')';},_0x50707b,function(_0xd4dfab){if(_0xd4dfab==='ok'){Z1_CFGVALS[_0x206e50]=_0x3159c7;let _0x3f1704=_0x3159c7;if(_0x18411f[0x2]===_0x1b9ed2[_0x3e9a5b(0x45d,0x614)])_0x3f1704=_0x3159c7===_0x3e9a5b(0x126e,0xf38)?'开':'关';else{if(_0x18411f[0x2]===_0x3e9a5b(0xd01,
-0x7af)){const _0x2642b2=Z1_CFG_OPTS[_0x206e50]||[];for(let _0x459338=0x0;_0x459338<_0x2642b2[_0x3e9a5b(0x8c5,0xa93)];_0x459338++)if(_0x1b9ed2[_0x3e9a5b(0xe8c,0x9ea)](_0x2642b2[_0x459338][0x0],_0x3159c7)){_0x3f1704=_0x2642b2[_0x459338][0x1];break;}}else{if(_0x3159c7===_0x3e9a5b(0x4d1,0x4a6))_0x3f1704='无限';}}_0x1b9ed2[_0x3e9a5b(0x62d,0x969)](z1Toast,_0x1b9ed2[_0x3e9a5b(0x74,0x596)](_0x50707b,':\x20')+_0x3f1704);return;}if(_0xd4dfab===_0x3e9a5b(0x9a0,0x458)){z1Toast(_0x3e9a5b(0x93b,0xa2e));return;}if(_0xd4dfab[_0x3e9a5b(0x61,0x4a2)](_0x3e9a5b(0x1013,0xa51))===0x0){z1Toast(_0x50707b+_0x3e9a5b(0xbe4,0xa8d)+_0xd4dfab[_0x3e9a5b(0x3a1,0x40e)](0x4,0x2c));return;}function _0x3e9a5b(_0x1d19dc,_0x4ab7b7){return _0x443fb3(_0x1d19dc,_0x4ab7b7-0x3ae);}z1Toast(_0x1b9ed2[_0x3e9a5b(0xbc9,0xc38)](_0x50707b,_0x1b9ed2[_0x3e9a5b(0x8cc,0xb8d)])+_0xd4dfab[_0x3e9a5b(0x94d,0x40e)](0x0,0x28));});}function z1CfgSeed(){function _0x3dd810(_0x2ca4f9,_0x42609b){return _0x5a0b42(_0x2ca4f9,_0x42609b-0x4df);}const _0x22ac69={'rDJnm':function(_0x40a50a,_0x368628,_0x2216a1){return _0x40a50a(_0x368628,_0x2216a1);},'rRvVm':_0x3dd810(0xe92,0xb9b),'XANmO':function(_0x3a2ef1,_0x43a0b3){return _0x3a2ef1>_0x43a0b3;},'rhqtD':function(_0x27de20,_0x100d5e){return _0x27de20+_0x100d5e;}},_0x2fefca=_0x22ac69[_0x3dd810(0x26a,0x7a5)](z1Cmd,_0x22ac69[_0x3dd810(0xea5,0xead)],'');Z1_CFGSEEDED=![];for(const _0x3d9462 in Z1_CFGVALS)delete Z1_CFGVALS[_0x3d9462];if(!_0x2fefca||_0x2fefca===_0x3dd810(0x1244,0xca4))return;for(const _0x2578ba of _0x2fefca[_0x3dd810(0x88d,0xbe4)](';')){const _0x1ae2b0=_0x2578ba[_0x3dd810(0x785,0x510)]('=');if(_0x22ac69[_0x3dd810(0xa01,0xf23)](_0x1ae2b0,0x0))Z1_CFGVALS[_0x2578ba[_0x3dd810(0x9b3,0x47c)](0x0,_0x1ae2b0)]=_0x2578ba[_0x3dd810(0x450,0x47c)](_0x22ac69[_0x3dd810(0xa57,0xad3)](_0x1ae2b0,0x1));}Z1_CFGSEEDED=!![];}function z1SyncFrom(_0x2ab04d){const _0x184249={'ojXYn':_0x45b124(0x9d7,0xab2)};if(!_0x2ab04d||_0x2ab04d===_0x184249[_0x45b124(0x1128,0xb62)])return![];for(const _0x84a43e of _0x2ab04d[_0x45b124(0xaba,0x9f2)](';')){const _0x4f710f=_0x84a43e[_0x45b124(-0x127,0x31e)]('=');if(_0x4f710f>0x0)Z1_STATE[_0x84a43e[_0x45b124(0x7fa,0x28a)](0x0,_0x4f710f)]=_0x84a43e[_0x45b124(-0x58,0x28a)](_0x4f710f+0x1)==='1';}function _0x45b124(_0xe4d948,_0x23f36e){return _0x5a0b42(_0xe4d948,_0x23f36e-0x2ed);}return!![];}function z1Actual(_0xdbfe85,_0x5e6ca5){const _0x2daeb9={'FJVXs':function(_0x1fadfb,_0x1f1a86){return _0x1fadfb>_0x1f1a86;}},_0x2221c7=z1Cmd(_0x2c3975(0x556,0x3f5),'');function _0x2c3975(_0x2d0c20,_0x570648){return _0x5a0b42(_0x2d0c20,_0x570648- -0x1ec);}if(!_0x2221c7||_0x2221c7===_0x2c3975(0x17c,0x5d9))return _0x5e6ca5;for(const _0x54776c of _0x2221c7[_0x2c3975(0x918,0x519)](';')){const _0x3b69c9=_0x54776c[_0x2c3975(-0x26f,-0x1bb)]('=');if(_0x2daeb9[_0x2c3975(0xc91,0x6de)](_0x3b69c9,0x0)&&_0x54776c[_0x2c3975(0x2b0,-0x24f)](0x0,_0x3b69c9)===_0xdbfe85)return _0x54776c[_0x2c3975(-0xe9,-0x24f)](_0x3b69c9+0x1)==='1';}return _0x5e6ca5;}function z1Load(){const _0x3a02bf={'IgbrF':_0x4c092e(0x550,0xa84),'OWowt':function(_0xb0cf3e,_0x180fc6,_0x1f43c6){return _0xb0cf3e(_0x180fc6,_0x1f43c6);},'ZpDxz':_0x4c092e(0x1187,0xc3e),'XEQlk':_0x4c092e(0x786,0x8f0),'QlFda':_0x4c092e(0xb60,0xabd),'sQwtw':function(_0x525832,_0x2506a3){return _0x525832(_0x2506a3);},'ZKtbT':_0x4c092e(0x7f4,0xb72),'uxTIC':_0x4c092e(0x14eb,0xfb6)};let _0x4a6479='';function _0x4c092e(_0x5d3f88,_0x562729){return _0x5a0b42(_0x5d3f88,_0x562729-0x4dc);}try{_0x4a6479=app[_0x4c092e(0xadd,0xec8)](_0x3a02bf[_0x4c092e(0x6ec,0x507)]);}catch(_0xc1f53a){}if(!_0x4a6479){z1Toast(_0x4c092e(0x92e,0x974));return;}const _0x20478c=_0x4a6479+'/'+Z1_MCP_FILE;try{if(!fs[_0x4c092e(0xf24,0xb17)](_0x20478c)){z1Toast(_0x4c092e(0x8ea,0xbef)+_0x20478c);return;}}catch(_0x3064e9){}const _0x5e326b=_0x3a02bf[_0x4c092e(0xbdf,0xc83)](z1Cmd,_0x3a02bf[_0x4c092e(0x79e,0x95d)],z1Lit(_0x20478c));if(_0x5e326b[_0x4c092e(0x751,0x50d)](_0x3a02bf[_0x4c092e(0xee9,0xe69)])===0x0){z1Toast(_0x4c092e(0xd90,0x998)+_0x5e326b[_0x4c092e(0x60e,
-0x479)](0x3));if(!z1SyncFrom(z1Cmd(_0x3a02bf[_0x4c092e(0x998,0x5b6)],'')))_0x3a02bf[_0x4c092e(0x860,0x570)](z1Toast,_0x4c092e(0x86b,0x4cb));z1CfgSeed();}else{if(_0x5e326b[_0x4c092e(0x5d9,0x50d)](_0x4c092e(0x9f3,0xf76))===0x0)z1Toast(_0x4c092e(0xcea,0xb72)+_0x5e326b[_0x4c092e(0x99e,0x479)](0x4,0x40));else z1Toast(_0x3a02bf[_0x4c092e(0x6b7,0xc69)]+(_0x5e326b||_0x3a02bf[_0x4c092e(0x82a,0xa68)]));}}function z1Exit(){function _0x4b3710(_0x905c63,_0xe9276e){return _0x5a0b42(_0xe9276e,_0x905c63-0x2da);}const _0x1f47ee={'KjmOa':_0x4b3710(0x380,-0x1e4)},_0x2d63f9=z1Cmd(_0x1f47ee[_0x4b3710(0x976,0x551)],'');for(const _0x2b6175 in Z1_STATE)delete Z1_STATE[_0x2b6175];Z1_CFGSEEDED=![];for(const _0x1ddd7a in Z1_CFGVALS)delete Z1_CFGVALS[_0x1ddd7a];z1Toast(_0x2d63f9==='ok'?_0x4b3710(0x889,0x6d9):_0x4b3710(0x36f,0x30a)+(_0x2d63f9||_0x4b3710(0xdb4,0xea2)));}function z1ClickGui(){function _0x2e2df0(_0x169ec0,_0x2d0171){return _0x5a0b42(_0x169ec0,_0x2d0171-0x8c);}z1ChatTick(_0x2e2df0(0xcc9,0xab0),_0x2e2df0(0x134,0x52f));}function z1ParamCmd(_0x56aebf,_0x1d3673){function _0x44e795(_0x5ea7ee,_0x4122c4){return _0x5a0b42(_0x4122c4,_0x5ea7ee-0x282);}const _0x535988={'tQuAe':function(_0x2cf923,_0x2f3215){return _0x2cf923(_0x2f3215);},'jxpRm':_0x44e795(0xb4d,0x10cc),'dbhaT':function(_0x4e062f,_0xa46f2f){return _0x4e062f+_0xa46f2f;},'fXYqY':function(_0x1ed3b9,_0x2fbae5){return _0x1ed3b9+_0x2fbae5;},'kKUKN':_0x44e795(0x7e7,0x9eb),'RJqDX':function(_0x5c441a,_0x4b1f1c){return _0x5c441a!==_0x4b1f1c;},'MUycB':_0x44e795(0xc01,0x1139),'BQuky':_0x44e795(0xb16,0xe4c),'sOFHl':function(_0x54a520,_0x63f1af){return _0x54a520+_0x63f1af;},'vDJVM':_0x44e795(0x290,-0x30b),'fqvLY':_0x44e795(0x8b2,0xc55),'Zlvxk':function(_0x124bcc,_0x214db3){return _0x124bcc+_0x214db3;},'SVxKA':function(_0x5a6742,_0x1a20b3){return _0x5a6742+_0x1a20b3;},'ZJpra':_0x44e795(0x241,0x7da),'JNrZz':_0x44e795(0x5bd,0xd8),'NsYaJ':_0x44e795(0x303,0x565)},_0x14e3ea=String(_0x535988[_0x44e795(0x712,0x777)](Number,_0x1d3673));if(_0x56aebf===_0x44e795(0xb4d,0xb05)||_0x56aebf===_0x44e795(0x67f,0x183)||_0x56aebf===_0x44e795(0xa41,0x5a7)){const _0x5962a2=Z1_PARAMVALS[_0x535988[_0x44e795(0x216,0x782)]]!==undefined?String(Z1_PARAMVALS[_0x535988[_0x44e795(0x216,0x329)]]):'';if(!_0x5962a2)return'';const _0x51310b=Z1_PARAMVALS[_0x44e795(0x67f,0x6ca)]!==undefined?String(Number(Z1_PARAMVALS[_0x44e795(0x67f,0xbea)])):'5',_0xfb5533=Z1_PARAMVALS[_0x44e795(0xa41,0x897)]!==undefined?String(Math[_0x44e795(0xcbd,0x780)](Number(Z1_PARAMVALS[_0x44e795(0xa41,0xf92)]))):'0';return _0x535988[_0x44e795(0x9e0,0x8ed)](_0x535988[_0x44e795(0x686,0x19c)](_0x535988[_0x44e795(0xcc0,0xd61)],_0x5962a2)+'\x20'+_0x51310b,'\x20')+_0xfb5533;}if(_0x56aebf===_0x44e795(0x63b,0xb7f)||_0x56aebf===_0x44e795(0xc01,0xcc7)||_0x56aebf===_0x44e795(0xb16,0x8b4)){const _0x52dd26=_0x535988[_0x44e795(0x82e,0xa26)](Z1_PARAMVALS[_0x44e795(0x63b,0x409)],undefined)?String(Number(Z1_PARAMVALS[_0x44e795(0x63b,0x5e3)])):'0',_0x43f14b=_0x535988[_0x44e795(0x82e,0x6a7)](Z1_PARAMVALS[_0x44e795(0xc01,0x8f4)],undefined)?String(Number(Z1_PARAMVALS[_0x535988[_0x44e795(0xa71,0xf7d)]])):'0',_0x55300f=Z1_PARAMVALS[_0x535988[_0x44e795(0x7e0,0x617)]]!==undefined?String(Number(Z1_PARAMVALS[_0x44e795(0xb16,0xa95)])):'0';return _0x535988[_0x44e795(0x240,0xc3)](_0x44e795(0x790,0x784)+_0x52dd26+'\x20',_0x43f14b)+'\x20'+_0x55300f;}switch(_0x56aebf){case _0x44e795(0xa39,0xbf1):return _0x44e795(0x4ef,0x32)+_0x14e3ea;case _0x44e795(0x451,0x1d4):return _0x44e795(0xccc,0x1082)+_0x14e3ea;case _0x44e795(0x610,0x643):return _0x44e795(0x423,0x702)+_0x14e3ea;case _0x44e795(0xc81,0xc39):return _0x535988[_0x44e795(0xb6a,0x8a9)]+Math[_0x44e795(0xcbd,0xfaa)](Number(_0x1d3673));case _0x535988[_0x44e795(0x20d,-0x2db)]:return _0x44e795(0x2f0,0x874)+_0x14e3ea;case _0x44e795(0x526,0x52):return _0x535988[_0x44e795(0xbbb,0x707)](_0x44e795(0xcac,0xe72),_0x14e3ea);case _0x44e795(0x513,0x1f4):return _0x535988[_0x44e795(0xce8,0xfc7)](_0x44e795(0x57d,0xa71),_0x14e3ea);case _0x535988[_0x44e795(0x442,
-0x6eb)]:return _0x535988[_0x44e795(0x966,0x42f)]+_0x14e3ea;case _0x44e795(0xbd8,0x1125):return _0x44e795(0x8b1,0x45b)+_0x14e3ea;case _0x44e795(0x920,0x9c9):return _0x44e795(0xa8e,0x722)+_0x14e3ea;case _0x44e795(0xcf5,0x887):return _0x44e795(0x5e0,0xaa2)+_0x14e3ea;case _0x44e795(0xd4e,0x1079):return _0x44e795(0x5f6,0xb4f)+_0x14e3ea;case _0x44e795(0x614,0x796):return _0x44e795(0x462,0x9b1)+Math[_0x44e795(0xcbd,0xdeb)](Number(_0x1d3673));case _0x44e795(0x81d,0xc6b):return _0x44e795(0x5db,0x4c9)+_0x14e3ea;case _0x44e795(0x5ac,0xba):return _0x44e795(0x948,0x999)+_0x14e3ea;case _0x44e795(0x875,0x35e):return _0x44e795(0x30f,0x6d4)+_0x14e3ea;case _0x44e795(0xa33,0xb53):return _0x44e795(0x8b6,0x591)+Math[_0x44e795(0xcbd,0xae9)](Number(_0x1d3673));case _0x44e795(0x7fa,0x5c7):return _0x44e795(0x45f,0x705)+_0x14e3ea;case _0x44e795(0x5f4,0x8d):return _0x44e795(0x4e8,0x43e)+_0x14e3ea;case _0x535988[_0x44e795(0xb84,0x6c3)]:return _0x44e795(0x68d,0x189)+Math[_0x44e795(0xcbd,0x11d9)](_0x535988[_0x44e795(0x712,0xb01)](Number,_0x1d3673));case _0x44e795(0x3b1,0x400):return _0x44e795(0xa77,0xb50)+Math[_0x44e795(0xcbd,0x1238)](Number(_0x1d3673));case _0x44e795(0x44a,0x3df):return _0x44e795(0xad7,0x9f4)+_0x14e3ea;}return'';}function z1ParamSend(_0x34adc4,_0x1525fe){const _0x4336a8={'aXoCo':function(_0x440df2,_0x4e1f5f){return _0x440df2===_0x4e1f5f;},'PvIAx':_0x5598fd(0x8e1,0x5f6)},_0x4ddc92=Z1_PARAMS[_0x34adc4],_0x773a2c=Z1_PARAMVALS[_0x34adc4],_0x320d39=z1ParamCmd(_0x34adc4,_0x773a2c);if(!_0x320d39){if(!_0x1525fe&&_0x4336a8[_0x5598fd(0x7f4,0xc0c)](_0x34adc4[_0x5598fd(-0x272,0x302)](_0x5598fd(0x6f0,0x541)),0x0))z1Toast(_0x4336a8[_0x5598fd(0x906,0x383)]);return;}function _0x5598fd(_0x7b1a30,_0x5850ef){return _0x5a0b42(_0x7b1a30,_0x5850ef-0x2d1);}z1ChatTick(_0x320d39,Z1_MODS[_0x4ddc92[0x0]],function(){if(Z1_PARAM_AUTOEN[_0x34adc4])Z1_STATE[_0x4ddc92[0x0]]=z1Actual(_0x4ddc92[0x0],Z1_STATE[_0x4ddc92[0x0]]===!![]);});}function z1ParamSet(_0x1f4b99,_0x5ed94a){const _0x396f6f=Z1_PARAMS[_0x1f4b99];function _0x49ec62(_0x11d2ac,_0x3a35cc){return _0x5a0b42(_0x11d2ac,_0x3a35cc-0x1df);}const _0x299f00=argPick(_0x5ed94a,_0x1f4b99);if(_0x299f00===undefined||typeof _0x299f00===_0x49ec62(0xc18,0xbbc))return;if(Z1_PARAMVALS[_0x1f4b99]===_0x299f00)return;Z1_PARAMVALS[_0x1f4b99]=_0x299f00;if(Z1_STATE[_0x396f6f[0x0]]!==!![])return;z1ParamSend(_0x1f4b99,![]);}const z1yrPanel={'tag':_0x5a0b42(0xaa3,0x758),'onModuleEvent'(_0x1de010){const _0x496240={'AJOUI':function(_0xe1c389,_0x3575a5){return _0xe1c389!==_0x3575a5;},'oFlSU':function(_0x4350fc,_0x18abc9,_0x4cfedc){return _0x4350fc(_0x18abc9,_0x4cfedc);},'XEBkR':_0x4df879(0xcd2,0x71c),'rMFLn':function(_0x1b22d1,_0xcf30b3){return _0x1b22d1===_0xcf30b3;},'szmfN':function(_0x5be5da){return _0x5be5da();},'qGSZR':function(_0x35252e,_0x48916c){return _0x35252e===_0x48916c;},'uStvu':function(_0x169acf,_0xae5af7){return _0x169acf<_0xae5af7;},'MAZRy':function(_0x456a96,_0x5d51e2){return _0x456a96+_0x5d51e2;},'yUaTb':function(_0xadfc95,_0x362a46){return _0xadfc95+_0x362a46;},'ejfEF':_0x4df879(0x4fc,0x9c0),'phnaD':function(_0x1837cc,_0x13eb44){return _0x1837cc===_0x13eb44;},'ZWvpi':function(_0x5a7da3,_0x429d85){return _0x5a7da3!==_0x429d85;},'crdFc':function(_0xd0dfd7,_0x27a89e){return _0xd0dfd7===_0x27a89e;}};if(!_0x1de010)return;const _0x4a92cd=_0x1de010[_0x4df879(0x2db,0x28f)];if(_0x4a92cd===_0x496240[_0x4df879(0x3d0,0x762)]){z1Load();return;}if(_0x4a92cd===_0x4df879(0xc03,0x8b4)){z1Exit();return;}if(_0x496240[_0x4df879(0x784,0x51a)](_0x4a92cd,_0x4df879(0x2a9,0x1f0))){_0x496240[_0x4df879(0x56,0x1c)](z1ClickGui);return;}let _0x5cb85b=![];for(const _0x2d5ca5 in Z1_CFG){const _0x1bef99=Z1_CFG[_0x2d5ca5];let _0x488561;if(_0x1bef99[0x2]===_0x4df879(-0x36f,0x237)){const _0x18df5c=argPick(_0x1de010,_0x2d5ca5);if(typeof _0x18df5c===_0x4df879(0x1d4,0x373)&&_0x496240[_0x4df879(-0x22f,0x21b)](_0x18df5c[_0x4df879(-0x1,-0xd6)](_0x2d5ca5+'_'),0x0))_0x488561=_0x18df5c[_0x4df879(-0x108,-0x16a)](_0x2d5ca5[_0x4df879(0x340,0x51b)]+
-0x1);else{const _0x4a15c7=Z1_CFG_OPTS[_0x2d5ca5]||[];for(let _0x15de69=0x0;_0x496240[_0x4df879(0x3e1,0x47c)](_0x15de69,_0x4a15c7[_0x4df879(0x775,0x51b)]);_0x15de69++){if(_0x1de010[_0x496240[_0x4df879(-0x62,0x4e2)](_0x496240[_0x4df879(-0x375,-0x12a)](_0x2d5ca5,'_'),_0x4a15c7[_0x15de69][0x0])]===!![]||argPick(_0x1de010,_0x2d5ca5+'_'+_0x4a15c7[_0x15de69][0x0])===!![]){_0x488561=_0x4a15c7[_0x15de69][0x0];break;}}}if(_0x488561===undefined)continue;}else{if(_0x1bef99[0x2]===_0x4df879(0x9f1,0x504)){const _0x22b825=argPick(_0x1de010,_0x2d5ca5);if(typeof _0x22b825!==_0x4df879(0x51e,0x8d6))continue;_0x488561=_0x22b825?_0x496240[_0x4df879(0xb6a,0x826)]:_0x4df879(0x368,-0x5e);}else{const _0x2384c9=argPick(_0x1de010,_0x2d5ca5);if(_0x496240[_0x4df879(0x8a2,0x6f5)](_0x2384c9,undefined)||typeof _0x2384c9===_0x4df879(0x65a,0x8d6))continue;const _0x59f64c=Number(_0x2384c9);if(isNaN(_0x59f64c)){_0x5cb85b=!![];continue;}_0x488561=_0x1bef99[0x2]===_0x4df879(0x83e,0x4f5)?String(Math[_0x4df879(0xe52,0x934)](_0x59f64c)):String(_0x59f64c);if(_0x2d5ca5===_0x4df879(0x383,0x133)&&_0x59f64c>=0x14)_0x488561=_0x4df879(0x3d4,-0xd2);}}_0x5cb85b=!![];if(!Z1_CFGSEEDED){Z1_CFGVALS[_0x2d5ca5]=_0x488561;continue;}if(z1CfgSame(_0x2d5ca5,_0x1bef99[0x2],_0x488561))continue;Z1_CFGVALS[_0x2d5ca5]=_0x488561,z1CfgTick(_0x2d5ca5,_0x488561);}if(_0x5cb85b)return;let _0x4a8010=![];for(const _0x13b5f6 in Z1_PARAMS){_0x496240[_0x4df879(0xb74,0x88b)](argPick(_0x1de010,_0x13b5f6),undefined)&&(z1ParamSet(_0x13b5f6,_0x1de010),_0x4a8010=!![]);}if(_0x4a8010)return;function _0x4df879(_0x4c6ffe,_0x2800e4){return _0x5a0b42(_0x4c6ffe,_0x2800e4- -0x107);}const _0x4e5c21=_0x1de010[_0x4df879(-0x503,-0x151)]&&Z1_PARAMS[_0x1de010[_0x4df879(-0x22e,-0x151)]]?_0x1de010[_0x4df879(-0x2ef,-0x151)]:Z1_PARAMS[_0x4a92cd]?_0x4a92cd:'';if(_0x4e5c21){z1ParamSet(_0x4e5c21,_0x1de010);return;}if(_0x496240[_0x4df879(0xadd,0x51a)](typeof _0x4a92cd,_0x4df879(0x85c,0x373))&&_0x4a92cd[_0x4df879(0xfa,-0xd6)](_0x4df879(0x521,0x644))===0x0){const _0x1e5544=_0x4a92cd[_0x4df879(0x13b,-0x16a)](0x3);if(!Z1_MODS[_0x1e5544])return;if(Z1_ONESHOT[_0x1e5544]){if(_0x496240[_0x4df879(0x2ec,0x51a)](_0x1de010[_0x4df879(0xdef,0x9fe)],![]))return;z1ChatTick('.'+Z1_ONESHOT[_0x1e5544],Z1_MODS[_0x1e5544]);return;}if(_0x496240[_0x4df879(0x524,0x51a)](typeof _0x1de010[_0x4df879(0x8d1,0x9fe)],_0x4df879(0x89c,0x8d6))&&Z1_STATE[_0x1e5544]===!![]===_0x1de010[_0x4df879(0xc40,0x9fe)])return;const _0x3a32aa=_0x496240[_0x4df879(-0x367,-0xed)](typeof _0x1de010[_0x4df879(0x834,0x9fe)],_0x4df879(0x9a6,0x8d6))?_0x1de010[_0x4df879(0xd1e,0x9fe)]:null;if(_0x3a32aa!==null)Z1_STATE[_0x1e5544]=_0x3a32aa;if(Z1_DIRECT[_0x1e5544]){z1DirectTick(_0x1e5544,_0x3a32aa,Z1_MODS[_0x1e5544]);return;}z1ChatTick('.'+(Z1_CMD[_0x1e5544]||_0x1e5544),Z1_MODS[_0x1e5544],_0x3a32aa===null?null:function(){function _0xa5aa60(_0x584ecb,_0x1f95ef){return _0x4df879(_0x1f95ef,_0x584ecb-0x612);}Z1_STATE[_0x1e5544]=z1Actual(_0x1e5544,_0x3a32aa);if(Z1_STATE[_0x1e5544]===!![]){const _0x488902={};for(const _0x3c069f in Z1_PARAMS){if(_0x496240[_0xa5aa60(0x803,0xcaf)](Z1_PARAMS[_0x3c069f][0x0],_0x1e5544)||Z1_PARAMVALS[_0x3c069f]===undefined)continue;const _0x2bab91=Z1_COMPOUND_LEAD[_0x3c069f]||_0x3c069f;if(_0x488902[_0x2bab91])continue;_0x488902[_0x2bab91]=!![],_0x496240[_0xa5aa60(0x76f,0x7b8)](z1ParamSend,_0x2bab91,!![]);}}},_0x3a32aa===null?null:function(){Z1_STATE[_0x1e5544]=!_0x3a32aa;});return;}}},Z1_TAGS=[];for(const k in Z1_MODS)Z1_TAGS[_0x5a0b42(0x769,0x8b6)](_0x5a0b42(0x926,0x74b)+k);for(const k2 in Z1_PARAMS)Z1_TAGS[_0x5a0b42(0x39c,0x8b6)](k2);for(const k3 in Z1_CFG)Z1_TAGS[_0x5a0b42(0x6e0,0x8b6)](k3);Z1_TAGS[_0x5a0b42(0x910,0x8b6)](_0x5a0b42(0x37f,0x823),_0x5a0b42(0x75c,0x9bb),_0x5a0b42(0x838,0x2f7));for(const t of Z1_TAGS)safeRegFun(t);const modules=[cookieLogin,moveCamera,likeUser,watermarkUid,javaWatermark,queryPlayer,roomIp,antiKick,msgBrush,killAura,scaffold,nightVision,locateStructure,posPrint,noInvis,getUid,adventureEdit,infDurability,goatEffect,bedColor,bannerColor,
-ominousBottle,customDamage,attackDrops,autoDrop,attackFx,deathFx,chunkDisplay,selfAttack,ghostBarrier,miniMap,auxEffect,anvilLines,noHunger,skinTryOn,loginVideo,radarHud,gmPanel,checkCmd,structHud,texInject,sendControl,tradeUnlock,fpsHud,killTaunt,attackTaunt,batchCmd,motionBlur,hideClutter,bypassServer,gyroView,bigGyro,customCamera,dirHud,uiVis,crosshair,itemHud,autoSign,eatRepeat,containerBlur,z1yrPanel];try{cookieLogin[_0x5a0b42(0xfd,0x4d4)](),ensureHud(fpsHud,fpsHud[_0x5a0b42(0x9b9,0xb16)],_0x5a0b42(0x4ba,0x7cd)),fpsHud[_0x5a0b42(0x393,0x794)][_0x5a0b42(-0x4c7,0xf5)]=!![];}catch(_0x13bd86){}const needGameTags=new Set([_0x5a0b42(0x737,0x89e),_0x5a0b42(0x4ca,0x4),_0x5a0b42(-0x1bf,0xb1),_0x5a0b42(0x1b9,0x54d),_0x5a0b42(0x5ed,0x5c),_0x5a0b42(0x610,0x103),_0x5a0b42(-0xe8,0x4c),_0x5a0b42(-0x15,0x76),_0x5a0b42(0x508,0x9bf),_0x5a0b42(0x733,0x2c9),_0x5a0b42(0x310,0x4a5),_0x5a0b42(0xcc,0x4cb),_0x5a0b42(-0x35a,0x1f7),_0x5a0b42(0x17a,0x6bf),_0x5a0b42(0x5d4,0x19c),_0x5a0b42(0xeea,0x946),_0x5a0b42(0xeb0,0xb11),_0x5a0b42(0x7f1,0x86b),_0x5a0b42(0x7fd,0x793),_0x5a0b42(0x29,0x5b6),_0x5a0b42(-0x194,0x248),_0x5a0b42(0x730,0x420),_0x5a0b42(0x62c,0x7c8),_0x5a0b42(0x36a,0x309),_0x5a0b42(0xd54,0xa37),_0x5a0b42(0x568,0x82c),_0x5a0b42(0x83,0x1ec),_0x5a0b42(0xc58,0xac6),_0x5a0b42(0xe8a,0xae7),_0x5a0b42(0xbf6,0x7c9),_0x5a0b42(0x8a0,0x9e5),_0x5a0b42(-0x416,0x11c),_0x5a0b42(0x992,0x5c0),_0x5a0b42(0x5f4,0x6ae),_0x5a0b42(0x6a4,0x6d1),_0x5a0b42(0x3dc,0x7ca),_0x5a0b42(0x804,0xa47),_0x5a0b42(0x78c,0xab1),_0x5a0b42(0x27c,0x21d)]),onlyLobbyTags=new Set([_0x5a0b42(0x83d,0x964)]),__kusugPrev={'callModule':globalThis[_0x5a0b42(-0xc2,0x3a9)],'tick':globalThis[_0x5a0b42(0x513,0x27b)],'pyRpcRecv':globalThis[_0x5a0b42(0xa94,0xb07)]};globalThis[_0x5a0b42(0x876,0x3a9)]=function(_0x249ade){const _0x158b41=__kusugPrev[_0x3b0153(0xcab,0xaf3)];if(_0x158b41&&!_0x158b41[_0x3b0153(0xac5,0xc2a)])try{_0x158b41(_0x249ade);}catch(_0x43f73b){}function _0x3b0153(_0x288b08,_0x5baa03){return _0x5a0b42(_0x288b08,_0x5baa03-0x2a3);}if(!_0x249ade)return;if(_0x249ade[_0x3b0153(0xf3d,0xda8)]===!![]&&needGameTags[_0x3b0153(0xb40,0x7ef)](_0x249ade[_0x3b0153(0x19b,0x639)])){let _0x558290=!![];try{_0x558290=app[_0x3b0153(0x5cf,0x30e)]();}catch(_0x844ff6){}if(!_0x558290){try{app[_0x3b0153(0x592,0xaa6)](_0x3b0153(0x384,0x4e6));}catch(_0x56cbe3){}return;}}if(_0x249ade[_0x3b0153(0x10ac,0xda8)]===!![]&&onlyLobbyTags[_0x3b0153(0x612,0x7ef)](_0x249ade[_0x3b0153(0x754,0x639)])){let _0x32e581=![];try{_0x32e581=app[_0x3b0153(0x3b7,0x30e)]();}catch(_0x3f17c2){}if(_0x32e581){try{app[_0x3b0153(0xe85,0xaa6)](_0x3b0153(0x3d8,0x7c3));}catch(_0x65ed83){}return;}}for(const _0x53bd09 of modules){if(_0x53bd09[_0x3b0153(0x42f,0x45b)])try{_0x53bd09[_0x3b0153(0x18e,0x45b)](_0x249ade);}catch(_0x5ecf8e){}}},globalThis[_0x5a0b42(-0x136,0x3a9)][_0x5a0b42(0x469,0x987)]=!![];function onSAuthJsonHookEvent(_0x27ba4e){function _0x49685c(_0x168a37,_0x432488){return _0x5a0b42(_0x432488,_0x168a37-0x2e8);}const _0x5a451a={'QDDct':function(_0x1314d4){return _0x1314d4();}};_0x5a451a[_0x49685c(0x977,0x8d1)](kusugNoticeConsume),likeUser[_0x49685c(0x3f1,0x9b4)]='',likeUser[_0x49685c(0xab6,0xf9d)]();for(const _0x1875c9 of modules){if(_0x1875c9[_0x49685c(0x8ce,0x5e7)]){const _0x22d3c8=_0x1875c9[_0x49685c(0x8ce,0xa57)](_0x27ba4e);if(_0x22d3c8!==undefined&&_0x22d3c8!==null)return _0x22d3c8;}}}const __prevImGuiRender=globalThis[_0x5a0b42(0xd39,0xa74)];globalThis[_0x5a0b42(0xa68,0xa74)]=function(){if(__prevImGuiRender&&!__prevImGuiRender[_0x11f421(0x66a,0xab5)])try{__prevImGuiRender();}catch(_0x5add85){}function _0x11f421(_0x3c933d,_0xf2d0df){return _0x5a0b42(_0x3c933d,_0xf2d0df-0x12e);}try{cookieLogin[_0x11f421(0x818,0x6c8)]();}catch(_0x178d53){}},globalThis[_0x5a0b42(0xc44,0xa74)][_0x5a0b42(0x4a8,0x987)]=!![],globalThis[_0x5a0b42(-0x1c9,0x27b)]=function(){const _0x1c95ec={'wyjcp':function(_0x4a7146,_0xc75d56){return _0x4a7146(_0xc75d56);}},_0x92804a=__kusugPrev[_0x5cda82(0x7c1,0xc96)];if(_0x92804a&&!_0x92804a[_0x5cda82(0xbcd,
-0xddb)])try{_0x92804a();}catch(_0x2c9c11){}kusugNoticeConsume();if(roomIp[_0x5cda82(0x33d,-0x1cc)]||roomIp[_0x5cda82(0x495,0x773)]||roomIp[_0x5cda82(0xd22,0xb26)])tickSafe(roomIp);if(posPrint[_0x5cda82(0x526,-0x9e)]||posPrint[_0x5cda82(0xd3e,0x95d)][_0x5cda82(0x868,0xa54)])tickSafe(posPrint);if(noInvis[_0x5cda82(0x33b,0x439)])tickSafe(noInvis);function _0x5cda82(_0x56edde,_0xde8313){return _0x5a0b42(_0xde8313,_0x56edde-0x246);}if(getUid[_0x5cda82(0xca4,0x1185)]||getUid[_0x5cda82(0x216,-0x1ea)])tickSafe(getUid);if(moveCamera[_0x5cda82(0x33b,0x2)])tickSafe(moveCamera);if(msgBrush[_0x5cda82(0x33b,-0x1ab)]&&msgBrush[_0x5cda82(0xd3c,0x98b)])tickSafe(msgBrush);if(sendControl[_0x5cda82(0x33b,0x5c7)]&&sendControl[_0x5cda82(0xa4f,0x8fa)][_0x5cda82(0x868,0x845)])tickSafe(sendControl);if(batchCmd[_0x5cda82(0x33b,-0xb0)])tickSafe(batchCmd);if(motionBlur[_0x5cda82(0x33b,0x6d9)])tickSafe(motionBlur);if(itemHud[_0x5cda82(0x33b,0x29d)])tickSafe(itemHud);if(dirHud[_0x5cda82(0x33b,0x7e)])_0x1c95ec[_0x5cda82(0x2a3,0x206)](tickSafe,dirHud);if(crosshair[_0x5cda82(0x33b,-0x28d)])_0x1c95ec[_0x5cda82(0x2a3,0x2e5)](tickSafe,crosshair);if(radarHud[_0x5cda82(0x33b,0x4a7)])tickSafe(radarHud);if(checkCmd[_0x5cda82(0x33b,0x321)])tickSafe(checkCmd);if(structHud[_0x5cda82(0x33b,0x7e)])tickSafe(structHud);if(killAura[_0x5cda82(0x33b,0x71b)])_0x1c95ec[_0x5cda82(0x2a3,0x4c6)](tickSafe,killAura);if(scaffold[_0x5cda82(0x33b,0x504)])tickSafe(scaffold);if(nightVision[_0x5cda82(0x33b,0x2d3)])_0x1c95ec[_0x5cda82(0x2a3,0x278)](tickSafe,nightVision);if(locateStructure[_0x5cda82(0x8cc,0x572)])tickSafe(locateStructure);if(adventureEdit[_0x5cda82(0x79f,0x43b)])tickSafe(adventureEdit);if(infDurability[_0x5cda82(0x72f,0x65b)]>0x0||infDurability[_0x5cda82(0x915,0xb07)]>0x0)tickSafe(infDurability);if(goatEffect[_0x5cda82(0x72f,0x857)]>0x0||goatEffect[_0x5cda82(0x915,0x527)]>0x0)tickSafe(goatEffect);if(bedColor[_0x5cda82(0x72f,0x406)]>0x0||bedColor[_0x5cda82(0x915,0x544)]>0x0)tickSafe(bedColor);if(bannerColor[_0x5cda82(0x72f,0x575)]>0x0||bannerColor[_0x5cda82(0x915,0x739)]>0x0)tickSafe(bannerColor);if(ominousBottle[_0x5cda82(0x72f,0x6e5)]>0x0||ominousBottle[_0x5cda82(0x915,0x8c1)]>0x0)tickSafe(ominousBottle);if(customDamage[_0x5cda82(0x72f,0x574)]>0x0||customDamage[_0x5cda82(0x915,0xa0c)]>0x0)tickSafe(customDamage);if(attackDrops[_0x5cda82(0x79f,0x4b6)]||attackDrops[_0x5cda82(0x51e,0xbe)])_0x1c95ec[_0x5cda82(0x2a3,0x128)](tickSafe,attackDrops);if(autoDrop[_0x5cda82(0x33b,-0x117)])tickSafe(autoDrop);if(bigGyro[_0x5cda82(0x33b,0x3ef)])tickSafe(bigGyro);if(customCamera[_0x5cda82(0x33b,0x49)])tickSafe(customCamera);if(auxEffect[_0x5cda82(0x79f,0x3c9)]||auxEffect[_0x5cda82(0x915,0xe7a)]>0x0)tickSafe(auxEffect);if(noHunger[_0x5cda82(0x33b,0x210)])tickSafe(noHunger);if(selfAttack[_0x5cda82(0x33b,0x42c)])tickSafe(selfAttack);if(ghostBarrier[_0x5cda82(0x33b,-0x13d)])tickSafe(ghostBarrier);if(fpsHud[_0x5cda82(0x33b,0x3b1)])tickSafe(fpsHud);if(deathFx[_0x5cda82(0x33b,-0x3a)])tickSafe(deathFx);if(kuNative[_0x5cda82(0x84d,0xb59)])kuNative[_0x5cda82(0xac5,0xf33)]();if(javaWatermark[_0x5cda82(0x33b,0x28d)])tickSafe(javaWatermark);if(autoSign[_0x5cda82(0x33b,0x31b)])tickSafe(autoSign);},globalThis[_0x5a0b42(0x49f,0x27b)][_0x5a0b42(0xb35,0x987)]=!![];function onReadyEvent(){function _0x3c25af(_0x48b004,_0x2eab5){return _0x5a0b42(_0x2eab5,_0x48b004-0x454);}kusugNoticeConsume(),antiKick[_0x3c25af(0x6f7,0xb4f)]();try{cookieLogin[_0x3c25af(0x59a,0x638)]();}catch(_0x2f8e4a){}}function onLeaveGameEvent(){function _0x2b2b5b(_0x3363c6,_0x2e8466){return _0x5a0b42(_0x3363c6,_0x2e8466-0x4ae);}for(const _0x4e3c1d of modules){if(_0x4e3c1d[_0x2b2b5b(0x4e8,0x9fc)])try{_0x4e3c1d[_0x2b2b5b(0xb06,0x9fc)]();}catch(_0x55061b){}}}globalThis[_0x5a0b42(0xc58,0xb07)]=function(_0x372616,_0x5efb55,_0x3cac7a){function _0x3caf58(_0x3c0e99,_0x18a9a4){return _0x5a0b42(_0x18a9a4,_0x3c0e99- -0x19b);}const _0x207ca6=__kusugPrev[_0x3caf58(0x327,-0x71)];if(_0x207ca6&&!_0x207ca6[_0x3caf58(0x7ec,
-0x807)])try{const _0x37f6e9=_0x207ca6(_0x372616,_0x5efb55,_0x3cac7a);if(_0x37f6e9)return _0x37f6e9;}catch(_0x3b8d2d){}posPrint[_0x3caf58(0x7bd,0x504)](_0x372616,_0x5efb55),getUid[_0x3caf58(0x7bd,0x95d)](_0x372616,_0x5efb55,_0x3cac7a);},globalThis[_0x5a0b42(0x830,0xb07)][_0x5a0b42(0x4d0,0x987)]=!![],likeUser[_0x5a0b42(0x6a1,0x7ce)]();const sendPacketModules=modules[_0x5a0b42(0xaad,0x55a)](_0x252246=>typeof _0x252246[_0x5a0b42(0x383,0x80a)]===_0x5a0b42(0x956,0x9ea));function onSendServerPacketEvent(_0x5927be,_0x4ba2fc,_0x5175dd){for(const _0x4f2091 of sendPacketModules){try{const _0x1548e9=_0x4f2091[_0xee422(0x712,0x288)](_0x5927be,_0x4ba2fc,_0x5175dd);if(_0x1548e9)return _0x1548e9;}catch(_0x29d202){}}function _0xee422(_0x2a9cc2,_0x13cb8c){return _0x5a0b42(_0x13cb8c,_0x2a9cc2- -0xf8);}return![];}const buildBlockModules=modules[_0x5a0b42(0x848,0x55a)](_0x219192=>typeof _0x219192[_0x5a0b42(0x870,0x9c5)]===_0x5a0b42(0xa88,0x9ea));function onPlayerBuildBlockEvent(_0x5eb9da,_0x454c8c,_0x36d1d4,_0x9b149d,_0xe268c8){function _0x1087a6(_0x57461b,_0xd51b5d){return _0x5a0b42(_0x57461b,_0xd51b5d-0xda);}for(const _0x11887a of buildBlockModules){try{if(_0x11887a[_0x1087a6(0xe71,0xa9f)](_0x5eb9da,_0x454c8c,_0x36d1d4,_0x9b149d,_0xe268c8))return!![];}catch(_0x105d5f){}}return![];}const sendChatModules=modules[_0x5a0b42(0xa2f,0x55a)](_0x488119=>typeof _0x488119[_0x5a0b42(0xb75,0x848)]===_0x5a0b42(0xe08,0x9ea));function kusugNoticePyEsc(_0x386c10){function _0x993047(_0x4eaaf2,_0x2ec6b2){return _0x5a0b42(_0x4eaaf2,_0x2ec6b2-0x17c);}return String(_0x386c10==null?'':_0x386c10)[_0x993047(0x35,0x59f)](/\\/g,'\x5c\x5c')[_0x993047(0xaa1,0x59f)](/"/g,'\x5c\x22')[_0x993047(0x3f9,0x59f)](/\r/g,'')[_0x993047(0x453,0x59f)](/\n/g,'\x5cn');}function kusugNoticePy(_0x20a62c){const _0x39669b={'rnPyP':function(_0x5ba3b9,_0x62fb87){return _0x5ba3b9(_0x62fb87);}},_0x29d142=kusugNoticePyEsc(_0x20a62c[_0x40c36c(0x470,0x874)]);function _0x40c36c(_0x3577ef,_0x2e7c91){return _0x5a0b42(_0x3577ef,_0x2e7c91-0x201);}const _0x5329f6=(Array[_0x40c36c(0x1148,0xc46)](_0x20a62c[_0x40c36c(0x10a1,0xb15)])?_0x20a62c[_0x40c36c(0xa30,0xb15)]:[_0x20a62c[_0x40c36c(0x7b9,0xb15)]])[_0x40c36c(0xadd,0x75b)](_0x298d0a=>_0x298d0a!=null&&String(_0x298d0a)!=='')[_0x40c36c(0x4c1,0x6dc)](kusugNoticePyEsc),_0x13b614=kusugNoticePyEsc(_0x20a62c[_0x40c36c(0xa53,0xaa7)]),_0x44f5f2=(Array[_0x40c36c(0x69e,0xc46)](_0x20a62c[_0x40c36c(-0x1ec,0x1c4)])?_0x20a62c[_0x40c36c(-0x217,0x1c4)]:[_0x20a62c[_0x40c36c(0x4fb,0x1c4)]])[_0x40c36c(0x5dd,0x75b)](_0x41ec96=>_0x41ec96!=null&&String(_0x41ec96)!=='')[_0x40c36c(0x44d,0x6dc)](kusugNoticePyEsc),_0x60359e=kusugNoticePyEsc(_0x20a62c[_0x40c36c(0x7c9,0xb5e)]||''),_0x399477=kusugNoticePyEsc(_0x20a62c[_0x40c36c(0x61f,0xbac)]||''),_0x42590a=_0x39669b[_0x40c36c(-0xcd,0x334)](kusugNoticePyEsc,_0x20a62c[_0x40c36c(0x462,0x774)]||''),_0x33b196=_0x5329f6[_0x40c36c(0x615,0x6dc)](_0x3194fb=>'\x22'+_0x3194fb+'\x22')[_0x40c36c(0xb42,0x66f)](',\x20'),_0x596a9c=_0x44f5f2[_0x40c36c(0x732,0x6dc)](_0x11d915=>'\x22'+_0x11d915+'\x22')[_0x40c36c(0xac1,0x66f)](',\x20');return _0x40c36c(0xa1c,0xc07)+_0x40c36c(0x741,0x22b)+_0x29d142+_0x40c36c(0x116,0x5fb)+_0x33b196+_0x40c36c(0x2e8,0x401)+_0x13b614+_0x40c36c(0x84c,0xc6a)+_0x596a9c+_0x40c36c(0x97c,0xced)+_0x60359e+_0x40c36c(0xbe5,0x681)+_0x399477+_0x40c36c(-0x1f9,0x2f9)+_0x42590a+(_0x40c36c(0xae3,0x78a)+_0x40c36c(0xa14,0x839)+_0x40c36c(0xdb0,0x8d4)+_0x40c36c(-0x232,0x32a)+_0x40c36c(-0x266,0x2a8)+(_0x40c36c(0xd32,0xc9e)+_0x40c36c(-0x106,0x402)+_0x40c36c(0x9e5,0x460)+_0x40c36c(0x660,0xab6)+_0x40c36c(0xdc2,0xce3)));}let kusugNoticePending=null;function kusugNoticeFetch(){const _0x32ed90={'URmrn':function(_0x22e0bc,_0x47f60d){return _0x22e0bc!==_0x47f60d;}};function _0x22d77b(_0x25b2d2,_0xf5a3d4){return _0x5a0b42(_0x25b2d2,_0xf5a3d4-0x2ef);}const _0x325894=_0x22d77b(0x207,0x59a)+Date[_0x22d77b(0x94e,0x7e8)]();let _0x468159=![];const _0x4cc6e5=(_0x479b95,_0x294c42)=>{if(_0x468159)return;function _0xca819(_0x3123c4,
-_0x4b60f6){return _0x22d77b(_0x4b60f6,_0x3123c4-0xc3);}_0x468159=!![];try{if(_0x32ed90[_0xca819(0x501,0x34c)](_0x479b95,0xc8)||!_0x294c42)return;const _0x31882d=JSON[_0xca819(0xc62,0x110e)](_0x294c42);if(!_0x31882d||typeof _0x31882d!==_0xca819(0x39f,0x5da)||Array[_0xca819(0xdf7,0xf04)](_0x31882d))return;kusugNoticePending=kusugNoticePy(_0x31882d);}catch(_0x3d70c9){}};try{https[_0x22d77b(0x7c7,0x9a4)](_0x325894,{},_0x4cc6e5);}catch(_0x164a52){}try{https[_0x22d77b(0x62e,0x9a4)](_0x325894,_0x4cc6e5);}catch(_0xb95232){}}try{kusugNoticeFetch();}catch(_0x746b42){}function kusugNoticeConsume(){if(!kusugNoticePending)return;const _0x5d5a44=kusugNoticePending;kusugNoticePending=null;function _0x2f6905(_0x18a2ee,_0x546b76){return _0x5a0b42(_0x546b76,_0x18a2ee- -0x13e);}try{app[_0x2f6905(0x137,0x2b7)](_0x5d5a44);}catch(_0x2e5f21){}}function onSendChatMessageEvent(_0x1e3c6f){function _0x147a8(_0x5555b9,_0x29668e){return _0x5a0b42(_0x29668e,_0x5555b9- -0x12e);}for(const _0x53b529 of sendChatModules){try{const _0x31e019=_0x53b529[_0x147a8(0x71a,0x1df)](_0x1e3c6f);if(typeof _0x31e019===_0x147a8(0x34c,0x14d))return _0x31e019;if(_0x31e019)return!![];}catch(_0x597fe2){}}return![];}const recvPacketModules=modules[_0x5a0b42(0x8b7,0x55a)](_0x1c968c=>typeof _0x1c968c[_0x5a0b42(0x78e,0x7be)]===_0x5a0b42(0xdff,0x9ea));function onReceiveServerPacketEvent(_0x40f56f,_0x23ed09,_0xcd5c4d){for(const _0x2d6c07 of recvPacketModules){try{const _0x3b4e1a=_0x2d6c07[_0x3ac92(0xac0,0xddc)](_0x40f56f,_0x23ed09,_0xcd5c4d);if(_0x3b4e1a)return _0x3b4e1a;}catch(_0x1cb37a){}}function _0x3ac92(_0x2a15a8,_0x4a4540){return _0x5a0b42(_0x4a4540,_0x2a15a8-0x302);}return null;}const attackModules=modules[_0x5a0b42(0x22e,0x55a)](_0x4fd4a5=>typeof _0x4fd4a5[_0x5a0b42(0xa1b,0x5dd)]===_0x5a0b42(0xbd4,0x9ea));function onPlayerAttackEvent(_0x2f28c1,_0x5bb771){function _0x467ded(_0x1e75db,_0x559c26){return _0x5a0b42(_0x1e75db,_0x559c26- -0xf0);}for(const _0x419f24 of attackModules){try{_0x419f24[_0x467ded(0x50e,0x4ed)](_0x2f28c1,_0x5bb771);}catch(_0x27b00b){}}}const behaviorModules=modules[_0x5a0b42(0x5eb,0x55a)](_0x4ee3fb=>typeof _0x4ee3fb[_0x5a0b42(0xd5,0x297)]===_0x5a0b42(0x775,0x9ea));function onEntityBehaviorEvent(_0x5be8df,_0x4a2908,_0x94379){function _0xcd268d(_0x59e491,_0x238341){return _0x5a0b42(_0x59e491,_0x238341-0x52d);}for(const _0x5cbadf of behaviorModules){try{_0x5cbadf[_0xcd268d(0x4da,0x7c4)](_0x5be8df,_0x4a2908,
-_0x94379);}catch(_0x3cbb6f){}}}
+const menu = require("menu");
+const app = require("app");
+const gui = require("gui");
+const camera = require("camera");
+const options = require("options");
+const player = require("player");
+const world = require("world");
+const netease = require("netease");
+const minecraft = require("minecraft");
+const fs = require("fs");
+const https = require("https");
+const packet = require("packet");
+const input = require("input");
+const blockApi = require("block");
+const os = require("os");
+
+function mkLog(prefix) {
+	return function (msg) { try { minecraft.clientMessage(prefix + msg); } catch (e) {} };
+}
+
+function ensureHud(mod, tag, name) {
+	if (mod.hud) return;
+	mod.hud = new gui.ArrayList({ function: tag, name: name, shortName: name, enabled: false });
+}
+
+function notifyToggle(name, enabled, extra) {
+	try {
+		minecraft.clientMessage("§b[" + name + "] " + (enabled ? "§a已开启" : "§c已关闭") + (enabled && extra ? " §7" + extra : ""));
+	} catch (e) {}
+}
+
+function stdToggle(mod, args, name, useHud, extra) {
+	if (args.fun !== mod.tag || !("value" in args)) return false;
+	const v = Boolean(args.value);
+	if (v === mod.enabled) return false;
+	mod.enabled = v;
+	if (useHud !== false) { ensureHud(mod, mod.tag, name); mod.hud.enabled = v; }
+	notifyToggle(name, v, extra);
+	return true;
+}
+
+function fireLatch(mod, v) {
+	if (!v) { mod.fired = false; return false; }
+	if (mod.fired) return false;
+	mod.fired = true;
+	return true;
+}
+
+function tickEvery(mod, n) {
+	mod.tickCount++;
+	if (mod.tickCount < n) return false;
+	mod.tickCount = 0;
+	return true;
+}
+
+function tickSafe(mod) {
+	try { mod.onTick(); } catch (e) {}
+}
+
+function clampPos(v, lo, hi) {
+	const n = Number(v);
+	if (isNaN(n) || n <= 0) return 0;
+	return Math.max(lo, Math.min(hi, Math.floor(n)));
+}
+
+function radio2(args, keyName, optA, optB, mod, field, valA, valB) {
+	const mv = argPick(args, keyName);
+	if (mv === optA) mod[field] = valA;
+	else if (mv === optB) mod[field] = valB;
+	if (args[optA] === true) mod[field] = valA;
+	if (args[optB] === true) mod[field] = valB;
+}
+
+function hex2buf(hex) {
+	const u = new Uint8Array(hex.length / 2);
+	for (let i = 0; i < u.length; i++) u[i] = parseInt(hex.substr(i * 2, 2), 16);
+	return u.buffer;
+}
+
+function carriedNbt() {
+	const lp = player.getLocalPlayer();
+	const it = lp.getCarriedItem();
+	let nbt = "";
+	try { nbt = String(it.getNBT() || ""); } catch (e) {}
+	return { lp: lp, it: it, nbt: nbt };
+}
+
+const STRIP_COLOR_RE = /§[0-9a-fk-or]/gi;
+const EMPTY_LIST = [];
+
+function pascalKey(key) {
+	return key.replace(/(^|_)([a-z])/g, function (m, p, c) { return p + c.toUpperCase(); });
+}
+
+function showPyPopup(title, lines, copyText) {
+	const pythonCode = `# -*- coding: utf-8 -*-
+import json
+import minecraft
+from gui_2d import GUI, ui_const
+
+TITLE = json.loads(${JSON.stringify(JSON.stringify(title))})
+LINES = json.loads(${JSON.stringify(JSON.stringify(lines))})
+COPY = json.loads(${JSON.stringify(JSON.stringify(copyText === undefined ? null : String(copyText)))})
+
+try:
+	text = COPY if COPY is not None else u'\\n'.join(LINES)
+	def on_copy():
+		try:
+			minecraft.instance.copyToClipboard(text)
+			GUI.ui_mgr.show_toast(u'已复制到粘贴板')
+		except Exception:
+			pass
+	GUI.ui_mgr.show_gui(ui_const.COMMON_POP_WINDOW, data={
+		'title': TITLE,
+		'content': u'',
+		'text_list': LINES,
+		'confirm_text': u'确定',
+		'cancel_text': u'复制信息',
+		'show_close_btn': False,
+		'cancel_callback': on_copy
+	})
+except Exception:
+	pass
+`;
+	try { gamePy(pythonCode); } catch (e) {}
+}
+
+function binReader(data) {
+	const u8 = new Uint8Array(data);
+	const r = {
+		u8: u8,
+		off: 0,
+		need(n) { if (r.off + n > u8.length) throw 0; },
+		byte() { r.need(1); return u8[r.off++]; },
+		skip(n) { r.need(n); r.off += n; },
+		uvarint() {
+			let v = 0, shift = 0, b;
+			do { b = r.byte(); v += (b & 0x7F) * (2 ** shift); shift += 7; } while ((b & 0x80) && shift < 35);
+			return v;
+		},
+		svarint() {
+			const uv = r.uvarint();
+			const half = Math.floor(uv / 2);
+			return uv % 2 ? -half - 1 : half;
+		}
+	};
+	return r;
+}
+
+function uvarintBytes(v) {
+	const enc = [];
+	do {
+		const t = v % 128;
+		v = Math.floor(v / 128);
+		enc.push(v > 0 ? t | 0x80 : t);
+	} while (v > 0);
+	return enc;
+}
+
+function joinParts(parts) {
+	let total = 0;
+	for (const p of parts) total += p.length;
+	const res = new Uint8Array(total);
+	let pos = 0;
+	for (const p of parts) {
+		res.set(p, pos);
+		pos += p.length;
+	}
+	return res.buffer;
+}
+
+function decodeUtf8(bytes) {
+	let s = "";
+	for (let i = 0; i < bytes.length;) {
+		const b1 = bytes[i++];
+		if (b1 < 0x80) {
+			s += String.fromCharCode(b1);
+		} else if (b1 < 0xE0) {
+			s += String.fromCharCode(((b1 & 0x1F) << 6) | (bytes[i++] & 0x3F));
+		} else if (b1 < 0xF0) {
+			s += String.fromCharCode(((b1 & 0x0F) << 12) | ((bytes[i++] & 0x3F) << 6) | (bytes[i++] & 0x3F));
+		} else {
+			const b2 = bytes[i++],
+				b3 = bytes[i++],
+				b4 = bytes[i++];
+			const cp = (((b1 & 0x07) << 18) | ((b2 & 0x3F) << 12) | ((b3 & 0x3F) << 6) | (b4 & 0x3F)) - 0x10000;
+			s += String.fromCharCode(0xD800 + (cp >> 10), 0xDC00 + (cp & 0x3FF));
+		}
+	}
+	return s;
+}
+
+function encodeUtf8(str) {
+	const out = [];
+	for (let i = 0; i < str.length;) {
+		const cp = str.codePointAt(i);
+		i += cp > 0xFFFF ? 2 : 1;
+		if (cp <= 0x7F) {
+			out.push(cp);
+		} else if (cp <= 0x7FF) {
+			out.push(0xC0 | (cp >> 6), 0x80 | (cp & 0x3F));
+		} else if (cp <= 0xFFFF) {
+			out.push(0xE0 | (cp >> 12), 0x80 | ((cp >> 6) & 0x3F), 0x80 | (cp & 0x3F));
+		} else {
+			out.push(0xF0 | (cp >> 18), 0x80 | ((cp >> 12) & 0x3F), 0x80 | ((cp >> 6) & 0x3F), 0x80 | (cp & 0x3F));
+		}
+	}
+	return out;
+}
+
+function nbtSetInf(nbt) {
+	const tagIdx = nbt.indexOf("tag:{");
+	if (tagIdx < 0) {
+		if (nbt.charAt(nbt.length - 1) !== "}") return null;
+		return nbt.slice(0, -1) + ",tag:{Damage:-32767}}";
+	}
+	const start = tagIdx + 4;
+	let depth = 0, end = -1;
+	for (let i = start; i < nbt.length; i++) {
+		const c = nbt.charAt(i);
+		if (c === "{") depth++;
+		else if (c === "}") { depth--; if (depth === 0) { end = i; break; } }
+	}
+	if (end < 0) return null;
+	const tagBody = nbt.slice(start + 1, end);
+	let newBody;
+	if (/Damage:-?\d+[a-z]?/.test(tagBody)) {
+		newBody = tagBody.replace(/Damage:-?\d+[a-z]?/, "Damage:-32767");
+	} else {
+		newBody = "Damage:-32767" + (tagBody ? "," + tagBody : "");
+	}
+	return nbt.slice(0, start + 1) + newBody + nbt.slice(end);
+}
+
+function nbtSetDamage(nbt, val) {
+	let depth = 0, inStr = false;
+	for (let i = 0; i < nbt.length; i++) {
+		const c = nbt.charAt(i);
+		if (inStr) {
+			if (c === '"') inStr = false;
+			continue;
+		}
+		if (c === '"') { inStr = true; continue; }
+		if (c === "{") depth++;
+		else if (c === "}") depth--;
+		else if (c === "D" && depth === 1 && nbt.substr(i, 7) === "Damage:") {
+			const m = /^Damage:-?\d+([a-z]?)/.exec(nbt.slice(i));
+			if (!m) return null;
+			return nbt.slice(0, i) + "Damage:" + val + m[1] + nbt.slice(i + m[0].length);
+		}
+	}
+	if (nbt.charAt(0) !== "{") return null;
+	return "{Damage:" + val + "s," + nbt.slice(1);
+}
+
+function makeNbtWriter(cfg) {
+	return {
+		tag: cfg.tag,
+		fired: false,
+		writesLeft: 0,
+		writeGap: 0,
+		throwAfter: !!cfg.throwDefault,
+		dropDelay: 0,
+		value: 0,
+		onModuleEvent(args) {
+			if (typeof args[cfg.throwKey] !== "undefined") this.throwAfter = Boolean(args[cfg.throwKey]);
+			if (cfg.textKey && typeof args[cfg.textKey] === "string") {
+				const n = Number(args[cfg.textKey].trim());
+				if (!isNaN(n) && isFinite(n)) this.value = Math.round(n);
+			}
+			if (cfg.radioKey) {
+				const re = new RegExp("^" + cfg.radioKey + "_(\\d+)$");
+				if (typeof args[cfg.radioKey] === "string") {
+					const m = re.exec(args[cfg.radioKey]);
+					if (m) this.value = Number(m[1]);
+				}
+				for (const k in args) {
+					const m = re.exec(k);
+					if (m && args[k]) this.value = Number(m[1]);
+				}
+			}
+			if (args.fun !== this.tag || !("value" in args)) return;
+			if (!fireLatch(this, Boolean(args.value))) return;
+			this.writesLeft = 2;
+			this.writeGap = 0;
+		},
+		log: mkLog(cfg.logPrefix),
+		onTick() {
+			if (this.dropDelay > 0) {
+				this.dropDelay--;
+				if (this.dropDelay === 0) {
+					try {
+						input.buttonDown("button.drop");
+						input.buttonUp("button.drop");
+					} catch (e) {}
+				}
+			}
+			if (this.writesLeft > 0) {
+				if (this.writeGap > 0) {
+					this.writeGap--;
+					return;
+				}
+				this.writesLeft--;
+				const ok = this.doWrite();
+				if (!ok) {
+					this.writesLeft = 0;
+					return;
+				}
+				if (this.writesLeft > 0) {
+					this.writeGap = 1;
+					return;
+				}
+				this.log(cfg.okText + (cfg.okVal ? this.value : ""));
+				if (this.throwAfter) this.dropDelay = 3;
+			}
+		},
+		doWrite() {
+			try {
+				const { lp, it, nbt } = carriedNbt();
+				if (!it || !nbt || nbt.indexOf('Name:""') >= 0 || nbt.indexOf("Count:0") >= 0 || (cfg.need && nbt.indexOf(cfg.need) < 0)) {
+					this.log(cfg.holdMsg);
+					return false;
+				}
+				const newNbt = cfg.transform(nbt, this.value);
+				if (!newNbt) {
+					this.log("§c物品NBT格式异常");
+					return false;
+				}
+				it.setNBT(newNbt);
+				lp.setCarriedItem(it);
+				return true;
+			} catch (e) {
+				this.log("§c写入失败: " + e);
+				return false;
+			}
+		}
+	};
+}
+
+const cookieLogin = {
+	tag: "fun_cookie_login",
+	enabled: false,
+	panel: false,
+	cookieText: "",
+	armCapture: false,
+	pendingDel: "",
+	inWorld: false,
+	bootMs: Date.now(),
+	loaded: false,
+	autoLogin: true,
+	savedEnabled: false,
+	lastUsed: "",
+	list: [],
+	gui: null,
+	ivEnabled: null,
+	ivAuto: null,
+	ivName: null,
+	ivData: null,
+	extractSAuthJson(raw) {
+		const text = String(raw || "").trim();
+		try {
+			const data = JSON.parse(text);
+			if (typeof data.sauth_json === "string") return data.sauth_json;
+			if (data.sauth_json && typeof data.sauth_json === "object") return JSON.stringify(data.sauth_json);
+		} catch (e) {}
+		return text;
+	},
+	filePath() {
+		return app.getResource("KuSug/Cookies.json");
+	},
+	ensureImgui() {
+		if (this.gui) return true;
+		try {
+			const gui = require("ImGui");
+			this.ivEnabled = new gui.AccessValue(this.enabled);
+			this.ivAuto = new gui.AccessValue(this.autoLogin);
+			this.ivName = new gui.AccessValue("");
+			this.ivData = new gui.AccessValue("");
+			this.gui = gui;
+			return true;
+		} catch (e) {
+			return false;
+		}
+	},
+	load() {
+		if (this.loaded) return;
+		this.loaded = true;
+		try {
+			const f = this.filePath();
+			if (fs.exists(f)) {
+				const data = JSON.parse(String(fs.read(f) || "{}"));
+				if (Array.isArray(data.cookies)) this.list = data.cookies;
+				if (typeof data.autoLogin === "boolean") this.autoLogin = data.autoLogin;
+				if (typeof data.lastUsed === "string") this.lastUsed = data.lastUsed;
+				if (typeof data.enabled === "boolean") this.savedEnabled = data.enabled;
+				if (typeof data.panel === "boolean") this.panel = data.panel;
+			}
+		} catch (e) {}
+	},
+	save() {
+		try {
+			const dir = app.getResource("KuSug");
+			if (!fs.exists(dir)) fs.createDirectories(dir);
+			fs.write(this.filePath(), JSON.stringify({ enabled: this.enabled, autoLogin: this.autoLogin, lastUsed: this.lastUsed, panel: this.panel, cookies: this.list }));
+		} catch (e) {}
+	},
+	syncCheckbox() {
+		try {
+			if (this.ivEnabled) this.ivEnabled.value = this.enabled;
+			if (this.ivAuto) this.ivAuto.value = this.autoLogin;
+		} catch (e) {}
+	},
+	current() {
+		return this.findById(this.lastUsed);
+	},
+	findById(id) {
+		for (let i = 0; i < this.list.length; i++) {
+			if (this.list[i].id === id) return this.list[i];
+		}
+		return null;
+	},
+	boot() {
+		this.load();
+		this.enabled = this.savedEnabled;
+		const c = this.current();
+		if (c) {
+			this.cookieText = String(c.data || "").trim();
+			if (this.enabled && this.autoLogin) {
+				notifyToggle("Cookie登录", true, c.name + " 自动登录");
+			}
+		}
+		this.syncCheckbox();
+	},
+	capture(raw, prefix) {
+		this.load();
+		const data = String(raw || "").trim();
+		if (!data) return;
+		for (let i = 0; i < this.list.length; i++) {
+			if (String(this.list[i].data) === data) {
+				this.lastUsed = this.list[i].id;
+				this.save();
+				return;
+			}
+		}
+		const d = new Date();
+		const pad = function (n) { return n < 10 ? "0" + n : "" + n; };
+		const entry = {
+			id: "c" + Date.now() + "_" + Math.floor(Math.random() * 1000),
+			name: prefix + "-" + pad(d.getHours()) + pad(d.getMinutes()) + pad(d.getSeconds()),
+			data: data,
+			time: Date.now()
+		};
+		this.list.push(entry);
+		this.lastUsed = entry.id;
+		this.save();
+	},
+	useCookie(id) {
+		const c = this.findById(id);
+		if (!c) return;
+		this.lastUsed = id;
+		this.enabled = true;
+		this.save();
+		this.syncCheckbox();
+		try {
+			this.cookieText = String(c.data || "").trim();
+		} catch (e) {}
+	},
+	delCookie(id) {
+		this.list = this.list.filter(function (c) { return c.id !== id; });
+		if (this.lastUsed === id) this.lastUsed = "";
+		this.pendingDel = "";
+		this.save();
+	},
+	exportCookie(id) {
+		const c = this.findById(id);
+		if (!c) return;
+		let raw = String(c.data || "").trim();
+		if (!raw) {
+			try { app.showToast("该记录内容为空"); } catch (e) {}
+			return;
+		}
+		let out = raw;
+		try {
+			const data = JSON.parse(raw);
+			if (typeof data.sauth_json === "string") out = JSON.stringify({ sauth_json: data.sauth_json });
+			else if (data.sauth_json && typeof data.sauth_json === "object") out = JSON.stringify({ sauth_json: JSON.stringify(data.sauth_json) });
+			else out = JSON.stringify({ sauth_json: raw });
+		} catch (e) {
+			out = JSON.stringify({ sauth_json: raw });
+		}
+		let nm = String(c.name || "cookie").replace(/[\\/:*?"<>|\s]+/g, "_");
+		if (!nm) nm = "cookie";
+		try {
+			const dir = app.getResource("KuSug/导出");
+			if (!fs.exists(dir)) fs.createDirectories(dir);
+			let fn = "sauth_json_" + nm + ".json";
+			let n = 2;
+			while (fs.exists(dir + "/" + fn)) { fn = "sauth_json_" + nm + "_" + n + ".json"; n++; }
+			fs.write(dir + "/" + fn, out);
+			app.showToast("已导出: KuSug/导出/" + fn);
+		} catch (e) {
+			try { app.showToast("导出失败: " + (e && e.message ? e.message : e)); } catch (e2) {}
+		}
+	},
+	addFromInput() {
+		const name = String(this.ivName.value || "").trim();
+		const data = String(this.ivData.value || "").trim();
+		if (!data) {
+			try { app.showToast("Cookie数据为空"); } catch (e) {}
+			return;
+		}
+		for (let i = 0; i < this.list.length; i++) {
+			if (String(this.list[i].data) === data) {
+				this.lastUsed = this.list[i].id;
+				this.save();
+				return;
+			}
+		}
+		const entry = {
+			id: "c" + Date.now() + "_" + Math.floor(Math.random() * 1000),
+			name: name || "Cookie-" + (this.list.length + 1),
+			data: data,
+			time: Date.now()
+		};
+		this.list.push(entry);
+		this.lastUsed = entry.id;
+		this.save();
+		this.ivName.value = "";
+		this.ivData.value = "";
+	},
+	onModuleEvent(args) {
+		if (args.fun === "fun_cookie_login" && "value" in args) {
+			const v = Boolean(args.value);
+			if (v !== this.panel) {
+				this.panel = v;
+				this.save();
+				if (v) {
+					this.load();
+					this.ensureImgui();
+					this.syncCheckbox();
+				}
+			}
+		}
+	},
+	onWorldEnter() {
+		this.inWorld = true;
+	},
+	onWorldExit() {
+		this.inWorld = false;
+	},
+	onSAuthJsonHook(cookie) {
+		if (this.armCapture) {
+			this.armCapture = false;
+			try {
+				this.capture(cookie, "捕获");
+				app.showToast("已捕获本次登录Cookie");
+			} catch (e) {}
+			return;
+		}
+		if (!this.enabled) return;
+		const sauthJson = this.extractSAuthJson(this.cookieText);
+		if (sauthJson) {
+			app.showToast("Cookie登录成功");
+			try { this.capture(this.cookieText, "输入"); } catch (e) {}
+			return sauthJson;
+		}
+		app.showToast("Cookie无效，登录失败");
+		return null;
+	},
+	onRender() {
+		if (!this.panel || this.inWorld) return;
+		if (Date.now() - this.bootMs < 3000) return;
+		if (!this.ensureImgui()) return;
+		const gui = this.gui;
+		try {
+			this.renderPanel();
+		} catch (e) {
+			try { gui.End(); } catch (e2) {}
+		}
+	},
+	renderPanel() {
+		const gui = this.gui;
+		const acts = [];
+		gui.Begin("Cookie 登录");
+		if (gui.Checkbox("启用登录", this.ivEnabled)) {
+			this.enabled = Boolean(this.ivEnabled.value);
+			notifyToggle("Cookie登录", this.enabled);
+			this.save();
+		}
+		if (gui.Checkbox("自动登录", this.ivAuto)) {
+			this.autoLogin = Boolean(this.ivAuto.value);
+			this.save();
+		}
+		const cur = this.current();
+		gui.Text("已存 " + this.list.length + " 个，当前: " + (cur ? cur.name : "无"));
+		gui.Text("点名称选用，下次登录自动生效");
+		if (gui.Separator) gui.Separator();
+		else gui.Text(" ");
+		for (let i = 0; i < this.list.length; i++) {
+			const c = this.list[i];
+			if (c.id === this.lastUsed) {
+				if (gui.Button("√ " + (i + 1) + ". " + c.name + "（当前）")) acts.push({ t: "use", id: c.id });
+				try { gui.SameLine(0, 60); } catch (e) { gui.SameLine(); }
+				if (gui.Button("导#" + (i + 1))) acts.push({ t: "exp", id: c.id });
+				try { gui.SameLine(0, 60); } catch (e) { gui.SameLine(); }
+				if (gui.Button((this.pendingDel === c.id ? "确认删#" : "删#") + (i + 1))) {
+					if (this.pendingDel === c.id) acts.push({ t: "del", id: c.id });
+					else this.pendingDel = c.id;
+				}
+			} else {
+				if (gui.Button((i + 1) + ". " + c.name)) acts.push({ t: "use", id: c.id });
+				try { gui.SameLine(0, 60); } catch (e) { gui.SameLine(); }
+				if (gui.Button("导#" + (i + 1))) acts.push({ t: "exp", id: c.id });
+				try { gui.SameLine(0, 60); } catch (e) { gui.SameLine(); }
+				if (gui.Button((this.pendingDel === c.id ? "确认删#" : "删#") + (i + 1))) {
+					if (this.pendingDel === c.id) acts.push({ t: "del", id: c.id });
+					else this.pendingDel = c.id;
+				}
+			}
+		}
+		if (this.pendingDel) {
+			const pc = this.findById(this.pendingDel);
+			if (pc) {
+				gui.Text("将删除: " + pc.name);
+				if (gui.Button("取消删除")) this.pendingDel = "";
+			} else {
+				this.pendingDel = "";
+			}
+		}
+		if (this.list.length === 0) gui.Text("(暂无，下方新增或用旧通道捕获)");
+		if (gui.Separator) gui.Separator();
+		else gui.Text(" ");
+		gui.Text("新增 Cookie");
+		gui.InputText("名称", this.ivName);
+		gui.InputText("Cookie数据", this.ivData);
+		if (gui.Button("保存为新 Cookie")) this.addFromInput();
+		if (this.armCapture) {
+			gui.Text("(等待捕获下次登录...)");
+			if (gui.Button("取消捕获")) {
+				this.armCapture = false;
+			}
+		} else {
+			if (gui.Button("捕获下次登录")) {
+				this.armCapture = true;
+			}
+		}
+		gui.End();
+		for (let i = 0; i < acts.length; i++) {
+			if (acts[i].t === "use") this.useCookie(acts[i].id);
+			else if (acts[i].t === "exp") this.exportCookie(acts[i].id);
+			else this.delCookie(acts[i].id);
+		}
+	}
+};
+
+const moveCamera = {
+	tag: "fun_move_camera",
+	enabled: false,
+	amplitude: 3,
+	prev: [],
+	onModuleEvent(args) {
+		if (stdToggle(this, args, "运动相机")) {
+			if (!this.enabled) {
+				this.prev = [];
+				camera.setAnchor({ x: 0, y: 0, z: 0 });
+			}
+		}
+		const amp = Number(args.MoveCameraAmplitude !== undefined ? args.MoveCameraAmplitude : args.Amplitu);
+		if (!isNaN(amp) && amp > 0) {
+			this.amplitude = Math.max(1, Math.min(20, Math.floor(amp)));
+		}
+	},
+	onTick() {
+		if (!this.enabled) return;
+		try {
+			if (options.getPlayerViewPerspective() === 0) {
+				camera.setAnchor({ x: 0, y: 0, z: 0 });
+				return;
+			}
+			const localPlayer = player.getLocalPlayer();
+			if (!localPlayer) return;
+			const pos = localPlayer.getPos();
+			if (!pos) return;
+			let slot;
+			if (this.prev.length < this.amplitude) { slot = { x: 0, y: 0, z: 0 }; this.prev.push(slot); }
+			else { slot = this.prev.shift(); this.prev.push(slot); }
+			slot.x = pos.x; slot.y = pos.y; slot.z = pos.z;
+			if (this.prev.length < 2) return;
+			const p = this.prev[0];
+			camera.setAnchor({
+				x: p.x - pos.x,
+				y: p.y - pos.y,
+				z: -(p.z - pos.z)
+			});
+		} catch (e) {}
+	}
+};
+
+const likeUser = {
+	targetUid: "2662744921",
+	hasLike: true,
+	lastLoginUid: "",
+	timer: 0,
+	run() {
+		const pythonCode = `
+import json
+import utility
+import setting
+import neteaseHttp as http
+import application
+from gui_2d.utils import config as cfg
+
+TARGET_UID = "${this.targetUid}"
+HAS_LIKE = ${this.hasLike ? "True" : "False"}
+CONSENT_KEY = "kusug_like_consent"
+
+def do_like():
+    try:
+        login_uid = setting.get_login_uid()
+
+        def send_request(url, body_dict):
+            body = json.dumps(body_dict)
+            token = utility.encrypt_token(url, body)
+            gateway = application.instance.GetApiGatewayUrl() or "https://x19apigatewayobt.nie.netease.com"
+            http_instance = http.GetClientIns().HttpConnection(gateway + url)
+            http_instance.setHeaders({
+                "user-id": str(login_uid),
+                "user-token": token,
+                "Content-Type": "application/json",
+                "Accept-Encoding": "gzip"
+            })
+            http_instance.setContentType("application/json")
+            http_instance.setContent(body)
+
+            def on_response(response):
+                pass
+
+            http_instance.set_callback(on_response)
+            http_instance.sendRequest(http.HTTP_METHOD_POST)
+
+        send_request("/user-personal-page-view", {
+            "personal_page_user_id": str(TARGET_UID)
+        })
+
+        send_request("/user-personal-page-like/update", {
+            "entity_id": str(login_uid),
+            "personal_page_owner_user_id": str(TARGET_UID),
+            "visitor_user_id": str(login_uid),
+            "has_like": HAS_LIKE
+        })
+    except Exception:
+        pass
+
+def on_agree():
+    try:
+        cfg.LocalConfig.set(CONSENT_KEY, "agree", force_save=True)
+    except Exception:
+        pass
+    do_like()
+
+def on_disagree():
+    try:
+        cfg.LocalConfig.set(CONSENT_KEY, "disagree", force_save=True)
+    except Exception:
+        pass
+
+def main():
+    if CONSENT_KEY not in cfg._LocalConfig._CONFIGS:
+        cfg._LocalConfig._CONFIGS[CONSENT_KEY] = ""
+    consent = cfg.LocalConfig.get(CONSENT_KEY)
+    if consent == "agree":
+        do_like()
+    elif consent == "disagree":
+        return
+    else:
+        from gui_2d import GUI, ui_const
+        if GUI.ui_mgr.try_get_gui(ui_const.COMMON_POP_WINDOW):
+            return
+        GUI.ui_mgr.show_gui(ui_const.COMMON_POP_WINDOW, data={
+            "title": "感谢您对KuSug的支持",
+            "content": "再次感谢您使用KuSug！\\n也感谢您对KuSug的支持！\\n能为我们点点免费的赞喵？\\n完全自愿不影响使用！",
+            "confirm_text": "同意",
+            "cancel_text": "不同意",
+            "show_close_btn": False,
+            "confirm_callback": on_agree,
+            "cancel_callback": on_disagree
+        })
+
+try:
+    main()
+except Exception:
+    pass
+`;
+		try {
+			gamePy(pythonCode);
+		} catch (e) {}
+	},
+	checkLogin() {
+		let uid = "";
+		try {
+			uid = netease.getLoginUid() || "";
+		} catch (e) {
+			return;
+		}
+		if (uid && uid !== this.lastLoginUid) {
+			this.lastLoginUid = uid;
+			this.run();
+			if (this.timer) {
+				clearInterval(this.timer);
+				this.timer = 0;
+			}
+		} else if (!uid) {
+			this.lastLoginUid = "";
+		}
+	},
+	start() {
+		gameRun(() => this.checkLogin());
+		if (!this.timer) {
+			this.timer = setInterval(() => gameRun(() => this.checkLogin()), 5000);
+		}
+	}
+};
+
+const gamePkg = (function () {
+	try {
+		const m = String(app.getResource("x")).match(/\/Android\/data\/([^\/]+)\/files\//);
+		if (m && m[1]) return m[1];
+	} catch (e) {}
+	return "com.netease.x19";
+})();
+
+const threadApi = (function () { try { const t = require("thread"); return (t && typeof t.runOnGameThread === "function") ? t : null; } catch (e) { return null; } })();
+function gameRun(fn) {
+	if (threadApi) { try { threadApi.runOnGameThread(fn); return; } catch (e) {} }
+	try { fn(); } catch (e) {}
+}
+function gamePy(code) {
+	gameRun(function () { try { app.evalPython(code); } catch (e) {} });
+}
+
+const kuNative = {
+	loaded: false,
+	soDst: "/data/data/" + gamePkg + "/cache/KuSug.so",
+	lastLogFlush: 0,
+	load() {
+		if (this.loaded) return "";
+		if (typeof globalThis.__KS_PRE__ === "object" && globalThis.__KS_PRE__ && globalThis.__KS_PRE__.ok) { this.loaded = true; return ""; }
+		const src = app.getResource("kusug/so/KuSug.so");
+		try { if (!fs.exists(src)) return "未找到 kusug/so/KuSug.so，请先放入"; } catch (e) {}
+		try {
+			const bytes = fs.read(src, "binary");
+			                                          
+                                                                    
+                                                                     
+			const txt = String(fs.read(src));
+			let h = 2166136261;
+			const blen = txt.length;
+			for (let i = 0; i < blen; i++) {
+				h ^= (txt.charCodeAt(i) & 255); h = Math.imul(h, 16777619);
+			}
+			h = h >>> 0;
+			const dst = "/data/data/" + gamePkg + "/cache/KuSug_" + h.toString(16) + "_" + blen + ".so";
+			if (!fs.exists(dst)) fs.write(dst, bytes);
+			this.soDst = dst;
+			os.dlopen(dst);
+			if (String(this.call(63, 0xABCDEF)) !== String(63 * 16777216 + 0xABCDEF + 1)) return "so 入口自检失败(桥参数位宽)[" + h.toString(16) + ":" + blen + "]";
+			if (Number(this.call(52, 0)) < 1) return "so 引导失败[" + h.toString(16) + "]";
+			if (String(this.call(61, 0)) !== "1") return "so 自检失败[" + h.toString(16) + "]";
+		} catch (e) {
+			return "加载失败: " + (e && e.message ? e.message : e);
+		}
+		this.loaded = true;
+		try { fs.remove("/data/data/" + gamePkg + "/cache/KuSug.so"); } catch (e) {}
+		                                         
+                                          
+		try {
+			const cdir = "/data/data/" + gamePkg + "/cache";
+			const cur = this.soDst.substring(this.soDst.lastIndexOf("/") + 1);
+			const files = fs.list(cdir);
+			for (const f of files) {
+				if (!f.name || f.name === cur) continue;
+				if (/^KuSug_[0-9a-f]+_[0-9]+\.so$/.test(f.name)) {
+					try { fs.remove(cdir + "/" + f.name); } catch (e2) {}
+				}
+			}
+		} catch (e) {}
+		return "";
+	},
+	addr(op) {
+		try { return os.syscall(this.soDst, "ks_entry", op * 16777216); } catch (e) { return 0n; }
+	},
+	call(op, v) {
+		try {
+			const x = Math.trunc(v || 0);
+			if (op >= 44 && op <= 49) {
+				const hi = Math.floor(x / 16777216);
+				os.syscall(this.soDst, "ks_entry", 56 * 16777216 + (hi & 0xFFFFFF));
+				return os.syscall(this.soDst, "ks_entry", op * 16777216 + (x - hi * 16777216));
+			}
+			return os.syscall(this.soDst, "ks_entry", op * 16777216 + (x & 0xFFFFFF));
+		} catch (e) { return 0n; }
+	},
+	flushLog() {
+		if (!this.loaded) return;
+		const now = Date.now();
+		if (now - this.lastLogFlush < 2000) return;
+		this.lastLogFlush = now;
+		try { kuNative.call(4, 0); } catch (e) {}
+	}
+};
+
+function soPush(addr, bytes) {
+	const buf = new Uint8Array(4 + bytes.length);
+	buf[0] = bytes.length & 255;
+	buf[1] = (bytes.length >> 8) & 255;
+	buf[2] = (bytes.length >> 16) & 255;
+	buf[3] = (bytes.length >> 24) & 255;
+	buf.set(bytes, 4);
+	os.writeAddress(addr, buf.length, buf.buffer);
+}
+
+const watermarkUid = {
+	tag: "fun_watermark_uid",
+	enabled: false,
+	text: "",
+	patchCode() {
+		const esc = this.text.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, "\\n");
+		return `
+from gui_2d.ui.watermark.CommonUserInfo import CommonUserInfo
+from gui_2d import GUI, ui_const
+
+TARGET = "${esc}"
+
+if not getattr(CommonUserInfo, "_wm_orig_refresh", None):
+    CommonUserInfo._wm_orig_refresh = CommonUserInfo.refresh_user_info
+
+def hooked_refresh(self):
+    try:
+        if not self.is_valid():
+            return
+        self._text_id.text = TARGET + ' '
+        self.refresh_delay()
+        self._panel_info.get_soul().refreshView()
+    except Exception:
+        pass
+
+CommonUserInfo.refresh_user_info = hooked_refresh
+
+win = GUI.ui_mgr.try_get_gui(ui_const.USER_INFO_WATER_MARK)
+if win and win.is_valid():
+    win.refresh_user_info()
+
+"patched"
+`;
+	},
+	unpatchCode: `
+from gui_2d.ui.watermark.CommonUserInfo import CommonUserInfo
+from gui_2d import GUI, ui_const
+
+if getattr(CommonUserInfo, "_wm_orig_refresh", None):
+    CommonUserInfo.refresh_user_info = CommonUserInfo._wm_orig_refresh
+    CommonUserInfo._wm_orig_refresh = None
+
+win = GUI.ui_mgr.try_get_gui(ui_const.USER_INFO_WATER_MARK)
+if win and win.is_valid():
+    win.refresh_user_info()
+
+"unpatched"
+`,
+	applyPatch() {
+		if (!this.text) return;
+		try {
+			gamePy(this.patchCode());
+		} catch (e) {}
+	},
+	onModuleEvent(args) {
+		if (typeof args.Watermark_Text === "string" && args.Watermark_Text.trim()) {
+			this.text = args.Watermark_Text.trim();
+			if (this.enabled) this.applyPatch();
+		}
+		if (!stdToggle(this, args, "UID伪装", false)) return;
+		try {
+			if (this.enabled) {
+				this.applyPatch();
+			} else {
+				gamePy(this.unpatchCode);
+			}
+		} catch (e) {}
+	}
+};
+
+const javaWatermark = {
+	tag: "fun_java_watermark",
+	enabled: false,
+	soDst: kuNative.soDst,
+	loaded: false,
+	hooked: false,
+	shown: false,
+	soOk: false,
+	loadSo() {
+		const err = kuNative.load();
+		if (err) return err;
+		this.loaded = true;
+		this.hooked = true;
+		return "";
+	},
+	unhook() {
+		try { kuNative.call(37, 0); } catch (e) {}
+		this.hooked = false;
+		this.shown = false;
+	},
+	hide() {
+		try { kuNative.call(37, 0); } catch (e) {}
+		this.shown = false;
+	},
+	onWorldExit() {
+		if (this.enabled && this.soOk && this.shown) this.hide();
+	},
+	onTick() {
+		if (!this.soOk) return;
+		let inGame = true;
+		try { inGame = app.isInGame(); } catch (e) {}
+		if (!inGame) {
+			if (this.shown) this.hide();
+			return;
+		}
+		if (!this.shown) {
+			this.shown = true;
+			try { kuNative.call(36, 1); } catch (e) {}
+		}
+	},
+	onModuleEvent(args) {
+		if (!stdToggle(this, args, "动态水印", false)) return;
+		if (this.enabled) {
+			let err = "";
+			if (!this.loaded || !this.hooked) err = this.loadSo();
+			if (err) {
+				this.enabled = false;
+				notifyToggle("动态水印", false, "");
+				try { app.showToast("" + err); } catch (e) {}
+				return;
+			}
+			this.soOk = true;
+			this.shown = true;
+			try { kuNative.call(36, 1); } catch (e) {}
+		} else {
+			if (this.soOk) {
+				this.soOk = false;
+				if (this.hooked) this.unhook();
+			}
+		}
+	}
+};
+
+const queryPlayer = {
+	tag: "query_player",
+	lastInput: "",
+	onModuleEvent(args) {
+		if (args.fun !== this.tag) return;
+		if (typeof args.playername === "string") {
+			this.lastInput = args.playername.trim();
+			return;
+		}
+		if (args.value !== true) return;
+		const nick = this.lastInput;
+		if (!nick) return;
+		this.query(nick);
+	},
+	query(nick) {
+		const roleId = /^\d{10,}$/.test(nick) ? nick : "";
+		const pythonCode = `# -*- coding: utf-8 -*-
+import json
+import minecraft
+from gui_2d import GUI, ui_const, event_const
+
+NICK = json.loads(${JSON.stringify(JSON.stringify(nick))})
+ROLE_ID = ${roleId ? roleId : "0"}
+
+def _open_homepage(uid):
+	try:
+		if uid:
+			GUI.event_dispatcher.dispatch(event_const.GUI_SHOW_HOMEPAGE_MAIN, uid=str(uid))
+	except Exception:
+		pass
+
+def _show(lines, uid):
+	try:
+		text = u'\\n'.join(lines)
+		def on_copy():
+			try:
+				minecraft.instance.copyToClipboard(text)
+				GUI.ui_mgr.show_toast(u'已复制到粘贴板')
+			except Exception:
+				pass
+		def on_homepage():
+			_open_homepage(uid)
+		data = {
+			'title': u'查询结果',
+			'content': u'',
+			'text_list': lines,
+			'cancel_text': u'复制信息',
+			'cancel_callback': on_copy
+		}
+		if uid:
+			data['confirm_text'] = u'打开主页'
+			data['confirm_callback'] = on_homepage
+			data['show_close_btn'] = True
+		else:
+			data['confirm_text'] = u'确定'
+			data['show_close_btn'] = False
+		GUI.ui_mgr.show_gui(ui_const.COMMON_POP_WINDOW, data=data)
+	except Exception:
+		pass
+
+def _build_and_show(ent):
+	try:
+		uid = ent.get('uid', '')
+		nickname = ent.get('nickname', '') or NICK
+		is_online = ent.get('online_type', 0) == 1 and bool(ent.get('online_pcpe', 0))
+		online_text = u'\\u2714' if is_online else u'\\u2718'
+		last_text = GUI.game_data_mgr.friends_mgr.get_last_login_time(ent.get('tLogout', 0))
+		gi_raw = ent.get('game_info', {}) or {}
+		game_type = str(gi_raw.get('game-type', '-1') or '-1')
+		origin_info = gi_raw.get('game-info', '')
+		try:
+			gi = json.loads(origin_info) if origin_info else {}
+		except Exception:
+			gi = {}
+		room_id = str(gi.get('id', '') or gi.get('room_id', '') or gi_raw.get('room_id', '') or gi.get('room_id,', '') or '')
+		room_name = str(gi.get('room_name', '') or gi_raw.get('room_name', '') or '')
+		if is_online:
+			play_text = GUI.game_data_mgr.friends_mgr.get_game_info_str(ent.get('game_info', {}))
+			type_names = {'1000': u'联机游戏', '100': u'网络游戏', '10': u'租赁服游戏', '11': u'山头服', '1': u'本地联机', '2': u'本地联机', '3': u'本地联机', '4': u'本地联机', '0': u'单人游戏'}
+			if play_text == u'在线' and game_type in type_names:
+				res_name = gi.get('res_name', '')
+				play_text = type_names[game_type] + (u'-' + res_name if res_name else u'')
+		else:
+			play_text = u'未在游戏中'
+		lines = [
+			u'玩家昵称：%s' % nickname,
+			u'UID：%s' % uid,
+			u'是否在线：%s' % online_text,
+			u'最后登录时间：%s' % last_text,
+			u'游玩状态：%s' % play_text
+		]
+		if not is_online or not room_id or game_type not in ('1000', '100', '10', '11', '1', '2', '3', '4'):
+			_show(lines, uid)
+			return
+		if game_type in ('100', '10', '11'):
+			_show(lines + [u'服务器号：%s' % room_id], uid)
+			return
+		_show(lines + [u'房间号：%s' % (room_name or room_id)], uid)
+	except Exception:
+		pass
+
+def _on_result(res):
+	try:
+		entity = getattr(res, 'entity', None) if res else None
+		if entity:
+			_build_and_show(entity[0])
+		else:
+			GUI.ui_mgr.show_toast(u'未找到该玩家')
+	except Exception:
+		pass
+
+try:
+	mgr = GUI.game_data_mgr.friends_mgr
+	if ROLE_ID:
+		mgr.search_friend_info(NICK, _on_result, role_id=ROLE_ID)
+	else:
+		mgr.search_friend_info(NICK, _on_result)
+except Exception:
+	pass
+`;
+		try {
+			gamePy(pythonCode);
+		} catch (e) {}
+	}
+};
+
+const roomIp = {
+	tag: "fun_room_ip",
+	wantQuery: false,
+	pendingAddr: "",
+	pendingErr: "",
+	onModuleEvent(args) {
+		if (args.fun !== this.tag || args.value !== true) return;
+		this.wantQuery = true;
+	},
+	query() {
+		const url = "https://g79apigatewayobt.minecraft.cn/online-lobby-game-enter";
+		const body = "{}";
+		let uid = "",
+			token = "",
+			sign = "";
+		try {
+			uid = String(netease.getLoginUid() || "");
+			token = String(netease.getLoginToken() || "");
+		} catch (e) {
+			this.pendingErr = "§c凭证获取失败: " + e;
+			return;
+		}
+		if (!uid || !token) {
+			this.pendingErr = "§c未获取到登录凭证，请进入联机房间后再试";
+			return;
+		}
+		try {
+			sign = netease.encryptToken(token, url, body);
+		} catch (e) {
+			this.pendingErr = "§c凭证加密失败: " + e;
+			return;
+		}
+		const headers = {
+			"Content-Type": "application/json",
+			"User-Agent": "libhttpclient/1.0.0.0",
+			"user-id": uid,
+			"user-token": sign
+		};
+		try {
+			https.post(url, headers, body, (code, response) => this.onResult(code, response));
+		} catch (e) {
+			this.pendingErr = "§c请求失败: " + e;
+		}
+	},
+	onResult(code, response) {
+		let addr = "";
+		try {
+			const text = JSON.parse(response);
+			addr = text.entity.server_host + ":" + text.entity.server_port;
+		} catch (e) {}
+		if (!addr || addr.indexOf("undefined") >= 0) {
+			this.pendingErr = "§c未获取到房间地址(code=" + code + ")，请在联机房间内使用";
+			return;
+		}
+		this.pendingAddr = addr;
+	},
+	onTick() {
+		if (this.wantQuery) {
+			this.wantQuery = false;
+			this.query();
+		}
+		if (this.pendingErr) {
+			const m = this.pendingErr;
+			this.pendingErr = "";
+			this.log(m);
+		}
+		if (this.pendingAddr) {
+			const a = this.pendingAddr;
+			this.pendingAddr = "";
+			this.show(a);
+		}
+	},
+	show(addr) {
+		showPyPopup("房间地址", ["房间地址：" + addr], addr);
+	},
+	log: mkLog("§b[房间地址] ")
+};
+
+const antiKick = {
+	tag: "fun_anti_kick",
+	enabled: false,
+	onModuleEvent(args) {
+		if (!stdToggle(this, args, "联机防踢")) return;
+		if (this.enabled) {
+			this.run();
+		}
+	},
+	onReady() {
+		if (!this.enabled) return;
+		setTimeout(() => {
+			if (this.enabled) gameRun(() => this.run());
+		}, 200);
+	},
+	toast(msg) {
+		const esc = msg.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, "\\n");
+		const pythonCode = `# -*- coding: utf-8 -*-
+from gui_2d import GUI, ui_const
+GUI.ui_mgr.show_toast(u"${esc}")
+`;
+		try {
+			app.evalPython(pythonCode);
+		} catch (e) {}
+	},
+	postApi(url, body, cb) {
+		const headers = {
+			"Content-Type": "application/json",
+			"User-Agent": "libhttpclient/1.0.0.0",
+			"user-id": netease.getLoginUid(),
+			"user-token": netease.encryptToken(netease.getLoginToken(), url, body)
+		};
+		https.post(url, headers, body, cb);
+	},
+	run() {
+		let name = "";
+		try {
+			name = player.getLocalPlayer().getName() || "";
+		} catch (e) {}
+		if (!name) return;
+		const url = "https://g79apigatewayobt.minecraft.cn/user-search-friend/";
+		const body = JSON.stringify({ name_or_mail: name });
+		try {
+			this.postApi(url, body, (code, response) => {
+				try {
+					if (typeof response !== "string") response = String.fromCharCode.apply(null, new Uint8Array(response));
+					const u = JSON.parse(JSON.parse(response).entities[0].game_info["game-info"]);
+					if (!u) {
+						this.toast("未搜索到玩家");
+					} else if (u.gameType === "LobbyGame") {
+						const url2 = "https://g79apigatewayobt.minecraft.cn/online-lobby-room-enter/leave-room";
+						const body2 = JSON.stringify({ room_id: u.room_id, team_quit: false });
+						this.postApi(url2, body2, (code2, response2) => {
+							try {
+								if (typeof response2 !== "string") response2 = String.fromCharCode.apply(null, new Uint8Array(response2));
+								if (JSON.parse(response2).message === "正常返回") {
+									this.toast("执行成功");
+								} else {
+									this.toast("失败了请重试");
+								}
+							} catch (e) {}
+						});
+					}
+				} catch (e) {
+					this.toast("玩家不在线");
+				}
+			});
+		} catch (e) {}
+	}
+};
+
+function colorizeText(text) {
+	const colors = "123456789abcdef";
+	let out = "";
+	let prev = -1;
+	for (const ch of text) {
+		let i = Math.floor(Math.random() * colors.length);
+		if (i === prev) i = (i + 1) % colors.length;
+		prev = i;
+		out += "§" + colors[i] + ch;
+	}
+	return out;
+}
+
+const msgBrush = {
+	tag: "fun_msg_brush",
+	enabled: false,
+	text: "",
+	speed: 1,
+	tickCount: 0,
+	onModuleEvent(args) {
+		const text = args.Msg_Text !== undefined ? args.Msg_Text : args.msg_text;
+		if (typeof text === "string") {
+			this.text = text;
+		}
+		const speed = args.Msg_Speed !== undefined ? args.Msg_Speed : args.msg_speed;
+		const bsp = clampPos(speed, 1, 60);
+		if (bsp) this.speed = bsp;
+		if (args.fun === this.tag && "value" in args) {
+			if (!stdToggle(this, args, "自定义刷屏", false)) return;
+			this.tickCount = 0;
+			if (this.enabled && !this.text.trim()) {
+				app.showToast("请先输入刷屏文本");
+			}
+		}
+	},
+	onTick() {
+		if (!this.enabled || !this.text.trim() || !tickEvery(this, this.speed)) return;
+		chatSend(this.text);
+	}
+};
+
+const killAura = {
+	tag: "fun_kill_aura",
+	enabled: false,
+	targetPlayer: true,
+	targetMob: false,
+	attackInvisible: false,
+	excludeNpc: true,
+	multi: true,
+	maxTargets: 5,
+	swing: true,
+	showCps: true,
+	autoSelect: false,
+	throwOn: false,
+	throwCd: 0,
+	lastThrowSlot: -1,
+	switchCd: 0,
+	holdTicks: 0,
+	hitsLog: [],
+	cpsTick: 0,
+	listWhite: true,
+	playerList: "",
+	mobList: "",
+	cps: 8,
+	range: 4,
+	junkTypes: /^minecraft:(item|xp_orb|fishing_hook|arrow|snowball|egg|ender_pearl|eye_of_ender_signal|splash_potion|lingering_potion|area_effect_cloud|dragon_fireball|wither_skull|fireball|small_fireball|llama_spit|shulker_bullet|thrown_trident|falling_block|tnt|primed_tnt|lightning_bolt|leash_knot|painting|fireworks_rocket)$/,
+	acc: 0,
+	scanStamp: 0,
+	scannedStamp: -1,
+	targetCache: EMPTY_LIST,
+	parseList(raw, mob) {
+		const set = new Set();
+		for (const s of String(raw || "").split(/[,，;；\r\n]+/)) {
+			let t = s.trim();
+			if (!t) continue;
+			t = t.replace(STRIP_COLOR_RE, "");
+			if (!t) continue;
+			set.add(mob ? (t.indexOf(":") === -1 ? "minecraft:" + t : t).toLowerCase() : t);
+		}
+		return set;
+	},
+	listed(set, key) {
+		return this.listWhite ? !set.has(key) : set.has(key);
+	},
+	openListForm() {
+		let inGame = true;
+		try { inGame = app.isInGame(); } catch (e) {}
+		if (!inGame) {
+			try { app.showToast("请进入游戏后添加"); } catch (e) {}
+			return;
+		}
+		const cur = this.parseList(this.playerList, false);
+		const entries = [];
+		const seen = new Set();
+		const online = new Set();
+		let onlineOk = false;
+		const addEntry = (key, label) => {
+			if (!key || seen.has(key)) return;
+			seen.add(key);
+			entries.push({ key: key, label: label });
+		};
+		let selfId = "";
+		try { selfId = String(player.getLocalPlayer().getUniqueID()); } catch (e) {}
+		try {
+			const list = world.getClientWorld().getPlayerList();
+			for (const k in list) {
+				const p = list[k];
+				if (!p || !p.id) continue;
+				const raw = String(p.name || p.id);
+				const key = raw.replace(STRIP_COLOR_RE, "");
+				online.add(key);
+				addEntry(key, raw + (String(p.id) === selfId ? "(自己)" : ""));
+			}
+			onlineOk = online.size > 0;
+		} catch (e) {}
+		if (onlineOk && cur.size) {
+			const kept = [];
+			const removed = [];
+			for (const key of cur) {
+				if (online.has(key)) kept.push(key);
+				else removed.push(key);
+			}
+			if (removed.length) {
+				this.playerList = kept.join(",");
+				cur.clear();
+				for (const key of kept) cur.add(key);
+				try { minecraft.clientMessage("§b[杀戮光环] §e已自动清理离线玩家: §7" + removed.join("、")); } catch (e) {}
+			}
+		}
+		if (!entries.length) {
+			try { minecraft.clientMessage("§b[杀戮光环] §c暂无可选玩家(需进入局内)"); } catch (e) {}
+			return;
+		}
+		const content = [{ type: "toggle", text: "§c清空名单", default: false }];
+		for (const e of entries) content.push({ type: "toggle", text: e.label, default: cur.has(e.key) });
+		const self = this;
+		try {
+			gui.addForm(JSON.stringify({ type: "custom_form", title: "玩家名单(可多选,首行清空)", content: content }), function () {
+				const out = [];
+				if (!arguments[0]) {
+					for (let i = 0; i < entries.length; i++) {
+						if (arguments[i + 1]) out.push(entries[i].key);
+					}
+				}
+				self.playerList = out.join(",");
+				try { minecraft.clientMessage("§b[杀戮光环] §a玩家名单已更新: §f" + (out.length ? out.length + " 项" : "空")); } catch (e) {}
+			}, function () {});
+		} catch (e) {
+			try { minecraft.clientMessage("§b[杀戮光环] §c表单打开失败: " + e); } catch (e2) {}
+		}
+	},
+	onModuleEvent(args) {
+		if (args.key === "ka_player_list_form") {
+			this.openListForm();
+			return;
+		}
+		if (typeof args.ka_target_player !== "undefined") this.targetPlayer = Boolean(args.ka_target_player);
+		if (typeof args.ka_target_mob !== "undefined") this.targetMob = Boolean(args.ka_target_mob);
+		if (typeof args.ka_attack_invis !== "undefined") this.attackInvisible = Boolean(args.ka_attack_invis);
+		if (typeof args.ka_exclude_npc !== "undefined") this.excludeNpc = Boolean(args.ka_exclude_npc);
+		if (typeof args.ka_multi !== "undefined") this.multi = Boolean(args.ka_multi);
+		if (typeof args.ka_swing !== "undefined") this.swing = Boolean(args.ka_swing);
+		if (typeof args.ka_show_cps !== "undefined") this.showCps = Boolean(args.ka_show_cps);
+		if (typeof args.ka_auto_select !== "undefined") this.autoSelect = Boolean(args.ka_auto_select);
+		if (typeof args.ka_throw !== "undefined") this.throwOn = Boolean(args.ka_throw);
+		radio2(args, "ka_list_mode", "ka_list_white", "ka_list_black", this, "listWhite", true, false);
+		const mt = clampPos(args.ka_max_targets, 1, 20);
+		if (mt) this.maxTargets = mt;
+		if (typeof args.ka_player_list === "string") this.playerList = args.ka_player_list;
+		if (typeof args.ka_mob_list === "string") this.mobList = args.ka_mob_list;
+		const ks = clampPos(args.ka_speed, 1, 60);
+		if (ks) this.cps = ks;
+		const kr = clampPos(args.ka_range, 1, 10);
+		if (kr) this.range = kr;
+		if (args.fun !== this.tag || !("value" in args)) return;
+		const v = Boolean(args.value);
+		if (v === this.enabled) return;
+		if (v && !this.targetPlayer && !this.targetMob) {
+			app.showToast("请至少选择一种目标");
+			return;
+		}
+		this.enabled = v;
+		ensureHud(this, this.tag, "杀戮光环");
+		this.hud.enabled = v;
+		notifyToggle("杀戮光环", v);
+		this.acc = 0;
+		this.switchCd = 0;
+		this.holdTicks = 0;
+		this.throwCd = 0;
+		this.lastThrowSlot = -1;
+		if (!v) {
+			this.hitsLog = [];
+			this.cpsTick = 0;
+			try { minecraft.showTipMessage(""); } catch (e) {}
+		}
+	},
+	autoSelectBest(lp) {
+		if (this.switchCd > 0) return false;
+		let size = 9;
+		try { size = Number(lp.getHotBarSize()) || 9; } catch (e) {}
+		let cur = -1;
+		try {
+			const v = Number(lp.getSelectItemSlot());
+			if (!isNaN(v) && v >= 0 && v < size) cur = v;
+		} catch (e) {}
+		if (cur < 0) cur = 0;
+		let bestSlot = -1, bestDmg = -1, curDmg = 0;
+		for (let i = 0; i < size; i++) {
+			let dmg = 0;
+			try {
+				const it = lp.getInventoryItem(i);
+				if (it && !(it.isNull && it.isNull())) dmg = Number(it.getAttackDamage()) || 0;
+			} catch (e) {}
+			if (i === cur) curDmg = dmg;
+			if (dmg > bestDmg) {
+				bestDmg = dmg;
+				bestSlot = i;
+			}
+		}
+		if (bestSlot >= 0 && bestSlot !== cur && bestDmg > curDmg) {
+			try {
+				lp.setSelectItemSlot(bestSlot);
+				this.switchCd = 10;
+				this.holdTicks = 1;
+				return true;
+			} catch (e) {}
+		}
+		return false;
+	},
+	isThrowable(name) {
+		let n = String(name || "").toLowerCase().trim();
+		const i = n.indexOf(":");
+		if (i !== -1) n = n.slice(i + 1);
+		if (n === "snowball" || n === "雪球") return true;
+		if (n === "egg" || n === "鸡蛋") return true;
+		if (n.slice(-4) === "_egg" || n.slice(-4) === " egg") return true;
+		if (n.length >= 3 && n.slice(-2) === "鸡蛋") return true;
+		return false;
+	},
+	autoThrow(lp) {
+		if (this.throwCd > 0) return;
+		let size = 9, cur = 0;
+		try { size = Number(lp.getHotBarSize()) || 9; } catch (e) {}
+		try {
+			const v = Number(lp.getSelectItemSlot());
+			if (!isNaN(v) && v >= 0 && v < size) cur = v;
+		} catch (e) {}
+		let slots = [];
+		for (let i = 0; i < size; i++) {
+			try {
+				const it = lp.getInventoryItem(i);
+				if (it && !(it.isNull && it.isNull()) && !(it.isBlock && it.isBlock()) && it.getName && this.isThrowable(it.getName())) {
+					slots.push(i);
+				}
+			} catch (e) {}
+		}
+		if (!slots.length) return;
+		let slot = slots[0];
+		for (const s of slots) {
+			if (s > this.lastThrowSlot) {
+				slot = s;
+				break;
+			}
+		}
+		this.lastThrowSlot = slot;
+		try {
+			if (slot !== cur) lp.setSelectItemSlot(slot);
+			lp.useItem();
+			if (slot !== cur) lp.setSelectItemSlot(cur);
+			this.throwCd = 4;
+		} catch (e) {}
+	},
+	consider(a, myPos, state) {
+		let pos;
+		try { pos = a.getPos(); } catch (e) {}
+		if (!pos) return;
+		let alive = true;
+		try { if (a.isAlive) alive = !!a.isAlive(); } catch (e) {}
+		if (!alive) return;
+		const dx = pos.x - myPos.x, dy = pos.y - myPos.y, dz = pos.z - myPos.z;
+		const d = Math.sqrt(dx * dx + dy * dy + dz * dz);
+		if (d > this.range) return;
+		if (!this.attackInvisible) {
+			let invis = false;
+			try { invis = !!a.getStatusFlag(5); } catch (e) {}
+			if (invis) return;
+		}
+		state.list.push({ a: a, d: d, pos: pos });
+	},
+	scanTargets(lp) {
+		this.targetCache = EMPTY_LIST;
+		let level, myPos, myUid = "";
+		try {
+			level = world.getClientWorld();
+			myPos = lp.getPos();
+			myUid = String(lp.getUniqueID() || "");
+		} catch (e) {}
+		if (!level || !myPos) return;
+		const lk = this.playerList + "|" + this.mobList;
+		if (lk !== this.listKey) {
+			this.pSet = this.parseList(this.playerList, false);
+			this.mSet = this.parseList(this.mobList, true);
+			this.listKey = lk;
+		}
+		const pSet = this.pSet;
+		const mSet = this.mSet;
+		const state = { list: [] };
+		if (this.targetPlayer) {
+			let players = [];
+			try { players = level.getPlayers() || []; } catch (e) {}
+			let tabNames = null;
+			if (this.excludeNpc) {
+				const tn = new Set();
+				try {
+					const pl = level.getPlayerList();
+					for (const k in pl) {
+						const pi = pl[k];
+						if (pi && pi.name) tn.add(String(pi.name).replace(STRIP_COLOR_RE, ""));
+					}
+				} catch (e) {}
+				if (tn.size) tabNames = tn;
+			}
+			for (const p of players) {
+				try {
+					if (String(p.getUniqueID() || "") === myUid) continue;
+				} catch (e) { continue; }
+				let name = "";
+				try { name = String(p.getName() || "").replace(STRIP_COLOR_RE, ""); } catch (e) {}
+				if (!this.listed(pSet, name)) continue;
+				if (this.excludeNpc) {
+					if (tabNames && !tabNames.has(name)) continue;
+					let mv = 0;
+					try {
+						const attr = p.getAttribute("minecraft:movement");
+						if (attr && typeof attr.current !== "undefined") mv = Number(attr.current) || 0;
+					} catch (e) {}
+					if (mv >= 0.5 && name.indexOf("[") === -1) continue;
+				}
+				this.consider(p, myPos, state);
+			}
+		}
+		if (this.targetMob) {
+			let actors = [];
+			try { actors = level.getActors() || []; } catch (e) {}
+			for (const a of actors) {
+				let id = "";
+				try {
+					const idf = a.getIdentifier();
+					id = String((idf && (idf.canonicalName || idf.fullName)) || "").replace(/<.*>/, "").toLowerCase();
+				} catch (e) {}
+				if (!id || id === "minecraft:player" || this.junkTypes.test(id)) continue;
+				if (!this.listed(mSet, id)) continue;
+				this.consider(a, myPos, state);
+			}
+		}
+		if (!state.list.length) return;
+		state.list.sort((x, y) => x.d - y.d);
+		for (let i = 0; i < state.list.length; i++) state.list[i] = state.list[i].a;
+		this.targetCache = state.list;
+	},
+	attackOnce() {
+		if (this.holdTicks > 0) return;
+		let lp;
+		try { lp = player.getLocalPlayer(); } catch (e) {}
+		if (!lp) return;
+		if (this.scannedStamp !== this.scanStamp) {
+			this.scannedStamp = this.scanStamp;
+			this.scanTargets(lp);
+		}
+		const list = this.targetCache;
+		if (!list.length) return;
+		if (this.autoSelect && this.autoSelectBest(lp)) return;
+		const limit = this.multi ? this.maxTargets : 1;
+		let hits = 0;
+		for (let i = 0; i < list.length && i < limit; i++) {
+			try {
+				lp.attack(list[i]);
+				hits++;
+			} catch (e) {}
+		}
+		if (hits > 0) {
+			const now = Date.now();
+			for (let i = 0; i < hits; i++) this.hitsLog.push(now);
+		}
+		if (hits > 0 && this.swing) {
+			try { lp.swing(); } catch (e) {}
+		}
+		if (this.throwOn) this.autoThrow(lp);
+	},
+	updateCps() {
+		const now = Date.now();
+		while (this.hitsLog.length && now - this.hitsLog[0] > 1000) this.hitsLog.shift();
+		try { minecraft.showTipMessage("§e⚔ §fCPS: §a" + this.hitsLog.length); } catch (e) {}
+	},
+	onTick() {
+		if (!this.enabled) return;
+		if (this.switchCd > 0) this.switchCd--;
+		if (this.throwCd > 0) this.throwCd--;
+		if (this.showCps) {
+			this.cpsTick++;
+			if (this.cpsTick >= 5) {
+				this.cpsTick = 0;
+				this.updateCps();
+			}
+		}
+		if (this.holdTicks > 0) {
+			this.holdTicks--;
+			return;
+		}
+		this.acc += (this.cps / 20) * (0.9 + Math.random() * 0.2);
+		let waves = Math.floor(this.acc);
+		if (waves <= 0) return;
+		this.acc -= waves;
+		this.scanStamp++;
+		while (waves-- > 0) this.attackOnce();
+	}
+};
+
+const scaffold = {
+	tag: "fun_scaffold",
+	enabled: false,
+	lockY: true,
+	ahead: 2,
+	autoSelect: true,
+	forcePlace: true,
+	origSlot: -1,
+	lockedY: null,
+	lastPos: null,
+	placed: {},
+	placedCount: 0,
+	verify: [],
+	queryNote: false,
+	log: mkLog("§b[自动搭路] "),
+	captureY() {
+		this.lockedY = null;
+		try {
+			const p0 = player.getLocalPlayer().getPos();
+			if (p0) this.lockedY = Math.floor(p0.y - 1.62) - 1;
+		} catch (e) {}
+	},
+	onModuleEvent(args) {
+		if (typeof args.scaffold_lock_y !== "undefined") {
+			this.lockY = Boolean(args.scaffold_lock_y);
+			if (this.lockY && this.enabled) this.captureY();
+			if (!this.lockY) this.lockedY = null;
+		}
+		if (typeof args.scaffold_ahead !== "undefined") {
+			const n = Number(args.scaffold_ahead);
+			if (!isNaN(n)) this.ahead = Math.max(0, Math.min(4, Math.floor(n)));
+		}
+		if (typeof args.scaffold_auto_select !== "undefined") this.autoSelect = Boolean(args.scaffold_auto_select);
+		if (typeof args.scaffold_force_place !== "undefined") this.forcePlace = Boolean(args.scaffold_force_place);
+		if (args.fun !== this.tag || !("value" in args)) return;
+		const v = Boolean(args.value);
+		if (v === this.enabled) return;
+		this.enabled = v;
+		this.lastPos = null;
+		this.placed = {};
+		this.placedCount = 0;
+		this.verify = [];
+		if (v) {
+			this.lockedY = null;
+			if (this.lockY) this.captureY();
+			this.origSlot = -1;
+		} else if (this.origSlot >= 0) {
+			try { player.getLocalPlayer().setSelectItemSlot(this.origSlot); } catch (e) {}
+			this.origSlot = -1;
+		}
+		notifyToggle("自动搭路", v);
+	},
+	blockName(dim, x, y, z) {
+		let b = null;
+		try { b = dim.getBlock({ x: x, y: y, z: z }); } catch (e) {}
+		if (!b) return null;
+		try {
+			if (typeof b.getTypeId === "function") {
+				const t = b.getTypeId();
+				if (typeof t === "string" && t) return t.toLowerCase();
+			}
+		} catch (e) {}
+		try {
+			if (typeof b.getType === "function") {
+				const t2 = b.getType();
+				if (typeof t2 === "string" && t2) return t2.toLowerCase();
+				if (t2 && typeof t2 === "object") {
+					const s = String(t2.canonicalName || t2.fullName || t2.identifier || "");
+					if (s) return s.toLowerCase();
+				}
+			}
+		} catch (e) {}
+		try {
+			const nbt = String(b.getNBT() || "");
+			const m = nbt.match(/name:"?([^",}]+)"?/i);
+			if (m) return m[1].toLowerCase();
+		} catch (e) {}
+		return null;
+	},
+	isAirName(n) {
+		return n === "minecraft:air" || n === "minecraft:cave_air" || n === "minecraft:void_air";
+	},
+	replaceRe: /^minecraft:(short_grass|tallgrass|fern|large_fern|dandelion|poppy|.*_flower|.*_sapling|snow_layer|water|flowing_water|lava|flowing_lava|seagrass|kelp|dead_bush|deadbush|vine|cobweb|web|pink_petals|sweet_berry_bush|glow_lichen|hanging_roots|small_dripleaf|big_dripleaf|torchflower|brown_mushroom|red_mushroom|fire|soul_fire|crimson_roots|warped_roots|nether_sprouts)$/,
+	effAir(n) {
+		if (this.isAirName(n)) return true;
+		return this.forcePlace && this.replaceRe.test(n);
+	},
+	badItemSet: {
+		short_grass: 1, tall_grass: 1, tallgrass: 1, fern: 1, large_fern: 1,
+		dandelion: 1, poppy: 1, blue_orchid: 1, allium: 1, azure_bluet: 1, oxeye_daisy: 1, cornflower: 1,
+		red_tulip: 1, orange_tulip: 1, white_tulip: 1, pink_tulip: 1, lily_of_the_valley: 1,
+		torchflower: 1, sunflower: 1, lilac: 1, rose_bush: 1, peony: 1, wither_rose: 1, pitcher_plant: 1,
+		brown_mushroom: 1, red_mushroom: 1, crimson_fungus: 1, warped_fungus: 1,
+		dead_bush: 1, deadbush: 1, sweet_berry_bush: 1, cactus: 1, sugar_cane: 1, reeds: 1,
+		sapling: 1, oak_sapling: 1, spruce_sapling: 1, birch_sapling: 1, jungle_sapling: 1, acacia_sapling: 1,
+		dark_oak_sapling: 1, cherry_sapling: 1, mangrove_propagule: 1, bamboo_sapling: 1,
+		wheat: 1, carrot: 1, carrots: 1, potato: 1, potatoes: 1, beetroot: 1, beetroots: 1, cocoa: 1,
+		melon_stem: 1, pumpkin_stem: 1, attached_melon_stem: 1, attached_pumpkin_stem: 1, nether_wart: 1,
+		seagrass: 1, kelp: 1, kelp_plant: 1, vine: 1, glow_lichen: 1, hanging_roots: 1,
+		crimson_roots: 1, warped_roots: 1, nether_sprouts: 1, small_dripleaf: 1, big_dripleaf: 1,
+		pink_petals: 1, spore_blossom: 1, azalea: 1, flowering_azalea: 1, lily_pad: 1, waterlily: 1, sea_pickle: 1,
+		snow_layer: 1, cobweb: 1, web: 1, torch: 1, soul_torch: 1, redstone_torch: 1, ladder: 1,
+		rail: 1, powered_rail: 1, detector_rail: 1, activator_rail: 1, golden_rail: 1,
+		redstone_wire: 1, lever: 1, tripwire_hook: 1, trip_wire: 1,
+		fire: 1, soul_fire: 1, water: 1, flowing_water: 1, lava: 1, flowing_lava: 1,
+		chorus_flower: 1, chorus_plant: 1, frogspawn: 1, turtle_egg: 1
+	},
+	itemBad(it) {
+		let n = "";
+		try { n = String(it.getName() || "").toLowerCase(); } catch (e) {}
+		if (!n) return false;
+		const toks = n.match(/[a-z0-9_]+/g) || [];
+		for (const t of toks) { if (this.badItemSet[t]) return true; }
+		return false;
+	},
+	                                                  
+	                                                     
+	badBlockRe: /\b(sand|gravel|concrete powder|anvil|dragon egg|pointed dripstone|bed|chest|barrel|shulker box|furnace|smoker|crafting table|brewing stand|jukebox|note block|hopper|dispenser|dropper|observer|piston|beacon|conduit|lectern|campfire|cauldron|composter|loom|stonecutter|grindstone|cartography table|fletching table|smithing table|bee nest|beehive|respawn anchor|enchanting table|end portal|nether portal|spawner|command block|structure block|daylight detector|sculk sensor|target|lightning rod|decorated pot|crafter|bell|tnt|slab|stairs|trapdoor|fence|gate|pane|wall|carpet|button|plate|door|torch|ladder|rail|sign|banner|cake|flower pot|snow layer|vine|lily pad|waterlily|wire|repeater|comparator|lever|string|chain|bars|armor stand)\b/,
+	badBlockName(it) {
+		let n = "";
+		try { n = String(it.getName() || "").toLowerCase().replace(/_/g, " "); } catch (e) {}
+		return !!n && this.badBlockRe.test(n);
+	},
+	                                                         
+	                                      
+	                                    
+	noFaceTok: {
+		torch: 1, button: 1, lever: 1, ladder: 1, sign: 1, rail: 1, wire: 1,
+		repeater: 1, comparator: 1, tripwire: 1, vine: 1, vines: 1, carpet: 1,
+		banner: 1, cake: 1, web: 1, fire: 1, pot: 1, egg: 1, plate: 1,
+		fern: 1, sapling: 1
+	},
+	noFaceFull: {
+		short_grass: 1, tall_grass: 1, tallgrass: 1, red_mushroom: 1,
+		brown_mushroom: 1, lily_pad: 1, waterlily: 1, snow_layer: 1,
+		cobweb: 1, double_plant: 1
+	},
+	noStandTok: {
+		torch: 1, button: 1, lever: 1, ladder: 1, sign: 1, rail: 1, wire: 1,
+		tripwire: 1, banner: 1, fire: 1
+	},
+	nameHit(n, toks, fulls) {
+		const short = n.indexOf(":") >= 0 ? n.split(":")[1] : n;
+		if (fulls && fulls[short]) return true;
+		const parts = short.split("_");
+		for (const p of parts) { if (toks[p]) return true; }
+		return false;
+	},
+	noFace(n) { return this.nameHit(n, this.noFaceTok, this.noFaceFull); },
+	noStand(n) { return this.nameHit(n, this.noStandTok, null); },
+	itemTier(it) {
+		try {
+			if (!it || it.isNull()) return 0;
+			if (!(it.isBlock && it.isBlock())) return 0;
+			if (this.badBlockName(it)) return 0;
+			let solid = null;
+			try {
+				const b = it.getBlock();
+				if (b && typeof b.isSolid === "function") solid = !!b.isSolid();
+			} catch (e) {}
+			if (solid === true) return 2;
+			if (this.itemBad(it)) return 0;
+			if (solid === false) {
+				let has = false;
+				try { has = !!String(it.getName() || ""); } catch (e) {}
+				return has ? 1 : 0;
+			}
+			return 1;
+		} catch (e) { return 0; }
+	},
+	isPlaced(x, y, z) {
+		const t = this.placed[x + "," + y + "," + z];
+		return !!t && Date.now() - t < 4000;
+	},
+	markPlaced(x, y, z) {
+		const k = x + "," + y + "," + z;
+		if (!this.placed[k]) this.placedCount++;
+		this.placed[k] = Date.now();
+		for (const v of this.verify) { if (v.x === x && v.y === y && v.z === z) return; }
+		if (this.verify.length > 96) this.verify.shift();
+		this.verify.push({ x: x, y: y, z: z, at: Date.now(), n: 0 });
+	},
+	faceSolid(dim, x, y, z) {
+		if (this.isPlaced(x, y, z)) return true;
+		const n = this.blockName(dim, x, y, z);
+		return n !== null && !this.effAir(n) && !this.noFace(n);
+	},
+	standSolid(dim, x, y, z) {
+		if (this.isPlaced(x, y, z)) return true;
+		const n = this.blockName(dim, x, y, z);
+		return n !== null && !this.effAir(n) && !this.noStand(n);
+	},
+	noteQueryFail() {
+		if (this.queryNote) return;
+		this.queryNote = true;
+		this.log("§c方块查询接口不可用, 自动搭路无法工作(请反馈)");
+	},
+	findBlockSlot(lp) {
+		let heldTier = 0;
+		try { heldTier = this.itemTier(lp.getCarriedItem()); } catch (e) {}
+		if (heldTier === 2) return -1;
+		let weak = -1;
+		try {
+			const size = lp.getHotBarSize();
+			for (let s = 0; s < size; s++) {
+				const t = this.itemTier(lp.getInventoryItem(s));
+				if (t === 2) return s;
+				if (t === 1 && weak < 0) weak = s;
+			}
+		} catch (e) {}
+		if (heldTier === 1) return -1;
+		if (weak >= 0) return weak;
+		return -2;
+	},
+	adjacentSolid(dim, x, y, z) {
+		const offs = [[0, -1, 0, 1], [-1, 0, 0, 5], [1, 0, 0, 4], [0, 0, -1, 3], [0, 0, 1, 2], [0, 1, 0, 0]];
+		for (let pass = 0; pass < 2; pass++) {
+			for (const o of offs) {
+				const nx = x + o[0], ny = y + o[1], nz = z + o[2];
+				if (pass === 0) {
+					const n = this.blockName(dim, nx, ny, nz);
+					if (n !== null && !this.effAir(n) && !this.noFace(n)) return { x: nx, y: ny, z: nz, face: o[3] };
+				} else if (this.isPlaced(nx, ny, nz)) {
+					return { x: nx, y: ny, z: nz, face: o[3] };
+				}
+			}
+		}
+		return null;
+	},
+	place(lp, dim, x, y, z, force) {
+		if (force !== true && this.isPlaced(x, y, z)) return true;
+		const n = this.blockName(dim, x, y, z);
+		if (n === null) { this.noteQueryFail(); return false; }
+		if (!this.effAir(n)) return true;
+		const sup = this.adjacentSolid(dim, x, y, z);
+		if (!sup) return false;
+		const slot = this.findBlockSlot(lp);
+		if (slot === -2) return false;
+		if (slot !== -1 && !this.autoSelect) return false;
+		let cur = -1;
+		try { cur = lp.getSelectItemSlot(); } catch (e) {}
+		let ok = false;
+		try {
+			if (slot >= 0) {
+				if (this.origSlot < 0) this.origSlot = cur;
+				lp.setSelectItemSlot(slot);
+			}
+			lp.buildBlock({ x: sup.x, y: sup.y, z: sup.z }, sup.face);
+			ok = true;
+		} catch (e) {}
+		if (ok) this.markPlaced(x, y, z);
+		return ok;
+	},
+	buildChain(lp, dim, sx, sy, sz, tx, ty, tz) {
+		let cx = sx, cy = sy, cz = sz, guard = 0;
+		while ((cx !== tx || cy !== ty || cz !== tz) && guard++ < 8) {
+			if (cx !== tx) cx += cx < tx ? 1 : -1;
+			else if (cz !== tz) cz += cz < tz ? 1 : -1;
+			else cy += cy < ty ? 1 : -1;
+			if (!this.place(lp, dim, cx, cy, cz)) return false;
+		}
+		return true;
+	},
+	findSupport(dim, x, y, z) {
+		for (let dx = -1; dx <= 1; dx++) {
+			for (let dz = -1; dz <= 1; dz++) {
+				for (let dy = 1; dy >= -1; dy--) {
+					if (!dx && !dz && !dy) continue;
+					if (this.faceSolid(dim, x + dx, y + dy, z + dz)) return [x + dx, y + dy, z + dz];
+				}
+			}
+		}
+		return null;
+	},
+	onTick() {
+		if (!this.enabled) return;
+		let lp = null, pos = null, dim = null;
+		try { lp = player.getLocalPlayer(); } catch (e) {}
+		if (!lp) return;
+		try { pos = lp.getPos(); dim = lp.getDimension(); } catch (e) {}
+		if (!pos || !dim) return;
+		if (this.placedCount > 200) {
+			const now = Date.now();
+			for (const k in this.placed) {
+				if (now - this.placed[k] > 4000) {
+					delete this.placed[k];
+					this.placedCount--;
+				}
+			}
+		}
+		if (this.verify.length) {
+			const now2 = Date.now();
+			const keep = [];
+			for (const v of this.verify) {
+				if (now2 - v.at < 900) { keep.push(v); continue; }
+				const n = this.blockName(dim, v.x, v.y, v.z);
+				if (n === null) { keep.push(v); continue; }
+				const vk = v.x + "," + v.y + "," + v.z;
+				if (!this.effAir(n)) continue;
+				const dx = v.x + 0.5 - pos.x, dy = v.y + 1.5 - pos.y, dz = v.z + 0.5 - pos.z;
+				if (dx * dx + dy * dy + dz * dz < 32 && v.n < 5) {
+					                                      
+					                                           
+					v.n++;
+					this.place(lp, dim, v.x, v.y, v.z, true);
+					v.at = now2;
+					keep.push(v);
+				} else if (this.placed[vk]) {
+					delete this.placed[vk];
+					this.placedCount--;
+				}
+			}
+			this.verify = keep;
+		}
+		const x = Math.floor(pos.x), z = Math.floor(pos.z);
+		const feetPlane = Math.floor(pos.y - 1.62) - 1;
+		let placeY = feetPlane;
+		let mdx = 0, mdz = 0, moving = false;
+		if (this.lastPos) {
+			mdx = pos.x - this.lastPos.x;
+			mdz = pos.z - this.lastPos.z;
+			moving = (mdx * mdx + mdz * mdz) > 0.0004;
+		}
+		if (this.lockY) {
+			if (moving) {
+				if (this.lockedY === null) this.lockedY = feetPlane;
+				placeY = this.lockedY;
+			} else {
+				this.lockedY = feetPlane;
+			}
+		}
+		const under = this.blockName(dim, x, placeY, z);
+		if (under === null) { this.noteQueryFail(); return; }
+		if (this.effAir(under)) {
+			                                            
+			                                             
+			if (!this.place(lp, dim, x, placeY, z)) {
+				const sup = this.findSupport(dim, x, placeY, z);
+				if (sup) this.buildChain(lp, dim, sup[0], sup[1], sup[2], x, placeY, z);
+			}
+		}
+		if (this.ahead > 0 && moving && this.standSolid(dim, x, placeY, z)) {
+			const ml = Math.sqrt(mdx * mdx + mdz * mdz);
+			const fx = mdx / ml, fz = mdz / ml;
+			let bx = x, bz = z;
+			for (let i = 1; i <= this.ahead; i++) {
+				const tx = x + Math.round(fx * i), tz = z + Math.round(fz * i);
+				if (tx === bx && tz === bz) continue;
+				const tn = this.blockName(dim, tx, placeY, tz);
+				if (tn !== null && this.effAir(tn)) {
+					this.buildChain(lp, dim, bx, placeY, bz, tx, placeY, tz);
+					bx = tx;
+					bz = tz;
+				}
+			}
+		}
+		this.lastPos = { x: pos.x, z: pos.z };
+	}
+};
+const nightVision = {
+	tag: "fun_night_vision",
+	enabled: false,
+	tickCount: 0,
+	apply() {
+		try {
+			player.getLocalPlayer().addEffect({
+				id: 16,
+				duration: 100000,
+				amplifier: 0,
+				ambient: true,
+				noCounter: true,
+				effectVisible: false
+			});
+		} catch (e) {}
+	},
+	onModuleEvent(args) {
+		if (!stdToggle(this, args, "无限夜视")) return;
+		this.tickCount = 0;
+		try {
+			if (this.enabled) {
+				this.apply();
+			} else {
+				player.getLocalPlayer().removeEffect(16);
+			}
+		} catch (e) {}
+	},
+	onTick() {
+		if (!this.enabled || !tickEvery(this, 20)) return;
+		try {
+			const eff = player.getLocalPlayer().getEffect(16);
+			if (!eff || !eff.duration || eff.duration < 100) {
+				this.apply();
+			}
+		} catch (e) {}
+	}
+};
+
+const locateStructure = {
+	tag: "fun_locate_structure",
+	list: [
+		["village", "村庄"],
+		["mineshaft", "废弃矿井"],
+		["stronghold", "要塞"],
+		["pillager_outpost", "掠夺者前哨站"],
+		["mansion", "林地府邸"],
+		["monument", "海底神殿"],
+		["ruins", "海底废墟"],
+		["shipwreck", "沉船"],
+		["buried_treasure", "埋藏的宝藏"],
+		["temple", "神庙"],
+		["trail_ruins", "古迹废墟"],
+		["trial_chambers", "试炼密室"],
+		["ancient_city", "远古城市"],
+		["fortress", "下界要塞"],
+		["bastion_remnant", "堡垒遗迹"],
+		["ruined_portal", "废弃传送门"],
+		["end_city", "末地城"]
+	],
+	checked: {},
+	fired: false,
+	batchSize: 3,
+	queue: null,
+	results: [],
+	level: null,
+	pos: null,
+	onModuleEvent(args) {
+		for (const item of this.list) {
+			const v = args[item[2]] !== undefined ? args[item[2]] : args[item[3]];
+			if (v !== undefined) {
+				this.checked[item[0]] = Boolean(v);
+			}
+		}
+		if (args.fun === this.tag && "value" in args) {
+			if (fireLatch(this, Boolean(args.value))) this.run();
+		}
+	},
+	run() {
+		const selected = [];
+		for (const item of this.list) {
+			if (this.checked[item[0]]) selected.push(item);
+		}
+		if (!selected.length) {
+			app.showToast("请先勾选要查询的结构");
+			return;
+		}
+		try {
+			this.level = world.getClientWorld();
+			this.pos = player.getLocalPlayer().getPos();
+		} catch (e) {
+			this.level = null;
+			this.pos = null;
+		}
+		if (!this.level || !this.pos) {
+			app.showToast("获取世界信息失败");
+			return;
+		}
+		this.queue = selected.slice();
+		this.results = [];
+	},
+	queryOne(item) {
+		const id = item[0];
+		const name = item[1];
+		try {
+			const r = this.level.findStructure("minecraft:" + id, { x: this.pos.x, y: this.pos.y, z: this.pos.z });
+			if (r && r.x !== undefined) {
+				return name + "：" + (Math.floor(r.x) | 0) + ", " + (Math.floor(r.y) | 0) + ", " + (Math.floor(r.z) | 0);
+			}
+			return name + "：未找到";
+		} catch (e) {
+			return name + "：查询失败";
+		}
+	},
+	onTick() {
+		if (!this.queue) return;
+		for (let n = 0; n < this.batchSize; n++) {
+			const item = this.queue.shift();
+			if (!item) {
+				this.queue = null;
+				this.level = null;
+				this.pos = null;
+				this.show(this.results);
+				return;
+			}
+			this.results.push(this.queryOne(item));
+		}
+	},
+	show(lines) {
+		showPyPopup("查询结果", lines);
+	}
+};
+
+for (const item of locateStructure.list) {
+	const snake = "locate_" + item[0];
+	item[2] = pascalKey(snake);
+	item[3] = snake;
+}
+
+const posPrint = {
+	tag: "fun_pos_print",
+	fired: false,
+	pending: 0,
+	names: {},
+	myId: "",
+	wantRun: false,
+	outbox: [],
+	onModuleEvent(args) {
+		if (args.fun !== this.tag || !("value" in args)) return;
+		if (!fireLatch(this, Boolean(args.value))) return;
+		this.wantRun = true;
+	},
+	log: mkLog("§b[坐标打印] "),
+	run() {
+		try { this.myId = String(player.getLocalPlayer().getUniqueID()); } catch (e) { this.myId = ""; }
+		let list = null;
+		try { list = world.getClientWorld().getPlayerList(); } catch (e) {}
+		this.names = {};
+		const targets = [];
+		if (list) {
+			for (const k in list) {
+				const p = list[k];
+				if (!p) continue;
+				const id = String(p.id || "");
+				if (!id) continue;
+				this.names[id] = p.name || "未知玩家";
+				if (id !== this.myId) targets.push(id);
+			}
+		}
+		if (!targets.length) {
+			this.log("§7当前没有其他玩家");
+			return;
+		}
+		this.pending = targets.length;
+		this.log("§7开始获取 " + targets.length + " 名玩家的坐标…");
+		for (const id of targets) this.sendQuery(id);
+		setTimeout(() => {
+			if (this.pending > 0) {
+				this.pending = 0;
+				this.outbox.push("§7查询结束，有玩家未响应");
+			}
+		}, 5000);
+	},
+	onTick() {
+		if (this.wantRun) {
+			this.wantRun = false;
+			this.run();
+		}
+		if (this.outbox.length) {
+			const lines = this.outbox;
+			this.outbox = [];
+			for (const m of lines) this.log(m);
+		}
+	},
+	sendQuery(id) {
+		try {
+			packet.sendPyRpcPacket(98247598, hex2buf("93c401729200c4314d696e6563726166743a7065743a7065745f736b696c6c5f667269656e645f6332735f6765745f667269656e645f706f73c0"));
+			packet.sendPyRpcPacket(98247598, hex2buf(
+				"93c40163920082c407706c617965727391c4" +
+				id.length.toString(16).padStart(2, "0") + this.str2hex(id) +
+				"c40b726571506c617965724964c4" +
+				this.myId.length.toString(16).padStart(2, "0") + this.str2hex(this.myId) + "c0"
+			));
+		} catch (e) {}
+	},
+	onPyRpc(id, data) {
+		if (this.pending <= 0) return;
+		const u8 = this.toU8(data);
+		if (!u8 || u8.length < 6) return;
+		let hasPosMap = false;
+		for (let i = 0; i + 6 <= u8.length; i++) {
+			if (u8[i] === 0x70 && u8[i + 1] === 0x6f && u8[i + 2] === 0x73 && u8[i + 3] === 0x4d && u8[i + 4] === 0x61 && u8[i + 5] === 0x70) {
+				hasPosMap = true;
+				break;
+			}
+		}
+		if (!hasPosMap) return;
+		let hex = "";
+		for (let i = 0; i < u8.length; i++) hex += u8[i].toString(16).padStart(2, "0");
+		let pos = null, pid = null;
+		try { pos = this.calHexPos(hex); } catch (e) {}
+		try { pid = this.hex2str(this.extractPlayerIdHex(hex)); } catch (e) {}
+		if (!pos) return;
+		const name = (pid && this.names[pid]) || "未知玩家";
+		this.outbox.push("§f" + name + " §7[§e" + pos.x + "§7, §e" + pos.y + "§7, §e" + pos.z + "§7]");
+		this.pending--;
+		if (this.pending === 0) this.outbox.push("§a坐标获取完成");
+	},
+	toU8(data) {
+		if (typeof data === "string") {
+			const u = new Uint8Array(data.length);
+			for (let i = 0; i < data.length; i++) u[i] = data.charCodeAt(i) & 0xff;
+			return u;
+		}
+		if (data instanceof ArrayBuffer) return new Uint8Array(data);
+		if (data && data.buffer) return new Uint8Array(data.buffer, data.byteOffset || 0, data.byteLength);
+		return null;
+	},
+	hex2str(hex) {
+		if (!hex) return "";
+		let str = "";
+		for (let i = 0; i < hex.length; i += 2) str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+		return str;
+	},
+	str2hex(str) {
+		let hex = "";
+		for (let i = 0; i < str.length; i++) hex += str.charCodeAt(i).toString(16).padStart(2, "0");
+		return hex;
+	},
+	extractPlayerIdHex(hexData) {
+		const posMapIndex = hexData.indexOf("706f734d6170");
+		if (posMapIndex === -1) return null;
+		let index = posMapIndex + 12;
+		index += 2;
+		const formatByte = hexData.substr(index, 2);
+		index += 2;
+		let strLength;
+		if (formatByte === "c4") { strLength = parseInt(hexData.substr(index, 2), 16); index += 2; }
+		else if (formatByte === "c5") { strLength = parseInt(hexData.substr(index, 4), 16); index += 4; }
+		else if (formatByte === "c6") { strLength = parseInt(hexData.substr(index, 8), 16); index += 8; }
+		else if (formatByte >= "a0" && formatByte <= "bf") strLength = parseInt(formatByte, 16) - 0xa0;
+		else return null;
+		return hexData.substr(index, strLength * 2);
+	},
+	calHexPos(hex) {
+		const valueKeyHex = "76616c7565";
+		const valueKeyIndex = hex.indexOf(valueKeyHex);
+		if (valueKeyIndex === -1) throw new Error("no value key");
+		let pos = valueKeyIndex + valueKeyHex.length;
+		if (hex.substring(pos, pos + 2) !== "93") throw new Error("no array tag");
+		pos += 2;
+		const coordinates = [];
+		for (let i = 0; i < 3; i++) {
+			if (hex.substring(pos, pos + 2) !== "cb") throw new Error("no float64 tag");
+			pos += 2;
+			const floatData = hex.substring(pos, pos + 16);
+			pos += 16;
+			const bytes = new Uint8Array(8);
+			for (let j = 0; j < 8; j++) bytes[j] = parseInt(floatData.substring(j * 2, j * 2 + 2), 16);
+			coordinates.push(new DataView(bytes.buffer).getFloat64(0, false));
+		}
+		return {
+			x: Number(coordinates[0].toFixed(2)),
+			y: Number(coordinates[1].toFixed(2)),
+			z: Number(coordinates[2].toFixed(2))
+		};
+	}
+};
+
+function toPythonMsgpack(node) {
+	if (!node || typeof node !== "object" || !("type" in node)) return node;
+	switch (node.type) {
+		case "array": return node.value.map(toPythonMsgpack);
+		case "object":
+			const obj = {};
+			for (const { key, value } of node.value) obj[toPythonMsgpack(key)] = toPythonMsgpack(value);
+			return obj;
+		case "binary": return node.value.toString();
+		case "int": return node.value;
+		case "uint": return "u" + node.value;
+		case "float": return "f" + node.value;
+		case "double": return "d" + node.value;
+		case "boolean": return node.value;
+		case "nil": return null;
+		default: return node.value;
+	}
+}
+
+let resDirPath = ".";
+try { resDirPath = app.getResource(); } catch (e) {}
+try { fs.createDirectories(resDirPath + "/KuSug"); } catch (e) {}
+
+const noInvis = {
+	tag: "fun_no_invis",
+	enabled: false,
+	onModuleEvent(args) {
+		stdToggle(this, args, "移除隐身", false);
+	},
+	onTick() {
+		let players = null;
+		try { players = world.getClientWorld().getPlayers(); } catch (e) {}
+		if (!players) return;
+		for (const p of players) {
+			try { p.removeEffect(14); } catch (e) {}
+			try { p.setStatusFlag(5, false); } catch (e) {}
+		}
+	}
+};
+
+const getUid = {
+	tag: "fun_get_uid",
+	waiting: false,
+	wantSend: false,
+	pendingEntries: null,
+	reqBytes: [147, 196, 17, 82, 101, 113, 117, 101, 115, 116, 80, 108, 97, 121, 101, 114, 115, 85, 73, 68, 144, 192],
+	uidFile: resDirPath + "/KuSug/玩家uid.json",
+	onModuleEvent(args) {
+		if (args.fun !== this.tag || args.value !== true) return;
+		this.wantSend = true;
+	},
+	log: mkLog("§b[全服uid] "),
+	onTick() {
+		if (this.pendingEntries) {
+			const entries = this.pendingEntries;
+			this.pendingEntries = null;
+			const nameMap = {};
+			try {
+				const list = world.getClientWorld().getPlayerList();
+				if (list) {
+					for (const k in list) {
+						const p = list[k];
+						if (p && p.id) nameMap[String(p.id)] = p.name || "";
+					}
+				}
+			} catch (e) {}
+			let store = {};
+			try { store = JSON.parse(fs.read(this.uidFile) || "{}") || {}; } catch (e) {}
+			let count = 0;
+			for (const pair of entries) {
+				store[nameMap[pair[0]] || pair[0]] = pair[1];
+				count++;
+			}
+			try { fs.write(this.uidFile, JSON.stringify(store, null, 2), false); } catch (e) {}
+			this.log("§a已保存 " + count + " 名玩家uid到 KuSug/玩家uid.json");
+			return;
+		}
+		if (!this.wantSend) return;
+		this.wantSend = false;
+		if (this.waiting) {
+			this.log("§e请求未响应，请稍候再试");
+			return;
+		}
+		try {
+			packet.sendPyRpcPacket(98247598, new Uint8Array(this.reqBytes).buffer);
+			this.waiting = true;
+		} catch (e) {
+			this.log("§c发送失败: " + e);
+		}
+	},
+	onPyRpc(id, data, json) {
+		if (!this.waiting || !json) return;
+		let py = null;
+		try { py = toPythonMsgpack(JSON.parse(json)); } catch (e) {}
+		if (!py || py[0] !== "SetPlayersUID") return;
+		const dict = py[1] && py[1][0];
+		if (!dict || typeof dict !== "object") return;
+		this.waiting = false;
+		const entries = [];
+		for (const k in dict) {
+			entries.push([String(k).replace(/^[udf]/, ""), String(dict[k]).replace(/^[udf]/, "")]);
+		}
+		this.pendingEntries = entries;
+	}
+};
+
+const adventureEdit = {
+	tag: "fun_adventure_place_break",
+	fired: false,
+	pending: false,
+	blocks: "",
+	onModuleEvent(args) {
+		if (args.fun !== this.tag || !("value" in args)) return;
+		if (!fireLatch(this, Boolean(args.value))) return;
+		let blocks = "";
+		try {
+			blocks = String(fs.read(app.getResource("script/方块nbt.json")) || "").replace(/\s+/g, "");
+		} catch (e) {}
+		if (!blocks) {
+			this.log("§c读取 方块nbt.json 失败，请确认文件在 script 目录");
+			return;
+		}
+		this.blocks = blocks;
+		this.pending = true;
+	},
+	log: mkLog("§b[冒险放置破坏] "),
+	onTick() {
+		if (!this.pending) return;
+		this.pending = false;
+		this.doWrite();
+	},
+	doWrite() {
+		try {
+			const { lp, it, nbt } = carriedNbt();
+			if (!it || !nbt || nbt.indexOf('Name:""') >= 0 || nbt.indexOf("Count:0") >= 0) {
+				this.log("§c请先手持要写入的物品");
+				return;
+			}
+			const inject = "CanPlaceOn:" + this.blocks + ",CanDestroy:" + this.blocks + ",";
+			if (nbt.charAt(0) !== "{") {
+				this.log("§c物品NBT格式异常");
+				return;
+			}
+			const newNbt = "{" + inject + nbt.slice(1);
+			it.setNBT(newNbt);
+			lp.setCarriedItem(it);
+			this.log("§a放置/破坏写入成功");
+		} catch (e) {
+			this.log("§c写入失败: " + e);
+		}
+	}
+};
+
+const infDurability = makeNbtWriter({
+	tag: "fun_inf_durability",
+	logPrefix: "§b[无限耐久] ",
+	throwKey: "inf_durability_throw",
+	holdMsg: "§c请先手持要修改的物品",
+	okText: "§a无限耐久写入成功",
+	transform: nbtSetInf
+});
+
+const goatEffect = makeNbtWriter({
+	tag: "fun_goat_effect",
+	logPrefix: "§b[山羊角修改] ",
+	throwKey: "goat_effect_throw",
+	radioKey: "goat_effect",
+	need: "goat_horn",
+	holdMsg: "§c请先手持山羊角",
+	okText: "§a山羊角音效写入成功: ",
+	okVal: true,
+	transform: nbtSetDamage
+});
+
+const bedColor = makeNbtWriter({
+	tag: "fun_bed_color",
+	logPrefix: "§b[床颜色修改] ",
+	throwKey: "bed_color_throw",
+	radioKey: "bed_color",
+	need: 'minecraft:bed"',
+	holdMsg: "§c请先手持床",
+	okText: "§a床颜色写入成功: ",
+	okVal: true,
+	transform: nbtSetDamage
+});
+
+const bannerColor = makeNbtWriter({
+	tag: "fun_banner_color",
+	logPrefix: "§b[旗帜颜色修改] ",
+	throwKey: "banner_color_throw",
+	radioKey: "banner_color",
+	need: 'minecraft:banner"',
+	holdMsg: "§c请先手持旗帜",
+	okText: "§a旗帜颜色写入成功: ",
+	okVal: true,
+	transform: nbtSetDamage
+});
+
+const ominousBottle = makeNbtWriter({
+	tag: "fun_ominous_bottle",
+	logPrefix: "§b[不祥药水修改] ",
+	throwKey: "ominous_bottle_throw",
+	radioKey: "ominous_bottle",
+	need: 'minecraft:ominous_bottle"',
+	holdMsg: "§c请先手持不祥之瓶",
+	okText: "§a不祥之兆等级写入成功: ",
+	okVal: true,
+	transform: nbtSetDamage
+});
+
+const customDamage = makeNbtWriter({
+	tag: "fun_custom_damage",
+	logPrefix: "§b[特殊值修改] ",
+	throwKey: "custom_damage_throw",
+	throwDefault: true,
+	textKey: "custom_damage_value",
+	holdMsg: "§c请先手持要修改的物品",
+	okText: "§a特殊值写入成功: ",
+	okVal: true,
+	transform: nbtSetDamage
+});
+
+const attackDrops = {
+	tag: "fun_attack_drops",
+	fired: false,
+	pending: false,
+	running: false,
+	range: 5.0,
+	attackTimes: 5,
+	queue: [],
+	hits: {},
+	onModuleEvent(args) {
+		if (args.fun !== this.tag || !("value" in args)) return;
+		if (!fireLatch(this, Boolean(args.value))) return;
+		this.pending = true;
+	},
+	log: mkLog("§b[攻击掉落物] "),
+	entityId(a) {
+		let id = "?";
+		try {
+			const idf = a.getIdentifier();
+			if (idf) id = idf.canonicalName || idf.fullName || "?";
+			id = id.replace(/<.*>/, "");
+		} catch (e) {}
+		return id;
+	},
+	findByUid(level, uid) {
+		const actors = level.getActors();
+		if (!actors) return null;
+		for (const a of actors) {
+			try {
+				if (String(a.getUniqueID() || "") === uid) return a;
+			} catch (e) {}
+		}
+		return null;
+	},
+	onTick() {
+		if (this.pending) {
+			this.pending = false;
+			this.start();
+		}
+		if (!this.running) return;
+		this.step();
+	},
+	start() {
+		try {
+			const lp = player.getLocalPlayer();
+			const level = world.getClientWorld();
+			if (!lp || !level) { this.log("§c获取玩家或世界失败"); return; }
+			const myPos = lp.getPos();
+			const actors = level.getActors() || [];
+			const uids = [];
+			for (const a of actors) {
+				if (this.entityId(a) !== "minecraft:item") continue;
+				let uid = "";
+				try { uid = String(a.getUniqueID() || ""); } catch (e) {}
+				if (!uid) continue;
+				let d = -1;
+				try {
+					const p = a.getPos();
+					const dx = p.x - myPos.x, dy = p.y - myPos.y, dz = p.z - myPos.z;
+					d = Math.sqrt(dx * dx + dy * dy + dz * dz);
+				} catch (e) {}
+				if (d < 0 || d > this.range) continue;
+				uids.push(uid);
+			}
+			if (!uids.length) { this.log("§7范围内没有掉落物"); return; }
+			this.queue = [];
+			this.hits = {};
+			for (const uid of uids) {
+				for (let i = 0; i < this.attackTimes; i++) this.queue.push(uid);
+			}
+			this.running = true;
+		} catch (e) { this.log("§c启动失败: " + e); }
+	},
+	step() {
+		const lp = player.getLocalPlayer();
+		const level = world.getClientWorld();
+		if (!lp || !level) {
+			this.running = false;
+			this.queue = [];
+			this.log("§c玩家或世界丢失，中断");
+			return;
+		}
+		const uid = this.queue.shift();
+		const a = this.findByUid(level, uid);
+		if (!a) {
+			this.queue = this.queue.filter(q => q !== uid);
+		} else {
+			try {
+				lp.attack(a);
+				if (!this.hits[uid]) this.log("§e攻击掉落物 §f" + uid + " §a成功");
+			} catch (e) { this.log("§c攻击失败: " + e); }
+			this.hits[uid] = (this.hits[uid] || 0) + 1;
+		}
+		if (!this.queue.length) {
+			this.running = false;
+		}
+	}
+};
+
+const auxEffect = {
+	tag: "fun_aux_effect",
+	fired: false,
+	pending: false,
+	checked: {},
+	throwAfter: false,
+	dropDelay: 0,
+	validNames: ["minecraft:potion", "minecraft:splash_potion", "minecraft:lingering_potion", "minecraft:arrow"],
+	onModuleEvent(args) {
+		if (typeof args.aux_effect_throw !== "undefined") {
+			this.throwAfter = Boolean(args.aux_effect_throw);
+		}
+		if (typeof args.aux_effect === "string") {
+			const m = /^aux_effect_(\d+)$/.exec(args.aux_effect);
+			if (m) {
+				this.checked = {};
+				this.checked[Number(m[1])] = true;
+			}
+		}
+		for (const k in args) {
+			if (k.indexOf("aux_effect_") !== 0 || k === "aux_effect_throw") continue;
+			const n = Number(k.slice(11));
+			if (isNaN(n)) continue;
+			if (args[k]) this.checked[n] = true;
+			else delete this.checked[n];
+		}
+		if (args.fun === this.tag && "value" in args) {
+			if (!fireLatch(this, Boolean(args.value))) return;
+			this.pending = true;
+		}
+	},
+	log: mkLog("§b[修改药水效果] "),
+	onTick() {
+		if (this.dropDelay > 0) {
+			this.dropDelay--;
+			if (this.dropDelay === 0) {
+				try {
+					input.buttonDown("button.drop");
+					input.buttonUp("button.drop");
+				} catch (e) { this.log("§c丢出失败: " + e); }
+			}
+		}
+		if (!this.pending) return;
+		this.pending = false;
+		this.doWrite();
+	},
+	setRootDamage(nbt, dv) {
+		if (nbt.charAt(0) !== "{") return null;
+		const tagIdx = nbt.indexOf("tag:{");
+		const head = tagIdx < 0 ? nbt : nbt.slice(0, tagIdx);
+		const tail = tagIdx < 0 ? "" : nbt.slice(tagIdx);
+		if (/Damage:-?\d+[a-z]?/.test(head)) {
+			return head.replace(/Damage:-?\d+[a-z]?/, "Damage:" + dv + "s") + tail;
+		}
+		return "{Damage:" + dv + "s," + head.slice(1) + tail;
+	},
+	doWrite() {
+		try {
+			const sel = Object.keys(this.checked);
+			if (!sel.length) {
+				app.showToast("请先勾选要修改的效果");
+				this.log("§c请先勾选要修改的效果");
+				return;
+			}
+			if (sel.length > 1) {
+				app.showToast("只能勾选一个效果");
+				this.log("§c只能勾选一个效果，请取消多余勾选");
+				return;
+			}
+			const dv = Number(sel[0]);
+			const { lp, it, nbt } = carriedNbt();
+			if (!it || !nbt || nbt.indexOf('Name:""') >= 0 || nbt.indexOf("Count:0") >= 0) { this.log("§c请先手持药水或箭"); return; }
+			let name = "";
+			const m = nbt.match(/Name:"([^"]*)"/);
+			if (m) name = m[1];
+			if (this.validNames.indexOf(name) < 0) { this.log("§c手持物品不是药水或箭: " + name); return; }
+			const wdv = (name === "minecraft:arrow" && dv > 0) ? dv + 1 : dv;
+			const newNbt = this.setRootDamage(nbt, wdv);
+			if (!newNbt) { this.log("§c物品NBT格式异常"); return; }
+			it.setNBT(newNbt);
+			lp.setCarriedItem(it);
+			this.log("§a效果修改成功（Damage=" + wdv + "）");
+			if (this.throwAfter) {
+				this.dropDelay = 3;
+			}
+		} catch (e) { this.log("§c修改失败: " + e); }
+	}
+};
+
+function PatchAnvilNewlines(data) {
+	const r = binReader(data);
+	const u8 = r.u8;
+	const skipSlot = () => {
+		r.skip(3);
+		r.svarint();
+	};
+	const skipItem = () => {
+		if (r.svarint() === 0) return;
+		r.skip(2);
+		r.uvarint();
+		r.svarint();
+		r.skip(r.uvarint());
+	};
+	const skipAction = (t) => {
+		switch (t) {
+			case 0:
+			case 1:
+			case 7:
+			case 8:
+				r.byte();
+				skipSlot();
+				skipSlot();
+				break;
+			case 2:
+			case 9:
+				skipSlot();
+				skipSlot();
+				break;
+			case 3:
+				r.byte();
+				skipSlot();
+				r.byte();
+				break;
+			case 4:
+			case 5:
+				r.byte();
+				skipSlot();
+				break;
+			case 6:
+				r.byte();
+				break;
+			case 10:
+				r.svarint();
+				r.svarint();
+				break;
+			case 11:
+				r.svarint();
+				r.svarint();
+				r.svarint();
+				break;
+			case 12:
+			case 14:
+				r.uvarint();
+				r.byte();
+				break;
+			case 13:
+				r.uvarint();
+				r.byte();
+				r.byte();
+				break;
+			case 15:
+				r.uvarint();
+				r.skip(4);
+				break;
+			case 16:
+				r.uvarint();
+				r.byte();
+				r.svarint();
+				break;
+			case 17: {
+				r.skip(r.uvarint());
+				r.byte();
+				break;
+			}
+			case 18:
+				break;
+			case 19: {
+				const cnt = r.uvarint();
+				for (let i = 0; i < cnt; i++) skipItem();
+				r.byte();
+				break;
+			}
+			default:
+				throw 0;
+		}
+	};
+	const segs = [];
+	const reqCount = r.uvarint();
+	for (let i = 0; i < reqCount; i++) {
+		r.svarint();
+		const actCount = r.uvarint();
+		let hasOptional = false;
+		for (let j = 0; j < actCount; j++) {
+			const t = r.byte();
+			if (t === 15) hasOptional = true;
+			skipAction(t);
+		}
+		const strCount = r.uvarint();
+		for (let j = 0; j < strCount; j++) {
+			const segStart = r.off;
+			const slen = r.uvarint();
+			r.need(slen);
+			const cStart = r.off;
+			r.off += slen;
+			if (j === 0 && hasOptional) segs.push({ segStart, cStart, slen });
+		}
+	}
+	const patches = [];
+	for (const s of segs) {
+		const segEnd = s.cStart + s.slen;
+		const out = [];
+		let hit = false;
+		for (let i = s.cStart; i < segEnd; i++) {
+			if (u8[i] === 0x5C && i + 1 < segEnd && u8[i + 1] === 0x6E) {
+				out.push(0x0A);
+				i++;
+				hit = true;
+			} else out.push(u8[i]);
+		}
+		if (hit) patches.push({ start: s.segStart, end: segEnd, data: out });
+	}
+	if (!patches.length) return false;
+	const parts = [];
+	let last = 0;
+	for (const p of patches) {
+		parts.push(u8.slice(last, p.start));
+		parts.push(uvarintBytes(p.data.length), p.data);
+		last = p.end;
+	}
+	parts.push(u8.slice(last));
+	return joinParts(parts);
+}
+
+const anvilLines = {
+	tag: "fun_anvil_lines",
+	enabled: false,
+	onModuleEvent(args) {
+		stdToggle(this, args, "铁砧换行");
+	},
+	onSendServerPacket(id, name, bin) {
+		if (!this.enabled || id !== 147) return false;
+		try {
+			return PatchAnvilNewlines(bin);
+		} catch (e) {}
+		return false;
+	}
+};
+
+const noHunger = {
+	tag: "fun_no_hunger",
+	enabled: false,
+	tickCount: 0,
+	apply() {
+		try {
+			player.getLocalPlayer().setAttribute("minecraft:player.hunger", { current: 20 });
+		} catch (e) {}
+	},
+	onModuleEvent(args) {
+		if (!stdToggle(this, args, "无视饥饿")) return;
+		this.tickCount = 0;
+		if (this.enabled) this.apply();
+	},
+	onTick() {
+		if (!this.enabled || !tickEvery(this, 20)) return;
+		this.apply();
+	}
+};
+
+function safeRegFun(tag) {
+	try { menu.regFun(tag); } catch (e) {}
+}
+
+for (const t of ["fun_cookie_login", "fun_move_camera", "fun_watermark_uid", "fun_java_watermark", "query_player", "fun_room_ip", "fun_anti_kick", "fun_msg_brush", "fun_kill_aura", "fun_night_vision", "fun_locate_structure", "fun_pos_print", "fun_no_hunger", "fun_get_uid", "fun_adventure_place_break", "fun_inf_durability", "fun_goat_effect", "fun_bed_color", "fun_attack_drops", "fun_auto_drop", "fun_attack_fx", "fun_chunk_display", "fun_self_attack", "fun_ghost_barrier", "fun_minimap", "fun_aux_effect", "fun_anvil_lines", "fun_check_cmd", "fun_struct_block", "fun_tex_inject", "fun_send_control", "fun_trade_unlock", "fun_fps", "fun_kill_taunt", "fun_attack_taunt", "fun_batch_cmd", "fun_banner_color", "fun_ominous_bottle", "fun_hide_clutter", "fun_custom_damage", "fun_scaffold", "fun_bypass_server", "fun_gyro_view", "fun_big_gyro", "fun_custom_camera", "fun_dir_hud", "fun_crosshair", "fun_item_hud", "fun_motion_blur", "fun_auto_sign", "fun_gm_panel", "fun_skin_tryon", "fun_no_invis", "fun_eat_repeat", "fun_login_video", "fun_radar", "fun_container_blur", "fun_death_fx"]) safeRegFun(t);
+
+const skinTryOn = {
+	tag: "fun_skin_tryon",
+	enabled: false,
+	current: null,
+	deviceData: null,
+	tickCount: 0,
+	sel: {},
+	selLoaded: false,
+	manual: "",
+	pending: null,
+	pendingManual: "",
+	PBR_TEST_UUIDS: { "361b9a81-09bb-40c1-a977-2c1f3df95a03": 119, "1859a748-c854-4da7-8c34-f6c4c220ef40": 143, "13214da7-f7ca-46a4-991e-5ffc78743c31": 148, "e494e015-7712-4c30-b2e7-98d90b4266e9": 151, "10c85b7d-7975-4dc9-8cdf-c149d609417a": 154 },
+	DEBUG_KEYS: { "test_crafting_table_uuid": 1, "test_furnace_uuid": 1, "chest_test_a": 1, "chest_test_b": 1 },
+	CLEAR_PY: `
+from gui_2d.ui.easy_debug_ui.actions.debug_skin_test import debug_skin_test
+debug_skin_test.IN_GAME_UUIDS = []
+try:
+    from common import game
+    mgr = game.GetClient().GetPlayerVipMgr()
+    if mgr is not None:
+        mgr.SyncUsingModToServer(None)
+except Exception:
+    pass
+try:
+    import mod.client.extraClientApi as clientApi
+    import entity_module
+    import __main__
+    _fake = getattr(__main__, 'KUSUG_FAKE_UIDS', {}) or {}
+    _fp = getattr(__main__, 'KUSUG_FAKE_PID', None)
+    __main__.KUSUG_FAKE_UIDS = {}
+    if _fake and _fp:
+        _v = clientApi.GetSystem('Minecraft', 'vipEventSystem')
+        if _v is not None and entity_module.is_entity_exist(_fp):
+            _cur = set(x[0] for x in getattr(_v, 'playerUsingMods', {}).get(_fp, set()))
+            for _u in _fake:
+                _cur.discard(_u)
+            _uids = {}
+            for _u in _cur:
+                _uids[_u] = {}
+            _a = {'id': _fp, 'uids': _uids, 'skinItemId': getattr(_v, 'playerId2SkinItemId', {}).get(_fp), 'skinUuid': getattr(_v, 'playerId2SkinUuid', {}).get(_fp)}
+            _v.DeliverItemsWithECS(_a)
+            _v.DeliverItems(_a)
+except Exception:
+    pass
+try:
+    from gui_2d.ui.easy_debug_ui.actions.debug_ntes_render import debug_ntes_render as dnr
+    dnr._execute_pbr_skin_state(0, 'KuSug', user_click=False)
+except Exception:
+    pass
+try:
+    import model, entity_module
+    import mod.client.extraClientApi as clientApi
+    from common import eventUtil
+    import __main__
+    pid = entity_module.get_local_player_id()
+    if pid:
+        model.resetSkinToSteve(pid)
+    try:
+        gc = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+        hid = gc.GetRiderId(pid)
+        if hid:
+            model.reset_model(hid)
+    except Exception:
+        pass
+    _owner = getattr(__main__, 'KUSUG_MOUNT_OWNER', None)
+    _hook = getattr(__main__, 'KUSUG_MOUNT_HOOK', None)
+    if _owner is not None and _hook is not None:
+        try:
+            eventUtil.instance.UnListenForEngineClient('EntityStartRidingEvent', _owner, _hook)
+        except Exception:
+            pass
+    __main__.KUSUG_MOUNT_MODEL = ''
+except Exception:
+    pass
+`,
+	DUMP_PY: `
+import json
+import __main__
+RESULT = {'count': 0, 'err': ''}
+try:
+    from common.appmgr.vipLogic.properties import DATA
+    out = {}
+    for u, v in DATA.iteritems():
+        if not isinstance(v, dict):
+            continue
+        comp = v.get('client_components', {})
+        info = v.get('item_info', {}) or {}
+        vip_skin = comp.get('vip_skin', {})
+        out[u] = {
+            'types': sorted(comp.keys()),
+            'season': vip_skin.get('season', ''),
+            'skin_list': vip_skin.get('skin_list', [])[:2],
+            'name': info.get('item_name', '') or info.get('eng_name', ''),
+            'itype': info.get('item_type', ''),
+            'rarity': info.get('rarity', ''),
+            'comment': v.get('comment', ''),
+            'model': comp.get('horse_anim', {}).get('model', '') or comp.get('ui_model', {}).get('model', '')
+        }
+    fp = DUMP_PATH
+    import os
+    dp = os.path.dirname(fp)
+    if dp and not os.path.exists(dp):
+        os.makedirs(dp)
+    f = open(fp, 'w')
+    f.write(json.dumps({'count': len(out), 'items': out}))
+    f.close()
+    RESULT['count'] = len(out)
+except Exception as e:
+    RESULT['err'] = str(e)[:80]
+try:
+    __main__.KUSUG_TRYON_RESULT = json.dumps(RESULT)
+except Exception:
+    pass
+`,
+	buildDumpPy() {
+		let path = "KuSug/device_vipdata.json";
+		try { path = app.getResource(path); } catch (e) {}
+		return this.DUMP_PY.replace("DUMP_PATH", "u" + JSON.stringify(path));
+	},
+	runDump() {
+		try {
+			app.evalPython(this.buildDumpPy());
+		} catch (e) {
+			try { minecraft.clientMessage("§b[修改皮肤] §c刷新失败: §f" + String(e).slice(0, 80)); } catch (e2) {}
+			return;
+		}
+		this.deviceData = null;
+		let n = 0;
+		try {
+			const raw = String(app.evalPython("__main__.KUSUG_TRYON_RESULT") || "");
+			if (raw) n = JSON.parse(raw).count || 0;
+		} catch (e) {}
+		try { minecraft.clientMessage("§b[修改皮肤] §a设备外观已刷新" + (n ? ": §f" + n + " 条" : "")); } catch (e) {}
+	},
+	loadDeviceData() {
+		if (this.deviceData !== null) return this.deviceData;
+		this.deviceData = {};
+		let raw = "";
+		try { raw = String(fs.read(app.getResource("KuSug/device_vipdata.json")) || ""); } catch (e) {}
+		try {
+			const d = JSON.parse(raw);
+			if (d && d.items) this.deviceData = d.items;
+		} catch (e) {}
+		return this.deviceData;
+	},
+	buildApplyPy(uuids, mountModel) {
+		const skip = uuids.filter(u => this.PBR_TEST_UUIDS[String(u)]);
+		const states = {};
+		for (const u of skip) states[String(u)] = this.PBR_TEST_UUIDS[String(u)];
+		return `
+import json
+from common.appmgr.vipLogic.properties import DATA
+UUIDS = json.loads(${JSON.stringify(JSON.stringify(uuids.map(String)))})
+SKIP = set(json.loads(${JSON.stringify(JSON.stringify(skip.map(String)))}))
+PBR_STATES = json.loads(${JSON.stringify(JSON.stringify(states))})
+MOUNT_MODEL = json.loads(${JSON.stringify(JSON.stringify(mountModel || ""))})
+try:
+    from gui_2d.ui.easy_debug_ui.actions.debug_ntes_render import debug_ntes_render as dnr
+    for u in UUIDS:
+        fake = dnr._PBR_DEBUG_VIP_SKIN_DATA.get(u)
+        if fake and u not in DATA:
+            DATA[u] = fake
+except Exception:
+    pass
+try:
+    import mod.client.extraClientApi as clientApi
+    import entity_module
+    import __main__
+    _fake = {}
+    for u in UUIDS:
+        if u not in SKIP:
+            _fake[u] = {}
+    __main__.KUSUG_FAKE_UIDS = _fake
+    __main__.KUSUG_FAKE_PID = entity_module.get_local_player_id()
+    def _kusug_ensure():
+        try:
+            _v = clientApi.GetSystem('Minecraft', 'vipEventSystem')
+            if _v is None:
+                return
+            _fu = getattr(__main__, 'KUSUG_FAKE_UIDS', None)
+            _fp = getattr(__main__, 'KUSUG_FAKE_PID', None)
+            if not _fu or not _fp:
+                return
+            if not entity_module.is_entity_exist(_fp):
+                return
+            _cur = set(x[0] for x in getattr(_v, 'playerUsingMods', {}).get(_fp, set()))
+            _mis = False
+            for _u in _fu:
+                if _u not in _cur:
+                    _mis = True
+                    break
+            if not _mis:
+                return
+            _merged = {}
+            for _u in _cur:
+                _merged[_u] = {}
+            for _u in _fu:
+                _merged[_u] = {}
+            _a = {'id': _fp, 'uids': _merged, 'skinItemId': getattr(_v, 'playerId2SkinItemId', {}).get(_fp), 'skinUuid': getattr(_v, 'playerId2SkinUuid', {}).get(_fp)}
+            _v.PreDeliverItems({'uids': list(_merged.keys())})
+            _v.DeliverItemsWithECS(_a)
+            _v.DeliverItems(_a)
+        except Exception:
+            pass
+    __main__.KUSUG_FAKE_ENSURE = _kusug_ensure
+    _kusug_ensure()
+except Exception:
+    pass
+try:
+    import model, entity_module
+    pid = entity_module.get_local_player_id()
+    for u in UUIDS:
+        if u in SKIP:
+            try:
+                st = PBR_STATES.get(u, 0)
+                if st:
+                    dnr._execute_pbr_skin_state(st, 'KuSug', user_click=False)
+            except Exception:
+                pass
+            continue
+        comp = DATA.get(u, {}).get('client_components', {})
+        vip_skin = comp.get('vip_skin', {})
+        skin_list = vip_skin.get('skin_list') or []
+        if pid and skin_list:
+            try:
+                model.vipChange4DSkin(pid, vip_skin.get('season', '4d_skin'), skin_list[0])
+            except Exception:
+                pass
+except Exception:
+    pass
+if MOUNT_MODEL:
+    try:
+        import mod.client.extraClientApi as clientApi
+        from common import eventUtil
+        import __main__
+        __main__.KUSUG_MOUNT_MODEL = MOUNT_MODEL
+        def _kusug_apply_mount():
+            try:
+                pid2 = entity_module.get_local_player_id()
+                gc = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+                hid = gc.GetRiderId(pid2)
+                if hid:
+                    model.change_model(hid, __main__.KUSUG_MOUNT_MODEL)
+                    return True
+            except Exception:
+                pass
+            return False
+        __main__.KUSUG_APPLY_MOUNT = _kusug_apply_mount
+        if not _kusug_apply_mount():
+            class _KusugMountOwner(object):
+                pass
+            _owner = getattr(__main__, 'KUSUG_MOUNT_OWNER', None)
+            if _owner is None:
+                _owner = _KusugMountOwner()
+                __main__.KUSUG_MOUNT_OWNER = _owner
+            _old = getattr(__main__, 'KUSUG_MOUNT_HOOK', None)
+            if _old is not None:
+                try:
+                    eventUtil.instance.UnListenForEngineClient('EntityStartRidingEvent', _owner, _old)
+                except Exception:
+                    pass
+            def _kusug_on_ride(data):
+                try:
+                    h = getattr(__main__, 'KUSUG_APPLY_MOUNT', None)
+                    if h:
+                        h()
+                except Exception:
+                    pass
+            __main__.KUSUG_MOUNT_HOOK = _kusug_on_ride
+            eventUtil.instance.ListenForEngineClient('EntityStartRidingEvent', _owner, _kusug_on_ride)
+    except Exception:
+        pass
+`;
+	},
+	apply(uuids, label, mountModel) {
+		if (!uuids || !uuids.length) return;
+		try {
+			app.evalPython(this.buildApplyPy(uuids, mountModel));
+		} catch (e) {
+			const err = String(e).slice(0, 80);
+			try { minecraft.clientMessage("§b[修改皮肤] §c应用失败: §f" + err); } catch (e2) {}
+			try { app.showToast("应用失败: " + err); } catch (e2) {}
+			return;
+		}
+		this.current = { uuids: uuids.slice(), label: String(label || uuids.join(",")), mountModel: mountModel || "" };
+		let msg = "§b[修改皮肤] §a已应用: §f" + this.current.label + " §7(仅自己可见)";
+		if (mountModel) msg += " §7(上马后自动换装)";
+		if (uuids.some(u => this.PBR_TEST_UUIDS[String(u)])) msg += " §7(测试皮走状态机)";
+		try { minecraft.clientMessage(msg); } catch (e) {}
+	},
+	clear() {
+		try { app.evalPython(this.CLEAR_PY); } catch (e) {}
+	},
+	deviceTypeOf(info) {
+		const types = info.types || [];
+		const has = t => types.indexOf(t) >= 0;
+		if (has("vip_skin")) return "皮肤";
+		if (has("horse_anim")) return "坐骑";
+		if (has("weapon_model") || has("bow_weapon_model") || has("offhand_weapon_model")) return "武器";
+		if (types.some(t => t.indexOf("vip_skin_parts") === 0)) return "拆件";
+		if (has("suit_armor")) return "盔甲";
+		if (has("function_block") || has("chest_function_block")) return "功能方块";
+		if (has("player_footprint_new") || has("player_footprint_old")) return "脚印";
+		if (info.itype === "fz") return "法阵";
+		return "其他";
+	},
+	deviceList() {
+		const dev = this.loadDeviceData();
+		const out = [];
+		for (const u in dev) {
+			if (this.DEBUG_KEYS[u] || u.indexOf("test_") === 0 || u.charAt(0) === "_") continue;
+			const v = dev[u] || {};
+			const name = String(v.name || "").trim();
+			const comment = String(v.comment || "").trim();
+			const model = String(v.model || "").trim();
+			out.push({
+				name: name || comment || model || u.slice(0, 8),
+				named: !!name,
+				uuid: u,
+				type: this.deviceTypeOf(v),
+				rarity: 0,
+				model: model,
+				device: true
+			});
+		}
+		const order = { "皮肤": 1, "坐骑": 2, "法阵": 3, "武器": 4, "拆件": 5, "脚印": 6, "盔甲": 7, "功能方块": 8, "其他": 9 };
+		out.sort((a, b) => (order[a.type] || 99) - (order[b.type] || 99) || (a.named === b.named ? 0 : a.named ? -1 : 1) || (a.name < b.name ? -1 : 1));
+		return out;
+	},
+	selFilePath() {
+		return app.getResource("KuSug/SkinTryOn.json");
+	},
+	loadSel() {
+		if (this.selLoaded) return;
+		this.selLoaded = true;
+		try {
+			const f = this.selFilePath();
+			if (fs.exists(f)) {
+				const d = JSON.parse(String(fs.read(f) || "{}"));
+				if (d && d.sel && typeof d.sel === "object") this.sel = d.sel;
+				if (d && typeof d.manual === "string") this.manual = d.manual;
+			}
+		} catch (e) {}
+	},
+	saveSel() {
+		try {
+			const dir = app.getResource("KuSug");
+			if (!fs.exists(dir)) fs.createDirectories(dir);
+			fs.write(this.selFilePath(), JSON.stringify({ sel: this.sel, manual: this.manual }));
+		} catch (e) {}
+	},
+	initPending(all) {
+		this.loadSel();
+		const p = {};
+		for (const cat in this.sel) {
+			const arr = Array.isArray(this.sel[cat]) ? this.sel[cat] : [];
+			const ok = arr.filter(u => all.some(it => it.uuid === u));
+			if (ok.length) p[cat] = ok;
+		}
+		this.pending = p;
+		this.pendingManual = String(this.manual || "");
+	},
+	prunePending(all) {
+		const p = this.pending || {};
+		for (const cat in p) {
+			const ok = p[cat].filter(u => all.some(it => it.uuid === u));
+			if (ok.length) p[cat] = ok;
+			else delete p[cat];
+		}
+	},
+	isMultiCat(cat) {
+		return cat === "武器" || cat === "功能方块";
+	},
+	pendingCount() {
+		let n = 0;
+		const p = this.pending || {};
+		for (const cat in p) n += (p[cat] || []).length;
+		n += String(this.pendingManual || "").split(/[,，]/).map(x => x.trim()).filter(x => x).length;
+		return n;
+	},
+	openMainForm() {
+		let devCount = Object.keys(this.loadDeviceData()).length;
+		if (!devCount) {
+			this.runDump();
+			devCount = Object.keys(this.loadDeviceData()).length;
+		}
+		if (!devCount) {
+			try { app.showToast("设备外观读取失败,请稍后重试"); } catch (e) {}
+			this.pending = null;
+			return;
+		}
+		const cats = ["皮肤", "坐骑", "法阵", "武器", "拆件", "脚印", "盔甲", "功能方块", "其他"];
+		const all = this.deviceList();
+		if (this.pending === null) this.initPending(all);
+		const self = this;
+		const acts = [];
+		const buttons = [];
+		for (const c of cats) {
+			const opts = all.filter(it => it.type === c);
+			if (!opts.length) continue;
+			acts.push({ t: "cat", cat: c, opts: opts });
+			const staged = (this.pending || {})[c] || [];
+			let status = "无";
+			if (this.isMultiCat(c)) {
+				if (staged.length) status = "已选" + staged.length + "个";
+			} else if (staged.length) {
+				const it = opts.find(o => o.uuid === staged[0]);
+				if (it) status = it.name;
+			}
+			buttons.push({ text: c + ": " + status });
+		}
+		const manualCount = String(this.pendingManual || "").split(/[,，]/).map(x => x.trim()).filter(x => x).length;
+		acts.push({ t: "manual" });
+		buttons.push({ text: "手动UUID" + (manualCount ? ": " + manualCount + "个" : "") });
+		acts.push({ t: "refresh" });
+		buttons.push({ text: "刷新列表" });
+		acts.push({ t: "clear" });
+		buttons.push({ text: "§c清空所有外观" });
+		acts.push({ t: "submit" });
+		buttons.push({ text: "§a提交" });
+		const pendingN = this.pendingCount();
+		const form = JSON.stringify({
+			type: "form",
+			title: "修改皮肤(" + all.length + ")",
+			content: "待应用: " + (pendingN ? pendingN + "项" : "无"),
+			buttons: buttons
+		});
+		try {
+			gui.addForm(form, function (idx) {
+				const a = acts[typeof idx === "number" ? idx : parseInt(idx, 10)];
+				if (!a) { self.doApply(); return; }
+				if (a.t === "cat") {
+					if (self.isMultiCat(a.cat)) self.openMultiForm(a.cat, a.opts);
+					else self.openCatForm(a.cat, a.opts);
+				} else if (a.t === "manual") {
+					self.openManualForm();
+				} else if (a.t === "refresh") {
+					self.runDump();
+					self.prunePending(self.deviceList());
+					self.openMainForm();
+				} else if (a.t === "clear") {
+					self.pending = {};
+					self.pendingManual = "";
+					self.doApply();
+				} else if (a.t === "submit") {
+					self.doApply();
+				}
+			}, function () { self.pending = null; });
+		} catch (e) {}
+	},
+	openCatForm(cat, opts) {
+		const staged = (this.pending || {})[cat] || [];
+		let def = 0;
+		if (staged.length) {
+			for (let j = 0; j < opts.length; j++) {
+				if (opts[j].uuid === staged[0]) { def = j + 1; break; }
+			}
+		}
+		const self = this;
+		const form = JSON.stringify({
+			type: "custom_form",
+			title: cat + "(" + opts.length + ")",
+			content: [{ type: "dropdown", text: cat, options: ["无"].concat(opts.map(o => o.name)), default: def }]
+		});
+		try {
+			gui.addForm(form, function (idx) {
+				const i = parseInt(idx, 10) || 0;
+				if (i > 0 && opts[i - 1]) self.pending[cat] = [opts[i - 1].uuid];
+				else delete self.pending[cat];
+				self.openMainForm();
+			}, function () { self.openMainForm(); });
+		} catch (e) { self.openMainForm(); }
+	},
+	openMultiForm(cat, opts) {
+		const staged = (this.pending || {})[cat] || [];
+		const content = [];
+		for (const o of opts) {
+			content.push({ type: "toggle", text: o.name, default: staged.indexOf(o.uuid) >= 0 });
+		}
+		const self = this;
+		const form = JSON.stringify({
+			type: "custom_form",
+			title: cat + "(" + opts.length + ")",
+			content: content
+		});
+		try {
+			gui.addForm(form, function () {
+				const picks = [];
+				for (let j = 0; j < opts.length; j++) {
+					const v = arguments[j];
+					if (v === true || v === "true" || v === 1 || v === "1") picks.push(opts[j].uuid);
+				}
+				if (picks.length) self.pending[cat] = picks;
+				else delete self.pending[cat];
+				self.openMainForm();
+			}, function () {
+				delete self.pending[cat];
+				self.openMainForm();
+			});
+		} catch (e) { self.openMainForm(); }
+	},
+	openManualForm() {
+		const self = this;
+		const form = JSON.stringify({
+			type: "custom_form",
+			title: "手动UUID",
+			content: [{ type: "input", text: "手动UUID(可选,多个逗号分隔)", placeholder: "列表没有的外观填这里", default: String(this.pendingManual || "") }]
+		});
+		try {
+			gui.addForm(form, function (v) {
+				self.pendingManual = String(v || "");
+				self.openMainForm();
+			}, function () { self.openMainForm(); });
+		} catch (e) { self.openMainForm(); }
+	},
+	doApply() {
+		if (this.pending === null) return;
+		const all = this.deviceList();
+		this.prunePending(all);
+		const p = this.pending || {};
+		this.pending = null;
+		const chosen = [];
+		let mountModel = "";
+		for (const c of ["皮肤", "坐骑", "法阵", "武器", "拆件", "脚印", "盔甲", "功能方块", "其他"]) {
+			const staged = p[c] || [];
+			for (const u of staged) {
+				const it = all.find(o => o.uuid === u);
+				if (!it) continue;
+				chosen.push(it);
+				if (c === "坐骑" && it.model) mountModel = it.model;
+			}
+		}
+		const manual = String(this.pendingManual || "").split(/[,，]/).map(x => x.trim()).filter(x => x);
+		for (const mu of manual) chosen.push({ uuid: mu, name: mu.slice(0, 13), type: "手动" });
+		this.sel = {};
+		for (const cat in p) {
+			if (p[cat] && p[cat].length) this.sel[cat] = p[cat].slice();
+		}
+		this.manual = String(this.pendingManual || "");
+		this.saveSel();
+		if (!chosen.length) {
+			if (this.current) {
+				this.current = null;
+				this.clear();
+				try { minecraft.clientMessage("§b[修改皮肤] §e已清除所有外观"); } catch (e) {}
+			} else {
+				try { app.showToast("未选择任何组件"); } catch (e) {}
+			}
+			return;
+		}
+		this.apply(chosen.map(it => it.uuid), chosen.map(it => it.name + "[" + it.type + "]").join(" + "), mountModel);
+	},
+	onModuleEvent(args) {
+		if (!stdToggle(this, args, "修改皮肤")) return;
+		if (this.enabled) this.openMainForm();
+	},
+	onTick() {
+		if (!this.current || !tickEvery(this, 40)) return;
+		try { app.evalPython("__main__.KUSUG_FAKE_ENSURE()"); } catch (e) {}
+	}
+};
+
+const loginVideo = {
+	tag: "fun_login_video",
+	enabled: false,
+	restoreMode: false,
+	targetPath() {
+		let pkg = ["com", "netease", "x19"].join(".");
+		try {
+			const m = String(app.getResource("x")).match(/\/Android\/data\/([^\/]+)\/files\//);
+			if (m && m[1]) pkg = m[1];
+		} catch (e) {}
+		return "/data/user/0/" + pkg + "/files/games/com.netease/storge/asset/loginVideoNew.mp4";
+	},
+	srcPath() {
+		return app.getResource("kusug/loginVideoNew.mp4");
+	},
+	backupPath() {
+		return app.getResource("kusug/loginVideoNew.mp4.bak");
+	},
+	run() {
+		const src = this.srcPath();
+		const bak = this.backupPath();
+		const target = this.targetPath();
+		try {
+			if (!fs.exists(target)) {
+				try { app.showToast("目标不存在: " + target); } catch (e) {}
+				return;
+			}
+			if (this.restoreMode) {
+				if (!fs.exists(bak)) {
+					try { app.showToast("无官方备份可恢复(先不勾选恢复执行一次替换)"); } catch (e) {}
+					return;
+				}
+				fs.write(target, fs.read(bak, "binary"));
+				try { app.showToast("已恢复官方视频,重启游戏生效"); } catch (e) {}
+				return;
+			}
+			if (!fs.exists(src)) {
+				try { app.showToast("未找到视频,请先放入: 资源目录/kusug/loginVideoNew.mp4"); } catch (e) {}
+				return;
+			}
+			if (!fs.exists(bak)) fs.write(bak, fs.read(target, "binary"));
+			fs.write(target, fs.read(src, "binary"));
+			try { app.showToast("已替换主界面视频,重启游戏生效"); } catch (e) {}
+		} catch (e) {
+			try { app.showToast("操作失败: " + String(e).slice(0, 80)); } catch (e2) {}
+		}
+	},
+	onModuleEvent(args) {
+		if (typeof args.lv_restore !== "undefined") this.restoreMode = Boolean(args.lv_restore);
+		if (!stdToggle(this, args, "主界面视频")) return;
+		if (!this.enabled) return;
+		this.run();
+	}
+};
+
+const gmPanel = {
+	tag: "fun_gm_panel",
+	enabled: false,
+	OPEN_PY: `
+from gui_2d import GUI, ui_const
+from gui_2d.ui.easy_debug_ui.debug_ui import DebugUI
+root = getattr(GUI.ui_mgr.try_get_scene(ui_const.DEBUGUI_SCENE), '_root', None)
+if not root:
+    import cc
+    root = cc.Director.getInstance().getRunningScene()
+inst = DebugUI(root, hide=False)
+inst.visible = True
+try:
+    GUI.ui_mgr.show_gui(ui_const.GAME_DEBUG_EYE)
+except Exception:
+    pass
+`,
+	CLOSE_PY: `
+from gui_2d import GUI, ui_const
+from gui_2d.ui.easy_debug_ui.debug_ui import DebugUI
+inst = DebugUI.get_instance()
+if inst is not None:
+    inst.visible = False
+try:
+    GUI.ui_mgr.hide_gui(ui_const.GAME_DEBUG_EYE)
+except Exception:
+    pass
+`,
+	onModuleEvent(args) {
+		if (!stdToggle(this, args, "GM菜单")) return;
+		if (!this.enabled) {
+			try { gamePy(this.CLOSE_PY); } catch (e) {}
+			return;
+		}
+		try {
+			gamePy(this.OPEN_PY);
+		} catch (e) {
+			this.enabled = false;
+			if (this.hud) this.hud.enabled = false;
+			try { app.showToast("打开失败: " + String(e).slice(0, 60)); } catch (e2) {}
+		}
+	}
+};
+
+const checkCmd = {
+	tag: "fun_check_cmd",
+	enabled: false,
+	lastSig: "",
+	jsMode: false,
+	tipN: 0,
+	lastTipMsg: "",
+	soDst: kuNative.soDst,
+	loaded: false,
+	showing: false,
+	bufAddr: 0n,
+	BLOCKS: new Set([
+		"minecraft:chain_command_block",
+		"minecraft:repeating_command_block",
+		"minecraft:command_block"
+	]),
+	extract(s, r) {
+		try {
+			return String(s || "").match(RegExp(r))?.[1] || "";
+		} catch (e) {
+			return "";
+		}
+	},
+	decode(s) {
+		try {
+			return decodeURIComponent(s) || "";
+		} catch (e) {
+			return String(s || "");
+		}
+	},
+	unesc(s) {
+		try {
+			return String(s || "").replace(/\\(["'\\])/g, "$1");
+		} catch (e) {
+			return String(s || "");
+		}
+	},
+	loadSo() {
+		const err = kuNative.load();
+		if (err) return err;
+		this.loaded = true;
+		this.bufAddr = kuNative.addr(51);
+		return "";
+	},
+	sc(op, a) {
+		kuNative.call(op, a);
+	},
+	pushContent(lines) {
+		const sig = lines.join("|");
+		if (sig === this.lastSig) return;
+		this.lastSig = sig;
+		if (!this.bufAddr) return;
+		wplChan.owner = this;
+		const bytes = encodeUtf8(lines.join("\n"));
+		if (bytes.length > 8000) return;
+		try {
+			soPush(this.bufAddr, bytes);
+			kuNative.call(42, 0);
+		} catch (e) {}
+	},
+	hidePanel() {
+		if (wplChan.owner && wplChan.owner !== this) {
+			this.showing = false;
+			this.lastSig = "";
+			return;
+		}
+		if (this.showing) { this.showing = false; this.sc(43, 0); }
+		this.lastSig = "";
+		if (wplChan.owner === this) wplChan.owner = null;
+	},
+	hitBlock() {
+		try {
+			const hr = world.getClientWorld().getHitResult();
+			if (!hr || !hr.blockPos) return null;
+			const t = hr.type;
+			if ((typeof t === "string" && /block|tile/i.test(t)) || t === 0 || t === "0") return hr.blockPos;
+			return null;
+		} catch (e) {
+			return null;
+		}
+	},
+	clearTip() {
+		if (!this.lastSig) return;
+		this.lastSig = "";
+		try { minecraft.showTipMessage(""); } catch (e) {}
+	},
+	releaseWpl(immediate) {
+		const self = this;
+		const fire = function () { if (self.loaded && (!self.enabled || self.jsMode) && !(typeof structHud !== "undefined" && structHud.enabled && !structHud.jsMode)) { try { kuNative.call(41, 0); } catch (e) {} } };
+		if (immediate) fire();
+		else setTimeout(function () { gameRun(fire); }, 300);
+	},
+	switchMode(js) {
+		this.jsMode = js;
+		this.lastSig = "";
+		this.showing = false;
+		if (!this.enabled) return;
+		if (js) {
+			this.hidePanel();
+			this.releaseWpl(true);
+		} else {
+			try { minecraft.showTipMessage(""); } catch (e) {}
+			let err = "";
+			if (!this.loaded) err = this.loadSo();
+			if (!err) { try { kuNative.call(41, 1); } catch (e) {} }
+		}
+	},
+	onModuleEvent(args) {
+		let wantJs = this.jsMode;
+		const mv = argPick(args, "cb_mode");
+		if (mv === "cb_mode_js") wantJs = true;
+		else if (mv === "cb_mode_so") wantJs = false;
+		if (args.cb_mode_js === true) wantJs = true;
+		else if (args.cb_mode_so === true) wantJs = false;
+		if (!stdToggle(this, args, "查看命令方块")) {
+			if (wantJs !== this.jsMode) this.switchMode(wantJs);
+			return;
+		}
+		if (this.enabled) {
+			if (this.jsMode) {
+				this.lastSig = "";
+				return;
+			}
+			let err = "";
+			if (!this.loaded) err = this.loadSo();
+			if (err) {
+				try { app.showToast("" + err); } catch (e) {}
+			} else {
+				try { kuNative.call(41, 1); } catch (e) {}
+			}
+		} else {
+			if (this.jsMode) this.clearTip();
+			else {
+				this.hidePanel();
+				this.releaseWpl();
+			}
+		}
+	},
+	onTick() {
+		if (!this.enabled) return;
+		if (this.jsMode) {
+			this.tickTip();
+			return;
+		}
+		if (!this.loaded) return;
+
+		let ig = false;
+		try { ig = app.isInGame(); } catch (e) {}
+		if (!ig || uiVis.poll()) {
+			this.hidePanel();
+			return;
+		}
+
+		try {
+			const pos = player.getLocalPlayer().getPos();
+			if (pos && isFinite(pos.x)) {
+				this.sc(44, Math.round(pos.x * 1000));
+				this.sc(45, Math.round(pos.y * 1000));
+				this.sc(46, Math.round(pos.z * 1000));
+			}
+		} catch (e) {}
+		const p = this.hitBlock();
+		if (!p) {
+			this.hidePanel();
+			return;
+		}
+		const px = Math.floor(p.x), py = Math.floor(p.y), pz = Math.floor(p.z);
+		try {
+			const dimension = player.getLocalPlayer().getDimension();
+			const block = dimension.getBlock({ x: px, y: py, z: pz });
+			const blockNBT = this.decode(block.getNBT());
+			const blockName = this.extract(blockNBT, 'name:"([^"]+)"') || "";
+			if (!this.BLOCKS.has(blockName)) {
+				this.hidePanel();
+				return;
+			}
+			let complete = "";
+			try {
+				const blockEntity = dimension.getBlockEntity({ x: px, y: py, z: pz });
+				complete = this.decode(blockEntity.getNBT());
+			} catch (e) {}
+			const isRedStoneMode = !+this.extract(complete, "auto:(\\d)b");
+			const isConditional = !!+this.extract(blockNBT, "conditional_bit:(\\d)b") || !!+this.extract(complete, "conditionalMode:(\\d)b");
+			const command = this.unesc(complete?.match(/Command:"(.*?)",CustomName:/)?.[1] || this.extract(complete, 'Command:"((?:[^"\\\\]|\\\\.)*)"'));
+			const tickDelay = +this.extract(complete, "TickDelay:(\\d+)") || 0;
+			const nameCN = blockName === "minecraft:chain_command_block" ? "锁链" : blockName === "minecraft:repeating_command_block" ? "循环" : "脉冲";
+			const customName = this.unesc(this.extract(complete, 'CustomName:"((?:[^"\\\\]|\\\\.)*)"'));
+			this.pushContent([
+				command || "空链",
+				"类型:" + nameCN,
+				"条件:" + (isConditional ? "有条件" : "无条件"),
+				"红石:" + (isRedStoneMode ? "红石控制" : "保持开启"),
+				"延迟:" + tickDelay,
+				customName ? "n:名称:" + customName : ""
+			]);
+			this.sc(47, px);
+			this.sc(48, py);
+			this.sc(49, pz);
+			if (!this.showing) { this.showing = true; this.sc(43, 1); }
+			} catch (e) {}
+		},
+	tickTip() {
+		let ig = true;
+		try { ig = app.isInGame(); } catch (e) {}
+		if (!ig || uiVis.poll()) {
+			this.clearTip();
+			return;
+		}
+		const p = this.hitBlock();
+		if (!p) {
+			this.clearTip();
+			return;
+		}
+		const px = Math.floor(p.x), py = Math.floor(p.y), pz = Math.floor(p.z);
+		try {
+			const dimension = player.getLocalPlayer().getDimension();
+			const block = dimension.getBlock({ x: px, y: py, z: pz });
+			const blockNBT = this.decode(block.getNBT());
+			const blockName = this.extract(blockNBT, 'name:"([^"]+)"') || "";
+			if (!this.BLOCKS.has(blockName)) {
+				this.clearTip();
+				return;
+			}
+			let complete = "";
+			try {
+				const blockEntity = dimension.getBlockEntity({ x: px, y: py, z: pz });
+				complete = this.decode(blockEntity.getNBT());
+			} catch (e) {}
+			const nameCN = blockName === "minecraft:chain_command_block" ? "锁链" : blockName === "minecraft:repeating_command_block" ? "循环" : "脉冲";
+			const isRedStoneMode = !+this.extract(complete, "auto:(\\d)b");
+			const isConditional = !!+this.extract(blockNBT, "conditional_bit:(\\d)b") || !!+this.extract(complete, "conditionalMode:(\\d)b");
+			const command = this.unesc(complete?.match(/Command:"(.*?)",CustomName:/)?.[1] || this.extract(complete, 'Command:"((?:[^"\\\\]|\\\\.)*)"'));
+			const tickDelay = +this.extract(complete, "TickDelay:(\\d+)") || 0;
+			const customName = this.unesc(this.extract(complete, 'CustomName:"((?:[^"\\\\]|\\\\.)*)"'));
+			const trackOut = !!+this.extract(complete, "TrackOutput:(\\d)b");
+			const firstTick = !!+this.extract(complete, "ExecuteOnFirstTick:(\\d)b");
+			const sig = px + "," + py + "," + pz + "|" + command + "|" + customName + "|" + tickDelay + (isConditional ? 1 : 0) + (isRedStoneMode ? 1 : 0) + (trackOut ? 1 : 0) + (firstTick ? 1 : 0);
+			if (sig === this.lastSig) {
+				if (++this.tipN >= 10) {
+					this.tipN = 0;
+					try { minecraft.showTipMessage(this.lastTipMsg); } catch (e) {}
+				}
+				return;
+			}
+			this.lastSig = sig;
+			this.tipN = 0;
+			const hasContent = command || customName;
+			const message = hasContent ?
+				`[§fＣｏｍｍａｎｄ-Ｉｎｆｏｒｍａｔｉｏｎ§7]\n` +
+				`§6类型: §f${nameCN}\n` +
+				`§6模式: §f${isRedStoneMode ? "红石控制" : "保持开启"}\n` +
+				`§6条件: §f${isConditional ? "是" : "否"}\n` +
+				`§6命令: §f${(command || "").match(/.{1,60}/g)?.map((s, i, a) => i < a.length - 1 ? s + "\n§f" : s).join("") || ""}\n` +
+				`§6悬停: §f${customName || "无"}\n` +
+				`§6延迟: §f${tickDelay}刻\n` +
+				`§6追踪输出: §f${trackOut ? "是" : "否"}\n` +
+				`§6首次执行: §f${firstTick ? "是" : "否"}` :
+				"§l§c〉空链〈";
+			this.lastTipMsg = message;
+			try { minecraft.showTipMessage(message); } catch (e) {}
+		} catch (e) {}
+	}
+};
+
+const wplChan = { owner: null };
+
+const structHud = {
+	tag: "fun_struct_block",
+	enabled: false,
+	lastSig: "",
+	jsMode: false,
+	tipN: 0,
+	lastTipMsg: "",
+	soDst: kuNative.soDst,
+	loaded: false,
+	showing: false,
+	bufAddr: 0n,
+	extract(s, r) {
+		try {
+			return String(s || "").match(RegExp(r))?.[1] || "";
+		} catch (e) {
+			return "";
+		}
+	},
+	decode(s) {
+		try {
+			return decodeURIComponent(s) || "";
+		} catch (e) {
+			return String(s || "");
+		}
+	},
+	unesc(s) {
+		try {
+			return String(s || "").replace(/\\(["'\\])/g, "$1");
+		} catch (e) {
+			return String(s || "");
+		}
+	},
+	loadSo() {
+		const err = kuNative.load();
+		if (err) return err;
+		this.loaded = true;
+		this.bufAddr = kuNative.addr(51);
+		return "";
+	},
+	sc(op, a) {
+		kuNative.call(op, a);
+	},
+	pushContent(lines) {
+		const sig = lines.join("|");
+		if (sig === this.lastSig) return;
+		this.lastSig = sig;
+		if (!this.bufAddr) return;
+		wplChan.owner = this;
+		const bytes = encodeUtf8(lines.join("\n"));
+		if (bytes.length > 8000) return;
+		try {
+			soPush(this.bufAddr, bytes);
+			kuNative.call(42, 0);
+		} catch (e) {}
+	},
+	hidePanel() {
+		if (wplChan.owner && wplChan.owner !== this) {
+			this.showing = false;
+			this.lastSig = "";
+			return;
+		}
+		if (this.showing) { this.showing = false; this.sc(43, 0); }
+		this.lastSig = "";
+		if (wplChan.owner === this) wplChan.owner = null;
+	},
+	hitBlock() {
+		try {
+			const hr = world.getClientWorld().getHitResult();
+			if (!hr || !hr.blockPos) return null;
+			const t = hr.type;
+			if ((typeof t === "string" && /block|tile/i.test(t)) || t === 0 || t === "0") return hr.blockPos;
+			return null;
+		} catch (e) {
+			return null;
+		}
+	},
+	clearTip() {
+		if (!this.lastSig) return;
+		this.lastSig = "";
+		try { minecraft.showTipMessage(""); } catch (e) {}
+	},
+	releaseWpl(immediate) {
+		const self = this;
+		const fire = function () { if (self.loaded && (!self.enabled || self.jsMode) && !(typeof checkCmd !== "undefined" && checkCmd.enabled && !checkCmd.jsMode)) { try { kuNative.call(41, 0); } catch (e) {} } };
+		if (immediate) fire();
+		else setTimeout(function () { gameRun(fire); }, 300);
+	},
+	switchMode(js) {
+		this.jsMode = js;
+		this.lastSig = "";
+		this.showing = false;
+		if (!this.enabled) return;
+		if (js) {
+			this.hidePanel();
+			this.releaseWpl(true);
+		} else {
+			try { minecraft.showTipMessage(""); } catch (e) {}
+			let err = "";
+			if (!this.loaded) err = this.loadSo();
+			if (!err) { try { kuNative.call(41, 1); } catch (e) {} }
+		}
+	},
+	onModuleEvent(args) {
+		let wantJs = this.jsMode;
+		const mv = argPick(args, "sb_mode");
+		if (mv === "sb_mode_js") wantJs = true;
+		else if (mv === "sb_mode_so") wantJs = false;
+		if (args.sb_mode_js === true) wantJs = true;
+		else if (args.sb_mode_so === true) wantJs = false;
+		if (!stdToggle(this, args, "查看结构方块")) {
+			if (wantJs !== this.jsMode) this.switchMode(wantJs);
+			return;
+		}
+		if (this.enabled) {
+			if (this.jsMode) {
+				this.lastSig = "";
+				return;
+			}
+			let err = "";
+			if (!this.loaded) err = this.loadSo();
+			if (err) {
+				try { app.showToast("" + err); } catch (e) {}
+			} else {
+				try { kuNative.call(41, 1); } catch (e) {}
+			}
+		} else {
+			if (this.jsMode) this.clearTip();
+			else {
+				this.hidePanel();
+				this.releaseWpl();
+			}
+		}
+	},
+	onTick() {
+		if (!this.enabled) return;
+		if (this.jsMode) {
+			this.tickTip();
+			return;
+		}
+		if (!this.loaded) return;
+
+		let ig = false;
+		try { ig = app.isInGame(); } catch (e) {}
+		if (!ig || uiVis.poll()) {
+			this.hidePanel();
+			return;
+		}
+
+		try {
+			const pos = player.getLocalPlayer().getPos();
+			if (pos && isFinite(pos.x)) {
+				this.sc(44, Math.round(pos.x * 1000));
+				this.sc(45, Math.round(pos.y * 1000));
+				this.sc(46, Math.round(pos.z * 1000));
+			}
+		} catch (e) {}
+		const p = this.hitBlock();
+		if (!p) {
+			this.hidePanel();
+			return;
+		}
+		const px = Math.floor(p.x), py = Math.floor(p.y), pz = Math.floor(p.z);
+		try {
+			const dimension = player.getLocalPlayer().getDimension();
+			const block = dimension.getBlock({ x: px, y: py, z: pz });
+			const blockNBT = this.decode(block.getNBT());
+			const blockName = this.extract(blockNBT, 'name:"([^"]+)"') || "";
+			if (blockName !== "minecraft:structure_block") {
+				this.hidePanel();
+				return;
+			}
+			let complete = "";
+			try {
+				const blockEntity = dimension.getBlockEntity({ x: px, y: py, z: pz });
+				complete = this.decode(blockEntity.getNBT());
+			} catch (e) {}
+			const mode = +this.extract(complete, "data:(-?\\d+)") || 0;
+			const modeCN = ["数据", "保存", "加载", "角落", "", "3D导出"][mode] || "无效";
+			const sx = +this.extract(complete, "xStructureSize:(-?\\d+)") || 0;
+			const sy = +this.extract(complete, "yStructureSize:(-?\\d+)") || 0;
+			const sz = +this.extract(complete, "zStructureSize:(-?\\d+)") || 0;
+			const ox = +this.extract(complete, "xStructureOffset:(-?\\d+)") || 0;
+			const oy = +this.extract(complete, "yStructureOffset:(-?\\d+)") || 0;
+			const oz = +this.extract(complete, "zStructureOffset:(-?\\d+)") || 0;
+			const rot = (+this.extract(complete, "rotation:(\\d)b") || 0) * 90;
+			const mirrorN = +this.extract(complete, "mirror:(\\d)b") || 0;
+			const mirrorCN = ["无", "X轴", "Z轴", "X+Z轴"][mirrorN] || "未知";
+			const integrity = +this.extract(complete, "integrity:([\\d.]+)f") || 0;
+			const seed = this.extract(complete, "seed:(-?\\d+)l");
+			const ignoreEntities = !!+this.extract(complete, "ignoreEntities:(\\d)b");
+			const includePlayers = !!+this.extract(complete, "includePlayers:(\\d)b");
+			const removeBlocks = !!+this.extract(complete, "removeBlocks:(\\d)b");
+			const showBB = !!+this.extract(complete, "showBoundingBox:(\\d)b");
+			const powered = !!+this.extract(complete, "isPowered:(\\d)b");
+			const animN = +this.extract(complete, "animationMode:(\\d)b") || 0;
+			const animSec = +this.extract(complete, "animationSeconds:([\\d.]+)f") || 0;
+			const animCN = animN === 1 ? "按层放置" : animN === 2 ? "按方块放置" : "无";
+			const rsMode = +this.extract(complete, "redstoneSaveMode:(-?\\d+)") || 0;
+			let structName = this.unesc(this.extract(complete, 'structureName:"((?:[^"\\\\]|\\\\.)*)"'));
+			if (structName.length > 26) structName = structName.slice(0, 26) + "…";
+			this.pushContent([
+				modeCN + " " + sx + "×" + sy + "×" + sz,
+				"偏移:" + ox + "," + oy + "," + oz,
+				"旋转:" + rot + "°",
+				"镜像:" + mirrorCN,
+				"完整性:" + (integrity % 1 ? integrity.toFixed(1) : integrity) + "%",
+				"种子:" + (seed && seed !== "0" ? seed : "随机"),
+				"实体:" + (ignoreEntities ? "忽略" : "包含"),
+				"玩家:" + (includePlayers ? "包含" : "不含"),
+				"忽略方块:" + (removeBlocks ? "是" : "否"),
+				"边框:" + (showBB ? "显示" : "隐藏"),
+				"红石:" + (powered ? "已激活" : "未激活"),
+				"动画:" + animCN + (animN > 0 ? " " + (animSec % 1 ? animSec.toFixed(1) : animSec) + "s" : ""),
+				"保存至:" + (rsMode === 1 ? "硬盘" : "内存"),
+				structName ? "n:结构名:" + structName : ""
+			]);
+			this.sc(47, px);
+			this.sc(48, py);
+			this.sc(49, pz);
+			if (!this.showing) { this.showing = true; this.sc(43, 1); }
+		} catch (e) {}
+	},
+	tickTip() {
+		let ig = true;
+		try { ig = app.isInGame(); } catch (e) {}
+		if (!ig || uiVis.poll()) {
+			this.clearTip();
+			return;
+		}
+		const p = this.hitBlock();
+		if (!p) {
+			this.clearTip();
+			return;
+		}
+		const px = Math.floor(p.x), py = Math.floor(p.y), pz = Math.floor(p.z);
+		try {
+			const dimension = player.getLocalPlayer().getDimension();
+			const block = dimension.getBlock({ x: px, y: py, z: pz });
+			const blockName = this.extract(this.decode(block.getNBT()), 'name:"([^"]+)"') || "";
+			if (blockName !== "minecraft:structure_block") {
+				this.clearTip();
+				return;
+			}
+			let complete = "";
+			try {
+				const blockEntity = dimension.getBlockEntity({ x: px, y: py, z: pz });
+				complete = this.decode(blockEntity.getNBT());
+			} catch (e) {}
+			const mode = +this.extract(complete, "data:(-?\\d+)") || 0;
+			const modeCN = ["数据", "保存", "加载", "角落", "", "3D导出"][mode] || "无效";
+			const sx = +this.extract(complete, "xStructureSize:(-?\\d+)") || 0;
+			const sy = +this.extract(complete, "yStructureSize:(-?\\d+)") || 0;
+			const sz = +this.extract(complete, "zStructureSize:(-?\\d+)") || 0;
+			const ox = +this.extract(complete, "xStructureOffset:(-?\\d+)") || 0;
+			const oy = +this.extract(complete, "yStructureOffset:(-?\\d+)") || 0;
+			const oz = +this.extract(complete, "zStructureOffset:(-?\\d+)") || 0;
+			const rot = (+this.extract(complete, "rotation:(\\d)b") || 0) * 90;
+			const mirrorN = +this.extract(complete, "mirror:(\\d)b") || 0;
+			const mirrorCN = ["无", "X轴", "Z轴", "X+Z轴"][mirrorN] || "未知";
+			const integrity = +this.extract(complete, "integrity:([\\d.]+)f") || 0;
+			const seed = this.extract(complete, "seed:(-?\\d+)l");
+			const ignoreEntities = !!+this.extract(complete, "ignoreEntities:(\\d)b");
+			const includePlayers = !!+this.extract(complete, "includePlayers:(\\d)b");
+			const removeBlocks = !!+this.extract(complete, "removeBlocks:(\\d)b");
+			const showBB = !!+this.extract(complete, "showBoundingBox:(\\d)b");
+			const powered = !!+this.extract(complete, "isPowered:(\\d)b");
+			const animN = +this.extract(complete, "animationMode:(\\d)b") || 0;
+			const animSec = +this.extract(complete, "animationSeconds:([\\d.]+)f") || 0;
+			const animCN = animN === 1 ? "按层放置" : animN === 2 ? "按方块放置" : "无";
+			const rsMode = +this.extract(complete, "redstoneSaveMode:(-?\\d+)") || 0;
+			let structName = this.unesc(this.extract(complete, 'structureName:"((?:[^"\\\\]|\\\\.)*)"'));
+			if (structName.length > 26) structName = structName.slice(0, 26) + "…";
+			const sig = px + "," + py + "," + pz + "|" + mode + "|" + sx + "," + sy + "," + sz + "|" + ox + "," + oy + "," + oz + "|" + rot + "|" + mirrorN + "|" + integrity + "|" + seed + "|" + (ignoreEntities ? 1 : 0) + (includePlayers ? 1 : 0) + (removeBlocks ? 1 : 0) + (showBB ? 1 : 0) + (powered ? 1 : 0) + "|" + animN + "," + animSec + "|" + rsMode + "|" + structName;
+			if (sig === this.lastSig) {
+				if (++this.tipN >= 10) {
+					this.tipN = 0;
+					try { minecraft.showTipMessage(this.lastTipMsg); } catch (e) {}
+				}
+				return;
+			}
+			this.lastSig = sig;
+			this.tipN = 0;
+			const message =
+				`[§fＳｔｒｕｃｔｕｒｅ-Ｉｎｆｏｒｍａｔｉｏｎ§7]\n` +
+				`§6模式: §f${modeCN} ${sx}×${sy}×${sz} §6偏移: §f${ox},${oy},${oz}\n` +
+				`§6旋转: §f${rot}° §6镜像: §f${mirrorCN} §6完整性: §f${integrity % 1 ? integrity.toFixed(1) : integrity}%\n` +
+				`§6种子: §f${seed && seed !== "0" ? seed : "随机"}\n` +
+				`§6实体: §f${ignoreEntities ? "忽略" : "包含"} §6玩家: §f${includePlayers ? "包含" : "不含"}\n` +
+				`§6忽略方块: §f${removeBlocks ? "是" : "否"} §6边框: §f${showBB ? "显示" : "隐藏"}\n` +
+				`§6红石: §f${powered ? "已激活" : "未激活"} §6动画: §f${animCN}${animN > 0 ? " " + (animSec % 1 ? animSec.toFixed(1) : animSec) + "s" : ""}\n` +
+				`§6保存至: §f${rsMode === 1 ? "硬盘" : "内存"}\n` +
+				`§6结构名: §f${structName || "无"}\n` +
+				`§7${px},${py},${pz}`;
+			this.lastTipMsg = message;
+			try { minecraft.showTipMessage(message); } catch (e) {}
+		} catch (e) {}
+	}
+};
+
+function PatchChatMessage(data, replacer) {
+	const r = binReader(data);
+	r.skip(2);
+	r.skip(r.uvarint());
+	const msgStart = r.off;
+	const msgLen = r.uvarint();
+	r.need(msgLen);
+	const cStart = r.off;
+	r.off += msgLen;
+	const message = decodeUtf8(r.u8.slice(cStart, cStart + msgLen));
+	const next = replacer(message);
+	if (typeof next !== "string" || next === message) return false;
+	const nb = encodeUtf8(next);
+	return joinParts([r.u8.slice(0, msgStart), uvarintBytes(nb.length), nb, r.u8.slice(cStart + msgLen)]);
+}
+
+function ReadChatMessage(data) {
+	try {
+		const r = binReader(data);
+		r.skip(2);
+		r.skip(r.uvarint());
+		const msgLen = r.uvarint();
+		r.need(msgLen);
+		return decodeUtf8(r.u8.slice(r.off, r.off + msgLen));
+	} catch (e) {
+		return null;
+	}
+}
+
+const texInject = {
+	tag: "fun_tex_inject",
+	enabled: false,
+	busy: false,
+	restoreMode: false,
+	bootAt: Date.now(),
+	soDst: kuNative.soDst,
+	loaded: false,
+	bufAddr: 0n,
+	loadSo() {
+		const err = kuNative.load();
+		if (err) return err;
+		this.loaded = true;
+		this.bufAddr = kuNative.addr(40);
+		return "";
+	},
+	run0(mode) {
+		if (!this.loaded) {
+			const err = this.loadSo();
+			if (err) return ["ERR " + err];
+		}
+		if (!this.bufAddr) return ["ERR so 无输入缓冲区"];
+		const chan = app.getResource("KuSug/材质包注入缓存.txt");
+		const resDir = app.getResource("KuSug/resource_packs");
+		const payload = resDir + "\n" + chan + "\n" + "/data/data/" + gamePkg + "/files\n";
+		const bytes = encodeUtf8(payload);
+		try {
+			soPush(this.bufAddr, bytes);
+			kuNative.call(39, mode);
+		} catch (e) {
+			return ["ERR 调用失败: " + (e && e.message ? e.message : e)];
+		}
+		try {
+			const r = String(fs.read(chan) || "").split("\n");
+			try { fs.write(chan, ""); } catch (e) {}
+			return r;
+		} catch (e) {
+			return ["ERR 回读失败: " + e];
+		}
+	},
+	onModuleEvent(args) {
+		if (typeof args.tex_restore !== "undefined") this.restoreMode = Boolean(args.tex_restore);
+		if (!stdToggle(this, args, "材质包注入")) return;
+		if (!this.enabled) return;
+		if (Date.now() - this.bootAt < 6000) return;
+		if (this.busy) return;
+		this.busy = true;
+		try {
+			const lines = this.run0(this.restoreMode ? 0 : 1);
+			let tail = "";
+			for (const l of lines) { if (/^(OK|ERR) /.test(l)) tail = l; }
+			if (tail) {
+				const text = tail.indexOf("OK ") === 0 ? (this.restoreMode ? "已还原官方材质,请重启游戏" : "注入成功,请重启游戏") : tail.slice(3);
+				try { app.showToast("" + text); } catch (e) {}
+				try { minecraft.clientMessage("§b[材质包注入] §f" + text); } catch (e) {}
+			}
+		} finally {
+			this.busy = false;
+		}
+	}
+};
+
+const sendControl = {
+	tag: "fun_send_control",
+	enabled: false,
+	prefix: "",
+	suffix: "",
+	meMode: false,
+	colour: true,
+	colourSp: true,
+	bold: false,
+	newline: false,
+	built: [],
+	meQueue: [],
+	meVersion: 88,
+	clampText(s) {
+		return [...String(s)].slice(0, 30).join("");
+	},
+	onModuleEvent(args) {
+		if (typeof args.send_prefix === "string") this.prefix = this.clampText(args.send_prefix);
+		if (typeof args.send_suffix === "string") this.suffix = this.clampText(args.send_suffix);
+		if (typeof args.send_me !== "undefined") this.meMode = Boolean(args.send_me);
+		if (typeof args.send_colour !== "undefined") this.colour = Boolean(args.send_colour);
+		if (typeof args.send_colour_sp !== "undefined") this.colourSp = Boolean(args.send_colour_sp);
+		if (typeof args.send_bold !== "undefined") this.bold = Boolean(args.send_bold);
+		if (typeof args.send_newline !== "undefined") this.newline = Boolean(args.send_newline);
+		if (!stdToggle(this, args, "发言控制")) return;
+		if (!this.enabled) {
+			this.built = [];
+			this.meQueue = [];
+		}
+	},
+	buildText(message) {
+		let body = message;
+		let head = this.prefix;
+		let tail = this.suffix;
+		if (this.newline) {
+			body = String(body).replace(/\\n/g, "\n");
+			head = head.replace(/\\n/g, "\n");
+			tail = tail.replace(/\\n/g, "\n");
+		}
+		if (this.colour && !this.colourSp) body = colorizeText(body);
+		if (tail !== "" && this.colour && !this.colourSp) tail = "§r" + (this.bold ? "§l" : "") + tail;
+		let out = head + body + tail;
+		if (this.colour && this.colourSp) out = colorizeText(out);
+		if (this.bold) out = "§l" + out;
+		return out;
+	},
+	hasTextFeature() {
+		return this.colour || this.prefix !== "" || this.suffix !== "" || this.newline;
+	},
+	learnVersion(data) {
+		try {
+			const r = binReader(data);
+			r.skip(r.uvarint());
+			const type = r.uvarint();
+			if (type !== 0) return;
+			r.skip(16);
+			r.skip(r.uvarint());
+			r.skip(1);
+			const v = r.uvarint();
+			if (v > 0 && v < 100000) this.meVersion = v;
+		} catch (e) {}
+	},
+	onSendServerPacket(id, name, bin) {
+		if (id === 77) {
+			this.learnVersion(bin);
+			return false;
+		}
+		if (!this.enabled || id !== 9) return false;
+		if (this.meMode) {
+			const message = ReadChatMessage(bin);
+			if (!message || message.indexOf("/") === 0) return false;
+			if (this.meQueue.length < 10) this.meQueue.push(message);
+			return true;
+		}
+		if (!this.hasTextFeature()) return false;
+		try {
+			return PatchChatMessage(bin, (message) => {
+				if (!message || message.indexOf("/") === 0) return null;
+				const idx = this.built.indexOf(message);
+				if (idx !== -1) {
+					this.built.splice(idx, 1);
+					return null;
+				}
+				const next = this.buildText(message);
+				this.built.push(next);
+				if (this.built.length > 10) this.built.shift();
+				return next;
+			});
+		} catch (e) {}
+		return false;
+	},
+	onTick() {
+		if (!this.enabled || !this.meMode) {
+			this.meQueue.length = 0;
+			return;
+		}
+		if (!this.meQueue.length) return;
+		const message = this.meQueue.shift();
+		try {
+			packet.sendCommandRequestPacket({ command: "/me " + this.buildText(message), version: this.meVersion });
+		} catch (e) {
+			this.log("转换失败: " + e);
+		}
+	},
+	log: mkLog("§b[发言控制] ")
+};
+
+function chatSend(text) {
+	try { minecraft.sendChatMessage(text); } catch (e) {}
+	return false;
+}
+
+function PatchTradeTiers(data) {
+	const u8 = new Uint8Array(data);
+	const len = u8.length;
+	let off = 0;
+	const tiers = [];
+	const need = (n) => { if (off + n > len) throw new Error("eof@" + off); };
+	const byte = () => { need(1); return u8[off++]; };
+	const skip = (n) => { need(n); off += n; };
+	const uv = () => {
+		let v = 0, s = 0, b;
+		do { b = byte(); v += (b & 0x7F) * (2 ** s); s += 7; } while ((b & 0x80) && s < 70);
+		return v;
+	};
+	const sv = () => {
+		const u = uv();
+		const h = Math.floor(u / 2);
+		return u % 2 ? -h - 1 : h;
+	};
+	const str = () => {
+		const n = uv();
+		need(n);
+		let s = "";
+		for (let i = 0; i < n; i++) s += String.fromCharCode(u8[off + i]);
+		off += n;
+		return s;
+	};
+	const walkCompound = () => {
+		for (;;) {
+			const t = byte();
+			if (t === 0) return;
+			const name = str();
+			walkValue(t, name);
+		}
+	};
+	const walkValue = (t, name) => {
+		switch (t) {
+			case 1: skip(1); break;
+			case 2: skip(2); break;
+			case 3: {
+				const start = off;
+				sv();
+				if (name === "tier" && off - start === 1) tiers.push(start);
+				break;
+			}
+			case 4: sv(); break;
+			case 5: skip(4); break;
+			case 6: skip(8); break;
+			case 7: { const n = sv(); if (n < 0) throw new Error("neg-len"); skip(n); break; }
+			case 8: str(); break;
+			case 9: {
+				const et = byte();
+				const n = sv();
+				if (n < 0) throw new Error("neg-len");
+				for (let i = 0; i < n; i++) walkValue(et, "");
+				break;
+			}
+			case 10: walkCompound(); break;
+			case 11: { const n = sv(); if (n < 0) throw new Error("neg-len"); for (let i = 0; i < n; i++) sv(); break; }
+			default: throw new Error("tag" + t + "@" + off);
+		}
+	};
+	skip(2);
+	sv();
+	sv();
+	sv();
+	sv();
+	str();
+	let nbtStart = -1;
+	for (let p = off; p < Math.min(off + 4, len); p++) {
+		if (u8[p] === 10) { nbtStart = p; break; }
+	}
+	if (nbtStart < 0) throw new Error("no-nbt");
+	off = nbtStart;
+	byte();
+	str();
+	walkCompound();
+	const out = new Uint8Array(u8);
+	for (const o of tiers) out[o] = 0;
+	return { buf: tiers.length ? out.buffer : null, n: tiers.length };
+}
+
+function entityNameById(id) {
+	try {
+		const ent = world.getClientWorld().getEntity(id);
+		if (ent) {
+			const n = String(ent.getName() || "");
+			if (n) return n;
+		}
+	} catch (e) {}
+	try {
+		const list = world.getClientWorld().getPlayerList();
+		for (const k in list) {
+			const p = list[k];
+			if (p && String(p.id) === String(id)) return p.name || "";
+		}
+	} catch (e) {}
+	return "";
+}
+
+function argPick(args, key) {
+	const parts = key.split("_");
+	let pascal = "";
+	for (const p of parts) pascal += (pascal ? "_" : "") + p.charAt(0).toUpperCase() + p.slice(1);
+	if (args[pascal] !== undefined) return args[pascal];
+	if (args[key] !== undefined) return args[key];
+	return args[key.charAt(0).toUpperCase() + key.slice(1)];
+}
+
+const tauntDefaultText = ["§7{name} 不过如此", "§f{name} §7就这？", "§e{name} §7回去再练练吧", "§b{name} §7被 §f{self} §7抬走了"].join("\n");
+function ensureTauntFile() {
+	try {
+		const p = app.getResource("KuSug/嘲讽文本.txt");
+		if (fs.exists(p)) return;
+		try { fs.createDirectories(app.getResource("KuSug")); } catch (e) {}
+		fs.write(p, tauntDefaultText);
+	} catch (e) {}
+}
+
+function tauntFire(victimName, mode, customText) {
+	let line = "";
+	if (mode === "text") line = String(customText || "").trim();
+	if (!line) {
+		let lines = [];
+		try {
+			ensureTauntFile();
+			const raw = String(fs.read(app.getResource("KuSug/嘲讽文本.txt")) || "");
+			for (const s of raw.split(/\r?\n/)) {
+				const t = s.trim();
+				if (t) lines.push(t);
+			}
+		} catch (e) {}
+		if (!lines.length) lines = ["§7{name} 不过如此", "§f{name} §7就这？"];
+		line = lines[Math.floor(Math.random() * lines.length)];
+	}
+	let self = "";
+	try { self = String(player.getLocalPlayer().getName() || ""); } catch (e) {}
+	return line.replace(/\{name\}/g, victimName).replace(/\{self\}/g, self);
+}
+
+const tradeUnlock = {
+	tag: "fun_trade_unlock",
+	enabled: false,
+	onModuleEvent(args) {
+		stdToggle(this, args, "跨等级交易");
+	},
+	onReceiveServerPacket(id, name, bin) {
+		if (!this.enabled || id !== 80) return null;
+		try {
+			const r = PatchTradeTiers(bin);
+			if (r.n > 0) return r.buf;
+		} catch (e) {}
+		return null;
+	}
+};
+
+const fpsHud = {
+	tag: "fun_fps",
+	enabled: true,
+	applied: false,
+	tickCount: 0,
+	PY_ON: `
+from gui_2d import GUI, ui_const
+import mod.client.extraClientApi as clientApi
+
+FLAG = "${app.getResource("KuSug/fps_on.flag")}"
+
+win = GUI.ui_mgr.try_get_gui(ui_const.USER_INFO_WATER_MARK)
+applied = False
+if win and win.is_valid():
+    try:
+        win.cancel_timer(win.panel_user_info_timer)
+        win.panel_user_info_timer = 0
+    except Exception:
+        pass
+    old = getattr(win, "_ks_fps_timer", 0)
+    if old:
+        try:
+            win.cancel_timer(old)
+        except Exception:
+            pass
+        win._ks_fps_timer = 0
+    t = win._text_time
+    if t.is_valid():
+        if getattr(t, "_parent_widget", None) is None:
+            t.add_to_parent(win._panel_info)
+        t.visible = True
+        t.text = "FPS:--"
+
+        def _ks_fps_tick():
+            try:
+                fps = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId()).GetFps()
+                t.text = "FPS:" + str(int(float(fps)))
+            except Exception:
+                t.text = "FPS:--"
+
+        win._ks_fps_timer = win.add_timer(1, _ks_fps_tick, True)
+        applied = True
+if applied:
+    try:
+        with open(FLAG, "w") as f:
+            f.write("1")
+    except Exception:
+        pass
+`,
+	PY_OFF: `
+from gui_2d import GUI, ui_const
+
+win = GUI.ui_mgr.try_get_gui(ui_const.USER_INFO_WATER_MARK)
+if win and win.is_valid():
+    old = getattr(win, "_ks_fps_timer", 0)
+    if old:
+        try:
+            win.cancel_timer(old)
+        except Exception:
+            pass
+        win._ks_fps_timer = 0
+    t = win._text_time
+    if t.is_valid():
+        t.remove_from_parent()
+"off"
+`,
+	applyOn() {
+		const flag = app.getResource("KuSug/fps_on.flag");
+		try { fs.write(flag, "0"); } catch (e) {}
+		try {
+			app.evalPython(this.PY_ON);
+		} catch (e) {
+			return false;
+		}
+		try {
+			return String(fs.read(flag) || "").trim() === "1";
+		} catch (e) {
+			return false;
+		}
+	},
+	onModuleEvent(args) {
+		if (!stdToggle(this, args, "FPS显示")) return;
+		if (this.enabled) {
+			this.applied = this.applyOn();
+		} else {
+			try { gamePy(this.PY_OFF); } catch (e) {}
+			this.applied = false;
+		}
+	},
+	onTick() {
+		if (!this.enabled || this.applied || !tickEvery(this, 20)) return;
+		this.applied = this.applyOn();
+	}
+};
+
+const killTaunt = {
+	tag: "fun_kill_taunt",
+	enabled: false,
+	attacks: [],
+	lastFire: 0,
+	cdSec: 3,
+	mode: "file",
+	text: "",
+	onModuleEvent(args) {
+		const kcd = clampPos(argPick(args, "kill_taunt_cd"), 1, 60);
+		if (kcd) this.cdSec = kcd;
+		radio2(args, "kill_taunt_mode", "kill_taunt_mode_text", "kill_taunt_mode_file", this, "mode", "text", "file");
+		const tx = argPick(args, "kill_taunt_text");
+		if (typeof tx === "string") this.text = tx;
+		if (!stdToggle(this, args, "击杀嘲讽")) return;
+		if (this.enabled) ensureTauntFile();
+		else this.attacks = [];
+	},
+	onPlayerAttack(playerId, targetId) {
+		if (!this.enabled) return;
+		this.attacks.push({ id: String(targetId), name: entityNameById(targetId), t: Date.now() });
+		if (this.attacks.length > 20) this.attacks.shift();
+	},
+	onEntityBehavior(entityId, behaviorId) {
+		if (!this.enabled || behaviorId !== 3) return;
+		const now = Date.now();
+		if (now - this.lastFire < this.cdSec * 1000) return;
+		const id = String(entityId);
+		for (let i = this.attacks.length - 1; i >= 0; i--) {
+			const a = this.attacks[i];
+			if (now - a.t > 15000) {
+				this.attacks.splice(i, 1);
+				continue;
+			}
+			if (a.id !== id) continue;
+			this.attacks.splice(i, 1);
+			this.lastFire = now;
+			chatSend(tauntFire(a.name || "对手", this.mode, this.text));
+			return;
+		}
+	}
+};
+
+const attackTaunt = {
+	tag: "fun_attack_taunt",
+	enabled: false,
+	cdSec: 8,
+	mode: "file",
+	text: "",
+	lastFire: 0,
+	onModuleEvent(args) {
+		const acd = clampPos(argPick(args, "attack_taunt_cd"), 1, 60);
+		if (acd) this.cdSec = acd;
+		radio2(args, "attack_taunt_mode", "attack_taunt_mode_text", "attack_taunt_mode_file", this, "mode", "text", "file");
+		const tx = argPick(args, "attack_taunt_text");
+		if (typeof tx === "string") this.text = tx;
+		if (!stdToggle(this, args, "攻击嘲讽")) return;
+		if (this.enabled) {
+			this.lastFire = 0;
+			ensureTauntFile();
+		}
+	},
+	onPlayerAttack(playerId, targetId) {
+		if (!this.enabled) return;
+		const now = Date.now();
+		if (now - this.lastFire < this.cdSec * 1000) return;
+		this.lastFire = now;
+		chatSend(tauntFire(entityNameById(targetId) || "对手", this.mode, this.text));
+	}
+};
+
+const autoDrop = {
+	tag: "fun_auto_drop",
+	enabled: false,
+	iterateHotbar: true,
+	mode: "btn",
+	slot: 0,
+	needSelect: false,
+	pyReady: false,
+	pyInstall: "import mod.client.extraClientApi as clientApi\ndef _kusug_pet_drop(slot):\n    try:\n        s = clientApi.GetSystem('Minecraft', 'pet')\n        if not s:\n            if not globals().get('_kusug_pet_drop_noted'):\n                globals()['_kusug_pet_drop_noted'] = True\n                from gui_2d import GUI\n                GUI.ui_mgr.show_toast(u'该服未开启宠物系统，无法使用宠物通道')\n            return\n        d = s.CreateEventData()\n        d['playerId'] = clientApi.GetLocalPlayerId()\n        d['slot'] = slot\n        d['item'] = None\n        s.NotifyToServer('drop_pet_bag_item', d)\n    except Exception as e:\n        if not globals().get('_kusug_pet_drop_noted'):\n            globals()['_kusug_pet_drop_noted'] = True\n            try:\n                from gui_2d import GUI\n                GUI.ui_mgr.show_toast(u'宠物通道丢物失败: %s' % e)\n            except Exception:\n                pass\nglobals()['_kusug_pet_drop'] = _kusug_pet_drop",
+	onModuleEvent(args) {
+		if (typeof args.auto_drop_hotbar !== "undefined") this.iterateHotbar = Boolean(args.auto_drop_hotbar);
+		radio2(args, "auto_drop_mode", "auto_drop_mode_btn", "auto_drop_mode_pet", this, "mode", "btn", "pet");
+		if (!stdToggle(this, args, "自动丢物", false, this.mode === "pet" ? "宠物通道" : "按键模式")) return;
+		if (this.enabled) {
+			this.slot = 0;
+			this.needSelect = this.iterateHotbar && this.mode === "btn";
+		}
+	},
+	log: mkLog("§b[自动丢物] "),
+	petDrop(slot) {
+		if (!this.pyReady) {
+			this.pyReady = true;
+			try { gamePy(this.pyInstall); } catch (e) {}
+		}
+		try {
+			gamePy("globals()['_kusug_pet_drop'](" + slot + ")");
+			return true;
+		} catch (e) {
+			this.log("§c宠物通道调用失败: " + e);
+			return false;
+		}
+	},
+	onTick() {
+		if (!this.enabled) return;
+		let lp;
+		try { lp = player.getLocalPlayer(); } catch (e) { return; }
+		if (this.mode === "pet") {
+			let slot = this.slot;
+			if (!this.iterateHotbar) {
+				try { slot = Number(lp.getSelectItemSlot()) || 0; } catch (e) { slot = 0; }
+			}
+			if (!this.petDrop(slot)) {
+				this.enabled = false;
+				this.log("§c已自动关闭");
+				return;
+			}
+			if (!this.iterateHotbar) return;
+			this.slot++;
+			let petHotbar = 9;
+			try { petHotbar = lp.getHotBarSize(); } catch (e) {}
+			if (this.slot >= petHotbar) this.slot = 0;
+			return;
+		}
+		if (this.iterateHotbar && this.needSelect) {
+			try { lp.setSelectItemSlot(this.slot); } catch (e) {
+				this.log("§c选槽失败: " + e.message);
+				this.enabled = false;
+				return;
+			}
+			this.needSelect = false;
+		}
+		try {
+			input.buttonDown("button.drop");
+			input.buttonUp("button.drop");
+		} catch (e) {
+			this.log("§c丢出失败: " + e.message);
+			this.enabled = false;
+			return;
+		}
+		if (!this.iterateHotbar) return;
+		this.slot++;
+		let hotbar = 9;
+		try { hotbar = lp.getHotBarSize(); } catch (e) {}
+		if (this.slot >= hotbar) this.slot = 0;
+		this.needSelect = true;
+	}
+};
+
+const attackFx = {
+	tag: "fun_attack_fx",
+	enabled: false,
+	sound: true,
+	uid: "",
+	boltSeq: 0,
+	lastSound: 0,
+	lastBolt: 0,
+	boltCd: 150,
+	dbgLines: [],
+	dbgPath: "",
+	dbg(msg) {
+		try {
+			this.dbgLines.push((Date.now() % 1000000) + " " + msg);
+			if (this.dbgLines.length > 30) this.dbgLines.shift();
+			if (!this.dbgPath) this.dbgPath = app.getFilesDir() + "/kusug_afx_debug.log";
+			fs.write(this.dbgPath, this.dbgLines.join("\n"));
+		} catch (e) {}
+	},
+	                                                                                                                                 
+                    
+	pyOn: `
+import mod.client.extraClientApi as clientApi
+
+def _kusug_afx_thunder(x, y, z):
+    try:
+        clientApi.GetEngineCompFactory().CreateCustomAudio(clientApi.GetLevelId()).PlayCustomMusic('ambient.weather.thunder', (x, y, z), 1.0, 1.0, False, None)
+    except Exception:
+        pass
+
+def _kusug_afx_impact(x, y, z, pitch):
+    try:
+        clientApi.GetEngineCompFactory().CreateCustomAudio(clientApi.GetLevelId()).PlayCustomMusic('ambient.weather.lightning.impact', (x, y, z), 4.0, pitch, False, None)
+    except Exception:
+        pass
+`,
+	pyOff: `
+pass
+`,
+	onModuleEvent(args) {
+		if (typeof args.attack_fx_sound !== "undefined") {
+			this.sound = Boolean(args.attack_fx_sound);
+		}
+		if (!stdToggle(this, args, "攻击特效", true, "攻击实体落雷")) return;
+		this.dbg(this.enabled ? "on" : "off");
+		if (!this.enabled) this.uid = "";
+		try { gamePy(this.enabled ? this.pyOn : this.pyOff); } catch (e) {}
+	},
+	onPlayerAttack(playerId, targetId) {
+		if (!this.enabled) return;
+		if (!this.uid) {
+			try { this.uid = String(player.getLocalPlayer().getUniqueID()); } catch (e) { this.uid = "?"; }
+		}
+		if (this.uid !== "?" && String(playerId) !== this.uid) return;
+		const pos = this.victimFootPos(targetId);
+		if (pos) this.strike(pos);
+	},
+	victimFootPos(targetId) {
+		try {
+			const ent = world.getClientWorld().getEntity(targetId);
+			if (!ent) return null;
+			try {
+				const bb = ent.getAABB();
+				if (bb && bb.lower && bb.upper) {
+					return { x: (bb.lower.x + bb.upper.x) / 2, y: bb.lower.y, z: (bb.lower.z + bb.upper.z) / 2 };
+				}
+			} catch (e) {}
+			const p = ent.getPos();
+			if (p) return { x: p.x, y: p.y - 1.62, z: p.z };
+		} catch (e) {}
+		return null;
+	},
+	strike(pos) {
+		const now = Date.now();
+		if (now - this.lastBolt < this.boltCd) { this.dbg("debounce skip (框架攻击事件双发)"); return; }
+		this.lastBolt = now;
+		this.boltSeq = (this.boltSeq + 1) % 100000;
+		this.dbg("bolt build seq=" + this.boltSeq + " pos=" + pos.x.toFixed(1) + " " + pos.y.toFixed(1) + " " + pos.z.toFixed(1));
+		                                                                              
+		let st = "?";
+		try {
+			const p = new packet.Packet();
+			p.writeVarInt(-(200000 + this.boltSeq));                                                     
+			p.writeUnsignedVarInt(450000000 + this.boltSeq);                         
+			p.writeString("minecraft:lightning_bolt");
+			p.writeFloat(pos.x); p.writeFloat(pos.y); p.writeFloat(pos.z);
+			p.writeFloat(0); p.writeFloat(0); p.writeFloat(0);
+			p.writeFloat(0); p.writeFloat(0);
+			p.writeFloat(0);
+			p.writeFloat(0);
+			p.writeUnsignedVarInt(0);
+			p.writeUnsignedVarInt(0);
+			p.writeUnsignedVarInt(0);
+			p.writeUnsignedVarInt(0);
+			p.writeUnsignedVarInt(0);
+			st = String(p.sendToLocal(13));
+		} catch (e) { st = "ex:" + e; }
+		this.dbg("bolt sendToLocal(13)=" + st);
+		if (!this.sound) return;
+		if (now - this.lastSound < 1000) return;
+		this.lastSound = now;
+		try {
+			app.evalPython("_f = globals().get('_kusug_afx_thunder')\nif _f is not None:\n    _f(" + pos.x + ", " + pos.y + ", " + pos.z + ")");
+		} catch (e) { this.dbg("snd ex " + e); }
+		                                                     
+		if (Math.random() < 0.5) {
+			const pitch = (0.9 + Math.random() * 0.2).toFixed(2);
+			try {
+				app.evalPython("_f = globals().get('_kusug_afx_impact')\nif _f is not None:\n    _f(" + pos.x + ", " + pos.y + ", " + pos.z + ", " + pitch + ")");
+			} catch (e) { this.dbg("snd2 ex " + e); }
+		}
+	},
+	onWorldExit() {
+		this.uid = "";
+	}
+};
+
+                                                                     
+                                                                             
+const deathFx = {
+	tag: "fun_death_fx",
+	enabled: false,
+	onlyMob: false,
+	onlyPlayer: false,
+	sound: true,
+	uid: "",
+	watch: [],
+	boltSeq: 0,
+	lastSound: 0,
+	pyOn: `
+import mod.client.extraClientApi as clientApi
+
+def _kusug_afx_thunder(x, y, z):
+    try:
+        clientApi.GetEngineCompFactory().CreateCustomAudio(clientApi.GetLevelId()).PlayCustomMusic('ambient.weather.thunder', (x, y, z), 1.0, 1.0, False, None)
+    except Exception:
+        pass
+
+def _kusug_afx_impact(x, y, z, pitch):
+    try:
+        clientApi.GetEngineCompFactory().CreateCustomAudio(clientApi.GetLevelId()).PlayCustomMusic('ambient.weather.lightning.impact', (x, y, z), 4.0, pitch, False, None)
+    except Exception:
+        pass
+`,
+	pyOff: `
+pass
+`,
+	onModuleEvent(args) {
+		if (typeof args.death_fx_only_mob !== "undefined") this.onlyMob = Boolean(args.death_fx_only_mob);
+		if (typeof args.death_fx_only_player !== "undefined") this.onlyPlayer = Boolean(args.death_fx_only_player);
+		if (typeof args.death_fx_sound !== "undefined") this.sound = Boolean(args.death_fx_sound);
+		if (!stdToggle(this, args, "死亡特效", true, "击杀目标落雷")) return;
+		if (!this.enabled) { this.uid = ""; this.watch = []; }
+		try { gamePy(this.enabled ? this.pyOn : this.pyOff); } catch (e) {}
+	},
+	onPlayerAttack(playerId, targetId) {
+		if (!this.enabled) return;
+		if (!this.uid) {
+			try { this.uid = String(player.getLocalPlayer().getUniqueID()); } catch (e) { this.uid = "?"; }
+		}
+		if (this.uid !== "?" && String(playerId) !== this.uid) return;
+		let ent = null;
+		try { ent = world.getClientWorld().getEntity(targetId); } catch (e) {}
+		if (!ent) return;
+		try { if (ent.isAlive && !ent.isAlive()) return; } catch (e) {}
+		let isPlayer = false;
+		try { isPlayer = ent.getIdentifier().canonicalName === "minecraft:player"; } catch (e) {}
+		const id = String(targetId);
+		for (const w of this.watch) {
+			if (w.id === id) { w.isPlayer = isPlayer; return; }
+		}
+		this.watch.push({ id: id, isPlayer: isPlayer });
+		if (this.watch.length > 20) this.watch.shift();
+	},
+	onTick() {
+		for (let i = this.watch.length - 1; i >= 0; i--) {
+			const w = this.watch[i];
+			let ent = null;
+			try { ent = world.getClientWorld().getEntity(w.id); } catch (e) {}
+			if (!ent) { this.watch.splice(i, 1); continue; }
+			let alive = true;
+			try { if (ent.isAlive) alive = !!ent.isAlive(); } catch (e) {}
+			if (alive) continue;
+			this.watch.splice(i, 1);
+			if (this.onlyPlayer && !w.isPlayer) continue;
+			if (this.onlyMob && w.isPlayer) continue;
+			const pos = this.footPos(ent);
+			if (pos) this.strike(pos);
+		}
+	},
+	footPos(ent) {
+		try {
+			const bb = ent.getAABB();
+			if (bb && bb.lower && bb.upper) {
+				return { x: (bb.lower.x + bb.upper.x) / 2, y: bb.lower.y, z: (bb.lower.z + bb.upper.z) / 2 };
+			}
+		} catch (e) {}
+		try {
+			const p = ent.getPos();
+			if (p) return { x: p.x, y: p.y - 1.62, z: p.z };
+		} catch (e) {}
+		return null;
+	},
+	strike(pos) {
+		this.boltSeq = (this.boltSeq + 1) % 100000;
+		try {
+			const p = new packet.Packet();
+			p.writeVarInt(-(200000 + this.boltSeq));
+			p.writeUnsignedVarInt(450000000 + this.boltSeq);
+			p.writeString("minecraft:lightning_bolt");
+			p.writeFloat(pos.x); p.writeFloat(pos.y); p.writeFloat(pos.z);
+			p.writeFloat(0); p.writeFloat(0); p.writeFloat(0);
+			p.writeFloat(0); p.writeFloat(0);
+			p.writeFloat(0);
+			p.writeFloat(0);
+			p.writeUnsignedVarInt(0);
+			p.writeUnsignedVarInt(0);
+			p.writeUnsignedVarInt(0);
+			p.writeUnsignedVarInt(0);
+			p.writeUnsignedVarInt(0);
+			p.sendToLocal(13);
+		} catch (e) {}
+		if (!this.sound) return;
+		const now = Date.now();
+		if (now - this.lastSound < 1000) return;
+		this.lastSound = now;
+		try {
+			app.evalPython("_f = globals().get('_kusug_afx_thunder')\nif _f is not None:\n    _f(" + pos.x + ", " + pos.y + ", " + pos.z + ")");
+		} catch (e) {}
+		if (Math.random() < 0.5) {
+			const pitch = (0.9 + Math.random() * 0.2).toFixed(2);
+			try {
+				app.evalPython("_f = globals().get('_kusug_afx_impact')\nif _f is not None:\n    _f(" + pos.x + ", " + pos.y + ", " + pos.z + ", " + pitch + ")");
+			} catch (e) {}
+		}
+	},
+	onWorldExit() {
+		this.uid = "";
+		this.watch = [];
+	}
+};
+
+const eatRepeat = {
+	tag: "fun_eat_repeat",
+	enabled: false,
+	count: 10,
+	onModuleEvent(args) {
+		if (args.eat_repeat_count !== undefined) {
+			const n = Math.floor(Number(args.eat_repeat_count));
+			if (!isNaN(n) && n > 0) this.count = n;
+			if (this.enabled) this.setHud();
+		}
+		if (!stdToggle(this, args, "暴饮暴食", true, "tick内重复 " + this.count + " 次")) return;
+		if (this.enabled) this.setHud();
+	},
+	setHud() {
+		const s = "暴饮暴食 x" + this.count;
+		try { this.hud.name = s; } catch (e) {}
+		try { this.hud.shortName = s; } catch (e) {}
+	},
+	onSendServerPacket(id, name, bin) {
+		if (!this.enabled || id !== 27) return;
+		return this.count;
+	}
+};
+
+const chunkDisplay = {
+	tag: "fun_chunk_display",
+	enabled: false,
+	onModuleEvent(args) {
+		if (!stdToggle(this, args, "区块显示", false)) return;
+		try { options.setBoolean(289, { value: this.enabled, defaultValue: false }); } catch (e) {}
+	}
+};
+
+const selfAttack = {
+	tag: "fun_self_attack",
+	enabled: false,
+	cps: 4,
+	acc: 0,
+	onModuleEvent(args) {
+		const sac = clampPos(args.self_attack_cps, 1, 20);
+		if (sac) this.cps = sac;
+		if (!stdToggle(this, args, "自杀光环", false, "以 " + this.cps + " 次/秒攻击自己")) return;
+		this.acc = 0;
+	},
+	onTick() {
+		if (!this.enabled) return;
+		this.acc += this.cps / 20;
+		if (this.acc < 1) return;
+		let lp;
+		try { lp = player.getLocalPlayer(); } catch (e) { return; }
+		if (!lp) return;
+		while (this.acc >= 1) {
+			this.acc -= 1;
+			try { lp.attack(lp); } catch (e) {}
+			try { lp.swing(); } catch (e) {}
+		}
+	}
+};
+
+const ghostBarrier = {
+	tag: "fun_ghost_barrier",
+	enabled: false,
+	target: "self",
+	shape: "box",
+	rx: 1,
+	ry: 2,
+	rz: 1,
+	scale: 1,
+	spin: 0,
+	yOff: 0,
+	xOff: 0,
+	zOff: 0,
+	orient: "v",
+	writing: "row",
+	flipX: false,
+	flipY: false,
+	interval: 2,
+	skipSelf: true,
+	excludeMe: true,
+	text: "",
+	pickIds: {},
+	presetPts: null,
+	textPts: null,
+	textKey: "",
+	boxPts: null,
+	boxKey: "",
+	angle: 0,
+	acc: 0,
+	failCount: 0,
+	cjkFont: null,
+	cjkWarned: false,
+	scanInit: {},
+	MAXPTS: 300,
+	FONT_CHARS: " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_",
+	FONT_HEX: "000000000000005f00000007000700147f147f14242a7f2a12231308646236495522500005030000001c2241000041221c0014083e081408083e080800503000000808080808006060000020100804023e5149453e00427f400042615149462141454b311814127f1027454545393c4a49493001710905033649494936064949291e003636000000563600000814224100141414141400412214080201510906324979413e"
+		+ "7e1111117e7f494949363e414141227f4141221c7f494949417f090909013e4149497a7f0808087f00417f41002040413f017f081422417f404040407f020c027f7f0408107f3e4141413e7f090909063e4151215e7f09192946464949493101017f01013f4040403f1f2040201f3f4038403f631408146307087008076151494543"
+		+ "007f41410002040810200041417f0004020102044040404040",
+	fontMap: null,
+	radioSel(args, group, names) {
+		const v = argPick(args, group);
+		if (typeof v === "string" && v !== "") {
+			const n = v.indexOf(group + "_") === 0 ? v.slice(group.length + 1) : v;
+			return names.indexOf(n) >= 0 ? n : null;
+		}
+
+		for (const k in args) {
+			if (k.indexOf(group + "_") !== 0 || !args[k]) continue;
+			const n = k.slice(group.length + 1);
+			if (names.indexOf(n) >= 0) return n;
+		}
+		return null;
+	},
+	clampInt(v, lo, hi, def) {
+		const n = Number(v);
+		if (isNaN(n)) return def;
+		return Math.max(lo, Math.min(hi, Math.floor(n)));
+	},
+	onModuleEvent(args) {
+		const t = this.radioSel(args, "gb_target", ["self", "all", "pick"]);
+		if (t) {
+			if (this.scanInit.target && t !== this.target) {
+				this.target = t;
+				if (t === "pick") this.openPlayerForm();
+			} else {
+				this.target = t;
+			}
+			this.scanInit.target = true;
+		}
+		const sh = this.radioSel(args, "gb_shape", ["box", "preset", "text"]);
+		if (sh) {
+			if (this.scanInit.shape && sh !== this.shape) {
+				this.shape = sh;
+				if (sh === "preset") this.openPresetForm();
+			} else {
+				this.shape = sh;
+			}
+			this.scanInit.shape = true;
+		}
+		const tx = argPick(args, "gb_text");
+		if (typeof tx === "string") this.text = tx;
+		let v = argPick(args, "gb_range_x");
+		if (typeof v !== "undefined") this.rx = this.clampInt(v, 0, 8, this.rx);
+		v = argPick(args, "gb_range_y");
+		if (typeof v !== "undefined") this.ry = this.clampInt(v, 0, 8, this.ry);
+		v = argPick(args, "gb_range_z");
+		if (typeof v !== "undefined") this.rz = this.clampInt(v, 0, 8, this.rz);
+		v = argPick(args, "gb_scale");
+		if (typeof v !== "undefined") this.scale = this.clampInt(v, 1, 4, this.scale);
+		v = argPick(args, "gb_spin");
+		if (typeof v !== "undefined") this.spin = this.clampInt(v, 0, 36, this.spin);
+		v = argPick(args, "gb_offset_y");
+		if (typeof v !== "undefined") this.yOff = this.clampInt(v, 0, 8, this.yOff);
+		v = argPick(args, "gb_offset_x");
+		if (typeof v !== "undefined") {
+			const nx = Number(v);
+			if (!isNaN(nx)) this.xOff = Math.max(-16, Math.min(16, Math.floor(nx)));
+		}
+		v = argPick(args, "gb_offset_z");
+		if (typeof v !== "undefined") {
+			const nz = Number(v);
+			if (!isNaN(nz)) this.zOff = Math.max(-16, Math.min(16, Math.floor(nz)));
+		}
+		const o = this.radioSel(args, "gb_orient", ["v", "h"]);
+		if (o) this.orient = o;
+		const wm = this.radioSel(args, "gb_writing", ["row", "col"]);
+		if (wm) this.writing = wm;
+		v = argPick(args, "gb_flip_x");
+		if (typeof v !== "undefined") this.flipX = Boolean(v);
+		v = argPick(args, "gb_flip_y");
+		if (typeof v !== "undefined") this.flipY = Boolean(v);
+		v = argPick(args, "gb_interval");
+		if (typeof v !== "undefined") this.interval = this.clampInt(v, 1, 20, this.interval);
+		v = argPick(args, "gb_skip_self");
+		if (typeof v !== "undefined") this.skipSelf = Boolean(v);
+		v = argPick(args, "gb_exclude_me");
+		if (typeof v !== "undefined") this.excludeMe = Boolean(v);
+		if (!stdToggle(this, args, "虚影屏障", false)) return;
+		this.acc = 0;
+		this.angle = 0;
+		this.failCount = 0;
+	},
+	sendOne(id, x, y, z) {
+
+		packet.sendPlayerActionPacket({ id: id, pos: { x: x, y: y, z: z }, action: 17 });
+	},
+	openPlayerForm() {
+		const entries = [];
+		let selfId = "";
+		try { selfId = String(player.getLocalPlayer().getUniqueID()); } catch (e) {}
+		try {
+			const list = world.getClientWorld().getPlayerList();
+			for (const k in list) {
+				const p = list[k];
+				if (!p || !p.id) continue;
+				const id = String(p.id);
+				entries.push({ id: id, name: String(p.name || id) + (id === selfId ? "(自己)" : "") });
+			}
+		} catch (e) {}
+		if (!entries.length) {
+			this.log("§c未发现玩家（需进入局内）");
+			return;
+		}
+		const content = [];
+		for (const e of entries) {
+			content.push({ type: "toggle", text: e.name, default: !!this.pickIds[e.id] });
+		}
+		const self = this;
+		try {
+			gui.addForm(JSON.stringify({ type: "custom_form", title: "选择目标玩家(可多选)", content: content }), function () {
+				const ids = {};
+				for (let i = 0; i < arguments.length && i < entries.length; i++) {
+					if (arguments[i]) ids[entries[i].id] = true;
+				}
+				self.pickIds = ids;
+				self.log("§a已选 " + Object.keys(ids).length + " 名玩家");
+			}, function () {});
+		} catch (e) {
+			this.log("§c表单打开失败: " + e);
+		}
+	},
+	presetDir() {
+		return app.getResource("kusug/虚影");
+	},
+	initPresetDir() {
+		const dir = this.presetDir();
+		if (!fs.exists(dir)) fs.createDirectories(dir);
+	},
+	openPresetForm() {
+		const dir = this.presetDir();
+		try { this.initPresetDir(); } catch (e) {}
+		const names = [];
+		try {
+			const files = fs.list(dir);
+			for (const f of files) {
+				if (f.name && f.name.endsWith(".json")) names.push(f.name);
+			}
+		} catch (e) {}
+		if (!names.length) {
+			this.log("§c预设目录无json文件: " + dir);
+			return;
+		}
+		const self = this;
+		try {
+			gui.addForm(JSON.stringify({
+				type: "custom_form",
+				title: "选择预设文件",
+				content: [{ type: "dropdown", text: "文件(相对坐标json)", options: names }]
+			}), function (idx) {
+				self.loadPreset(dir, names[idx]);
+			}, function () {});
+		} catch (e) {
+			this.log("§c表单打开失败: " + e);
+		}
+	},
+	loadPreset(dir, name) {
+		try {
+			const data = JSON.parse(String(fs.read(dir + "/" + name) || ""));
+			if (!Array.isArray(data) || !data.length) {
+				this.log("§c预设为空或不是坐标数组");
+				return;
+			}
+			const pts = [];
+			for (const p of data) {
+				if (p && typeof p.x !== "undefined") pts.push([Number(p.x) || 0, Number(p.y) || 0, Number(p.z) || 0]);
+				if (pts.length >= 512) break;
+			}
+			if (!pts.length) {
+				this.log("§c预设无有效坐标");
+				return;
+			}
+			this.presetPts = pts;
+			this.log("§a已加载 " + name + "（" + pts.length + "点）");
+		} catch (e) {
+			this.log("§c预设读取失败: " + e);
+		}
+	},
+	initFont() {
+		if (this.fontMap) return;
+		const m = {};
+		for (let i = 0; i < this.FONT_CHARS.length; i++) {
+			const b = [];
+			for (let c = 0; c < 5; c++) b.push(parseInt(this.FONT_HEX.substr(i * 10 + c * 2, 2), 16));
+			m[this.FONT_CHARS.charCodeAt(i)] = b;
+		}
+		this.fontMap = m;
+	},
+	loadCjkFont() {
+		try {
+			const raw = String(fs.read(this.presetDir() + "/font16.hex") || "");
+			const m = {};
+			const lines = raw.split("\n");
+			for (const ln of lines) {
+				if (ln.length < 69) continue;
+				const cp = parseInt(ln.substr(0, 4), 16);
+				if (isNaN(cp)) continue;
+				const rows = [];
+				for (let r = 0; r < 16; r++) rows.push(parseInt(ln.substr(5 + r * 4, 4), 16));
+				m[cp] = rows;
+			}
+			if (!Object.keys(m).length) throw new Error("empty");
+			this.cjkFont = m;
+		} catch (e) {
+			this.cjkFont = null;
+			if (!this.cjkWarned) {
+				this.cjkWarned = true;
+				this.log("§c缺中文字体文件：把 font16.hex 放到 " + this.presetDir() + "/ 目录下");
+			}
+		}
+	},
+	centerY(pts) {
+		if (!pts.length) return;
+		let mn = Infinity, mx = -Infinity;
+		for (const p of pts) {
+			if (p[1] < mn) mn = p[1];
+			if (p[1] > mx) mx = p[1];
+		}
+		const shift = -Math.floor((mn + mx) / 2);
+		for (const p of pts) p[1] += shift;
+	},
+	buildCjkPts(raw) {
+		if (!this.cjkFont) this.loadCjkFont();
+		if (!this.cjkFont) return [];
+		const pts = [];
+		const s = raw.slice(0, 10);
+		const scale = this.scale;
+		const vert = this.writing === "col";
+		const adv = 17;
+		const x0 = -Math.floor((s.length * adv - 1) * scale / 2);
+		const PH = [0xffff].concat(Array(14).fill(0x8001), [0xffff]);
+		for (let i = 0; i < s.length; i++) {
+			const rows = this.cjkFont[s.charCodeAt(i)] || PH;
+			for (let r = 0; r < 16; r++) {
+				const v = rows[r];
+				if (!v) continue;
+				for (let c = 0; c < 16; c++) {
+					if (!((v >> (15 - c)) & 1)) continue;
+					for (let sx = 0; sx < scale; sx++) {
+						for (let sy = 0; sy < scale; sy++) {
+							if (vert) pts.push([(c - 8) * scale + sx, (15 - r) * scale + sy - i * adv * scale]);
+							else pts.push([x0 + (i * adv + c) * scale + sx, (15 - r) * scale + sy]);
+						}
+					}
+				}
+			}
+		}
+		if (vert) this.centerY(pts);
+		return pts;
+	},
+	buildTextPts() {
+		const raw = String(this.text || "");
+		if (!raw) return [];
+		for (let i = 0; i < raw.length; i++) {
+			const c = raw.charCodeAt(i);
+			if (c < 0x20 || c > 0x7e) return this.buildCjkPts(raw);
+		}
+		this.initFont();
+		const pts = [];
+		const s = raw.toUpperCase().slice(0, 16);
+		const scale = this.scale;
+		const vert = this.writing === "col";
+		const x0 = -Math.floor((s.length * 6 - 1) * scale / 2);
+		for (let i = 0; i < s.length; i++) {
+			const g = this.fontMap[s.charCodeAt(i)] || [0x7f, 0x41, 0x41, 0x41, 0x7f];
+			for (let c = 0; c < 5; c++) {
+				for (let r = 0; r < 7; r++) {
+					if (!((g[c] >> r) & 1)) continue;
+					for (let sx = 0; sx < scale; sx++) {
+						for (let sy = 0; sy < scale; sy++) {
+							if (vert) pts.push([(c - 2) * scale + sx, (6 - r) * scale + sy - i * 8 * scale]);
+							else pts.push([x0 + (i * 6 + c) * scale + sx, (6 - r) * scale + sy]);
+						}
+					}
+				}
+			}
+		}
+		if (vert) this.centerY(pts);
+		return pts;
+	},
+	finalizeTextPts(pts2d) {
+		const out = [];
+		const fx = this.flipX, fy = this.flipY, flat = this.orient === "h";
+		for (const p of pts2d) {
+			const u = fx ? -p[0] : p[0];
+			const w = fy ? -p[1] : p[1];
+			out.push(flat ? [u, 0, w] : [u, w, 0]);
+		}
+		return out;
+	},
+	shapePoints() {
+		if (this.shape === "preset") return this.presetPts;
+		if (this.shape === "text") {
+			const key = [this.text, this.scale, this.writing, this.orient, this.flipX, this.flipY].join("|");
+			if (key !== this.textKey) {
+				this.textPts = this.finalizeTextPts(this.buildTextPts());
+				this.textKey = key;
+			}
+			return this.textPts;
+		}
+		const key = this.rx + "|" + this.ry + "|" + this.rz + "|" + (this.skipSelf ? 1 : 0);
+		if (key !== this.boxKey) {
+			const pts = [];
+			for (let dx = -this.rx; dx <= this.rx; dx++) {
+				for (let dy = 0; dy <= this.ry; dy++) {
+					for (let dz = -this.rz; dz <= this.rz; dz++) {
+						if (this.skipSelf && dx === 0 && dz === 0 && dy <= 1) continue;
+						pts.push([dx, dy, dz]);
+					}
+				}
+			}
+			this.boxPts = pts;
+			this.boxKey = key;
+		}
+		return this.boxPts;
+	},
+	onTick() {
+		if (!this.enabled) return;
+		this.acc++;
+		if (this.acc < this.interval) return;
+		this.acc = 0;
+		let lp, uid, lvl;
+		try {
+			lp = player.getLocalPlayer();
+			uid = lp ? String(lp.getUniqueID()) : "";
+			lvl = world.getClientWorld();
+		} catch (e) { return; }
+		if (!lp || !uid || !lvl) return;
+		const positions = [];
+		if (this.target === "self") {
+			let p = null;
+			try { p = lp.getPos(); } catch (e) {}
+			if (p) positions.push(p);
+		} else {
+			const ids = [];
+			if (this.target === "all") {
+				try {
+					const list = lvl.getPlayerList();
+					for (const k in list) {
+						const p = list[k];
+						if (p && p.id) ids.push(String(p.id));
+					}
+				} catch (e) {}
+			} else {
+				for (const id in this.pickIds) ids.push(id);
+			}
+			for (const id of ids) {
+				if (this.target === "all" && this.excludeMe && id === uid) continue;
+				try {
+					const ent = lvl.getEntity(id);
+					const p = ent ? ent.getPos() : null;
+					if (p) positions.push(p);
+				} catch (e) {}
+			}
+		}
+		if (!positions.length) return;
+		let pts = this.shapePoints();
+		if (!pts || !pts.length) return;
+		const isText = this.shape === "text";
+		const cap = Math.max(30, Math.min(isText ? 900 : this.MAXPTS, Math.floor((isText ? 1800 : 900) / positions.length)));
+		if (pts.length > cap) {
+			const stride = pts.length / cap;
+			const sub = [];
+			for (let i = 0; i < cap; i++) sub.push(pts[Math.floor(i * stride)]);
+			pts = sub;
+		}
+		const mul = this.shape === "text" ? 1 : this.scale;
+		const flipNt = this.shape !== "text" && (this.flipX || this.flipY);
+		const rot = this.angle % 360 !== 0;
+		const rad = this.angle * Math.PI / 180;
+		const cos = Math.cos(rad), sin = Math.sin(rad);
+		for (const tp of positions) {
+			const bx = Math.floor(tp.x), by = Math.floor(tp.y), bz = Math.floor(tp.z);
+			for (const pt of pts) {
+				let ox = pt[0] * mul, oy = pt[1] * mul;
+				const oz = pt[2] * mul;
+				if (flipNt) {
+					if (this.flipX) ox = -ox;
+					if (this.flipY) oy = -oy;
+				}
+				let fx = ox, fz = oz;
+				if (rot) {
+					fx = ox * cos - oz * sin;
+					fz = ox * sin + oz * cos;
+				}
+				try {
+					this.sendOne(uid, bx + fx + this.xOff, by + oy + this.yOff, bz + fz + this.zOff);
+					this.failCount = 0;
+				} catch (e) {
+					this.failCount++;
+					if (this.failCount >= 3) {
+						this.enabled = false;
+						this.log("§c连续发包失败，已自动关闭: " + (e && e.message ? e.message : e));
+						return;
+					}
+				}
+			}
+		}
+		this.angle = (this.angle + this.spin) % 360;
+	},
+	log: mkLog("§b[虚影屏障] ")
+};
+
+try { ghostBarrier.initPresetDir(); } catch (e) {}
+
+const miniMap = {
+	tag: "fun_minimap",
+	enabled: false,
+	showBiome: true,
+	zoom: 90,
+	buildPyOn() {
+		return `# -*- coding: utf-8 -*-
+import mod.client.extraClientApi as clientApi
+
+ARROW = 'textures/ui/pet/parterner/minimap_arrow'
+PET_NS = 'neteasePetMod'
+PET_KEY = 'minimpUI'
+SHOW_BIOME = ${this.showBiome ? "True" : "False"}
+ZOOM_LEVEL = ${(this.zoom / 100).toFixed(2)}
+
+def _anchor():
+    import client.ui.uiManager as uiManager
+    return uiManager.instance()
+
+def _dead():
+    try:
+        return getattr(_anchor(), '_kusug_mmap_dead', False)
+    except Exception:
+        return False
+
+def _cfg(key, default):
+    try:
+        c = getattr(_anchor(), '_kusug_mmap_cfg', None)
+        if c and key in c:
+            return c[key]
+    except Exception:
+        pass
+    return default
+
+def _chat(msg):
+    try:
+        import clientlevel
+        m = msg
+        if isinstance(m, unicode):
+            m = m.encode('utf-8')
+        clientlevel.display_message(1, m, '', '')
+    except Exception:
+        pass
+
+_CS = clientApi.GetClientSystemCls()
+
+def _find_pet_node():
+    try:
+        node = clientApi.GetUI(PET_NS, PET_KEY)
+        if node is not None:
+            return node
+    except Exception:
+        pass
+    try:
+        for n in _anchor()._ui_stack:
+            try:
+                if n.get_def_key() == '%s:%s' % (PET_NS, PET_KEY) and not n.is_remove():
+                    return n
+            except Exception:
+                pass
+    except Exception:
+        pass
+    return None
+
+def _flip_open(val):
+    try:
+        petSys = clientApi.GetSystem('Minecraft', 'pet')
+        if petSys is None:
+            return None
+        mgr = getattr(petSys, 'mConvinientFuncMgrClient', None)
+        if mgr is None:
+            return None
+        getter = getattr(mgr, 'GetMiniMapControl', None)
+        if getter is None:
+            return None
+        mmf = getter()
+        if mmf is not None:
+            mmf.mMiniMapOpenState = val
+        return mmf
+    except Exception:
+        return None
+
+def _configure(node):
+    playerId = clientApi.GetLocalPlayerId()
+    try:
+        comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+        dim = comp.GetCurrentDimension()
+        hy = 256
+        if dim == 1:
+            pc = clientApi.GetEngineCompFactory().CreatePos(playerId)
+            fp = pc.GetFootPos()
+            if fp:
+                hy = int(fp[1]) + 1
+        node.SetHighestY(hy)
+    except Exception:
+        pass
+    try:
+        import gui
+        gui.minimap_show_face_icon(node.screen_name, node.component_path + node.GetMapPath(), 0)
+    except Exception:
+        pass
+    try:
+        deco = getattr(node, 'mDecorationArray', {}) or {}
+        if playerId not in deco:
+            node.AddEntityMarker(playerId, ARROW, (7, 7), True)
+    except Exception:
+        pass
+    try:
+        node.SetTouchEnable('/mainPanel/netease_mini_map', False)
+    except Exception:
+        pass
+    try:
+        import gui as _g
+        _g.minimap_zoom(node.screen_name, node.component_path + node.GetMapPath(), float(_cfg('zoom', ZOOM_LEVEL)), 1)
+    except Exception:
+        try:
+            node.ZoomOut(0.1)
+        except Exception:
+            pass
+    try:
+        node.SetVisible('/info_panel/biome_panel', bool(_cfg('biome', SHOW_BIOME)))
+    except Exception:
+        pass
+    node.SetMiniMapVisible(True)
+    try:
+        node.SetVisible('/mainPanel/netease_mini_map', True)
+    except Exception:
+        pass
+
+class _KuSugMiniMap(_CS):
+    def __init__(self, ns, sn):
+        super(_KuSugMiniMap, self).__init__(ns, sn)
+        self.node = None
+        self.tries = 0
+        self.active = True
+        try:
+            _anchor()._kusug_mmap_dead = False
+            _anchor()._kusug_mmap_inst = self
+            _anchor()._kusug_mmap_cfg = {'biome': SHOW_BIOME, 'zoom': ZOOM_LEVEL}
+        except Exception:
+            pass
+        self.game_timer(0.5, self.create_step)
+
+    def game_timer(self, delay, fn):
+        try:
+            game = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+            game.AddTimer(delay, fn)
+            return True
+        except Exception:
+            return False
+
+    def create_step(self):
+        if self.node is not None or not self.active or _dead():
+            return
+        self.tries += 1
+        try:
+            playerId = clientApi.GetLocalPlayerId()
+        except Exception:
+            playerId = None
+        if not playerId or playerId == '-1':
+            if self.tries < 10:
+                self.game_timer(1.0, self.create_step)
+            else:
+                _chat(u'§c[小地图] 拿不到本地玩家，请进局后再开')
+            return
+        pet = _find_pet_node()
+        if pet is not None:
+            self.node = pet
+            _flip_open(True)
+            _configure(pet)
+            _chat(u'§a[小地图] 已接管官方屏')
+            return
+        if self.tries < 10:
+            self.game_timer(1.0, self.create_step)
+        else:
+            _chat(u'§c[小地图] 找不到官方小地图屏')
+        return
+
+    def apply_cfg(self, key, val):
+        if self.node is None:
+            return
+        try:
+            if key == 'biome':
+                self.node.SetVisible('/info_panel/biome_panel', bool(val))
+            elif key == 'zoom':
+                import gui
+                gui.minimap_zoom(self.node.screen_name, self.node.component_path + self.node.GetMapPath(), float(val), 1)
+        except Exception:
+            pass
+
+    def shutdown(self):
+        self.active = False
+        if self.node is not None:
+            try:
+                self.node.SetMiniMapVisible(False)
+            except Exception:
+                pass
+            try:
+                self.node.SetVisible('/mainPanel/netease_mini_map', False)
+            except Exception:
+                pass
+            _flip_open(False)
+            self.node = None
+        try:
+            self.UnListenAllEvents()
+        except Exception:
+            pass
+        try:
+            if getattr(_anchor(), '_kusug_mmap_inst', None) is self:
+                _anchor()._kusug_mmap_inst = None
+        except Exception:
+            pass
+
+_old = None
+try:
+    _old = getattr(_anchor(), '_kusug_mmap_inst', None)
+except Exception:
+    pass
+if _old is None:
+    _old = globals().get('_kusug_mmap')
+if _old is not None:
+    def _kill_old(o=_old):
+        try:
+            o.shutdown()
+        except Exception:
+            pass
+    try:
+        _g0 = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+        _g0.AddTimer(0.01, _kill_old)
+    except Exception:
+        _kill_old()
+_inst = _KuSugMiniMap('KuSugMiniMap', 'KuSugMiniMap')
+globals()['_kusug_mmap'] = _inst`;
+	},
+	pyOff: `# -*- coding: utf-8 -*-
+import mod.client.extraClientApi as clientApi
+
+def _anchor():
+    import client.ui.uiManager as uiManager
+    return uiManager.instance()
+
+try:
+    _anchor()._kusug_mmap_dead = True
+except Exception:
+    pass
+
+def _do_off():
+    _inst = None
+    try:
+        _inst = getattr(_anchor(), '_kusug_mmap_inst', None)
+    except Exception:
+        pass
+    if _inst is None:
+        _inst = globals().get('_kusug_mmap')
+    if _inst is not None:
+        try:
+            _inst.shutdown()
+        except Exception:
+            pass
+    _old2 = globals().get('_mmap_inst')
+    if _old2 is not None and _old2 is not _inst:
+        try:
+            _old2.shutdown()
+        except Exception:
+            pass
+        globals()['_mmap_inst'] = None
+    try:
+        _n = clientApi.GetUI('neteasePetMod', 'minimpUI')
+        if _n is not None:
+            _n.SetMiniMapVisible(False)
+            try:
+                _n.SetVisible('/mainPanel/netease_mini_map', False)
+            except Exception:
+                pass
+    except Exception:
+        pass
+    try:
+        _ps = clientApi.GetSystem('Minecraft', 'pet')
+        _mgr = getattr(_ps, 'mConvinientFuncMgrClient', None)
+        if _mgr is not None:
+            _mmf = _mgr.GetMiniMapControl()
+            if _mmf is not None:
+                _mmf.mMiniMapOpenState = False
+    except Exception:
+        pass
+    try:
+        _anchor()._kusug_mmap_inst = None
+    except Exception:
+        pass
+    globals()['_kusug_mmap'] = None
+
+try:
+    _game = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+    _game.AddTimer(0.01, _do_off)
+except Exception:
+    _do_off()`,
+	onModuleEvent(args) {
+		if (typeof args.minimap_show_biome !== "undefined") {
+			this.showBiome = Boolean(args.minimap_show_biome);
+			if (this.enabled) this.apply("biome", this.showBiome ? "True" : "False");
+		}
+		if (typeof args.minimap_zoom !== "undefined") {
+			const z = clampPos(args.minimap_zoom, 50, 300);
+			if (z) this.zoom = z;
+			if (this.enabled) this.apply("zoom", (this.zoom / 100).toFixed(2));
+		}
+		if (!stdToggle(this, args, "小地图", false)) return;
+		try { gamePy(this.enabled ? this.buildPyOn() : this.pyOff); } catch (e) {}
+	},
+	apply(key, pyVal) {
+		const code = [
+			"import mod.client.extraClientApi as clientApi",
+			"def _anchor():",
+			"    import client.ui.uiManager as uiManager",
+			"    return uiManager.instance()",
+			"try:",
+			"    _c = getattr(_anchor(), '_kusug_mmap_cfg', None)",
+			"    if _c is None:",
+			"        _c = {}",
+			"        _anchor()._kusug_mmap_cfg = _c",
+			"    _c['" + key + "'] = " + pyVal,
+			"except Exception:",
+			"    pass",
+			"def _do():",
+			"    _i = getattr(_anchor(), '_kusug_mmap_inst', None)",
+			"    if _i is not None:",
+			"        try:",
+			"            _i.apply_cfg('" + key + "', " + pyVal + ")",
+			"        except Exception:",
+			"            pass",
+			"try:",
+			"    _g = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())",
+			"    _g.AddTimer(0.01, _do)",
+			"except Exception:",
+			"    _do()"
+		].join("\n");
+		try { gamePy(code); } catch (e) {}
+	}
+};
+
+const batchCmd = {
+	tag: "fun_batch_cmd",
+	enabled: false,
+	loop: false,
+	sync: false,
+	interval: 1,
+	source: "file",
+	execMode: "cmd",
+	inputText: "",
+	commands: [],
+	index: 0,
+	tickCount: 0,
+	cmdFile: resDirPath + "/KuSug/CMD.txt",
+	parseLines(raw) {
+		const cmds = [];
+		for (const line of String(raw || "").split(/\r?\n/)) {
+			const t = line.trim();
+			if (!t || t.charAt(0) === "#") continue;
+			cmds.push(t.charAt(0) === "/" ? t : "/" + t);
+		}
+		return cmds;
+	},
+	loadFile() {
+		let missing = false;
+		try { missing = !fs.exists(this.cmdFile); } catch (e) {}
+		if (missing) {
+			try { fs.write(this.cmdFile, "/say 你好\n/say 这是批量命令示例\n# 井号开头是注释，会被跳过\n"); } catch (e) {}
+			app.showToast("已创建 KuSug/CMD.txt 示例，请编辑后使用");
+			return null;
+		}
+		let raw = "";
+		try { raw = String(fs.read(this.cmdFile) || ""); } catch (e) {}
+		const cmds = this.parseLines(raw);
+		if (!cmds.length) {
+			app.showToast("CMD.txt 为空");
+			return null;
+		}
+		return cmds;
+	},
+	loadInput() {
+		const cmds = this.parseLines(this.inputText);
+		if (!cmds.length) {
+			app.showToast("请在输入框填写命令，每行一条，#开头为注释");
+			return null;
+		}
+		return cmds;
+	},
+	exec(cmd) {
+		if (this.execMode === "rpc") {
+			this.rpcExec(cmd);
+			return;
+		}
+		try { packet.sendCommandRequestPacket({ command: cmd, version: 88 }); } catch (e) {}
+	},
+	rpcExec(cmd) {
+		let selfId = "";
+		try { selfId = String(player.getLocalPlayer().getUniqueID()); } catch (e) {}
+		if (!selfId) return;
+		try {
+			packet.sendPyRpcPacket(98247598, hex2buf("93c40172920cc42d4d696e6563726166743a6169436f6d6d616e643a4578656375746555736566756c436f6d6d616e644576656e74c0"));
+			packet.sendPyRpcPacket(98247598, hex2buf("93c40163920c82c408706c617965724964" + this.binSeg(selfId) + "c407636f6d6d616e64" + this.binSeg(cmd) + "c0"));
+		} catch (e) {}
+	},
+	binSeg(str) {
+		const hex = this.utf8hex(str);
+		const n = hex.length / 2;
+		if (n <= 255) return "c4" + n.toString(16).padStart(2, "0") + hex;
+		return "c5" + n.toString(16).padStart(4, "0") + hex;
+	},
+	utf8hex(str) {
+		const bytes = encodeUtf8(str);
+		let hex = "";
+		for (let i = 0; i < bytes.length; i++) hex += bytes[i].toString(16).padStart(2, "0");
+		return hex;
+	},
+	onModuleEvent(args) {
+		if (typeof args.batch_cmd_loop !== "undefined") this.loop = Boolean(args.batch_cmd_loop);
+		if (typeof args.batch_cmd_sync !== "undefined") this.sync = Boolean(args.batch_cmd_sync);
+		const bci = clampPos(args.batch_cmd_interval, 1, 60);
+		if (bci) this.interval = bci;
+		if (typeof args.batch_cmd_text === "string") this.inputText = args.batch_cmd_text;
+		radio2(args, "batch_cmd_source", "batch_cmd_src_file", "batch_cmd_src_input", this, "source", "file", "input");
+		radio2(args, "batch_cmd_exec", "batch_cmd_exec_cmd", "batch_cmd_exec_rpc", this, "execMode", "cmd", "rpc");
+		if (args.fun !== this.tag || !("value" in args)) return;
+		const v = Boolean(args.value);
+		if (v === this.enabled) return;
+		if (v) {
+			const cmds = this.source === "input" ? this.loadInput() : this.loadFile();
+			if (!cmds) return;
+			this.commands = cmds;
+			this.index = 0;
+			this.tickCount = 0;
+			this.enabled = true;
+		} else {
+			this.enabled = false;
+		}
+		ensureHud(this, this.tag, "批量命令");
+		this.hud.enabled = this.enabled;
+		notifyToggle("批量命令", this.enabled, this.enabled ?
+			(this.source === "input" ? "输入框" : "CMD.txt") + " 共 " + this.commands.length + " 条 · " + (this.execMode === "rpc" ? "PyRPC通道" : "原版命令") + " · " + (this.sync ? "同步" : "顺序") + " 间隔 " + this.interval + "tick" + (this.loop ? " · 循环" : "") : "");
+	},
+	onTick() {
+		if (!this.enabled || !this.commands.length || !tickEvery(this, this.interval)) return;
+		if (this.sync) {
+			for (const cmd of this.commands) this.exec(cmd);
+			if (!this.loop) this.stop();
+			return;
+		}
+		this.exec(this.commands[this.index]);
+		this.index++;
+		if (this.index >= this.commands.length) {
+			if (this.loop) {
+				this.index = 0;
+			} else {
+				this.stop();
+			}
+		}
+	},
+	stop() {
+		this.enabled = false;
+		if (this.hud) this.hud.enabled = false;
+	}
+};
+
+const bypassServer = {
+	tag: "fun_bypass_server",
+	serverName: "",
+	password: "",
+	addr: "",
+	log: mkLog("§b§l[KuSug·服务器直连]§r§f "),
+	buildPy(ip, port) {
+		const j = function (v) { return JSON.stringify(JSON.stringify(v)); };
+		return `# -*- coding: utf-8 -*-
+import json
+from gui_2d import GUI
+from gui_2d.ui_service.ui_request import request
+import mc_game_ctrl
+import realms_main
+from gui_2d.consts import InGameType
+from gui_2d.utils import util
+from gui_2d.utils.PrePlayWorld import pre_play_world
+
+SERVER_NAME = json.loads(${j(this.serverName)})
+PASSWORD = json.loads(${j(this.password)})
+CUSTOM_IP = json.loads(${j(ip)})
+CUSTOM_PORT = ${port}
+
+def _toast(msg):
+    try:
+        GUI.ui_mgr.show_toast(msg)
+    except Exception:
+        pass
+
+class _KuSugServerJoin(object):
+    def __init__(self):
+        self.server_id = ""
+        self.server_name = SERVER_NAME
+        self.server_entity = None
+        self.final_ip = CUSTOM_IP
+        self.final_port = CUSTOM_PORT
+        self.game_info = None
+
+    def start(self):
+        try:
+            request({
+                'url': '/rental-server/query/search-by-name',
+                'hostName': 'WebServerUrl',
+                'method': 'POST',
+                'params': {'server_name': SERVER_NAME, 'offset': 0}
+            }, self.on_search)
+        except Exception:
+            _toast(u'服务器直连: 请求发送失败')
+
+    def on_search(self, response):
+        try:
+            entity = getattr(response, 'entity', None)
+            if entity and len(entity) > 0:
+                self.server_entity = entity[0]
+                self.server_id = self.server_entity.get('entity_id')
+                self.server_name = self.server_entity.get('server_name', SERVER_NAME)
+                request({
+                    'url': '/rental-server-world-enter/get',
+                    'hostName': 'WebServerUrl',
+                    'method': 'POST',
+                    'params': {'server_id': self.server_id, 'pwd': PASSWORD}
+                }, self.on_enter)
+            else:
+                _toast(u'服务器直连: 未找到服务器')
+        except Exception:
+            _toast(u'服务器直连: 查询异常')
+
+    def on_enter(self, response):
+        try:
+            if getattr(response, 'code', -1) == 0 and getattr(response, 'entity', None):
+                res_ip = response.entity.get('mcserver_host', '')
+                res_port = response.entity.get('mcserver_port', 0)
+                if res_ip:
+                    self.final_ip = res_ip
+                    self.final_port = res_port
+            self.game_info = {
+                'gameType': InGameType.RentalGame,
+                'id': self.server_id,
+                'room_name': self.server_name,
+                'min_level': self.server_entity.get('min_level', 0),
+                'ownerId': self.server_entity.get('owner_id', ''),
+                'ownerName': self.server_entity.get('ownerName', ''),
+                'res_name': self.server_name
+            }
+            pre_play_world({
+                'warningFor4G': True,
+                'gameType': InGameType.RentalGame,
+                'item_id': self.server_id,
+                'room_name': self.server_name
+            }, self.on_pre_check)
+        except Exception:
+            _toast(u'服务器直连: 进入失败')
+
+    def on_pre_check(self, is_success, msg=''):
+        if not is_success:
+            _toast(msg or u'服务器直连: 进入游戏失败')
+            return
+        try:
+            mgr = getattr(GUI.game_data_mgr, 'lobby_game_mgr', None)
+            if mgr is not None:
+                mgr.leave_main_city(callback=self.enter_game)
+            else:
+                self.enter_game()
+        except Exception:
+            self.enter_game()
+
+    def enter_game(self):
+        try:
+            mc_game_ctrl.instance.setCurGameInfo(self.game_info)
+            util.add_play_game_record(self.game_info)
+            GUI.game_mgr.game_type = InGameType.RentalGame
+            realms_main.join_rental_game(
+                {'BGP': self.final_ip, 'ISP': self.final_ip},
+                {'BGP': self.final_port, 'ISP': self.final_port},
+                self.server_id,
+                self.server_name
+            )
+        except Exception:
+            _toast(u'服务器直连: 连接失败')
+
+_KuSugServerJoin().start()
+`;
+	},
+	onModuleEvent(args) {
+		if (typeof args.bypass_server_name === "string") this.serverName = args.bypass_server_name.trim();
+		if (typeof args.bypass_server_pwd === "string") this.password = args.bypass_server_pwd.trim();
+		if (typeof args.bypass_server_addr === "string") this.addr = args.bypass_server_addr.trim();
+		if (args.fun !== this.tag || !("value" in args)) return;
+		if (!Boolean(args.value)) return;
+		if (!this.serverName) {
+			app.showToast("请先填写服务器号");
+			return;
+		}
+		const m = /^([^\s:]+):(\d{1,5})$/.exec(this.addr);
+		if (!m) {
+			app.showToast("请正确填写IP和端口，例如 127.0.0.1:19132");
+			return;
+		}
+		const ip = m[1];
+		const port = parseInt(m[2], 10);
+		if (!(port > 0 && port <= 65535)) {
+			app.showToast("端口范围 1-65535");
+			return;
+		}
+		try {
+			gamePy(this.buildPy(ip, port));
+			this.log("§a已执行 §7" + this.serverName + " → " + ip + ":" + port);
+		} catch (e) {
+			this.log("§c执行失败: " + e);
+		}
+	}
+};
+
+const gyroView = {
+	tag: "fun_gyro_view",
+	enabled: false,
+	sens: 1.0,
+	log: mkLog("§b§l[KuSug·陀螺仪]§r§f "),
+	pyOn: `import mod.client.extraClientApi as clientApi
+
+_CS = clientApi.GetClientSystemCls()
+
+class _KuSugGyro(_CS):
+    def __init__(self, ns, sn):
+        super(_KuSugGyro, self).__init__(ns, sn)
+        self.rotComp = None
+        self.lastTs = None
+        self.sensorOn = False
+        self.dead = False
+        self.retries = 0
+        self.pendYaw = 0.0
+        self.pendPitch = 0.0
+        ns2 = clientApi.GetEngineNamespace()
+        sn2 = clientApi.GetEngineSystemName()
+        self.ListenForEvent(ns2, sn2, "GyroSensorChangedClientEvent", self, self.on_gyro)
+        self.ListenForEvent(ns2, sn2, "GameRenderTickEvent", self, self.on_render_tick)
+        self.try_enable_sensor()
+        self.try_get_comp()
+
+    def try_enable_sensor(self):
+        if self.dead or self.sensorOn:
+            return
+        try:
+            import sensor
+            if sensor.toggleGyroSensor(True):
+                sensor.setGyroSensorReportRate(60)
+                self.sensorOn = True
+                self.try_get_comp()
+                return
+        except Exception:
+            pass
+        self.schedule_retry()
+
+    def schedule_retry(self):
+        if self.dead or self.retries >= 40:
+            return
+        self.retries += 1
+        try:
+            game = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+            game.AddTimer(0.5, self.retry_sensor)
+        except Exception:
+            pass
+
+    def retry_sensor(self):
+        if self.dead or self.sensorOn:
+            return
+        self.try_enable_sensor()
+
+    def try_get_comp(self):
+        if self.rotComp is not None:
+            return True
+        try:
+            pid = clientApi.GetLocalPlayerId()
+            if pid and pid != '-1':
+                self.rotComp = clientApi.GetEngineCompFactory().CreateRot(pid)
+        except Exception:
+            pass
+        return self.rotComp is not None
+
+    def shutdown(self):
+        self.dead = True
+        try:
+            self.UnListenAllEvents()
+        except Exception:
+            pass
+        try:
+            import sensor
+            sensor.toggleGyroSensor(False)
+        except Exception:
+            pass
+
+    def on_gyro(self, args):
+        ts = args.get("timestamp")
+        if ts is None:
+            return
+        if self.lastTs is None:
+            self.lastTs = ts
+            return
+        dt = ts - self.lastTs
+        self.lastTs = ts
+        if dt <= 0.0 or dt > 0.5:
+            return
+        k = 57.29577951308232 * dt * globals().get("_kusug_gyro_sens", 1.0)
+        xd = args.get("xDiff") or 0.0
+        yd = args.get("yDiff") or 0.0
+        o = args.get("orientation", 1)
+        if o == 1:
+            dyaw = -xd
+            dpitch = yd
+        elif o == 3:
+            dyaw = xd
+            dpitch = -yd
+        elif o == 2:
+            dyaw = yd
+            dpitch = xd
+        else:
+            dyaw = -yd
+            dpitch = -xd
+        self.pendYaw += dyaw * k
+        self.pendPitch += dpitch * k
+        if self.pendYaw > 45.0:
+            self.pendYaw = 45.0
+        elif self.pendYaw < -45.0:
+            self.pendYaw = -45.0
+        if self.pendPitch > 45.0:
+            self.pendPitch = 45.0
+        elif self.pendPitch < -45.0:
+            self.pendPitch = -45.0
+
+    def on_render_tick(self, args):
+        mag = abs(self.pendYaw) + abs(self.pendPitch)
+        if mag < 1e-9:
+            return
+        if self.rotComp is None:
+            if not self.try_get_comp():
+                self.pendYaw = 0.0
+                self.pendPitch = 0.0
+                return
+        if mag < 0.05:
+            dyaw = self.pendYaw
+            dpitch = self.pendPitch
+        else:
+            a = 0.7 + 0.3 * min(1.0, mag / 30.0)
+            dyaw = self.pendYaw * a
+            dpitch = self.pendPitch * a
+        try:
+            rot = self.rotComp.GetRot()
+            if not rot:
+                return
+            pitch = rot[0] + dpitch
+            yaw = (rot[1] + dyaw) % 360.0
+            if pitch > 89.0:
+                pitch = 89.0
+            elif pitch < -89.0:
+                pitch = -89.0
+            self.rotComp.SetRot((pitch, yaw))
+            self.pendYaw -= dyaw
+            self.pendPitch -= dpitch
+        except Exception:
+            pass
+
+_old = globals().get("_kusug_gyro")
+if _old is not None:
+    try:
+        _old.shutdown()
+    except Exception:
+        pass
+globals()["_kusug_gyro"] = _KuSugGyro("KuSugGyro", "KuSugGyroSystem")`,
+	pyOff: `_old = globals().get("_kusug_gyro")
+if _old is not None:
+    try:
+        _old.shutdown()
+    except Exception:
+        pass
+globals()["_kusug_gyro"] = None`,
+	onModuleEvent(args) {
+		if (args.gyro_sens !== undefined) {
+			const p = Number(args.gyro_sens);
+			if (!isNaN(p) && p > 0) {
+				this.sens = Math.max(0.1, Math.min(10, p / 100));
+				if (this.enabled) this.setSensFlag();
+			}
+		}
+		if (!stdToggle(this, args, "陀螺仪视角", false, "灵敏度 " + this.sens)) return;
+		try {
+			gamePy(this.enabled ? this.pyOn : this.pyOff);
+		} catch (e) {
+			this.log("§c调用异常: " + e);
+		}
+		if (this.enabled) this.setSensFlag();
+	},
+	setSensFlag() {
+		try { gamePy("globals()[\"_kusug_gyro_sens\"] = " + this.sens); } catch (e) {}
+	}
+};
+
+const bigGyro = {
+	tag: "fun_big_gyro",
+	enabled: false,
+	running: false,
+	speed: 720,
+	head: true,
+	headSpeed: 360,
+	headPhase: 0,
+	yaw: 0,
+	lastMs: 0,
+	pyUp: false,
+	pyOn: `import mod.client.extraClientApi as clientApi
+import time
+
+try:
+    import _camera
+    _HAS_CAM = True
+except Exception:
+    _HAS_CAM = False
+
+_CS = clientApi.GetClientSystemCls()
+
+class _KuSugSpin(_CS):
+    def __init__(self, ns, sn):
+        super(_KuSugSpin, self).__init__(ns, sn)
+        self.rotComp = None
+        self.last = None
+        self.yaw = 0.0
+        self.phase = 0.0
+        ns2 = clientApi.GetEngineNamespace()
+        sn2 = clientApi.GetEngineSystemName()
+        self.ListenForEvent(ns2, sn2, 'GameRenderTickEvent', self, self.on_frame)
+
+    def on_frame(self, args):
+        if not globals().get('_kusug_spin_on'):
+            self.last = None
+            return
+        if globals().get('_kusug_spin_reset'):
+            globals()['_kusug_spin_reset'] = False
+            self.yaw = 0.0
+            self.phase = 0.0
+            self.last = None
+        if _HAS_CAM:
+            try:
+                _camera.DepartCamera()
+            except Exception:
+                pass
+        now = time.time()
+        if self.last is None:
+            self.last = now
+            return
+        dt = now - self.last
+        self.last = now
+        if dt <= 0 or dt > 0.25:
+            dt = 0.033
+        self.yaw = (self.yaw + globals().get('_kusug_spin_speed', 720) * dt) % 360.0
+        if globals().get('_kusug_spin_head', True):
+            self.phase = (self.phase + globals().get('_kusug_spin_head_speed', 360) * dt) % 360.0
+            pitch = self.phase
+        else:
+            pitch = 180.0
+        comp = self.rotComp
+        if comp is None:
+            try:
+                pid = clientApi.GetLocalPlayerId()
+                if pid and pid != '-1':
+                    comp = self.rotComp = clientApi.GetEngineCompFactory().CreateRot(pid)
+            except Exception:
+                return
+            if comp is None:
+                return
+        try:
+            comp.SetRot((pitch, self.yaw))
+        except Exception:
+            pass
+
+_old = globals().get('_kusug_spin_sys')
+if _old is not None:
+    try:
+        _old.UnListenAllEvents()
+    except Exception:
+        pass
+globals()['_kusug_spin_sys'] = _KuSugSpin('KuSugSpin', 'KuSugSpinSystem')`,
+	onModuleEvent(args) {
+		let dirty = false;
+		if (args.big_gyro_speed !== undefined) {
+			const p = Number(args.big_gyro_speed);
+			if (!isNaN(p) && p > 0) {
+				this.speed = Math.max(60, Math.min(3000, Math.floor(p)));
+				dirty = true;
+			}
+		}
+		if (typeof args.big_gyro_head !== "undefined") {
+			this.head = Boolean(args.big_gyro_head);
+			dirty = true;
+		}
+		if (args.big_gyro_head_speed !== undefined) {
+			const p = Number(args.big_gyro_head_speed);
+			if (!isNaN(p) && p > 0) {
+				this.headSpeed = Math.max(30, Math.min(1800, Math.floor(p)));
+				dirty = true;
+			}
+		}
+		if (!stdToggle(this, args, "大陀螺", false)) {
+			if (dirty) this.pushPy();
+			return;
+		}
+		if (this.enabled) {
+			this.tryStart();
+		} else {
+			this.stopLoop(true);
+		}
+	},
+	pushPy() {
+		const on = this.running && this.enabled ? "True" : "False";
+		try { gamePy("globals()['_kusug_spin_on'] = " + on); } catch (e) {}
+		try { gamePy("globals()['_kusug_spin_speed'] = " + this.speed); } catch (e) {}
+		try { gamePy("globals()['_kusug_spin_head'] = " + (this.head ? "True" : "False")); } catch (e) {}
+		try { gamePy("globals()['_kusug_spin_head_speed'] = " + this.headSpeed); } catch (e) {}
+	},
+	tryStart() {
+		if (this.running) return;
+		let lp;
+		try { lp = player.getLocalPlayer(); } catch (e) { return; }
+		if (!lp) return;
+		try { camera.departCamera(); } catch (e) {}
+		this.running = true;
+		this.yaw = 0;
+		this.headPhase = 0;
+		this.lastMs = Date.now();
+		if (!this.pyUp) {
+			try {
+				gamePy(this.pyOn);
+				this.pyUp = true;
+			} catch (e) {
+				this.pyUp = false;
+			}
+		}
+		if (this.pyUp) {
+			try { gamePy("globals()['_kusug_spin_reset'] = True"); } catch (e) {}
+		}
+		this.pushPy();
+	},
+	onTick() {
+		if (this.enabled && !this.running) this.tryStart();
+		if (!this.running) return;
+		const now = Date.now();
+		let dt = (now - this.lastMs) / 1000;
+		this.lastMs = now;
+		if (dt <= 0 || dt > 0.25) dt = 0.033;
+		this.yaw = (this.yaw + this.speed * dt) % 360;
+		let pitch = 180;
+		if (this.head) {
+			this.headPhase = (this.headPhase + this.headSpeed * dt) % 360;
+			pitch = this.headPhase;
+		}
+		let lp;
+		try { lp = player.getLocalPlayer(); } catch (e) { lp = null; }
+		if (!lp) return;
+
+		try { camera.departCamera(); } catch (e) {}
+		if (this.pyUp) return;
+		try { if (typeof lp.setRotation === "function") lp.setRotation({ yaw: this.yaw, pitch: pitch }); } catch (e) {}
+		try { if (typeof lp.setYBodyRotation === "function") lp.setYBodyRotation(this.yaw); } catch (e) {}
+		try { if (typeof lp.setYHeadRotation === "function") lp.setYHeadRotation(this.yaw); } catch (e) {}
+	},
+	stopLoop(restore) {
+		this.running = false;
+		this.pushPy();
+		if (!restore) return;
+		let r = null;
+		try { r = camera.getRotation(); } catch (e) {}
+		try {
+			const lp = player.getLocalPlayer();
+			if (lp && typeof lp.setRotation === "function" && r && isFinite(r.yaw)) {
+				lp.setRotation({ yaw: r.yaw, pitch: isFinite(r.pitch) ? r.pitch : 0 });
+			}
+		} catch (e) {}
+		try { camera.resetCamera(); } catch (e) {}
+	},
+	onWorldExit() {
+		this.stopLoop(false);
+		this.pyUp = false;
+		try { camera.resetCamera(); } catch (e) {}
+	}
+};
+
+const customCamera = {
+	tag: "fun_custom_camera",
+	enabled: false,
+	offX: 0,
+	offY: 0,
+	offZ: 0,
+	pyUp: false,
+	tries: 0,
+	pyOn: `import mod.client.extraClientApi as clientApi
+
+try:
+    import _camera
+    _CAM_HAS = True
+except Exception:
+    _CAM_HAS = False
+
+_CS = clientApi.GetClientSystemCls()
+
+class _KuSugCam(_CS):
+    def __init__(self, ns, sn):
+        super(_KuSugCam, self).__init__(ns, sn)
+        self.frame = 0
+        ns2 = clientApi.GetEngineNamespace()
+        sn2 = clientApi.GetEngineSystemName()
+        self.ListenForEvent(ns2, sn2, 'GameRenderTickEvent', self, self.on_frame)
+
+    def on_frame(self, args):
+        if not _CAM_HAS:
+            return
+        self.frame += 1
+        if not globals().get('_kusug_cam_on'):
+            if globals().get('_kusug_cam_reset'):
+                globals()['_kusug_cam_reset'] = False
+                try:
+                    _camera.SetCameraOffset((0, 0, 0))
+                except Exception:
+                    pass
+            return
+        if not globals().get('_kusug_cam_dirty') and self.frame % 20:
+            return
+        globals()['_kusug_cam_dirty'] = False
+        self.frame = 0
+        off = globals().get('_kusug_cam_off')
+        if off:
+            try:
+                _camera.SetCameraOffset(off)
+            except Exception:
+                pass
+
+_old = globals().get('_kusug_cam_sys')
+if _old is not None:
+    try:
+        _old.UnListenAllEvents()
+    except Exception:
+        pass
+globals()['_kusug_cam_sys'] = _KuSugCam('KuSugCam', 'KuSugCamSystem')`,
+	onModuleEvent(args) {
+		let dirty = false;
+		if (args.cam_x !== undefined) {
+			const n = Number(args.cam_x);
+			if (!isNaN(n)) {
+				const v = Math.max(-50, Math.min(50, Math.floor(n)));
+				if (v !== this.offX) { this.offX = v; dirty = true; }
+			}
+		}
+		if (args.cam_y !== undefined) {
+			const n = Number(args.cam_y);
+			if (!isNaN(n)) {
+				const v = Math.max(-50, Math.min(50, Math.floor(n)));
+				if (v !== this.offY) { this.offY = v; dirty = true; }
+			}
+		}
+		if (args.cam_z !== undefined) {
+			const n = Number(args.cam_z);
+			if (!isNaN(n)) {
+				const v = Math.max(-50, Math.min(50, Math.floor(n)));
+				if (v !== this.offZ) { this.offZ = v; dirty = true; }
+			}
+		}
+		if (!stdToggle(this, args, "自定义相机", false)) {
+			if (dirty) this.pushPy();
+			return;
+		}
+		if (this.enabled) {
+			this.tries = 0;
+			this.ensurePy();
+		}
+		this.pushPy();
+	},
+	ensurePy() {
+		if (this.pyUp || this.tries >= 100) return;
+		this.tries++;
+		try {
+			gamePy(this.pyOn);
+			this.pyUp = true;
+		} catch (e) {
+			this.pyUp = false;
+		}
+	},
+	pushPy() {
+		const on = this.enabled ? "True" : "False";
+		const rst = this.enabled ? "False" : "True";
+		try {
+			gamePy("globals()['_kusug_cam_on'] = " + on + "\nglobals()['_kusug_cam_reset'] = " + rst + "\nglobals()['_kusug_cam_dirty'] = True\nglobals()['_kusug_cam_off'] = (" + (this.offX / 10) + "," + (this.offY / 10) + "," + (this.offZ / 10) + ")");
+		} catch (e) {}
+	},
+	onTick() {
+		if (!this.enabled) return;
+		if (!this.pyUp) {
+			this.ensurePy();
+			if (this.pyUp) this.pushPy();
+		}
+	},
+	onWorldExit() {
+		this.pyUp = false;
+		this.tries = 0;
+	}
+};
+
+const motionBlur = {
+	tag: "fun_motion_blur",
+	enabled: false,
+	shown: true,
+	intensity: 60,
+	soDst: kuNative.soDst,
+	loaded: false,
+	hooked: false,
+	lastPos: null,
+	lastRot: null,
+	cur: 0,
+	sent: -1,
+	loadSo() {
+		const err = kuNative.load();
+		if (err) return err;
+		this.loaded = true;
+		this.hooked = true;
+		return "";
+	},
+	setPermil(v) {
+		try { kuNative.call(5, v + 1); } catch (e) {}
+	},
+	unhook() {
+		this.setPermil(0);
+		this.hooked = false;
+	},
+	onModuleEvent(args) {
+		const mbi = clampPos(args.motion_blur_intensity, 10, 100);
+		if (mbi) this.intensity = mbi;
+		if (args.fun !== this.tag || !("value" in args)) return;
+		const v = Boolean(args.value);
+		if (v === this.enabled) return;
+		if (v) {
+			let err = "";
+			if (!this.loaded || !this.hooked) err = this.loadSo();
+			if (err) {
+				try { app.showToast("" + err); } catch (e) {}
+				return;
+			}
+			this.lastPos = null;
+			this.lastRot = null;
+			this.cur = 0;
+			this.sent = -1;
+			this.enabled = true;
+			this.shown = true;
+		} else {
+			this.enabled = false;
+			if (this.hooked) this.unhook();
+		}
+		ensureHud(this, this.tag, "动态模糊");
+		this.hud.enabled = this.enabled;
+		notifyToggle("动态模糊", this.enabled, this.enabled ? "强度 " + this.intensity + "%" : "");
+	},
+	onWorldExit() {
+		if (this.enabled && this.shown) {
+			this.shown = false;
+			this.sent = 0;
+			this.setPermil(0);
+		}
+	},
+	onTick() {
+		if (!this.enabled || !this.loaded) return;
+		let inGame = true;
+		try { inGame = app.isInGame(); } catch (e) {}
+		if (!inGame) {
+			if (this.sent !== 0) {
+				this.sent = 0;
+				this.setPermil(0);
+			}
+			return;
+		}
+		let pos = null;
+		try { pos = player.getLocalPlayer().getPos(); } catch (e) {}
+		let rot = null;
+		try { rot = camera.getRotation(); } catch (e) {}
+		let k = 0;
+		if (pos && this.lastPos) {
+			const dx = pos.x - this.lastPos.x, dy = pos.y - this.lastPos.y, dz = pos.z - this.lastPos.z;
+			const speed = Math.sqrt(dx * dx + dy * dy + dz * dz) * 20;
+			k = (speed - 2) / 4;
+		}
+		if (rot && this.lastRot) {
+			let dyaw = rot.yaw - this.lastRot.yaw;
+			if (dyaw > 180) dyaw -= 360;
+			if (dyaw < -180) dyaw += 360;
+			const dpitch = rot.pitch - this.lastRot.pitch;
+			const ang = Math.sqrt(dyaw * dyaw + dpitch * dpitch) * 20;
+			const kr = (ang - 20) / 120;
+			if (kr > k) k = kr;
+		}
+		if (pos) this.lastPos = pos;
+		if (rot) this.lastRot = rot;
+		if (k < 0.06) k = 0;
+		if (k > 1) k = 1;
+		const target = (k > 0 ? Math.sqrt(k) : 0) * 9.3 * this.intensity;
+		this.cur += (target - this.cur) * 0.35;
+		if (this.cur < 5) this.cur = 0;
+		const v = Math.round(this.cur);
+		if (v !== this.sent) {
+			this.sent = v;
+			this.setPermil(v);
+		}
+	}
+};
+
+const itemHud = {
+	tag: "fun_item_hud",
+	enabled: false,
+	shown: true,
+	soDst: kuNative.soDst,
+	loaded: false,
+	hooked: false,
+	bufAddr: 0n,
+	lastSig: "",
+	tickCount: 0,
+	agg: {},
+	side: 0,
+	offX: 0,
+	offY: 0,
+	maxRows: 14,
+	pickRadio(args, key, n) {
+		const mv = argPick(args, key);
+		if (typeof mv === "string") {
+			for (let i = 0; i < n; i++) if (mv === key + "_" + i) return i;
+		}
+		for (let i = 0; i < n; i++) if (args[key + "_" + i] === true) return i;
+		return -1;
+	},
+	pushCfg() {
+		if (!this.loaded) return;
+		try { kuNative.call(9, this.side + 1); } catch (e) {}
+		try { kuNative.call(10, this.offX + 401); } catch (e) {}
+		try { kuNative.call(11, this.offY + 401); } catch (e) {}
+		try { kuNative.call(12, this.maxRows); } catch (e) {}
+	},
+	loadSo() {
+		const err = kuNative.load();
+		if (err) return err;
+		this.loaded = true;
+		this.hooked = true;
+		this.bufAddr = kuNative.addr(13);
+		return "";
+	},
+	unhook() {
+		try { kuNative.call(7, 2); } catch (e) {}
+		this.hooked = false;
+	},
+	push(lines) {
+		const sig = lines.join("|");
+		if (sig === this.lastSig) return;
+		this.lastSig = sig;
+		if (!this.bufAddr) return;
+		const bytes = encodeUtf8(lines.join("\n"));
+		if (bytes.length > 8000) return;
+		try {
+			soPush(this.bufAddr, bytes);
+			kuNative.call(8, 0);
+		} catch (e) {}
+	},
+	liveName(a, id) {
+		try {
+			const s = String(a.getName() || "").replace(/§./g, "").trim();
+			if (s) return s;
+		} catch (e) {}
+		return id.replace(/^minecraft:/, "");
+	},
+	extractStack(a) {
+		let nbt = "";
+		try { nbt = String(a.getAdditionalSaveData() || ""); } catch (e) {}
+		let body = "";
+		const it = nbt.indexOf("Item:{");
+		if (it >= 0) {
+			let depth = 0, end = -1;
+			for (let i = it + 5; i < nbt.length; i++) {
+				const c = nbt.charAt(i);
+				if (c === "{") depth++;
+				else if (c === "}") { depth--; if (depth === 0) { end = i; break; } }
+			}
+			if (end < 0) return null;
+			body = nbt.slice(it, end + 1);
+		} else {
+			body = nbt;
+		}
+		const nm = /Name:"([^"]*)"/.exec(body);
+		const cm = /Count:(\d+)b/.exec(body);
+		const id = nm ? nm[1] : "";
+		if (!id) return null;
+		return { id: id.replace(/^minecraft:/, ""), count: cm ? parseInt(cm[1], 10) : 1 };
+	},
+	onModuleEvent(args) {
+		let touched = false;
+		const sd = this.pickRadio(args, "ih_side", 2);
+		if (sd >= 0) { this.side = sd; touched = true; }
+		if (args.ih_offx !== undefined || argPick(args, "ih_offx") !== undefined) {
+			const n = Number(argPick(args, "ih_offx"));
+			if (!isNaN(n)) { this.offX = Math.max(-200, Math.min(200, Math.floor(n))); touched = true; }
+		}
+		if (args.ih_offy !== undefined || argPick(args, "ih_offy") !== undefined) {
+			const n = Number(argPick(args, "ih_offy"));
+			if (!isNaN(n)) { this.offY = Math.max(-200, Math.min(200, Math.floor(n))); touched = true; }
+		}
+		const mr = clampPos(argPick(args, "ih_maxrows"), 1, 14);
+		if (mr) { this.maxRows = mr; touched = true; }
+		if (touched && this.enabled && this.loaded) this.pushCfg();
+		if (args.fun !== this.tag || !("value" in args)) return;
+		const v = Boolean(args.value);
+		if (v === this.enabled) return;
+		if (v) {
+			let err = "";
+			if (!this.loaded || !this.hooked) err = this.loadSo();
+			if (err) {
+				try { app.showToast("" + err); } catch (e) {}
+				return;
+			}
+			try { kuNative.call(7, 1); } catch (e) {}
+			this.enabled = true;
+			this.shown = true;
+			this.lastSig = "";
+			this.pushCfg();
+		} else {
+			this.enabled = false;
+			this.push([]);
+			const self = this;
+			setTimeout(function () { gameRun(function () { if (!self.enabled && self.hooked) self.unhook(); }); }, 450);
+		}
+		ensureHud(this, this.tag, "掉落物统计");
+		this.hud.enabled = this.enabled;
+		notifyToggle("掉落物统计", this.enabled, "");
+	},
+	onWorldExit() {
+		if (this.enabled && this.shown) {
+			this.shown = false;
+			this.push([]);
+		}
+	},
+	onTick() {
+		if (!tickEvery(this, 5)) return;
+		let inGame = true;
+		try { inGame = app.isInGame(); } catch (e) {}
+		if (!inGame || uiVis.poll()) {
+			if (this.shown) {
+				this.shown = false;
+				this.push([]);
+			}
+			return;
+		}
+		this.shown = true;
+		const agg = this.agg;
+		for (const k in agg) delete agg[k];
+		let actors = null;
+		try {
+			const level = world.getClientWorld();
+			actors = level ? level.getActors() : null;
+		} catch (e) {}
+		if (actors) {
+			for (const a of actors) {
+				let id = "";
+				try {
+					const idf = a.getIdentifier();
+					id = String((idf && idf.canonicalName) || "");
+				} catch (e) {}
+				if (id !== "minecraft:item") continue;
+				const st = this.extractStack(a);
+				if (!st) continue;
+				if (!agg[st.id]) agg[st.id] = { name: this.liveName(a, st.id), count: 0 };
+				agg[st.id].count += st.count;
+			}
+		}
+		const names = Object.keys(agg);
+		names.sort((x, y) => agg[y].count - agg[x].count || (x < y ? -1 : x > y ? 1 : 0));
+		const lines = [];
+		for (let i = 0; i < names.length && i < this.maxRows; i++) lines.push(agg[names[i]].name + "\t" + agg[names[i]].count);
+		this.push(lines);
+	}
+};
+
+const dirHud = {
+	tag: "fun_dir_hud",
+	enabled: false,
+	soDst: kuNative.soDst,
+	loaded: false,
+	hooked: false,
+	shown: true,
+	lastSent: -1,
+	infoAddr: 0n,
+	lastInfo: "",
+	infoTick: 0,
+	fpsVal: 0,
+	offX: 0,
+	offY: 0,
+	loadSo() {
+		const err = kuNative.load();
+		if (err) return err;
+		this.loaded = true;
+		this.hooked = true;
+		this.infoAddr = kuNative.addr(21);
+		return "";
+	},
+	pushCfg() {
+		if (!this.loaded) return;
+		try { kuNative.call(18, this.offX + 401); } catch (e) {}
+		try { kuNative.call(19, this.offY + 401); } catch (e) {}
+	},
+	unhook() {
+		try { kuNative.call(17, 0); } catch (e) {}
+		this.hooked = false;
+		this.shown = false;
+		this.lastInfo = "";
+	},
+	hide() {
+		try { kuNative.call(17, 0); } catch (e) {}
+		this.shown = false;
+		this.lastInfo = "";
+	},
+	onWorldExit() {
+		if (this.enabled && this.shown) this.hide();
+	},
+	onModuleEvent(args) {
+		let touched = false;
+		if (argPick(args, "dir_offx") !== undefined) {
+			const n = Number(argPick(args, "dir_offx"));
+			if (!isNaN(n)) { this.offX = Math.max(-200, Math.min(200, Math.floor(n))); touched = true; }
+		}
+		if (argPick(args, "dir_offy") !== undefined) {
+			const n = Number(argPick(args, "dir_offy"));
+			if (!isNaN(n)) { this.offY = Math.max(-200, Math.min(200, Math.floor(n))); touched = true; }
+		}
+		if (touched && this.enabled && this.loaded) this.pushCfg();
+		if (args.fun !== this.tag || !("value" in args)) return;
+		const v = Boolean(args.value);
+		if (v === this.enabled) return;
+		if (v) {
+			let err = "";
+			if (!this.loaded || !this.hooked) err = this.loadSo();
+			if (err) {
+				try { app.showToast("" + err); } catch (e) {}
+				return;
+			}
+			try { kuNative.call(14, 1); } catch (e) {}
+			this.enabled = true;
+			this.shown = true;
+			this.lastSent = -1;
+			this.lastInfo = "";
+			this.infoTick = 0;
+			this.refreshFps();
+			this.pushCfg();
+			this.pushInfo();
+		} else {
+			this.enabled = false;
+			if (this.hooked) this.unhook();
+		}
+		ensureHud(this, this.tag, "方向标");
+		this.hud.enabled = this.enabled;
+		notifyToggle("方向标", this.enabled, "");
+	},
+	buildInfo() {
+		let pos = null;
+		try { pos = player.getLocalPlayer().getPos(); } catch (e) {}
+		if (!pos || !isFinite(pos.x) || !isFinite(pos.y) || !isFinite(pos.z)) return "";
+		let s = "KuSug · X:" + Math.floor(pos.x) + " Y:" + Math.floor(pos.y - 1.62) + " Z:" + Math.floor(pos.z);
+		if (!fpsHud.enabled && this.fpsVal) s += " · " + this.fpsVal + " FPS";
+		return s;
+	},
+	refreshFps() {
+		if (fpsHud.enabled) return;
+		try {
+			const path = app.getResource("KuSug/Fps.txt");
+			gamePy("import mod.client.extraClientApi as clientApi\nwith open(\"" + path + "\", \"w\") as f:\n\tf.write(str(clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId()).GetFps()))");
+			const n = Number(String(fs.read(path) || "").trim());
+			this.fpsVal = isNaN(n) ? 0 : Math.floor(n);
+		} catch (e) {}
+	},
+	pushInfo() {
+		if (!this.enabled || !this.shown || !this.infoAddr) return;
+		const s = this.buildInfo();
+		if (s === this.lastInfo) return;
+		const bytes = encodeUtf8(s);
+		if (bytes.length > 400) return;
+		this.lastInfo = s;
+		try {
+			soPush(this.infoAddr, bytes);
+			kuNative.call(16, 0);
+		} catch (e) {}
+	},
+	onTick() {
+		let inGame = true;
+		try { inGame = app.isInGame(); } catch (e) {}
+		if (!inGame || uiVis.poll()) {
+			if (this.shown) this.hide();
+			return;
+		}
+		if (!this.shown) {
+			this.shown = true;
+			this.lastInfo = "";
+			this.infoTick = 0;
+			this.refreshFps();
+			try { kuNative.call(14, 1); } catch (e) {}
+			this.pushCfg();
+			this.lastSent = -1;
+		}
+		let yaw = NaN;
+		try {
+			const r = camera.getRotation();
+			if (r) yaw = Number(r.yaw);
+		} catch (e) {}
+		if (isFinite(yaw)) {
+			                                                                     
+			let b = (360 - (((yaw % 360) + 360) % 360)) % 360;
+			const cdeg = Math.round(b * 100);
+			if (cdeg !== this.lastSent) {
+				this.lastSent = cdeg;
+				try { kuNative.call(15, cdeg + 1); } catch (e) {}
+			}
+		}
+		this.infoTick++;
+		if (this.infoTick >= 20) {
+			this.infoTick = 0;
+			this.refreshFps();
+		}
+		this.pushInfo();
+	}
+};
+
+const uiVis = {
+	path: "/storage/emulated/0/Android/data/" + gamePkg + "/files/resources/KuSug/UI隐显.txt",
+	pyUp: false,
+	tries: 0,
+	lastV: false,
+	lastT: 0,
+	pyOn: `def _kc_pkg():
+    try:
+        with open('/proc/self/cmdline', 'rb') as _f:
+            _s = _f.read(256)
+        _s = _s.split(chr(0))[0].split(':')[0].strip()
+        if len(_s) > 3 and '.' in _s:
+            return _s
+    except Exception:
+        pass
+    return 'com.netease.x19'
+
+_KC_VFILE = '/storage/emulated/0/Android/data/' + _kc_pkg() + '/files/resources/KuSug/UI隐显.txt'
+
+def _kc_vwrite(v):
+    try:
+        with open(_KC_VFILE, 'wb') as f:
+            f.write(str(v))
+    except Exception:
+        pass
+
+import mod.client.extraClientApi as clientApi
+
+_CS = clientApi.GetClientSystemCls()
+
+class _KuSugVis(_CS):
+    def __init__(self, ns, sn):
+        super(_KuSugVis, self).__init__(ns, sn)
+        self.dead = False
+        self.depth = 0
+        ns2 = clientApi.GetEngineNamespace()
+        sn2 = clientApi.GetEngineSystemName()
+        self.ListenForEvent(ns2, sn2, 'PushScreenEvent', self, self.on_push)
+        self.ListenForEvent(ns2, sn2, 'PopScreenEvent', self, self.on_pop)
+        _kc_vwrite(0)
+
+    def on_push(self, args=None):
+        try:
+            ns = (args or {}).get('namespace') or u''
+            if ns == u'hud.hud_screen':
+                # hud push = back to gameplay; screens killed by world switch never fire Pop,
+                # so force depth reset here (pure event self-heal, no polling)
+                self.depth = 0
+                _kc_vwrite(0)
+                return
+            self.depth += 1
+            _kc_vwrite(1)
+        except Exception:
+            pass
+
+    def on_pop(self, args=None):
+        try:
+            ns = (args or {}).get('namespace') or u''
+            if ns == u'hud.hud_screen':
+                # hud pop = leaving world; screens above hud die with it, reset counter
+                self.depth = 0
+                return
+            if self.depth > 0:
+                self.depth -= 1
+            if self.depth == 0:
+                _kc_vwrite(0)
+        except Exception:
+            pass
+
+    def shutdown(self):
+        self.dead = True
+        try:
+            self.UnListenAllEvents()
+        except Exception:
+            pass
+        _kc_vwrite(0)
+
+_old = globals().get('_kusug_vis_sys')
+if _old is not None:
+    try:
+        _old.shutdown()
+    except Exception:
+        pass
+globals()['_kusug_vis_sys'] = _KuSugVis('KuSugVis', 'KuSugVisSystem')`,
+	ensurePy() {
+		if (this.pyUp || this.tries >= 100) return;
+		this.tries++;
+		try {
+			gamePy(this.pyOn);
+			this.pyUp = true;
+		} catch (e) {
+			this.pyUp = false;
+		}
+	},
+	poll() {
+		const now = Date.now();
+		if (now - this.lastT < 200) return this.lastV;
+		this.lastT = now;
+		if (!this.pyUp) this.ensurePy();
+		if (!this.pyUp) return false;
+		let raw = "";
+		try { raw = String(fs.read(this.path) || "").trim(); } catch (e) {}
+		if (raw === "1" || raw === "0") this.lastV = raw === "1";
+		return this.lastV;
+	},
+	onWorldExit() {
+		this.pyUp = false;
+		this.tries = 0;
+		this.lastV = false;
+	}
+};
+
+const crosshair = {
+	tag: "fun_crosshair",
+	enabled: false,
+	soDst: kuNative.soDst,
+	loaded: false,
+	hooked: false,
+	shown: true,
+	preset: 0,
+	size: 18,
+	thick: 3,
+	gap: 6,
+	colorIdx: 0,
+	dynSpread: true,
+	amp: 10,
+	offX: -3,
+	offY: -3,
+	uid: "",
+	CH_COLORS: [0xFFFFFF, 0x3DFF6E, 0x41E8FF, 0xFF4DD8, 0xFFE14D, 0xFF4D4D, 0xFF9A3D, 0xA06BFF],
+	loadSo() {
+		const err = kuNative.load();
+		if (err) return err;
+		this.loaded = true;
+		this.hooked = true;
+		return "";
+	},
+	unhook() {
+		try { kuNative.call(23, 0); } catch (e) {}
+		this.hooked = false;
+		this.shown = false;
+	},
+	hide() {
+		try { kuNative.call(23, 0); } catch (e) {}
+		this.shown = false;
+	},
+	pickRadio(args, key, n) {
+		const mv = argPick(args, key);
+		if (typeof mv === "string") {
+			for (let i = 0; i < n; i++) if (mv === key + "_" + i) return i;
+		}
+		for (let i = 0; i < n; i++) if (args[key + "_" + i] === true) return i;
+		return -1;
+	},
+	pushCfg() {
+		if (!this.loaded) return;
+		try { kuNative.call(24, this.preset); } catch (e) {}
+		try { kuNative.call(29, this.size); } catch (e) {}
+		try { kuNative.call(30, this.thick); } catch (e) {}
+		try { kuNative.call(31, this.gap); } catch (e) {}
+		try { kuNative.call(25, this.CH_COLORS[this.colorIdx] || 0xFFFFFF); } catch (e) {}
+		try { kuNative.call(26, 90); } catch (e) {}
+		try { kuNative.call(34, this.dynSpread ? 1 : 0); } catch (e) {}
+		try { kuNative.call(27, this.amp); } catch (e) {}
+		try { kuNative.call(32, this.offX); } catch (e) {}
+		try { kuNative.call(33, this.offY); } catch (e) {}
+	},
+	onModuleEvent(args) {
+		let touched = false;
+		const sz = clampPos(argPick(args, "ch_size"), 4, 80);
+		if (sz) { this.size = sz; touched = true; }
+		const tk = clampPos(argPick(args, "ch_thick"), 1, 12);
+		if (tk) { this.thick = tk; touched = true; }
+		if (args.ch_gap !== undefined) {
+			const n = Number(argPick(args, "ch_gap"));
+			if (!isNaN(n)) { this.gap = Math.max(0, Math.min(40, Math.floor(n))); touched = true; }
+		}
+		const pr = this.pickRadio(args, "ch_preset", 5);
+		if (pr >= 0) { this.preset = pr; touched = true; }
+		const ci = this.pickRadio(args, "ch_color", 8);
+		if (ci >= 0) { this.colorIdx = ci; touched = true; }
+		if (typeof args.ch_dyn_spread !== "undefined") { this.dynSpread = Boolean(args.ch_dyn_spread); touched = true; }
+		const am = clampPos(argPick(args, "ch_amp"), 2, 40);
+		if (am) { this.amp = am; touched = true; }
+		if (args.ch_offx !== undefined) {
+			const n = Number(argPick(args, "ch_offx"));
+			if (!isNaN(n)) { this.offX = Math.max(-100, Math.min(100, Math.floor(n))); touched = true; }
+		}
+		if (args.ch_offy !== undefined) {
+			const n = Number(argPick(args, "ch_offy"));
+			if (!isNaN(n)) { this.offY = Math.max(-100, Math.min(100, Math.floor(n))); touched = true; }
+		}
+		if (touched && this.enabled && this.loaded) this.pushCfg();
+		if (args.fun !== this.tag || !("value" in args)) return;
+		const v = Boolean(args.value);
+		if (v === this.enabled) return;
+		if (v) {
+			let err = "";
+			if (!this.loaded || !this.hooked) err = this.loadSo();
+			if (err) {
+				try { app.showToast("" + err); } catch (e) {}
+				return;
+			}
+			try { kuNative.call(22, 1); } catch (e) {}
+			this.enabled = true;
+			this.shown = true;
+			this.pushCfg();
+		} else {
+			this.enabled = false;
+			if (this.hooked) this.unhook();
+		}
+		notifyToggle("自定义准星", this.enabled, "");
+	},
+	onPlayerAttack(playerId, targetId) {
+		if (!this.enabled || !this.shown || !this.loaded) return;
+		if (!this.uid) {
+			try { this.uid = String(player.getLocalPlayer().getUniqueID()); } catch (e) { this.uid = "?"; }
+		}
+		if (this.uid !== "?" && String(playerId) !== this.uid) return;
+		try { kuNative.call(28, 2); } catch (e) {}
+	},
+	onTick() {
+		let fp = true;
+		try { fp = options.getPlayerViewPerspective() === 0; } catch (e) {}
+		if (!fp || uiVis.poll()) {
+			if (this.shown) this.hide();
+			return;
+		}
+		if (!this.shown) {
+			this.shown = true;
+			try { kuNative.call(22, 1); } catch (e) {}
+			this.pushCfg();
+		}
+	},
+	onWorldExit() {
+		if (this.enabled && this.shown) this.hide();
+		this.uid = "";
+	}
+};
+const radarHud = {
+	tag: "fun_radar",
+	enabled: false,
+	loaded: false,
+	bufAddr: 0n,
+	offX: 65,
+	offY: 16,
+	range: 64,
+	tickCount: 0,
+	selfUid: "",
+	shown: true,
+	showPlayer: true,
+	showMob: true,
+	hide() {
+		try { kuNative.call(57, 0); } catch (e) {}
+		this.shown = false;
+	},
+	onWorldExit() {
+		if (this.enabled && this.shown) this.hide();
+	},
+	loadSo() {
+		const err = kuNative.load();
+		if (err) return err;
+		this.loaded = true;
+		return "";
+	},
+	pushCfg() {
+		if (!this.loaded) return;
+		try { kuNative.call(58, ((this.offY & 255) << 8) | (this.offX & 255)); } catch (e) {}
+	},
+	pushYaw() {
+		if (!this.loaded) return;
+		let yaw = NaN;
+		try { const r = camera.getRotation(); if (r) yaw = Number(r.yaw); } catch (e) {}
+		if (!isFinite(yaw)) return;
+		yaw = ((yaw % 360) + 360) % 360;
+		try { kuNative.call(59, Math.round(yaw * 64)); } catch (e) {}
+	},
+	scan() {
+		let mp = null;
+		try { mp = player.getLocalPlayer().getPos(); } catch (e) {}
+		if (!mp || !isFinite(mp.x)) return;
+		const range = this.range;
+		const rangeSq = range * range;
+		const buf = [0];
+		let n = 0;
+		const push = function (p, type) {
+			if (!p || !isFinite(p.x)) return;
+			const dx = p.x - mp.x, dz = p.z - mp.z;
+			if (dx * dx + dz * dz > rangeSq) return;
+			let qx = Math.round(dx * 16), qz = Math.round(dz * 16);
+			if (qx < -32768) qx = -32768; if (qx > 32767) qx = 32767;
+			if (qz < -32768) qz = -32768; if (qz > 32767) qz = 32767;
+			buf.push(qx & 255, (qx >> 8) & 255, qz & 255, (qz >> 8) & 255, type);
+			n++;
+		};
+		const lvl = world.getClientWorld();
+		if (!lvl) return;
+		if (!this.selfUid) {
+			try { this.selfUid = String(player.getLocalPlayer().getUniqueID() || ""); } catch (e) {}
+		}
+		let ps = [];
+		if (this.showPlayer) { try { ps = lvl.getPlayers() || []; } catch (e) {} }
+		for (const p of ps) {
+			if (n >= 64) break;
+			try {
+				if (this.selfUid && String(p.getUniqueID()) === this.selfUid) continue;
+				push(p.getPos(), 0);
+			} catch (e) {}
+		}
+		let as = [];
+		if (this.showMob) { try { as = lvl.getActors() || []; } catch (e) {} }
+		for (const a of as) {
+			if (n >= 64) break;
+			try {
+				const idf = a.getIdentifier();
+				const cn = idf ? String(idf.canonicalName || "") : "";
+				if (cn === "minecraft:player" || !cn || killAura.junkTypes.test(cn)) continue;                                      
+				push(a.getPos(), 1);
+			} catch (e) {}
+		}
+		buf[0] = n;
+		try {
+			os.writeAddress(this.bufAddr, buf.length, new Uint8Array(buf).buffer);
+			kuNative.call(60, 0);
+		} catch (e) {}
+	},
+	onModuleEvent(args) {
+		let touched = false;
+		if (argPick(args, "rd_offx") !== undefined) {
+			const n = Number(argPick(args, "rd_offx"));
+			if (!isNaN(n)) { this.offX = Math.max(0, Math.min(100, Math.floor(n))); touched = true; }
+		}
+		if (argPick(args, "rd_offy") !== undefined) {
+			const n = Number(argPick(args, "rd_offy"));
+			if (!isNaN(n)) { this.offY = Math.max(0, Math.min(100, Math.floor(n))); touched = true; }
+		}
+		if (argPick(args, "rd_range") !== undefined) {
+			const n = Number(argPick(args, "rd_range"));
+			if (!isNaN(n)) { this.range = Math.max(16, Math.min(100, Math.floor(n))); touched = true; }
+		}
+		if (typeof args.rd_show_player !== "undefined") this.showPlayer = Boolean(args.rd_show_player);
+		if (typeof args.rd_show_mob !== "undefined") this.showMob = Boolean(args.rd_show_mob);
+		if (touched && this.enabled && this.loaded) this.pushCfg();
+		if (!stdToggle(this, args, "雷达")) return;
+		if (!this.enabled) {
+			this.shown = false;
+			try { kuNative.call(57, 0); } catch (e) {}
+			return;
+		}
+		if (!this.loaded) {
+			const err = this.loadSo();
+			if (err) {
+				this.enabled = false;
+				if (this.hud) this.hud.enabled = false;
+				try { app.showToast("so 加载失败: " + err); } catch (e2) {}
+				return;
+			}
+		}
+		try { this.bufAddr = BigInt(kuNative.call(57, 1)); } catch (e) {}
+		this.shown = true;
+		this.pushCfg();
+		this.pushYaw();
+	},
+	onTick() {
+		if (!this.enabled || !this.loaded || !this.bufAddr) return;
+		let inGame = true;
+		try { inGame = app.isInGame(); } catch (e) {}
+		if (!inGame || uiVis.poll()) {
+			if (this.shown) this.hide();
+			return;
+		}
+		if (!this.shown) {
+			this.shown = true;
+			try { kuNative.call(57, 1); } catch (e) {}
+			this.pushCfg();
+		}
+		this.pushYaw();
+		if (!tickEvery(this, 4)) return;
+		this.scan();
+	}
+};
+
+const hideClutter = {
+	tag: "fun_hide_clutter",
+	enabled: false,
+	patchCode: `
+import mod.client.extraClientApi as clientApi
+
+_G = globals()
+st = _G.get('_kusug_hc')
+if st is None:
+    st = {'on': False, 'timer': None, 'ai_obj': None, 'ai_orig': None, 'ai_cheat': True, 'pet_obj': None, 'pet_orig': None}
+    _G['_kusug_hc'] = st
+
+def _hc_ai_mgr():
+    try:
+        s = clientApi.GetSystem('Minecraft', 'aiCommand')
+        if s is None:
+            return None
+        um = getattr(s, 'mAiUIManager', None)
+        if um is None:
+            return None
+        return getattr(um, 'mHudScreenAIFuncManager', None)
+    except Exception:
+        return None
+
+def _hc_pet_screen():
+    try:
+        n = clientApi.GetUI('neteasePetMod', 'petChatHud')
+        if n is not None:
+            return n
+    except Exception:
+        pass
+    try:
+        import client.ui.uiManager as uiManager
+        for n in uiManager.instance()._ui_stack:
+            try:
+                if n.get_def_key() == 'neteasePetMod:petChatHud' and not n.is_remove():
+                    return n
+            except Exception:
+                pass
+    except Exception:
+        pass
+    return None
+
+def _hc_hide_ai(m):
+    try:
+        m.mCheatVisible = False
+    except Exception:
+        pass
+    for a in ('mAiBtn', 'mAiShortcutBtn', 'mTutorialStartPanel', 'mDragTipsPanel', 'mRootNode'):
+        b = getattr(m, a, None)
+        if b is not None:
+            try:
+                b.SetVisible(False)
+            except Exception:
+                pass
+
+def _hc_hide_pet(s):
+    for a in ('mChatBtn', 'mToggleBtn', 'mKeyHintBg', 'mRootNode'):
+        b = getattr(s, a, None)
+        if b is not None:
+            try:
+                b.SetVisible(False)
+            except Exception:
+                pass
+
+def _hc_patch_ai(m):
+    if getattr(m, '_ks_hc_patched', False):
+        return
+    st['ai_obj'] = m
+    st['ai_orig'] = getattr(m, 'SetAiUiVisible', None)
+    st['ai_cheat'] = getattr(m, 'mCheatVisible', True)
+    def _fake_ai(visible, _m=m):
+        _hc_hide_ai(_m)
+    m.SetAiUiVisible = _fake_ai
+    m._ks_hc_patched = True
+
+def _hc_patch_pet(s):
+    if getattr(s, '_ks_hc_patched', False):
+        return
+    st['pet_obj'] = s
+    st['pet_orig'] = getattr(s, 'RefreshByPetRuntimeState', None)
+    def _fake_pet(state, _s=s):
+        _hc_hide_pet(_s)
+    s.RefreshByPetRuntimeState = _fake_pet
+    s._ks_hc_patched = True
+
+def _hc_enforce():
+    if not st.get('on'):
+        return
+    m = _hc_ai_mgr()
+    if m is not None:
+        _hc_patch_ai(m)
+        _hc_hide_ai(m)
+    s = _hc_pet_screen()
+    if s is not None:
+        _hc_patch_pet(s)
+        _hc_hide_pet(s)
+
+st['on'] = True
+try:
+    if st.get('timer') is None:
+        st['timer'] = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId()).AddRepeatedTimer(0.6, _hc_enforce)
+except Exception:
+    st['timer'] = None
+_hc_enforce()
+`,
+	unpatchCode: `
+import mod.client.extraClientApi as clientApi
+
+_G = globals()
+st = _G.get('_kusug_hc')
+
+def _hc_ai_mgr2():
+    try:
+        s = clientApi.GetSystem('Minecraft', 'aiCommand')
+        if s is None:
+            return None
+        um = getattr(s, 'mAiUIManager', None)
+        if um is None:
+            return None
+        return getattr(um, 'mHudScreenAIFuncManager', None)
+    except Exception:
+        return None
+
+def _hc_pet_screen2():
+    try:
+        n = clientApi.GetUI('neteasePetMod', 'petChatHud')
+        if n is not None:
+            return n
+    except Exception:
+        pass
+    try:
+        import client.ui.uiManager as uiManager
+        for n in uiManager.instance()._ui_stack:
+            try:
+                if n.get_def_key() == 'neteasePetMod:petChatHud' and not n.is_remove():
+                    return n
+            except Exception:
+                pass
+    except Exception:
+        pass
+    return None
+
+if st is not None:
+    st['on'] = False
+    t = st.get('timer')
+    if t is not None:
+        try:
+            clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId()).CancelTimer(t)
+        except Exception:
+            pass
+        st['timer'] = None
+    m = _hc_ai_mgr2()
+    if m is not None and st.get('ai_obj') is m:
+        try:
+            if st.get('ai_orig') is not None:
+                m.SetAiUiVisible = st['ai_orig']
+                st['ai_orig'](st.get('ai_cheat', True))
+        except Exception:
+            pass
+        try:
+            m._ks_hc_patched = False
+        except Exception:
+            pass
+    s = _hc_pet_screen2()
+    if s is not None and st.get('pet_obj') is s:
+        try:
+            if st.get('pet_orig') is not None:
+                s.RefreshByPetRuntimeState = st['pet_orig']
+                st['pet_orig'](getattr(s, 'mPetRuntimeState', None) or {})
+        except Exception:
+            pass
+        try:
+            s._ks_hc_patched = False
+        except Exception:
+            pass
+    _G['_kusug_hc'] = None
+`,
+	onModuleEvent(args) {
+		if (!stdToggle(this, args, "隐藏累赘")) return;
+		try { gamePy(this.enabled ? this.patchCode : this.unpatchCode); } catch (e) {}
+	}
+};
+
+const containerBlur = {
+	tag: "fun_container_blur",
+	enabled: false,
+	intensity: 60,
+	                                                           
+	                                                                                
+	                                                              
+	buildPatchCode() {
+		return `
+import mod.client.extraClientApi as clientApi
+
+_CS = clientApi.GetClientSystemCls()
+
+_CB_KEYS = ('chest', 'inventory_screen', 'crafting', 'furnace', 'smoker', 'anvil', 'enchant', 'brewing', 'beacon', 'hopper', 'dropper', 'dispenser', 'loom', 'smithing', 'grindstone', 'cartography', 'stonecutter', 'trad', 'shulker', 'barrel', 'horse', 'lectern', 'command_block', 'structure_block', 'jigsaw', 'sign_screen', 'book_screen', 'npc_screen')
+
+def _cb_is_container(ns):
+    if not ns:
+        return False
+    for _k in _CB_KEYS:
+        if _k in ns:
+            return True
+    return False
+
+def _cb_ns(args):
+    return args.get('namespace') or args.get('screenDef') or args.get('screenName') or ''
+
+class _KuSugCB(_CS):
+    def __init__(self, ns, sn):
+        super(_KuSugCB, self).__init__(ns, sn)
+        self.dead = False
+        self.depth = {}
+        self.blurred = False
+        ns2 = clientApi.GetEngineNamespace()
+        sn2 = clientApi.GetEngineSystemName()
+        self.ListenForEvent(ns2, sn2, 'PushScreenEvent', self, self.on_push)
+        self.ListenForEvent(ns2, sn2, 'PopScreenEvent', self, self.on_pop)
+        self.ListenForEvent(ns2, sn2, 'PopScreenAfterClientEvent', self, self.on_pop_after)
+        self.ListenForEvent(ns2, sn2, 'ClientChestOpenEvent', self, self.on_chest_open)
+        self.ListenForEvent(ns2, sn2, 'ClientChestCloseEvent', self, self.on_chest_close)
+        self.ListenForEvent(ns2, sn2, 'ClientPlayerInventoryOpenEvent', self, self.on_chest_open)
+        self.ListenForEvent(ns2, sn2, 'ClientPlayerInventoryCloseEvent', self, self.on_chest_close)
+        self.ListenForEvent(ns2, sn2, 'OnScriptTickClient', self, self.on_tick)
+
+    def comp(self):
+        try:
+            return clientApi.GetEngineCompFactory().CreatePostProcess(clientApi.GetLevelId())
+        except Exception:
+            return None
+
+    def apply_blur(self, on):
+        if self.dead:
+            return
+        c = self.comp()
+        if c is None:
+            return
+        try:
+            if on:
+                c.SetEnableGaussianBlur(True)
+                c.SetGaussianBlurRadius(float(globals().get('_kusug_cb_intensity', 0.6)))
+            else:
+                c.SetEnableGaussianBlur(False)
+        except Exception:
+            pass
+
+    def set_intensity(self, v):
+        c = self.comp()
+        if c is not None:
+            try:
+                c.SetGaussianBlurRadius(float(v))
+            except Exception:
+                pass
+
+    def reconcile(self):
+        if self.dead:
+            return False
+        if not globals().get('_kusug_cb_want', True):
+            self.blur_off()
+            self.shutdown()
+            globals()['_kusug_cb_sys'] = None
+            return False
+        return True
+
+    def on_tick(self, args):
+        self.reconcile()
+
+    def blur_on(self):
+        self.blurred = True
+        self.apply_blur(True)
+
+    def blur_off(self):
+        self.depth = {}
+        self.blurred = False
+        self.apply_blur(False)
+
+    def on_push(self, args):
+        if not self.reconcile():
+            return
+        ns = _cb_ns(args)
+        if _cb_is_container(ns):
+            self.depth[ns] = self.depth.get(ns, 0) + 1
+            self.blur_on()
+
+    def on_pop(self, args):
+        if not self.reconcile():
+            return
+        ns = _cb_ns(args)
+        if self.depth.get(ns):
+            self.depth[ns] -= 1
+        if self.blurred and not any(self.depth.values()):
+            self.blur_off()
+
+    def on_pop_after(self, args):
+        if not self.reconcile():
+            return
+        if self.blurred and not _cb_is_container(_cb_ns(args)):
+            self.blur_off()
+
+    def on_chest_open(self, args):
+        if not self.reconcile():
+            return
+        self.blur_on()
+
+    def on_chest_close(self, args):
+        if not self.reconcile():
+            return
+        self.blur_off()
+
+    def shutdown(self):
+        self.dead = True
+        try:
+            self.UnListenAllEvents()
+        except Exception:
+            pass
+        c = self.comp()
+        if c is not None:
+            try:
+                c.SetEnableGaussianBlur(False)
+            except Exception:
+                pass
+
+globals()['_kusug_cb_want'] = True
+globals()['_kusug_cb_intensity'] = ${(this.intensity / 100).toFixed(2)}
+_old = globals().get('_kusug_cb_sys')
+if _old is not None:
+    try:
+        _old.shutdown()
+    except Exception:
+        pass
+globals()['_kusug_cb_sys'] = _KuSugCB('KuSugCB', 'KuSugCBSystem')
+`;
+	},
+	buildSetCode() {
+		return `
+globals()['_kusug_cb_intensity'] = ${(this.intensity / 100).toFixed(2)}
+_s = globals().get('_kusug_cb_sys')
+if _s is not None:
+    try:
+        _s.set_intensity(float(globals()['_kusug_cb_intensity']))
+    except Exception:
+        pass
+`;
+	},
+	unpatchCode: `
+globals()['_kusug_cb_want'] = False
+_s = globals().get('_kusug_cb_sys')
+if _s is not None:
+    try:
+        _c = _s.comp()
+        if _c is not None:
+            _c.SetEnableGaussianBlur(False)
+    except Exception:
+        pass
+`,
+	onModuleEvent(args) {
+		if (argPick(args, "cb_intensity") !== undefined) {
+			const n = Number(argPick(args, "cb_intensity"));
+			if (!isNaN(n)) {
+				this.intensity = Math.max(10, Math.min(100, Math.floor(n)));
+				if (this.enabled) { try { gamePy(this.buildSetCode()); } catch (e) {} }
+			}
+		}
+		if (!stdToggle(this, args, "容器模糊")) return;
+		try { gamePy(this.enabled ? this.buildPatchCode() : this.unpatchCode); } catch (e) {}
+	}
+};
+
+const autoSign = {
+	tag: "fun_auto_sign",
+	enabled: false,
+	text: "",
+	pending: [],
+	MAX_PENDING: 8,
+	TICK_EXPIRE: 200,
+	VERIFY_DELAY: 10,
+	DUP_TICKS: 5,
+	PKT_TICKS: 5,
+	tickNow: 0,
+	lastEv: { tick: -9999, x: 0, y: 0, z: 0, face: -1 },
+	pktUntil: -9999,
+	pktSeen: 0,
+	FACE_OFF: [[0, -1, 0], [0, 1, 0], [0, 0, -1], [0, 0, 1], [-1, 0, 0], [1, 0, 0]],
+	escape(s) {
+		return String(s).split("\\").join("\\\\").split('"').join('\\"');
+	},
+	buildNbt(x, y, z, hanging, t) {
+		const side = '{Text:"' + t + '",SignTextColor:-16777216,IgnoreLighting:0b,PersistFormatting:1b,TextIgnoreLegacyBugResolved:0b}';
+		return '{id:"' + (hanging ? "HangingSign" : "Sign") + '",isMovable:1b,x:' + x + ',y:' + y + ',z:' + z + ',TextOwner:"",FrontText:' + side + ',BackText:' + side + '}';
+	},
+	blockName(dimension, c) {
+		try {
+			const m = String(dimension.getBlock({ x: c[0], y: c[1], z: c[2] }).getNBT()).match(/name:"([^"]*)"/i);
+			return m ? m[1].toLowerCase() : "";
+		} catch (e) { return ""; }
+	},
+	readText(dimension, pos) {
+		try {
+			const m = String(dimension.getBlockEntity(pos).getNBT()).match(/Text:"([^"]*)"/);
+			return m ? m[1] : "";
+		} catch (e) { return null; }
+	},
+	editorOpen() {
+		try {
+			return /sign/i.test(String(gui.getCurrentScreenName() || ""));
+		} catch (e) { return false; }
+	},
+	write(dimension, p) {
+		blockApi.setBlockEntityData(p.pos, this.buildNbt(p.pos.x, p.pos.y, p.pos.z, p.hanging, this.escape(this.text.trim())));
+		p.wrote++;
+		p.verifyIn = this.VERIFY_DELAY;
+	},
+	onModuleEvent(args) {
+		if (typeof args.AutoSign_Text === "string") this.text = args.AutoSign_Text;
+		if (!stdToggle(this, args, "自动告示牌")) return;
+		this.pending.length = 0;
+	},
+	heldSign() {
+		try {
+			const m = String(player.getLocalPlayer().getCarriedItem().getNBT() || "").match(/name:"([^"]*)"/i);
+			return !!m && m[1].toLowerCase().indexOf("sign") >= 0;
+		} catch (e) { return false; }
+	},
+	onPlayerBuildBlockEvent(playerId, x, y, z, face) {
+		if (!this.enabled) return false;
+		try {
+			if (String(playerId) !== String(player.getLocalPlayer().getUniqueID())) return false;
+		} catch (e) { return false; }
+		const held = this.heldSign();
+		if (held && this.tickNow - this.lastEv.tick <= this.DUP_TICKS
+			&& this.lastEv.x === x && this.lastEv.y === y && this.lastEv.z === z && this.lastEv.face === face) {
+			return true;
+		}
+		if (held) {
+			this.lastEv = { tick: this.tickNow, x, y, z, face };
+			this.pktUntil = this.tickNow + this.PKT_TICKS;
+			this.pktSeen = 0;
+		}
+		const cands = [[x, y, z]];
+		if (face >= 0 && face <= 5) {
+			const f = this.FACE_OFF[face];
+			cands.push([x + f[0], y + f[1], z + f[2]]);
+		}
+		this.pending.push({ cands, pos: null, hanging: false, age: 0, wrote: 0, verifyIn: -1 });
+		while (this.pending.length > this.MAX_PENDING) this.pending.shift();
+		return false;
+	},
+	onSendServerPacket(id, name, bin) {
+		if (!this.enabled || this.tickNow > this.pktUntil) return false;
+		if (!/inventorytransaction/i.test(String(name || ""))) return false;
+		this.pktSeen++;
+		if (this.pktSeen === 1) return false;
+		return true;
+	},
+	onTick() {
+		this.tickNow++;
+		if (!this.enabled || !this.pending.length) return;
+		let dimension = null;
+		try { dimension = player.getLocalPlayer().getDimension(); } catch (e) {}
+		if (!dimension) return;
+		const editing = this.editorOpen();
+		const t = this.text.trim();
+		const keep = [];
+		for (const p of this.pending) {
+			p.age++;
+			if (p.age > this.TICK_EXPIRE) continue;
+			if (!p.pos) {
+				for (const c of p.cands) {
+					const nm = this.blockName(dimension, c);
+					if (nm.indexOf("sign") >= 0) {
+						p.pos = { x: c[0], y: c[1], z: c[2] };
+						p.hanging = nm.indexOf("hanging") >= 0;
+						break;
+					}
+				}
+				if (!p.pos) { keep.push(p); continue; }
+			}
+			if (p.verifyIn >= 0) {
+				p.verifyIn--;
+				if (p.verifyIn > 0) { keep.push(p); continue; }
+				const cur = this.readText(dimension, p.pos);
+				if (cur === null || cur !== "" || p.wrote >= 2) continue;
+				if (editing) { p.verifyIn = 1; keep.push(p); continue; }
+				if (!t) continue;
+				this.write(dimension, p);
+				keep.push(p);
+				continue;
+			}
+			if (editing) { keep.push(p); continue; }
+			const cur = this.readText(dimension, p.pos);
+			if (cur === null) { keep.push(p); continue; }
+			if (cur !== "") continue;
+			if (!t) continue;
+			this.write(dimension, p);
+			keep.push(p);
+		}
+		this.pending = keep;
+	}
+};
+
+                                                   
+const Z1_MCP_FILE = "z1yrScripts.mcp";
+const MCP_PY = `# -*- coding: utf-8 -*-
+import os
+import re
+import sys
+
+try:
+    _UNI = unicode
+except NameError:
+    _UNI = str
+
+
+def _kapi():
+    import mod.client.extraClientApi as c
+    return c
+
+
+def _knotify():
+    try:
+        import _notify as n
+        if hasattr(n, 'add_mod_mcp'):
+            return n
+    except Exception:
+        pass
+    import minecraft.notify as n
+    return n
+
+
+def _keu():
+    try:
+        import mod.common.eventUtil as e
+    except Exception:
+        from common import eventUtil as e
+    return e.instance
+
+
+def _kreg():
+    try:
+        from common.system.systemRegister import client as r
+        return r
+    except Exception:
+        pass
+    try:
+        import common.system.systemRegister as sr
+        return getattr(sr, 'client', None)
+    except Exception:
+        return None
+
+
+def _kep(p):
+    if sys.version_info[0] >= 3:
+        return p
+    if isinstance(p, _UNI):
+        return p.encode('utf-8', 'replace')
+    return p
+
+
+def _ku(s):
+    if sys.version_info[0] >= 3:
+        return s
+    if isinstance(s, str):
+        return s.decode('utf-8', 'replace')
+    return s
+
+
+def _kerr(e):
+    try:
+        return _ku(str(e))
+    except Exception:
+        return repr(e)
+
+
+def _kstate():
+    import __main__
+    s = getattr(__main__, '_KUSUG_MCP_STATE', None)
+    if s is None:
+        s = {'loaded': {}, 'bound': set(), 'tick': None}
+        __main__._KUSUG_MCP_STATE = s
+    return s
+
+
+def _ktakes_arg(func):
+    code = getattr(func, '__code__', None)
+    if code is None:
+        im = getattr(func, 'im_func', None)
+        if im is not None:
+            code = getattr(im, 'func_code', None)
+    if code is None:
+        return True
+    n = getattr(code, 'co_argcount', 1)
+    if getattr(func, '__self__', None) is not None or getattr(func, 'im_self', None) is not None:
+        n = max(0, n - 1)
+    return n > 0
+
+
+def _kcall(func, args):
+    if _ktakes_arg(func):
+        func(args if args is not None else {})
+    else:
+        func()
+
+
+def _kdispatch(ev, args):
+    s = _kstate()
+    for p in list(s['loaded'].keys()):
+        ent = s['loaded'].get(p)
+        if not ent:
+            continue
+        for e2, f2 in list(ent['recs']):
+            if e2 != ev:
+                continue
+            try:
+                _kcall(f2, args)
+            except Exception:
+                pass
+
+
+def _kdrain():
+    s = _kstate()
+    q = s.get('chatqueue')
+    if not q:
+        return 0
+    s['chatqueue'] = []
+    n = 0
+    for fn, arg, rp in q:
+        try:
+            res = fn(arg)
+        except Exception as e:
+            try:
+                res = 'err:' + _kerr(e)
+            except Exception:
+                res = 'err:?'
+        n += 1
+        try:
+            import io
+            fq = io.open(rp, 'w', encoding='utf-8')
+            fq.write(_UNI(res))
+            fq.close()
+        except Exception:
+            pass
+    return n
+
+
+class _KTick(object):
+    def on_tick(self, args=None):
+        _kdispatch('OnScriptTickClient', {})
+        _kdrain()
+
+
+class _KListener(object):
+    def __init__(self, ev):
+        self.ev = ev
+
+    def on_event(self, args=None):
+        _kdispatch(self.ev, args)
+
+
+class _KCapture(object):
+    def __init__(self):
+        self.recs = []
+        self.systems = []
+        self.patched = []
+        self.base_cls = None
+        self.base_orig = None
+        self.reg_orig = None
+
+    def make_listen(self):
+        def _cap(system, namespace, system_name, event_name, instance, func):
+            self.recs.append((event_name, func))
+        return _cap
+
+    def patch_cls(self, cls_path):
+        mp, _, cn = cls_path.rpartition('.')
+        if not mp or not cn:
+            return
+        try:
+            mod = __import__(mp, fromlist=[''])
+            cls = getattr(mod, cn, None)
+        except Exception:
+            return
+        if cls is None:
+            return
+        for c0, _o in self.patched:
+            if c0 is cls:
+                return
+        orig = getattr(cls, 'ListenForEvent', None)
+        if orig is None:
+            return
+        cls.ListenForEvent = self.make_listen()
+        self.patched.append((cls, orig))
+
+    def begin(self):
+        try:
+            api = _kapi()
+        except Exception:
+            return
+        try:
+            cls = api.GetClientSystemCls()
+            orig = getattr(cls, 'ListenForEvent', None)
+            if orig is not None:
+                cls.ListenForEvent = self.make_listen()
+                self.base_cls = cls
+                self.base_orig = orig
+        except Exception:
+            pass
+        reg = getattr(api, 'RegisterSystem', None)
+        if reg is not None:
+            self.reg_orig = reg
+            cap = self
+
+            def _rec_register(namespace, system_name, cls_path):
+                cap.systems.append((namespace, system_name))
+                cap.patch_cls(cls_path)
+                return cap.reg_orig(namespace, system_name, cls_path)
+            try:
+                api.RegisterSystem = _rec_register
+            except Exception:
+                self.reg_orig = None
+
+    def end(self):
+        if self.base_cls is not None:
+            try:
+                self.base_cls.ListenForEvent = self.base_orig
+            except Exception:
+                pass
+            self.base_cls = None
+            self.base_orig = None
+        for c0, o0 in self.patched:
+            try:
+                c0.ListenForEvent = o0
+            except Exception:
+                pass
+        self.patched = []
+        if self.reg_orig is not None:
+            try:
+                _kapi().RegisterSystem = self.reg_orig
+            except Exception:
+                pass
+            self.reg_orig = None
+
+
+def _kpost_load(systems, instances):
+    called = []
+    objs = list(instances)
+    try:
+        api = _kapi()
+    except Exception:
+        api = None
+    for ns, sn in systems:
+        so = None
+        if api is not None:
+            try:
+                so = api.GetSystem(ns, sn)
+            except Exception:
+                so = None
+        if so is None:
+            reg = _kreg()
+            if reg is not None:
+                key = ns + ':' + sn
+                so = getattr(reg, 'systemInstances', {}).get(key)
+                if so is None:
+                    so = getattr(reg, 'newSystemInstances', {}).get(key)
+        if so is not None:
+            objs.append(so)
+            try:
+                _kstate().setdefault('sysmap', {})[ns + ':' + sn] = so
+            except Exception:
+                pass
+    names = ('uiinitfinished', 'loadclientaddonscriptsafter')
+    keys = ('uiinit', 'loadclientaddonscriptsafter')
+    for so in objs:
+        try:
+            nl = getattr(so, 'nameToListenEvents', {})
+            for ev, el in list(nl.items()):
+                if str(ev).lower() not in names:
+                    continue
+                for e in list(el):
+                    try:
+                        f = getattr(e, 'funcName', None)
+                        if f is None:
+                            continue
+                        if getattr(f, '__self__', None) is None and getattr(f, 'im_self', None) is None:
+                            inst = getattr(e, 'instance', None)
+                            if inst is not None:
+                                f = getattr(inst, getattr(f, '__name__', ''), f)
+                        if f in called:
+                            continue
+                        _kcall(f, {})
+                        called.append(f)
+                    except Exception:
+                        pass
+        except Exception:
+            pass
+        for k in dir(so):
+            lk = k.lower()
+            hit = False
+            for m in keys:
+                if m in lk:
+                    hit = True
+                    break
+            if not hit:
+                continue
+            f = getattr(so, k)
+            if not callable(f) or f in called:
+                continue
+            try:
+                _kcall(f, {})
+                called.append(f)
+            except Exception:
+                pass
+
+
+def _kattach():
+    s = _kstate()
+    try:
+        eu = _keu()
+    except Exception:
+        return
+    if s['tick'] is None:
+        t = _KTick()
+        try:
+            eu.ListenForEngineClient('OnScriptTickClient', t, t.on_tick, 10)
+            s['tick'] = t
+        except Exception:
+            return
+    skip = ('UiInitFinished', 'LoadClientAddonScriptsAfter', 'OnScriptTickClient')
+    seen = {}
+    for p in list(s['loaded'].keys()):
+        ent = s['loaded'].get(p)
+        if not ent:
+            continue
+        for ev, f in ent['recs']:
+            if ev in skip or ev in s['bound'] or ev in seen:
+                continue
+            seen[ev] = True
+            l = _KListener(ev)
+            try:
+                eu.ListenForEngineClient(ev, l, l.on_event, 10)
+                s['bound'].add(ev)
+            except Exception:
+                pass
+
+
+def _knorm(p):
+    return os.path.normcase(os.path.normpath(p))
+
+
+def _kunreg(ns, sn):
+    reg = _kreg()
+    if reg is None:
+        return
+    try:
+        reg.UnRegisterSystem(ns, sn)
+    except Exception:
+        pass
+    key = ns + ':' + sn
+    try:
+        _kstate().get('sysmap', {}).pop(key, None)
+    except Exception:
+        pass
+    try:
+        reg.systemInstances.pop(key, None)
+    except Exception:
+        pass
+    inst = None
+    try:
+        inst = reg.newSystemInstances.pop(key, None)
+    except Exception:
+        pass
+    if inst is not None:
+        for m in ('DestroyEvents', 'Destroy'):
+            try:
+                getattr(inst, m)()
+            except Exception:
+                pass
+    try:
+        reg.deleteSystemInstances.discard(key)
+    except Exception:
+        pass
+
+
+def _kunload(path):
+    s = _kstate()
+    ent = s['loaded'].pop(path, None)
+    if ent is None:
+        return
+    for ns, sn in ent['systems']:
+        _kunreg(ns, sn)
+    name = ent['name']
+    for mn in ent.get('aliases', []):
+        try:
+            v = sys.modules.get(mn)
+            if v is not None and (getattr(v, '__name__', '') or '').startswith(name + '.'):
+                del sys.modules[mn]
+        except Exception:
+            pass
+    for mn in [m for m in list(sys.modules) if m == name or m.startswith(name + '.')]:
+        try:
+            del sys.modules[mn]
+        except Exception:
+            pass
+    np = _knorm(path)
+    for p in list(sys.path):
+        try:
+            if _knorm(p) == np:
+                sys.path.remove(p)
+        except Exception:
+            pass
+    try:
+        _knotify().remove_mod_mcp(_kep(path))
+    except Exception:
+        pass
+    cache = getattr(sys, 'path_importer_cache', None)
+    if cache is not None:
+        for k in list(cache):
+            try:
+                if _knorm(k) == np:
+                    del cache[k]
+            except Exception:
+                pass
+    try:
+        sys.module_paths.clear()
+    except Exception:
+        pass
+
+
+def _kload(path):
+    path = os.path.abspath(path)
+    if not os.path.isfile(path):
+        raise Exception(_kep(u'文件不存在'))
+    base = os.path.basename(path)
+    name = base[:-4] if base.lower().endswith('.mcp') else os.path.splitext(base)[0]
+    if not re.match(r'^[A-Za-z_][A-Za-z0-9_]*$', name):
+        raise Exception(_kep(u'文件名需为英文数字下划线'))
+    s = _kstate()
+    if path in s['loaded']:
+        _kunload(path)
+    notify = _knotify()
+    notify.add_mod_mcp(_kep(path))
+    np = _knorm(path)
+    for p in list(sys.path):
+        try:
+            if _knorm(p) == np:
+                sys.path.remove(p)
+        except Exception:
+            pass
+    sys.path.insert(0, path)
+    cap = _KCapture()
+    cap.begin()
+    instances = []
+    errors = []
+    try:
+        try:
+            mod = __import__(name + '.modMain', fromlist=[''])
+        except Exception:
+            low = name.lower()
+            if low == name:
+                raise
+            name = low
+            mod = __import__(name + '.modMain', fromlist=[''])
+        for mk in dir(mod):
+            cls = getattr(mod, mk)
+            if not hasattr(cls, 'MOD_NAME'):
+                continue
+            try:
+                inst = cls()
+            except Exception as e:
+                errors.append(mk + '(): ' + _kerr(e))
+                continue
+            instances.append(inst)
+            for ck in dir(inst):
+                f = getattr(inst, ck)
+                if not hasattr(f, 'InitClient'):
+                    continue
+                try:
+                    f()
+                except Exception as e:
+                    errors.append(mk + '.' + ck + ': ' + _kerr(e))
+        # 包内顶层绝对 import 兼容(如 z1yr 的 from module.config import ...):
+        # 把内层模块映射到顶层, 与原生环境一致(不覆盖已存在的同名模块)
+        aliases = []
+        for mn in list(sys.modules):
+            if mn.startswith(name + '.'):
+                alias = mn[len(name) + 1:]
+                if alias and alias not in sys.modules:
+                    try:
+                        sys.modules[alias] = sys.modules[mn]
+                        aliases.append(alias)
+                    except Exception:
+                        pass
+    except Exception as e:
+        cap.end()
+        try:
+            notify.remove_mod_mcp(_kep(path))
+        except Exception:
+            pass
+        for p in list(sys.path):
+            try:
+                if _knorm(p) == np:
+                    sys.path.remove(p)
+            except Exception:
+                pass
+        raise Exception(_kep(u'导入失败: ' + _kerr(e)))
+    cap.end()
+    s['loaded'][path] = {'name': name, 'systems': cap.systems, 'recs': cap.recs, 'aliases': aliases}
+    _kpost_load(cap.systems, instances)
+    _kattach()
+    msg = _ku(name) + u' 事件' + _ku(str(len(cap.recs))) + u'个'
+    if errors:
+        msg += u' 警告:' + errors[0][:24]
+    return msg
+
+
+def _klist():
+    s = _kstate()
+    out = []
+    for p, ent in s['loaded'].items():
+        out.append(_ku(ent['name']))
+    return '|'.join(out)
+
+
+def _kunload_all():
+    s = _kstate()
+    for p in list(s['loaded'].keys()):
+        _kunload(p)
+
+
+try:
+    _ZU = unicode
+except NameError:
+    _ZU = str
+
+
+def _zapi():
+    try:
+        import mod.client.extraClientApi as c
+        return c
+    except Exception:
+        return None
+
+
+def _zreg():
+    try:
+        from common.system.systemRegister import client as r
+        return r
+    except Exception:
+        pass
+    try:
+        import common.system.systemRegister as sr
+        return getattr(sr, 'client', None)
+    except Exception:
+        return None
+
+
+def _zsys():
+    import __main__ as m2
+    st = getattr(m2, '_KUSUG_MCP_STATE', None)
+    if st:
+        so = st.get('sysmap', {}).get('z1yr:Z1yrClientSystem')
+        if so is not None:
+            return so
+    try:
+        a = _zapi()
+        if a is not None:
+            so = a.GetSystem('z1yr', 'Z1yrClientSystem')
+            if so is not None:
+                return so
+    except Exception:
+        pass
+    r = _zreg()
+    if r is None:
+        return None
+    try:
+        so = getattr(r, 'systemInstances', {}).get('z1yr:Z1yrClientSystem')
+        if so is None:
+            so = getattr(r, 'newSystemInstances', {}).get('z1yr:Z1yrClientSystem')
+        if so is not None:
+            return so
+        for d in (getattr(r, 'systemInstances', {}), getattr(r, 'newSystemInstances', {})):
+            for k, v in list(d.items()):
+                if hasattr(v, '_manager') and hasattr(v, 'thisPlayer'):
+                    return v
+    except Exception:
+        pass
+    return None
+
+
+def _zmod(n):
+    s = _zsys()
+    if s is None:
+        return None
+    try:
+        m = getattr(s, '_manager', None)
+        if m is None:
+            return None
+        try:
+            return m.get(n)
+        except Exception:
+            return getattr(m, '_modules', {}).get(n)
+    except Exception:
+        return None
+
+
+def _zerr(e):
+    try:
+        return str(e)[:60]
+    except Exception:
+        return '?'
+
+
+def _zwrite(rp, s):
+    try:
+        import io
+        if not isinstance(s, _ZU):
+            try:
+                s = s.decode('utf-8', 'replace')
+            except Exception:
+                s = _ZU(s)
+        f = io.open(rp, 'w', encoding='utf-8')
+        f.write(s)
+        f.close()
+    except Exception:
+        pass
+
+
+def _zstateall(rp):
+    s = _zsys()
+    out = []
+    if s is not None:
+        m = getattr(s, '_manager', None)
+        d = getattr(m, '_modules', {}) if m is not None else {}
+        for k in sorted(d):
+            out.append(k + '=' + ('1' if getattr(d[k], 'enabled', False) else '0'))
+        out.append('notification=' + ('1' if getattr(s, 'notification', False) else '0'))
+    _zwrite(rp, ';'.join(out) if out else 'none')
+
+
+# tick queue: evalPython context swallows engine calls, so all control runs in the game tick.
+# item = (fn, arg, rp); core _KTick.on_tick drains in main loop and writes receipts.
+
+def _zchatfire(cmd):
+    n = 0
+    err = ''
+    import __main__ as m2
+    s = getattr(m2, '_KUSUG_MCP_STATE', None)
+    if s:
+        for p, ent in list(s.get('loaded', {}).items()):
+            for e2, f2 in list(ent.get('recs', [])):
+                if e2 != 'ClickChatSendClientEvent':
+                    continue
+                try:
+                    f2({'message': cmd})
+                    n += 1
+                except TypeError:
+                    try:
+                        f2()
+                        n += 1
+                    except Exception as e:
+                        if not err:
+                            err = _zerr(e)
+                except Exception as e:
+                    if not err:
+                        err = _zerr(e)
+    return str(n) + ('|err:' + err if err else '')
+
+
+def _zsetfire(nw):
+    n, want = nw
+    o = _zmod(n)
+    if o is None:
+        return 'missing'
+    try:
+        if want:
+            o.enable()
+        else:
+            o.disable()
+        return '1' if getattr(o, 'enabled', False) else '0'
+    except Exception as e:
+        return 'err:' + _zerr(e)
+
+
+def _ztogfire(n):
+    o = _zmod(n)
+    if o is None:
+        return 'missing'
+    try:
+        o.toggle()
+        return '1' if getattr(o, 'enabled', False) else '0'
+    except Exception as e:
+        return 'err:' + _zerr(e)
+
+
+def _zqueue(item):
+    import __main__ as m2
+    s = getattr(m2, '_KUSUG_MCP_STATE', None)
+    if s is None:
+        s = {'loaded': {}, 'bound': set(), 'tick': None}
+        m2._KUSUG_MCP_STATE = s
+    if s.get('tick') is None:
+        for fn in (globals().get('_kattach'), getattr(m2, '_kattach', None)):
+            if fn is None:
+                continue
+            try:
+                fn()
+                break
+            except Exception:
+                pass
+    s.setdefault('chatqueue', []).append(item)
+
+
+def _zchatq(cmd, rp):
+    _zqueue((_zchatfire, cmd, rp))
+
+
+def _zsetq(n, want, rp):
+    _zqueue((_zsetfire, (n, want), rp))
+
+
+def _ztogq(n, rp):
+    _zqueue((_ztogfire, n, rp))
+
+
+def _zcfgfire(nkv):
+    n, k, vs = nkv
+    o = _zmod(n)
+    if o is None:
+        return 'missing'
+    fn = getattr(o, 'apply_config', None)
+    if fn is None:
+        return 'err:noapply'
+    try:
+        fn(k, vs)
+        return 'ok'
+    except Exception as e:
+        return 'err:' + _zerr(e)
+
+
+def _zcfgq(n, k, vs, rp):
+    _zqueue((_zcfgfire, (n, k, vs), rp))
+
+
+_ZCFGS = (
+    'z1n_killaura_multi_limit|killaura|multi_limit|multi_limit|int',
+    'z1n_aimbot_speed|aimbot|speed|speed|num',
+    'z1n_aimbot_yoffset|aimbot|yoffset|y_offset|num',
+    'z1n_triggerbot_range|triggerbot|range|range|num',
+    'z1n_triggerbot_fov|triggerbot|fov|fov|int',
+    'z1n_triggerbot_cps|triggerbot|cps|cps|int',
+    'z1n_criticals_sneakdelay|criticals|sneakdelay|sneak_delay|num',
+    'z1n_criticals_clickspan|criticals|clickspan|click_span|num',
+    'z1n_autoclicker_cpsmin|autoclicker|cps_min|cps_min|int',
+    'z1n_autoclicker_cpsmax|autoclicker|cps_max|cps_max|int',
+    'z1n_autorod_switchdelay|autorod|switchdelay|switch_delay|int',
+    'z1n_autorod_range|autorod|range|range|int',
+    'z1n_autosoup_health|autosoup|health|health|int',
+    'z1n_autosoup_delay|autosoup|delay|delay|int',
+    'z1n_combatbot_trackrange|combatbot|track_range|track_range|int',
+    'z1n_combatbot_attackrange|combatbot|attack_range|attack_range|num',
+    'z1n_combatbot_keepdist|combatbot|keep_distance|keep_distance|num',
+    'z1n_combatbot_healhp|combatbot|heal_hp|heal_hp|int',
+    'z1n_combatbot_healkeep|combatbot|heal_keep_distance|heal_keep_distance|int',
+    'z1n_kbchange_yaw|kbchange|yaw|yaw|int',
+    'z1n_kbchange_range|kbchange|range|range|num',
+    'z1n_ridetpaura_range|ridetpaura|range|range|int',
+    'z1n_bhop_fallspeed|bhop|fallspeed|fall_speed|num',
+    'z1n_bhop_speed|bhop|speed|speed|num',
+    'z1n_ridebhop_speed|ridebhop|speed|speed|num',
+    'z1n_ridebhop_ymotion|ridebhop|ymotion|ymotion|num',
+    'z1n_scaffold_radius|scaffold|radius|radius|int',
+    'z1n_autotool_switchtick|autotool|switchtick|switch_tick|int',
+    'z1n_autotool_restoretick|autotool|restoretick|restore_tick|int',
+    'z1n_blockin_speed|blockin|speed|speed|int',
+    'z1n_autotrap_range|autotrap|range|range|num',
+    'z1n_autoweb_delay|autoweb|delay|delay|num',
+    'z1n_nobreakdelay_restarttick|nobreakdelay|restarttick|restart_tick|int',
+    'z1n_nobreakdelay_aimconfirmticks|nobreakdelay|aimconfirmticks|aim_confirm_ticks|int',
+    'z1n_fucker_range|fucker|range|range|num',
+    'z1n_fucker_scaninterval|fucker|scan_interval|scan_interval|int',
+    'z1n_zoom_fov|zoom|fov|fov|int',
+    'z1n_zoom_smooth|zoom|speed|smooth_speed|num',
+    'z1n_gaussblur_intensity|gaussblur|intensity|intensity|num',
+    'z1n_fogchange_density|fogchange|density|density|int',
+    'z1n_fogchange_r|fogchange|color_r|color_r|num',
+    'z1n_fogchange_g|fogchange|color_g|color_g|num',
+    'z1n_fogchange_b|fogchange|color_b|color_b|num',
+    'z1n_esp_smooth|esp|smooth_factor|smooth_factor|num',
+    'z1n_esp_predict|esp|predict_ticks|predict_ticks|num',
+    'z1n_esp_chestradius|esp|chest_scan_radius|chest_scan_radius|int',
+    'z1n_esp_r|esp|color_r|color_r|num',
+    'z1n_esp_g|esp|color_g|color_g|num',
+    'z1n_esp_b|esp|color_b|color_b|num',
+    'z1n_hud_range|hud|range|range|num',
+    'z1n_hud_fov|hud|fov|fov|int',
+    'z1n_pyrpc_maxdisplay|pyrpc|maxdisplay|maxDisplay|int',
+    'z1n_whitelist_range|whitelist|range|range|num',
+    'z1n_invisible_restoredelay|invisible|restoredelay|restore_delay|num',
+    'z1n_rodaim_range|rodaim|range|aim_range|num',
+    'z1n_rodaim_fov|rodaim|fov|fov|int',
+    'z1n_noclip_speed|noclip|speed|speed|num',
+    'z1c_killaura_onweapon|killaura|onweapon|onweapon|bool',
+    'z1c_killaura_onhold|killaura|onhold|onhold|bool',
+    'z1c_killaura_onholdattack|killaura|onholdattack|onholdattack|bool',
+    'z1c_killaura_ecbypass|killaura|ecbypass|ecbypass|bool',
+    'z1c_aimbot_onclick|aimbot|onclick|onclick|bool',
+    'z1c_aimbot_onhold|aimbot|onhold|onhold|bool',
+    'z1c_aimbot_onweapon|aimbot|onweapon|onweapon|bool',
+    'z1c_aimbot_leftclick|aimbot|leftclick|leftclick|bool',
+    'z1c_aimbot_sticky|aimbot|sticky|sticky|bool',
+    'z1c_triggerbot_onweapon|triggerbot|onweapon|onweapon|bool',
+    'z1c_triggerbot_ignoreteammates|triggerbot|ignoreteammates|ignore_teammates|bool',
+    'z1c_triggerbot_throughwalls|triggerbot|throughwalls|through_walls|bool',
+    'z1c_triggerbot_leftclick|triggerbot|leftclick|leftclick|bool',
+    'z1c_criticals_onclick|criticals|onclick|onclick|bool',
+    'z1c_criticals_onweapon|criticals|onweapon|onweapon|bool',
+    'z1c_criticals_onsneak|criticals|onsneak|onsneak|bool',
+    'z1c_criticals_onhold|criticals|onhold|onhold|bool',
+    'z1c_autoclicker_swingair|autoclicker|swingair|swing_air|bool',
+    'z1c_autoclicker_ecbypass|autoclicker|ecbypass|ecbypass|bool',
+    'z1c_autorod_canattack|autorod|canattack|can_attack|bool',
+    'z1c_autorod_silentswitch|autorod|silentswitch|silent_switch|bool',
+    'z1c_combatbot_criticals|combatbot|criticals|criticals|bool',
+    'z1c_combatbot_sprint|combatbot|sprint|sprint|bool',
+    'z1c_kbchange_ecbypass|kbchange|ecbypass|ecbypass|bool',
+    'z1c_kbchange_movefix|kbchange|movefix|movefix|bool',
+    'z1c_ridetpaura_onweapon|ridetpaura|onweapon|onweapon|bool',
+    'z1c_scaffold_airplace|scaffold|airplace|airplace|bool',
+    'z1c_fucker_onholdbreak|fucker|onholdbreak|onholdbreak|bool',
+    'z1c_esp_teambox|esp|teambox|teambox|bool',
+    'z1c_esp_chestesp|esp|chest_esp|chest_esp|bool',
+    'z1c_esp_chestfov|esp|chest_fov|chest_fov|bool',
+    'z1c_hud_targethud|hud|targethud|targethud|bool',
+    'z1c_hud_bjd|hud|bjd|bjd|bool',
+    'z1c_pyrpc_decode|pyrpc|decode|decode|bool',
+    'z1c_pyrpc_showmessage|pyrpc|showmessage|showMessage|bool',
+    'z1c_whitelist_midclick|whitelist|midclick|midclick|bool',
+    'z1c_list_send|list|send|send|bool',
+    'z1c_rodaim_onhold|rodaim|onhold|onhold|bool',
+    'z1c_xray_ore_diamond|xray|diamond|ore:diamond|bool',
+    'z1c_xray_ore_iron|xray|iron|ore:iron|bool',
+    'z1c_xray_ore_gold|xray|gold|ore:gold|bool',
+    'z1c_xray_ore_emerald|xray|emerald|ore:emerald|bool',
+    'z1c_xray_ore_debris|xray|debris|ore:debris|bool',
+    'z1c_xray_ore_redstone|xray|redstone|ore:redstone|bool',
+    'z1c_xray_ore_lapis|xray|lapis|ore:lapis|bool',
+    'z1c_xray_ore_coal|xray|coal|ore:coal|bool',
+    'z1c_xray_ore_copper|xray|copper|ore:copper|bool',
+    'z1c_xray_ore_quartz|xray|quartz|ore:quartz|bool',
+    'z1r_killaura_weaponmode|killaura|weaponmode|weapon_mode|enum',
+    'z1r_killaura_attackmode|killaura|attack_mode|attack_mode|enum',
+    'z1r_killaura_priority|killaura|priority|priority|enum',
+    'z1r_aimbot_mode|aimbot|mode|mode|enum',
+    'z1r_rodaim_mode|rodaim|mode|mode|enum',
+    'z1r_antibot_mode|antibot|mode|mode|enum',
+    'z1r_kbchange_mode|kbchange|mode|mode|enum',
+    'z1r_kbchange_cameramode|kbchange|camera_mode|camera_mode|enum',
+    'z1r_bhop_mode|bhop|mode|mode|enum',
+    'z1r_inventorywalk_mode|inventorywalk|mode|mode|enum',
+    'z1r_scaffold_switchmode|scaffold|switchmode|switchmode|enum',
+    'z1r_fucker_mode|fucker|mode|mode|enum',
+    'z1r_fucker_rotation|fucker|rotation|rotation|enum',
+    'z1r_esp_espmode|esp|esp_mode|esp_mode|enum',
+    'z1r_team_mode|team|mode|mode|enum',
+    'z1r_crasher_mode|crasher|mode|mode|enum',
+    'z1r_ridetpaura_attackmode|ridetpaura|attack_mode|attack_mode|enum',
+    'z1r_ridetpaura_priority|ridetpaura|priority|priority|enum',
+    'z1r_autorod_restoremode|autorod|restoremode|restore_mode|enum',
+)
+
+
+def _zcfgall(rp):
+    s = _zsys()
+    out = []
+    if s is not None:
+        m = getattr(s, '_manager', None)
+        for ln in _ZCFGS:
+            p5 = ln.split('|')
+            if len(p5) != 5:
+                continue
+            ctl, n, k, at, ty = p5
+            o = None
+            if m is not None:
+                try:
+                    o = m.get(n)
+                except Exception:
+                    o = None
+            if o is None:
+                continue
+            try:
+                if at[:4] == 'ore:':
+                    v = o.get_ore(at[4:])
+                else:
+                    v = getattr(o, at, None)
+                if v is None:
+                    vs = 'inf'
+                elif ty == 'bool':
+                    vs = 'true' if v else 'false'
+                elif ty == 'enum':
+                    vs = str(v)
+                elif isinstance(v, float):
+                    vs = '%g' % v
+                else:
+                    vs = str(v)
+                out.append(ctl + '=' + vs)
+            except Exception:
+                pass
+    _zwrite(rp, ';'.join(out) if out else 'none')
+
+
+def _zloadfire(path):
+    import __main__ as m2
+    try:
+        msg = m2.KUSUG_MCP['load'](path)
+        return 'ok:' + str(msg)[:60]
+    except Exception as e:
+        return 'err:' + _zerr(e)
+
+
+def _zload(path, rp):
+    _zqueue((_zloadfire, path, rp))
+
+
+def _zexitfire(unused):
+    import __main__ as m2
+    try:
+        m2.KUSUG_MCP['unload_all']()
+        return 'ok'
+    except Exception as e:
+        return 'err:' + _zerr(e)
+
+
+def _zexit(rp):
+    _zqueue((_zexitfire, None, rp))
+
+
+import __main__
+__main__.KUSUG_MCP = {'load': _kload, 'unload': _kunload, 'unload_all': _kunload_all, 'list': _klist, 'drain': _kdrain, 'z1stateall': _zstateall, 'z1chatq': _zchatq, 'z1setq': _zsetq, 'ztogq': _ztogq, 'z1cfgq': _zcfgq, 'z1cfgall': _zcfgall, 'z1load': _zload, 'z1exit': _zexit}
+`;
+const Z1_TOPUP_PY = `try:
+    _ZU = unicode
+except NameError:
+    _ZU = str
+
+
+def _zapi():
+    try:
+        import mod.client.extraClientApi as c
+        return c
+    except Exception:
+        return None
+
+
+def _zreg():
+    try:
+        from common.system.systemRegister import client as r
+        return r
+    except Exception:
+        pass
+    try:
+        import common.system.systemRegister as sr
+        return getattr(sr, 'client', None)
+    except Exception:
+        return None
+
+
+def _zsys():
+    import __main__ as m2
+    st = getattr(m2, '_KUSUG_MCP_STATE', None)
+    if st:
+        so = st.get('sysmap', {}).get('z1yr:Z1yrClientSystem')
+        if so is not None:
+            return so
+    try:
+        a = _zapi()
+        if a is not None:
+            so = a.GetSystem('z1yr', 'Z1yrClientSystem')
+            if so is not None:
+                return so
+    except Exception:
+        pass
+    r = _zreg()
+    if r is None:
+        return None
+    try:
+        so = getattr(r, 'systemInstances', {}).get('z1yr:Z1yrClientSystem')
+        if so is None:
+            so = getattr(r, 'newSystemInstances', {}).get('z1yr:Z1yrClientSystem')
+        if so is not None:
+            return so
+        for d in (getattr(r, 'systemInstances', {}), getattr(r, 'newSystemInstances', {})):
+            for k, v in list(d.items()):
+                if hasattr(v, '_manager') and hasattr(v, 'thisPlayer'):
+                    return v
+    except Exception:
+        pass
+    return None
+
+
+def _zmod(n):
+    s = _zsys()
+    if s is None:
+        return None
+    try:
+        m = getattr(s, '_manager', None)
+        if m is None:
+            return None
+        try:
+            return m.get(n)
+        except Exception:
+            return getattr(m, '_modules', {}).get(n)
+    except Exception:
+        return None
+
+
+def _zerr(e):
+    try:
+        return str(e)[:60]
+    except Exception:
+        return '?'
+
+
+def _zwrite(rp, s):
+    try:
+        import io
+        if not isinstance(s, _ZU):
+            try:
+                s = s.decode('utf-8', 'replace')
+            except Exception:
+                s = _ZU(s)
+        f = io.open(rp, 'w', encoding='utf-8')
+        f.write(s)
+        f.close()
+    except Exception:
+        pass
+
+
+def _zstateall(rp):
+    s = _zsys()
+    out = []
+    if s is not None:
+        m = getattr(s, '_manager', None)
+        d = getattr(m, '_modules', {}) if m is not None else {}
+        for k in sorted(d):
+            out.append(k + '=' + ('1' if getattr(d[k], 'enabled', False) else '0'))
+        out.append('notification=' + ('1' if getattr(s, 'notification', False) else '0'))
+    _zwrite(rp, ';'.join(out) if out else 'none')
+
+
+# tick queue: evalPython context swallows engine calls, so all control runs in the game tick.
+# item = (fn, arg, rp); core _KTick.on_tick drains in main loop and writes receipts.
+
+def _zchatfire(cmd):
+    n = 0
+    err = ''
+    import __main__ as m2
+    s = getattr(m2, '_KUSUG_MCP_STATE', None)
+    if s:
+        for p, ent in list(s.get('loaded', {}).items()):
+            for e2, f2 in list(ent.get('recs', [])):
+                if e2 != 'ClickChatSendClientEvent':
+                    continue
+                try:
+                    f2({'message': cmd})
+                    n += 1
+                except TypeError:
+                    try:
+                        f2()
+                        n += 1
+                    except Exception as e:
+                        if not err:
+                            err = _zerr(e)
+                except Exception as e:
+                    if not err:
+                        err = _zerr(e)
+    return str(n) + ('|err:' + err if err else '')
+
+
+def _zsetfire(nw):
+    n, want = nw
+    o = _zmod(n)
+    if o is None:
+        return 'missing'
+    try:
+        if want:
+            o.enable()
+        else:
+            o.disable()
+        return '1' if getattr(o, 'enabled', False) else '0'
+    except Exception as e:
+        return 'err:' + _zerr(e)
+
+
+def _ztogfire(n):
+    o = _zmod(n)
+    if o is None:
+        return 'missing'
+    try:
+        o.toggle()
+        return '1' if getattr(o, 'enabled', False) else '0'
+    except Exception as e:
+        return 'err:' + _zerr(e)
+
+
+def _zqueue(item):
+    import __main__ as m2
+    s = getattr(m2, '_KUSUG_MCP_STATE', None)
+    if s is None:
+        s = {'loaded': {}, 'bound': set(), 'tick': None}
+        m2._KUSUG_MCP_STATE = s
+    if s.get('tick') is None:
+        for fn in (globals().get('_kattach'), getattr(m2, '_kattach', None)):
+            if fn is None:
+                continue
+            try:
+                fn()
+                break
+            except Exception:
+                pass
+    s.setdefault('chatqueue', []).append(item)
+
+
+def _zchatq(cmd, rp):
+    _zqueue((_zchatfire, cmd, rp))
+
+
+def _zsetq(n, want, rp):
+    _zqueue((_zsetfire, (n, want), rp))
+
+
+def _ztogq(n, rp):
+    _zqueue((_ztogfire, n, rp))
+
+
+def _zcfgfire(nkv):
+    n, k, vs = nkv
+    o = _zmod(n)
+    if o is None:
+        return 'missing'
+    fn = getattr(o, 'apply_config', None)
+    if fn is None:
+        return 'err:noapply'
+    try:
+        fn(k, vs)
+        return 'ok'
+    except Exception as e:
+        return 'err:' + _zerr(e)
+
+
+def _zcfgq(n, k, vs, rp):
+    _zqueue((_zcfgfire, (n, k, vs), rp))
+
+
+_ZCFGS = (
+    'z1n_killaura_multi_limit|killaura|multi_limit|multi_limit|int',
+    'z1n_aimbot_speed|aimbot|speed|speed|num',
+    'z1n_aimbot_yoffset|aimbot|yoffset|y_offset|num',
+    'z1n_triggerbot_range|triggerbot|range|range|num',
+    'z1n_triggerbot_fov|triggerbot|fov|fov|int',
+    'z1n_triggerbot_cps|triggerbot|cps|cps|int',
+    'z1n_criticals_sneakdelay|criticals|sneakdelay|sneak_delay|num',
+    'z1n_criticals_clickspan|criticals|clickspan|click_span|num',
+    'z1n_autoclicker_cpsmin|autoclicker|cps_min|cps_min|int',
+    'z1n_autoclicker_cpsmax|autoclicker|cps_max|cps_max|int',
+    'z1n_autorod_switchdelay|autorod|switchdelay|switch_delay|int',
+    'z1n_autorod_range|autorod|range|range|int',
+    'z1n_autosoup_health|autosoup|health|health|int',
+    'z1n_autosoup_delay|autosoup|delay|delay|int',
+    'z1n_combatbot_trackrange|combatbot|track_range|track_range|int',
+    'z1n_combatbot_attackrange|combatbot|attack_range|attack_range|num',
+    'z1n_combatbot_keepdist|combatbot|keep_distance|keep_distance|num',
+    'z1n_combatbot_healhp|combatbot|heal_hp|heal_hp|int',
+    'z1n_combatbot_healkeep|combatbot|heal_keep_distance|heal_keep_distance|int',
+    'z1n_kbchange_yaw|kbchange|yaw|yaw|int',
+    'z1n_kbchange_range|kbchange|range|range|num',
+    'z1n_ridetpaura_range|ridetpaura|range|range|int',
+    'z1n_bhop_fallspeed|bhop|fallspeed|fall_speed|num',
+    'z1n_bhop_speed|bhop|speed|speed|num',
+    'z1n_ridebhop_speed|ridebhop|speed|speed|num',
+    'z1n_ridebhop_ymotion|ridebhop|ymotion|ymotion|num',
+    'z1n_scaffold_radius|scaffold|radius|radius|int',
+    'z1n_autotool_switchtick|autotool|switchtick|switch_tick|int',
+    'z1n_autotool_restoretick|autotool|restoretick|restore_tick|int',
+    'z1n_blockin_speed|blockin|speed|speed|int',
+    'z1n_autotrap_range|autotrap|range|range|num',
+    'z1n_autoweb_delay|autoweb|delay|delay|num',
+    'z1n_nobreakdelay_restarttick|nobreakdelay|restarttick|restart_tick|int',
+    'z1n_nobreakdelay_aimconfirmticks|nobreakdelay|aimconfirmticks|aim_confirm_ticks|int',
+    'z1n_fucker_range|fucker|range|range|num',
+    'z1n_fucker_scaninterval|fucker|scan_interval|scan_interval|int',
+    'z1n_zoom_fov|zoom|fov|fov|int',
+    'z1n_zoom_smooth|zoom|speed|smooth_speed|num',
+    'z1n_gaussblur_intensity|gaussblur|intensity|intensity|num',
+    'z1n_fogchange_density|fogchange|density|density|int',
+    'z1n_fogchange_r|fogchange|color_r|color_r|num',
+    'z1n_fogchange_g|fogchange|color_g|color_g|num',
+    'z1n_fogchange_b|fogchange|color_b|color_b|num',
+    'z1n_esp_smooth|esp|smooth_factor|smooth_factor|num',
+    'z1n_esp_predict|esp|predict_ticks|predict_ticks|num',
+    'z1n_esp_chestradius|esp|chest_scan_radius|chest_scan_radius|int',
+    'z1n_esp_r|esp|color_r|color_r|num',
+    'z1n_esp_g|esp|color_g|color_g|num',
+    'z1n_esp_b|esp|color_b|color_b|num',
+    'z1n_hud_range|hud|range|range|num',
+    'z1n_hud_fov|hud|fov|fov|int',
+    'z1n_pyrpc_maxdisplay|pyrpc|maxdisplay|maxDisplay|int',
+    'z1n_whitelist_range|whitelist|range|range|num',
+    'z1n_invisible_restoredelay|invisible|restoredelay|restore_delay|num',
+    'z1n_rodaim_range|rodaim|range|aim_range|num',
+    'z1n_rodaim_fov|rodaim|fov|fov|int',
+    'z1n_noclip_speed|noclip|speed|speed|num',
+    'z1c_killaura_onweapon|killaura|onweapon|onweapon|bool',
+    'z1c_killaura_onhold|killaura|onhold|onhold|bool',
+    'z1c_killaura_onholdattack|killaura|onholdattack|onholdattack|bool',
+    'z1c_killaura_ecbypass|killaura|ecbypass|ecbypass|bool',
+    'z1c_aimbot_onclick|aimbot|onclick|onclick|bool',
+    'z1c_aimbot_onhold|aimbot|onhold|onhold|bool',
+    'z1c_aimbot_onweapon|aimbot|onweapon|onweapon|bool',
+    'z1c_aimbot_leftclick|aimbot|leftclick|leftclick|bool',
+    'z1c_aimbot_sticky|aimbot|sticky|sticky|bool',
+    'z1c_triggerbot_onweapon|triggerbot|onweapon|onweapon|bool',
+    'z1c_triggerbot_ignoreteammates|triggerbot|ignoreteammates|ignore_teammates|bool',
+    'z1c_triggerbot_throughwalls|triggerbot|throughwalls|through_walls|bool',
+    'z1c_triggerbot_leftclick|triggerbot|leftclick|leftclick|bool',
+    'z1c_criticals_onclick|criticals|onclick|onclick|bool',
+    'z1c_criticals_onweapon|criticals|onweapon|onweapon|bool',
+    'z1c_criticals_onsneak|criticals|onsneak|onsneak|bool',
+    'z1c_criticals_onhold|criticals|onhold|onhold|bool',
+    'z1c_autoclicker_swingair|autoclicker|swingair|swing_air|bool',
+    'z1c_autoclicker_ecbypass|autoclicker|ecbypass|ecbypass|bool',
+    'z1c_autorod_canattack|autorod|canattack|can_attack|bool',
+    'z1c_autorod_silentswitch|autorod|silentswitch|silent_switch|bool',
+    'z1c_combatbot_criticals|combatbot|criticals|criticals|bool',
+    'z1c_combatbot_sprint|combatbot|sprint|sprint|bool',
+    'z1c_kbchange_ecbypass|kbchange|ecbypass|ecbypass|bool',
+    'z1c_kbchange_movefix|kbchange|movefix|movefix|bool',
+    'z1c_ridetpaura_onweapon|ridetpaura|onweapon|onweapon|bool',
+    'z1c_scaffold_airplace|scaffold|airplace|airplace|bool',
+    'z1c_fucker_onholdbreak|fucker|onholdbreak|onholdbreak|bool',
+    'z1c_esp_teambox|esp|teambox|teambox|bool',
+    'z1c_esp_chestesp|esp|chest_esp|chest_esp|bool',
+    'z1c_esp_chestfov|esp|chest_fov|chest_fov|bool',
+    'z1c_hud_targethud|hud|targethud|targethud|bool',
+    'z1c_hud_bjd|hud|bjd|bjd|bool',
+    'z1c_pyrpc_decode|pyrpc|decode|decode|bool',
+    'z1c_pyrpc_showmessage|pyrpc|showmessage|showMessage|bool',
+    'z1c_whitelist_midclick|whitelist|midclick|midclick|bool',
+    'z1c_list_send|list|send|send|bool',
+    'z1c_rodaim_onhold|rodaim|onhold|onhold|bool',
+    'z1c_xray_ore_diamond|xray|diamond|ore:diamond|bool',
+    'z1c_xray_ore_iron|xray|iron|ore:iron|bool',
+    'z1c_xray_ore_gold|xray|gold|ore:gold|bool',
+    'z1c_xray_ore_emerald|xray|emerald|ore:emerald|bool',
+    'z1c_xray_ore_debris|xray|debris|ore:debris|bool',
+    'z1c_xray_ore_redstone|xray|redstone|ore:redstone|bool',
+    'z1c_xray_ore_lapis|xray|lapis|ore:lapis|bool',
+    'z1c_xray_ore_coal|xray|coal|ore:coal|bool',
+    'z1c_xray_ore_copper|xray|copper|ore:copper|bool',
+    'z1c_xray_ore_quartz|xray|quartz|ore:quartz|bool',
+    'z1r_killaura_weaponmode|killaura|weaponmode|weapon_mode|enum',
+    'z1r_killaura_attackmode|killaura|attack_mode|attack_mode|enum',
+    'z1r_killaura_priority|killaura|priority|priority|enum',
+    'z1r_aimbot_mode|aimbot|mode|mode|enum',
+    'z1r_rodaim_mode|rodaim|mode|mode|enum',
+    'z1r_antibot_mode|antibot|mode|mode|enum',
+    'z1r_kbchange_mode|kbchange|mode|mode|enum',
+    'z1r_kbchange_cameramode|kbchange|camera_mode|camera_mode|enum',
+    'z1r_bhop_mode|bhop|mode|mode|enum',
+    'z1r_inventorywalk_mode|inventorywalk|mode|mode|enum',
+    'z1r_scaffold_switchmode|scaffold|switchmode|switchmode|enum',
+    'z1r_fucker_mode|fucker|mode|mode|enum',
+    'z1r_fucker_rotation|fucker|rotation|rotation|enum',
+    'z1r_esp_espmode|esp|esp_mode|esp_mode|enum',
+    'z1r_team_mode|team|mode|mode|enum',
+    'z1r_crasher_mode|crasher|mode|mode|enum',
+    'z1r_ridetpaura_attackmode|ridetpaura|attack_mode|attack_mode|enum',
+    'z1r_ridetpaura_priority|ridetpaura|priority|priority|enum',
+    'z1r_autorod_restoremode|autorod|restoremode|restore_mode|enum',
+)
+
+
+def _zcfgall(rp):
+    s = _zsys()
+    out = []
+    if s is not None:
+        m = getattr(s, '_manager', None)
+        for ln in _ZCFGS:
+            p5 = ln.split('|')
+            if len(p5) != 5:
+                continue
+            ctl, n, k, at, ty = p5
+            o = None
+            if m is not None:
+                try:
+                    o = m.get(n)
+                except Exception:
+                    o = None
+            if o is None:
+                continue
+            try:
+                if at[:4] == 'ore:':
+                    v = o.get_ore(at[4:])
+                else:
+                    v = getattr(o, at, None)
+                if v is None:
+                    vs = 'inf'
+                elif ty == 'bool':
+                    vs = 'true' if v else 'false'
+                elif ty == 'enum':
+                    vs = str(v)
+                elif isinstance(v, float):
+                    vs = '%g' % v
+                else:
+                    vs = str(v)
+                out.append(ctl + '=' + vs)
+            except Exception:
+                pass
+    _zwrite(rp, ';'.join(out) if out else 'none')
+
+
+def _zloadfire(path):
+    import __main__ as m2
+    try:
+        msg = m2.KUSUG_MCP['load'](path)
+        return 'ok:' + str(msg)[:60]
+    except Exception as e:
+        return 'err:' + _zerr(e)
+
+
+def _zload(path, rp):
+    _zqueue((_zloadfire, path, rp))
+
+
+def _zexitfire(unused):
+    import __main__ as m2
+    try:
+        m2.KUSUG_MCP['unload_all']()
+        return 'ok'
+    except Exception as e:
+        return 'err:' + _zerr(e)
+
+
+def _zexit(rp):
+    _zqueue((_zexitfire, None, rp))
+
+
+__main__.KUSUG_MCP.update({'z1stateall': _zstateall, 'z1chatq': _zchatq, 'z1setq': _zsetq, 'ztogq': _ztogq, 'z1cfgq': _zcfgq, 'z1cfgall': _zcfgall, 'z1load': _zload, 'z1exit': _zexit})`;
+
+                                                 
+function z1Wrap(expr) {
+	let core = "";
+	for (const l of MCP_PY.split("\n")) core += "\n    " + l;
+	let top = "";
+	for (const l2 of Z1_TOPUP_PY.split("\n")) top += "\n    " + l2;
+	return "import __main__\nif not hasattr(__main__, 'KUSUG_MCP'):" + core +
+		"\nelif 'z1setq' not in __main__.KUSUG_MCP:" + top +
+		"\n" + expr;
+}
+
+function z1Toast(m) { try { app.showToast(m); } catch (e) {} }
+
+                                                     
+function z1Lit(s) {
+	return "u'" + String(s).replace(/\\/g, "\\\\").replace(/'/g, "\\'").replace(/[^\x20-\x7e]/g, function (c) {
+		const h = c.charCodeAt(0).toString(16);
+		return "\\u" + "0000".slice(h.length) + h;
+	}) + "'";
+}
+
+                                                                  
+function z1RetFile() {
+	let d = "";
+	try { d = app.getResource("kusug"); } catch (e) {}
+	return d + "/z1_ret.txt";
+}
+
+                                                                                 
+function z1ReadFile(p) {
+	let rr = "";
+	try { rr = String(fs.read(p) || "").trim(); } catch (e) {}
+	if (/[\x80-\xff]/.test(rr)) { try { rr = decodeURIComponent(escape(rr)); } catch (e) {} }
+	return rr;
+}
+
+function z1Op(expr) {
+	const rp = z1RetFile();
+	try { fs.write(rp, ""); } catch (e) {}
+	                                                                     
+	try { app.evalPython(z1Wrap(expr)); } catch (e) { return ""; }
+	return z1ReadFile(rp);
+}
+
+function z1Cmd(fn, args) {
+	return z1Op("__main__.KUSUG_MCP['" + fn + "'](" + (args ? args + "," : "") + z1Lit(z1RetFile()) + ")");
+}
+
+                                                                          
+                                                       
+const Z1_SEQ = { n: 0 };
+
+function z1TickOp(buildExpr, label, after, fail) {
+	const rp = z1RetFile() + "." + (Z1_SEQ.n++);
+	try { fs.write(rp, ""); } catch (e) {}
+	try { gamePy(z1Wrap(buildExpr(rp))); } catch (e) { z1Toast(label + " 投递异常"); if (fail) fail(); return; }
+	setTimeout(function () {
+		const r = z1ReadFile(rp);
+		try { fs.remove(rp); } catch (e) {}
+		if (r === "") { z1Toast(label + " 无回执(tick 未跑?)"); if (fail) fail(); return; }
+		if (r.indexOf("err:") === 0) { z1Toast(label + " 异常: " + r.slice(4, 44)); if (fail) fail(); return; }
+		if (after) after(r);
+	}, 200);
+}
+
+                                  
+function z1ChatTick(cmd, label, ok, fail) {
+	z1TickOp(function (rp) {
+		return "__main__.KUSUG_MCP['z1chatq'](" + z1Lit(cmd) + "," + z1Lit(rp) + ")";
+	}, label, function (r) {
+		if (r === "0") { z1Toast("z1yr 未加载"); if (fail) fail(); return; }
+		if (r.indexOf("|err:") > 0) { z1Toast(label + " 异常: " + r.split("|err:")[1].slice(0, 40)); if (fail) fail(); return; }
+		if (ok) ok(r);
+	}, fail);
+}
+
+                                            
+function z1DirectTick(name, want, label) {
+	z1TickOp(function (rp) {
+		return want === null
+			? "__main__.KUSUG_MCP['ztogq'](" + z1Lit(name) + "," + z1Lit(rp) + ")"
+			: "__main__.KUSUG_MCP['z1setq'](" + z1Lit(name) + "," + (want ? "True" : "False") + "," + z1Lit(rp) + ")";
+	}, label, function (r) {
+		if (r === "missing") { z1Toast("z1yr 未加载"); if (want !== null) Z1_STATE[name] = !want; return; }
+		if (r === "0" || r === "1") { Z1_STATE[name] = r === "1"; notifyToggle(label, r === "1"); }
+		else z1Toast("切换回执异常: " + r.slice(0, 40));
+	}, function () { if (want !== null) Z1_STATE[name] = !want; });
+}
+
+const Z1_MODS = {
+	killaura: "杀戮光环",
+	aimbot: "自动瞄准",
+	reach: "攻击距离",
+	velocity: "反击退",
+	autoclicker: "自动连点",
+	triggerbot: "扳机",
+	antibot: "反机器人",
+	combatbot: "战斗机器人",
+	criticals: "刀刀暴击",
+	autosoup: "自动喝汤",
+	autorod: "自动鱼竿",
+	rodaim: "鱼竿自瞄",
+	jumpreset: "跳跃重置",
+	fastanchor: "快速重生锚",
+	kbchange: "击退移位",
+	ridetpaura: "坐骑百米",
+	fly: "飞行",
+	noclip: "穿墙",
+	bhop: "速度",
+	sprint: "自动疾跑",
+	nojumpdelay: "无跳跃延迟",
+	clicktp: "点击传送",
+	inventorywalk: "背包行走",
+	ridefly: "坐骑飞行",
+	ridebhop: "坐骑速度",
+	respawn: "原地复活",
+	xray: "矿透",
+	scaffold: "自动搭路",
+	autotool: "自动工具",
+	autoweb: "自动蜘蛛网",
+	autotrap: "自动围人",
+	blockin: "方块围栏",
+	fucker: "自动拆床",
+	nobreakdelay: "无挖矿延迟",
+	esp: "透视",
+	freecam: "自由视角",
+	invisible: "隐身",
+	killeffect: "击杀特效",
+	motioncamera: "运动相机",
+	nohurtcam: "无受击抖动",
+	gaussblur: "容器模糊",
+	fogchange: "迷雾视效",
+	zoom: "缩放",
+	hud: "界面显示",
+	spammer: "自动发言",
+	team: "队伍",
+	mount: "坐骑生成",
+	fashionunlock: "时装破解",
+	list: "玩家列表",
+	whitelist: "白名单",
+	debug: "调试信息",
+	gmpanel: "GM面板",
+	pyrpc: "PyRpc日志",
+	cebridge: "CE桥接",
+	crasher: "崩溃器",
+	notification: "通知",
+};
+
+const Z1_PARAMS = {
+	z1_killaura_range: ["killaura", "range"],
+	z1_killaura_fov: ["killaura", "fov"],
+	z1_killaura_cps: ["killaura", "cps"],
+	z1_killaura_switchdelay: ["killaura", "switchdelay"],
+	z1_autoclicker_reach: ["autoclicker", "reach"],
+	z1_aimbot_range: ["aimbot", "range"],
+	z1_aimbot_fov: ["aimbot", "fov"],
+	z1_reach_dist: ["reach", "dist"],
+	z1_velocity_x: ["velocity", "x"],
+	z1_velocity_y: ["velocity", "y"],
+	z1_velocity_z: ["velocity", "z"],
+	z1_fly_speed: ["fly", "speed"],
+	z1_ridefly_speed: ["ridefly", "speed"],
+	z1_freecam_speed: ["freecam", "speed"],
+	z1_autorod_roddelay: ["autorod", "roddelay"],
+	z1_respawn_delay: ["respawn", "delay"],
+	z1_fastanchor_delay: ["fastanchor", "delay"],
+	z1_fastanchor_stepdelay: ["fastanchor", "stepdelay"],
+	z1_xray_range: ["xray", "range"],
+	z1_xray_ylimit: ["xray", "ylimit"],
+	z1_xray_budget: ["xray", "budget"],
+	z1_xray_refresh: ["xray", "refresh"],
+	z1_xray_max: ["xray", "max"],
+	z1_xray_render: ["xray", "render"],
+	z1_invisible_int: ["invisible", "interval"],
+	z1_spammer_text: ["spammer", "text"],
+	z1_spammer_delay: ["spammer", "delay"],
+	z1_spammer_rand: ["spammer", "rand"],
+};
+
+                                                      
+const Z1_CMD = { noclip: "clip" };
+const Z1_ONESHOT = { mount: "mount", gmpanel: "gm", debug: "debug", list: "list" };
+const Z1_DIRECT = { whitelist: 1, kbchange: 1, ridetpaura: 1, hud: 1, autotrap: 1, blockin: 1, fucker: 1, zoom: 1 };
+const Z1_PARAMVALS = {};
+                                              
+const Z1_COMPOUND_LEAD = { z1_velocity_y: "z1_velocity_x", z1_velocity_z: "z1_velocity_x", z1_spammer_delay: "z1_spammer_text", z1_spammer_rand: "z1_spammer_text" };
+const Z1_PARAM_AUTOEN = { z1_killaura_range: 1, z1_killaura_fov: 1, z1_killaura_cps: 1, z1_killaura_switchdelay: 1, z1_autoclicker_reach: 1, z1_reach_dist: 1, z1_velocity_x: 1, z1_velocity_y: 1, z1_velocity_z: 1, z1_spammer_text: 1, z1_spammer_delay: 1, z1_spammer_rand: 1 };
+const Z1_STATE = {};
+
+                                                                                      
+const Z1_CFG = {
+	z1n_killaura_multi_limit: ["killaura", "multi_limit", "int", "目标上限"],
+	z1n_aimbot_speed: ["aimbot", "speed", "num", "速度"],
+	z1n_aimbot_yoffset: ["aimbot", "yoffset", "num", "垂直偏移"],
+	z1n_triggerbot_range: ["triggerbot", "range", "num", "范围"],
+	z1n_triggerbot_fov: ["triggerbot", "fov", "int", "FOV"],
+	z1n_triggerbot_cps: ["triggerbot", "cps", "int", "CPS"],
+	z1n_criticals_sneakdelay: ["criticals", "sneakdelay", "num", "潜行延迟"],
+	z1n_criticals_clickspan: ["criticals", "clickspan", "num", "点击间隔"],
+	z1n_autoclicker_cpsmin: ["autoclicker", "cps_min", "int", "最小CPS"],
+	z1n_autoclicker_cpsmax: ["autoclicker", "cps_max", "int", "最大CPS"],
+	z1n_autorod_switchdelay: ["autorod", "switchdelay", "int", "切换延迟"],
+	z1n_autorod_range: ["autorod", "range", "int", "范围"],
+	z1n_autosoup_health: ["autosoup", "health", "int", "血量"],
+	z1n_autosoup_delay: ["autosoup", "delay", "int", "延迟"],
+	z1n_combatbot_trackrange: ["combatbot", "track_range", "int", "追踪范围"],
+	z1n_combatbot_attackrange: ["combatbot", "attack_range", "num", "攻击距离"],
+	z1n_combatbot_keepdist: ["combatbot", "keep_distance", "num", "保持距离"],
+	z1n_combatbot_healhp: ["combatbot", "heal_hp", "int", "回血阈值"],
+	z1n_combatbot_healkeep: ["combatbot", "heal_keep_distance", "int", "回血距离"],
+	z1n_kbchange_yaw: ["kbchange", "yaw", "int", "转向角"],
+	z1n_kbchange_range: ["kbchange", "range", "num", "范围"],
+	z1n_ridetpaura_range: ["ridetpaura", "range", "int", "范围"],
+	z1n_bhop_fallspeed: ["bhop", "fallspeed", "num", "下落速度"],
+	z1n_bhop_speed: ["bhop", "speed", "num", "速度"],
+	z1n_ridebhop_speed: ["ridebhop", "speed", "num", "速度"],
+	z1n_ridebhop_ymotion: ["ridebhop", "ymotion", "num", "垂直速度"],
+	z1n_scaffold_radius: ["scaffold", "radius", "int", "半径"],
+	z1n_autotool_switchtick: ["autotool", "switchtick", "int", "切换延迟"],
+	z1n_autotool_restoretick: ["autotool", "restoretick", "int", "恢复延迟"],
+	z1n_blockin_speed: ["blockin", "speed", "int", "速度"],
+	z1n_autotrap_range: ["autotrap", "range", "num", "范围"],
+	z1n_autoweb_delay: ["autoweb", "delay", "num", "延迟"],
+	z1n_nobreakdelay_restarttick: ["nobreakdelay", "restarttick", "int", "重挖延迟"],
+	z1n_nobreakdelay_aimconfirmticks: ["nobreakdelay", "aimconfirmticks", "int", "瞄准确认"],
+	z1n_fucker_range: ["fucker", "range", "num", "范围"],
+	z1n_fucker_scaninterval: ["fucker", "scan_interval", "int", "扫描间隔"],
+	z1n_zoom_fov: ["zoom", "fov", "int", "视野"],
+	z1n_zoom_smooth: ["zoom", "speed", "num", "平滑"],
+	z1n_gaussblur_intensity: ["gaussblur", "intensity", "num", "模糊强度"],
+	z1n_fogchange_density: ["fogchange", "density", "int", "雾浓度"],
+	z1n_fogchange_r: ["fogchange", "color_r", "num", "红色"],
+	z1n_fogchange_g: ["fogchange", "color_g", "num", "绿色"],
+	z1n_fogchange_b: ["fogchange", "color_b", "num", "蓝色"],
+	z1n_esp_smooth: ["esp", "smooth_factor", "num", "平滑"],
+	z1n_esp_predict: ["esp", "predict_ticks", "num", "预测"],
+	z1n_esp_chestradius: ["esp", "chest_scan_radius", "int", "箱子半径"],
+	z1n_esp_r: ["esp", "color_r", "num", "红色"],
+	z1n_esp_g: ["esp", "color_g", "num", "绿色"],
+	z1n_esp_b: ["esp", "color_b", "num", "蓝色"],
+	z1n_hud_range: ["hud", "range", "num", "范围"],
+	z1n_hud_fov: ["hud", "fov", "int", "FOV"],
+	z1n_pyrpc_maxdisplay: ["pyrpc", "maxdisplay", "int", "显示上限"],
+	z1n_whitelist_range: ["whitelist", "range", "num", "范围"],
+	z1n_invisible_restoredelay: ["invisible", "restoredelay", "num", "恢复延迟"],
+	z1n_rodaim_range: ["rodaim", "range", "num", "范围"],
+	z1n_rodaim_fov: ["rodaim", "fov", "int", "FOV"],
+	z1n_noclip_speed: ["noclip", "speed", "num", "速度"],
+	z1c_killaura_onweapon: ["killaura", "onweapon", "bool", "持武器"],
+	z1c_killaura_onhold: ["killaura", "onhold", "bool", "按住触发"],
+	z1c_killaura_onholdattack: ["killaura", "onholdattack", "bool", "按住攻击"],
+	z1c_killaura_ecbypass: ["killaura", "ecbypass", "bool", "ECBypass"],
+	z1c_aimbot_onclick: ["aimbot", "onclick", "bool", "点击触发"],
+	z1c_aimbot_onhold: ["aimbot", "onhold", "bool", "按住触发"],
+	z1c_aimbot_onweapon: ["aimbot", "onweapon", "bool", "持武器"],
+	z1c_aimbot_leftclick: ["aimbot", "leftclick", "bool", "按住锁定"],
+	z1c_aimbot_sticky: ["aimbot", "sticky", "bool", "粘滞锁定"],
+	z1c_triggerbot_onweapon: ["triggerbot", "onweapon", "bool", "持武器"],
+	z1c_triggerbot_ignoreteammates: ["triggerbot", "ignoreteammates", "bool", "忽略队友"],
+	z1c_triggerbot_throughwalls: ["triggerbot", "throughwalls", "bool", "隔墙攻击"],
+	z1c_triggerbot_leftclick: ["triggerbot", "leftclick", "bool", "按住锁定"],
+	z1c_criticals_onclick: ["criticals", "onclick", "bool", "点击触发"],
+	z1c_criticals_onweapon: ["criticals", "onweapon", "bool", "持武器"],
+	z1c_criticals_onsneak: ["criticals", "onsneak", "bool", "潜行触发"],
+	z1c_criticals_onhold: ["criticals", "onhold", "bool", "按住触发"],
+	z1c_autoclicker_swingair: ["autoclicker", "swingair", "bool", "空挥"],
+	z1c_autoclicker_ecbypass: ["autoclicker", "ecbypass", "bool", "ECBypass"],
+	z1c_autorod_canattack: ["autorod", "canattack", "bool", "可攻击"],
+	z1c_autorod_silentswitch: ["autorod", "silentswitch", "bool", "静默切换"],
+	z1c_combatbot_criticals: ["combatbot", "criticals", "bool", "暴击"],
+	z1c_combatbot_sprint: ["combatbot", "sprint", "bool", "疾跑"],
+	z1c_kbchange_ecbypass: ["kbchange", "ecbypass", "bool", "ECBypass"],
+	z1c_kbchange_movefix: ["kbchange", "movefix", "bool", "移动修正"],
+	z1c_ridetpaura_onweapon: ["ridetpaura", "onweapon", "bool", "持武器"],
+	z1c_scaffold_airplace: ["scaffold", "airplace", "bool", "空放自救"],
+	z1c_fucker_onholdbreak: ["fucker", "onholdbreak", "bool", "按住挖掘"],
+	z1c_esp_teambox: ["esp", "teambox", "bool", "队友框"],
+	z1c_esp_chestesp: ["esp", "chest_esp", "bool", "箱子透视"],
+	z1c_esp_chestfov: ["esp", "chest_fov", "bool", "箱子视野"],
+	z1c_hud_targethud: ["hud", "targethud", "bool", "目标面板"],
+	z1c_hud_bjd: ["hud", "bjd", "bool", "布吉岛"],
+	z1c_pyrpc_decode: ["pyrpc", "decode", "bool", "解码"],
+	z1c_pyrpc_showmessage: ["pyrpc", "showmessage", "bool", "显示消息"],
+	z1c_whitelist_midclick: ["whitelist", "midclick", "bool", "中键"],
+	z1c_list_send: ["list", "send", "bool", "发送"],
+	z1c_rodaim_onhold: ["rodaim", "onhold", "bool", "按住触发"],
+	z1c_xray_ore_diamond: ["xray", "diamond", "bool", "钻石"],
+	z1c_xray_ore_iron: ["xray", "iron", "bool", "铁矿"],
+	z1c_xray_ore_gold: ["xray", "gold", "bool", "金矿"],
+	z1c_xray_ore_emerald: ["xray", "emerald", "bool", "绿宝石"],
+	z1c_xray_ore_debris: ["xray", "debris", "bool", "远古残骸"],
+	z1c_xray_ore_redstone: ["xray", "redstone", "bool", "红石"],
+	z1c_xray_ore_lapis: ["xray", "lapis", "bool", "青金石"],
+	z1c_xray_ore_coal: ["xray", "coal", "bool", "煤矿"],
+	z1c_xray_ore_copper: ["xray", "copper", "bool", "铜矿"],
+	z1c_xray_ore_quartz: ["xray", "quartz", "bool", "石英"],
+	z1r_killaura_weaponmode: ["killaura", "weaponmode", "enum", "武器选择"],
+	z1r_killaura_attackmode: ["killaura", "attack_mode", "enum", "攻击模式"],
+	z1r_killaura_priority: ["killaura", "priority", "enum", "优先级"],
+	z1r_aimbot_mode: ["aimbot", "mode", "enum", "模式"],
+	z1r_rodaim_mode: ["rodaim", "mode", "enum", "模式"],
+	z1r_antibot_mode: ["antibot", "mode", "enum", "模式"],
+	z1r_kbchange_mode: ["kbchange", "mode", "enum", "模式"],
+	z1r_kbchange_cameramode: ["kbchange", "camera_mode", "enum", "相机模式"],
+	z1r_bhop_mode: ["bhop", "mode", "enum", "模式"],
+	z1r_inventorywalk_mode: ["inventorywalk", "mode", "enum", "模式"],
+	z1r_scaffold_switchmode: ["scaffold", "switchmode", "enum", "切换模式"],
+	z1r_fucker_mode: ["fucker", "mode", "enum", "模式"],
+	z1r_fucker_rotation: ["fucker", "rotation", "enum", "转头模式"],
+	z1r_esp_espmode: ["esp", "esp_mode", "enum", "模式"],
+	z1r_team_mode: ["team", "mode", "enum", "模式"],
+	z1r_crasher_mode: ["crasher", "mode", "enum", "模式"],
+	z1r_ridetpaura_attackmode: ["ridetpaura", "attack_mode", "enum", "攻击模式"],
+	z1r_ridetpaura_priority: ["ridetpaura", "priority", "enum", "优先级"],
+	z1r_autorod_restoremode: ["autorod", "restoremode", "enum", "切回武器"],
+};
+const Z1_CFG_OPTS = {
+	z1r_killaura_weaponmode: [["default", "默认"], ["sword", "剑"], ["axe", "斧头"], ["mace", "重锤"]],
+	z1r_killaura_attackmode: [["single", "单体"], ["switch", "多体"], ["multi", "群体"]],
+	z1r_killaura_priority: [["distance", "最近距离"], ["health", "最少血量"], ["angle", "准星最近"]],
+	z1r_aimbot_mode: [["dynamic", "动态"], ["static", "静态"]],
+	z1r_rodaim_mode: [["dynamic", "动态"], ["static", "静态"]],
+	z1r_antibot_mode: [["bjd", "布吉岛"], ["default", "默认"]],
+	z1r_kbchange_mode: [["right", "右"], ["left", "左"]],
+	z1r_kbchange_cameramode: [["static", "静态"], ["dynamic", "动态"]],
+	z1r_bhop_mode: [["lowhop", "低跳"], ["motion", "兔子跳"]],
+	z1r_inventorywalk_mode: [["motion", "动态"], ["vanilla", "原版"]],
+	z1r_scaffold_switchmode: [["default", "默认"], ["auto", "自动"], ["silent", "静默"]],
+	z1r_fucker_mode: [["bed", "床"], ["surround", "围堵"]],
+	z1r_fucker_rotation: [["off", "关闭"], ["dynamic", "动态"], ["static", "静态"]],
+	z1r_esp_espmode: [["2d", "2D"], ["3d", "3D"], ["both", "两者"]],
+	z1r_team_mode: [["armor", "护甲颜色"], ["namecolor", "名字颜色"], ["prefix", "名字前缀"], ["all", "全部"]],
+	z1r_crasher_mode: [["pyrpc", "PyRpc"], ["4dskin", "4D皮肤"]],
+	z1r_ridetpaura_attackmode: [["single", "单体"], ["switch", "多体"]],
+	z1r_ridetpaura_priority: [["distance", "最近距离"], ["health", "最少血量"], ["angle", "准星最近"]],
+	z1r_autorod_restoremode: [["default", "默认"], ["sword", "剑"], ["axe", "斧头"]],
+};
+const Z1_CFGVALS = {};
+let Z1_CFGSEEDED = false;
+
+function z1CfgSame(ck, ty, val) {
+	const old = Z1_CFGVALS[ck];
+	if (old === undefined) return false;
+	if (old === val) return true;
+	if (ty === "bool" || ty === "enum") return false;
+	return Number(old) === Number(val);
+}
+
+                                                                 
+function z1CfgTick(ck, val) {
+	const spec = Z1_CFG[ck];
+	const label = Z1_MODS[spec[0]] + " " + spec[3];
+	z1TickOp(function (rp) {
+		return "__main__.KUSUG_MCP['z1cfgq'](" + z1Lit(spec[0]) + "," + z1Lit(spec[1]) + "," + z1Lit(val) + "," + z1Lit(rp) + ")";
+	}, label, function (r) {
+		if (r === "ok") {
+			Z1_CFGVALS[ck] = val;
+			let disp = val;
+			if (spec[2] === "bool") disp = val === "true" ? "开" : "关";
+			else if (spec[2] === "enum") { const os = Z1_CFG_OPTS[ck] || []; for (let i = 0; i < os.length; i++) if (os[i][0] === val) { disp = os[i][1]; break; } }
+			else if (val === "inf") disp = "无限";
+			z1Toast(label + ": " + disp);
+			return;
+		}
+		if (r === "missing") { z1Toast("z1yr 未加载"); return; }
+		if (r.indexOf("err:") === 0) { z1Toast(label + " 异常: " + r.slice(4, 44)); return; }
+		z1Toast(label + " 回执异常: " + r.slice(0, 40));
+	});
+}
+
+                                                        
+function z1CfgSeed() {
+	const st = z1Cmd("z1cfgall", "");
+	Z1_CFGSEEDED = false;
+	for (const k in Z1_CFGVALS) delete Z1_CFGVALS[k];
+	if (!st || st === "none") return;
+	for (const p of st.split(";")) {
+		const i = p.indexOf("=");
+		if (i > 0) Z1_CFGVALS[p.slice(0, i)] = p.slice(i + 1);
+	}
+	Z1_CFGSEEDED = true;
+}
+
+
+                             
+function z1SyncFrom(st) {
+	if (!st || st === "none") return false;
+	for (const p of st.split(";")) {
+		const i = p.indexOf("=");
+		if (i > 0) Z1_STATE[p.slice(0, i)] = p.slice(i + 1) === "1";
+	}
+	return true;
+}
+
+                                    
+function z1Actual(name, want) {
+	const st = z1Cmd("z1stateall", "");
+	if (!st || st === "none") return want;
+	for (const p of st.split(";")) {
+		const i = p.indexOf("=");
+		if (i > 0 && p.slice(0, i) === name) return p.slice(i + 1) === "1";
+	}
+	return want;
+}
+
+                                                 
+let Z1_LOADING = false;
+
+function z1Poll(buildExpr, label, after, fail) {
+	const rp = z1RetFile() + "." + (Z1_SEQ.n++);
+	try { fs.write(rp, ""); } catch (e) {}
+	try { gamePy(z1Wrap(buildExpr(rp))); } catch (e) { z1Toast(label + " 投递异常"); if (fail) fail(); return; }
+	let tries = 0;
+	const step = function () {
+		const r = z1ReadFile(rp);
+		if (r !== "") { try { fs.remove(rp); } catch (e) {} if (after) after(r); return; }
+		if (++tries > 25) { try { fs.remove(rp); } catch (e) {} z1Toast(label + " 无回执(tick 未跑?)"); if (fail) fail(); return; }
+		setTimeout(step, 400);
+	};
+	setTimeout(step, 400);
+}
+
+function z1Load() {
+	let dir = "";
+	try { dir = app.getResource("kusug/mcp"); } catch (e) {}
+	if (!dir) { z1Toast("取不到资源目录"); return; }
+	const path = dir + "/" + Z1_MCP_FILE;
+	try { if (!fs.exists(path)) { z1Toast("未找到 " + path); return; } } catch (e) {}
+	if (Z1_LOADING) { z1Toast("正在加载中, 请稍候"); return; }
+	Z1_LOADING = true;
+	z1Toast("z1yr 加载中…");
+	const done = function () { Z1_LOADING = false; };
+	z1Poll(function (rp) {
+		return "__main__.KUSUG_MCP['z1load'](" + z1Lit(path) + "," + z1Lit(rp) + ")";
+	}, "加载", function (r) {
+		done();
+		if (r.indexOf("ok:") === 0) {
+			z1Toast("已加载: " + r.slice(3));
+			if (!z1SyncFrom(z1Cmd("z1stateall", ""))) z1Toast("状态同步失败: 开关方向可能不准");
+			z1CfgSeed();
+		} else if (r.indexOf("err") === 0) z1Toast("加载失败: " + r.slice(4, 64));
+		else z1Toast("加载失败: " + (r || "无回执"));
+	}, done);
+}
+
+function z1Exit() {
+	z1Poll(function (rp) {
+		return "__main__.KUSUG_MCP['z1exit'](" + z1Lit(rp) + ")";
+	}, "退出", function (r) {
+		for (const k in Z1_STATE) delete Z1_STATE[k];
+		Z1_CFGSEEDED = false;
+		for (const k2 in Z1_CFGVALS) delete Z1_CFGVALS[k2];
+		z1Toast(r === "ok" ? "已退出 z1yr 组件" : ("退出异常: " + (r || "无回执")));
+	}, null);
+}
+
+                                                               
+function z1ClickGui() {
+	z1ChatTick(".clickgui", "ClickGUI");
+}
+
+function z1ParamCmd(pk, v) {
+	const num = String(Number(v));
+	                                                          
+	if (pk === "z1_spammer_text" || pk === "z1_spammer_delay" || pk === "z1_spammer_rand") {
+		const tx = Z1_PARAMVALS["z1_spammer_text"] !== undefined ? String(Z1_PARAMVALS["z1_spammer_text"]) : "";
+		if (!tx) return "";
+		const dl = Z1_PARAMVALS["z1_spammer_delay"] !== undefined ? String(Number(Z1_PARAMVALS["z1_spammer_delay"])) : "5";
+		const rd = Z1_PARAMVALS["z1_spammer_rand"] !== undefined ? String(Math.round(Number(Z1_PARAMVALS["z1_spammer_rand"]))) : "0";
+		return ".spammer " + tx + " " + dl + " " + rd;
+	}
+	                  
+	if (pk === "z1_velocity_x" || pk === "z1_velocity_y" || pk === "z1_velocity_z") {
+		const vx = Z1_PARAMVALS["z1_velocity_x"] !== undefined ? String(Number(Z1_PARAMVALS["z1_velocity_x"])) : "0";
+		const vy = Z1_PARAMVALS["z1_velocity_y"] !== undefined ? String(Number(Z1_PARAMVALS["z1_velocity_y"])) : "0";
+		const vz = Z1_PARAMVALS["z1_velocity_z"] !== undefined ? String(Number(Z1_PARAMVALS["z1_velocity_z"])) : "0";
+		return ".velocity " + vx + " " + vy + " " + vz;
+	}
+	switch (pk) {
+		case "z1_killaura_range": return ".killaura range " + num;
+		case "z1_killaura_fov": return ".killaura fov " + num;
+		case "z1_killaura_cps": return ".killaura cps " + num;
+		case "z1_killaura_switchdelay": return ".killaura switchdelay " + Math.round(Number(v));
+		case "z1_autoclicker_reach": return ".autoclicker reach " + num;
+		case "z1_aimbot_range": return ".aimbot range " + num;
+		case "z1_aimbot_fov": return ".aimbot fov " + num;
+		case "z1_reach_dist": return ".reach " + num;
+		case "z1_fly_speed": return ".fly speed " + num;
+		case "z1_ridefly_speed": return ".ridefly speed " + num;
+		case "z1_freecam_speed": return ".freecam speed " + num;
+		case "z1_autorod_roddelay": return ".autorod roddelay " + num;
+		case "z1_respawn_delay": return ".respawn delay " + Math.round(Number(v));
+		case "z1_fastanchor_delay": return ".fastanchor delay " + num;
+		case "z1_fastanchor_stepdelay": return ".fastanchor stepdelay " + num;
+		case "z1_xray_range": return ".xray range " + num;
+		case "z1_xray_ylimit": return ".xray ylimit " + Math.round(Number(v));
+		case "z1_xray_budget": return ".xray budget " + num;
+		case "z1_xray_refresh": return ".xray refresh " + num;
+		case "z1_xray_max": return ".xray max " + Math.round(Number(v));
+		case "z1_xray_render": return ".xray render " + Math.round(Number(v));
+		case "z1_invisible_int": return ".invisible interval " + num;
+	}
+	return "";
+}
+
+                                                           
+                                    
+function z1ParamSend(pk, quiet) {
+	const spec = Z1_PARAMS[pk];
+	const v = Z1_PARAMVALS[pk];
+	const cmd = z1ParamCmd(pk, v);
+	if (!cmd) { if (!quiet && pk.indexOf("z1_spammer") === 0) z1Toast("先在文本框输入刷屏内容"); return; }
+	z1ChatTick(cmd, Z1_MODS[spec[0]], function () {
+		                                     
+		if (Z1_PARAM_AUTOEN[pk]) Z1_STATE[spec[0]] = z1Actual(spec[0], Z1_STATE[spec[0]] === true);
+	});
+}
+
+function z1ParamSet(pk, args) {
+	const spec = Z1_PARAMS[pk];
+	const v = argPick(args, pk);
+	if (v === undefined || typeof v === "boolean") return;
+	if (Z1_PARAMVALS[pk] === v) return;
+	Z1_PARAMVALS[pk] = v;
+	if (Z1_STATE[spec[0]] !== true) return;
+	z1ParamSend(pk, false);
+}
+
+const z1yrPanel = {
+	tag: "z1yr",
+	onModuleEvent(args) {
+		if (!args) return;
+		const fun = args.fun;
+		if (fun === "z1_load") { z1Load(); return; }
+		if (fun === "z1_exit") { z1Exit(); return; }
+		if (fun === "z1_clickgui") { z1ClickGui(); return; }
+		                                              
+		let chit = false;
+		for (const ck in Z1_CFG) {
+			const spec = Z1_CFG[ck];
+			let val;
+			if (spec[2] === "enum") {
+				const mv = argPick(args, ck);
+				if (typeof mv === "string" && mv.indexOf(ck + "_") === 0) val = mv.slice(ck.length + 1);
+				else {
+					const eos = Z1_CFG_OPTS[ck] || [];
+					for (let oi = 0; oi < eos.length; oi++) {
+						if (args[ck + "_" + eos[oi][0]] === true || argPick(args, ck + "_" + eos[oi][0]) === true) { val = eos[oi][0]; break; }
+					}
+				}
+				if (val === undefined) continue;
+			} else if (spec[2] === "bool") {
+				const bv = argPick(args, ck);
+				if (typeof bv !== "boolean") continue;
+				val = bv ? "true" : "false";
+			} else {
+				const nv = argPick(args, ck);
+				if (nv === undefined || typeof nv === "boolean") continue;
+				const nn = Number(nv);
+				if (isNaN(nn)) { chit = true; continue; }
+				val = spec[2] === "int" ? String(Math.round(nn)) : String(nn);
+				if (ck === "z1n_killaura_multi_limit" && nn >= 20) val = "inf";
+			}
+			chit = true;
+			if (!Z1_CFGSEEDED) { Z1_CFGVALS[ck] = val; continue; }
+			if (z1CfgSame(ck, spec[2], val)) continue;
+			Z1_CFGVALS[ck] = val;
+			z1CfgTick(ck, val);
+		}
+		if (chit) return;
+		                                                               
+		                                               
+		let hit = false;
+		for (const k2 in Z1_PARAMS) {
+			if (argPick(args, k2) !== undefined) { z1ParamSet(k2, args); hit = true; }
+		}
+		if (hit) return;
+		const pk = (args.key && Z1_PARAMS[args.key]) ? args.key : (Z1_PARAMS[fun] ? fun : "");
+		if (pk) { z1ParamSet(pk, args); return; }
+		if (typeof fun === "string" && fun.indexOf("z1_") === 0) {
+			const name = fun.slice(3);
+			if (!Z1_MODS[name]) return;
+			if (Z1_ONESHOT[name]) {
+				if (args.value === false) return;                                 
+				z1ChatTick("." + Z1_ONESHOT[name], Z1_MODS[name]);
+				return;
+			}
+			if (typeof args.value === "boolean" && (Z1_STATE[name] === true) === args.value) return;                    
+			const want = typeof args.value === "boolean" ? args.value : null;
+			if (want !== null) Z1_STATE[name] = want;                        
+			if (Z1_DIRECT[name]) { z1DirectTick(name, want, Z1_MODS[name]); return; }                       
+			z1ChatTick("." + (Z1_CMD[name] || name), Z1_MODS[name], want === null ? null : function () {
+				                                           
+				Z1_STATE[name] = z1Actual(name, want);
+				                                             
+				if (Z1_STATE[name] === true) {
+					const done = {};
+					for (const pk2 in Z1_PARAMS) {
+						if (Z1_PARAMS[pk2][0] !== name || Z1_PARAMVALS[pk2] === undefined) continue;
+						const lead = Z1_COMPOUND_LEAD[pk2] || pk2;
+						if (done[lead]) continue;
+					done[lead] = true;
+					z1ParamSend(lead, true);
+				}
+			}
+		}, want === null ? null : function () { Z1_STATE[name] = !want; });
+		return;
+		}
+	}
+};
+
+const Z1_TAGS = [];
+for (const k in Z1_MODS) Z1_TAGS.push("z1_" + k);
+for (const k2 in Z1_PARAMS) Z1_TAGS.push(k2);
+for (const k3 in Z1_CFG) Z1_TAGS.push(k3);
+Z1_TAGS.push("z1_load", "z1_exit", "z1_clickgui");
+for (const t of Z1_TAGS) safeRegFun(t);
+                     
+
+const modules = [cookieLogin, moveCamera, likeUser, watermarkUid, javaWatermark, queryPlayer, roomIp, antiKick, msgBrush, killAura, scaffold, nightVision, locateStructure, posPrint, noInvis, getUid, adventureEdit, infDurability, goatEffect, bedColor, bannerColor, ominousBottle, customDamage, attackDrops, autoDrop, attackFx, deathFx, chunkDisplay, selfAttack, ghostBarrier, miniMap, auxEffect, anvilLines, noHunger, skinTryOn, loginVideo, radarHud, gmPanel, checkCmd, structHud, texInject, sendControl, tradeUnlock, fpsHud, killTaunt, attackTaunt, batchCmd, motionBlur, hideClutter, bypassServer, gyroView, bigGyro, customCamera, dirHud, uiVis, crosshair, itemHud, autoSign, eatRepeat, containerBlur, z1yrPanel];
+try {
+	cookieLogin.boot();
+	ensureHud(fpsHud, fpsHud.tag, "FPS显示");
+	fpsHud.hud.enabled = true;
+} catch (e) {}
+
+const needGameTags = new Set(["fun_room_ip", "fun_get_uid", "fun_pos_print", "fun_locate_structure", "fun_adventure_place_break", "fun_inf_durability", "fun_goat_effect", "fun_attack_drops", "fun_auto_drop", "fun_aux_effect", "fun_msg_brush", "fun_bed_color", "fun_banner_color", "fun_ominous_bottle", "fun_kill_aura", "fun_chunk_display", "fun_self_attack", "fun_ghost_barrier", "fun_minimap", "fun_trade_unlock", "fun_kill_taunt", "fun_attack_taunt", "fun_batch_cmd", "fun_motion_blur", "fun_hide_clutter", "fun_custom_damage", "fun_scaffold", "fun_gyro_view", "fun_big_gyro", "fun_custom_camera", "fun_dir_hud", "fun_crosshair", "fun_item_hud", "fun_auto_sign", "fun_skin_tryon", "fun_eat_repeat", "fun_radar", "fun_container_blur", "fun_death_fx"]);
+
+const onlyLobbyTags = new Set(["fun_bypass_server"]);
+
+const __kusugPrev = {
+	callModule: globalThis.onCallModuleEvent,
+	tick: globalThis.onTickEvent,
+	pyRpcRecv: globalThis.onPyRpcReceiveEvent
+};
+
+globalThis.onCallModuleEvent = function (args) {
+	const p = __kusugPrev.callModule;
+	if (p && !p.__kusug) {
+		try { p(args); } catch (e) {}
+	}
+	if (!args) return;
+	if (args.value === true && needGameTags.has(args.fun)) {
+		let inGame = true;
+		try { inGame = app.isInGame(); } catch (e) {}
+		if (!inGame) {
+			try { app.showToast("请进入局内后开启"); } catch (e) {}
+			return;
+		}
+	}
+	if (args.value === true && onlyLobbyTags.has(args.fun)) {
+		let inGame = false;
+		try { inGame = app.isInGame(); } catch (e) {}
+		if (inGame) {
+			try { app.showToast("请局外开启"); } catch (e) {}
+			return;
+		}
+	}
+	for (const m of modules) {
+		if (m.onModuleEvent) { try { m.onModuleEvent(args); } catch (e) {} }
+	}
+};
+globalThis.onCallModuleEvent.__kusug = true;
+
+function onSAuthJsonHookEvent(cookie) {
+	kusugNoticeConsume();
+	likeUser.lastLoginUid = "";
+	likeUser.start();
+	for (const m of modules) {
+		if (m.onSAuthJsonHook) {
+			const r = m.onSAuthJsonHook(cookie);
+			if (r !== undefined && r !== null) return r;
+		}
+	}
+}
+
+const __prevImGuiRender = globalThis.onImGuiRenderEvent;
+globalThis.onImGuiRenderEvent = function () {
+	if (__prevImGuiRender && !__prevImGuiRender.__kusug) {
+		try { __prevImGuiRender(); } catch (e) {}
+	}
+	try { cookieLogin.onRender(); } catch (e) {}
+};
+globalThis.onImGuiRenderEvent.__kusug = true;
+
+globalThis.onTickEvent = function () {
+	const p = __kusugPrev.tick;
+	if (p && !p.__kusug) {
+		try { p(); } catch (e) {}
+	}
+	kusugNoticeConsume();                                      
+	if (roomIp.wantQuery || roomIp.pendingAddr || roomIp.pendingErr) tickSafe(roomIp);
+	if (posPrint.wantRun || posPrint.outbox.length) tickSafe(posPrint);
+	if (noInvis.enabled) tickSafe(noInvis);
+	if (getUid.wantSend || getUid.pendingEntries) tickSafe(getUid);
+	if (moveCamera.enabled) tickSafe(moveCamera);
+	if (msgBrush.enabled && msgBrush.text) tickSafe(msgBrush);
+	if (sendControl.enabled && sendControl.meQueue.length) tickSafe(sendControl);
+	if (batchCmd.enabled) tickSafe(batchCmd);
+	if (motionBlur.enabled) tickSafe(motionBlur);
+	if (itemHud.enabled) tickSafe(itemHud);
+	if (dirHud.enabled) tickSafe(dirHud);
+	if (crosshair.enabled) tickSafe(crosshair);
+	if (radarHud.enabled) tickSafe(radarHud);
+	if (checkCmd.enabled) tickSafe(checkCmd);
+	if (structHud.enabled) tickSafe(structHud);
+	if (killAura.enabled) tickSafe(killAura);
+	if (scaffold.enabled) tickSafe(scaffold);
+	if (nightVision.enabled) tickSafe(nightVision);
+	if (locateStructure.queue) tickSafe(locateStructure);
+	if (adventureEdit.pending) tickSafe(adventureEdit);
+	if (infDurability.writesLeft > 0 || infDurability.dropDelay > 0) tickSafe(infDurability);
+	if (goatEffect.writesLeft > 0 || goatEffect.dropDelay > 0) tickSafe(goatEffect);
+	if (bedColor.writesLeft > 0 || bedColor.dropDelay > 0) tickSafe(bedColor);
+	if (bannerColor.writesLeft > 0 || bannerColor.dropDelay > 0) tickSafe(bannerColor);
+	if (ominousBottle.writesLeft > 0 || ominousBottle.dropDelay > 0) tickSafe(ominousBottle);
+	if (customDamage.writesLeft > 0 || customDamage.dropDelay > 0) tickSafe(customDamage);
+	if (attackDrops.pending || attackDrops.running) tickSafe(attackDrops);
+	if (autoDrop.enabled) tickSafe(autoDrop);
+	if (bigGyro.enabled) tickSafe(bigGyro);
+	if (customCamera.enabled) tickSafe(customCamera);
+	if (auxEffect.pending || auxEffect.dropDelay > 0) tickSafe(auxEffect);
+	if (noHunger.enabled) tickSafe(noHunger);
+	if (selfAttack.enabled) tickSafe(selfAttack);
+	if (ghostBarrier.enabled) tickSafe(ghostBarrier);
+	if (fpsHud.enabled) tickSafe(fpsHud);
+	if (deathFx.enabled) tickSafe(deathFx);
+	if (kuNative.loaded) kuNative.flushLog();
+	if (javaWatermark.enabled) tickSafe(javaWatermark);
+	if (autoSign.enabled) tickSafe(autoSign);
+};
+globalThis.onTickEvent.__kusug = true;
+
+function onReadyEvent() {
+	kusugNoticeConsume();
+	antiKick.onReady();
+	try { cookieLogin.onWorldEnter(); } catch (e) {}
+}
+
+function onLeaveGameEvent() {
+	for (const m of modules) {
+		if (m.onWorldExit) {
+			try { m.onWorldExit(); } catch (e) {}
+		}
+	}
+}
+
+globalThis.onPyRpcReceiveEvent = function (id, data, json) {
+	const p = __kusugPrev.pyRpcRecv;
+	if (p && !p.__kusug) {
+		try {
+			const r = p(id, data, json);
+			if (r) return r;
+		} catch (e) {}
+	}
+	posPrint.onPyRpc(id, data);
+	getUid.onPyRpc(id, data, json);
+};
+globalThis.onPyRpcReceiveEvent.__kusug = true;
+
+likeUser.start();
+
+const sendPacketModules = modules.filter(m => typeof m.onSendServerPacket === "function");
+
+function onSendServerPacketEvent(id, name, bin) {
+	for (const m of sendPacketModules) {
+		try {
+			const r = m.onSendServerPacket(id, name, bin);
+			if (r) return r;
+		} catch (e) {}
+	}
+	return false;
+}
+
+const buildBlockModules = modules.filter(m => typeof m.onPlayerBuildBlockEvent === "function");
+
+function onPlayerBuildBlockEvent(playerId, x, y, z, face) {
+	for (const m of buildBlockModules) {
+		try {
+			if (m.onPlayerBuildBlockEvent(playerId, x, y, z, face)) return true;
+		} catch (e) {}
+	}
+	return false;
+}
+
+const sendChatModules = modules.filter(m => typeof m.onSendChatMessage === "function");
+
+                                                                        
+                                              
+                             
+                                                                            
+                                    
+function kusugNoticePyEsc(s) {
+	return String(s == null ? "" : s).replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\r/g, "").replace(/\n/g, "\\n");
+}
+function kusugNoticePy(d) {
+	const title = kusugNoticePyEsc(d.title);
+	const paras = (Array.isArray(d.content) ? d.content : [d.content]).filter(x => x != null && String(x) !== "").map(kusugNoticePyEsc);
+	const ptitle = kusugNoticePyEsc(d.policy_title);
+	const pparas = (Array.isArray(d.policy_content) ? d.policy_content : [d.policy_content]).filter(x => x != null && String(x) !== "").map(kusugNoticePyEsc);
+	const tabA = kusugNoticePyEsc(d.tab_announce || "");
+	const tabP = kusugNoticePyEsc(d.tab_policy || "");
+	const mainTitle = kusugNoticePyEsc(d.main_title || "");
+	const cq = paras.map(x => '"' + x + '"').join(", ");
+	const pq = pparas.map(x => '"' + x + '"').join(", ");
+	return `# -*- coding: utf-8 -*-
+try:
+    from gui_2d.ui.login.LoginAnnounce import LoginAnnounce
+except Exception:
+    LoginAnnounce = None
+
+if LoginAnnounce is not None:
+    LoginAnnounce._ks_notice = {'title': u"${title}", 'content': [${cq}], 'ptitle': u"${ptitle}", 'pcontent': [${pq}], 'tab_a': u"${tabA}", 'tab_p': u"${tabP}", 'main_title': u"${mainTitle}"}
+    if not getattr(LoginAnnounce, '_ks_orig_ua', None):
+        LoginAnnounce._ks_orig_ua = LoginAnnounce.update_announce_msg
+
+        def _ks_hooked_ua(self):
+            d = LoginAnnounce._ks_notice
+            try:
+                from gui_2d import GUI
+                new_mode = bool(getattr(GUI.login_mgr, 'use_new_notice', True))
+            except Exception:
+                new_mode = True
+            try:
+                if new_mode:
+                    self.notice_result['content'] = '<h1>' + d['title'] + '</h1>' + ''.join(['<p>' + c + '</p>' for c in d['content']])
+                else:
+                    self.notice_result['title'] = d['title']
+                    self.notice_result['content'] = chr(10).join(d['content'])
+                self.notice_result['policyNotes'] = {'title': d['ptitle'], 'content': chr(10).join(d['pcontent'])}
+                if d.get('tab_a'):
+                    self.announce_tab.set_tab_info(d['tab_a'], d['tab_a'], self.on_change_announce)
+                if d.get('tab_p'):
+                    self.policy_tab.set_tab_info(d['tab_p'], d['tab_p'], self.on_change_policy)
+                if d.get('main_title'):
+                    self.panel_text.text = d['main_title']
+            except Exception:
+                pass
+            LoginAnnounce._ks_orig_ua(self)
+
+        LoginAnnounce.update_announce_msg = _ks_hooked_ua
+
+try:
+    from gui_2d.ui.login.LoginMain import LoginMain
+except Exception:
+    LoginMain = None
+
+if LoginMain is not None and not getattr(LoginMain, '_ks_orig_gnr', None):
+    LoginMain._ks_orig_gnr = LoginMain.on_get_notice_result
+
+    def _ks_hooked_gnr(self, response):
+        try:
+            from gui_2d.utils import config as _cfg
+            _cfg.LocalConfig.login_announce_time = []
+        except Exception:
+            pass
+        LoginMain._ks_orig_gnr(self, response)
+
+    LoginMain.on_get_notice_result = _ks_hooked_gnr
+`;
+}
+                                                                            
+                                                                         
+let kusugNoticePending = null;
+function kusugNoticeFetch() {
+	const url = "https://kusug.bibi.skin/notice.json?t=" + Date.now();
+	let done = false;
+	const wrap = (code, resp) => {
+		if (done) return;
+		done = true;
+		try {
+			if (code !== 200 || !resp) return;
+			const d = JSON.parse(resp);
+			if (!d || typeof d !== "object" || Array.isArray(d)) return;
+			kusugNoticePending = kusugNoticePy(d);
+		} catch (e) {}
+	};
+	try { https.get(url, {}, wrap); } catch (e) {}
+	try { https.get(url, wrap); } catch (e) {}
+}
+try { kusugNoticeFetch(); } catch (e) {}
+                                                                                  
+                                          
+function kusugNoticeConsume() {
+	if (!kusugNoticePending) return;
+	const npc = kusugNoticePending;
+	kusugNoticePending = null;
+	try { app.evalPython(npc); } catch (e) {}
+}
+
+
+function onSendChatMessageEvent(message) {
+	for (const m of sendChatModules) {
+		try {
+			const r = m.onSendChatMessage(message);
+			if (typeof r === "string") return r;
+			if (r) return true;
+		} catch (e) {}
+	}
+	return false;
+}
+
+const recvPacketModules = modules.filter(m => typeof m.onReceiveServerPacket === "function");
+
+function onReceiveServerPacketEvent(id, name, bin) {
+	for (const m of recvPacketModules) {
+		try {
+			const r = m.onReceiveServerPacket(id, name, bin);
+			if (r) return r;
+		} catch (e) {}
+	}
+	return null;
+}
+
+const attackModules = modules.filter(m => typeof m.onPlayerAttack === "function");
+
+function onPlayerAttackEvent(playerId, targetId) {
+	for (const m of attackModules) {
+		try { m.onPlayerAttack(playerId, targetId); } catch (e) {}
+	}
+}
+
+const behaviorModules = modules.filter(m => typeof m.onEntityBehavior === "function");
+
+function onEntityBehaviorEvent(entityId, behaviorId, behaviorData) {
+	for (const m of behaviorModules) {
+		try { m.onEntityBehavior(entityId, behaviorId, behaviorData); } catch (e) {}
+	}
+}

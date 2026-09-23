@@ -7,7 +7,6 @@
 1. 在 [Releases](https://github.com/Bibipro25/KuSug/releases) 下载最新发布包并解压。
 2. 将解压出的全部文件放入客户端资源目录。
 3. 启动客户端，在脚本列表中启用 KuSug 即可使用。
-4. script/KuSug.js 与 kusug/so/KuSug.so 必须来自同一发布包，不可跨版本混用。
 
 ## 组成部分及作用
 

@@ -65,44 +65,17 @@ static void wpl_pv_pick(int w, int h);
 
 
 static void ks_res_path(char* out, int cap, const char* suffix);
-static const char* ks_sd(const volatile unsigned char* enc, int n);
-static void ks_lkd(char* out, const volatile unsigned char* enc, int n);
-static volatile int ks_rk_ready = 0;
-
-static void guard_check(void) {
-	char path[192];
-	ks_res_path(path, sizeof(path), ks_sd((const unsigned char[]){ 17, 20, 59, 26, 17, 83, 238, 248, 253, 247 }, 10));
-	if (access(path, 0) != 0) {
-		*(volatile unsigned char*)0 = 0xAA;
-	}
-}
 
 static char nb_buffer[4096];
 static char ks_slot[8][192];
-/* 模块标签混合层加密,首用解码;JS 未投钥(ctor 期)时跳过解码且不落缓存,投钥后自愈 */
-static const unsigned char ks_enc_tags[8][7] = { { 113, 3, 143, 202, 211, 133, 39 },
-	{ 113, 13, 130, 229, 150, 0, 0 },
-	{ 113, 8, 149, 220, 235, 248, 0 },
-	{ 113, 4, 137, 202, 235, 248, 0 },
-	{ 113, 23, 141, 229, 150, 0, 0 },
-	{ 113, 3, 136, 229, 150, 0, 0 },
-	{ 113, 23, 144, 212, 235, 248, 0 },
-	{ 113, 18, 132, 229, 150, 0, 0 } };
-static const unsigned char ks_tag_len[8] = { 7, 5, 6, 6, 5, 5, 6, 5 };
-static char ks_tag_dec[7][8];
-static int ks_tag_ok = 0;
+static const char* ks_tags[8] = { "[core] ", "[mb] ", "[hud] ", "[dir] ", "[wm] ", "[ch] ", "[wpl] ", "[rd] " };
 static void ks_flush_status(void) {
 	char body[600];
 	int n = 0;
 	body[0] = 0;
-	if (ks_rk_ready && !ks_tag_ok) {
-		int k;
-		for (k = 0; k < 7; k++) ks_lkd(ks_tag_dec[k], ks_enc_tags[k], ks_tag_len[k]);
-		ks_tag_ok = 1;
-	}
 	for (int i = 0; i < 7; i++) {
 		if (!ks_slot[i][0]) continue;
-		const char* t = ks_tag_ok ? ks_tag_dec[i] : "";
+		const char* t = ks_tags[i];
 		while (*t && n < 580) body[n++] = *t++;
 		const char* s = ks_slot[i];
 		while (*s && n < 580) body[n++] = *s++;
@@ -155,80 +128,8 @@ static volatile unsigned ks_log_total = 0;
 static volatile unsigned ks_log_flushed = 0;
 static volatile int ks_log_off = 0;
 
-/* ===== 分钥字符串保护(v29 内容为钥) =====
-   运行时层(ks_ld/ks_lkd): 明文 = 密文 ^ S(i) ^ R(i,ks_rk); S 为文件内静态位置流,
-   R 由 ks_rk 派生,ks_rk = smx(KF ^ F64) ^ KF2 —— F64 = SHA-256(KuSug.js) 前 8 字节 LE,
-   由 so 在 boot 期自行读取 JS 文件算出(内容为钥,JS 侧零秘密、桥上无密钥流)。
-   只偷 so: 没有 JS 文件就没有 F64,静态分析数学上不可解;整包盗取改 JS: F64 变→密钥错→符号名全垃圾→so 死。
-   未派生/错文件时输出垃圾(不崩,优雅降级)。
-   静态层(ks_sd): 与 ks_dec 同算法,仅供 ctor 期必需的少数串(res 路径骨架/校验后缀/guard)。
-   竞态纪律: 文件路径/符号名等正确性敏感串一律解码进调用者栈缓冲(ks_dec/ks_lkd);
-   旋转缓冲(ks_sd/ks_ld)只用于日志/状态等装饰性输出。 */
-static unsigned long long ks_rk = 0;
-static unsigned long long ks_smx(unsigned long long x) {
-	x += 0x9E3779B97F4A7C15ULL;
-	x = (x ^ (x >> 30)) * 0xBF58476D1CE4E5B9ULL;
-	x = (x ^ (x >> 27)) * 0x94D049BB133111EBULL;
-	return x ^ (x >> 31);
-}
-#define KS_KF  0xC3A5C85C97CB3127ULL
-#define KS_KF2 0x9E3779B97F4A7C15ULL
-static unsigned char ks_rbyte(unsigned long long i) { return (unsigned char)(ks_smx(ks_rk + i) >> 24); }
-static void ks_key_derive(unsigned long long f) { ks_rk = ks_smx(KS_KF ^ f) ^ KS_KF2; ks_rk_ready = 1; }
-
-static __attribute__((noinline, noipa)) const char* ks_sd(const volatile unsigned char* enc, int n) {
-	static char bufs[4][96];
-	static unsigned slot = 0;
-	char* out = bufs[slot & 3];
-	slot++;
-	int i = 0;
-	for (; i < n && i < 95; i++) out[i] = (char)(enc[i] ^ (unsigned char)(0x5A + i * 7));
-	out[i] = 0;
-	return out;
-}
-
-/* 静态层栈解码: 校验路径/包名/路径骨架等正确性敏感串专用(竞态纪律);
-   noinline+noipa: 阻断编译期常量折叠把明文算回 rodata */
-static __attribute__((noinline, noipa)) void ks_dec(char* out, const volatile unsigned char* enc, int n) {
-	int i = 0;
-	while (i < n) {
-		out[i] = (char)(enc[i] ^ (unsigned char)(0x5A + i * 7));
-		i++;
-	}
-	out[n] = 0;
-}
-
-static __attribute__((noinline, noipa)) void ks_lkd(char* out, const volatile unsigned char* enc, int n) {
-	int i = 0;
-	for (; i < n; i++) out[i] = (char)(enc[i] ^ (unsigned char)(0xA5 + i * 3) ^ ks_rbyte((unsigned long long)i));
-	out[n] = 0;
-}
-#define KS_LKS(var, ...) unsigned char var##_e[] = { __VA_ARGS__ }; char var[sizeof(var##_e) + 1]; ks_lkd(var, var##_e, (int)sizeof(var##_e))
-
-/* 日志/状态串运行时解码(混合层);旋转 4 缓冲,单调用点最多 2 串;
-   noinline+noipa+volatile 源: 阻断编译期常量折叠,防明文被算回 rodata */
-static __attribute__((noinline, noipa)) const char* ks_ld(const volatile unsigned char* enc, int n) {
-	static char bufs[4][192];
-	static unsigned slot = 0;
-	char* out = bufs[slot & 3];
-	slot++;
-	int i = 0;
-	for (; i < n && i < 191; i++) out[i] = (char)(enc[i] ^ (unsigned char)(0xA5 + i * 3) ^ ks_rbyte((unsigned long long)i));
-	out[i] = 0;
-	return out;
-}
-
-/* 金丝雀: JS 投钥后自检——解固定校验串比对散列,验证 so 与 JS 密钥配套(不配套=版本错配,优雅停用) */
-static long ks_key_check(void) {
-	static const unsigned char ec[] = { 97, 21, 179, 205, 209, 147, 98, 122, 61, 193, 96, 27 };
-	char t[24];
-	unsigned h = 2166136261u;
-	int i;
-	if (!ks_rk_ready) return 0;
-	ks_lkd(t, ec, (int)sizeof(ec));
-	for (i = 0; t[i]; i++) h = (h ^ (unsigned char)t[i]) * 16777619u;
-	return h == 0x44A9D3F3u ? 1 : 0;
-}
+/* 字符串直存直读(保护体系已退役 2026-09-22): KS_LKS 仅保留"声明 char 数组"形式 */
+#define KS_LKS(var, s) char var[] = s
 
 
 static void ks_logf(const char* tag, const char* fmt, ...) {
@@ -254,7 +155,7 @@ static long ks_log_flush(void) {
 	unsigned flushed = ks_log_flushed;
 	if (total == flushed) return 0;
 	char p[192];
-	{ KS_LKS(rp_sfx, 65, 21, 147, 205, 209, 247, 116, 108, 93, 216, 40, 66, 140, 243, 78, 61, 143, 16, 234, 39, 175, 180, 9, 253); ks_res_path(p, sizeof(p), rp_sfx); }
+	ks_res_path(p, sizeof(p), "kusug/so/render_full.log");
 	FILE* f = fopen(p, "ab");
 	if (!f) { ks_log_off = 1; return -1; }
 	unsigned start = flushed;
@@ -279,9 +180,7 @@ static long ks_log_flush(void) {
 static char ks_g_pkg[64] = {0};
 static const char* ks_pkg(void) {
 	if (ks_g_pkg[0]) return ks_g_pkg;
-	static const unsigned char enc_proc[] = { 117, 17, 26, 0, 21, 82, 247, 238, 254, 255, 143, 196, 195, 209, 208, 170, 164, 180 };
-	char proc[24];
-	ks_dec(proc, enc_proc, (int)sizeof(enc_proc));
+	char proc[24] = "/proc/self/cmdline";
 	FILE* f = fopen(proc, "rb");
 	if (f) {
 		char buf[128];
@@ -301,10 +200,8 @@ static const char* ks_pkg(void) {
 		}
 	}
 	{
-		static const unsigned char enc_fb[] = { 57, 14, 5, 65, 24, 24, 240, 238, 243, 234, 197, 137, 214, 132, 133 };
-		char fb[24];
+		const char* fb = "com.netease.x19";
 		int i = 0;
-		ks_dec(fb, enc_fb, (int)sizeof(enc_fb));
 		while (fb[i]) { ks_g_pkg[i] = fb[i]; i++; }
 		ks_g_pkg[i] = 0;
 	}
@@ -313,16 +210,8 @@ static const char* ks_pkg(void) {
 
 /* 拼 resources 下绝对路径：/storage/emulated/0/Android/data/<pkg>/files/resources/<suffix> */
 static void ks_res_path(char* out, int cap, const char* suffix) {
-	static char PRE[40];
-	static char MID[24];
-	static int pre_ok = 0;
-	if (!pre_ok) {   /* 幂等首用解码: 多线程撞车也只是写两遍相同字节 */
-		static const unsigned char enc_pre[] = { 117, 18, 28, 0, 4, 28, 227, 238, 189, 252, 205, 210, 194, 212, 200, 166, 174, 254, 232, 240, 167, 131, 144, 137, 109, 96, 116, 56, 122, 68, 88, 82, 21 };
-		static const unsigned char enc_mid[] = { 117, 7, 1, 3, 19, 14, 171, 249, 247, 234, 207, 210, 220, 214, 217, 176, 229 };
-		ks_dec(PRE, enc_pre, (int)sizeof(enc_pre));
-		ks_dec(MID, enc_mid, (int)sizeof(enc_mid));
-		pre_ok = 1;
-	}
+	static const char PRE[] = "/storage/emulated/0/Android/data/";
+	static const char MID[] = "/files/resources/";
 	const char* pkg = ks_pkg();
 	int n = 0, i;
 	for (i = 0; PRE[i] && n < cap - 1; i++) out[n++] = PRE[i];
@@ -332,376 +221,7 @@ static void ks_res_path(char* out, int cap, const char* suffix) {
 	out[n] = 0;
 }
 
-/* ===== 自身代码段哈希: 从内存读自身 RX 段算多轮混合哈希,改名/重打包均免疫 ===== */
-static volatile unsigned long long ks_slot_sig = 0xA5C39E17D4F806B1ULL;  /* finalize_so.py 回填期望签名(marker=未回填时渲染不降级,防漏跑) */
-static volatile unsigned long long ks_js_exp = 0x51F2A7C400000000ULL;  /* finalize_so.py js 回填 KuSug.js keyed-FNV 期望值;高 32 位 marker 在=未回填,校验不动作(防漏跑) */
-static unsigned long long ks_g_hv = 0;
-static char ks_anchor = 0;
 
-/* 单段混合: 8 字节一组喂入,尾字节单独一轮;构建侧 finalize_so.py 有逐位一致的 Python 实现 */
-static unsigned long long ks_hash_seg(unsigned long long h, const unsigned char* seg, unsigned long long n) {
-	unsigned long long k;
-	for (k = 0; k + 8 <= n; k += 8) {
-		unsigned long long v;
-		__builtin_memcpy(&v, seg + k, 8);
-		h ^= v + 0x9E3779B97F4A7C15ULL + (h << 6) + (h >> 2);
-		h *= 0x100000001B3ULL;
-		h ^= h >> 29;
-	}
-	unsigned long long v = 0;
-	for (k = n & ~7ULL; k < n; k++) v = (v << 8) | seg[k];
-	h ^= v + 0x9E3779B97F4A7C15ULL + (h << 6) + (h >> 2);
-	h *= 0x100000001B3ULL;
-	h ^= h >> 29;
-	return h;
-}
-
-static int ks_find_self_cb(struct dl_phdr_info* info, size_t size, void* data) {
-	uintptr_t self = (uintptr_t)(void*)&ks_anchor;
-	int i;
-	(void)size;
-	for (i = 0; i < info->dlpi_phnum; i++) {
-		if (info->dlpi_phdr[i].p_type != 1) continue;
-		uintptr_t lo = (uintptr_t)info->dlpi_addr + (uintptr_t)info->dlpi_phdr[i].p_vaddr;
-		uintptr_t hi = lo + (uintptr_t)info->dlpi_phdr[i].p_memsz;
-		if (self >= lo && self < hi) {
-			*(uintptr_t*)data = (uintptr_t)info->dlpi_addr;
-			return 1;
-		}
-	}
-	return 0;
-}
-
-static unsigned long long ks_self_hash(void) {
-	uintptr_t base = 0;
-	dl_iterate_phdr(ks_find_self_cb, &base);
-	if (!base) return 0xC0FFEE11C0FFEE11ULL;
-	const unsigned char* eh = (const unsigned char*)base;
-	unsigned long long phoff = *(const unsigned long long*)(eh + 0x20);
-	unsigned short phentsize = *(const unsigned short*)(eh + 0x36);
-	unsigned short phnum = *(const unsigned short*)(eh + 0x38);
-	unsigned long long h = 0xCBF29CE484222325ULL;
-	int i;
-	for (i = 0; i < (int)phnum; i++) {
-		const unsigned char* ph = eh + phoff + (unsigned long long)i * phentsize;
-		unsigned int p_type = *(const unsigned int*)ph;
-		unsigned int p_flags = *(const unsigned int*)(ph + 4);
-		if (p_type != 1 || !(p_flags & 1)) continue;
-		unsigned long long p_vaddr = *(const unsigned long long*)(ph + 0x10);
-		unsigned long long p_filesz = *(const unsigned long long*)(ph + 0x20);
-		h = ks_hash_seg(h, (const unsigned char*)(base + p_vaddr), p_filesz);
-	}
-	return h;
-}
-
-/* ===== 资源完整性校验（宿主测试定义 KS_SKIP_VERIFY 桩掉;KS_HOST_TEST 下崩溃点改为记录 ks_died_mask） ===== */
-static unsigned ks_g_sig = 0x9E3779B9u;   /* 校验签名: 初始即"未完成校验"的错误态 */
-static int ks_g_sig_armed = 0;            /* 仅设备端构造函数完成校验后置 1,渲染层据此启用签名门 */
-
-#ifndef KS_SKIP_VERIFY
-/* manifest.json 里 enable 字段必须为字面 true（容错冒号前后空白,键名经栈解码不明文落盘）。
-   三态返回: 1=通过 0=打不开(不可判定) 2=读到内容但明确不符 */
-static int ks_manifest_enabled(void) {
-    static const unsigned char enc_mf[] = { 42, 13, 29, 8, 31, 19, 247, 164, 255, 248, 201, 201, 129, 216, 221, 173, 163, 183, 189, 172, 146, 195, 158, 136, 109, 103 };
-    static const unsigned char enc_key[] = { 63, 15, 9, 13, 26, 24 };
-    char sfx[48];
-    char mf[192];
-    char key[8];
-    ks_dec(sfx, enc_mf, (int)sizeof(enc_mf));
-    ks_res_path(mf, sizeof(mf), sfx);
-    FILE* f = fopen(mf, "rb");
-    if (!f) return 0;
-    char buf[4096];
-    size_t n = fread(buf, 1, sizeof(buf) - 1, f);
-    fclose(f);
-    buf[n] = 0;
-    ks_dec(key, enc_key, (int)sizeof(enc_key));
-    /* 搜 enable 并验证两侧引号，避免误匹配 enabled 之类 */
-    const char* p = strstr(buf, key);
-    while (p && !(p > buf && p[-1] == '"' && p[6] == '"')) p = strstr(p + 1, key);
-    if (!p) return 2;
-    p += 7;
-    while (*p == ' ' || *p == '\t' || *p == '\r' || *p == '\n') p++;
-    if (*p != ':') return 2;
-    p++;
-    while (*p == ' ' || *p == '\t' || *p == '\r' || *p == '\n') p++;
-    return (p[0] == 't' && p[1] == 'r' && p[2] == 'u' && p[3] == 'e') ? 1 : 2;
-}
-
-/* FNV-1a 32: 校验目标的期望值只以散列常量驻留二进制，不明文落盘 */
-static unsigned ks_fnv(const char* p, int n) {
-    unsigned h = 2166136261u;
-    int i = 0;
-    while (i < n) {
-        h = (h ^ (unsigned char)p[i]) * 16777619u;
-        i++;
-    }
-    return h;
-}
-
-static const unsigned char ks_enc_menu_path[] = { 47, 8, 71, 36, 3, 46, 241, 236, 189, 125, 24, 28, 70, 58, 32, 38, 71, 68, 246, 181, 149, 130, 154 };
-static const unsigned char ks_enc_uidef_path[] = { 47, 8, 71, 26, 31, 34, 224, 238, 244, 240, 206, 206, 218, 220, 211, 173, 228, 187, 171, 176, 136 };
-
-/* 从 from 起找带引号的 key（两侧引号校验，防 $menu_title_xxx 之类误配），找不到返回 0 */
-static const char* ks_json_key(const char* buf, const char* from, const char* key) {
-    int klen = 0;
-    while (key[klen]) klen++;
-    const char* p = strstr(from, key);
-    while (p && !(p > buf && p[-1] == '"' && p[klen] == '"')) p = strstr(p + 1, key);
-    return p;
-}
-
-/* 定位 key 的字符串值区间: p 指向 key 文本（去掉了开引号），冒号两侧容忍空白;
-   成功返回 0 并给出值起点/长度（值按 JSON 源字节，不展开转义） */
-static int ks_json_val_pos(const char* p, int klen, const char** vp, int* vn) {
-    p += klen + 1;
-    while (*p == ' ' || *p == '\t' || *p == '\r' || *p == '\n') p++;
-    if (*p != ':') return -1;
-    p++;
-    while (*p == ' ' || *p == '\t' || *p == '\r' || *p == '\n') p++;
-    if (*p != '"') return -1;
-    p++;
-    const char* s = p;
-    while (*p && *p != '"') p++;
-    if (!*p) return -1;
-    *vp = s;
-    *vn = (int)(p - s);
-    return 0;
-}
-
-/* 主菜单 title.name 的散列必须匹配（title 对象内无嵌套对象，其后首个 name 即 title 的 name）;三态返回 */
-static int ks_menu_title_ok(void) {
-    char rp[64];
-    ks_dec(rp, ks_enc_menu_path, (int)sizeof(ks_enc_menu_path));
-    char mf[192];
-    ks_res_path(mf, sizeof(mf), rp);
-    FILE* f = fopen(mf, "rb");
-    if (!f) return 0;
-    char buf[8192];
-    size_t n = fread(buf, 1, sizeof(buf) - 1, f);
-    fclose(f);
-    buf[n] = 0;
-    static const unsigned char enc_kt[] = { 46, 8, 28, 3, 19 };
-    static const unsigned char enc_kn[] = { 52, 0, 5, 10 };
-    char kt[8], kn[8];
-    ks_dec(kt, enc_kt, (int)sizeof(enc_kt));
-    ks_dec(kn, enc_kn, (int)sizeof(enc_kn));
-    const char* t = ks_json_key(buf, buf, kt);
-    if (!t) return 2;
-    const char* nm = ks_json_key(buf, t + 6, kn);
-    if (!nm) return 2;
-    const char* vp;
-    int vn;
-    if (ks_json_val_pos(nm, 4, &vp, &vn) != 0) return 2;
-    return ks_fnv(vp, vn) == 0xB7D11FAEu ? 1 : 2;
-}
-
-/* ui_definition 顶层 name 的散列必须匹配;三态返回 */
-static int ks_uidef_name_ok(void) {
-    char rp[64];
-    ks_dec(rp, ks_enc_uidef_path, (int)sizeof(ks_enc_uidef_path));
-    char mf[192];
-    ks_res_path(mf, sizeof(mf), rp);
-    FILE* f = fopen(mf, "rb");
-    if (!f) return 0;
-    char buf[4096];
-    size_t n = fread(buf, 1, sizeof(buf) - 1, f);
-    fclose(f);
-    buf[n] = 0;
-    static const unsigned char enc_kn2[] = { 52, 0, 5, 10 };
-    char kn2[8];
-    ks_dec(kn2, enc_kn2, (int)sizeof(enc_kn2));
-    const char* nm = ks_json_key(buf, buf, kn2);
-    if (!nm) return 2;
-    const char* vp;
-    int vn;
-    if (ks_json_val_pos(nm, 4, &vp, &vn) != 0) return 2;
-    return ks_fnv(vp, vn) == 0x091FDEDAu ? 1 : 2;
-}
-
-/* 分散崩溃点: 六处形态互不相同，无法靠单一特征批量定位 NOP;KS_HOST_TEST 下仅记录掩码 */
-static int ks_died_mask = 0;
-static void ks_die_a(void) {
-#ifdef KS_HOST_TEST
-    ks_died_mask |= 1;
-    return;
-#else
-    *(volatile unsigned char*)0 = 0xA1;
-#endif
-}
-static void ks_die_b(void) {
-#ifdef KS_HOST_TEST
-    ks_died_mask |= 2;
-    return;
-#else
-    *(volatile unsigned short*)0 = 0xB2B2;
-#endif
-}
-static void ks_die_c(void) {
-#ifdef KS_HOST_TEST
-    ks_died_mask |= 4;
-    return;
-#else
-    __builtin_trap();
-#endif
-}
-static void ks_die_d(void) {
-#ifdef KS_HOST_TEST
-    ks_died_mask |= 8;
-    return;
-#else
-    *(volatile unsigned long long*)1 = 0xD4D4D4D4ull;
-#endif
-}
-static void ks_die_e(void) {
-#ifdef KS_HOST_TEST
-    ks_died_mask |= 16;
-    return;
-#else
-    __asm__ volatile(".word 0x00000000");
-#endif
-}
-static void ks_die_f(void) {
-#ifdef KS_HOST_TEST
-    ks_died_mask |= 32;
-    return;
-#else
-    *(volatile unsigned char*)0 = 0xF6;
-    __builtin_trap();
-#endif
-}
-static void ks_die_g(void) {
-#ifdef KS_HOST_TEST
-    ks_died_mask |= 64;
-    return;
-#else
-    *(volatile unsigned char*)0 = 0x7B;
-    __builtin_trap();
-#endif
-}
-
-/* 六项校验: 任一项不过就地崩溃（每点指令形态不同）;
-   每通过一项折叠一项进签名，最终正确签名由构建脚本预算,
-   渲染层按签名决定画面——NOP 掉全部崩溃点也救不回错误签名 */
-static int ks_verify_files(void) {
-    static const unsigned char enc_js[] = { 41, 2, 26, 6, 6, 9, 171, 192, 231, 202, 213, 192, 128, 223, 207 };
-    static const unsigned char enc_jv[] = { 42, 13, 29, 8, 31, 19, 247, 164, 255, 248, 201, 201, 129, 198, 206, 160, 229, 155, 185, 169, 135, 189, 152, 142, 101, 96, 126, 57, 116, 68, 90, 82 };
-    int ok = 1;
-    char sfx[64];
-    char p[192];
-    ks_dec(sfx, enc_js, (int)sizeof(enc_js));
-    ks_res_path(p, sizeof(p), sfx);
-    if (access(p, 0) != 0) { ok = 0; ks_die_a(); } else ks_g_sig = ks_g_sig * 33u + 0x3C6EF35Fu;
-    ks_dec(sfx, enc_jv, (int)sizeof(enc_jv));
-    ks_res_path(p, sizeof(p), sfx);
-    if (access(p, 0) != 0) { ok = 0; ks_die_b(); } else ks_g_sig = ks_g_sig * 33u + 0x1F123BB7u;
-    int st = ks_manifest_enabled();
-    if (st != 1) { ok = 0; ks_die_c(); } else ks_g_sig = ks_g_sig * 33u + 0x58F38D17u;
-    st = ks_menu_title_ok();
-    if (st != 1) { ok = 0; ks_die_d(); } else ks_g_sig = ks_g_sig * 33u + 0x71A9E4CBu;
-    st = ks_uidef_name_ok();
-    if (st != 1) { ok = 0; ks_die_e(); } else ks_g_sig = ks_g_sig * 33u + 0x2653C799u;
-    return ok;
-}
-
-/* ===== SHA-256(自包含零依赖;boot 期给 KuSug.js 取内容指纹用;宿主测试锁标准向量) ===== */
-static const unsigned ks_shk[64] = {
-    0x428a2f98u, 0x71374491u, 0xb5c0fbcfu, 0xe9b5dba5u, 0x3956c25bu, 0x59f111f1u, 0x923f82a4u, 0xab1c5ed5u,
-    0xd807aa98u, 0x12835b01u, 0x243185beu, 0x550c7dc3u, 0x72be5d74u, 0x80deb1feu, 0x9bdc06a7u, 0xc19bf174u,
-    0xe49b69c1u, 0xefbe4786u, 0x0fc19dc6u, 0x240ca1ccu, 0x2de92c6fu, 0x4a7484aau, 0x5cb0a9dcu, 0x76f988dau,
-    0x983e5152u, 0xa831c66du, 0xb00327c8u, 0xbf597fc7u, 0xc6e00bf3u, 0xd5a79147u, 0x06ca6351u, 0x14292967u,
-    0x27b70a85u, 0x2e1b2138u, 0x4d2c6dfcu, 0x53380d13u, 0x650a7354u, 0x766a0abbu, 0x81c2c92eu, 0x92722c85u,
-    0xa2bfe8a1u, 0xa81a664bu, 0xc24b8b70u, 0xc76c51a3u, 0xd192e819u, 0xd6990624u, 0xf40e3585u, 0x106aa070u,
-    0x19a4c116u, 0x1e376c08u, 0x2748774cu, 0x34b0bcb5u, 0x391c0cb3u, 0x4ed8aa4au, 0x5b9cca4fu, 0x682e6ff3u,
-    0x748f82eeu, 0x78a5636fu, 0x84c87814u, 0x8cc70208u, 0x90befffau, 0xa4506cebu, 0xbef9a3f7u, 0xc67178f2u
-};
-typedef struct { unsigned h[8]; unsigned char blk[64]; unsigned long long total; unsigned used; } ks_sha_t;
-static void ks_sha_block(ks_sha_t* c, const unsigned char* p) {
-    unsigned w[64];
-    int i;
-    for (i = 0; i < 16; i++)
-        w[i] = ((unsigned)p[i * 4] << 24) | ((unsigned)p[i * 4 + 1] << 16) | ((unsigned)p[i * 4 + 2] << 8) | (unsigned)p[i * 4 + 3];
-    for (i = 16; i < 64; i++) {
-        unsigned s0 = ((w[i - 15] >> 7) | (w[i - 15] << 25)) ^ ((w[i - 15] >> 18) | (w[i - 15] << 14)) ^ (w[i - 15] >> 3);
-        unsigned s1 = ((w[i - 2] >> 17) | (w[i - 2] << 15)) ^ ((w[i - 2] >> 19) | (w[i - 2] << 13)) ^ (w[i - 2] >> 10);
-        w[i] = w[i - 16] + s0 + w[i - 7] + s1;
-    }
-    unsigned a = c->h[0], b = c->h[1], cc = c->h[2], d = c->h[3], e = c->h[4], f = c->h[5], g = c->h[6], hh = c->h[7];
-    for (i = 0; i < 64; i++) {
-        unsigned S1 = ((e >> 6) | (e << 26)) ^ ((e >> 11) | (e << 21)) ^ ((e >> 25) | (e << 7));
-        unsigned ch = (e & f) ^ (~e & g);
-        unsigned t1 = hh + S1 + ch + ks_shk[i] + w[i];
-        unsigned S0 = ((a >> 2) | (a << 30)) ^ ((a >> 13) | (a << 19)) ^ ((a >> 22) | (a << 10));
-        unsigned mj = (a & b) ^ (a & cc) ^ (b & cc);
-        unsigned t2 = S0 + mj;
-        hh = g; g = f; f = e; e = d + t1; d = cc; cc = b; b = a; a = t1 + t2;
-    }
-    c->h[0] += a; c->h[1] += b; c->h[2] += cc; c->h[3] += d; c->h[4] += e; c->h[5] += f; c->h[6] += g; c->h[7] += hh;
-}
-static void ks_sha_init(ks_sha_t* c) {
-    static const unsigned h0[8] = { 0x6a09e667u, 0xbb67ae85u, 0x3c6ef372u, 0xa54ff53au, 0x510e527fu, 0x9b05688cu, 0x1f83d9abu, 0x5be0cd19u };
-    int i;
-    for (i = 0; i < 8; i++) c->h[i] = h0[i];
-    c->total = 0; c->used = 0;
-}
-static void ks_sha_update(ks_sha_t* c, const unsigned char* d, unsigned long long n) {
-    c->total += n;
-    while (n > 0) {
-        unsigned long long room = 64 - c->used;
-        unsigned long long take = n < room ? n : room;
-        unsigned long long i;
-        for (i = 0; i < take; i++) c->blk[c->used + i] = d[i];
-        c->used += (unsigned)take; d += take; n -= take;
-        if (c->used == 64) { ks_sha_block(c, c->blk); c->used = 0; }
-    }
-}
-static void ks_sha_final(ks_sha_t* c, unsigned char out[32]) {
-    unsigned long long bits = c->total * 8;
-    unsigned char pad = 0x80, z = 0, lenb[8];
-    int i;
-    ks_sha_update(c, &pad, 1);
-    while (c->used != 56) ks_sha_update(c, &z, 1);
-    for (i = 0; i < 8; i++) lenb[i] = (unsigned char)(bits >> (56 - i * 8));
-    ks_sha_update(c, lenb, 8);
-    for (i = 0; i < 8; i++) {
-        out[i * 4] = (unsigned char)(c->h[i] >> 24);
-        out[i * 4 + 1] = (unsigned char)(c->h[i] >> 16);
-        out[i * 4 + 2] = (unsigned char)(c->h[i] >> 8);
-        out[i * 4 + 3] = (unsigned char)(c->h[i]);
-    }
-}
-
-/* 第八项校验(boot 期): so 自读 KuSug.js 取内容指纹 F64(SHA-256 前 8 字节 LE),
-   低 32 位比对 ks_js_exp 槽(finalize_so.py js 回填),并输出 F64 供 ks_key_derive 派生运行时密钥(内容为钥);
-   三态: 1 通过 / 0 不符 / -1 不动作(不可读/槽未回填) */
-static int ks_verify_js(unsigned long long* f_out) {
-    static const unsigned char enc_js2[] = { 41, 2, 26, 6, 6, 9, 171, 192, 231, 202, 213, 192, 128, 223, 207 };
-    char sfx[64];
-    char p[192];
-    unsigned char dg[32];
-    unsigned char buf[4096];
-    ks_sha_t cx;
-    FILE* f;
-    size_t n;
-    int i;
-    ks_dec(sfx, enc_js2, (int)sizeof(enc_js2));
-    ks_res_path(p, sizeof(p), sfx);
-    f = fopen(p, "rb");
-    if (!f) return -1;
-    ks_sha_init(&cx);
-    while ((n = fread(buf, 1, sizeof buf, f)) > 0) ks_sha_update(&cx, buf, (unsigned long long)n);
-    fclose(f);
-    ks_sha_final(&cx, dg);
-    {
-        unsigned long long fv = 0;
-        for (i = 0; i < 8; i++) fv |= (unsigned long long)dg[i] << (i * 8);
-        *f_out = fv;
-    }
-    if ((unsigned long long)(ks_js_exp >> 32) != 0x51F2A7C4ULL) return -1;  /* 槽结构损坏: 不动作 */
-    if ((unsigned)(ks_js_exp & 0xFFFFFFFFu) == 0) return -1;                /* 低 32 位 0 = 未回填 */
-    return ((unsigned)*f_out == (unsigned)(ks_js_exp & 0xFFFFFFFFu)) ? 1 : 0;
-}
-#endif /* KS_SKIP_VERIFY */
 
 typedef unsigned int GLenum; typedef unsigned int GLuint; typedef int GLint; typedef int GLsizei;
 typedef unsigned char GLboolean; typedef float GLfloat; typedef unsigned int GLbitfield; typedef ptrdiff_t GLsizeiptr;
@@ -807,40 +327,11 @@ static void ks_render_active(EGLDisplay dpy, EGLSurface surf) {
     int a = (mb_active() ? 1 : 0) | (ih_active() ? 2 : 0) | (dir_active() ? 4 : 0) | (ch_active() ? 8 : 0) | (wm_active() ? 16 : 0) | (wpl_active() ? 32 : 0);
     if (!ks_g_logged_dispatch) {
         ks_g_logged_dispatch = 1;
-        ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){76, 9, 146, 203, 194, 248, 99, 106, 1, 218, 44, 88, 139, 254, 28, 17, 158, 4, 246, 56, 188, 253, 10, 254, 99, 80, 249, 238, 48, 239, 7, 72, 57, 161, 34, 242, 166, 252, 140, 100, 89, 218, 245, 202, 110, 221, 98, 25, 211, 57, 134}, 51), ks_g_swaps, a, (void*)dpy, (void*)surf);
+        ks_logf("[core]", "first dispatch swaps=%ld active=%02x dpy=%p surf=%p", ks_g_swaps, a, (void*)dpy, (void*)surf);
     }
     if ((ks_g_swaps % 600) == 0) {
-        ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){66, 5, 129, 202, 194, 186, 98, 98, 6, 138, 62, 91, 137, 230, 79, 95, 204, 9, 226, 107, 224, 187, 18, 243, 53, 84, 167, 191, 105, 171, 26, 85, 113, 248, 99, 249, 187, 189, 144, 121, 75, 218, 233, 142, 61, 220, 113, 22, 130, 111, 129, 70, 145, 10, 215, 53, 144, 193, 43, 227, 229, 114, 232, 134, 161, 242, 137, 40, 101, 64, 250, 207, 196, 50, 228, 51, 86, 187, 87, 93, 202, 234, 200, 51, 7, 116, 105, 24}, 88),
+        ks_logf("[core]", "heartbeat swaps=%ld active=%02x miss=%ld/%ld tailsw=%ld prej=%ld snap=%ld dpy=%p surf=%p",
             ks_g_swaps, a, ks_sv_missed, ks_sv_frames, ks_sv_tailsw, ks_wproj_rej, ks_wmr_snaps, (void*)dpy, (void*)surf);
-    }
-    /* 签名织染: 校验签名错误时按帧计数奇偶随机丢模块渲染——画面闪烁降级但游戏不崩;
-       NOP 掉构造函数的崩溃点救不回错误签名,因为折叠只发生在真实通过的分支里;
-       期望值在 finalize_so.py 回填进 .data 槽(含自身代码段哈希),marker 未回填时不降级防漏跑 */
-    unsigned bad = 0u;
-    if (ks_g_sig_armed) {
-        unsigned long long slot = ks_slot_sig;
-        if (slot != 0xA5C39E17D4F806B1ULL) bad = ks_g_sig ^ (unsigned)slot;
-    }
-#ifndef KS_SKIP_VERIFY
-    /* 惰性复检: 每 1800 帧复查三项内容校验+自身代码段哈希,内容明确不符或代码被改即定罪(文件暂不可读不动作) */
-    if (ks_g_sig_armed && ks_g_swaps > 0 && (ks_g_swaps % 1800) == 0) {
-        if (ks_menu_title_ok() == 2 || ks_uidef_name_ok() == 2 || ks_manifest_enabled() == 2) {
-            ks_g_sig = 0xBADC0DE1u;
-        } else if (ks_self_hash() != ks_g_hv) {
-            ks_g_sig = 0xDEADBEEFu;
-        }
-    }
-#endif
-    if (bad) {
-        if (mb_active() && ((ks_g_swaps + (long)bad) % 2)) mb_render(dpy, surf);
-        if (ih_active() && ((ks_g_swaps + (long)bad) % 3)) ih_render(dpy, surf);
-        if (dir_active() && ((ks_g_swaps + (long)bad) % 2)) dir_render(dpy, surf);
-        if (ch_active() && ((ks_g_swaps + (long)bad) % 3)) ch_render(dpy, surf);
-        if (rd_active() && ((ks_g_swaps + (long)bad) % 3)) rd_render(dpy, surf);
-        if (wm_active() && ((ks_g_swaps + (long)bad) % 2)) wm_render(dpy, surf);
-        if (wpl_active() && ((ks_g_swaps + (long)bad) % 5)) wpl_render(dpy, surf);
-        ks_leave();
-        return;
     }
     if (mb_active()) mb_render(dpy, surf);
     if (ih_active()) ih_render(dpy, surf);
@@ -1005,7 +496,7 @@ static void hk_sv_render(void* self, void* ctx) {
 		ks_sv_lastb_us = now;
 		if (cand == ks_sv_tail) { ks_sv_pend = 0; ks_sv_pend_n = 0; }
 		else if (cand == ks_sv_pend && ++ks_sv_pend_n >= 2) {
-			if (ks_sv_tailsw < 8) ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){89, 22, 192, 204, 215, 177, 107, 35, 1, 221, 36, 88, 139, 254, 28, 71, 153, 69, 171, 117, 161, 253, 22, 186, 37, 12, 191, 246, 61}, 29), ks_sv_tail, cand, ks_sv_frames);
+			if (ks_sv_tailsw < 8) ks_logf("[core]", "sv tail switch %p -> %p f=%ld", ks_sv_tail, cand, ks_sv_frames);
 			ks_sv_tailsw++;
 			ks_sv_tail = cand; ks_sv_pend = 0; ks_sv_pend_n = 0;
 		} else if (cand != ks_sv_pend) { ks_sv_pend = cand; ks_sv_pend_n = 1; }
@@ -1021,12 +512,12 @@ static void hk_sv_render(void* self, void* ctx) {
 	EGLDisplay dpy = peglGetCurrentDisplay();
 	EGLSurface surf = peglGetCurrentSurface(0x3059);   /* EGL_DRAW */
 	if (!dpy || !surf) return;
-	if (!ks_sv_drew) { ks_sv_drew = 1; ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){89, 22, 192, 92, 14, 99, 238, 131, 232, 67, 204, 191, 14, 24, 153, 133, 71, 196, 96, 243, 51, 62, 249, 9, 107, 212, 34, 61, 188, 41, 220, 144, 173, 30, 245, 51, 19, 113, 104, 156, 129, 81, 31, 195, 61, 204, 96, 6, 211, 57, 134, 91, 199, 19, 193, 115, 221, 150, 62}, 59), (void*)dpy, (void*)surf); }
+	if (!ks_sv_drew) { ks_sv_drew = 1; ks_logf("[core]", "sv 主通道接管渲染(帧尾屏幕锁定) dpy=%p surf=%p", (void*)dpy, (void*)surf); }
 	ks_render_active(dpy, surf);
 }
 
 static int ks_mc_phdr_cb(struct dl_phdr_info* info, size_t size, void* data) {
-	KS_LKS(n_libmc, 70, 9, 130, 213, 223, 182, 98, 96, 0, 203, 43, 88, 152, 243);
+	KS_LKS(n_libmc, "libminecraftpe");
 	(void)size; (void)data;
 	if (info->dlpi_name && strstr(info->dlpi_name, n_libmc) && info->dlpi_addr) {
 		ks_mc_base = (uint64_t)info->dlpi_addr;
@@ -1036,8 +527,8 @@ static int ks_mc_phdr_cb(struct dl_phdr_info* info, size_t size, void* data) {
 }
 
 static uint64_t ks_mc_base_maps(void) {
-	KS_LKS(n_libmc2, 70, 9, 130, 213, 223, 182, 98, 96, 0, 203, 43, 88, 152, 243);
-	KS_LKS(n_maps, 5, 16, 146, 215, 213, 247, 116, 102, 30, 204, 98, 65, 137, 230, 79);
+	KS_LKS(n_libmc2, "libminecraftpe");
+	KS_LKS(n_maps, "/proc/self/maps");
 	FILE* f = fopen(n_maps, "r");
 	if (!f) return 0;
 	char line[512];
@@ -1062,19 +553,19 @@ static uint64_t ks_game_base(void) {
 static void ks_sv_install(void) {
 	if (ks_sv_state != 0) return;
 	ks_sv_state = -1;
-	if (!ks_sv_off) { ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){89, 22, 192, 208, 217, 183, 108, 57, 82, 76, 209, 134, 15, 21, 164, 133, 109, 252, 99, 202, 14, 63, 193, 33, 111, 17, 114, 45, 234, 113, 221, 242}, 32)); return; }
-	if (!ks_game_base()) { ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){89, 22, 192, 208, 217, 183, 108, 57, 82, 198, 36, 78, 133, 255, 82, 7, 138, 23, 231, 45, 245, 168, 3, 186, 166, 174, 32, 127, 196, 25, 132, 233, 182, 119, 153, 52, 99, 16, 76}, 39)); return; }
+	if (!ks_sv_off) { ks_logf("[core]", "sv hook: 未烘焙偏移, 跳过"); return; }
+	if (!ks_game_base()) { ks_logf("[core]", "sv hook: libminecraftpe 基址未找到"); return; }
 	volatile unsigned* pc = (volatile unsigned*)(uintptr_t)(ks_mc_base + ks_sv_off);
 	unsigned w0 = *pc;
 	if (ks_sv_w0 && w0 != (unsigned)ks_sv_w0) {
-		ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){89, 22, 192, 208, 217, 183, 108, 57, 82, 79, 202, 145, 14, 3, 140, 135, 77, 209, 98, 243, 12, 63, 202, 60, 99, 84, 226, 234, 100, 188, 82, 77, 112, 233, 48, 237, 233, 236, 193, 56, 84, 199, 253, 202, 53, 78, 168, 199, 8, 148, 121, 156, 61, 238, 85, 137, 76, 85, 242, 11, 63, 240, 63, 203, 173, 161, 2, 245, 150, 155, 86, 48}, 72), ks_sv_w0, w0);
+		ks_logf("[core]", "sv hook: 函数头不符 exp=%08lx got=%08x (游戏版本漂移), 弃打", ks_sv_w0, w0);
 		return;
 	}
 	void* t = ks_ihook((void*)(uintptr_t)(ks_mc_base + ks_sv_off), (void*)hk_sv_render);
-	if (!t) { ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){89, 22, 192, 208, 217, 183, 108, 57, 82, 79, 202, 145, 14, 3, 140, 135, 77, 209, 99, 219, 42, 248, 54, 217, 99, 214, 1, 34, 188, 54, 219, 147, 144, 22, 244, 49, 34, 124, 68, 144, 129, 112, 42, 12, 141, 4, 60, 95, 11, 160, 117, 157, 61, 245, 147, 98, 208, 142, 107, 185, 224, 47}, 62), w0); return; }
+	if (!t) { ks_logf("[core]", "sv hook: 函数头含 PC 相对指令不可搬, 弃打 w0=%08x", w0); return; }
 	ks_sv_orig = (ks_sv_fn)t;
 	ks_sv_state = 1;
-	ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){89, 22, 192, 208, 217, 183, 108, 35, 29, 193, 109, 78, 137, 229, 89, 95, 204, 9, 234, 51, 161, 183, 0, 252, 126, 20, 246, 226}, 28), (unsigned long long)ks_mc_base, ks_sv_off);
+	ks_logf("[core]", "sv hook ok base=%llx off=%lx", (unsigned long long)ks_mc_base, ks_sv_off);
 }
 
 /* ---- v32 世界矩阵管线(探针实证配方): mesh 钩发现常驻 Camera, mtx 钩缓存世界 pass 矩阵 ----
@@ -1083,10 +574,8 @@ static void ks_sv_install(void) {
    栈顶=map[(f28+f20-1)>>6]+((f28+f20-1)&63)*64 (map=栈+8, f20=栈+0x20, f28=栈+0x28, 元素 64B)。
    mtx=MatrixStack::push @0x8F947BC 首字 A9BE7BFD: 世界 pass 期间高频(15k/s)。
    两钩均走汇编全现场 stub(mesh 收浮点参数、mtx 入口读 x8, C 钩体会破坏 ABI——v31 探针实证) */
-#ifndef KS_SKIP_VERIFY
 extern void ks_stub_mesh(void);
 extern void ks_stub_mtx(void);
-#endif
 __attribute__((visibility("hidden"))) void* ks_tramp_slots[2];
 
 static unsigned long long ks_wcam = 0;   /* mesh 钩发现并经内容校验的常驻 Camera 指针 */
@@ -1119,7 +608,7 @@ static char* ks_wmr_hexu64(char* p, unsigned long long* out) {
 
 /* 整读+手工解析 ~0.3ms; 旧的 fgets+sscanf 逐行在 ~6800 条 maps 上要 5-15ms, 每秒一次砸在渲染线程 = 整屏周期性闪帧 */
 static void ks_wmr_snap(void) {
-	KS_LKS(n_maps2, 5, 16, 146, 215, 213, 247, 116, 102, 30, 204, 98, 65, 137, 230, 79);
+	KS_LKS(n_maps2, "/proc/self/maps");
 	FILE* f = fopen(n_maps2, "r");
 	static char buf[1048576];
 	long n = 0, r;
@@ -1256,7 +745,7 @@ static int ks_pvq_feed(float p0) {
 			if (i != bi && ks_pvq_c[i] > second) second = ks_pvq_c[i];
 		if (ks_pvq_filled >= KS_PVQ_WIN && ks_pvq_c[bi] > second) {
 			ks_pvq_main = ks_pvq_v[bi];
-			ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){93, 15, 146, 212, 210, 248, 119, 113, 29, 192, 109, 64, 135, 245, 87, 66, 153, 85, 187, 110, 237, 188, 73, 171, 115, 3, 174, 186, 58, 164, 71, 17, 51, 180, 116}, 35), ks_pvq_main, ks_pvq_c[bi], KS_PVQ_WIN);
+			ks_logf("[core]", "world proj lock p0=%ld/1024 c=%d/%d", ks_pvq_main, ks_pvq_c[bi], KS_PVQ_WIN);
 		}
 	} else {
 		mk = ks_pvq_idx(ks_pvq_main);
@@ -1265,7 +754,7 @@ static int ks_pvq_feed(float p0) {
 			if (ks_pvq_pend == ks_pvq_v[bi]) ks_pvq_pendn++;
 			else { ks_pvq_pend = ks_pvq_v[bi]; ks_pvq_pendn = 1; }
 			if (ks_pvq_pendn >= 2) {
-				ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){93, 15, 146, 212, 210, 248, 119, 113, 29, 192, 109, 65, 137, 255, 82, 66, 204, 9, 226, 107, 172, 230, 70, 191, 47, 85, 186, 178, 58, 164, 71, 17, 60, 252, 115, 183, 163, 252, 213}, 39), ks_pvq_main, ks_pvq_v[bi], ks_pvq_c[bi], mc);
+				ks_logf("[core]", "world proj main %ld -> %ld (c=%d mc=%d)", ks_pvq_main, ks_pvq_v[bi], ks_pvq_c[bi], mc);
 				ks_pvq_main = ks_pvq_v[bi];
 				ks_pvq_pend = -1;
 				ks_pvq_pendn = 0;
@@ -1300,7 +789,7 @@ __attribute__((visibility("hidden"))) void ks_world_hit(long idx, const unsigned
 			ks_wcam = cam;
 			ks_pvq_reset();   /* 相机更换: 投影计票清零重新学习 */
 			if (peglGetCurrentContext) { ks_game_ctx = (void*)peglGetCurrentContext(); ks_game_ctx_ms = ks_now_ms(); }
-			ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){93, 15, 146, 212, 210, 248, 100, 98, 31, 138, 43, 67, 157, 248, 88, 66, 138, 4, 235, 118, 164, 180, 10, 226}, 24), ks_wcam);
+			ks_logf("[core]", "world cam found cam=%llx", ks_wcam);
 		}
 		return;
 	} else if (idx == 1 && ks_wcam) {
@@ -1314,7 +803,7 @@ __attribute__((visibility("hidden"))) void ks_world_hit(long idx, const unsigned
 		if (p[11] != -1.0f) return;   /* 仅世界 pass(投影栈顶为透视阵) */
 		if (!ks_pvq_feed(p[0])) {   /* v34 滑窗众数锁: 非主世界投影(手持物/界面 3D 等) */
 			if (ks_wproj_rej < 6 || (ks_wproj_rej % 200) == 0)
-				ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){93, 15, 146, 212, 210, 248, 119, 113, 29, 192, 109, 94, 141, 252, 89, 1, 157, 69, 246, 123, 188, 253, 1, 186, 46, 80, 243, 244, 100, 188, 14, 17, 51, 160, 32, 184, 178, 184, 146, 32, 65, 147, 225}, 43), (double)p[0], ks_pvq_main, ks_wproj_rej);
+				ks_logf("[core]", "world proj reject p0=%g main=%ld/1024 n=%ld", (double)p[0], ks_pvq_main, ks_wproj_rej);
 			ks_wproj_rej++;
 			last_ms = now;
 			return;
@@ -1337,18 +826,16 @@ static void ks_world_install(void) {
 	pm = (unsigned char*)(uintptr_t)(ks_mc_base + 0x7B83EC8UL);
 	px = (unsigned char*)(uintptr_t)(ks_mc_base + 0x8F947BCUL);
 	if (*(volatile unsigned*)pm != 0xA9BC7BFDu || *(volatile unsigned*)px != 0xA9BE7BFDu) {
-		ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){93, 15, 146, 212, 210, 248, 111, 108, 29, 193, 119, 12, 1, 48, 170, 135, 68, 242, 98, 243, 12, 63, 202, 60, 107, 214, 19, 18, 191, 5, 206, 147, 160, 19, 247, 45, 61, 177, 220, 112, 1, 140, 237, 215, 56, 152, 40, 7, 206, 113, 130, 3, 137, 67, 131, 45, 152, 159, 110, 108, 100, 212, 98, 107, 18}, 65), *(volatile unsigned*)pm, *(volatile unsigned*)px);
+		ks_logf("[core]", "world hook: 首字不符(版本漂移) mesh=%08x mtx=%08x, 弃打", *(volatile unsigned*)pm, *(volatile unsigned*)px);
 		return;
 	}
-#ifndef KS_SKIP_VERIFY
 	t1 = ks_ihook(pm, (void*)ks_stub_mesh);
 	t2 = ks_ihook(px, (void*)ks_stub_mtx);
-	if (!t1 || !t2) { ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){93, 15, 146, 212, 210, 248, 111, 108, 29, 193, 119, 12, 129, 254, 83, 13, 130, 69, 99, 239, 48, 48, 210, 63, 99, 92, 255, 233, 49, 164, 71, 5, 60, 252, 100, 242, 187, 189, 140}, 39), t1, t2); return; }
+	if (!t1 || !t2) { ks_logf("[core]", "world hook: ihook 失败 mesh=%p mtx=%p", t1, t2); return; }
 	ks_tramp_slots[0] = t1;
 	ks_tramp_slots[1] = t2;
-#endif
 	ks_w_state = 1;
-	ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){93, 15, 146, 212, 210, 248, 111, 108, 29, 193, 109, 67, 131, 182, 20, 15, 140, 22, 238, 96, 236, 172, 30, 179}, 24));
+	ks_logf("[core]", "world hook ok (mesh+mtx)");
 }
 
 static int ks_wmat_stale_logged = 0;
@@ -1360,7 +847,7 @@ static int ks_world_mvp(float* out16) {
 	if (!ks_wmat_ms || now - ks_wmat_ms > 100) {
 		if (ks_wmat_ms && !ks_wmat_stale_logged) {   /* 断供打点: 面板"断开再瞄准"溯源 */
 			ks_wmat_stale_logged = 1;
-			ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){93, 15, 146, 212, 210, 248, 106, 117, 2, 138, 62, 88, 137, 250, 89, 66, 136, 2, 227, 118, 164, 180, 2, 186, 32, 80, 247, 167, 124, 245, 14, 13, 60, 230, 99, 254, 231, 236, 153, 32, 65, 155}, 42), now - ks_wmat_ms, ks_wcam, ks_w_state);
+			ks_logf("[core]", "world mvp stale age=%ld cam=%llx wstate=%d", now - ks_wmat_ms, ks_wcam, ks_w_state);
 		}
 		return 0;
 	}
@@ -1375,94 +862,82 @@ static int ks_world_mvp(float* out16) {
 }
 
 static int ks_resolve(void) {
-	KS_LKS(n_libegl, 70, 9, 130, 253, 241, 148, 41, 112, 29);
-	KS_LKS(n_libgl, 70, 9, 130, 255, 250, 157, 84, 117, 64, 132, 62, 67);
-	KS_LKS(n_gpa, 79, 7, 140, 255, 211, 172, 87, 113, 29, 201, 12, 72, 140, 228, 89, 17, 154);
-	KS_LKS(n_qsurf, 79, 7, 140, 233, 195, 189, 117, 122, 33, 223, 63, 74, 137, 245, 89);
-	KS_LKS(n_curctx, 79, 7, 140, 255, 211, 172, 68, 118, 0, 216, 40, 66, 156, 213, 83, 12, 157, 0, 254, 63);
-	KS_LKS(n_curdsp, 79, 7, 140, 255, 211, 172, 68, 118, 0, 216, 40, 66, 156, 210, 85, 17, 153, 9, 231, 50);
-	KS_LKS(n_cursur, 79, 7, 140, 255, 211, 172, 68, 118, 0, 216, 40, 66, 156, 197, 73, 16, 143, 4, 229, 46);
+	KS_LKS(n_libegl, "libEGL.so");
+	KS_LKS(n_libgl, "libGLESv2.so");
+	KS_LKS(n_gpa, "eglGetProcAddress");
+	KS_LKS(n_qsurf, "eglQuerySurface");
+	KS_LKS(n_curctx, "eglGetCurrentContext");
+	KS_LKS(n_curdsp, "eglGetCurrentDisplay");
+	KS_LKS(n_cursur, "eglGetCurrentSurface");
 	void* hEGL = dlopen(n_libegl, RTLD_NOW);
 	void* hGL = dlopen(n_libgl, RTLD_NOW);
-	if (!hEGL || !hGL) { ks_set_status(0, ks_ld((const unsigned char[]){78, 12, 143, 200, 211, 182, 39, 70, 53, 230, 98, 107, 164, 182, 90, 3, 128, 9}, 18)); ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){88, 5, 147, 215, 218, 174, 98, 35, 20, 203, 36, 64, 210, 182, 88, 14, 134, 21, 227, 37, 161, 189, 1, 246, 126, 20, 234, 186, 62, 245, 95, 80, 108}, 33), (void*)hEGL, (void*)hGL); return 0; }
+	if (!hEGL || !hGL) { ks_set_status(0, "dlopen EGL/GL fail"); ks_logf("[core]", "resolve fail: dlopen egl=%p gl=%p", (void*)hEGL, (void*)hGL); return 0; }
 	void* (*pGPA)(const char*) = (void* (*)(const char*))dlsym(hEGL, n_gpa);
 	peglQuerySurface = (EGLBoolean(*)(EGLDisplay, EGLSurface, EGLint, EGLint*))dlsym(hEGL, n_qsurf);
 	peglGetCurrentContext = (EGLContext(*)(void))dlsym(hEGL, n_curctx);
 	peglGetCurrentDisplay = (EGLDisplay(*)(void))dlsym(hEGL, n_curdsp);
 	peglGetCurrentSurface = (EGLSurface(*)(EGLint))dlsym(hEGL, n_cursur);
 	void* h = hGL;
-#define RA2(field, ...) do { unsigned char e[] = { __VA_ARGS__ }; char sn[48]; ks_lkd(sn, e, (int)sizeof(e)); field = (void*)dlsym(h, sn); if (!field && pGPA) field = (void*)pGPA(sn); } while (0)
-	RA2(pglGetIntegerv, 77, 12, 167, 221, 194, 145, 105, 119, 23, 205, 40, 94, 158);
-	RA2(pglIsEnabled, 77, 12, 169, 203, 243, 182, 102, 97, 30, 207, 41);
-	RA2(pglViewport, 77, 12, 182, 209, 211, 175, 119, 108, 0, 222);
-	RA2(pglEnable, 77, 12, 165, 214, 215, 186, 107, 102);
-	RA2(pglDisable, 77, 12, 164, 209, 197, 185, 101, 111, 23);
-	RA2(pglBlendFunc, 77, 12, 162, 212, 211, 182, 99, 69, 7, 196, 46);
-	RA2(pglBlendFuncSeparate, 77, 12, 162, 212, 211, 182, 99, 69, 7, 196, 46, 127, 141, 230, 93, 16, 136, 17, 227);
-	RA2(pglGenBuffers, 77, 12, 167, 221, 216, 154, 114, 101, 20, 207, 63, 95);
-	RA2(pglDeleteBuffers, 77, 12, 164, 221, 218, 189, 115, 102, 48, 223, 43, 74, 141, 228, 79);
-	RA2(pglBindBuffer, 77, 12, 162, 209, 216, 188, 69, 118, 20, 204, 40, 94);
-	RA2(pglBufferData, 77, 12, 162, 205, 208, 190, 98, 113, 54, 203, 57, 77);
-	RA2(pglVertexAttribPointer, 77, 12, 182, 221, 196, 172, 98, 123, 51, 222, 57, 94, 129, 244, 108, 13, 128, 11, 242, 46, 243);
-	RA2(pglEnableVertexAttribArray, 77, 12, 165, 214, 215, 186, 107, 102, 36, 207, 63, 88, 141, 238, 125, 22, 157, 23, 239, 41, 192, 170, 20, 251, 58);
-	RA2(pglGetAttribLocation, 77, 12, 167, 221, 194, 153, 115, 119, 0, 195, 47, 96, 135, 245, 93, 22, 128, 10, 232);
-	RA2(pglCreateShader, 77, 12, 163, 202, 211, 185, 115, 102, 33, 194, 44, 72, 141, 228);
-	RA2(pglShaderSource, 77, 12, 179, 208, 215, 188, 98, 113, 33, 197, 56, 94, 139, 243);
-	RA2(pglCompileShader, 77, 12, 163, 215, 219, 168, 110, 111, 23, 249, 37, 77, 140, 243, 78);
-	RA2(pglGetShaderiv, 77, 12, 167, 221, 194, 139, 111, 98, 22, 207, 63, 69, 158);
-	RA2(pglCreateProgram, 77, 12, 163, 202, 211, 185, 115, 102, 34, 216, 34, 75, 154, 247, 81);
-	RA2(pglAttachShader, 77, 12, 161, 204, 194, 185, 100, 107, 33, 194, 44, 72, 141, 228);
-	RA2(pglLinkProgram, 77, 12, 172, 209, 216, 179, 87, 113, 29, 205, 63, 77, 133);
-	RA2(pglGetProgramiv, 77, 12, 167, 221, 194, 136, 117, 108, 21, 216, 44, 65, 129, 224);
-	RA2(pglGetShaderInfoLog, 77, 12, 167, 221, 194, 139, 111, 98, 22, 207, 63, 101, 134, 240, 83, 46, 134, 2);
-	RA2(pglGetProgramInfoLog, 77, 12, 167, 221, 194, 136, 117, 108, 21, 216, 44, 65, 161, 248, 90, 13, 165, 10, 225);
-	RA2(pglUseProgram, 77, 12, 181, 203, 211, 136, 117, 108, 21, 216, 44, 65);
-	RA2(pglGenVertexArrays, 77, 12, 167, 221, 216, 142, 98, 113, 6, 207, 53, 109, 154, 228, 93, 27, 154);
-	RA2(pglBindVertexArray, 77, 12, 162, 209, 216, 188, 81, 102, 0, 222, 40, 84, 169, 228, 78, 3, 144);
-	RA2(pglDrawArrays, 77, 12, 164, 202, 215, 175, 70, 113, 0, 203, 52, 95);
-	RA2(pglGetUniformLocation, 77, 12, 167, 221, 194, 141, 105, 106, 20, 197, 63, 65, 164, 249, 95, 3, 157, 12, 233, 37);
-	RA2(pglUniform1f, 77, 12, 181, 214, 223, 190, 104, 113, 31, 155, 43);
-	RA2(pglUniform2f, 77, 12, 181, 214, 223, 190, 104, 113, 31, 152, 43);
-	RA2(pglUniform1i, 77, 12, 181, 214, 223, 190, 104, 113, 31, 155, 36);
-	RA2(pglDeleteShader, 77, 12, 164, 221, 218, 189, 115, 102, 33, 194, 44, 72, 141, 228);
-	RA2(pglGenTextures, 77, 12, 167, 221, 216, 140, 98, 123, 6, 223, 63, 73, 155);
-	RA2(pglDeleteTextures, 77, 12, 164, 221, 218, 189, 115, 102, 38, 207, 53, 88, 157, 228, 89, 17);
-	RA2(pglBindTexture, 77, 12, 162, 209, 216, 188, 83, 102, 10, 222, 56, 94, 141);
-	RA2(pglTexImage2D, 77, 12, 180, 221, 206, 145, 106, 98, 21, 207, 127, 104);
-	RA2(pglTexSubImage2D, 77, 12, 180, 221, 206, 139, 114, 97, 59, 199, 44, 75, 141, 164, 120);
-	RA2(pglTexParameteri, 77, 12, 180, 221, 206, 136, 102, 113, 19, 199, 40, 88, 141, 228, 85);
-	RA2(pglCopyTexSubImage2D, 77, 12, 163, 215, 198, 161, 83, 102, 10, 249, 56, 78, 161, 251, 93, 5, 140, 87, 194);
-	RA2(pglActiveTexture, 77, 12, 161, 219, 194, 177, 113, 102, 38, 207, 53, 88, 157, 228, 89);
-#undef RA2
-	ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){88, 5, 147, 215, 218, 174, 98, 57, 82, 219, 62, 89, 154, 240, 1, 71, 153, 69, 229, 62, 243, 187, 18, 226, 126, 20, 234, 186, 62, 233, 3, 72, 57, 225, 48, 237, 234, 165, 217, 109}, 40),
+#define RA(field, name) do { field = (void*)dlsym(h, name); if (!field && pGPA) field = (void*)pGPA(name); } while (0)
+	RA(pglGetIntegerv, "glGetIntegerv");
+	RA(pglIsEnabled, "glIsEnabled");
+	RA(pglViewport, "glViewport");
+	RA(pglEnable, "glEnable");
+	RA(pglDisable, "glDisable");
+	RA(pglBlendFunc, "glBlendFunc");
+	RA(pglBlendFuncSeparate, "glBlendFuncSeparate");
+	RA(pglGenBuffers, "glGenBuffers");
+	RA(pglDeleteBuffers, "glDeleteBuffers");
+	RA(pglBindBuffer, "glBindBuffer");
+	RA(pglBufferData, "glBufferData");
+	RA(pglVertexAttribPointer, "glVertexAttribPointer");
+	RA(pglEnableVertexAttribArray, "glEnableVertexAttribArray");
+	RA(pglGetAttribLocation, "glGetAttribLocation");
+	RA(pglCreateShader, "glCreateShader");
+	RA(pglShaderSource, "glShaderSource");
+	RA(pglCompileShader, "glCompileShader");
+	RA(pglGetShaderiv, "glGetShaderiv");
+	RA(pglCreateProgram, "glCreateProgram");
+	RA(pglAttachShader, "glAttachShader");
+	RA(pglLinkProgram, "glLinkProgram");
+	RA(pglGetProgramiv, "glGetProgramiv");
+	RA(pglGetShaderInfoLog, "glGetShaderInfoLog");
+	RA(pglGetProgramInfoLog, "glGetProgramInfoLog");
+	RA(pglUseProgram, "glUseProgram");
+	RA(pglGenVertexArrays, "glGenVertexArrays");
+	RA(pglBindVertexArray, "glBindVertexArray");
+	RA(pglDrawArrays, "glDrawArrays");
+	RA(pglGetUniformLocation, "glGetUniformLocation");
+	RA(pglUniform1f, "glUniform1f");
+	RA(pglUniform2f, "glUniform2f");
+	RA(pglUniform1i, "glUniform1i");
+	RA(pglDeleteShader, "glDeleteShader");
+	RA(pglGenTextures, "glGenTextures");
+	RA(pglDeleteTextures, "glDeleteTextures");
+	RA(pglBindTexture, "glBindTexture");
+	RA(pglTexImage2D, "glTexImage2D");
+	RA(pglTexSubImage2D, "glTexSubImage2D");
+	RA(pglTexParameteri, "glTexParameteri");
+	RA(pglCopyTexSubImage2D, "glCopyTexSubImage2D");
+	RA(pglActiveTexture, "glActiveTexture");
+#undef RA
+	ks_logf("[core]", "resolve: qsurf=%p curctx=%p gpa=%p gl=%p",
 		(void*)peglQuerySurface, (void*)peglGetCurrentContext, (void*)pGPA, (void*)pglDrawArrays);
 	return 1;
 }
 
 /* 引导: 首次做符号解析+wpl 内联钩子,随后装 sv 渲染驱动(demo_stop 后可重挂)。
-   由 JS 经 ks_entry(52) 在投钥后显式触发——ctor 不再触碰 dlopen/dlsym */
+   由 JS 经 ks_entry(52) 显式触发——ctor 不触碰 dlopen/dlsym */
 static int ks_boot_done = 0;
-static int ks_js_ok = 0;   /* 0 未通过(每次 boot 重试); 通过即折叠签名并置 1; 不符直接 ks_die_g */
 static long ks_boot(void) {
 	if (!ks_boot_done) {
-#ifndef KS_SKIP_VERIFY
-		if (!ks_js_ok) {
-			unsigned long long fv = 0;
-			int jst = ks_verify_js(&fv);
-			if (jst == 0) ks_die_g();
-			if (jst == 1) { ks_key_derive(fv); ks_g_sig = ks_g_sig * 33u + 0x5BD1E995u; ks_js_ok = 1; }
-			if (!ks_rk_ready) return 0;   /* 文件暂不可读: 不置完成,下次调用再试 */
-		}
-#endif
-		ks_logf(ks_ld((const unsigned char[]){113, 3, 143, 202, 211, 133}, 6), ks_ld((const unsigned char[]){72, 15, 143, 204, 150, 171, 115, 98, 0, 222, 109, 92, 129, 242, 1, 71, 141}, 17), (int)getpid());
+		ks_logf("[core]", "boot start pid=%d", (int)getpid());
 		if (!ks_resolve()) return 0;
 		wpl_hooks_install();
 		ks_boot_done = 1;
 	}
 	ks_sv_install();   /* v31 起唯一渲染驱动: 幂等,首字不符=版本漂移静默弃打 */
-#ifndef KS_SKIP_VERIFY
 	ks_world_install();   /* v32 世界矩阵管线: mesh/mtx asm stub 钩, 幂等 */
-#endif
 	return 1;
 }
 
@@ -1494,7 +969,7 @@ static long demo_stop(void) {
 	ks_sv_pend_n = 0;
 	ks_sv_drove_infra = 0;
 	nb_drain();
-	ks_set_status(0, ks_ld((const unsigned char[]){89, 20, 143, 200, 198, 189, 99}, 7));
+	ks_set_status(0, "stopped");
 	return 0;
 }
 
@@ -1503,14 +978,24 @@ static long demo_stop(void) {
 static void mb_set_status(const char* s) { ks_set_status(1, s); }
 static void mb_status_num(const char* pre, long v) { ks_status_num(1, pre, v); }
 
-static const unsigned char ks_enc_mb_vs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 159, 10, 239, 47, 161, 181, 7, 243, 45, 25, 179, 225, 83, 185, 66, 85, 60, 231, 117, 233, 180, 184, 140, 61, 89, 223, 243, 143, 126, 154, 56, 25, 130, 115, 151, 15, 156, 78, 212, 121, 191, 229, 43, 251, 172, 50, 252, 171, 197, 161, 219, 117, 53, 76, 246, 131, 134, 50, 178, 106, 3, 166, 20, 65, 133, 248, 201, 105, 6, 37, 19, 62, 54, 105, 180, 146, 119, 47, 54, 2, 199, 134, 219, 242, 195, 129, 152, 8, 26, 199, 28, 19, 73, 227, 59, 0, 96, 95, 77, 251, 148, 75, 172, 201, 149, 71, 1, 137, 194, 198, 97, 94, 11, 71, 31, 117, 98, 216, 48, 212, 194, 94, 2, 246, 6, 175, 218, 245, 185, 127, 148, 253, 253, 148, 161, 155, 16, 234 };
-static char mb_vs_buf[155];
-static int mb_vs_ok = 0;
-static const char* mb_vs_get(void) { if (!mb_vs_ok) { mb_vs_ok = 1; ks_lkd(mb_vs_buf, ks_enc_mb_vs, (int)sizeof(ks_enc_mb_vs)); } return mb_vs_buf; }
-static const unsigned char ks_enc_mb_fs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 153, 23, 227, 40, 232, 171, 15, 245, 45, 17, 247, 255, 61, 240, 23, 24, 108, 177, 118, 230, 233, 249, 136, 38, 110, 138, 235, 131, 123, 199, 98, 18, 206, 111, 151, 22, 196, 10, 214, 103, 210, 247, 110, 252, 140, 50, 252, 217, 139, 244, 137, 32, 115, 18, 173, 206, 128, 100, 229, 32, 29, 166, 7, 127, 143, 234, 134, 75, 20, 39, 37, 14, 60, 105, 173, 215, 105, 10, 29, 67, 149, 134, 156, 157, 139, 222, 247, 19, 48, 136, 73, 0, 5, 202, 14, 12, 39, 22, 95, 224, 154, 66, 207, 155, 217, 94, 22, 209, 252, 152, 126, 23, 69, 71, 64, 58, 59, 150, 53, 221, 136, 122, 18, 250, 6, 191, 130, 160, 246, 109, 133, 166, 187, 157, 167, 177, 10, 140, 69, 53, 146, 82, 33, 52, 145, 26, 31, 139, 5, 252, 219, 43, 140, 211, 141, 156, 129, 226, 8, 155, 243, 179, 193, 1, 113, 58, 165, 218, 175, 249, 137, 218, 76, 35, 83, 225, 133, 72, 33, 137, 222, 25, 79, 127, 116, 131, 136, 204, 9, 120, 115, 74, 108, 196, 235, 188, 145, 152, 181, 170, 187, 155, 224, 202, 38, 41, 22, 105, 101, 159, 134, 56, 13, 90, 33, 99, 171, 37, 210, 240, 236, 73, 140, 136, 72, 51, 204, 192, 87, 123 };
-static char mb_fs_buf[247];
-static int mb_fs_ok = 0;
-static const char* mb_fs_get(void) { if (!mb_fs_ok) { mb_fs_ok = 1; ks_lkd(mb_fs_buf, ks_enc_mb_fs, (int)sizeof(ks_enc_mb_fs)); } return mb_fs_buf; }
+static const char MB_VS[] =
+	"#version 300 es\n"
+	"void main(){\n"
+	"    vec2 p = vec2(float((gl_VertexID << 1) & 2), float(gl_VertexID & 2));\n"
+	"    gl_Position = vec4(p * 2.0 - 1.0, 0.0, 1.0);\n"
+	"}\n";
+static const char MB_FS[] =
+	"#version 300 es\n"
+	"precision mediump float;\n"
+	"uniform sampler2D uTex;\n"
+	"uniform vec2 uRes;\n"
+	"uniform float uFade;\n"
+	"out vec4 fragColor;\n"
+	"void main(){\n"
+	"    vec2 uv = gl_FragCoord.xy / uRes;\n"
+	"    vec3 p = texture(uTex, uv).rgb;\n"
+	"    fragColor = vec4(p, uFade);\n"
+	"}\n";
 static volatile int mb_g_enable = 0;
 static volatile long mb_g_permil = 0;
 static float mb_g_aprog = 0.0f;   /* 开关动画进度(强度淡入淡出) */
@@ -1529,25 +1014,25 @@ static int mb_gl_init(void) {
 	if (!pglCreateShader || !pglShaderSource || !pglCompileShader || !pglGetShaderiv
 		|| !pglCreateProgram || !pglAttachShader || !pglLinkProgram || !pglGetProgramiv
 		|| !pglDeleteShader || !pglGenVertexArrays || !pglGetUniformLocation) {
-		mb_set_status(ks_ld((const unsigned char[]){77, 12, 192, 203, 207, 181, 39, 110, 27, 217, 62, 69, 134, 241}, 14));
+		mb_set_status("gl sym missing");
 		return 0;
 	}
 	GLint ok = 0;
 	const char* src[1];
 	GLuint vs = pglCreateShader(GL_VERTEX_SHADER);
-	if (!vs) { mb_set_status(ks_ld((const unsigned char[]){92, 19, 192, 219, 196, 189, 102, 119, 23, 138, 43, 77, 129, 250}, 14)); return 0; }
-	src[0] = mb_vs_get();
+	if (!vs) { mb_set_status("vs create fail"); return 0; }
+	src[0] = MB_VS;
 	pglShaderSource(vs, 1, src, 0);
 	pglCompileShader(vs);
 	pglGetShaderiv(vs, GL_COMPILE_STATUS, &ok);
-	if (!ok) { mb_set_status(ks_ld((const unsigned char[]){92, 19, 192, 219, 217, 181, 119, 106, 30, 207, 109, 74, 137, 255, 80}, 15)); return 0; }
+	if (!ok) { mb_set_status("vs compile fail"); return 0; }
 	GLuint fs = pglCreateShader(GL_FRAGMENT_SHADER);
-	if (!fs) { mb_set_status(ks_ld((const unsigned char[]){76, 19, 192, 219, 196, 189, 102, 119, 23, 138, 43, 77, 129, 250}, 14)); return 0; }
-	src[0] = mb_fs_get();
+	if (!fs) { mb_set_status("fs create fail"); return 0; }
+	src[0] = MB_FS;
 	pglShaderSource(fs, 1, src, 0);
 	pglCompileShader(fs);
 	pglGetShaderiv(fs, GL_COMPILE_STATUS, &ok);
-	if (!ok) { mb_set_status(ks_ld((const unsigned char[]){76, 19, 192, 219, 217, 181, 119, 106, 30, 207, 109, 74, 137, 255, 80}, 15)); return 0; }
+	if (!ok) { mb_set_status("fs compile fail"); return 0; }
 	mb_g_prog = pglCreateProgram();
 	pglAttachShader(mb_g_prog, vs);
 	pglAttachShader(mb_g_prog, fs);
@@ -1555,12 +1040,12 @@ static int mb_gl_init(void) {
 	pglGetProgramiv(mb_g_prog, GL_LINK_STATUS, &ok);
 	pglDeleteShader(vs);
 	pglDeleteShader(fs);
-	if (!ok) { mb_set_status(ks_ld((const unsigned char[]){70, 9, 142, 211, 150, 190, 102, 106, 30}, 9)); return 0; }
+	if (!ok) { mb_set_status("link fail"); return 0; }
 	pglGenVertexArrays(1, &mb_g_vao);
-	mb_g_uRes = pglGetUniformLocation(mb_g_prog, ks_ld((const unsigned char[]){95, 50, 133, 203}, 4));
-	mb_g_uFade = pglGetUniformLocation(mb_g_prog, ks_ld((const unsigned char[]){95, 38, 129, 220, 211}, 5));
-	mb_g_uTex = pglGetUniformLocation(mb_g_prog, ks_ld((const unsigned char[]){95, 52, 133, 192}, 4));
-	mb_set_status(ks_ld((const unsigned char[]){77, 12, 192, 202, 211, 185, 99, 122}, 8));
+	mb_g_uRes = pglGetUniformLocation(mb_g_prog, "uRes");
+	mb_g_uFade = pglGetUniformLocation(mb_g_prog, "uFade");
+	mb_g_uTex = pglGetUniformLocation(mb_g_prog, "uTex");
+	mb_set_status("gl ready");
 	return 1;
 }
 
@@ -1603,7 +1088,7 @@ static void mb_render(EGLDisplay dpy, EGLSurface surf) {
 		EGLContext cur = peglGetCurrentContext();
 		if (cur != mb_g_ctx) {
 			mb_g_prog = 0; mb_g_vao = 0; mb_g_texPrev = 0; mb_g_ctx = 0; mb_g_valid = 0; mb_g_gl_ready = 0;
-			ks_logf(ks_ld((const unsigned char[]){113, 13, 130, 229}, 4), ks_ld((const unsigned char[]){77, 12, 192, 219, 194, 160, 39, 96, 26, 203, 35, 75, 141, 242, 16, 66, 155, 0, 171, 34, 239, 177, 18}, 23));
+			ks_logf("[mb]", "gl ctx changed, re-init");
 		}
 	}
 	if (!mb_g_gl_ready) {
@@ -1613,26 +1098,26 @@ static void mb_render(EGLDisplay dpy, EGLSurface surf) {
 		EGLContext cur = peglGetCurrentContext();
 		if (!cur) return;
 		if (wpl_pv_ready() && !wpl_ctx_is_game(cur)) return;
-		if (!mb_gl_init()) { mb_g_enable = 0; ks_logf(ks_ld((const unsigned char[]){113, 13, 130, 229}, 4), ks_ld((const unsigned char[]){71, 2, 191, 223, 218, 135, 110, 109, 27, 222, 109, 74, 137, 255, 80, 78, 201, 8, 233, 47, 244, 180, 3, 186, 39, 88, 233, 251, 59, 245, 7, 17}, 32)); return; }
+		if (!mb_gl_init()) { mb_g_enable = 0; ks_logf("[mb]", "mb_gl_init fail, module disabled"); return; }
 		if (!pglGetIntegerv || !pglIsEnabled || !pglActiveTexture || !pglBindTexture
 			|| !pglCopyTexSubImage2D || !pglViewport || !pglDisable || !pglEnable
 			|| !pglUseProgram || !pglBindVertexArray || !pglUniform1f || !pglUniform2f
 			|| !pglUniform1i || !pglDrawArrays || !pglBlendFuncSeparate || !pglBlendFunc
 			|| !pglGenTextures || !pglTexImage2D || !pglTexParameteri || !pglDeleteTextures
 			|| !peglQuerySurface) {
-			mb_set_status(ks_ld((const unsigned char[]){77, 12, 192, 203, 207, 181, 39, 110, 27, 217, 62, 69, 134, 241, 20, 16, 140, 11, 226, 46, 243, 241}, 22));
+			mb_set_status("gl sym missing(render)");
 			mb_g_enable = 0;
-			ks_logf(ks_ld((const unsigned char[]){113, 13, 130, 229}, 4), ks_ld((const unsigned char[]){77, 12, 192, 203, 207, 181, 39, 110, 27, 217, 62, 69, 134, 241, 20, 16, 140, 11, 226, 46, 243, 241, 74, 186, 46, 94, 254, 239, 53, 252, 66, 17, 117, 226, 113, 232, 234, 253, 152}, 39));
+			ks_logf("[mb]", "gl sym missing(render), module disabled");
 			return;
 		}
 		mb_g_ctx = cur;
 		mb_g_surf = surf;
 		mb_g_gl_ready = 1;
-		ks_logf(ks_ld((const unsigned char[]){113, 13, 130, 229}, 4), ks_ld((const unsigned char[]){77, 12, 192, 202, 211, 185, 99, 122, 82, 217, 56, 94, 142, 171, 25, 18, 201, 6, 242, 51, 188, 253, 22, 186, 48, 88, 224, 255, 100, 188, 6, 13, 57, 245, 48, 249, 241, 249, 140, 110, 89, 218, 233, 142}, 44), (void*)surf, (void*)cur, (int)w, (int)h, ks_g_swaps);
+		ks_logf("[mb]", "gl ready surf=%p ctx=%p size=%dx%d swaps=%ld", (void*)surf, (void*)cur, (int)w, (int)h, ks_g_swaps);
 	}
 	if (peglGetCurrentContext && peglGetCurrentContext() != mb_g_ctx) return;
 	if (surf != mb_g_surf) {
-		if (ks_g_swaps - mb_g_surfsw > 120) { mb_g_surf = surf; ks_logf(ks_ld((const unsigned char[]){113, 13, 130, 229}, 4), ks_ld((const unsigned char[]){89, 21, 146, 222, 215, 187, 98, 35, 0, 207, 33, 67, 139, 253, 28, 17, 156, 23, 224, 118, 164, 168}, 22), (void*)surf); }
+		if (ks_g_swaps - mb_g_surfsw > 120) { mb_g_surf = surf; ks_logf("[mb]", "surface relock surf=%p", (void*)surf); }
 		else return;
 	}
 	mb_g_surfsw = ks_g_swaps;
@@ -1840,26 +1325,41 @@ static int try_font_file(const char* path, int want_cjk) {
 static int load_sysfont(void) {
 	ih_g_font_tried = 1;
 	char fp[192];
-	{ KS_LKS(rp_sfx, 65, 21, 147, 205, 209, 247, 116, 108, 93, 204, 34, 66, 156, 184, 72, 22, 143); ks_res_path(fp, sizeof(fp), rp_sfx); }
+	ks_res_path(fp, sizeof(fp), "kusug/so/font.ttf");
 	if (try_font_file(fp, 1)) {
-		ih_status_num(ks_ld((const unsigned char[]){94, 20, 134, 152, 213, 178, 108, 35, 29, 193, 109}, 11), 1);
+		ih_status_num("ttf cjk ok ", 1);
 		return 1;
 	}
-	ih_set_status(ks_ld((const unsigned char[]){76, 15, 142, 204, 150, 181, 110, 112, 1, 195, 35, 75}, 12));
+	ih_set_status("font missing");
 	return 0;
 }
 
 typedef unsigned int GLenum; typedef unsigned int GLuint; typedef int GLint; typedef int GLsizei;
 typedef unsigned char GLboolean; typedef float GLfloat; typedef unsigned int GLbitfield; typedef ptrdiff_t GLsizeiptr;
 typedef void* EGLDisplay; typedef void* EGLSurface; typedef void* EGLContext; typedef int EGLint; typedef unsigned int EGLBoolean;
-static const unsigned char ks_enc_ih_vs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 156, 11, 239, 45, 238, 170, 11, 186, 53, 84, 249, 168, 121, 236, 48, 16, 111, 170, 26, 255, 232, 241, 154, 114, 22, 146, 165, 156, 120, 203, 34, 95, 155, 83, 144, 29, 143, 108, 198, 123, 137, 213, 33, 251, 181, 119, 242, 135, 226, 179, 199, 60, 70, 20, 165, 198, 155, 24, 239, 54, 91, 166, 4, 72, 137, 171, 157, 55, 52, 63, 119, 98, 37, 116, 169, 147, 47, 11, 19, 75, 143, 142, 192, 160, 224, 154, 178, 8, 26, 145, 89, 23, 23, 156, 27, 79, 46, 22, 79, 247, 152, 23, 164, 146, 217, 94, 5, 158, 222, 137, 125, 33, 119, 2, 95, 47, 55, 128, 84, 176, 211, 86, 18, 235, 15, 179, 212, 163, 249, 48, 196, 167, 229, 149, 253, 253, 50, 182, 127, 1, 148, 86, 62, 62, 186, 85, 83, 209, 11, 181, 139, 43, 133, 211, 201, 231, 205, 170, 57, 177, 243, 179, 193, 87, 82, 41, 230, 212, 175, 249, 146, 237, 76, 119, 22, 185, 135, 88, 48, 222, 214, 28, 99, 58, 49, 143, 221, 246, 25, 55, 125, 19, 43, 214, 240, 156, 145, 205, 198, 227, 167, 140, 186, 167, 69, 102, 90, 38, 112, 211, 228, 72, 20, 76, 43, 35, 234, 58, 144, 240, 164, 47, 155, 137, 78, 46, 223, 186, 82, 95, 5, 37, 210, 253, 92, 236, 205, 36, 126, 73, 96, 65, 199, 251, 78, 37, 245, 247, 143, 107, 79, 70, 178, 150, 161, 218, 75, 224, 189, 155, 72, 89, 205, 7, 87, 199, 252, 129, 35, 32, 18, 229, 217, 22, 190, 51, 178, 187, 179, 222, 242, 125, 183, 227, 217, 250, 66, 139, 192, 70, 6, 91, 134, 104 };
-static char ih_vs_buf[311];
-static int ih_vs_ok = 0;
-static const char* ih_vs_get(void) { if (!ih_vs_ok) { ih_vs_ok = 1; ks_lkd(ih_vs_buf, ks_enc_ih_vs, (int)sizeof(ks_enc_ih_vs)); } return ih_vs_buf; }
-static const unsigned char ks_enc_ih_fs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 153, 23, 227, 40, 232, 171, 15, 245, 45, 17, 247, 255, 61, 240, 23, 24, 108, 177, 118, 230, 233, 249, 136, 38, 110, 138, 235, 131, 123, 199, 98, 18, 206, 111, 151, 22, 196, 10, 214, 103, 210, 247, 110, 252, 140, 50, 252, 217, 139, 244, 137, 32, 115, 18, 173, 206, 128, 116, 236, 44, 78, 242, 82, 88, 171, 245, 205, 41, 0, 114, 70, 1, 61, 59, 182, 146, 108, 84, 82, 84, 180, 208, 210, 209, 133, 207, 230, 8, 76, 130, 95, 64, 5, 218, 25, 14, 116, 117, 86, 254, 148, 87, 183, 254, 195, 94, 13, 142, 214, 131, 112, 23, 79, 79, 4, 32, 88, 216, 61, 212, 211, 6, 87, 185, 18, 191, 151, 229, 168, 127, 209, 182, 181, 201, 239, 227, 8, 200, 111, 39, 133, 75, 106, 87, 136, 32, 27, 198, 16, 142, 130, 43, 131, 211, 158, 188, 133, 246, 112, 254, 191, 252, 147, 1, 58, 127, 176, 140, 236, 189, 129, 132, 66, 37, 81, 251, 221, 29, 48, 194, 151, 76, 49, 58, 121, 238, 196, 201, 23, 48, 116, 3, 1, 219, 218 };
-static char ih_fs_buf[212];
-static int ih_fs_ok = 0;
-static const char* ih_fs_get(void) { if (!ih_fs_ok) { ih_fs_ok = 1; ks_lkd(ih_fs_buf, ks_enc_ih_fs, (int)sizeof(ks_enc_ih_fs)); } return ih_fs_buf; }
+static const char IH_VS[] =
+	"#version 300 es\n"
+	"uniform vec2 uRes;\n"
+	"uniform vec2 uOff;\n"
+	"uniform vec2 uSize;\n"
+	"out vec2 vUv;\n"
+	"void main(){\n"
+	"    vec2 p = vec2(float(gl_VertexID & 1), float((gl_VertexID >> 1) & 1));\n"
+	"    vUv = p;\n"
+	"    vec2 px = uOff + p * uSize;\n"
+	"    gl_Position = vec4(px.x / uRes.x * 2.0 - 1.0, 1.0 - px.y / uRes.y * 2.0, 0.0, 1.0);\n"
+	"}\n";
+static const char IH_FS[] =
+	"#version 300 es\n"
+	"precision mediump float;\n"
+	"uniform sampler2D uTex;\n"
+	"uniform float uAlpha;\n"
+	"in vec2 vUv;\n"
+	"out vec4 fragColor;\n"
+	"void main(){\n"
+	"    vec4 c = texture(uTex, vUv);\n"
+	"    fragColor = vec4(c.rgb, c.a * uAlpha);\n"
+	"}\n";
 #define MAXROWS 14
 typedef struct {
 	char name[64];
@@ -2144,41 +1644,41 @@ static int ih_gl_init(void) {
 	if (!pglCreateShader || !pglShaderSource || !pglCompileShader || !pglGetShaderiv
 		|| !pglCreateProgram || !pglAttachShader || !pglLinkProgram || !pglGetProgramiv
 		|| !pglDeleteShader || !pglGenVertexArrays || !pglGetUniformLocation) {
-		ih_set_status(ks_ld((const unsigned char[]){77, 12, 192, 203, 207, 181, 39, 110, 27, 217, 62, 69, 134, 241}, 14));
+		ih_set_status("gl sym missing");
 		return 0;
 	}
 	GLint ok = 0;
 	const char* src[1];
 	GLuint vs = pglCreateShader(GL_VERTEX_SHADER);
-	if (!vs) { ih_set_status(ks_ld((const unsigned char[]){92, 19, 192, 219, 196, 189, 102, 119, 23, 138, 43, 77, 129, 250}, 14)); return 0; }
-	src[0] = ih_vs_get();
+	if (!vs) { ih_set_status("vs create fail"); return 0; }
+	src[0] = IH_VS;
 	pglShaderSource(vs, 1, src, 0);
 	pglCompileShader(vs);
 	pglGetShaderiv(vs, GL_COMPILE_STATUS, &ok);
-	if (!ok) { ih_set_status(ks_ld((const unsigned char[]){92, 19, 192, 219, 217, 181, 119, 106, 30, 207, 109, 74, 137, 255, 80}, 15)); return 0; }
+	if (!ok) { ih_set_status("vs compile fail"); return 0; }
 	GLuint fs = pglCreateShader(GL_FRAGMENT_SHADER);
-	if (!fs) { ih_set_status(ks_ld((const unsigned char[]){76, 19, 192, 219, 196, 189, 102, 119, 23, 138, 43, 77, 129, 250}, 14)); return 0; }
-	src[0] = ih_fs_get();
+	if (!fs) { ih_set_status("fs create fail"); return 0; }
+	src[0] = IH_FS;
 	pglShaderSource(fs, 1, src, 0);
 	pglCompileShader(fs);
 	pglGetShaderiv(fs, GL_COMPILE_STATUS, &ok);
-	if (!ok) { ih_set_status(ks_ld((const unsigned char[]){76, 19, 192, 219, 217, 181, 119, 106, 30, 207, 109, 74, 137, 255, 80}, 15)); pglDeleteShader(vs); return 0; }
+	if (!ok) { ih_set_status("fs compile fail"); pglDeleteShader(vs); return 0; }
 	ih_g_prog = pglCreateProgram();
-	if (!ih_g_prog) { ih_set_status(ks_ld((const unsigned char[]){90, 18, 143, 223, 150, 187, 117, 102, 19, 222, 40, 12, 142, 247, 85, 14}, 16)); pglDeleteShader(vs); pglDeleteShader(fs); return 0; }
+	if (!ih_g_prog) { ih_set_status("prog create fail"); pglDeleteShader(vs); pglDeleteShader(fs); return 0; }
 	pglAttachShader(ih_g_prog, vs);
 	pglAttachShader(ih_g_prog, fs);
 	pglLinkProgram(ih_g_prog);
 	pglGetProgramiv(ih_g_prog, GL_LINK_STATUS, &ok);
-	if (!ok) { ih_set_status(ks_ld((const unsigned char[]){70, 9, 142, 211, 150, 190, 102, 106, 30}, 9)); pglDeleteShader(vs); pglDeleteShader(fs); return 0; }
+	if (!ok) { ih_set_status("link fail"); pglDeleteShader(vs); pglDeleteShader(fs); return 0; }
 	pglDeleteShader(vs);
 	pglDeleteShader(fs);
 	pglGenVertexArrays(1, &ih_g_vao);
-	ih_g_uRes = pglGetUniformLocation(ih_g_prog, ks_ld((const unsigned char[]){95, 50, 133, 203}, 4));
-	ih_g_uOff = pglGetUniformLocation(ih_g_prog, ks_ld((const unsigned char[]){95, 47, 134, 222}, 4));
-	ih_g_uSize = pglGetUniformLocation(ih_g_prog, ks_ld((const unsigned char[]){95, 51, 137, 194, 211}, 5));
-	ih_g_uTex = pglGetUniformLocation(ih_g_prog, ks_ld((const unsigned char[]){95, 52, 133, 192}, 4));
-	ih_g_uAlpha = pglGetUniformLocation(ih_g_prog, ks_ld((const unsigned char[]){95, 33, 140, 200, 222, 185}, 6));
-	ih_set_status(ks_ld((const unsigned char[]){77, 12, 192, 202, 211, 185, 99, 122}, 8));
+	ih_g_uRes = pglGetUniformLocation(ih_g_prog, "uRes");
+	ih_g_uOff = pglGetUniformLocation(ih_g_prog, "uOff");
+	ih_g_uSize = pglGetUniformLocation(ih_g_prog, "uSize");
+	ih_g_uTex = pglGetUniformLocation(ih_g_prog, "uTex");
+	ih_g_uAlpha = pglGetUniformLocation(ih_g_prog, "uAlpha");
+	ih_set_status("gl ready");
 	return 1;
 }
 
@@ -2227,7 +1727,7 @@ static void ih_render(EGLDisplay dpy, EGLSurface surf) {
 		EGLContext cur = peglGetCurrentContext();
 		if (cur != ih_g_ctx) {
 			ih_g_prog = 0; ih_g_vao = 0; ih_g_tex = 0; ih_g_ctx = 0; ih_g_rasterNz = -1; ih_g_gl_ready = 0;   /* rasterNz=-1 强制重栅化 */
-			ks_logf(ks_ld((const unsigned char[]){113, 8, 149, 220, 235}, 5), ks_ld((const unsigned char[]){77, 12, 192, 219, 194, 160, 39, 96, 26, 203, 35, 75, 141, 242, 16, 66, 155, 0, 171, 34, 239, 177, 18}, 23));
+			ks_logf("[hud]", "gl ctx changed, re-init");
 		}
 	}
 	if (!ih_g_gl_ready) {
@@ -2236,15 +1736,15 @@ static void ih_render(EGLDisplay dpy, EGLSurface surf) {
 		EGLContext cur = peglGetCurrentContext();
 		if (!cur) return;
 		if (wpl_pv_ready() && !wpl_ctx_is_game(cur)) return;
-		if (!ih_gl_init()) { ih_g_enable = 0; ks_logf(ks_ld((const unsigned char[]){113, 8, 149, 220, 235}, 5), ks_ld((const unsigned char[]){67, 8, 191, 223, 218, 135, 110, 109, 27, 222, 109, 74, 137, 255, 80, 78, 201, 8, 233, 47, 244, 180, 3, 186, 39, 88, 233, 251, 59, 245, 7, 17}, 32)); return; }
+		if (!ih_gl_init()) { ih_g_enable = 0; ks_logf("[hud]", "ih_gl_init fail, module disabled"); return; }
 		ih_g_ctx = cur;
 		ih_g_surf = surf;
 		ih_g_gl_ready = 1;
-		ks_logf(ks_ld((const unsigned char[]){113, 8, 149, 220, 235}, 5), ks_ld((const unsigned char[]){77, 12, 192, 202, 211, 185, 99, 122, 82, 217, 56, 94, 142, 171, 25, 18, 201, 6, 242, 51, 188, 253, 22, 186, 48, 88, 224, 255, 100, 188, 6, 13, 57, 245, 48, 249, 241, 249, 140, 110, 89, 218, 233, 142}, 44), (void*)surf, (void*)cur, (int)w, (int)h, ks_g_swaps);
+		ks_logf("[hud]", "gl ready surf=%p ctx=%p size=%dx%d swaps=%ld", (void*)surf, (void*)cur, (int)w, (int)h, ks_g_swaps);
 	}
 	if (peglGetCurrentContext && peglGetCurrentContext() != ih_g_ctx) return;
 	if (surf != ih_g_surf) {
-		if (ks_g_swaps - ih_g_surfsw > 120) { ih_g_surf = surf; ks_logf(ks_ld((const unsigned char[]){113, 8, 149, 220, 235}, 5), ks_ld((const unsigned char[]){89, 21, 146, 222, 215, 187, 98, 35, 0, 207, 33, 67, 139, 253, 28, 17, 156, 23, 224, 118, 164, 168}, 22), (void*)surf); }
+		if (ks_g_swaps - ih_g_surfsw > 120) { ih_g_surf = surf; ks_logf("[hud]", "surface relock surf=%p", (void*)surf); }
 		else return;
 	}
 	ih_g_surfsw = ks_g_swaps;
@@ -2666,50 +2166,57 @@ static void dir_draw_text_scaled(const char* s, float x, float baseline, int pw,
 	}
 }
 
-static const unsigned char ks_enc_dir_fs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 153, 23, 227, 40, 232, 171, 15, 245, 45, 17, 242, 243, 62, 241, 18, 85, 122, 253, 127, 235, 242, 163, 246, 104, 10, 150, 227, 133, 111, 197, 48, 12, 143, 113, 134, 23, 209, 20, 129, 81, 192, 198, 26, 236, 160, 108, 142, 151, 239, 232, 129, 38, 103, 16, 255, 197, 204, 125, 225, 55, 15, 243, 34, 95, 133, 254, 134, 75, 8, 39, 108, 30, 54, 120, 242, 215, 121, 51, 4, 25, 235, 201, 156, 175, 202, 204, 247, 75, 14, 199, 90, 6, 68, 219, 40, 0, 127, 89, 75, 169, 241, 83, 227, 157, 209, 17, 9, 139, 159, 128, 57, 87, 90, 109, 13, 123, 114, 216, 107, 145, 144, 68, 18, 185, 6, 162, 212, 177, 240, 39, 209, 166, 191, 216, 178, 228, 57, 133, 98, 95, 192, 69, 19, 1, 215, 78, 103, 207, 11, 164, 130, 109, 209, 146, 159, 141, 139, 253, 92, 227, 243, 174, 193, 87, 98, 60, 242, 193, 236, 167, 219, 128, 14, 123, 22, 250, 223, 92, 115, 198, 214, 25, 75, 104, 99, 200, 129, 130, 117, 44, 87 };
-static char dir_fs_buf[208];
-static int dir_fs_ok = 0;
-static const char* dir_fs_get(void) { if (!dir_fs_ok) { dir_fs_ok = 1; ks_lkd(dir_fs_buf, ks_enc_dir_fs, (int)sizeof(ks_enc_dir_fs)); } return dir_fs_buf; }
+static const char DIR_FS[] =
+	"#version 300 es\n"
+	"precision highp float;\n"
+	"uniform sampler2D uTex;\n"
+	"uniform float uProg;\n"
+	"in vec2 vUv;\n"
+	"out vec4 fragColor;\n"
+	"void main(){\n"
+	"    vec4 c = texture(uTex, vUv);\n"
+	"    fragColor = vec4(c.rgb, c.a * uProg);\n"
+	"}\n";
 
 static int dir_gl_init(void) {
 	if (!pglCreateShader || !pglShaderSource || !pglCompileShader || !pglGetShaderiv
 		|| !pglCreateProgram || !pglAttachShader || !pglLinkProgram || !pglGetProgramiv
 		|| !pglDeleteShader || !pglGenVertexArrays || !pglGetUniformLocation) {
-		dir_set_status(ks_ld((const unsigned char[]){77, 12, 192, 203, 207, 181, 39, 110, 27, 217, 62, 69, 134, 241}, 14));
+		dir_set_status("gl sym missing");
 		return 0;
 	}
 	GLint ok = 0;
 	const char* src[1];
 	GLuint vs = pglCreateShader(GL_VERTEX_SHADER);
-	if (!vs) { dir_set_status(ks_ld((const unsigned char[]){92, 19, 192, 219, 196, 189, 102, 119, 23, 138, 43, 77, 129, 250}, 14)); return 0; }
-	src[0] = ih_vs_get();
+	if (!vs) { dir_set_status("vs create fail"); return 0; }
+	src[0] = IH_VS;
 	pglShaderSource(vs, 1, src, 0);
 	pglCompileShader(vs);
 	pglGetShaderiv(vs, GL_COMPILE_STATUS, &ok);
-	if (!ok) { dir_set_status(ks_ld((const unsigned char[]){92, 19, 192, 219, 217, 181, 119, 106, 30, 207, 109, 74, 137, 255, 80}, 15)); return 0; }
+	if (!ok) { dir_set_status("vs compile fail"); return 0; }
 	GLuint fs = pglCreateShader(GL_FRAGMENT_SHADER);
-	if (!fs) { dir_set_status(ks_ld((const unsigned char[]){76, 19, 192, 219, 196, 189, 102, 119, 23, 138, 43, 77, 129, 250}, 14)); pglDeleteShader(vs); return 0; }
-	src[0] = dir_fs_get();
+	if (!fs) { dir_set_status("fs create fail"); pglDeleteShader(vs); return 0; }
+	src[0] = DIR_FS;
 	pglShaderSource(fs, 1, src, 0);
 	pglCompileShader(fs);
 	pglGetShaderiv(fs, GL_COMPILE_STATUS, &ok);
-	if (!ok) { dir_set_status(ks_ld((const unsigned char[]){76, 19, 192, 219, 217, 181, 119, 106, 30, 207, 109, 74, 137, 255, 80}, 15)); pglDeleteShader(vs); return 0; }
+	if (!ok) { dir_set_status("fs compile fail"); pglDeleteShader(vs); return 0; }
 	dir_g_prog = pglCreateProgram();
-	if (!dir_g_prog) { pglDeleteShader(vs); pglDeleteShader(fs); dir_set_status(ks_ld((const unsigned char[]){90, 18, 143, 223, 150, 187, 117, 102, 19, 222, 40, 12, 142, 247, 85, 14}, 16)); return 0; }
+	if (!dir_g_prog) { pglDeleteShader(vs); pglDeleteShader(fs); dir_set_status("prog create fail"); return 0; }
 	pglAttachShader(dir_g_prog, vs);
 	pglAttachShader(dir_g_prog, fs);
 	pglLinkProgram(dir_g_prog);
 	pglGetProgramiv(dir_g_prog, GL_LINK_STATUS, &ok);
 	pglDeleteShader(vs);
 	pglDeleteShader(fs);
-	if (!ok) { dir_set_status(ks_ld((const unsigned char[]){70, 9, 142, 211, 150, 190, 102, 106, 30}, 9)); return 0; }
+	if (!ok) { dir_set_status("link fail"); return 0; }
 	pglGenVertexArrays(1, &dir_g_vao);
-	dir_g_uRes = pglGetUniformLocation(dir_g_prog, ks_ld((const unsigned char[]){95, 50, 133, 203}, 4));
-	dir_g_uOff = pglGetUniformLocation(dir_g_prog, ks_ld((const unsigned char[]){95, 47, 134, 222}, 4));
-	dir_g_uSize = pglGetUniformLocation(dir_g_prog, ks_ld((const unsigned char[]){95, 51, 137, 194, 211}, 5));
-	dir_g_uTex = pglGetUniformLocation(dir_g_prog, ks_ld((const unsigned char[]){95, 52, 133, 192}, 4));
-	dir_g_uProg = pglGetUniformLocation(dir_g_prog, ks_ld((const unsigned char[]){95, 48, 146, 215, 209}, 5));
-	dir_set_status(ks_ld((const unsigned char[]){77, 12, 192, 202, 211, 185, 99, 122}, 8));
+	dir_g_uRes = pglGetUniformLocation(dir_g_prog, "uRes");
+	dir_g_uOff = pglGetUniformLocation(dir_g_prog, "uOff");
+	dir_g_uSize = pglGetUniformLocation(dir_g_prog, "uSize");
+	dir_g_uTex = pglGetUniformLocation(dir_g_prog, "uTex");
+	dir_g_uProg = pglGetUniformLocation(dir_g_prog, "uProg");
+	dir_set_status("gl ready");
 	return 1;
 }
 
@@ -2752,7 +2259,7 @@ static void dir_render(EGLDisplay dpy, EGLSurface surf) {
 		EGLContext cur = peglGetCurrentContext();
 		if (cur != dir_g_ctx) {
 			dir_g_prog = 0; dir_g_vao = 0; dir_g_tex = 0; dir_g_ctx = 0; dir_g_gl_ready = 0;   /* dir 内容每帧重传, 无需 dirty */
-			ks_logf(ks_ld((const unsigned char[]){113, 4, 137, 202, 235}, 5), ks_ld((const unsigned char[]){77, 12, 192, 219, 194, 160, 39, 96, 26, 203, 35, 75, 141, 242, 16, 66, 155, 0, 171, 34, 239, 177, 18}, 23));
+			ks_logf("[dir]", "gl ctx changed, re-init");
 		}
 	}
 	if (!dir_g_gl_ready) {
@@ -2761,15 +2268,15 @@ static void dir_render(EGLDisplay dpy, EGLSurface surf) {
 		EGLContext cur = peglGetCurrentContext();
 		if (!cur) return;
 		if (wpl_pv_ready() && !wpl_ctx_is_game(cur)) return;
-		if (!dir_gl_init()) { dir_g_enable = 0; ks_logf(ks_ld((const unsigned char[]){113, 4, 137, 202, 235}, 5), ks_ld((const unsigned char[]){77, 12, 191, 209, 216, 177, 115, 35, 20, 203, 36, 64, 196, 182, 81, 13, 141, 16, 234, 46, 161, 188, 15, 233, 34, 83, 246, 255, 61}, 29)); return; }
+		if (!dir_gl_init()) { dir_g_enable = 0; ks_logf("[dir]", "gl_init fail, module disabled"); return; }
 		dir_g_ctx = cur;
 		dir_g_surf = surf;
 		dir_g_gl_ready = 1;
-		ks_logf(ks_ld((const unsigned char[]){113, 4, 137, 202, 235}, 5), ks_ld((const unsigned char[]){77, 12, 192, 202, 211, 185, 99, 122, 82, 217, 56, 94, 142, 171, 25, 18, 201, 6, 242, 51, 188, 253, 22, 186, 48, 88, 224, 255, 100, 188, 6, 13, 57, 245, 48, 249, 241, 249, 140, 110, 89, 218, 233, 142}, 44), (void*)surf, (void*)cur, (int)w, (int)h, ks_g_swaps);
+		ks_logf("[dir]", "gl ready surf=%p ctx=%p size=%dx%d swaps=%ld", (void*)surf, (void*)cur, (int)w, (int)h, ks_g_swaps);
 	}
 	if (peglGetCurrentContext && peglGetCurrentContext() != dir_g_ctx) return;
 	if (surf != dir_g_surf) {
-		if (ks_g_swaps - dir_g_surfsw > 120) { dir_g_surf = surf; ks_logf(ks_ld((const unsigned char[]){113, 4, 137, 202, 235}, 5), ks_ld((const unsigned char[]){89, 21, 146, 222, 215, 187, 98, 35, 0, 207, 33, 67, 139, 253, 28, 17, 156, 23, 224, 118, 164, 168}, 22), (void*)surf); }
+		if (ks_g_swaps - dir_g_surfsw > 120) { dir_g_surf = surf; ks_logf("[dir]", "surface relock surf=%p", (void*)surf); }
 		else return;
 	}
 	dir_g_surfsw = ks_g_swaps;
@@ -3082,14 +2589,29 @@ static EGLSurface ch_g_surf = 0;
 static long ch_g_surfsw = 0;
 static long ch_g_frames = 0;
 
-static const unsigned char ks_enc_ch_vs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 156, 11, 239, 45, 238, 170, 11, 186, 53, 84, 249, 168, 121, 236, 48, 16, 111, 170, 26, 255, 232, 241, 154, 114, 22, 146, 165, 156, 120, 203, 34, 95, 155, 83, 144, 29, 143, 108, 198, 123, 137, 213, 33, 251, 181, 119, 242, 135, 226, 179, 199, 60, 70, 20, 165, 198, 155, 24, 239, 54, 91, 166, 4, 72, 137, 171, 157, 55, 52, 63, 119, 98, 37, 116, 169, 147, 47, 11, 19, 75, 143, 142, 192, 160, 224, 154, 178, 8, 26, 145, 89, 23, 23, 156, 27, 79, 46, 22, 79, 247, 152, 23, 164, 146, 217, 94, 5, 158, 222, 137, 125, 33, 119, 2, 95, 47, 55, 128, 84, 176, 211, 86, 18, 235, 15, 179, 212, 163, 249, 48, 196, 167, 229, 149, 253, 253, 50, 182, 127, 1, 148, 86, 62, 62, 186, 85, 83, 209, 11, 181, 139, 43, 133, 211, 201, 231, 205, 170, 57, 177, 243, 179, 193, 87, 82, 41, 230, 212, 175, 249, 146, 237, 76, 119, 22, 185, 135, 88, 48, 222, 214, 28, 99, 58, 49, 143, 221, 246, 25, 55, 125, 19, 43, 214, 240, 156, 145, 205, 198, 227, 167, 140, 186, 167, 69, 102, 90, 38, 112, 211, 228, 72, 20, 76, 43, 35, 234, 58, 144, 240, 164, 47, 155, 137, 78, 46, 223, 186, 82, 95, 5, 37, 210, 253, 92, 236, 205, 36, 126, 73, 96, 65, 199, 251, 78, 37, 245, 247, 143, 107, 79, 70, 178, 150, 161, 218, 75, 224, 189, 155, 72, 89, 205, 7, 87, 199, 252, 129, 35, 32, 18, 229, 217, 22, 190, 51, 178, 187, 179, 222, 242, 125, 183, 227, 217, 250, 66, 139, 192, 70, 6, 91, 134, 104 };
-static char ch_vs_buf[311];
-static int ch_vs_ok = 0;
-static const char* ch_vs_get(void) { if (!ch_vs_ok) { ch_vs_ok = 1; ks_lkd(ch_vs_buf, ks_enc_ch_vs, (int)sizeof(ks_enc_ch_vs)); } return ch_vs_buf; }
-static const unsigned char ks_enc_ch_fs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 153, 23, 227, 40, 232, 171, 15, 245, 45, 17, 247, 255, 61, 240, 23, 24, 108, 177, 118, 230, 233, 249, 136, 38, 110, 138, 235, 131, 123, 199, 98, 18, 206, 111, 151, 22, 196, 10, 214, 103, 210, 247, 110, 252, 140, 50, 252, 217, 139, 244, 137, 32, 115, 18, 173, 206, 128, 116, 236, 44, 78, 242, 82, 88, 171, 245, 205, 41, 0, 114, 70, 1, 61, 59, 182, 146, 108, 84, 82, 84, 180, 208, 210, 209, 133, 207, 230, 8, 76, 130, 95, 64, 5, 218, 25, 14, 116, 117, 86, 254, 148, 87, 183, 254, 195, 94, 13, 142, 214, 131, 112, 23, 79, 79, 4, 32, 88, 216, 61, 212, 211, 6, 87, 185, 18, 191, 151, 229, 168, 127, 209, 182, 181, 201, 239, 227, 8, 200, 111, 39, 133, 75, 106, 87, 136, 32, 27, 198, 16, 142, 130, 43, 131, 211, 158, 188, 133, 246, 112, 254, 191, 252, 147, 1, 58, 127, 176, 140, 236, 189, 129, 132, 66, 37, 81, 251, 221, 29, 48, 194, 151, 76, 49, 58, 121, 238, 196, 201, 23, 48, 116, 3, 1, 219, 218 };
-static char ch_fs_buf[212];
-static int ch_fs_ok = 0;
-static const char* ch_fs_get(void) { if (!ch_fs_ok) { ch_fs_ok = 1; ks_lkd(ch_fs_buf, ks_enc_ch_fs, (int)sizeof(ks_enc_ch_fs)); } return ch_fs_buf; }
+static const char CH_VS[] =
+	"#version 300 es\n"
+	"uniform vec2 uRes;\n"
+	"uniform vec2 uOff;\n"
+	"uniform vec2 uSize;\n"
+	"out vec2 vUv;\n"
+	"void main(){\n"
+	"    vec2 p = vec2(float(gl_VertexID & 1), float((gl_VertexID >> 1) & 1));\n"
+	"    vUv = p;\n"
+	"    vec2 px = uOff + p * uSize;\n"
+	"    gl_Position = vec4(px.x / uRes.x * 2.0 - 1.0, 1.0 - px.y / uRes.y * 2.0, 0.0, 1.0);\n"
+	"}\n";
+static const char CH_FS[] =
+	"#version 300 es\n"
+	"precision mediump float;\n"
+	"uniform sampler2D uTex;\n"
+	"uniform float uAlpha;\n"
+	"in vec2 vUv;\n"
+	"out vec4 fragColor;\n"
+	"void main(){\n"
+	"    vec4 c = texture(uTex, vUv);\n"
+	"    fragColor = vec4(c.rgb, c.a * uAlpha);\n"
+	"}\n";
 
 static void ch_blend_px(int x, int y, int pw, int ph, uint8_t r, uint8_t g, uint8_t b, int a) {
 	if (x < 0 || y < 0 || x >= pw || y >= ph) return;
@@ -3164,41 +2686,41 @@ static int ch_gl_init(void) {
 	if (!pglCreateShader || !pglShaderSource || !pglCompileShader || !pglGetShaderiv
 		|| !pglCreateProgram || !pglAttachShader || !pglLinkProgram || !pglGetProgramiv
 		|| !pglDeleteShader || !pglGenVertexArrays || !pglGetUniformLocation) {
-		ch_set_status(ks_ld((const unsigned char[]){77, 12, 192, 203, 207, 181, 39, 110, 27, 217, 62, 69, 134, 241}, 14));
+		ch_set_status("gl sym missing");
 		return 0;
 	}
 	GLint ok = 0;
 	const char* src[1];
 	GLuint vs = pglCreateShader(GL_VERTEX_SHADER);
-	if (!vs) { ch_set_status(ks_ld((const unsigned char[]){92, 19, 192, 219, 196, 189, 102, 119, 23, 138, 43, 77, 129, 250}, 14)); return 0; }
-	src[0] = ch_vs_get();
+	if (!vs) { ch_set_status("vs create fail"); return 0; }
+	src[0] = CH_VS;
 	pglShaderSource(vs, 1, src, 0);
 	pglCompileShader(vs);
 	pglGetShaderiv(vs, GL_COMPILE_STATUS, &ok);
-	if (!ok) { ch_set_status(ks_ld((const unsigned char[]){92, 19, 192, 219, 217, 181, 119, 106, 30, 207, 109, 74, 137, 255, 80}, 15)); return 0; }
+	if (!ok) { ch_set_status("vs compile fail"); return 0; }
 	GLuint fs = pglCreateShader(GL_FRAGMENT_SHADER);
-	if (!fs) { ch_set_status(ks_ld((const unsigned char[]){76, 19, 192, 219, 196, 189, 102, 119, 23, 138, 43, 77, 129, 250}, 14)); pglDeleteShader(vs); return 0; }
-	src[0] = ch_fs_get();
+	if (!fs) { ch_set_status("fs create fail"); pglDeleteShader(vs); return 0; }
+	src[0] = CH_FS;
 	pglShaderSource(fs, 1, src, 0);
 	pglCompileShader(fs);
 	pglGetShaderiv(fs, GL_COMPILE_STATUS, &ok);
-	if (!ok) { ch_set_status(ks_ld((const unsigned char[]){76, 19, 192, 219, 217, 181, 119, 106, 30, 207, 109, 74, 137, 255, 80}, 15)); pglDeleteShader(vs); return 0; }
+	if (!ok) { ch_set_status("fs compile fail"); pglDeleteShader(vs); return 0; }
 	ch_g_prog = pglCreateProgram();
-	if (!ch_g_prog) { pglDeleteShader(vs); pglDeleteShader(fs); ch_set_status(ks_ld((const unsigned char[]){90, 18, 143, 223, 150, 187, 117, 102, 19, 222, 40, 12, 142, 247, 85, 14}, 16)); return 0; }
+	if (!ch_g_prog) { pglDeleteShader(vs); pglDeleteShader(fs); ch_set_status("prog create fail"); return 0; }
 	pglAttachShader(ch_g_prog, vs);
 	pglAttachShader(ch_g_prog, fs);
 	pglLinkProgram(ch_g_prog);
 	pglGetProgramiv(ch_g_prog, GL_LINK_STATUS, &ok);
 	pglDeleteShader(vs);
 	pglDeleteShader(fs);
-	if (!ok) { ch_set_status(ks_ld((const unsigned char[]){70, 9, 142, 211, 150, 190, 102, 106, 30}, 9)); return 0; }
+	if (!ok) { ch_set_status("link fail"); return 0; }
 	pglGenVertexArrays(1, &ch_g_vao);
-	ch_g_uRes = pglGetUniformLocation(ch_g_prog, ks_ld((const unsigned char[]){95, 50, 133, 203}, 4));
-	ch_g_uOff = pglGetUniformLocation(ch_g_prog, ks_ld((const unsigned char[]){95, 47, 134, 222}, 4));
-	ch_g_uSize = pglGetUniformLocation(ch_g_prog, ks_ld((const unsigned char[]){95, 51, 137, 194, 211}, 5));
-	ch_g_uTex = pglGetUniformLocation(ch_g_prog, ks_ld((const unsigned char[]){95, 52, 133, 192}, 4));
-	ch_g_uAlpha = pglGetUniformLocation(ch_g_prog, ks_ld((const unsigned char[]){95, 33, 140, 200, 222, 185}, 6));
-	ch_set_status(ks_ld((const unsigned char[]){77, 12, 192, 202, 211, 185, 99, 122}, 8));
+	ch_g_uRes = pglGetUniformLocation(ch_g_prog, "uRes");
+	ch_g_uOff = pglGetUniformLocation(ch_g_prog, "uOff");
+	ch_g_uSize = pglGetUniformLocation(ch_g_prog, "uSize");
+	ch_g_uTex = pglGetUniformLocation(ch_g_prog, "uTex");
+	ch_g_uAlpha = pglGetUniformLocation(ch_g_prog, "uAlpha");
+	ch_set_status("gl ready");
 	return 1;
 }
 
@@ -3237,7 +2759,7 @@ static void ch_render(EGLDisplay dpy, EGLSurface surf) {
 		EGLContext cur = peglGetCurrentContext();
 		if (cur != ch_g_ctx) {
 			ch_g_prog = 0; ch_g_vao = 0; ch_g_tex = 0; ch_g_ctx = 0; ch_g_raster_valid = 0; ch_g_gl_ready = 0;   /* raster_valid=0 强制重画 */
-			ks_logf(ks_ld((const unsigned char[]){113, 3, 136, 229}, 4), ks_ld((const unsigned char[]){77, 12, 192, 219, 194, 160, 39, 96, 26, 203, 35, 75, 141, 242, 16, 66, 155, 0, 171, 34, 239, 177, 18}, 23));
+			ks_logf("[ch]", "gl ctx changed, re-init");
 		}
 	}
 	if (!ch_g_gl_ready) {
@@ -3246,15 +2768,15 @@ static void ch_render(EGLDisplay dpy, EGLSurface surf) {
 		EGLContext cur = peglGetCurrentContext();
 		if (!cur) return;
 		if (wpl_pv_ready() && !wpl_ctx_is_game(cur)) return;
-		if (!ch_gl_init()) { ch_g_enable = 0; ks_logf(ks_ld((const unsigned char[]){113, 3, 136, 229}, 4), ks_ld((const unsigned char[]){77, 12, 191, 209, 216, 177, 115, 35, 20, 203, 36, 64, 196, 182, 81, 13, 141, 16, 234, 46, 161, 188, 15, 233, 34, 83, 246, 255, 61}, 29)); return; }
+		if (!ch_gl_init()) { ch_g_enable = 0; ks_logf("[ch]", "gl_init fail, module disabled"); return; }
 		ch_g_ctx = cur;
 		ch_g_surf = surf;
 		ch_g_gl_ready = 1;
-		ks_logf(ks_ld((const unsigned char[]){113, 3, 136, 229}, 4), ks_ld((const unsigned char[]){77, 12, 192, 202, 211, 185, 99, 122, 82, 217, 56, 94, 142, 171, 25, 18, 201, 6, 242, 51, 188, 253, 22, 186, 48, 88, 224, 255, 100, 188, 6, 13, 57, 245, 48, 249, 241, 249, 140, 110, 89, 218, 233, 142}, 44), (void*)surf, (void*)cur, (int)w, (int)h, ks_g_swaps);
+		ks_logf("[ch]", "gl ready surf=%p ctx=%p size=%dx%d swaps=%ld", (void*)surf, (void*)cur, (int)w, (int)h, ks_g_swaps);
 	}
 	if (peglGetCurrentContext && peglGetCurrentContext() != ch_g_ctx) return;
 	if (surf != ch_g_surf) {
-		if (ks_g_swaps - ch_g_surfsw > 120) { ch_g_surf = surf; ch_g_raster_valid = 0; ks_logf(ks_ld((const unsigned char[]){113, 3, 136, 229}, 4), ks_ld((const unsigned char[]){89, 21, 146, 222, 215, 187, 98, 35, 0, 207, 33, 67, 139, 253, 28, 17, 156, 23, 224, 118, 164, 168}, 22), (void*)surf); }
+		if (ks_g_swaps - ch_g_surfsw > 120) { ch_g_surf = surf; ch_g_raster_valid = 0; ks_logf("[ch]", "surface relock surf=%p", (void*)surf); }
 		else return;
 	}
 	ch_g_surfsw = ks_g_swaps;
@@ -3519,32 +3041,96 @@ static GLint rd_g_uAlpha0 = -1, rd_g_swAlpha = -1, rd_g_dtAlpha = -1;
 static GLuint rd_g_prog_let = 0, rd_g_lettertex = 0;
 static GLint rd_g_ltRes = -1, rd_g_ltCenter = -1, rd_g_ltYaw = -1, rd_g_ltDir = -1, rd_g_ltIdx = -1, rd_g_ltTex = -1, rd_g_ltAlpha = -1;
 
-static const unsigned char ks_enc_rd_vs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 156, 11, 239, 45, 238, 170, 11, 186, 53, 84, 249, 168, 121, 236, 48, 16, 111, 170, 26, 255, 232, 241, 154, 114, 22, 146, 165, 156, 120, 203, 34, 95, 155, 83, 144, 29, 143, 108, 198, 123, 137, 213, 33, 251, 181, 119, 226, 142, 238, 224, 147, 105, 96, 46, 182, 217, 197, 41, 138, 44, 90, 242, 82, 91, 143, 250, 143, 97, 23, 28, 58, 83, 89, 109, 175, 158, 107, 70, 31, 67, 136, 200, 193, 242, 145, 176, 178, 8, 26, 199, 74, 17, 70, 142, 75, 31, 51, 11, 25, 228, 158, 70, 190, 220, 211, 93, 11, 139, 130, 198, 118, 18, 126, 49, 72, 41, 38, 157, 101, 189, 183, 80, 20, 250, 23, 182, 216, 229, 243, 51, 202, 178, 185, 149, 178, 246, 1, 191, 76, 22, 146, 71, 35, 15, 183, 49, 77, 209, 21, 164, 147, 34, 131, 213, 216, 255, 205, 184, 8, 155, 243, 179, 193, 1, 113, 10, 176, 201, 178, 169, 217, 220, 102, 119, 22, 185, 209, 75, 54, 143, 196, 76, 107, 98, 44, 146, 136, 204, 48, 55, 59, 24, 32, 134, 160, 150, 155, 152, 224, 217, 180, 147, 228, 150, 111, 102, 90, 38, 55, 216, 215, 71, 43, 80, 49, 62, 247, 60, 145, 190, 185, 50, 205, 154, 72, 121, 195, 226, 90, 9, 83, 125, 221, 242, 9, 203, 250, 50, 35, 31, 56, 75, 205, 233, 82, 59, 229, 250, 130, 122, 80, 88, 174, 154, 176, 197, 85, 240, 176, 150, 24, 81, 155, 80, 14, 200, 243, 212, 4, 23, 4, 184, 142, 79, 180, 57, 160, 167, 173, 194, 254, 109, 169, 253, 197, 246, 83, 148, 222, 95, 20, 106, 241, 31, 4 };
-static char rd_vs_buf[312];
-static int rd_vs_ok = 0;
-static const char* rd_vs_get(void) { if (!rd_vs_ok) { rd_vs_ok = 1; ks_lkd(rd_vs_buf, ks_enc_rd_vs, (int)sizeof(ks_enc_rd_vs)); } return rd_vs_buf; }
-static const unsigned char ks_enc_rd_fs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 153, 23, 227, 40, 232, 171, 15, 245, 45, 17, 242, 243, 62, 241, 18, 85, 122, 253, 127, 235, 242, 163, 246, 104, 10, 150, 227, 133, 111, 197, 48, 12, 143, 113, 134, 23, 209, 20, 129, 81, 192, 198, 26, 236, 160, 108, 142, 151, 239, 232, 129, 38, 103, 16, 255, 197, 204, 125, 225, 55, 15, 243, 51, 65, 154, 241, 220, 122, 107, 32, 34, 72, 37, 126, 163, 197, 47, 16, 39, 84, 218, 172, 134, 174, 158, 154, 228, 77, 89, 211, 28, 18, 87, 221, 12, 44, 124, 90, 86, 224, 192, 47, 250, 155, 220, 85, 68, 135, 151, 135, 127, 86, 8, 28, 39, 123, 114, 216, 61, 130, 150, 19, 6, 250, 69, 191, 201, 229, 225, 58, 221, 167, 184, 207, 255, 185, 24, 180, 127, 11, 204, 19, 48, 34, 136, 92, 86, 229, 11, 164, 130, 43, 197, 129, 153, 169, 167, 254, 95, 254, 161, 179, 220, 1, 113, 58, 165, 221, 167, 234, 135, 149, 11, 53, 26, 185, 146, 19, 50, 204, 220, 76, 110, 91, 96, 223, 192, 216, 86, 106, 87, 69, 1 };
-static char rd_fs_buf[210];
-static int rd_fs_ok = 0;
-static const char* rd_fs_get(void) { if (!rd_fs_ok) { rd_fs_ok = 1; ks_lkd(rd_fs_buf, ks_enc_rd_fs, (int)sizeof(ks_enc_rd_fs)); } return rd_fs_buf; }
-static const unsigned char ks_enc_rd_sweep_fs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 153, 23, 227, 40, 232, 171, 15, 245, 45, 17, 242, 243, 62, 241, 18, 85, 122, 253, 127, 235, 242, 163, 246, 104, 10, 150, 227, 133, 111, 197, 48, 9, 139, 127, 196, 91, 193, 52, 214, 102, 219, 185, 59, 231, 177, 49, 235, 144, 236, 161, 145, 44, 118, 79, 255, 214, 239, 116, 230, 120, 37, 243, 28, 68, 140, 246, 207, 44, 65, 47, 32, 7, 50, 111, 224, 130, 92, 15, 8, 71, 218, 172, 156, 181, 131, 220, 253, 90, 87, 199, 90, 24, 74, 221, 31, 79, 102, 114, 92, 245, 192, 47, 249, 154, 220, 87, 11, 152, 155, 206, 119, 18, 78, 6, 89, 123, 39, 185, 113, 132, 155, 17, 9, 208, 79, 241, 212, 179, 240, 60, 151, 243, 187, 232, 236, 170, 103, 143, 111, 7, 192, 69, 35, 20, 202, 85, 11, 157, 74, 227, 225, 100, 207, 156, 138, 245, 238, 231, 92, 248, 183, 179, 140, 64, 110, 49, 238, 192, 244, 131, 137, 199, 76, 119, 64, 252, 146, 15, 115, 158, 147, 0, 59, 39, 44, 135, 221, 246, 25, 55, 125, 19, 43, 208, 133, 192, 145, 146, 181, 255, 142, 128, 251, 200, 76, 102, 87, 38, 63, 202, 244, 126, 29, 31, 105, 119, 246, 6, 151, 170, 252, 47, 199, 204, 29, 52, 194, 227, 17, 123, 93, 37, 221, 253, 79, 210, 199, 54, 36, 17, 50, 25, 199, 244, 64, 96, 134, 179, 213, 63, 65, 92, 190, 134, 190, 193, 64, 202, 176, 155, 24, 1, 138, 24, 87, 192, 184, 155, 5, 109, 19, 174, 204, 26, 180, 97, 229, 249, 170, 210, 236, 109, 235, 161, 213, 240, 83, 215, 130, 70, 29, 53, 146, 17, 109, 136, 56, 39, 61, 219, 211, 41, 136, 36, 192, 11, 169, 242, 188, 98, 194, 190, 77, 36, 135, 196, 201, 27, 41, 82, 3, 49, 233, 135, 234, 154, 252, 233, 94, 34, 201, 166, 255, 238, 193, 214, 72, 224, 87, 234, 124, 246, 252, 73, 195, 251, 127, 252, 13, 181, 228, 34, 145, 233, 128, 71, 237, 156, 124, 20, 64, 45, 128, 132, 148, 89, 253, 188, 52, 62, 63, 235, 223, 5, 73, 253, 9, 138, 249, 24, 44, 235, 155, 142, 86, 207, 229, 197, 173, 177, 250, 221, 242, 74, 108, 237, 195, 125, 230, 197, 210, 172, 99, 194, 139, 182, 160, 7, 129, 36, 120, 96, 75, 130, 85, 166, 171, 115, 186, 102, 40, 194, 198, 103, 174, 19, 111, 119, 177, 240, 158, 110, 119, 121, 221, 244, 217, 73, 128, 44, 25, 156, 165, 247, 154, 124, 136, 177, 4, 147, 99, 109, 179, 1, 168, 10, 40, 242, 20, 60, 143, 148, 148, 206, 51, 190, 11, 52, 132, 85, 106, 148, 211, 187, 126, 222, 143, 10, 171, 251, 222, 12, 227, 160, 173, 60, 10, 59, 204, 209, 82, 45, 10, 223, 159, 32, 19, 19, 165, 219, 69, 67, 161, 203, 113, 154, 215, 106, 66, 250, 155, 87, 234, 219, 127, 212, 187, 228, 170, 188, 25, 183 };
-static char rd_sweep_fs_buf[539];
-static int rd_sweep_fs_ok = 0;
-static const char* rd_sweep_fs_get(void) { if (!rd_sweep_fs_ok) { rd_sweep_fs_ok = 1; ks_lkd(rd_sweep_fs_buf, ks_enc_rd_sweep_fs, (int)sizeof(ks_enc_rd_sweep_fs)); } return rd_sweep_fs_buf; }
-static const unsigned char ks_enc_rd_dot_vs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 156, 11, 239, 45, 238, 170, 11, 186, 53, 84, 249, 168, 121, 236, 48, 16, 111, 170, 26, 255, 232, 241, 154, 114, 22, 146, 165, 156, 120, 203, 34, 95, 155, 95, 147, 21, 192, 3, 193, 46, 234, 198, 32, 224, 190, 56, 246, 143, 161, 231, 139, 38, 116, 9, 255, 214, 249, 115, 247, 120, 37, 243, 28, 68, 140, 246, 207, 44, 65, 47, 32, 7, 50, 111, 224, 130, 78, 10, 2, 74, 128, 157, 227, 178, 132, 154, 228, 77, 89, 212, 28, 21, 97, 221, 31, 14, 40, 60, 86, 231, 143, 5, 250, 145, 214, 5, 68, 156, 181, 129, 125, 17, 83, 92, 39, 45, 61, 145, 121, 212, 158, 17, 91, 180, 14, 182, 143, 207, 181, 127, 133, 243, 171, 209, 245, 240, 25, 192, 121, 83, 221, 19, 37, 24, 141, 93, 24, 182, 74, 243, 139, 39, 131, 128, 216, 243, 196, 226, 90, 255, 251, 230, 184, 64, 112, 118, 253, 227, 175, 169, 137, 199, 26, 50, 85, 171, 209, 79, 35, 204, 203, 76, 109, 127, 111, 157, 128, 216, 59, 48, 41, 89, 37, 222, 240, 156, 145, 219, 181, 167, 253, 136, 197, 204, 17, 39, 84, 127, 55, 149, 155, 107, 87, 31, 35, 19, 226, 33, 159, 254, 225, 47, 199, 204, 94, 58, 220, 234, 75, 53, 28, 113, 156, 243, 80, 158, 130, 119, 51, 24, 123, 97, 199, 233, 64, 53, 179, 182, 192, 59, 21, 86, 210, 150, 173, 212, 23, 165, 254, 220, 76, 73, 203, 12, 7, 193, 231, 254, 81, 101, 65, 235, 201, 80, 180, 59, 204, 181, 189, 210, 227, 121, 173, 253, 197, 243, 83, 215, 128, 79, 23, 108, 219, 83, 58, 221, 100, 115, 38, 254, 211, 69, 147, 14, 134, 71, 230, 179, 190, 39, 192, 226, 10, 116, 194, 196, 144, 94, 59, 99, 3, 58, 238, 202, 249, 206, 182, 167, 4, 32, 151, 192, 241, 183, 205, 214, 93, 233, 100, 148, 107, 172, 188, 6, 160, 180, 49, 252, 16, 243, 254, 40, 147, 169, 136, 67, 231, 211, 109, 88, 79, 48, 213, 187, 158, 78, 251, 177, 80, 113, 120, 249, 220, 21, 8, 190, 78, 155, 252, 8, 55, 249, 154, 142, 86, 195, 232, 214, 235, 249, 250, 148, 251, 94, 70, 184, 177, 56, 181, 141, 199, 227, 40, 150, 153, 249, 176, 22, 129, 60, 103, 126, 87, 130, 73, 168, 239, 40, 224, 5, 100, 194, 201, 103, 254, 79, 30, 23, 247, 185, 218, 58, 20, 62, 148, 169, 194, 126, 128, 59, 23, 140, 247, 155, 154, 116, 201, 177, 78, 237, 44, 49, 242, 67, 161, 23, 108, 179, 6, 27, 143, 146, 145, 219, 67, 190, 23, 52, 148, 29, 45, 220, 148, 199, 49, 196, 133, 27, 191, 238, 207, 84, 182, 239, 185, 36, 20, 36, 200, 202, 68, 49, 4, 222, 132, 59, 1, 19, 167, 203, 92, 77, 168, 211, 63, 211, 148, 63, 74, 224, 149, 16, 135, 151, 62, 146, 234, 225, 177, 134, 74, 142, 111, 238, 137, 223, 9, 21, 245, 182, 153, 243, 213, 155, 133, 175, 175, 110, 158, 77, 80, 70, 95, 213, 210, 58, 85, 194, 125, 175, 46, 3, 151, 212, 174, 155, 180 };
-static char rd_dot_vs_buf[574];
-static int rd_dot_vs_ok = 0;
-static const char* rd_dot_vs_get(void) { if (!rd_dot_vs_ok) { rd_dot_vs_ok = 1; ks_lkd(rd_dot_vs_buf, ks_enc_rd_dot_vs, (int)sizeof(ks_enc_rd_dot_vs)); } return rd_dot_vs_buf; }
-static const unsigned char ks_enc_rd_dot_fs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 153, 23, 227, 40, 232, 171, 15, 245, 45, 17, 242, 243, 62, 241, 18, 85, 122, 253, 127, 235, 242, 163, 246, 116, 10, 223, 243, 143, 126, 156, 48, 9, 173, 115, 154, 20, 198, 93, 185, 122, 149, 199, 110, 255, 189, 52, 176, 194, 231, 243, 134, 46, 86, 18, 179, 204, 210, 41, 138, 53, 64, 239, 22, 13, 135, 248, 212, 47, 73, 96, 55, 98, 115, 59, 224, 215, 121, 3, 17, 16, 193, 194, 201, 230, 202, 221, 254, 119, 106, 136, 85, 26, 81, 255, 4, 0, 97, 82, 25, 191, 219, 21, 162, 193, 142, 59, 68, 202, 214, 206, 120, 24, 1, 79, 73, 52, 38, 208, 121, 216, 211, 20, 27, 250, 24, 191, 196, 235, 167, 106, 140, 243, 169, 212, 233, 242, 12, 146, 126, 72, 234, 19, 102, 87, 222, 19, 31, 142, 76, 199, 205, 103, 204, 129, 216, 243, 196, 231, 112, 254, 191, 252, 147, 26, 13, 34, 204 };
-static char rd_dot_fs_buf[184];
-static int rd_dot_fs_ok = 0;
-static const char* rd_dot_fs_get(void) { if (!rd_dot_fs_ok) { rd_dot_fs_ok = 1; ks_lkd(rd_dot_fs_buf, ks_enc_rd_dot_fs, (int)sizeof(ks_enc_rd_dot_fs)); } return rd_dot_fs_buf; }
+static const char RD_VS[] =
+	"#version 300 es\n"
+	"uniform vec2 uRes;\n"
+	"uniform vec2 uOff;\n"
+	"uniform float uSize;\n"
+	"out vec2 vUv;\n"
+	"void main(){\n"
+	"    vec2 p = vec2(float(gl_VertexID & 1), float((gl_VertexID >> 1) & 1));\n"
+	"    vUv = p;\n"
+	"    vec2 px = uOff + p * uSize;\n"
+	"    gl_Position = vec4(px.x / uRes.x * 2.0 - 1.0, 1.0 - px.y / uRes.y * 2.0, 0.0, 1.0);\n"
+	"}\n";
+static const char RD_FS[] =
+	"#version 300 es\n"
+	"precision highp float;\n"
+	"uniform sampler2D uTex;\n"
+	"uniform float uAlpha;\n"
+	"in vec2 vUv;\n"
+	"out vec4 fragColor;\n"
+	"void main(){\n"
+	"    vec4 c = texture(uTex, vUv);\n"
+	"    fragColor = vec4(c.rgb, c.a * uAlpha);\n"
+	"}\n";
+static const char RD_SWEEP_FS[] =
+	"#version 300 es\n"
+	"precision highp float;\n"
+	"uniform vec2 uRes;\n"
+	"uniform vec2 uOff;\n"
+	"uniform float uSize;\n"
+	"uniform float uDeg;\n"
+	"uniform float uAlpha;\n"
+	"in vec2 vUv;\n"
+	"out vec4 fragColor;\n"
+	"void main(){\n"
+	"    vec2 rel = (uOff + vUv * uSize) - (uOff + uSize * 0.5);\n"
+	"    float rr = uSize * 0.5;\n"
+	"    if (dot(rel, rel) > rr * rr) discard;\n"
+	"    float ang = degrees(atan(rel.y, rel.x));\n"
+	"    float trail = mod(uDeg - ang + 720.0, 360.0);\n"
+	"    float a = (1.0 - trail / 70.0) * 0.38;\n"
+	"    if (a <= 0.0) discard;\n"
+	"    fragColor = vec4(0.176, 0.721, 0.388, a * uAlpha);\n"
+	"}\n";
+static const char RD_DOT_VS[] =
+	"#version 300 es\n"
+	"uniform vec2 uRes;\n"
+	"uniform vec2 uCenter;\n"
+	"uniform float uYaw;\n"
+	"uniform float uAlpha;\n"
+	"in vec3 aData;\n"
+	"out vec4 vColor;\n"
+	"void main(){\n"
+	"    float c = cos(uYaw), s = sin(uYaw);\n"
+	"    vec2 rp = vec2(aData.x * c - aData.y * s, aData.x * s + aData.y * c);\n"
+	"    float L = length(rp);\n"
+	"    if (L > 144.0) rp *= 144.0 / L;\n"
+	"    vec2 px = uCenter + rp;\n"
+	"    gl_Position = vec4(px.x / uRes.x * 2.0 - 1.0, 1.0 - px.y / uRes.y * 2.0, 0.0, 1.0);\n"
+	"    gl_PointSize = 7.0;\n"
+	"    vColor = (aData.z < 0.5) ? vec4(1.0, 0.15, 0.15, 1.0) : vec4(0.2, 1.0, 0.35, 1.0);\n"
+	"    vColor.a *= uAlpha;\n"
+	"}\n";
+static const char RD_DOT_FS[] =
+	"#version 300 es\n"
+	"precision highp float;\n"
+	"in vec4 vColor;\n"
+	"out vec4 fragColor;\n"
+	"void main(){\n"
+	"    vec2 d = gl_PointCoord - 0.5;\n"
+	"    if (dot(d, d) > 0.25) discard;\n"
+	"    fragColor = vColor;\n"
+	"}\n";
 /* 方位字(动态东南西北): 环形排布随视角旋转。图集横向 [北 东 南 西], 顶点着色器内做同款 yaw 旋转,
    方向向量直接取世界四正方向(北=-z 东=+x 南=+z 西=-x), 与目标点共用一套旋转约定 */
-static const unsigned char ks_enc_rd_let_vs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 156, 11, 239, 45, 238, 170, 11, 186, 53, 84, 249, 168, 121, 236, 48, 16, 111, 170, 26, 255, 232, 241, 154, 114, 22, 146, 165, 156, 120, 203, 34, 95, 155, 95, 147, 21, 192, 3, 193, 46, 234, 198, 32, 224, 190, 56, 246, 143, 161, 231, 139, 38, 116, 9, 255, 214, 249, 115, 247, 120, 37, 243, 28, 68, 140, 246, 207, 44, 65, 63, 41, 11, 97, 59, 181, 179, 102, 20, 73, 40, 148, 200, 128, 189, 133, 200, 255, 8, 92, 139, 83, 21, 81, 156, 30, 38, 119, 78, 2, 152, 148, 80, 248, 212, 195, 84, 7, 216, 214, 152, 68, 8, 26, 109, 91, 52, 59, 156, 61, 153, 146, 25, 92, 242, 15, 228, 254, 229, 181, 127, 133, 165, 168, 222, 168, 177, 29, 192, 39, 83, 150, 86, 37, 69, 214, 19, 1, 128, 74, 240, 138, 108, 207, 172, 174, 171, 150, 229, 86, 233, 154, 215, 193, 7, 39, 110, 239, 197, 175, 239, 197, 136, 13, 35, 30, 177, 150, 81, 12, 186, 147, 30, 111, 127, 116, 230, 236, 153, 65, 111, 125, 9, 34, 134, 246, 150, 128, 145, 188, 177, 215, 201, 161, 141, 69, 32, 22, 105, 118, 203, 155, 123, 91, 2, 98, 52, 236, 38, 214, 165, 192, 110, 154, 197, 1, 58, 132, 234, 23, 81, 14, 108, 147, 245, 92, 231, 201, 32, 121, 10, 74, 75, 199, 233, 64, 99, 176, 185, 157, 122, 19, 6, 190, 139, 176, 130, 30, 163, 162, 147, 77, 101, 138, 12, 89, 144, 252, 222, 81, 38, 65, 230, 128, 67, 208, 122, 242, 187, 250, 210, 248, 109, 234, 255, 213, 175, 55, 204, 130, 65, 69, 113, 209, 66, 125, 201, 97, 99, 115, 149, 154, 123, 134, 125, 134, 77, 230, 240, 225, 98, 137, 240, 27, 54, 140, 202, 157, 69, 68, 0, 70, 116, 186, 217, 238, 141, 175, 167, 6, 40, 140, 247, 241, 226, 174, 147, 84, 241, 94, 182, 36, 244, 245, 0, 185, 251, 116, 252, 5, 163, 168, 96, 208, 173, 142, 6, 182, 221, 63, 88, 82, 38, 142, 217, 192, 55, 245, 233, 80, 123, 46, 158, 132, 5, 21, 179, 24, 207, 177, 10, 51, 241, 222, 233, 2, 155, 229, 221, 187, 241, 250, 149, 242, 81, 76, 237, 211, 115, 244, 150, 146, 227, 114, 152, 210, 254, 187, 48, 129, 44, 105, 110, 28, 206, 39, 214, 176, 114, 178, 123, 45, 141, 135, 103, 164, 3, 55, 34, 251, 228, 156, 62, 63, 121, 150, 236, 205, 99, 213, 94, 92, 207, 226, 233, 154, 126, 201, 163, 22, 158, 99, 112, 189, 0, 175, 26, 96, 187, 86, 113, 222, 198, 221, 213, 73, 230, 5, 109, 132, 28, 56, 128, 230, 157, 98, 156, 153, 88, 161, 230, 204, 84, 182, 239, 185, 36, 20, 37, 209, 198, 85, 47, 26, 198, 138, 29, 92, 40 };
-static char rd_let_vs_buf[515];
-static int rd_let_vs_ok = 0;
-static const char* rd_let_vs_get(void) { if (!rd_let_vs_ok) { rd_let_vs_ok = 1; ks_lkd(rd_let_vs_buf, ks_enc_rd_let_vs, (int)sizeof(ks_enc_rd_let_vs)); } return rd_let_vs_buf; }
+static const char RD_LET_VS[] =
+	"#version 300 es\n"
+	"uniform vec2 uRes;\n"
+	"uniform vec2 uCenter;\n"
+	"uniform float uYaw;\n"
+	"uniform vec2 uDir;\n"
+	"uniform float uIdx;\n"
+	"out vec2 vUv;\n"
+	"void main(){\n"
+	"    vec2 p = vec2(float(gl_VertexID & 1), float((gl_VertexID >> 1) & 1));\n"
+	"    float c = cos(uYaw), s = sin(uYaw);\n"
+	"    vec2 rp = vec2(uDir.x * c - uDir.y * s, uDir.x * s + uDir.y * c) * 126.0;\n"
+	"    vec2 px = uCenter + rp + (p - 0.5) * 26.0;\n"
+	"    vUv = vec2((uIdx + p.x) * 0.25, p.y);\n"
+	"    gl_Position = vec4(px.x / uRes.x * 2.0 - 1.0, 1.0 - px.y / uRes.y * 2.0, 0.0, 1.0);\n"
+	"}\n";
 
 static void rd_px(int x, int y, uint8_t r, uint8_t g, uint8_t b, int a) {
 	if (x < 0 || y < 0 || x >= RD_PW || y >= RD_PW) return;
@@ -3611,34 +3197,34 @@ static int rd_compile(GLuint* prog, int pid, const char* vs_src, const char* fs_
 	GLint ln = 0;
 	const char* src[1];
 	GLuint vs = pglCreateShader(GL_VERTEX_SHADER);
-	if (!vs) { ks_logf(ks_ld((const unsigned char[]){113, 18, 132, 229}, 4), ks_ld((const unsigned char[]){73, 15, 141, 200, 223, 180, 98, 35, 20, 203, 36, 64, 200, 230, 85, 6, 212, 64, 226, 107, 242, 172, 7, 253, 38, 12, 171}, 27), pid); rd_set_status(ks_ld((const unsigned char[]){92, 19, 192, 219, 196, 189, 102, 119, 23, 138, 43, 77, 129, 250}, 14)); return 0; }
+	if (!vs) { ks_logf("[rd]", "compile fail pid=%d stage=1", pid); rd_set_status("vs create fail"); return 0; }
 	src[0] = vs_src;
 	pglShaderSource(vs, 1, src, 0);
 	pglCompileShader(vs);
 	pglGetShaderiv(vs, GL_COMPILE_STATUS, &ok);
 	if (!ok) {
 		lb[0] = 0; if (pglGetShaderInfoLog) { pglGetShaderInfoLog(vs, 150, &ln, lb); lb[ln > 0 && ln < 160 ? ln : 0] = 0; }
-		ks_logf(ks_ld((const unsigned char[]){113, 18, 132, 229}, 4), ks_ld((const unsigned char[]){73, 6, 129, 209, 218, 248, 119, 106, 22, 151, 104, 72, 200, 229, 72, 95, 219, 95, 166, 110, 242}, 21), pid, lb);
-		rd_set_status(ks_ld((const unsigned char[]){92, 19, 192, 219, 217, 181, 119, 106, 30, 207, 109, 74, 137, 255, 80}, 15));
+		ks_logf("[rd]", "cfail pid=%d st=2: %s", pid, lb);
+		rd_set_status("vs compile fail");
 		pglDeleteShader(vs);
 		return 0;
 	}
 	GLuint fs = pglCreateShader(GL_FRAGMENT_SHADER);
-	if (!fs) { ks_logf(ks_ld((const unsigned char[]){113, 18, 132, 229}, 4), ks_ld((const unsigned char[]){73, 15, 141, 200, 223, 180, 98, 35, 20, 203, 36, 64, 200, 230, 85, 6, 212, 64, 226, 107, 242, 172, 7, 253, 38, 12, 169}, 27), pid); rd_set_status(ks_ld((const unsigned char[]){76, 19, 192, 219, 196, 189, 102, 119, 23, 138, 43, 77, 129, 250}, 14)); pglDeleteShader(vs); return 0; }
+	if (!fs) { ks_logf("[rd]", "compile fail pid=%d stage=3", pid); rd_set_status("fs create fail"); pglDeleteShader(vs); return 0; }
 	src[0] = fs_src;
 	pglShaderSource(fs, 1, src, 0);
 	pglCompileShader(fs);
 	pglGetShaderiv(fs, GL_COMPILE_STATUS, &ok);
 	if (!ok) {
 		lb[0] = 0; ln = 0; if (pglGetShaderInfoLog) { pglGetShaderInfoLog(fs, 150, &ln, lb); lb[ln > 0 && ln < 160 ? ln : 0] = 0; }
-		ks_logf(ks_ld((const unsigned char[]){113, 18, 132, 229}, 4), ks_ld((const unsigned char[]){73, 6, 129, 209, 218, 248, 119, 106, 22, 151, 104, 72, 200, 229, 72, 95, 221, 95, 166, 110, 242}, 21), pid, lb);
-		rd_set_status(ks_ld((const unsigned char[]){76, 19, 192, 219, 217, 181, 119, 106, 30, 207, 109, 74, 137, 255, 80}, 15));
+		ks_logf("[rd]", "cfail pid=%d st=4: %s", pid, lb);
+		rd_set_status("fs compile fail");
 		pglDeleteShader(vs);
 		pglDeleteShader(fs);
 		return 0;
 	}
 	*prog = pglCreateProgram();
-	if (!*prog) { ks_logf(ks_ld((const unsigned char[]){113, 18, 132, 229}, 4), ks_ld((const unsigned char[]){73, 15, 141, 200, 223, 180, 98, 35, 20, 203, 36, 64, 200, 230, 85, 6, 212, 64, 226, 107, 242, 172, 7, 253, 38, 12, 175}, 27), pid); pglDeleteShader(vs); pglDeleteShader(fs); rd_set_status(ks_ld((const unsigned char[]){90, 18, 143, 223, 150, 187, 117, 102, 19, 222, 40, 12, 142, 247, 85, 14}, 16)); return 0; }
+	if (!*prog) { ks_logf("[rd]", "compile fail pid=%d stage=5", pid); pglDeleteShader(vs); pglDeleteShader(fs); rd_set_status("prog create fail"); return 0; }
 	pglAttachShader(*prog, vs);
 	pglAttachShader(*prog, fs);
 	pglLinkProgram(*prog);
@@ -3647,8 +3233,8 @@ static int rd_compile(GLuint* prog, int pid, const char* vs_src, const char* fs_
 	pglDeleteShader(fs);
 	if (!ok) {
 		lb[0] = 0; ln = 0; if (pglGetProgramInfoLog) { pglGetProgramInfoLog(*prog, 150, &ln, lb); lb[ln > 0 && ln < 160 ? ln : 0] = 0; }
-		ks_logf(ks_ld((const unsigned char[]){113, 18, 132, 229}, 4), ks_ld((const unsigned char[]){73, 6, 129, 209, 218, 248, 119, 106, 22, 151, 104, 72, 200, 229, 72, 95, 223, 95, 166, 110, 242}, 21), pid, lb);
-		rd_set_status(ks_ld((const unsigned char[]){70, 9, 142, 211, 150, 190, 102, 106, 30}, 9));
+		ks_logf("[rd]", "cfail pid=%d st=6: %s", pid, lb);
+		rd_set_status("link fail");
 		return 0;
 	}
 	if (u1) *u1 = pglGetUniformLocation(*prog, n1);
@@ -3663,23 +3249,23 @@ static int rd_gl_init(void) {
 		|| !pglCreateProgram || !pglAttachShader || !pglLinkProgram || !pglGetProgramiv
 		|| !pglDeleteShader || !pglGenVertexArrays || !pglGetUniformLocation
 		|| !pglGenBuffers || !pglBindBuffer || !pglBufferData || !pglVertexAttribPointer || !pglEnableVertexAttribArray || !pglGetAttribLocation) {
-		ks_logf(ks_ld((const unsigned char[]){113, 18, 132, 229}, 4), ks_ld((const unsigned char[]){89, 25, 141, 152, 219, 177, 116, 112, 82, 205, 40, 66, 138, 227, 90, 95, 204, 21, 166, 41, 232, 182, 2, 248, 54, 87, 167, 191, 41, 185, 0, 0, 122, 245, 113, 254, 231, 165, 217, 109, 68, 137, 228, 154, 32, 141, 96, 95, 139, 106, 151, 70, 145, 22, 147, 114, 129, 223, 115, 172, 168}, 61),
+		ks_logf("[rd]", "sym miss genbuf=%p bindbuf=%p bufdata=%p vap=%p eva=%p gal=%p",
 			(void*)pglGenBuffers, (void*)pglBindBuffer, (void*)pglBufferData, (void*)pglVertexAttribPointer, (void*)pglEnableVertexAttribArray, (void*)pglGetAttribLocation);
-		rd_set_status(ks_ld((const unsigned char[]){77, 12, 192, 203, 207, 181, 39, 110, 27, 217, 62, 69, 134, 241}, 14));
+		rd_set_status("gl sym missing");
 		return 0;
 	}
-	if (!rd_compile(&rd_g_prog, 0, rd_vs_get(), rd_fs_get(), &rd_g_uRes, "uRes", &rd_g_uOff, "uOff", &rd_g_uSize, "uSize", &rd_g_uTex, "uTex")) return 0;
-	if (!rd_compile(&rd_g_prog_sweep, 1, rd_vs_get(), rd_sweep_fs_get(), &rd_g_swRes, "uRes", &rd_g_swOff, "uOff", &rd_g_swSize, "uSize", &rd_g_swDeg, "uDeg")) return 0;
-	if (!rd_compile(&rd_g_prog_dot, 2, rd_dot_vs_get(), rd_dot_fs_get(), &rd_g_dtRes, "uRes", &rd_g_dtCenter, "uCenter", &rd_g_dtYaw, "uYaw", 0, 0)) return 0;
-	if (!rd_compile(&rd_g_prog_let, 3, rd_let_vs_get(), rd_fs_get(), &rd_g_ltRes, "uRes", &rd_g_ltCenter, "uCenter", &rd_g_ltYaw, "uYaw", &rd_g_ltDir, "uDir")) return 0;
-	rd_g_ltIdx = pglGetUniformLocation(rd_g_prog_let, ks_ld((const unsigned char[]){95, 41, 132, 192}, 4));
-	rd_g_ltTex = pglGetUniformLocation(rd_g_prog_let, ks_ld((const unsigned char[]){95, 52, 133, 192}, 4));
-	rd_g_ltAlpha = pglGetUniformLocation(rd_g_prog_let, ks_ld((const unsigned char[]){95, 33, 140, 200, 222, 185}, 6));
-	rd_g_uAlpha0 = pglGetUniformLocation(rd_g_prog, ks_ld((const unsigned char[]){95, 33, 140, 200, 222, 185}, 6));
-	rd_g_swAlpha = pglGetUniformLocation(rd_g_prog_sweep, ks_ld((const unsigned char[]){95, 33, 140, 200, 222, 185}, 6));
-	rd_g_dtAlpha = pglGetUniformLocation(rd_g_prog_dot, ks_ld((const unsigned char[]){95, 33, 140, 200, 222, 185}, 6));
+	if (!rd_compile(&rd_g_prog, 0, RD_VS, RD_FS, &rd_g_uRes, "uRes", &rd_g_uOff, "uOff", &rd_g_uSize, "uSize", &rd_g_uTex, "uTex")) return 0;
+	if (!rd_compile(&rd_g_prog_sweep, 1, RD_VS, RD_SWEEP_FS, &rd_g_swRes, "uRes", &rd_g_swOff, "uOff", &rd_g_swSize, "uSize", &rd_g_swDeg, "uDeg")) return 0;
+	if (!rd_compile(&rd_g_prog_dot, 2, RD_DOT_VS, RD_DOT_FS, &rd_g_dtRes, "uRes", &rd_g_dtCenter, "uCenter", &rd_g_dtYaw, "uYaw", 0, 0)) return 0;
+	if (!rd_compile(&rd_g_prog_let, 3, RD_LET_VS, RD_FS, &rd_g_ltRes, "uRes", &rd_g_ltCenter, "uCenter", &rd_g_ltYaw, "uYaw", &rd_g_ltDir, "uDir")) return 0;
+	rd_g_ltIdx = pglGetUniformLocation(rd_g_prog_let, "uIdx");
+	rd_g_ltTex = pglGetUniformLocation(rd_g_prog_let, "uTex");
+	rd_g_ltAlpha = pglGetUniformLocation(rd_g_prog_let, "uAlpha");
+	rd_g_uAlpha0 = pglGetUniformLocation(rd_g_prog, "uAlpha");
+	rd_g_swAlpha = pglGetUniformLocation(rd_g_prog_sweep, "uAlpha");
+	rd_g_dtAlpha = pglGetUniformLocation(rd_g_prog_dot, "uAlpha");
 	rd_g_attr = pglGetAttribLocation(rd_g_prog_dot, "aData");
-	if (rd_g_attr < 0) { ks_logf(ks_ld((const unsigned char[]){113, 18, 132, 229}, 4), ks_ld((const unsigned char[]){75, 20, 148, 202, 223, 186, 39, 98, 54, 203, 57, 77, 200, 251, 85, 17, 154, 12, 232, 44}, 20)); rd_set_status(ks_ld((const unsigned char[]){75, 20, 148, 202, 223, 186, 39, 110, 27, 217, 62, 69, 134, 241}, 14)); return 0; }
+	if (rd_g_attr < 0) { ks_logf("[rd]", "attrib aData missing"); rd_set_status("attrib missing"); return 0; }
 	pglGenVertexArrays(1, &rd_g_vao);
 	pglGenVertexArrays(1, &rd_g_vao_dot);
 	pglGenBuffers(1, &rd_g_vbo);
@@ -3690,7 +3276,7 @@ static int rd_gl_init(void) {
 	pglVertexAttribPointer((GLuint)rd_g_attr, 3, GL_FLOAT, 0, 12, 0);
 	pglBindVertexArray(0);
 	pglBindBuffer(GL_ARRAY_BUFFER, 0);
-	rd_set_status(ks_ld((const unsigned char[]){77, 12, 192, 202, 211, 185, 99, 122}, 8));
+	rd_set_status("gl ready");
 	return 1;
 }
 
@@ -3781,7 +3367,7 @@ static void rd_render(EGLDisplay dpy, EGLSurface surf) {
 		EGLContext cur = peglGetCurrentContext();
 		if (cur != rd_g_ctx) {
 			rd_gl_reset();
-			ks_logf(ks_ld((const unsigned char[]){113, 18, 132, 229}, 4), ks_ld((const unsigned char[]){77, 12, 192, 219, 194, 160, 39, 96, 26, 203, 35, 75, 141, 242, 16, 66, 155, 0, 171, 34, 239, 177, 18}, 23));
+			ks_logf("[rd]", "gl ctx changed, re-init");
 		}
 	}
 	if (!rd_g_gl_ready) {
@@ -3791,16 +3377,16 @@ static void rd_render(EGLDisplay dpy, EGLSurface surf) {
 		if (!cur) return;
 		if (wpl_pv_ready() && !wpl_ctx_is_game(cur)) return;
 		rd_raster();
-		if (!rd_gl_init()) { rd_g_enable = 0; ks_logf(ks_ld((const unsigned char[]){113, 18, 132, 229}, 4), ks_ld((const unsigned char[]){77, 12, 191, 209, 216, 177, 115, 35, 20, 203, 36, 64, 196, 182, 81, 13, 141, 16, 234, 46, 161, 188, 15, 233, 34, 83, 246, 255, 61}, 29)); return; }
+		if (!rd_gl_init()) { rd_g_enable = 0; ks_logf("[rd]", "gl_init fail, module disabled"); return; }
 		rd_g_ctx = cur;
 		rd_g_surf = surf;
 		rd_g_vbo_dirty = 1;
 		rd_g_gl_ready = 1;
-		ks_logf(ks_ld((const unsigned char[]){113, 18, 132, 229}, 4), ks_ld((const unsigned char[]){77, 12, 192, 202, 211, 185, 99, 122, 82, 217, 56, 94, 142, 171, 25, 18, 201, 6, 242, 51, 188, 253, 22, 186, 48, 88, 224, 255, 100, 188, 6, 13, 57, 245, 48, 249, 241, 249, 140, 110, 89, 218, 233, 142}, 44), (void*)surf, (void*)cur, (int)w, (int)h, ks_g_swaps);
+		ks_logf("[rd]", "gl ready surf=%p ctx=%p size=%dx%d swaps=%ld", (void*)surf, (void*)cur, (int)w, (int)h, ks_g_swaps);
 	}
 	if (peglGetCurrentContext && peglGetCurrentContext() != rd_g_ctx) return;
 	if (surf != rd_g_surf) {
-		if (ks_g_swaps - rd_g_surfsw > 120) { rd_g_surf = surf; ks_logf(ks_ld((const unsigned char[]){113, 18, 132, 229}, 4), ks_ld((const unsigned char[]){89, 21, 146, 222, 215, 187, 98, 35, 0, 207, 33, 67, 139, 253, 28, 17, 156, 23, 224, 118, 164, 168}, 22), (void*)surf); }
+		if (ks_g_swaps - rd_g_surfsw > 120) { rd_g_surf = surf; ks_logf("[rd]", "surface relock surf=%p", (void*)surf); }
 		else return;
 	}
 	rd_g_surfsw = ks_g_swaps;
@@ -4040,41 +3626,41 @@ static int wm_gl_init(void) {
 	if (!pglCreateShader || !pglShaderSource || !pglCompileShader || !pglGetShaderiv
 		|| !pglCreateProgram || !pglAttachShader || !pglLinkProgram || !pglGetProgramiv
 		|| !pglDeleteShader || !pglGenVertexArrays || !pglGetUniformLocation) {
-		wm_set_status(ks_ld((const unsigned char[]){77, 12, 192, 203, 207, 181, 39, 110, 27, 217, 62, 69, 134, 241}, 14));
+		wm_set_status("gl sym missing");
 		return 0;
 	}
 	GLint ok = 0;
 	const char* src[1];
 	GLuint vs = pglCreateShader(GL_VERTEX_SHADER);
-	if (!vs) { wm_set_status(ks_ld((const unsigned char[]){92, 19, 192, 219, 196, 189, 102, 119, 23, 138, 43, 77, 129, 250}, 14)); return 0; }
-	src[0] = ih_vs_get();
+	if (!vs) { wm_set_status("vs create fail"); return 0; }
+	src[0] = IH_VS;
 	pglShaderSource(vs, 1, src, 0);
 	pglCompileShader(vs);
 	pglGetShaderiv(vs, GL_COMPILE_STATUS, &ok);
-	if (!ok) { wm_set_status(ks_ld((const unsigned char[]){92, 19, 192, 219, 217, 181, 119, 106, 30, 207, 109, 74, 137, 255, 80}, 15)); return 0; }
+	if (!ok) { wm_set_status("vs compile fail"); return 0; }
 	GLuint fs = pglCreateShader(GL_FRAGMENT_SHADER);
-	if (!fs) { wm_set_status(ks_ld((const unsigned char[]){76, 19, 192, 219, 196, 189, 102, 119, 23, 138, 43, 77, 129, 250}, 14)); pglDeleteShader(vs); return 0; }
-	src[0] = ih_fs_get();
+	if (!fs) { wm_set_status("fs create fail"); pglDeleteShader(vs); return 0; }
+	src[0] = IH_FS;
 	pglShaderSource(fs, 1, src, 0);
 	pglCompileShader(fs);
 	pglGetShaderiv(fs, GL_COMPILE_STATUS, &ok);
-	if (!ok) { wm_set_status(ks_ld((const unsigned char[]){76, 19, 192, 219, 217, 181, 119, 106, 30, 207, 109, 74, 137, 255, 80}, 15)); pglDeleteShader(vs); return 0; }
+	if (!ok) { wm_set_status("fs compile fail"); pglDeleteShader(vs); return 0; }
 	wm_g_prog = pglCreateProgram();
-	if (!wm_g_prog) { pglDeleteShader(vs); pglDeleteShader(fs); wm_set_status(ks_ld((const unsigned char[]){90, 18, 143, 223, 150, 187, 117, 102, 19, 222, 40, 12, 142, 247, 85, 14}, 16)); return 0; }
+	if (!wm_g_prog) { pglDeleteShader(vs); pglDeleteShader(fs); wm_set_status("prog create fail"); return 0; }
 	pglAttachShader(wm_g_prog, vs);
 	pglAttachShader(wm_g_prog, fs);
 	pglLinkProgram(wm_g_prog);
 	pglGetProgramiv(wm_g_prog, GL_LINK_STATUS, &ok);
 	pglDeleteShader(vs);
 	pglDeleteShader(fs);
-	if (!ok) { wm_set_status(ks_ld((const unsigned char[]){70, 9, 142, 211, 150, 190, 102, 106, 30}, 9)); return 0; }
+	if (!ok) { wm_set_status("link fail"); return 0; }
 	pglGenVertexArrays(1, &wm_g_vao);
-	wm_g_uRes = pglGetUniformLocation(wm_g_prog, ks_ld((const unsigned char[]){95, 50, 133, 203}, 4));
-	wm_g_uOff = pglGetUniformLocation(wm_g_prog, ks_ld((const unsigned char[]){95, 47, 134, 222}, 4));
-	wm_g_uSize = pglGetUniformLocation(wm_g_prog, ks_ld((const unsigned char[]){95, 51, 137, 194, 211}, 5));
-	wm_g_uTex = pglGetUniformLocation(wm_g_prog, ks_ld((const unsigned char[]){95, 52, 133, 192}, 4));
-	wm_g_uAlpha = pglGetUniformLocation(wm_g_prog, ks_ld((const unsigned char[]){95, 33, 140, 200, 222, 185}, 6));
-	wm_set_status(ks_ld((const unsigned char[]){77, 12, 192, 202, 211, 185, 99, 122}, 8));
+	wm_g_uRes = pglGetUniformLocation(wm_g_prog, "uRes");
+	wm_g_uOff = pglGetUniformLocation(wm_g_prog, "uOff");
+	wm_g_uSize = pglGetUniformLocation(wm_g_prog, "uSize");
+	wm_g_uTex = pglGetUniformLocation(wm_g_prog, "uTex");
+	wm_g_uAlpha = pglGetUniformLocation(wm_g_prog, "uAlpha");
+	wm_set_status("gl ready");
 	return 1;
 }
 
@@ -4131,7 +3717,7 @@ static void wm_render(EGLDisplay dpy, EGLSurface surf) {
 		EGLContext cur = peglGetCurrentContext();
 		if (cur != wm_g_ctx) {
 			wm_g_prog = 0; wm_g_vao = 0; wm_g_tex = 0; wm_g_ctx = 0; wm_g_tex_dirty = 1; wm_g_gl_ready = 0;
-			ks_logf(ks_ld((const unsigned char[]){113, 23, 141, 229}, 4), ks_ld((const unsigned char[]){77, 12, 192, 219, 194, 160, 39, 96, 26, 203, 35, 75, 141, 242, 16, 66, 155, 0, 171, 34, 239, 177, 18}, 23));
+			ks_logf("[wm]", "gl ctx changed, re-init");
 		}
 	}
 	if (!wm_g_gl_ready) {
@@ -4140,15 +3726,15 @@ static void wm_render(EGLDisplay dpy, EGLSurface surf) {
 		EGLContext cur = peglGetCurrentContext();
 		if (!cur) return;
 		if (wpl_pv_ready() && !wpl_ctx_is_game(cur)) return;
-		if (!wm_gl_init()) { wm_g_enable = 0; ks_logf(ks_ld((const unsigned char[]){113, 23, 141, 229}, 4), ks_ld((const unsigned char[]){77, 12, 191, 209, 216, 177, 115, 35, 20, 203, 36, 64, 196, 182, 81, 13, 141, 16, 234, 46, 161, 188, 15, 233, 34, 83, 246, 255, 61}, 29)); return; }
+		if (!wm_gl_init()) { wm_g_enable = 0; ks_logf("[wm]", "gl_init fail, module disabled"); return; }
 		wm_g_ctx = cur;
 		wm_g_surf = surf;
 		wm_g_gl_ready = 1;
-		ks_logf(ks_ld((const unsigned char[]){113, 23, 141, 229}, 4), ks_ld((const unsigned char[]){77, 12, 192, 202, 211, 185, 99, 122, 82, 217, 56, 94, 142, 171, 25, 18, 201, 6, 242, 51, 188, 253, 22, 186, 48, 88, 224, 255, 100, 188, 6, 13, 57, 245, 48, 249, 241, 249, 140, 110, 89, 218, 233, 142}, 44), (void*)surf, (void*)cur, (int)w, (int)h, ks_g_swaps);
+		ks_logf("[wm]", "gl ready surf=%p ctx=%p size=%dx%d swaps=%ld", (void*)surf, (void*)cur, (int)w, (int)h, ks_g_swaps);
 	}
 	if (peglGetCurrentContext && peglGetCurrentContext() != wm_g_ctx) return;
 	if (surf != wm_g_surf) {
-		if (ks_g_swaps - wm_g_surfsw > 120) { wm_g_surf = surf; wm_g_tex_dirty = 1; ks_logf(ks_ld((const unsigned char[]){113, 23, 141, 229}, 4), ks_ld((const unsigned char[]){89, 21, 146, 222, 215, 187, 98, 35, 0, 207, 33, 67, 139, 253, 28, 17, 156, 23, 224, 118, 164, 168}, 22), (void*)surf); }
+		if (ks_g_swaps - wm_g_surfsw > 120) { wm_g_surf = surf; wm_g_tex_dirty = 1; ks_logf("[wm]", "surface relock surf=%p", (void*)surf); }
 		else return;
 	}
 	wm_g_surfsw = ks_g_swaps;
@@ -4338,23 +3924,23 @@ static void (*wpl_pglBindFramebuffer)(GLenum, GLuint);
 
 static void wpl_hooks_install(void) {
 	if (wpl_g_hook_state == 1) return;
-	KS_LKS(n_libegl, 70, 9, 130, 253, 241, 148, 41, 112, 29);
-	KS_LKS(n_libgl, 70, 9, 130, 255, 250, 157, 84, 117, 64, 132, 62, 67);
+	KS_LKS(n_libegl, "libEGL.so");
+	KS_LKS(n_libgl, "libGLESv2.so");
 	void* hEGL = dlopen(n_libegl, 2);
 	void* hGL = dlopen(n_libgl, 2);
-	if (!hEGL || !hGL) { wpl_set_status(ks_ld((const unsigned char[]){79, 7, 140, 151, 209, 180, 39, 103, 30, 197, 61, 73, 134, 182, 90, 3, 128, 9, 170, 57, 228, 172, 20, 227}, 24)); return; }
-	KS_LKS(n_gpa, 79, 7, 140, 255, 211, 172, 87, 113, 29, 201, 12, 72, 140, 228, 89, 17, 154);
+	if (!hEGL || !hGL) { wpl_set_status("egl/gl dlopen fail,retry"); return; }
+	KS_LKS(n_gpa, "eglGetProcAddress");
 	void* (*pGPA)(const char*) = (void* (*)(const char*))dlsym(hEGL, n_gpa);
 	void* h = hGL;
-#define WRA2(field, ...) do { unsigned char e[] = { __VA_ARGS__ }; char sn[48]; ks_lkd(sn, e, (int)sizeof(e)); field = (void*)dlsym(h, sn); if (!field && pGPA) field = (void*)pGPA(sn); } while (0)
-	WRA2(wpl_pglGetBooleanv, 77, 12, 167, 221, 194, 154, 104, 108, 30, 207, 44, 66, 158);
-	WRA2(wpl_pglDepthMask, 77, 12, 164, 221, 198, 172, 111, 78, 19, 217, 38);
-	WRA2(wpl_pglDepthFunc, 77, 12, 164, 221, 198, 172, 111, 69, 7, 196, 46);
-	WRA2(wpl_pglColorMask, 77, 12, 163, 215, 218, 183, 117, 78, 19, 217, 38);
-	WRA2(wpl_pglBindFramebuffer, 77, 12, 162, 209, 216, 188, 65, 113, 19, 199, 40, 78, 157, 240, 90, 7, 155);
-#undef WRA2
+#define WRA(field, name) do { field = (void*)dlsym(h, name); if (!field && pGPA) field = (void*)pGPA(name); } while (0)
+	WRA(wpl_pglGetBooleanv, "glGetBooleanv");
+	WRA(wpl_pglDepthMask, "glDepthMask");
+	WRA(wpl_pglDepthFunc, "glDepthFunc");
+	WRA(wpl_pglColorMask, "glColorMask");
+	WRA(wpl_pglBindFramebuffer, "glBindFramebuffer");
+#undef WRA
 	wpl_g_hook_state = 1;
-	ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){90, 22, 192, 209, 216, 171, 115, 98, 30, 198, 109, 67, 131, 182, 20, 20, 218, 87, 166, 175, 57, 78, 129, 15, 207, 214, 5, 51, 176, 1, 215, 146, 135, 37, 248, 37, 61, 180, 220, 249, 220, 114, 108, 120, 180, 65, 185, 206, 11, 150, 94, 91, 193, 8, 218, 115, 143, 193, 35, 160}, 60));
+	ks_logf("[wpl]", "pv install ok (v32 世界矩阵直读, 不钩驱动 uniform)");
 }
 
 /* v32: PV 矩阵改由 ks_world_mvp 直读(游戏内 Camera 栈, 探针实证配方);
@@ -4392,10 +3978,10 @@ static short g_wpl_span0[WPL_TH], g_wpl_span1[WPL_TH];   /* 每行 alpha>0 的 x
 #define WPL_LINESZ 512
 static char g_wpl_lines[WPL_MAXLINE][WPL_LINESZ];
 static int g_wpl_lines_ok = 0;
-/* 默认面板行混合层加密: JS 投钥后首用解码(未投钥保持空,不崩);渲染/同步入口各兜一次 */
+/* 默认面板行(直存);渲染/同步入口各兜一次 */
 static void wpl_lines_ensure(void) {
-	if (g_wpl_lines_ok || !ks_rk_ready) return;
-	KS_LKS(blob, 5, 19, 129, 193, 150, 147, 114, 80, 7, 205, 77, 202, 126, 47, 217, 255, 126, 130, 55, 240, 100, 70, 237, 160, 171, 181, 19, 127, 223, 43, 98, 147, 129, 48, 244, 49, 48, 162, 26, 138, 196, 25, 24, 75, 249, 19, 166, 127, 9, 166, 84, 156, 43, 213, 137, 242, 90, 17, 169, 22, 107, 177, 10, 69, 100, 9, 81, 73, 240, 198, 105, 75, 31, 141, 186, 115, 47);
+	if (g_wpl_lines_ok) return;
+	KS_LKS(blob, "/say KuSug\0方块类型:脉冲\0条件:无条件\0红石:红石控制\0延迟:0\0");
 	const char* p = blob;
 	for (int i = 0; i < 5 && *p; i++) {
 		int n = 0;
@@ -4456,7 +4042,7 @@ static int wpl_load_font(void) {
 	if (wpl_g_font_tried) return wpl_g_font_ok;
 	wpl_g_font_tried = 1;
 	char fp[192];
-	{ KS_LKS(rp_sfx, 65, 21, 147, 205, 209, 247, 116, 108, 93, 204, 34, 66, 156, 184, 72, 22, 143); ks_res_path(fp, sizeof(fp), rp_sfx); }
+	ks_res_path(fp, sizeof(fp), "kusug/so/font.ttf");
 	if (wpl_try_font(fp)) {
 		int asc = 0, desc = 0, lg = 0;
 		wpl_g_scale = stbtt_ScaleForPixelHeight(&wpl_g_font, 18.0f);
@@ -4464,7 +4050,7 @@ static int wpl_load_font(void) {
 		wpl_g_ascent = (float)asc * wpl_g_scale;
 		return 1;
 	}
-	wpl_set_status(ks_ld((const unsigned char[]){76, 15, 142, 204, 150, 181, 110, 112, 1, 195, 35, 75}, 12));
+	wpl_set_status("font missing");
 	return 0;
 }
 
@@ -4756,14 +4342,30 @@ static void wpl_anim_run(float dest, long now) {
 	g_wpl_av = g_wpl_astart + (dest - g_wpl_astart) * e;
 }
 
-static const unsigned char ks_enc_wpl_vs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 156, 11, 239, 45, 238, 170, 11, 186, 53, 84, 249, 168, 121, 236, 48, 16, 111, 170, 26, 255, 232, 241, 154, 114, 22, 146, 165, 156, 120, 203, 34, 95, 155, 83, 144, 29, 143, 108, 198, 123, 137, 213, 33, 251, 181, 119, 242, 135, 226, 179, 199, 60, 70, 20, 165, 198, 155, 24, 245, 45, 70, 224, 29, 95, 135, 185, 219, 45, 14, 40, 56, 72, 38, 77, 141, 150, 119, 93, 120, 77, 148, 210, 201, 173, 143, 217, 160, 8, 76, 178, 74, 79, 47, 202, 4, 6, 119, 22, 84, 243, 146, 75, 164, 221, 206, 59, 68, 202, 214, 206, 103, 27, 66, 85, 13, 43, 114, 197, 61, 130, 150, 19, 0, 242, 64, 243, 155, 164, 225, 119, 194, 191, 146, 235, 255, 227, 25, 133, 98, 58, 164, 19, 96, 87, 207, 92, 65, 207, 77, 232, 205, 106, 215, 219, 208, 169, 136, 206, 101, 244, 161, 231, 132, 89, 78, 27, 230, 215, 177, 169, 152, 206, 76, 113, 22, 168, 216, 20, 104, 230, 214, 76, 59, 58, 122, 250, 222, 153, 66, 113, 43, 93, 104, 148, 248, 198, 159, 192, 185, 170, 173, 199, 248, 141, 79, 102, 15, 80, 90, 222, 195, 49, 64, 53, 98, 119, 163, 117, 136, 181, 250, 61, 205, 156, 85, 58, 202, 234, 95, 62, 27, 99, 221, 246, 9, 206, 136, 125, 112, 68, 19, 2, 157, 172, 91, 31, 245, 250, 143, 122, 6, 26, 193, 230, 255, 135, 18, 180, 249, 212, 86, 1, 222, 94, 1, 141, 191, 192, 89, 53, 25, 229, 216, 22, 187, 51, 245, 199, 230, 129, 252, 53, 185, 249, 213, 232, 93, 149, 208, 66, 29, 96, 213, 82, 34, 201, 123, 109, 54, 241, 222, 41, 216, 124, 136, 30, 230, 188, 232, 55, 241, 181, 89, 42, 195, 196, 135, 94, 124, 14, 86, 120, 186, 159, 165, 222, 177, 167, 71, 126, 156, 227, 234, 157, 144, 252 };
-static char wpl_vs_buf[353];
-static int wpl_vs_ok = 0;
-static const char* wpl_vs_get(void) { if (!wpl_vs_ok) { wpl_vs_ok = 1; ks_lkd(wpl_vs_buf, ks_enc_wpl_vs, (int)sizeof(ks_enc_wpl_vs)); } return wpl_vs_buf; }
-static const unsigned char ks_enc_wpl_fs[] = { 9, 22, 133, 202, 197, 177, 104, 109, 82, 153, 125, 28, 200, 243, 79, 104, 153, 23, 227, 40, 232, 171, 15, 245, 45, 17, 247, 255, 61, 240, 23, 24, 108, 177, 118, 230, 233, 249, 136, 38, 110, 138, 235, 131, 123, 199, 98, 18, 206, 111, 151, 22, 196, 10, 214, 103, 210, 247, 110, 252, 140, 50, 252, 217, 139, 244, 137, 32, 115, 18, 173, 206, 128, 116, 236, 44, 78, 242, 82, 88, 171, 245, 205, 41, 0, 114, 70, 1, 61, 59, 182, 146, 108, 84, 82, 84, 180, 208, 210, 209, 133, 207, 230, 8, 76, 130, 95, 64, 5, 218, 25, 14, 116, 117, 86, 254, 148, 87, 183, 254, 195, 94, 13, 142, 214, 131, 112, 23, 79, 79, 4, 32, 88, 216, 61, 212, 211, 6, 87, 185, 18, 191, 151, 229, 168, 127, 209, 182, 181, 201, 239, 227, 8, 200, 111, 39, 133, 75, 106, 87, 136, 32, 27, 198, 16, 142, 130, 43, 131, 211, 158, 188, 133, 246, 112, 254, 191, 252, 147, 1, 58, 127, 176, 140, 236, 189, 129, 132, 66, 37, 81, 251, 221, 29, 48, 194, 151, 76, 49, 58, 121, 238, 196, 201, 23, 48, 116, 3, 1, 219, 218 };
-static char wpl_fs_buf[212];
-static int wpl_fs_ok = 0;
-static const char* wpl_fs_get(void) { if (!wpl_fs_ok) { wpl_fs_ok = 1; ks_lkd(wpl_fs_buf, ks_enc_wpl_fs, (int)sizeof(ks_enc_wpl_fs)); } return wpl_fs_buf; }
+static const char WPL_VS[] =
+	"#version 300 es\n"
+	"uniform vec2 uRes;\n"
+	"uniform vec2 uOff;\n"
+	"uniform vec2 uSize;\n"
+	"uniform float uVMax;\n"
+	"out vec2 vUv;\n"
+	"void main(){\n"
+	"    vec2 p = vec2(float(gl_VertexID & 1), float((gl_VertexID >> 1) & 1));\n"
+	"    vUv = vec2(p.x, p.y * uVMax);\n"
+	"    vec2 px = uOff + p * uSize;\n"
+	"    gl_Position = vec4(px.x / uRes.x * 2.0 - 1.0, 1.0 - px.y / uRes.y * 2.0, 0.0, 1.0);\n"
+	"}\n";
+static const char WPL_FS[] =
+	"#version 300 es\n"
+	"precision mediump float;\n"
+	"uniform sampler2D uTex;\n"
+	"uniform float uAlpha;\n"
+	"in vec2 vUv;\n"
+	"out vec4 fragColor;\n"
+	"void main(){\n"
+	"    vec4 c = texture(uTex, vUv);\n"
+	"    fragColor = vec4(c.rgb, c.a * uAlpha);\n"
+	"}\n";
 
 static GLuint wpl_shader(GLenum type, const char* src) {
 	GLuint s = pglCreateShader(type);
@@ -4775,7 +4377,7 @@ static GLuint wpl_shader(GLenum type, const char* src) {
 		char il[256];
 		il[0] = 0;
 		if (pglGetShaderInfoLog) { GLsizei got = 0; pglGetShaderInfoLog(s, sizeof(il) - 1, &got, il); il[got < 0 ? 0 : (got > 255 ? 255 : got)] = 0; }
-		ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){89, 8, 129, 220, 211, 170, 39, 96, 29, 199, 61, 69, 132, 243, 28, 4, 136, 12, 234, 107, 245, 161, 22, 255, 126, 20, 226, 186, 53, 246, 5, 72, 57, 226}, 34), (unsigned)type, il);
+		ks_logf("[wpl]", "shader compile fail type=%x log=%s", (unsigned)type, il);
 		pglDeleteShader(s);
 		return 0;
 	}
@@ -4784,19 +4386,19 @@ static GLuint wpl_shader(GLenum type, const char* src) {
 
 static int wpl_gl_init(void) {
 	if (g_wpl_gl) return g_wpl_gl == 1;
-	ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){77, 12, 191, 209, 216, 177, 115, 35, 16, 207, 42, 69, 134, 182, 90, 12, 212, 64, 226, 110, 229, 253, 2, 191, 39, 20, 254, 191, 61, 188, 6, 80, 120, 180, 116}, 35),
+	ks_logf("[wpl]", "gl_init begin fn=%d%d%d%d%d%d%d%d%d",
 		pglCreateProgram ? 1 : 0, pglUniform2f ? 1 : 0, pglGenVertexArrays ? 1 : 0,
 		wpl_pglGetBooleanv ? 1 : 0, wpl_pglDepthMask ? 1 : 0, wpl_pglDepthFunc ? 1 : 0,
 		wpl_pglColorMask ? 1 : 0, wpl_pglBindFramebuffer ? 1 : 0, pglGetShaderInfoLog ? 1 : 0);
 	if (!pglCreateProgram || !pglUniform2f || !pglGenVertexArrays || !wpl_pglGetBooleanv || !wpl_pglDepthMask || !wpl_pglDepthFunc || !wpl_pglColorMask || !wpl_pglBindFramebuffer) {
 		g_wpl_gl = -1;
-		wpl_set_status(ks_ld((const unsigned char[]){77, 12, 192, 203, 207, 181, 39, 110, 27, 217, 62, 69, 134, 241}, 14));
-		ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){77, 12, 191, 209, 216, 177, 115, 35, 20, 196, 61, 88, 154, 182, 81, 11, 154, 22}, 18));
+		wpl_set_status("gl sym missing");
+		ks_logf("[wpl]", "gl_init fnptr miss");
 		return 0;
 	}
-	GLuint vs = wpl_shader(GL_VERTEX_SHADER, wpl_vs_get());
-	GLuint fs = wpl_shader(GL_FRAGMENT_SHADER, wpl_fs_get());
-	if (!vs || !fs) { g_wpl_gl = -1; wpl_set_status(ks_ld((const unsigned char[]){89, 8, 129, 220, 211, 170, 39, 101, 19, 195, 33}, 11)); return 0; }
+	GLuint vs = wpl_shader(GL_VERTEX_SHADER, WPL_VS);
+	GLuint fs = wpl_shader(GL_FRAGMENT_SHADER, WPL_FS);
+	if (!vs || !fs) { g_wpl_gl = -1; wpl_set_status("shader fail"); return 0; }
 	g_wpl_prog = pglCreateProgram();
 	pglAttachShader(g_wpl_prog, vs);
 	pglAttachShader(g_wpl_prog, fs);
@@ -4810,16 +4412,16 @@ static int wpl_gl_init(void) {
 		il[0] = 0;
 		if (pglGetProgramInfoLog) { GLsizei got = 0; pglGetProgramInfoLog(g_wpl_prog, sizeof(il) - 1, &got, il); il[got < 0 ? 0 : (got > 255 ? 255 : got)] = 0; }
 		g_wpl_gl = -1;
-		wpl_set_status(ks_ld((const unsigned char[]){70, 9, 142, 211, 150, 190, 102, 106, 30}, 9));
-		ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){77, 12, 191, 209, 216, 177, 115, 35, 30, 195, 35, 71, 200, 240, 93, 11, 133, 69, 234, 36, 230, 229, 67, 233}, 24), il);
+		wpl_set_status("link fail");
+		ks_logf("[wpl]", "gl_init link fail log=%s", il);
 		return 0;
 	}
-	g_wpl_ures = pglGetUniformLocation(g_wpl_prog, ks_ld((const unsigned char[]){95, 50, 133, 203}, 4));
-	g_wpl_uoff = pglGetUniformLocation(g_wpl_prog, ks_ld((const unsigned char[]){95, 47, 134, 222}, 4));
-	g_wpl_usize = pglGetUniformLocation(g_wpl_prog, ks_ld((const unsigned char[]){95, 51, 137, 194, 211}, 5));
-	g_wpl_utex = pglGetUniformLocation(g_wpl_prog, ks_ld((const unsigned char[]){95, 52, 133, 192}, 4));
-	g_wpl_uvmax = pglGetUniformLocation(g_wpl_prog, ks_ld((const unsigned char[]){95, 54, 173, 217, 206}, 5));
-	g_wpl_ualpha = pglGetUniformLocation(g_wpl_prog, ks_ld((const unsigned char[]){95, 33, 140, 200, 222, 185}, 6));
+	g_wpl_ures = pglGetUniformLocation(g_wpl_prog, "uRes");
+	g_wpl_uoff = pglGetUniformLocation(g_wpl_prog, "uOff");
+	g_wpl_usize = pglGetUniformLocation(g_wpl_prog, "uSize");
+	g_wpl_utex = pglGetUniformLocation(g_wpl_prog, "uTex");
+	g_wpl_uvmax = pglGetUniformLocation(g_wpl_prog, "uVMax");
+	g_wpl_ualpha = pglGetUniformLocation(g_wpl_prog, "uAlpha");
 	pglGenTextures(1, &g_wpl_tex);
 	pglBindTexture(GL_TEXTURE_2D, g_wpl_tex);
 	pglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -4830,7 +4432,7 @@ static int wpl_gl_init(void) {
 	pglGenVertexArrays(1, &g_wpl_vao);
 	wpl_load_font();
 	g_wpl_gl = 1;
-	ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){77, 12, 191, 209, 216, 177, 115, 35, 29, 193, 109, 92, 154, 249, 91, 95, 204, 16, 166, 62, 211, 189, 21, 167, 102, 85, 186, 239, 22, 255, 4, 72, 57, 245, 48, 255, 213, 241, 134, 120, 89, 218, 225, 202, 104, 252, 117, 7, 211, 57, 146, 91, 193, 48, 254, 116, 152, 142, 107, 237, 248, 35, 225, 154, 188, 164, 146, 105, 99, 28, 176, 158, 133, 103, 160, 37, 64, 232, 6, 16, 207, 253}, 82),
+	ks_logf("[wpl]", "gl_init ok prog=%u uRes=%d uOff=%d uSize=%d uTex=%d uVMax=%d tex=%u vao=%u font=%d",
 		(unsigned)g_wpl_prog, (int)g_wpl_ures, (int)g_wpl_uoff, (int)g_wpl_usize, (int)g_wpl_utex, (int)g_wpl_uvmax, (unsigned)g_wpl_tex, (unsigned)g_wpl_vao, wpl_g_font_ok);
 	return 1;
 }
@@ -4934,13 +4536,13 @@ static void wpl_render(EGLDisplay dpy, EGLSurface surf) {
 	wpl_pv_pick(w, h);
 	if (!wpl_g_logged_surf) {
 		wpl_g_logged_surf = 1;
-		ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){76, 9, 146, 203, 194, 248, 117, 102, 28, 206, 40, 94, 200, 243, 82, 3, 139, 9, 227, 47, 187, 248, 21, 239, 49, 87, 251, 249, 60, 185, 71, 17, 100, 180, 116, 170, 238, 247, 147, 118, 55, 139, 228, 158, 120, 149, 53, 27, 206, 108, 128, 61, 198, 7, 222, 112, 221, 150, 34, 237, 248, 36, 243, 131, 241, 242, 218, 108, 121, 25}, 70),
+		ks_logf("[wpl]", "first render enabled: surface %dx%d hookState=%d pvFrame=%ld swaps=%ld",
 			w, h, wpl_g_hook_state, wpl_g_pv_frame, ks_g_swaps);
 	}
 	if (wpl_g_pv_frame < 0 || ks_g_swaps - wpl_g_pv_frame > 5) {
 		if (!wpl_g_pvmiss_logged) {
 			wpl_g_pvmiss_logged = 1;
-			ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){90, 22, 192, 214, 217, 172, 39, 113, 23, 203, 41, 85, 199, 251, 85, 17, 154, 12, 232, 44, 187, 248, 14, 245, 44, 90, 201, 238, 56, 237, 7, 72, 57, 245, 48, 250, 240, 222, 142, 124, 9, 154, 184, 207, 113, 204, 48, 12, 153, 125, 134, 8, 137, 67, 223, 113}, 56), wpl_g_hook_state, wpl_g_pv_frame, ks_g_swaps);
+			ks_logf("[wpl]", "pv not ready/missing: hookState=%d pvFrame=%ld swaps=%ld", wpl_g_hook_state, wpl_g_pv_frame, ks_g_swaps);
 		}
 		return;
 	}
@@ -4949,7 +4551,7 @@ static void wpl_render(EGLDisplay dpy, EGLSurface surf) {
 		EGLContext cur = peglGetCurrentContext ? peglGetCurrentContext() : 0;
 		if (wpl_g_gamectx && cur && cur != wpl_g_gamectx) {   /* 后台切回 GL 上下文已重建: 旧 prog/tex/vao 全废, 重锁重建 */
 			if (wpl_g_hook_state == 1 && !wpl_ctx_is_game(cur)) return;
-			ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){73, 20, 152, 152, 213, 176, 102, 109, 21, 207, 41, 12, 205, 230, 28, 79, 215, 69, 163, 59, 173, 248, 1, 246, 99, 67, 255, 183, 48, 247, 11, 1}, 32), (void*)wpl_g_gamectx, (void*)cur);
+			ks_logf("[wpl]", "ctx changed %p -> %p, gl re-init", (void*)wpl_g_gamectx, (void*)cur);
 			wpl_g_gamectx = cur; wpl_g_surf = 0; g_wpl_gl = 0;
 		}
 	}
@@ -4960,11 +4562,11 @@ static void wpl_render(EGLDisplay dpy, EGLSurface surf) {
 			if (cur && wpl_g_hook_state == 1 && !wpl_ctx_is_game(cur)) return;
 			wpl_g_surf = surf;
 			if (cur && !wpl_g_gamectx) wpl_g_gamectx = cur;
-			ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){89, 21, 146, 222, 215, 187, 98, 35, 30, 197, 46, 71, 141, 242, 6, 66, 154, 16, 244, 45, 188, 253, 22, 186, 32, 69, 226, 167, 124, 233}, 30), (void*)surf, (void*)cur);
+			ks_logf("[wpl]", "surface locked: surf=%p ctx=%p", (void*)surf, (void*)cur);
 		} else if (surf != wpl_g_surf) {
 			if (cur && wpl_g_gamectx && cur == wpl_g_gamectx && ks_g_swaps - wpl_g_surfsw > 120) {
 				wpl_g_surf = surf;
-				ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){89, 21, 146, 222, 215, 187, 98, 35, 0, 207, 33, 67, 139, 253, 6, 66, 154, 16, 244, 45, 188, 253, 22}, 23), (void*)surf);
+				ks_logf("[wpl]", "surface relock: surf=%p", (void*)surf);
 			} else return;
 		}
 		wpl_g_surfsw = ks_g_swaps;
@@ -5083,7 +4685,7 @@ static void wpl_disable(void) { wpl_g_enable = 0; g_wpl_caminit = 0; }
 
 static long wpl_enable(long v) {
 	wpl_g_enable = (v == 1) ? 1 : 0;
-	ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){79, 14, 129, 218, 218, 189, 58, 38, 30, 206, 109, 68, 135, 249, 87, 49, 157, 4, 242, 46, 188, 253, 2}, 23), v, wpl_g_hook_state);
+	ks_logf("[wpl]", "enable=%ld hookState=%d", v, wpl_g_hook_state);
 	if (wpl_g_enable && wpl_g_hook_state != 1) wpl_hooks_install();
 	return wpl_g_enable;
 }
@@ -5105,7 +4707,7 @@ static long wpl_sync(void) {
 	wpl_lines_ensure();
 	int len = (unsigned char)g_wpl_inbuf[0] | ((unsigned char)g_wpl_inbuf[1] << 8) | ((unsigned char)g_wpl_inbuf[2] << 16) | ((unsigned char)g_wpl_inbuf[3] << 24);
 	if (len <= 0 || len > 8000) {
-		ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){89, 25, 142, 219, 150, 186, 102, 103, 82, 198, 40, 66, 213, 179, 88}, 15), len);
+		ks_logf("[wpl]", "sync bad len=%d", len);
 		return 0;
 	}
 	const char* s = g_wpl_inbuf + 4;
@@ -5122,7 +4724,7 @@ static long wpl_sync(void) {
 	while (li < WPL_MAXLINE) g_wpl_lines[li++][0] = 0;
 	wpl_layout();
 	g_wpl_dirty = 1;
-	ks_logf(ks_ld((const unsigned char[]){113, 23, 144, 212, 235}, 5), ks_ld((const unsigned char[]){89, 25, 142, 219, 150, 180, 98, 109, 79, 143, 41, 12, 132, 255, 82, 7, 154, 88, 163, 47, 161, 168, 14, 167, 102, 85, 186, 252, 48, 235, 17, 1, 33, 180, 62, 190, 182, 235}, 38), len, li, g_wpl_ph, g_wpl_lines[0]);
+	ks_logf("[wpl]", "sync len=%d lines=%d ph=%d first=%.40s", len, li, g_wpl_ph, g_wpl_lines[0]);
 	return 1;
 }
 
@@ -5245,10 +4847,7 @@ static int tex_contains_ic(const char* s, const char* sub) {
 	return 0;
 }
 
-static const unsigned char ks_enc_tex_pack[] = { 25, 78, 217, 231, 240, 177, 117, 112, 6, 250, 44, 88, 139, 254, 99, 80, 217, 87, 178, 20, 243, 189, 21, 197, 48, 0, 197, 238, 60, 225, 22, 0, 110, 244, 79, 188, 178, 175, 152, 42, 7, 155, 183, 199, 44, 206, 34, 27, 195, 41, 207, 78, 141, 75, 210, 45, 210, 213, 99, 234, 233, 103, 189, 209, 184, 185, 223, 40, 115, 25, 239, 252, 144, 77, 176, 28, 29 };
-static char tex_pack_buf[77 + 1];
-static int tex_pack_ok = 0;
-static const char* tex_pack_exact(void) { if (!tex_pack_ok) { tex_pack_ok = 1; ks_lkd(tex_pack_buf, ks_enc_tex_pack, (int)sizeof(ks_enc_tex_pack)); } return tex_pack_buf; }
+static const char TEX_PACK_EXACT[] = "3.9_FirstPatch_2024_res_s1_texture_647d7cd2-1f2d-5959-a82f-c1093988afd0_0_0_2";
 
 static char* tex_g_rep = 0;
 static size_t tex_g_replen = 0, tex_g_repcap = 0;
@@ -5866,7 +5465,7 @@ static void tex_restore_files(const char* pack, const char* bkd, tex_meta* m, lo
 			int n = 0;
 			const char* s = bkd;
 			while (*s && n < (int)sizeof(b) - 2) b[n++] = *s++;
-			KS_LKS(files_mark, 5, 6, 137, 212, 211, 171, 88, 92);
+			KS_LKS(files_mark, "/files__");
 			s = files_mark;
 			while (*s && n < (int)sizeof(b) - 2) b[n++] = *s++;
 			s = m->f[i].rel;
@@ -5890,7 +5489,7 @@ static void tex_restore_files(const char* pack, const char* bkd, tex_meta* m, lo
 
 static void tex_restore_pymeta(const char* pack, const char* bkd, long* restored) {
 	char mp[1024];
-	KS_LKS(fmt_mj, 15, 19, 207, 213, 211, 172, 102, 45, 24, 217, 34, 66);
+	KS_LKS(fmt_mj, "%s/meta.json");
 	snprintf(mp, sizeof(mp), fmt_mj, bkd);
 	size_t len = 0;
 	unsigned char* raw = tex_readfile(mp, &len);
@@ -5960,8 +5559,8 @@ static long tex_apply(long mode) {
 		const char* cands[3];
 		char c1[1024], c2[1024];
 		cands[0] = hint;
-		KS_LKS(fmt_dat, 5, 4, 129, 204, 215, 247, 99, 98, 6, 203, 98, 9, 155, 185, 90, 11, 133, 0, 245);
-		KS_LKS(fmt_sd, 5, 19, 148, 215, 196, 185, 96, 102, 93, 207, 32, 89, 132, 247, 72, 7, 141, 74, 182, 100, 192, 182, 2, 232, 44, 88, 254, 181, 61, 248, 22, 20, 51, 180, 99, 165, 224, 241, 144, 120, 23);
+		KS_LKS(fmt_dat, "/data/data/%s/files");
+		KS_LKS(fmt_sd, "/storage/emulated/0/Android/data/%s/files");
 		snprintf(c1, sizeof(c1), fmt_dat, ks_pkg());
 		cands[1] = c1;
 		snprintf(c2, sizeof(c2), fmt_sd, ks_pkg());
@@ -5969,11 +5568,11 @@ static long tex_apply(long mode) {
 		for (int i = 0; i < 3 && !base[0]; i++) {
 			if (!cands[i] || !cands[i][0]) continue;
 			char rpdir[1024];
-			KS_LKS(fmt_rp, 15, 19, 207, 223, 215, 181, 98, 112, 93, 201, 34, 65, 198, 248, 89, 22, 140, 4, 245, 46, 174, 170, 3, 233, 44, 68, 232, 249, 60, 198, 18, 20, 127, 250, 99);
+			KS_LKS(fmt_rp, "%s/games/com.netease/resource_packs");
 			snprintf(rpdir, sizeof(rpdir), fmt_rp, cands[i]);
-			snprintf(pack, sizeof(pack), "%s/%s", rpdir, tex_pack_exact());
+			snprintf(pack, sizeof(pack), "%s/%s", rpdir, TEX_PACK_EXACT);
 			if (tex_isdir(pack)) {
-				snprintf(pname, sizeof(pname), "%s", tex_pack_exact());
+				snprintf(pname, sizeof(pname), "%s", TEX_PACK_EXACT);
 				snprintf(base, sizeof(base), "%s", cands[i]);
 				break;
 			}
@@ -6009,11 +5608,11 @@ static long tex_apply(long mode) {
 	}
 
 	char fmd5[1024], fman[1024], fcon[1024], bkd[1024], metap[1024];
-	KS_LKS(fmt_fmd5, 15, 19, 207, 222, 217, 180, 99, 102, 0, 245, 32, 72, 221, 184, 86, 17, 134, 11);
-	KS_LKS(fmt_fman, 15, 19, 207, 213, 215, 182, 110, 101, 23, 217, 57, 2, 130, 229, 83, 12);
-	KS_LKS(fmt_fcon, 15, 19, 207, 219, 217, 182, 115, 102, 28, 222, 62, 2, 130, 229, 83, 12);
-	KS_LKS(fmt_bkd, 15, 19, 207, 243, 195, 139, 114, 100, 93, 76, 208, 188, 0, 34, 148, 135, 77, 226, 98, 240, 60);
-	KS_LKS(fmt_meta, 15, 19, 207, 213, 211, 172, 102, 45, 6, 210, 57);
+	KS_LKS(fmt_fmd5, "%s/folder_md5.json");
+	KS_LKS(fmt_fman, "%s/manifest.json");
+	KS_LKS(fmt_fcon, "%s/contents.json");
+	KS_LKS(fmt_bkd, "%s/KuSug/材质备份");
+	KS_LKS(fmt_meta, "%s/meta.txt");
 	snprintf(fmd5, sizeof(fmd5), fmt_fmd5, pack);
 	snprintf(fman, sizeof(fman), fmt_fman, pack);
 	snprintf(fcon, sizeof(fcon), fmt_fcon, pack);
@@ -6032,9 +5631,9 @@ static long tex_apply(long mode) {
 		tex_restore_pymeta(pack, bkd, &restored);
 		{
 			char b1[1024];
-			KS_LKS(fmt_bmd5, 15, 19, 207, 222, 217, 180, 99, 102, 0, 245, 32, 72, 221, 184, 86, 17, 134, 11, 168, 41, 224, 179);
-			KS_LKS(fmt_bman, 15, 19, 207, 213, 215, 182, 110, 101, 23, 217, 57, 2, 130, 229, 83, 12, 199, 7, 231, 32);
-			KS_LKS(fmt_bcon, 15, 19, 207, 219, 217, 182, 115, 102, 28, 222, 62, 2, 130, 229, 83, 12, 199, 7, 231, 32);
+			KS_LKS(fmt_bmd5, "%s/folder_md5.json.bak");
+			KS_LKS(fmt_bman, "%s/manifest.json.bak");
+			KS_LKS(fmt_bcon, "%s/contents.json.bak");
 			snprintf(b1, sizeof(b1), fmt_bmd5, bkd);
 			if (tex_isfile(b1)) tex_copyfile(b1, fmd5);
 			snprintf(b1, sizeof(b1), fmt_bman, bkd);
@@ -6051,7 +5650,7 @@ static long tex_apply(long mode) {
 
 	{
 		char wt[1024];
-		KS_LKS(fmt_wt, 15, 19, 207, 150, 221, 173, 116, 118, 21, 245, 58, 88, 141, 229, 72);
+		KS_LKS(fmt_wt, "%s/.kusug_wtest");
 		snprintf(wt, sizeof(wt), fmt_wt, pack);
 		FILE* wf = fopen(wt, "wb");
 		if (!wf) {
@@ -6106,9 +5705,9 @@ static long tex_apply(long mode) {
 		tex_restore_pymeta(pack, bkd, &restored);
 		{
 			char b1[1024];
-			KS_LKS(fmt_bmd5, 15, 19, 207, 222, 217, 180, 99, 102, 0, 245, 32, 72, 221, 184, 86, 17, 134, 11, 168, 41, 224, 179);
-			KS_LKS(fmt_bman, 15, 19, 207, 213, 215, 182, 110, 101, 23, 217, 57, 2, 130, 229, 83, 12, 199, 7, 231, 32);
-			KS_LKS(fmt_bcon, 15, 19, 207, 219, 217, 182, 115, 102, 28, 222, 62, 2, 130, 229, 83, 12, 199, 7, 231, 32);
+			KS_LKS(fmt_bmd5, "%s/folder_md5.json.bak");
+			KS_LKS(fmt_bman, "%s/manifest.json.bak");
+			KS_LKS(fmt_bcon, "%s/contents.json.bak");
 			snprintf(b1, sizeof(b1), fmt_bmd5, bkd);
 			if (tex_isfile(b1)) tex_copyfile(b1, fmd5);
 			snprintf(b1, sizeof(b1), fmt_bman, bkd);
@@ -6122,7 +5721,7 @@ static long tex_apply(long mode) {
 	tex_mkdirs(bkd);
 	{
 		char b1[1024];
-		KS_LKS(fmt_bmd5, 15, 19, 207, 222, 217, 180, 99, 102, 0, 245, 32, 72, 221, 184, 86, 17, 134, 11, 168, 41, 224, 179);
+		KS_LKS(fmt_bmd5, "%s/folder_md5.json.bak");
 		snprintf(b1, sizeof(b1), fmt_bmd5, bkd);
 		if (!tex_isfile(b1) && tex_isfile(fmd5)) tex_copyfile(fmd5, b1);
 	}
@@ -6193,10 +5792,10 @@ static long tex_apply(long mode) {
 				bi++;
 			}
 			bl[bi] = 0;
-			KS_LKS(bl0, 71, 1, 142, 209, 208, 189, 116, 119, 92, 192, 62, 67, 134);
-			KS_LKS(bl1, 90, 1, 131, 211, 233, 181, 102, 109, 27, 204, 40, 95, 156, 184, 86, 17, 134, 11);
-			KS_LKS(bl2, 73, 15, 142, 204, 211, 182, 115, 112, 92, 192, 62, 67, 134);
-			KS_LKS(bl3, 76, 15, 140, 220, 211, 170, 88, 110, 22, 159, 99, 70, 155, 249, 82);
+			KS_LKS(bl0, "manifest.json");
+			KS_LKS(bl1, "pack_manifest.json");
+			KS_LKS(bl2, "contents.json");
+			KS_LKS(bl3, "folder_md5.json");
 			if (!strcmp(bl, bl0) || !strcmp(bl, bl1) || !strcmp(bl, bl2) || !strcmp(bl, bl3)) continue;
 
 			if (tex_meta_find(&meta, rel) < 0) {
@@ -6214,7 +5813,7 @@ static long tex_apply(long mode) {
 						int n = 0;
 						const char* s = bkd;
 						while (*s && n < 1000) bf[n++] = *s++;
-						KS_LKS(files_mark2, 5, 6, 137, 212, 211, 171, 88, 92);
+						KS_LKS(files_mark2, "/files__");
 						s = files_mark2;
 						while (*s && n < 1000) bf[n++] = *s++;
 						s = rel;
@@ -6308,8 +5907,8 @@ static long tex_apply(long mode) {
 
 	{
 		const char* pp[2] = { fman, fcon };
-		KS_LKS(tt0, 71, 1, 142, 209, 208, 189, 116, 119, 92, 192, 62, 67, 134);
-		KS_LKS(tt2, 73, 15, 142, 204, 211, 182, 115, 112, 92, 192, 62, 67, 134);
+		KS_LKS(tt0, "manifest.json");
+		KS_LKS(tt2, "contents.json");
 		const char* tt[2] = { tt0, tt2 };
 		for (int i = 0; i < 2; i++) {
 			if (tex_isfile(pp[i])) {
@@ -6351,27 +5950,15 @@ static long ihud_enable(long v) {
 
 __attribute__((constructor))
 static void ks_nb_init(void) {
-	guard_check();
 	nb_stamp();
-	/* 七项校验：自身代码段哈希(第 0 项,织入签名) + KuSug.json（guard_check，缺失即崩）+ KuSug.js + JavaPlugin.java
-	   + manifest enable==true + 主菜单 title.name==KuSug + ui_definition name 匹配,任一不过直接崩溃;
-	   ctor 只做校验——符号解析/打钩统一由 ks_entry(52) 引导(JS 投钥后),ctor 期零 dlopen 零依赖运行时密钥 */
-#ifndef KS_SKIP_VERIFY
-	ks_g_hv = ks_self_hash();
-	ks_g_sig = ks_g_sig * 33u + (unsigned)ks_g_hv;
-	ks_g_sig = ks_g_sig * 33u + (unsigned)(ks_g_hv >> 32);
-	if (!ks_verify_files()) { ks_die_f(); }
-	ks_g_sig_armed = 1;
-#endif
-	ks_set_status(0, ks_sd((const unsigned char[]){ 54, 14, 9, 11, 19, 25 }, 6));
-	ks_logf(ks_sd((const unsigned char[]){ 1, 2, 7, 29, 19, 32 }, 6),
-		ks_sd((const unsigned char[]){ 57, 21, 7, 29, 86, 18, 239, 171, 226, 240, 196, 154, 139, 209 }, 14), (int)getpid());
+	ks_set_status(0, "loaded");
+	ks_logf("[core]", "ctor ok pid=%d", (int)getpid());
 }
 
 /* ===== 统一入口: JS 经 os.syscall(so,"ks_entry",code) 调用,code = op*2^24 + (v & 0xFFFFFF) =====
    桥参数仅 int32(v25 首日回声自检实锤),故 op 占高 6 位(code<2^30 恒正,免疫截断与符号);
    v 为 24 位带符号;wpl 坐标(op44-49)超宽:先 op56 投递高 24 位暂存,再随调用拼成 48 位。
-   61=密钥金丝雀 62=就绪探针(密钥已自派生) 63=回声(桥参数位宽自检,返回 code+1) */
+   61/62=历史配对探针(恒 1) 63=回声(桥参数位宽自检,返回 code+1) */
 long long ks_entry(long long code) {
 	static long long ks_arg_hi = 0;
 	unsigned op = (unsigned)((unsigned long long)code >> 24);
@@ -6436,8 +6023,8 @@ long long ks_entry(long long code) {
 	case 50: return wpl_drew();
 	case 51: return (long)__wpl_in();
 	case 52: return ks_boot();
-	case 61: return ks_key_check();
-	case 62: return ks_rk_ready ? 1 : 0;   /* 就绪探针(v29 起密钥由 so 自派生,JS 不再投递) */
+	case 61: return 1;
+	case 62: return 1;
 	case 63: return code + 1;
 	}
 	return 0;

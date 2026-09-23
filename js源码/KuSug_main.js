@@ -122,7 +122,7 @@ try:
 except Exception:
 	pass
 `;
-	try { app.evalPython(pythonCode); } catch (e) {}
+	try { gamePy(pythonCode); } catch (e) {}
 }
 
 function binReader(data) {
@@ -792,7 +792,7 @@ except Exception:
     pass
 `;
 		try {
-			app.evalPython(pythonCode);
+			gamePy(pythonCode);
 		} catch (e) {}
 	},
 	checkLogin() {
@@ -814,9 +814,9 @@ except Exception:
 		}
 	},
 	start() {
-		this.checkLogin();
+		gameRun(() => this.checkLogin());
 		if (!this.timer) {
-			this.timer = setInterval(() => this.checkLogin(), 5000);
+			this.timer = setInterval(() => gameRun(() => this.checkLogin()), 5000);
 		}
 	}
 };
@@ -828,6 +828,15 @@ const gamePkg = (function () {
 	} catch (e) {}
 	return "com.netease.x19";
 })();
+
+const threadApi = (function () { try { const t = require("thread"); return (t && typeof t.runOnGameThread === "function") ? t : null; } catch (e) { return null; } })();
+function gameRun(fn) {
+	if (threadApi) { try { threadApi.runOnGameThread(fn); return; } catch (e) {} }
+	try { fn(); } catch (e) {}
+}
+function gamePy(code) {
+	gameRun(function () { try { app.evalPython(code); } catch (e) {} });
+}
 
 const kuNative = {
 	loaded: false,
@@ -855,8 +864,8 @@ const kuNative = {
 			this.soDst = dst;
 			os.dlopen(dst);
 			if (String(this.call(63, 0xABCDEF)) !== String(63 * 16777216 + 0xABCDEF + 1)) return "so 入口自检失败(桥参数位宽)[" + h.toString(16) + ":" + blen + "]";
-			if (Number(this.call(52, 0)) < 1) return "so 引导失败(so 与脚本构建不配对)[" + h.toString(16) + "]";
-			if (String(this.call(61, 0)) !== "1") return "so 密钥派生自检失败[" + h.toString(16) + "]";
+			if (Number(this.call(52, 0)) < 1) return "so 引导失败[" + h.toString(16) + "]";
+			if (String(this.call(61, 0)) !== "1") return "so 自检失败[" + h.toString(16) + "]";
 		} catch (e) {
 			return "加载失败: " + (e && e.message ? e.message : e);
 		}
@@ -961,7 +970,7 @@ if win and win.is_valid():
 	applyPatch() {
 		if (!this.text) return;
 		try {
-			app.evalPython(this.patchCode());
+			gamePy(this.patchCode());
 		} catch (e) {}
 	},
 	onModuleEvent(args) {
@@ -974,7 +983,7 @@ if win and win.is_valid():
 			if (this.enabled) {
 				this.applyPatch();
 			} else {
-				app.evalPython(this.unpatchCode);
+				gamePy(this.unpatchCode);
 			}
 		} catch (e) {}
 	}
@@ -1164,7 +1173,7 @@ except Exception:
 	pass
 `;
 		try {
-			app.evalPython(pythonCode);
+			gamePy(pythonCode);
 		} catch (e) {}
 	}
 };
@@ -1259,7 +1268,7 @@ const antiKick = {
 	onReady() {
 		if (!this.enabled) return;
 		setTimeout(() => {
-			if (this.enabled) this.run();
+			if (this.enabled) gameRun(() => this.run());
 		}, 200);
 	},
 	toast(msg) {
@@ -3616,11 +3625,11 @@ except Exception:
 	onModuleEvent(args) {
 		if (!stdToggle(this, args, "GM菜单")) return;
 		if (!this.enabled) {
-			try { app.evalPython(this.CLOSE_PY); } catch (e) {}
+			try { gamePy(this.CLOSE_PY); } catch (e) {}
 			return;
 		}
 		try {
-			app.evalPython(this.OPEN_PY);
+			gamePy(this.OPEN_PY);
 		} catch (e) {
 			this.enabled = false;
 			if (this.hud) this.hud.enabled = false;
@@ -3719,7 +3728,7 @@ const checkCmd = {
 		const self = this;
 		const fire = function () { if (self.loaded && (!self.enabled || self.jsMode) && !(typeof structHud !== "undefined" && structHud.enabled && !structHud.jsMode)) { try { kuNative.call(41, 0); } catch (e) {} } };
 		if (immediate) fire();
-		else setTimeout(fire, 300);
+		else setTimeout(function () { gameRun(fire); }, 300);
 	},
 	switchMode(js) {
 		this.jsMode = js;
@@ -3980,7 +3989,7 @@ const structHud = {
 		const self = this;
 		const fire = function () { if (self.loaded && (!self.enabled || self.jsMode) && !(typeof checkCmd !== "undefined" && checkCmd.enabled && !checkCmd.jsMode)) { try { kuNative.call(41, 0); } catch (e) {} } };
 		if (immediate) fire();
-		else setTimeout(fire, 300);
+		else setTimeout(function () { gameRun(fire); }, 300);
 	},
 	switchMode(js) {
 		this.jsMode = js;
@@ -4637,7 +4646,7 @@ if win and win.is_valid():
 		if (this.enabled) {
 			this.applied = this.applyOn();
 		} else {
-			try { app.evalPython(this.PY_OFF); } catch (e) {}
+			try { gamePy(this.PY_OFF); } catch (e) {}
 			this.applied = false;
 		}
 	},
@@ -4740,10 +4749,10 @@ const autoDrop = {
 	petDrop(slot) {
 		if (!this.pyReady) {
 			this.pyReady = true;
-			try { app.evalPython(this.pyInstall); } catch (e) {}
+			try { gamePy(this.pyInstall); } catch (e) {}
 		}
 		try {
-			app.evalPython("globals()['_kusug_pet_drop'](" + slot + ")");
+			gamePy("globals()['_kusug_pet_drop'](" + slot + ")");
 			return true;
 		} catch (e) {
 			this.log("§c宠物通道调用失败: " + e);
@@ -4842,7 +4851,7 @@ pass
 		if (!stdToggle(this, args, "攻击特效", true, "攻击实体落雷")) return;
 		this.dbg(this.enabled ? "on" : "off");
 		if (!this.enabled) this.uid = "";
-		try { app.evalPython(this.enabled ? this.pyOn : this.pyOff); } catch (e) {}
+		try { gamePy(this.enabled ? this.pyOn : this.pyOff); } catch (e) {}
 	},
 	onPlayerAttack(playerId, targetId) {
 		if (!this.enabled) return;
@@ -4949,7 +4958,7 @@ pass
 		if (typeof args.death_fx_sound !== "undefined") this.sound = Boolean(args.death_fx_sound);
 		if (!stdToggle(this, args, "死亡特效", true, "击杀目标落雷")) return;
 		if (!this.enabled) { this.uid = ""; this.watch = []; }
-		try { app.evalPython(this.enabled ? this.pyOn : this.pyOff); } catch (e) {}
+		try { gamePy(this.enabled ? this.pyOn : this.pyOff); } catch (e) {}
 	},
 	onPlayerAttack(playerId, targetId) {
 		if (!this.enabled) return;
@@ -5848,7 +5857,7 @@ except Exception:
 			if (this.enabled) this.apply("zoom", (this.zoom / 100).toFixed(2));
 		}
 		if (!stdToggle(this, args, "小地图", false)) return;
-		try { app.evalPython(this.enabled ? this.buildPyOn() : this.pyOff); } catch (e) {}
+		try { gamePy(this.enabled ? this.buildPyOn() : this.pyOff); } catch (e) {}
 	},
 	apply(key, pyVal) {
 		const code = [
@@ -5877,7 +5886,7 @@ except Exception:
 			"except Exception:",
 			"    _do()"
 		].join("\n");
-		try { app.evalPython(code); } catch (e) {}
+		try { gamePy(code); } catch (e) {}
 	}
 };
 
@@ -6150,7 +6159,7 @@ _KuSugServerJoin().start()
 			return;
 		}
 		try {
-			app.evalPython(this.buildPy(ip, port));
+			gamePy(this.buildPy(ip, port));
 			this.log("§a已执行 §7" + this.serverName + " → " + ip + ":" + port);
 		} catch (e) {
 			this.log("§c执行失败: " + e);
@@ -6330,14 +6339,14 @@ globals()["_kusug_gyro"] = None`,
 		}
 		if (!stdToggle(this, args, "陀螺仪视角", false, "灵敏度 " + this.sens)) return;
 		try {
-			app.evalPython(this.enabled ? this.pyOn : this.pyOff);
+			gamePy(this.enabled ? this.pyOn : this.pyOff);
 		} catch (e) {
 			this.log("§c调用异常: " + e);
 		}
 		if (this.enabled) this.setSensFlag();
 	},
 	setSensFlag() {
-		try { app.evalPython("globals()[\"_kusug_gyro_sens\"] = " + this.sens); } catch (e) {}
+		try { gamePy("globals()[\"_kusug_gyro_sens\"] = " + this.sens); } catch (e) {}
 	}
 };
 
@@ -6456,10 +6465,10 @@ globals()['_kusug_spin_sys'] = _KuSugSpin('KuSugSpin', 'KuSugSpinSystem')`,
 	},
 	pushPy() {
 		const on = this.running && this.enabled ? "True" : "False";
-		try { app.evalPython("globals()['_kusug_spin_on'] = " + on); } catch (e) {}
-		try { app.evalPython("globals()['_kusug_spin_speed'] = " + this.speed); } catch (e) {}
-		try { app.evalPython("globals()['_kusug_spin_head'] = " + (this.head ? "True" : "False")); } catch (e) {}
-		try { app.evalPython("globals()['_kusug_spin_head_speed'] = " + this.headSpeed); } catch (e) {}
+		try { gamePy("globals()['_kusug_spin_on'] = " + on); } catch (e) {}
+		try { gamePy("globals()['_kusug_spin_speed'] = " + this.speed); } catch (e) {}
+		try { gamePy("globals()['_kusug_spin_head'] = " + (this.head ? "True" : "False")); } catch (e) {}
+		try { gamePy("globals()['_kusug_spin_head_speed'] = " + this.headSpeed); } catch (e) {}
 	},
 	tryStart() {
 		if (this.running) return;
@@ -6473,14 +6482,14 @@ globals()['_kusug_spin_sys'] = _KuSugSpin('KuSugSpin', 'KuSugSpinSystem')`,
 		this.lastMs = Date.now();
 		if (!this.pyUp) {
 			try {
-				app.evalPython(this.pyOn);
+				gamePy(this.pyOn);
 				this.pyUp = true;
 			} catch (e) {
 				this.pyUp = false;
 			}
 		}
 		if (this.pyUp) {
-			try { app.evalPython("globals()['_kusug_spin_reset'] = True"); } catch (e) {}
+			try { gamePy("globals()['_kusug_spin_reset'] = True"); } catch (e) {}
 		}
 		this.pushPy();
 	},
@@ -6621,7 +6630,7 @@ globals()['_kusug_cam_sys'] = _KuSugCam('KuSugCam', 'KuSugCamSystem')`,
 		if (this.pyUp || this.tries >= 100) return;
 		this.tries++;
 		try {
-			app.evalPython(this.pyOn);
+			gamePy(this.pyOn);
 			this.pyUp = true;
 		} catch (e) {
 			this.pyUp = false;
@@ -6631,7 +6640,7 @@ globals()['_kusug_cam_sys'] = _KuSugCam('KuSugCam', 'KuSugCamSystem')`,
 		const on = this.enabled ? "True" : "False";
 		const rst = this.enabled ? "False" : "True";
 		try {
-			app.evalPython("globals()['_kusug_cam_on'] = " + on + "\nglobals()['_kusug_cam_reset'] = " + rst + "\nglobals()['_kusug_cam_dirty'] = True\nglobals()['_kusug_cam_off'] = (" + (this.offX / 10) + "," + (this.offY / 10) + "," + (this.offZ / 10) + ")");
+			gamePy("globals()['_kusug_cam_on'] = " + on + "\nglobals()['_kusug_cam_reset'] = " + rst + "\nglobals()['_kusug_cam_dirty'] = True\nglobals()['_kusug_cam_off'] = (" + (this.offX / 10) + "," + (this.offY / 10) + "," + (this.offZ / 10) + ")");
 		} catch (e) {}
 	},
 	onTick() {
@@ -6870,7 +6879,7 @@ const itemHud = {
 			this.enabled = false;
 			this.push([]);
 			const self = this;
-			setTimeout(function () { if (!self.enabled && self.hooked) self.unhook(); }, 450);
+			setTimeout(function () { gameRun(function () { if (!self.enabled && self.hooked) self.unhook(); }); }, 450);
 		}
 		ensureHud(this, this.tag, "掉落物统计");
 		this.hud.enabled = this.enabled;
@@ -7014,7 +7023,7 @@ const dirHud = {
 		if (fpsHud.enabled) return;
 		try {
 			const path = app.getResource("KuSug/Fps.txt");
-			app.evalPython("import mod.client.extraClientApi as clientApi\nwith open(\"" + path + "\", \"w\") as f:\n\tf.write(str(clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId()).GetFps()))");
+			gamePy("import mod.client.extraClientApi as clientApi\nwith open(\"" + path + "\", \"w\") as f:\n\tf.write(str(clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId()).GetFps()))");
 			const n = Number(String(fs.read(path) || "").trim());
 			this.fpsVal = isNaN(n) ? 0 : Math.floor(n);
 		} catch (e) {}
@@ -7158,7 +7167,7 @@ globals()['_kusug_vis_sys'] = _KuSugVis('KuSugVis', 'KuSugVisSystem')`,
 		if (this.pyUp || this.tries >= 100) return;
 		this.tries++;
 		try {
-			app.evalPython(this.pyOn);
+			gamePy(this.pyOn);
 			this.pyUp = true;
 		} catch (e) {
 			this.pyUp = false;
@@ -7632,7 +7641,7 @@ if st is not None:
 `,
 	onModuleEvent(args) {
 		if (!stdToggle(this, args, "隐藏累赘")) return;
-		try { app.evalPython(this.enabled ? this.patchCode : this.unpatchCode); } catch (e) {}
+		try { gamePy(this.enabled ? this.patchCode : this.unpatchCode); } catch (e) {}
 	}
 };
 
@@ -7659,10 +7668,12 @@ def _cb_is_container(ns):
             return True
     return False
 
+def _cb_ns(args):
+    return args.get('namespace') or args.get('screenDef') or args.get('screenName') or ''
+
 class _KuSugCB(_CS):
     def __init__(self, ns, sn):
         super(_KuSugCB, self).__init__(ns, sn)
-        self.blurComp = None
         self.dead = False
         self.depth = {}
         self.blurred = False
@@ -7670,50 +7681,96 @@ class _KuSugCB(_CS):
         sn2 = clientApi.GetEngineSystemName()
         self.ListenForEvent(ns2, sn2, 'PushScreenEvent', self, self.on_push)
         self.ListenForEvent(ns2, sn2, 'PopScreenEvent', self, self.on_pop)
-        self.try_get_comp()
+        self.ListenForEvent(ns2, sn2, 'PopScreenAfterClientEvent', self, self.on_pop_after)
+        self.ListenForEvent(ns2, sn2, 'ClientChestOpenEvent', self, self.on_chest_open)
+        self.ListenForEvent(ns2, sn2, 'ClientChestCloseEvent', self, self.on_chest_close)
+        self.ListenForEvent(ns2, sn2, 'ClientPlayerInventoryOpenEvent', self, self.on_chest_open)
+        self.ListenForEvent(ns2, sn2, 'ClientPlayerInventoryCloseEvent', self, self.on_chest_close)
+        self.ListenForEvent(ns2, sn2, 'OnScriptTickClient', self, self.on_tick)
 
-    def try_get_comp(self):
-        if self.blurComp is not None:
-            return True
+    def comp(self):
         try:
-            self.blurComp = clientApi.GetEngineCompFactory().CreatePostProcess(clientApi.GetLevelId())
+            return clientApi.GetEngineCompFactory().CreatePostProcess(clientApi.GetLevelId())
         except Exception:
-            pass
-        return self.blurComp is not None
+            return None
 
     def apply_blur(self, on):
-        if self.dead or not self.try_get_comp():
+        if self.dead:
+            return
+        c = self.comp()
+        if c is None:
             return
         try:
             if on:
-                self.blurComp.SetEnableGaussianBlur(True)
-                self.blurComp.SetGaussianBlurRadius(float(globals().get('_kusug_cb_intensity', 0.6)))
+                c.SetEnableGaussianBlur(True)
+                c.SetGaussianBlurRadius(float(globals().get('_kusug_cb_intensity', 0.6)))
             else:
-                self.blurComp.SetEnableGaussianBlur(False)
+                c.SetEnableGaussianBlur(False)
         except Exception:
             pass
 
     def set_intensity(self, v):
-        if self.blurComp is not None:
+        c = self.comp()
+        if c is not None:
             try:
-                self.blurComp.SetGaussianBlurRadius(float(v))
+                c.SetGaussianBlurRadius(float(v))
             except Exception:
                 pass
 
+    def reconcile(self):
+        if self.dead:
+            return False
+        if not globals().get('_kusug_cb_want', True):
+            self.blur_off()
+            self.shutdown()
+            globals()['_kusug_cb_sys'] = None
+            return False
+        return True
+
+    def on_tick(self, args):
+        self.reconcile()
+
+    def blur_on(self):
+        self.blurred = True
+        self.apply_blur(True)
+
+    def blur_off(self):
+        self.depth = {}
+        self.blurred = False
+        self.apply_blur(False)
+
     def on_push(self, args):
-        ns = args.get('namespace') or ''
+        if not self.reconcile():
+            return
+        ns = _cb_ns(args)
         if _cb_is_container(ns):
             self.depth[ns] = self.depth.get(ns, 0) + 1
-            self.blurred = True
-            self.apply_blur(True)
+            self.blur_on()
 
     def on_pop(self, args):
-        ns = args.get('namespace') or ''
+        if not self.reconcile():
+            return
+        ns = _cb_ns(args)
         if self.depth.get(ns):
             self.depth[ns] -= 1
         if self.blurred and not any(self.depth.values()):
-            self.blurred = False
-            self.apply_blur(False)
+            self.blur_off()
+
+    def on_pop_after(self, args):
+        if not self.reconcile():
+            return
+        if self.blurred and not _cb_is_container(_cb_ns(args)):
+            self.blur_off()
+
+    def on_chest_open(self, args):
+        if not self.reconcile():
+            return
+        self.blur_on()
+
+    def on_chest_close(self, args):
+        if not self.reconcile():
+            return
+        self.blur_off()
 
     def shutdown(self):
         self.dead = True
@@ -7721,12 +7778,14 @@ class _KuSugCB(_CS):
             self.UnListenAllEvents()
         except Exception:
             pass
-        if self.blurComp is not None:
+        c = self.comp()
+        if c is not None:
             try:
-                self.blurComp.SetEnableGaussianBlur(False)
+                c.SetEnableGaussianBlur(False)
             except Exception:
                 pass
 
+globals()['_kusug_cb_want'] = True
 globals()['_kusug_cb_intensity'] = ${(this.intensity / 100).toFixed(2)}
 _old = globals().get('_kusug_cb_sys')
 if _old is not None:
@@ -7749,24 +7808,26 @@ if _s is not None:
 `;
 	},
 	unpatchCode: `
-_old = globals().get('_kusug_cb_sys')
-if _old is not None:
+globals()['_kusug_cb_want'] = False
+_s = globals().get('_kusug_cb_sys')
+if _s is not None:
     try:
-        _old.shutdown()
+        _c = _s.comp()
+        if _c is not None:
+            _c.SetEnableGaussianBlur(False)
     except Exception:
         pass
-    globals()['_kusug_cb_sys'] = None
 `,
 	onModuleEvent(args) {
 		if (argPick(args, "cb_intensity") !== undefined) {
 			const n = Number(argPick(args, "cb_intensity"));
 			if (!isNaN(n)) {
 				this.intensity = Math.max(10, Math.min(100, Math.floor(n)));
-				if (this.enabled) { try { app.evalPython(this.buildSetCode()); } catch (e) {} }
+				if (this.enabled) { try { gamePy(this.buildSetCode()); } catch (e) {} }
 			}
 		}
 		if (!stdToggle(this, args, "容器模糊")) return;
-		try { app.evalPython(this.enabled ? this.buildPatchCode() : this.unpatchCode); } catch (e) {}
+		try { gamePy(this.enabled ? this.buildPatchCode() : this.unpatchCode); } catch (e) {}
 	}
 };
 
@@ -9288,6 +9349,7 @@ function z1ReadFile(p) {
 function z1Op(expr) {
 	const rp = z1RetFile();
 	try { fs.write(rp, ""); } catch (e) {}
+	// 同步读路径必须直跑: gamePy 投递游戏线程后下一行读回执会先于 python 执行, 恒读空(2026-09-23 回归实证)
 	try { app.evalPython(z1Wrap(expr)); } catch (e) { return ""; }
 	return z1ReadFile(rp);
 }
@@ -9303,7 +9365,7 @@ const Z1_SEQ = { n: 0 };
 function z1TickOp(buildExpr, label, after, fail) {
 	const rp = z1RetFile() + "." + (Z1_SEQ.n++);
 	try { fs.write(rp, ""); } catch (e) {}
-	try { app.evalPython(z1Wrap(buildExpr(rp))); } catch (e) { z1Toast(label + " 投递异常"); if (fail) fail(); return; }
+	try { gamePy(z1Wrap(buildExpr(rp))); } catch (e) { z1Toast(label + " 投递异常"); if (fail) fail(); return; }
 	setTimeout(function () {
 		const r = z1ReadFile(rp);
 		try { fs.remove(rp); } catch (e) {}
@@ -9659,7 +9721,7 @@ let Z1_LOADING = false;
 function z1Poll(buildExpr, label, after, fail) {
 	const rp = z1RetFile() + "." + (Z1_SEQ.n++);
 	try { fs.write(rp, ""); } catch (e) {}
-	try { app.evalPython(z1Wrap(buildExpr(rp))); } catch (e) { z1Toast(label + " 投递异常"); if (fail) fail(); return; }
+	try { gamePy(z1Wrap(buildExpr(rp))); } catch (e) { z1Toast(label + " 投递异常"); if (fail) fail(); return; }
 	let tries = 0;
 	const step = function () {
 		const r = z1ReadFile(rp);

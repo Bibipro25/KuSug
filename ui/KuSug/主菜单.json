@@ -122,6 +122,12 @@
     },
     {
       "type": "TextView",
+      "name": "神权之力",
+      "color": "$menu_item_color",
+      "load_script": "神权之力.js"
+    },
+    {
+      "type": "TextView",
       "name": "FuHongBuild",
       "color": "$menu_item_color",
       "load_script": "FuHongBuild.js"

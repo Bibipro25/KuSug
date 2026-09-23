@@ -622,6 +622,7 @@ function z1ReadFile(p) {
 function z1Op(expr) {
 	const rp = z1RetFile();
 	try { fs.write(rp, ""); } catch (e) {}
+	// 同步读路径必须直跑: gamePy 投递游戏线程后下一行读回执会先于 python 执行, 恒读空(2026-09-23 回归实证)
 	try { app.evalPython(z1Wrap(expr)); } catch (e) { return ""; }
 	return z1ReadFile(rp);
 }
@@ -637,7 +638,7 @@ const Z1_SEQ = { n: 0 };
 function z1TickOp(buildExpr, label, after, fail) {
 	const rp = z1RetFile() + "." + (Z1_SEQ.n++);
 	try { fs.write(rp, ""); } catch (e) {}
-	try { app.evalPython(z1Wrap(buildExpr(rp))); } catch (e) { z1Toast(label + " 投递异常"); if (fail) fail(); return; }
+	try { gamePy(z1Wrap(buildExpr(rp))); } catch (e) { z1Toast(label + " 投递异常"); if (fail) fail(); return; }
 	setTimeout(function () {
 		const r = z1ReadFile(rp);
 		try { fs.remove(rp); } catch (e) {}
@@ -770,7 +771,7 @@ let Z1_LOADING = false;
 function z1Poll(buildExpr, label, after, fail) {
 	const rp = z1RetFile() + "." + (Z1_SEQ.n++);
 	try { fs.write(rp, ""); } catch (e) {}
-	try { app.evalPython(z1Wrap(buildExpr(rp))); } catch (e) { z1Toast(label + " 投递异常"); if (fail) fail(); return; }
+	try { gamePy(z1Wrap(buildExpr(rp))); } catch (e) { z1Toast(label + " 投递异常"); if (fail) fail(); return; }
 	let tries = 0;
 	const step = function () {
 		const r = z1ReadFile(rp);
