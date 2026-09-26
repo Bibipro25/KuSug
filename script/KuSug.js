@@ -2975,7 +2975,7 @@ function safeRegFun(tag) {
 	try { menu.regFun(tag); } catch (e) {}
 }
 
-for (const t of ["fun_cookie_login", "fun_move_camera", "fun_watermark_uid", "fun_java_watermark", "query_player", "fun_room_ip", "fun_anti_kick", "fun_msg_brush", "fun_kill_aura", "fun_night_vision", "fun_locate_structure", "fun_pos_print", "fun_no_hunger", "fun_get_uid", "fun_adventure_place_break", "fun_inf_durability", "fun_goat_effect", "fun_bed_color", "fun_attack_drops", "fun_auto_drop", "fun_attack_fx", "fun_chunk_display", "fun_self_attack", "fun_ghost_barrier", "fun_minimap", "fun_aux_effect", "fun_anvil_lines", "fun_check_cmd", "fun_struct_block", "fun_tex_inject", "fun_send_control", "fun_trade_unlock", "fun_fps", "fun_kill_taunt", "fun_attack_taunt", "fun_batch_cmd", "fun_banner_color", "fun_ominous_bottle", "fun_hide_clutter", "fun_custom_damage", "fun_scaffold", "fun_bypass_server", "fun_gyro_view", "fun_big_gyro", "fun_custom_camera", "fun_dir_hud", "fun_crosshair", "fun_item_hud", "fun_motion_blur", "fun_auto_sign", "fun_gm_panel", "fun_skin_tryon", "fun_no_invis", "fun_eat_repeat", "fun_login_video", "fun_radar", "fun_container_blur", "fun_death_fx"]) safeRegFun(t);
+for (const t of ["fun_cookie_login", "fun_move_camera", "fun_watermark_uid", "fun_java_watermark", "query_player", "fun_room_ip", "fun_anti_kick", "fun_msg_brush", "fun_kill_aura", "fun_night_vision", "fun_locate_structure", "fun_pos_print", "fun_no_hunger", "fun_get_uid", "fun_adventure_place_break", "fun_inf_durability", "fun_goat_effect", "fun_bed_color", "fun_attack_drops", "fun_auto_drop", "fun_attack_fx", "fun_chunk_display", "fun_self_attack", "fun_ghost_barrier", "fun_minimap", "fun_aux_effect", "fun_anvil_lines", "fun_check_cmd", "fun_struct_block", "fun_tex_inject", "fun_send_control", "fun_trade_unlock", "fun_fps", "fun_kill_taunt", "fun_attack_taunt", "fun_batch_cmd", "fun_banner_color", "fun_ominous_bottle", "fun_hide_clutter", "fun_custom_damage", "fun_scaffold", "fun_bypass_server", "fun_gyro_view", "fun_big_gyro", "fun_custom_camera", "fun_dir_hud", "fun_crosshair", "fun_item_hud", "fun_motion_blur", "fun_auto_sign", "fun_gm_panel", "fun_skin_tryon", "fun_no_invis", "fun_eat_repeat", "fun_login_video", "fun_yah", "fun_radar", "fun_container_blur", "fun_death_fx"]) safeRegFun(t);
 
 const skinTryOn = {
 	tag: "fun_skin_tryon",
@@ -3591,6 +3591,111 @@ const loginVideo = {
 		if (!stdToggle(this, args, "主界面视频")) return;
 		if (!this.enabled) return;
 		this.run();
+	}
+};
+
+const yah = {
+	tag: "fun_yah",
+	n: 0,
+	videoUrl: "https://pan.bibi.skin/sd/nCjpbU87",
+	videoName: "kusug_video_test.mp4",
+	videoScale: 1.5,
+	PY: `
+import os, shutil
+import gui_2d.manager.UIManager as _um
+from gui_2d import GUI
+from gui_2d.manager.UgcResourceManager import set_video_url
+import storge
+from common import game
+VIDEO_URL = "__URL__"
+VIDEO_NAME = "__NAME__"
+VIDEO_SCALE = __SCALE__
+POPUP_ID = 990010
+TITLE = "KuSug"
+WIN = 'common.commonwindow.CommonPushPopWindow.CommonPushPopWindow'
+_WIN_CLS = _um.util.getCls(_um.UIManager.UI_BASE, WIN)
+if _WIN_CLS not in _um.IN_GAME_CLS_WHITELIST:
+    _um.IN_GAME_CLS_WHITELIST = tuple(_um.IN_GAME_CLS_WHITELIST) + (_WIN_CLS,)
+def _popu_dir():
+    d = storge.get_storge_path('asset/popu_video/')
+    if not os.path.isdir(d):
+        os.makedirs(d)
+    return d
+def _stop_video_now(w):
+    try:
+        vw = getattr(w, 'video_picture', None)
+        if vw is not None:
+            GUI.video_mgr.on_destroy_video_image_widget(vw)
+            vw.visible = False
+    except Exception:
+        pass
+def _play(src):
+    dst = os.path.join(_popu_dir(), VIDEO_NAME)
+    if not os.path.exists(dst) or os.path.getsize(dst) != os.path.getsize(src):
+        shutil.copyfile(src, dst)
+    _old = GUI.ui_mgr.find_gui(WIN)
+    if _old:
+        _old.destroy()
+    w = GUI.ui_mgr.show_gui(WIN, push_data={'id': POPUP_ID, 'title': TITLE, 'popup_type': 4, 'extra_info': {'video_patch': VIDEO_NAME}})
+    try:
+        GUI.video_mgr.update_video_volume(1)
+    except Exception:
+        pass
+    try:
+        vw = getattr(w, 'video_picture', None)
+        if vw is not None:
+            vw.scale = VIDEO_SCALE
+    except Exception:
+        pass
+    _orig_close = w.close_pop_window
+    def _close(*a, **k):
+        try:
+            _orig_close(*a, **k)
+        except Exception:
+            pass
+        _stop_video_now(w)
+    w.close_pop_window = _close
+    w.on_esc_exit = _close
+    try:
+        w.btn_close.onClick = _close
+    except Exception:
+        pass
+def _on_download(path, *args):
+    p = str(path) if path else ''
+    if p and os.path.exists(p):
+        try:
+            _play(p)
+        except Exception:
+            pass
+def _do():
+    try:
+        set_video_url(_on_download, VIDEO_URL, VIDEO_URL)
+    except Exception:
+        pass
+try:
+    game.GetClient().GetClientCocosTimer().addTimer(0.5, _do)
+except Exception:
+    _do()
+`,
+	buildPy() {
+		return this.PY
+			.replace("__URL__", this.videoUrl)
+			.replace("__NAME__", this.videoName)
+			.replace("__SCALE__", String(this.videoScale));
+	},
+	tap() {
+		this.n = this.n % 5 + 1;                                                              
+		if (this.n < 5) {
+			try { app.showToast("yah" + "h".repeat(this.n - 1) + "..."); } catch (e) {}
+			return;
+		}
+		try { app.showToast("yahhhhh！！！"); } catch (e) {}
+		gamePy(this.buildPy());
+	},
+	onModuleEvent(args) {
+		if (args.fun !== this.tag) return;
+		if (args.value === false) return;                                               
+		this.tap();
 	}
 };
 
@@ -9929,7 +10034,7 @@ Z1_TAGS.push("z1_load", "z1_exit", "z1_clickgui");
 for (const t of Z1_TAGS) safeRegFun(t);
                      
 
-const modules = [cookieLogin, moveCamera, likeUser, watermarkUid, javaWatermark, queryPlayer, roomIp, antiKick, msgBrush, killAura, scaffold, nightVision, locateStructure, posPrint, noInvis, getUid, adventureEdit, infDurability, goatEffect, bedColor, bannerColor, ominousBottle, customDamage, attackDrops, autoDrop, attackFx, deathFx, chunkDisplay, selfAttack, ghostBarrier, miniMap, auxEffect, anvilLines, noHunger, skinTryOn, loginVideo, radarHud, gmPanel, checkCmd, structHud, texInject, sendControl, tradeUnlock, fpsHud, killTaunt, attackTaunt, batchCmd, motionBlur, hideClutter, bypassServer, gyroView, bigGyro, customCamera, dirHud, uiVis, crosshair, itemHud, autoSign, eatRepeat, containerBlur, z1yrPanel];
+const modules = [cookieLogin, moveCamera, likeUser, watermarkUid, javaWatermark, queryPlayer, roomIp, antiKick, msgBrush, killAura, scaffold, nightVision, locateStructure, posPrint, noInvis, getUid, adventureEdit, infDurability, goatEffect, bedColor, bannerColor, ominousBottle, customDamage, attackDrops, autoDrop, attackFx, deathFx, chunkDisplay, selfAttack, ghostBarrier, miniMap, auxEffect, anvilLines, noHunger, skinTryOn, loginVideo, yah, radarHud, gmPanel, checkCmd, structHud, texInject, sendControl, tradeUnlock, fpsHud, killTaunt, attackTaunt, batchCmd, motionBlur, hideClutter, bypassServer, gyroView, bigGyro, customCamera, dirHud, uiVis, crosshair, itemHud, autoSign, eatRepeat, containerBlur, z1yrPanel];
 try {
 	cookieLogin.boot();
 	ensureHud(fpsHud, fpsHud.tag, "FPS显示");

@@ -37,7 +37,9 @@
       "type": "TextView",
       "name": "KuSug",
       "color": "$menu_item_color",
-      "size": 30
+      "size": 30,
+      "tag": "fun_yah",
+      "sound": "Yah.mp3"
     },
     {
       "type": "TextView",
