@@ -1,6 +1,6 @@
 # KuSug
 
-《我的世界》中国版 UI 系统，运行于跑路 RunAway 插件平台。
+《我的世界》中国版 UI 系统，运行于跑路 RunAway 插件平台。  
 **QQ交流群 [点击加入](https://qun.qq.com/universal-share/share?ac=1&authKey=iv0v%2BSuZRr%2BGhc3U02%2Bg%2B4n92PXxU2Kqtfnr73gAdffgyFFxSj%2BKYt2mQAxVXPba&busi_data=eyJncm91cENvZGUiOiIxMDk4NDY3ODY1IiwidG9rZW4iOiJSSFg5UC9KakVoYVV3WFRmZUxlWW1WM2thQjBLc0lJeVM1ZmNORjdSUXZWa3hnTVVhWWpYaXlQWFVqcmU0NU1zIiwidWluIjoiMjI0NjczODcwNyJ9&data=Ky29Pa6_NhHtR3bcir7C3O0U8e3IwgwD5qJYJov41CZKXAUI1YpLFFZoe6KLeAy9aEbjAzRltYsK4Yb---UWGw&svctype=4&tempid=h5_group_info)**
 
 # 重要提醒
