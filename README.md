@@ -12,6 +12,11 @@
 - **LineFlow UI**  
 请以上两位项目作者做出相应回应
 
+# 参考的项目
+
+- **材质包注入 [点击查看](https://github.com/XiYueMax/SiyoX)**
+- **TimeUnity NoveXare Z1yrMod DMUI**
+
 # 相关推荐
 
 **LineFlow UI [点击查看](https://qun.qq.com/universal-share/share?ac=1&authKey=X%2FGBiJemKf%2FevvjnGkQtnlOTj4k5FUOVdEIm9krnr7gcEn8DIbh5NsMX1yPd9JSA&busi_data=eyJncm91cENvZGUiOiIxMDM5ODExNTgyIiwidG9rZW4iOiJTOTVnWEorVVRvTjdxS3NZbTlzMVJIb3NPUW00UUZ2SnJzaExhSHUrQXRvNEUzTWwzN29Xc0o3ZlhhQkVoNkt2IiwidWluIjoiMjI0NjczODcwNyJ9&data=vqjemfj2xqY5E6WTXdsTT5Ry4wTA7NVZPPYXlAzxcdhbmgkY4zC0EcaCuQeR24rfrMjwjuJzxMpeRb3YA7jqtw&svctype=4&tempid=h5_group_info)**  
